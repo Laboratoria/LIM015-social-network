@@ -318,6 +318,7 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
 
 Para comenzar tendrás que hacer un _fork_ y _clonar_ este repositorio.
 
+
 ## 5. Criterios de aceptación mínimos del proyecto
 
 ### 5.1 Boilerplate
@@ -372,6 +373,16 @@ Debe verse bien en dispositivos de pantallas grandes
 sugerimos seguir la técnica de _`mobile first`_ (más detalles sobre esta técnica
 al final).
 
+Para ayudar en el proceso de diseño te proporcionamos un layout (diseño) de la vista mobile y desktop que puedes replicar visualmente y cuyo contenido, colores y fuentes de texto, dejaremos a tu elección.
+
+* Vista mobile
+
+    ![mobile](https://user-images.githubusercontent.com/32286663/56174616-ec9f6100-5fb8-11e9-9edb-d5ef7c251d9c.png)
+
+* Vista Desktop
+
+    ![desktop](https://user-images.githubusercontent.com/32286663/56174626-fcb74080-5fb8-11e9-8854-26e8d9c4e25f.png)
+    
 ### 5.6 Consideraciones del comportamiento de la interfaz de usuario (UI)
 
 Estas consideraciones te ayudarán a escribir las Definiciones de Terminado de
@@ -432,7 +443,7 @@ tus H.U.:
 ### 5.8 Consideraciones técnicas UX
 
 * Hacer al menos 2 entrevistas con usuarios.
-* Hacer un  prototipo de baja fidelidad.
+* Hacer un prototipo de baja fidelidad.
 * Asegurarte de que la implementación en código siga los lineamientos del
   diseño.
 * Hacer sesiones de _testing de usabilidad_ con el producto en HTML.
