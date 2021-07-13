@@ -318,7 +318,6 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
 
 Para comenzar tendrás que hacer un _fork_ y _clonar_ este repositorio.
 
-
 ## 5. Criterios de aceptación mínimos del proyecto
 
 ### 5.1 Boilerplate
