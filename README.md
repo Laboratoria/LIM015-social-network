@@ -373,7 +373,7 @@ Debe verse bien en dispositivos de pantallas grandes
 sugerimos seguir la técnica de _`mobile first`_ (más detalles sobre esta técnica
 al final).
 
-Para ayudar en el proceso de diseño te proporcionamos un layout (diseño) de la vista mobile y desktop que puedes replicar visualmente y cuyo contenido, colores y fuentes de texto, dejaremos a tu elección.
+Para ayudar en el proceso de diseño, te proporcionamos un layout (diseño) de la vista mobile y desktop que puedes usar como referencia y cuyo contenido, colores y fuentes de texto, dejaremos a tu elección.
 
 * Vista mobile
 
