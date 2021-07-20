@@ -1,6 +1,3 @@
-@media only screen and (min-width: 375px) and (max-width: 812px) {
-
-}
 /*codigo del unicode de fontawesome*/
 ::placeholder {
   font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f007";
@@ -19,6 +16,12 @@
 }
 
 .logo {
-  width: 190px;
+  width: 200px;
   height: 65px;
+}
+
+@media only screen and (min-width: 280px) and (max-width: 479px) {
+  .contenedorView1 {
+    margin-top: 40%;
+  }
 }
