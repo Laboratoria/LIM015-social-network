@@ -5,7 +5,7 @@
 
 .contenedorView1 {
   display: flex;
-  border: black;
+  border: blue;
   align-items: center;
   flex-direction: column;
   margin-top: 10%;
