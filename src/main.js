@@ -18,6 +18,5 @@ signIn.addEventListener("click", (e) => {
             console.log(user);
         })
 
-        
     //console.log(username, password);
 });
