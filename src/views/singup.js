@@ -1,5 +1,6 @@
 export default () => {
-  const template = `
+    const sectionElem = document.createElement('section');
+    const template = `
     <section id="contenedorView1" class="contenedorView1">
     <input type="text" class="registro" id="nombres" placeholder=" Ingresar Nombres">
     <input type="text" class="registro" id="apellidos" placeholder=" Ingresar Apellidos">
@@ -8,8 +9,11 @@ export default () => {
     <input type="submit" href="#/" class="registro" value="Registrar">
     </section>
     `;
-  const sectionElem = document.createElement('section');
-  sectionElem.innerHTML = template;
 
-  return sectionElem;
+    sectionElem.innerHTML = template;
+
+    return sectionElem;
 };
+
+
+

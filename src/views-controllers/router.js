@@ -25,8 +25,9 @@ export const changeViews = (route) => {
         case '#/error':
             container.appendChild(conponents.error())
             break;
-
+        
         default:
+            container.appendChild(conponents.singin())
             break;
     }
 
