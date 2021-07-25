@@ -16,7 +16,7 @@ export default () => {
             <button class="button" id="btn-fb"><i class="fab fa-facebook"></i></button>
             <button class="button" id="btn-gg"><i class="fab fa-google"></i></button>
             </section>
-            <p>¿No tienes cuenta? <a href="#/singup"><strong>Resgistrate</strong></a></p>
+            <p>¿No tienes cuenta? <a href="#/signup"><strong>Resgistrate</strong></a></p>
         </section>
         `;
 
