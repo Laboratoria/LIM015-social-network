@@ -6,9 +6,9 @@ export default () => {
         <section id="contenedorView1" class="contenedorView1">
             <img src="img/logo-ibook.png" alt="logo" class="logo">
             <form class="data-container">
-            <input type="text" class="username" id="username" placeholder=" E-mail" required>
-            <input type="password" class="password" id="password" placeholder=" Password" required>
-            <input type="submit" class="registro" href="#/home" id="sign-in" value="Sign-In">
+                <input type="email" class="username" id="username" placeholder=" E-mail" required>
+                <input type="password" class="password" id="password1" placeholder=" Password" required>
+                <input type="button" class="registro" href="#/home" id="sign-in" value="Sign-In">
             </form>
             <a href="#">¿Olvidaste tu contraseña?</a>
             <p>Ingresar por</p>
