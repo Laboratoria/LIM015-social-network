@@ -10,13 +10,13 @@ export default () => {
                 <input type="password" class="password" id="password1" placeholder=" Password" required>
                 <input type="button" class="registro" href="#/home" id="sign-in" value="Sign-In">
             </form>
-                <a href="#">¿Olvidaste tu contraseña?</a>
-                <p>Ingresar por</p>
+            <a href="#">¿Olvidaste tu contraseña?</a>
+            <p>Ingresar por</p>
             <section class="button">
-                <button class="button" id="btn-fb"><i class="fab fa-facebook"></i></button>
-                <button class="button" id="btn-gg"><i class="fab fa-google"></i></button>
+            <button class="button" id="btn-fb"><i class="fab fa-facebook"></i></button>
+            <button class="button" id="btn-gg"><i class="fab fa-google"></i></button>
             </section>
-            <p>¿No tienes cuenta? <a href="#/singup"><strong>Resgistrate</strong></a></p>
+            <p>¿No tienes cuenta? <a href="#/signup"><strong>Resgistrate</strong></a></p>
         </section>
         `;
 

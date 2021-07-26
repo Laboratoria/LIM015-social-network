@@ -7,11 +7,11 @@ export const changeViews = (route) => {
   switch (route) {
     case '':
     case '#/':
-      container.appendChild(conponents.singin());
+      container.appendChild(conponents.signin());
       break;
 
     case '#/singup':
-      container.appendChild(conponents.singup());
+      container.appendChild(conponents.signup());
       break;
 
     case '#/home':
