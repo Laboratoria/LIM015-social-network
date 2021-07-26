@@ -5,12 +5,13 @@ export const changeViews = (route) => {
   container.innerHTML = '';
 
   switch (route) {
+    case '':
     case '#/':
-      container.appendChild(conponents.singin());
+      container.appendChild(conponents.signin());
       break;
 
     case '#/singup':
-      container.appendChild(conponents.singup());
+      container.appendChild(conponents.signup());
       break;
 
     case '#/home':
@@ -21,12 +22,8 @@ export const changeViews = (route) => {
       container.appendChild(conponents.profile());
       break;
 
-    case '#/error':
-      container.appendChild(conponents.error());
-      break;
-
     default:
-      container.appendChild(conponents.singin());
+      container.appendChild(conponents.error());
       break;
   }
 };
