@@ -1,5 +1,8 @@
+// Inicio de las publicaciones
+
 export default () => {
-  const home = `
+  const sectionHome = document.createElement('section');
+  const template = `
     <section id="contenedorView2" class="contenedorView2">
     <input type="text" class="registro" id="nombres" placeholder=" Ingresar Nombres">
     <input type="text" class="registro" id="apellidos" placeholder=" Ingresar Apellidos">
@@ -8,7 +11,9 @@ export default () => {
     <input type="submit" href="#/" class="registro" value="Registrar">
     </section>
     `;
-  const sectionElem = document.createElement('section');
-  sectionElem.innerHTML = home;
-  return sectionElem;
+
+  sectionHome.innerHTML = template;
+  sectionHome.setAttribute('class', 'contenedorView1');
+
+  return sectionHome;
 };

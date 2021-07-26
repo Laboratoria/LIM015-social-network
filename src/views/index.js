@@ -1,3 +1,5 @@
+// Aqui se exporta las vistas de los otros JS, que estan en deafault
+
 import Singin from './singin.js';
 import Singup from './singup.js';
 import Home from './home.js';

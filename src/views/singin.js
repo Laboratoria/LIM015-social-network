@@ -10,6 +10,7 @@ export default () => {
         <input type="password" class="form-sign" id="password" placeholder=" Password" required>
         <input type="submit" class="form-sign" href="#/home" id="sign-in" value="Sign-In">
       </form>
+      <p class="error" id="msg-wrong"></p>
       <a href="#">¿Olvidaste tu contraseña?</a>
       <p>Ingresar por</p>
       <section class="button">
