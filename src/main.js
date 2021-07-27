@@ -18,6 +18,12 @@ export const userSignUp = (email, password) => auth.createUserWithEmailAndPasswo
 
 export const userSignIn = (email, password) => auth.signInWithEmailAndPassword(email, password);
 
+const auth = firebase.auth();
+
+export const userSignUp = (email, password) => auth.createUserWithEmailAndPassword(email, password);
+
+export const userSignIn = (email, password) => auth.signInWithEmailAndPassword(email, password);
+
 const init = () => {
   // verificar duda
   changeViews(window.location.hash);

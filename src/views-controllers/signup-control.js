@@ -1,4 +1,3 @@
-// import { userSignUp } from '../firebase/autenticacion.js';
 import { userSignUp } from '../main.js';
 
 export const signUpUser = (e) => {
@@ -18,5 +17,5 @@ export const signUpUser = (e) => {
     //  const errorCode = error.code;
     //  const errorMessage = error.message;
     // ..
-    });
+    // });
 };

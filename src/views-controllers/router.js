@@ -1,7 +1,7 @@
 import { conponents } from '../views/index.js';
 
 export const changeViews = (route) => {
-  const container = document.getElementById('contenedorView1');
+  const container = document.getElementById('contenedorIndex');
   container.innerHTML = '';
 
   switch (route) {
