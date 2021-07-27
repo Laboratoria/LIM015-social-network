@@ -10,7 +10,7 @@ export const changeViews = (route) => {
       container.appendChild(conponents.signin());
       break;
 
-    case '#/singup':
+    case '#/signup':
       container.appendChild(conponents.signup());
       break;
 

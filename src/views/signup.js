@@ -1,4 +1,4 @@
-import { signUpUser } from '../views-controllers/signup-control';
+import { signUpUser } from '../views-controllers/signup-control.js';
 
 export default () => {
   const sectionElem = document.createElement('section');
