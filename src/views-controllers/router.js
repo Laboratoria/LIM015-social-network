@@ -1,7 +1,7 @@
 import { conponents } from '../views/index.js';
 
 export const changeViews = (route) => {
-  const container = document.getElementById('contenedorView1');
+  const container = document.getElementById('contenedorIndex');
   container.innerHTML = '';
 
   switch (route) {
@@ -10,7 +10,7 @@ export const changeViews = (route) => {
       container.appendChild(conponents.signin());
       break;
 
-    case '#/singup':
+    case '#/signup':
       container.appendChild(conponents.signup());
       break;
 

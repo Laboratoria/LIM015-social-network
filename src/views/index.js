@@ -1,3 +1,4 @@
+// Aqui se exporta las vistas de los otros JS, que estan en deafault
 import Signin from './signin.js';
 import Signup from './signup.js';
 import Home from './home.js';
