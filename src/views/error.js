@@ -5,7 +5,7 @@ export default () => {
             <p>El archivo especificado no se encontró en este sitio web. Por favor, compruebe la URL para errores y vuelva a intentarlo.</p>
         `;
 
-  const sectionElem = document.createElement('section');
-  sectionElem.innerHTML = viewDifferent;
-  return sectionElem;
+  const sectionError = document.createElement('section');
+  sectionError.innerHTML = viewDifferent;
+  return sectionError;
 };

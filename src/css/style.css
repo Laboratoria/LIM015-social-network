@@ -3,13 +3,13 @@
   font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f007";
 }
 
-/* .contenedorView1 {
+.contenedorView1 {
   display: flex;
   border: blue;
   align-items: center;
   flex-direction: column;
   margin-top: 150px;
-} */
+} 
 
 .button {
   flex-direction: row !important;

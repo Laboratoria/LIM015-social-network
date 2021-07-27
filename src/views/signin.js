@@ -1,7 +1,7 @@
 // import { signIn, signInWithGoogle, signInFb} from '../views-controllers/signin-control.js'
 
 export default () => {
-  const sectionElem = document.createElement('section');
+  const sectionSignIn = document.createElement('section');
   const template = `
         <section id="contenedorView1" class="contenedorView1">
             <img src="img/logo-ibook.png" alt="logo" class="logo">
@@ -21,8 +21,8 @@ export default () => {
         `;
 
   // agregar clase para dar css
-  sectionElem.innerHTML = template;
-  sectionElem.setAttribute('class', 'contenedorView1');
+  sectionSignIn.innerHTML = template;
+  sectionSignIn.setAttribute('class', 'contenedorView1');
 
   //   const btnSignIn = sectionElem.querySelector('#sign-in');
   //   const btnSignGog = sectionElem.querySelector('#btn-gg');
@@ -32,5 +32,5 @@ export default () => {
   //   btnSignGog.addEventListener('click', signInWithGoogle);
   //   btnSignFb.addEventListener('click', signInFb);
 
-  return sectionElem;
+  return sectionSignIn;
 };

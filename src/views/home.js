@@ -1,4 +1,5 @@
 export default () => {
+  const sectionHome = document.createElement('section');
   const home = `
     <section id="contenedorView2" class="contenedorView2">
     <input type="text" class="registro" id="nombres" placeholder=" Ingresar Nombres">
@@ -8,7 +9,6 @@ export default () => {
     <input type="submit" href="#/" class="registro" value="Registrar">
     </section>
     `;
-  const sectionElem = document.createElement('section');
-  sectionElem.innerHTML = home;
-  return sectionElem;
+  sectionHome.innerHTML = home;
+  return sectionHome;
 };

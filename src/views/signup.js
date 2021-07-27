@@ -1,7 +1,7 @@
-import { signUpUser } from '../views-controllers/signup-control';
+import { signUpUser } from '../views-controllers/signup-control.js';
 
 export default () => {
-  const sectionElem = document.createElement('section');
+  const sectionSignUp = document.createElement('section');
   const template = `
   <section id="contenedorView1" class="contenedorView1">
     <input type="text" class="registro" id="nombres" placeholder=" Ingresar Nombres" required>
@@ -12,9 +12,9 @@ export default () => {
   </section>
   `;
 
-  sectionElem.innerHTML = template;
+  sectionSignUp.innerHTML = template;
 
-  const btnSignUp = sectionElem.querySelector('#signUp');
+  const btnSignUp = sectionSignUp.querySelector('#signUp');
   btnSignUp.addEventListener('click', signUpUser);
-  return sectionElem;
+  return sectionSignUp;
 };

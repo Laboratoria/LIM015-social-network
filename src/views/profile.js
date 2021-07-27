@@ -1,4 +1,5 @@
 export default () => {
+  const sectionProfile = document.createElement('section');
   const profile = `
     <section id="contenedorView2" class="contenedorView2">
     <input type="text" class="registro" id="nombres" placeholder=" Ingresar Nombres">
@@ -8,7 +9,6 @@ export default () => {
     <input type="submit" href="#/" class="registro" value="Registrar">
     </section>
 `;
-  const sectionElem = document.createElement('section');
-  sectionElem.innerHTML = profile;
-  return sectionElem;
+  sectionProfile.innerHTML = profile;
+  return sectionProfile;
 };
