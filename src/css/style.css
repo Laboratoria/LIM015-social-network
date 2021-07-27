@@ -1,3 +1,4 @@
+
 /*codigo del unicode de fontawesome*/
 ::placeholder {
   font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f007";
@@ -11,7 +12,7 @@
   margin-top: 150px;
 } */
 
-.button {
+/* .button {
   flex-direction: row !important;
 }
 
@@ -19,31 +20,54 @@
   width: 200px;
   height: 65px;
   margin-top: 10px;
-}
+} */
 
 @media only screen and (min-width: 280px) and (max-width: 479px) {
   .contenedorView1 {
     margin-top: 40%;
   }
 }
-
-.contenedorView1 {
+/* 
+.contenedorSign-In {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid black;
   width: 400px;
   padding: 30px;
-  background-color: rgb(190, 99, 99);
   margin: auto;
   margin-top: 4px;
 }
 
+.inputs {
+  width: 50%;
+  margin: 8px;
+  border: 1px solid #2e2e2b;
+  border-radius: 4px;
+  outline: none;
+}
 
-.form-sign {
+
+figure {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+} */
+
+/* .form-sign {
   width: 50%;
   padding: 10px;
   border-radius: 4px;
   margin-bottom: 16px;
   align-items: center;
-}
+} */
 
+/* 
 .contenedorView1 p {
   height: 40px;
   text-align: center;
@@ -57,4 +81,148 @@
 .contenedorView1 a:hover {
   color: white;
   text-decoration: underline;
+} */
+
+/* .panels-container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+} */
+
+body {
+  background-image: url(../img/fondo-png.png);
+}
+
+/* Las imagenes iBook */
+.ibook-img, .logo-ibook {
+  display: block;
+}
+
+/* Contenedor en SignIn */
+#contenedorSignIn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #eef4f5 ;
+  border-radius: 15px;
+  box-shadow: 8px 8px 20px 0px #2c2b2b;
+  width: 600px;
+  padding: 30px;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.contenedorSignIn, .contenedorSignUp{
+  min-height: 70vh;
+}
+
+/* iniciar sesion con contrasena  */
+.data-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-description p{
+  justify-content: center;
+  align-content: center;
+}
+
+input {
+  width: 50%;
+  margin: 8px;
+  border: 1px solid #2e2e2b;
+  border-radius: 4px;
+  outline: none;
+  padding: 1.2px;
+}
+
+/* Contenedor de SignUp*/
+#contenedorSignUp{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #4bd4ec ;
+  border-radius: 15px;
+  box-shadow: 8px 8px 20px 0px #2c2b2b;
+  width: 600px;
+  padding: 30px;
+  margin: auto;
+  margin-top: 50px;
+}
+
+/* Las imagenes iBook */
+.logo-ibook-png{
+  display: block;
+  padding: 20px;
+}
+
+
+/* botones de google y facebook  */
+.btn-fb-google {
+  margin: 10px 0;
+}
+
+input, .btn-login {
+  border-radius: 15px;
+  padding: 10px;
+  outline: none;
+}
+
+/* navegador */
+
+.nav-bar {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav-bar ul{
+  width: 100%;
+  bottom: 10px;
+  background: #1e2020;
+  margin: initial;
+}
+
+.nav-bar li{
+  list-style: none;
+    display: inline-block;
+}
+
+.nav-bar li:hover{
+  background: whitesmoke;
+  border-color: solid 1em black;
+  font-family:fantasy;
+  cursor:pointer;
+}
+
+.nav-bar li a{
+  text-decoration: none;
+    font-weight: bold;
+    padding: 0 29px;
+    align-items: center;
+     display: flex; 
+}
+
+.nav-bar li a:hover{
+  color:rgb(8, 8, 8);
+}
+
+
+.footer {
+  font-size: 20px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color:#6EA4BB;
+  color: white;
+  text-align: center;
+  padding: 10px;
 }
