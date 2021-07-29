@@ -17,5 +17,5 @@ export const signUpUser = (e) => {
     //  const errorCode = error.code;
     //  const errorMessage = error.message;
     // ..
-    // });
+    });
 };
