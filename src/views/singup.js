@@ -1,15 +1,25 @@
-export default () => {
-  const template = `
-    <section id="contenedorView1" class="contenedorView1">
-    <input type="text" class="registro" id="nombres" placeholder=" Ingresar Nombres">
-    <input type="text" class="registro" id="apellidos" placeholder=" Ingresar Apellidos">
-    <input type="text" class="registro" id="email" placeholder=" Ingresar Correo Electronico">
-    <input type="text" class="registro" id="password" placeholder=" Ingresar Contraseña">
-    <input type="submit" href="#/" class="registro" value="Registrar">
-    </section>
-    `;
-  const sectionElem = document.createElement('section');
-  sectionElem.innerHTML = template;
+import { signUpUser } from '../views-controllers/signup-control.js';
 
-  return sectionElem;
+export default () => {
+  const sectionSignUp = document.createElement('section');
+  const template = `
+  <section id="contenedorSignUp" class="contenedorSignUp">
+    <img class="logo-ibook-png" src="img/logo-ibook.png" width="180px" alt="logo de iBook"/>
+    <p class="welcome-SignUp">Registrate:</p>
+    <input type="text" class="registro" id="nombres" placeholder=" Nombres" required>
+    <input type="email" class="registro" id="email" placeholder=" Correo Electronico" required>
+    <input type="password" class="registro" id="password" placeholder=" Contraseña" required>
+    <input type="submit" href="#/" class="registro-signUp" id="signUp" value="Registrar">
+    <p class="error" id="error"></p>
+    <label class="welcome-SignUp">¿Ya tienes una cuenta?&nbsp;<a class="bold" href="#/" id="Ingresa">Ingresa.</a></label>
+  </section>
+  `;
+
+  sectionSignUp.innerHTML = template;
+  sectionSignUp.setAttribute('class', 'contenedorSign-Up');
+
+  const btnSignUp = sectionSignUp.querySelector('#signUp');
+  btnSignUp.addEventListener('click', signUpUser);
+
+  return sectionSignUp;
 };
