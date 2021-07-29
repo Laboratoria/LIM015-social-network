@@ -1,11 +1,3 @@
-// autorizacion para registro de firebase
-// const auth = firebase.auth();
-
-// export const userSignUp = (email, password) => auth.
-// (email, password);
-
-// export const userSignIn = (email, password) => auth.signInWithEmailAndPassword(email, password);
-
 export const loginEmail = (email, password) => {
   firebase.auth().signInWithEmailAndPassword(email, password);
 };
