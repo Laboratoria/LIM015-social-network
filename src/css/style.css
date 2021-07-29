@@ -4,97 +4,14 @@
   font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f007";
 }
 
-/* .contenedorView1 {
-  display: flex;
-  border: blue;
-  align-items: center;
-  flex-direction: column;
-  margin-top: 150px;
-} */
-
-/* .button {
-  flex-direction: row !important;
-}
-
-.logo {
-  width: 200px;
-  height: 65px;
-  margin-top: 10px;
-} */
-
 @media only screen and (min-width: 280px) and (max-width: 479px) {
   .contenedorView1 {
     margin-top: 40%;
   }
 }
-/* 
-.contenedorSign-In {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: solid black;
-  width: 400px;
-  padding: 30px;
-  margin: auto;
-  margin-top: 4px;
-}
-
-.inputs {
-  width: 50%;
-  margin: 8px;
-  border: 1px solid #2e2e2b;
-  border-radius: 4px;
-  outline: none;
-}
-
-
-figure {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-
-} */
-
-/* .form-sign {
-  width: 50%;
-  padding: 10px;
-  border-radius: 4px;
-  margin-bottom: 16px;
-  align-items: center;
-} */
-
-/* 
-.contenedorView1 p {
-  height: 40px;
-  text-align: center;
-}
-
-.contenedorView1 a {
-  color: white;
-  text-decoration: none;
-}
-
-.contenedorView1 a:hover {
-  color: white;
-  text-decoration: underline;
-} */
-
-/* .panels-container {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-} */
 
 body {
-  background-image: url(../img/fondo-png.png);
+  background: #EFF7F6;
 }
 
 /* Las imagenes iBook */
@@ -103,7 +20,7 @@ body {
 }
 
 /* Contenedor en SignIn */
-#contenedorSignIn {
+/* #contenedorSignIn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -114,11 +31,8 @@ body {
   padding: 30px;
   margin: auto;
   margin-top: 50px;
-}
+} */
 
-.contenedorSignIn, .contenedorSignUp{
-  min-height: 70vh;
-}
 
 /* iniciar sesion con contrasena  */
 .data-container {
@@ -128,19 +42,19 @@ body {
   align-items: center;
 }
 
-.welcome-description p{
-  justify-content: center;
-  align-content: center;
+.welcome-description {
+  justify-content: left;
+  align-content: left;
 }
 
-input {
+/* input {
   width: 50%;
   margin: 8px;
   border: 1px solid #2e2e2b;
   border-radius: 4px;
   outline: none;
   padding: 1.2px;
-}
+} */
 
 /* Contenedor de SignUp*/
 #contenedorSignUp{
@@ -148,13 +62,36 @@ input {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: #4bd4ec ;
-  border-radius: 15px;
-  box-shadow: 8px 8px 20px 0px #2c2b2b;
-  width: 600px;
-  padding: 30px;
   margin: auto;
   margin-top: 50px;
+}
+
+.registro {
+  width: 264px;
+  height: 37px;
+  margin: 8px;
+  background: #FFFFFF;
+  border: 1px solid #FFFFFF;
+  border-radius: 6px;
+  outline: none;
+  padding: 1.2px;
+}
+
+.registro-signUp {
+  width: 138px;
+  height: 42px;
+  color: white;
+  background-color: #E01E37;
+  border: 1px solid #E01E37;
+  border-radius: 6px;
+  margin: 10px ;
+}
+
+p{
+  width: 264px;
+  height: 17px;
+  left: 48px;
+  top: 196px;
 }
 
 /* Las imagenes iBook */

@@ -4,7 +4,6 @@ export default () => {
   const sectionSignIn = document.createElement('section');
   const template = `
     <section id="contenedorSignIn" class="contenedorSignIn">
-      <img class="ibook-img" src="img/ibook-img.png" width="200px" alt="imagen relacionado a ibook"/>
 
       <!-- Seccion donde esta el formulario de SignIn -->
       <form class="data-container">
