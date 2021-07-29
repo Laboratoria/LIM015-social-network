@@ -1,27 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Marvel&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #EFF7F6;
+  font-family: 'Marvel', sans-serif;
+}
+
+
 /*codigo del unicode de fontawesome*/
 ::placeholder {
   font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f007";
-}
-
-.contenedorView1 {
-  display: flex;
-  border: blue;
-  align-items: center;
-  flex-direction: column;
-  margin-top: 150px;
-}
-
-.button {
-  flex-direction: row !important;
-}
-
-.logo {
-  width: 200px;
-  height: 65px;
 }
 
 @media only screen and (min-width: 280px) and (max-width: 479px) {
   .contenedorView1 {
     margin-top: 40%;
   }
+}
+
+
+
+/* Las imagenes iBook */
+.ibook-img, .logo-ibook {
+  display: block;
+}
+
+/* Contenedor en SignIn */
+/* #contenedorSignIn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #eef4f5 ;
+  border-radius: 15px;
+  box-shadow: 8px 8px 20px 0px #2c2b2b;
+  width: 600px;
+  padding: 30px;
+  margin: auto;
+  margin-top: 50px;
+} */
+
+
+/* iniciar sesion con contrasena  */
+.data-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-description {
+  justify-content: left;
+  align-content: left;
+}
+
+/* input {
+  width: 50%;
+  margin: 8px;
+  border: 1px solid #2e2e2b;
+  border-radius: 4px;
+  outline: none;
+  padding: 1.2px;
+} */
+
+/* Contenedor de SignUp*/
+#contenedorSignUp{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.registro {
+  width: 264px;
+  height: 37px;
+  margin: 8px;
+  background: #FFFFFF;
+  border: 1px solid #FFFFFF;
+  border-radius: 6px;
+  outline: none;
+  padding: 1.2px;
+}
+
+.registro-signUp {
+  width: 138px;
+  height: 42px;
+  color: white;
+  background-color: #E01E37;
+  border: 1px solid #E01E37;
+  border-radius: 6px;
+  margin: 10px ;
+}
+
+p{
+  width: 264px;
+  height: 17px;
+  left: 48px;
+  top: 196px;
+}
+
+/* Las imagenes iBook */
+.logo-ibook-png{
+  display: block;
+  padding: 20px;
+}
+
+
+/* botones de google y facebook  */
+.btn-fb-google {
+  margin: 10px 0;
+}
+
+input, .btn-login {
+  border-radius: 15px;
+  padding: 10px;
+  outline: none;
+}
+
+/* navegador */
+
+.nav-bar {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav-bar ul{
+  width: 100%;
+  bottom: 10px;
+  background: #1e2020;
+  margin: initial;
+}
+
+.nav-bar li{
+  list-style: none;
+    display: inline-block;
+}
+
+.nav-bar li:hover{
+  background: whitesmoke;
+  border-color: solid 1em black;
+  font-family:fantasy;
+  cursor:pointer;
+}
+
+.nav-bar li a{
+  text-decoration: none;
+    font-weight: bold;
+    padding: 0 29px;
+    align-items: center;
+     display: flex; 
+}
+
+.nav-bar li a:hover{
+  color:rgb(8, 8, 8);
+}
+
+
+.footer {
+  font-size: 20px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color:#6EA4BB;
+  color: white;
+  text-align: center;
+  padding: 10px;
 }

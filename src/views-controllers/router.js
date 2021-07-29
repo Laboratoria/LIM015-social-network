@@ -1,35 +1,29 @@
 import { conponents } from '../views/index.js';
 
-
 export const changeViews = (route) => {
-    const container = document.getElementById('contenedorView1');
-    container.innerHTML = '';
+  const container = document.getElementById('contenedorIndex');
+  container.innerHTML = '';
 
-    switch (route) {
-        case '#/':
-            container.appendChild(conponents.singin())
-            break;
+  switch (route) {
+    case '':
+    case '#/':
+      container.appendChild(conponents.signin());
+      break;
 
-        case '#/singup':
-            container.appendChild(conponents.singup())
-            break;
+    case '#/signup':
+      container.appendChild(conponents.signup());
+      break;
 
-        case '#/home':
-            container.appendChild(conponents.home())
-            break;
+    case '#/home':
+      container.appendChild(conponents.home());
+      break;
 
-        case '#/profile':
-            container.appendChild(conponents.profile())
-            break;
+    case '#/profile':
+      container.appendChild(conponents.profile());
+      break;
 
-        case '#/error':
-            container.appendChild(conponents.error())
-            break;
-
-        default:
-            break;
-    }
-
+    default:
+      container.appendChild(conponents.error());
+      break;
+  }
 };
-
-
