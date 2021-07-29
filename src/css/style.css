@@ -11,10 +11,10 @@ body {
   font-family: 'Marvel', sans-serif;
 }
 
-
 /*codigo del unicode de fontawesome*/
 ::placeholder {
-  font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f007";
+  /* font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f007"; */
+  font-family: 'Marvel', sans-serif;
 }
 
 @media only screen and (min-width: 280px) and (max-width: 479px) {
@@ -22,7 +22,6 @@ body {
     margin-top: 40%;
   }
 }
-
 
 
 /* Las imagenes iBook */

@@ -8,7 +8,7 @@ export default () => {
       <!-- Seccion donde esta el formulario de SignIn -->
       <form class="data-container">
           <p class="welcome"> ¡Bienvenido!</p>
-          <img class="logo-ibook" src="img/logo-ibook.png" width="180px" alt="logo de iBook"/>
+          <img class="logo-ibook" src="img/logo-ibook.png" width="200px" alt="logo de iBook"/>
           <p class="welcome-description"> ¡Bienvenido a la comunidad que te ayuda a leer resenas de libros!</p>
 
           <input type="email" class="username" id="username" placeholder=" E-mail" required>
