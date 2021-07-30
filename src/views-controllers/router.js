@@ -1,7 +1,7 @@
 import { conponents } from '../views/index.js';
 
-export const changeViews = (route) => {
-  const container = document.getElementById('contenedorIndex');
+const changeViews = (route) => {
+  const container = document.getElementById('contenedor');
   container.innerHTML = '';
 
   switch (route) {
@@ -26,4 +26,16 @@ export const changeViews = (route) => {
       container.appendChild(conponents.error());
       break;
   }
+};
+
+const changeView = (hash) => {
+  if (hash === '#/' || hash === '' || hash === '#') {
+    return changeViews('#/');
+  }
+  return changeViews(hash);
+};
+
+export const init = () => {
+  changeView(window.location.hash);
+  window.addEventListener('hashchange', () => changeView(window.location.hash));
 };
