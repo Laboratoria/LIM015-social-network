@@ -1,3 +1,4 @@
+// TODO AVERIGUAR
 import { loginEmail, loginFacebook, loginGoogle } from '../firebase/autenticacion.js';
 
 const changeRoute = (route) => {
