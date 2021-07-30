@@ -29,3 +29,4 @@ export default () => {
 
   return sectionSignUp;
 };
+
