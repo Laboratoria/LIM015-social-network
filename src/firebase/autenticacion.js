@@ -22,4 +22,3 @@ export const loginFacebook = () => {
 
 // propiedad que usuario esta activo//
 export const currentUser = () => firebase.auth().currentUser;
-
