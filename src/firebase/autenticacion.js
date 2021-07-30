@@ -1,3 +1,11 @@
+// autorizacion para registro de firebase
+
+export const userSignUp = (email, password) => {
+  firebase.auth().createUserWithEmailAndPassword(email, password);
+};
+
+// export const userSignIn = (email, password) => auth.signInWithEmailAndPassword(email, password);
+
 export const loginEmail = (email, password) => {
   firebase.auth().signInWithEmailAndPassword(email, password);
 };
@@ -14,3 +22,4 @@ export const loginFacebook = () => {
 
 // propiedad que usuario esta activo//
 export const currentUser = () => firebase.auth().currentUser;
+

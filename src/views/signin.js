@@ -4,25 +4,25 @@ export default () => {
   const sectionSignIn = document.createElement('section');
   const template = `
     <section id="contenedorSignIn" class="contenedorSignIn">
-
+    <section class="side">
+      <p>BIENVENIDOS</p>
+      <img class="ibook-img" src="img/ibook-img.png" width="300px" alt="imagen relacionado a ibook"/>
+      <p>"Si quieres aventura, lanzate a la lectura"</p>
+    </section>
       <!-- Seccion donde esta el formulario de SignIn -->
       <form class="data-container">
-          <p class="welcome"> ¡Bienvenido!</p>
           <img class="logo-ibook" src="img/logo-ibook.png" width="200px" alt="logo de iBook"/>
-          <p class="welcome-description"> ¡Bienvenido a la comunidad que te ayuda a leer resenas de libros!</p>
-
-          <input type="email" class="username" id="username" placeholder=" E-mail" required>
-            <input type="password" class="password" id="password1" placeholder=" Password" required>
-            <input type="button" class="registro" href="#/home" id="sign-in" value="Sign-In">
+          <input type="email" class="registro" id="username" placeholder=" E-mail" required>
+            <input type="password" class="registro" id="password1" placeholder=" Password" required>
+            <input type="button" class="registro-signin" href="#/home" id="sign-in" value="Sign-In">
             <a href="#">¿Olvidaste tu contraseña?</a>
           <p>Ingresar por</p>
-
       <!-- Seccion donde estan los botones -->
         <section class="btn-fb-google">
-          <a id="btn-fb" href="#"><img class="facebook" src="/src/img/logo-fb.svg"/></a>
-          <a id="btn-gg" href="#"><img class="google" src="/src/img/logo-gg.svg"/></a>
+          <button id="btn-fb" class="button"><i class="fab fa-facebook"></i></button>
+          <button id="btn-gg" class="button"><i class="fab fa-google"></i></button>
         </section>
-        <label class="registro">¿No tienes una cuenta?&nbsp;<a class="bold" href="#/signup" id="registrate">Regístrate.</a></label>
+        <label class="registrate">¿No tienes una cuenta?&nbsp;<a class="bold" href="#/signup" id="registrate">Regístrate.</a></label>
       </form>
     </section>
     `;
@@ -41,3 +41,4 @@ export default () => {
 
   return sectionSignIn;
 };
+

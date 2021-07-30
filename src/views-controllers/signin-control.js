@@ -1,4 +1,5 @@
-import { loginEmail, loginFacebook, loginGoogle, currentUser } from '../firebase/autenticacion.js';
+// TODO AVERIGUAR
+import { loginEmail, loginFacebook, loginGoogle } from '../firebase/autenticacion.js';
 
 const changeRoute = (route) => {
   window.location.hash = route;

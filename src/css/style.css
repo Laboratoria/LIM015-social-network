@@ -1,77 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Marvel&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/*codigo del unicode de fontawesome*/
+::placeholder {
+  font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f007";
 }
 
 body {
-  background: #EFF7F6;
   font-family: 'Marvel', sans-serif;
+  background-color: #EFF7F6;
 }
 
-/*codigo del unicode de fontawesome*/
-::placeholder {
-  /* font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f007"; */
-  font-family: 'Marvel', sans-serif;
-}
-
-@media only screen and (min-width: 280px) and (max-width: 479px) {
-  .contenedorView1 {
-    margin-top: 40%;
-  }
-}
-
-
-/* Las imagenes iBook */
-.ibook-img, .logo-ibook {
-  display: block;
-}
-
-/* Contenedor en SignIn */
-/* #contenedorSignIn {
+#contenedorSignUp, #contenedorSignIn {
   display: flex;
   align-items: center;
-  justify-content: center;
-  background-color: #eef4f5 ;
-  border-radius: 15px;
-  box-shadow: 8px 8px 20px 0px #2c2b2b;
-  width: 600px;
-  padding: 30px;
-  margin: auto;
-  margin-top: 50px;
-} */
-
-
-/* iniciar sesion con contrasena  */
-.data-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.welcome-description {
-  justify-content: left;
-  align-content: left;
-}
-
-/* input {
-  width: 50%;
-  margin: 8px;
-  border: 1px solid #2e2e2b;
-  border-radius: 4px;
-  outline: none;
-  padding: 1.2px;
-} */
-
-/* Contenedor de SignUp*/
-#contenedorSignUp{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  justify-content: space-around;
   margin: auto;
   margin-top: 50px;
 }
@@ -85,9 +27,9 @@ body {
   border-radius: 6px;
   outline: none;
   padding: 1.2px;
-}
+} 
 
-.registro-signUp {
+.registro-signUp, .registro-signin {
   width: 138px;
   height: 42px;
   color: white;
@@ -104,37 +46,33 @@ p{
   top: 196px;
 }
 
-/* Las imagenes iBook */
-.logo-ibook-png{
-  display: block;
-  padding: 20px;
+/* iniciar sesion con contrasena  */
+.data-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-
 
 /* botones de google y facebook  */
 .btn-fb-google {
   margin: 10px 0;
 }
 
-input, .btn-login {
-  border-radius: 15px;
-  padding: 10px;
-  outline: none;
-}
-
 /* navegador */
 
-.nav-bar {
-  align-items: center;
+header {
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  padding: 10px 10%;
+  background-color:cyan;
+  font-family: monospace;
 }
 
 .nav-bar ul{
-  width: 100%;
-  bottom: 10px;
-  background: #1e2020;
-  margin: initial;
+  display: flex;
+  justify-content: space-around;
 }
 
 .nav-bar li{
@@ -143,7 +81,6 @@ input, .btn-login {
 }
 
 .nav-bar li:hover{
-  background: whitesmoke;
   border-color: solid 1em black;
   font-family:fantasy;
   cursor:pointer;
@@ -151,15 +88,158 @@ input, .btn-login {
 
 .nav-bar li a{
   text-decoration: none;
-    font-weight: bold;
-    padding: 0 29px;
-    align-items: center;
-     display: flex; 
+  font-weight: bold;
+  padding: 0 29px;
+  align-items: center;
+  display: flex; 
 }
 
-.nav-bar li a:hover{
-  color:rgb(8, 8, 8);
+.user-perfil {
+  border: 2px solid greenyellow;
+  border-radius: 5px;
+  padding: 2%;
+  margin-bottom: 5%;
+  height: 70%;
+  width: 40%;
+  margin-top: 0.7%;
 }
+
+.img-profile {
+  width: 100%;
+}
+
+.container-perfil {
+display: flex;
+justify-content: space-between;
+} 
+
+.content-post {
+  width: 52%;
+  border:2px solid purple;
+  border-radius: 5px;
+  height: 100%;
+  padding: 4px;
+  margin: 4px;
+}
+
+.padding {
+  padding: 2%;
+}
+
+.file-name {
+  border:black;
+  width: 90px;
+  font-size: 10px;
+}
+
+.btn-select {
+  border: blue;
+  color: black;
+  width: min-content;
+  cursor: pointer;
+  background: transparent;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.btn-select select option {
+  padding: 30px;
+}
+
+.btn-share {
+  font-family: "Patua One";
+  background-color:powderblue;
+  color: #ffffff;
+  padding: 7px 15px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.hide {
+  display: none;
+}
+
+.ul-parent {
+  padding-left: 0px;
+}
+
+.li-child {
+  list-style: none;
+  margin: 0px;
+  margin: 0px;
+  width: 100%;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.user-publicated {
+  background-color: #9da9cf;
+  font-size: 12px;
+}
+
+.only-flex {
+  display: flex;
+}
+
+.btn-select {
+  border: none;
+  color: #565454;
+  width: min-content;
+  cursor: pointer;
+  background: transparent;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.btn-select select option {
+  padding: 30px;
+}
+
+.date-publication{
+  margin-left: 10px;
+  color: black;
+}
+
+.hide {
+  display: none;
+}
+
+.middle-post {
+  display: flex;
+  flex-direction: column;
+}
+
+.textArea-comment {
+  resize: none;
+  background-color:plum;
+  width: -webkit-fill-available;
+  margin: 0 3% 0% 5%;
+  border: none;
+  padding: 1% 0 0 2%;
+  border-radius: 15px;
+  outline: none;
+  text-align: justify;
+}
+
+.btn-picture {
+  color: #fefefe;
+  background: palegreen;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.flex-bottom-form {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+
 
 
 .footer {
@@ -172,4 +252,10 @@ input, .btn-login {
   color: white;
   text-align: center;
   padding: 10px;
+}
+
+@media only screen and (min-width: 280px) and (max-width: 479px) {
+  .contenedorView1 {
+    margin-top: 40%;
+  }
 }
