@@ -1,0 +1,6 @@
+/* se borra el formato del navegador por defecto */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
