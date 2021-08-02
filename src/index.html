@@ -4,9 +4,92 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <script
+      src="https://kit.fontawesome.com/64d58efce2.js"crossorigin="anonymous"></script>  
+  <link rel="stylesheet" href="login-out.css"/>
+  <title>AnimeForum</title>
 </head>
 <body>
-  <script type="module" src="main.js"></script>
+  <main class="container">
+    <article class="forms-container">
+      <section class="signin-signup">
+      <!--Formulario sign in-->
+        <form action="" class="sign-in-form">
+          <h1>AnimeForum</h1>
+          <h2 class="title">Ingresa</h2>
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input type="text" placeholder="Usuario">
+          </div>
+          <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="Contraseña">
+          </div>
+          <input type="submit" value="Conectar" class="btn solid">
+          <p class="social-text">O ingresa con:</p>
+          <div class="social-media">
+            <a href="#" class="social-icon">
+              <i class="fab fa-google"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+          </div>
+        </form>
+        <!--Formulario sign up-->
+        <form action="" class="sign-up-form">
+          <h1>AnimeForum</h1>
+          <h2 class="title">Regístrate</h2>
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input type="text" placeholder="Usuario">
+          </div>
+          <div class="input-field">
+            <i class="fas fa-envelope"></i>
+            <input type="email" placeholder="Email" />
+          </div>
+          <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="Contraseña">
+          </div>
+          <input type="submit" value="Registrar" class="btn solid">
+          <p class="social-text">O regístrate con:</p>
+          <div class="social-media">
+            <a href="#" class="social-icon">
+              <i class="fab fa-google"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+          </div>
+        </form>
+      </section>
+    </article>
+
+    <article class="panels-container">
+      <section class="panel left-panel">
+        <div class="content">
+          <h3>¿Eres nuevo?</h3>
+          <p>
+       ¡únete a nosotros, comparte y diviértete!
+          </p>
+          <button class="btn transparent" id="registrar">Regístrate</button>
+        </div>
+        <img src="images/log.png" class="image" alt=""/>
+      </section>
+
+      <section class="panel right-panel">
+        <div class="content">
+          <h3>¿Eres parte de la comunidad?</h3>
+          <p>
+            ¡Logueate y no esperes más!
+          </p>
+          <button class="btn transparent" id="ingresar">Ingresar</button>
+        </div>
+        <img src="images/bnh.png" class="image" alt="" />
+      </section>
+    </article>
+  </main>  
+  <script type="module" src="login-out.js"></script>
 </body>
 </html>
