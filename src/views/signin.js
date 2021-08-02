@@ -15,6 +15,7 @@ export default () => {
           <input type="email" class="registro" id="username" placeholder=" E-mail" required>
             <input type="password" class="registro" id="password1" placeholder=" Password" required>
             <input type="button" class="registro-signin" href="#/home" id="sign-in" value="Sign-In">
+            <p class="error" id="error"></p>
             <a href="#">¿Olvidaste tu contraseña?</a>
           <p>Ingresar por</p>
       <!-- Seccion donde estan los botones -->
@@ -29,7 +30,6 @@ export default () => {
 
   // agregar clase para dar css
   sectionSignIn.innerHTML = template;
-
   sectionSignIn.setAttribute('class', 'contenedorSign-In');
 
   const btnSignIn = sectionSignIn.querySelector('#sign-in');
