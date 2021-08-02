@@ -1,4 +1,4 @@
-import { userSignUp } from '../main.js';
+import { userSignUp } from '../firebase/autenticacion.js';
 
 export const signUpUser = (e) => {
   e.preventDefault();
@@ -13,11 +13,9 @@ export const signUpUser = (e) => {
       user.updateProfile({
         displayName: name,
       });
-
-    // .catch((error) => {
-    //  const errorCode = error.code;
-    //  const errorMessage = error.message;
+    }).catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
     // ..
-    // });
     });
 };

@@ -1,4 +1,5 @@
-import { loginEmail, loginFacebook, loginGoogle } from '../firebase/autenticacion.js';
+// TODO AVERIGUAR
+import { userSignIn, loginFacebook, loginGoogle } from '../firebase/autenticacion.js';
 
 const changeRoute = (route) => {
   window.location.hash = route;
@@ -8,7 +9,7 @@ export const signIn = () => {
   window.event.preventDefault();
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
-  loginEmail(email, password).then((result) => {
+  userSignIn(email, password).then((result) => {
     // observador();
     // console.log(result);
     // console.log(result.user.emailVerified);
