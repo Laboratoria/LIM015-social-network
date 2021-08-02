@@ -5,7 +5,7 @@ export const signUpUser = (e) => {
   const name = document.querySelector('#nombres').value;
   const email = document.querySelector('#email').value;
   const password = document.querySelector('#password').value;
-
+console.log(email, password);
   userSignUp(email, password)
     .then((userCredential) => {
     // Signed up
