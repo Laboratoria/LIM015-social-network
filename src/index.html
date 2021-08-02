@@ -1,12 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" href="./images/iconworld.png" type="image/png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Social network" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>Discover</title>
 </head>
+
 <body>
+  <!-- Login -->
+  <section class="container">
+    <div class="form-container">
+      <div class="login-title">
+        <h1 class="timeword">It's Time to <span class="wordtravel login-title">Travel!</span></h1>
+      </div>
+
+      <form class="login-info">
+
+        <span class="input">
+          <i class="fas fa-envelope"></i>
+          <input id="loginemail" class="inputextcolor" type="email" placeholder="Email" required>
+        </span><br>
+
+        <span class="input">
+          <i class="fas fa-lock"></i>
+          <input id="loginpassword" class="inputextcolor" type="password" placeholder="Password" required>
+        </span><br>
+
+        <button id="button-login" class="button-login" type="submit">Sign in</button>
+        <br>
+        <p class="ortext"><strong>- OR -</strong></p>
+        <br>
+        <div class="icon-container">
+          <img src="./images/flat-color-icons_google (1).svg" alt="google icon" srcset="" />
+          <img src="./images/logos_facebook.svg" alt=" facebook icon" srcset="" />
+        </div>
+        <p class="register-text">Don't have an account?<a class="register-text" href="">Sign Up</a></p>
+      </form>
+    </div>
+
+  </section>
+
+  <!-- Create Account -->
+  <section class="container">
+    <div class="form-container">
+      <div class="login-title">
+        <h1 class="timeword">Welcome<span class="wordtravel login-title">Traveller!</span><span class="text-signup"> A
+            few steps to start your journey</span></h1>
+
+      </div>
+      <form class="login-info">
+
+        <span class="input">
+          <i class="fas fa-user"></i>
+          <input id="signupname" class="inputextcolor" type="text" placeholder="Name" required>
+        </span><br>
+
+
+        <span class="input">
+          <i class="fas fa-envelope"></i>
+          <input id="signupemail" class="inputextcolor" type="email" placeholder="Email" required>
+        </span><br>
+
+        <span class="input">
+          <i class="fas fa-lock"></i>
+          <input id="signuppassword" class="inputextcolor" type="password" placeholder="Password" required>
+        </span><br>
+
+        <button class="button-login" type="submit">Sign Up</button>
+        <br>
+
+        <br>
+      </form>
+    </div>
+
+  </section>
+
+  <!-- Fire Base Scripts -->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyDlwmO8Qvp8_riLb9-3AC-o4DBY8Zug7L0",
+      authDomain: "social-network-3ead1.firebaseapp.com",
+      projectId: "social-network-3ead1",
+      storageBucket: "social-network-3ead1.appspot.com",
+      messagingSenderId: "748289095372",
+      appId: "1:748289095372:web:904a0c232a811dfb99f469"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+  <!--End of Fire Base Scripts -->
+
   <script type="module" src="main.js"></script>
 </body>
+
 </html>
