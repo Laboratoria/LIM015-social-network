@@ -1,31 +1,32 @@
 // TODO AVERIGUAR
-import { loginEmail, loginFacebook, loginGoogle } from '../firebase/autenticacion.js';
+import { userSignIn, loginFacebook, loginGoogle } from '../firebase/autenticacion.js';
 
+// Para que es el changeRoute?
 const changeRoute = (route) => {
   window.location.hash = route;
 };
 
 export const signIn = () => {
   window.event.preventDefault();
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
-  loginEmail(email, password).then((result) => {
-    // observador();
-    // console.log(result);
-    // console.log(result.user.emailVerified);
-    if (result.user.emailVerified === false) {
-      document.getElementById('error').innerHTML = 'No has verificado tu dirección de email';
-    } else {
-      changeRoute('#/home');
-    }
-  }).catch((error) => {
-    const errorMessage = error.message;
-    if (email === '' || password === '') {
-      document.getElementById('error').innerHTML = 'Ingresa los campos completos';
-    } else if (errorMessage) {
-      document.getElementById('error').innerHTML = 'La contraseña no es válida o el usuario no está registrado.';
-    }
-  });
+  const email = document.querySelector('#username').value;
+  const password = document.querySelector('#password1').value;
+
+  return userSignIn(email, password)
+    .then((result) => {
+      if (result.user.emailVerified === false) {
+        document.getElementById('error').innerHTML = 'No has verificado tu dirección de email';
+      } else {
+        changeRoute('#/home');
+      }
+      console.log(result);
+    }).catch((error) => {
+      const errorMessage = error.message;
+      if (email === '' || password === '') {
+        document.getElementById('error').innerHTML = 'Ingresa los campos completos';
+      } else if (errorMessage) {
+        document.getElementById('error').innerHTML = 'La contraseña no es válida o el usuario no está registrado.';
+      }
+    });
 };
 
 export const signInFb = () => {

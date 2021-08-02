@@ -1,14 +1,16 @@
 // autorizacion para registro de firebase
 
-export const userSignUp = (email, password) => {
-  firebase.auth().createUserWithEmailAndPassword(email, password);
-};
+export const userSignUp = (email, password) => (
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+// .then((userCredential) => {
+//   console.log(userCredential);
+//   return firebase.auth().currentUser.sendEmailVerification();
+// })
+);
 
-// export const userSignIn = (email, password) => auth.signInWithEmailAndPassword(email, password);
-
-export const loginEmail = (email, password) => {
-  firebase.auth().signInWithEmailAndPassword(email, password);
-};
+export const userSignIn = (email, password) => (
+  firebase.auth().signInWithEmailAndPassword(email, password)
+);
 
 export const loginGoogle = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
@@ -22,3 +24,7 @@ export const loginFacebook = () => {
 
 // propiedad que usuario esta activo//
 export const currentUser = () => firebase.auth().currentUser;
+
+export const verifyEmail = () => (
+  firebase.auth().currentUser.sendEmailVerification()
+);
