@@ -22,8 +22,9 @@ const buttonSubmit = `<div>
 formSection.innerHTML = `${emailTag}${inputPassword}${buttonSubmit}`;
 // ACCION DEL LOGIN
 formSection.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const userEmail = document.getElementById('email').value;
-    const userPass = document.getElementById('pass').value;
-    // console.log(userEmail, userPass);
+  e.preventDefault();
+  const userEmail = document.getElementById('email').value;
+  const userPass = document.getElementById('pass').value;
+  // console.log(userEmail, userPass);
+  const auth = firebase.auth();
 });
