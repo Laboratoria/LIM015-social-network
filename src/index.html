@@ -90,14 +90,12 @@
       </section>
     </article>
   </main>  
-  <!--Custom Code-->
-    <script type="module" src="login-out.js"></script>
-    <script type="module" src="firebaselogin.js"></script>
-
+ 
   <!--FIREBASE-->
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
     
+    <!--agregar la autenticación "auth.js"--> 
     <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
@@ -118,8 +116,12 @@
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
-    firebase.auth();
+    const auth = firebase.auth();
     firebase.analytics(); 
     </script>
+     <!--Custom Code-->
+     <script type="module" src="login-out.js"></script>
+     <script type="module" src="firebaselogin.js"></script>
+ 
 </body>
 </html>
