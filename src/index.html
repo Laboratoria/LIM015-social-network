@@ -42,15 +42,15 @@
           <h2 class="title">Regístrate</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="Usuario">
+            <input type="text" id="signup-user" placeholder="Usuario">
           </div>
           <div class="input-field">
             <i class="fas fa-envelope"></i>
-            <input type="email" placeholder="Email" />
+            <input type="email" id="signup-email" placeholder="Email" />
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Contraseña">
+            <input type="password" id="signup-password" placeholder="Contraseña">
           </div>
           <input type="submit" value="Registrar" class="btn solid">
           <p class="social-text">O regístrate con:</p>
@@ -90,6 +90,36 @@
       </section>
     </article>
   </main>  
-  <script type="module" src="login-out.js"></script>
+  <!--Custom Code-->
+    <script type="module" src="login-out.js"></script>
+    <script type="module" src="firebaselogin.js"></script>
+
+  <!--FIREBASE-->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+    
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-analytics.js"></script>
+
+    <script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    let firebaseConfig = {
+    apiKey: "AIzaSyBmuPuol1G8A-QpcLM4uii_5BY942WqEoU",
+    authDomain: "anime-forum-215d6.firebaseapp.com",
+    projectId: "anime-forum-215d6",
+    storageBucket: "anime-forum-215d6.appspot.com",
+    messagingSenderId: "958811000471",
+    appId: "1:958811000471:web:2d5f5089cd2420f413a3d2",
+    measurementId: "G-J7PWEV55T7"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.auth();
+    firebase.analytics(); 
+    </script>
 </body>
 </html>
