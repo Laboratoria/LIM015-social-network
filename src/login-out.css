@@ -286,7 +286,6 @@ form.sign-up-form{
         transition: 1s 0.8s ease-in-out;
     }
     .panels-container{
-        z-index: 10;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 2fr 1fr ;
     }
@@ -355,6 +354,9 @@ form.sign-up-form{
     }
     .image{
         display:none;
+    }
+    .container{
+        padding: 1.5rem;
     }
     .container:before{
         bottom: 72%;
