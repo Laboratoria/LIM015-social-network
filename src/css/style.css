@@ -239,6 +239,17 @@ justify-content: space-between;
   justify-content: space-around;
 }
 
+.img-perfil {
+  border-radius: 50%;
+}
+
+.email-perfil {
+  margin-top: 10%;
+  margin-left: 5%;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+}
 
 
 
