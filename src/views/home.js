@@ -1,4 +1,5 @@
 // Inicio de las publicaciones
+import { currentUser } from '../firebase/autenticacion.js';
 
 export default () => {
   const sectionHome = document.createElement('section');
@@ -11,7 +12,7 @@ export default () => {
                 <nav class="nav-bar" id="nav">
                     <ul>
                         <li><a href="#/home">Home</a></li>
-                        <li><a href="#/profile">Profile</a></li>
+                        <li class="current-user"><a href="#/profile">${currentUser().displayName}</a></li>
                         <li><a href="#/">Sign-Out</a></li>
                     </ul>
                 </nav>
@@ -19,15 +20,11 @@ export default () => {
         </section>
             <section class = "container-perfil">
             <section id="user-perfil" class="user-perfil">
-                <section>
-                    <img class="img-profile" src="img/libro9.png" alt="">
-                </section>
+                <img class="img-profile" src="img/libro9.png" alt="">
+                    <img class="img-perfil" src='${currentUser().photoURL}'/>
+                    <p class="email-perfil">${currentUser().email}</p>
                 <section>
                     <section class="flex margin">
-                        <section class="flex-align">
-                            <p>jala la foto gmail en img en vez de p</p>
-                            <h2 id="profile-name">jala el nombre de gmail</h2>
-                        </section>
                         <hr>
                         <section class="margin">
                             <section class="flex-align">
@@ -63,8 +60,10 @@ export default () => {
                     </section>
                 </form>
             </section>
+            <textarea placeholder="¿Que quieres compartir?" class="textArea-comment "></textarea>
     </section>
-    </section>
+</section>
+
     `;
 
   sectionHome.innerHTML = template;
