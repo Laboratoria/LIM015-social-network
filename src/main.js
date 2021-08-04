@@ -26,5 +26,4 @@ formSection.addEventListener('submit', (e) => {
   const userEmail = document.getElementById('email').value;
   const userPass = document.getElementById('pass').value;
   // console.log(userEmail, userPass);
-  const auth = firebase.auth();
 });
