@@ -76,7 +76,7 @@ const googleBtn = document.querySelector('.google');
 googleBtn.addEventListener('click', () => {
   firebase
     .auth()
-    .signInWithPopup(provider)
+    .signInWithRedirect(provider)
     .then((result) => {
       const credential = result.credential;
       // This gives you a Google Access Token. You can use it to access the Google API.
