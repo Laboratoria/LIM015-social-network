@@ -2,10 +2,6 @@
 
 export const userSignUp = (email, password) => (
   firebase.auth().createUserWithEmailAndPassword(email, password)
-// .then((userCredential) => {
-//   console.log(userCredential);
-//   return firebase.auth().currentUser.sendEmailVerification();
-// })
 );
 
 export const userSignIn = (email, password) => (
@@ -22,7 +18,7 @@ export const loginFacebook = () => {
   return firebase.auth().signInWithPopup(provider);
 };
 
-// propiedad que usuario esta activo//
+// propiedad que usuario esta activo
 export const currentUser = () => firebase.auth().currentUser;
 
 export const verifyEmail = () => (
