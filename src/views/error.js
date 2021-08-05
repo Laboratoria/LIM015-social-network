@@ -7,6 +7,5 @@ export default () => {
         `;
 
   sectionError.innerHTML = viewDifferent;
-
   return sectionError;
 };

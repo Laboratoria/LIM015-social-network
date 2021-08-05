@@ -1,6 +1,7 @@
 // Inicio de las publicaciones
+// import { sharePost } from '../firebase/data-base.js';
+// import { sharingPost } from '../views/post.js';
 import { currentUser } from '../firebase/autenticacion.js';
-// import { sharingPost } from './post.js';
 
 export default () => {
   const sectionHome = document.createElement('section');
@@ -76,10 +77,11 @@ export default () => {
 
   sectionHome.innerHTML = template;
   sectionHome.setAttribute('class', 'contenedor-Home');
-  //   const containerPost = document.getElementById('container-post');
+  
+  // const containerPost = document.getElementById('container-post');
+  // containerPost.appendChild(sharingPost);
 
-  //   containerPost.appendChild(sharingPost());
-  //   sharingPost.innerHTML = containerPost;
   // console.log(containerPost);
+ 
   return sectionHome;
 };
