@@ -1,6 +1,7 @@
 export const sharingPost = () => {
   const sectionPost = document.createElement('section');
   const template = `
+
     <section>
             <ul class="ul-parent">
                 <li class="li-child">
