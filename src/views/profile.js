@@ -1,8 +1,15 @@
+import { currentUser } from '../firebase/autenticacion.js';
+
 export default () => {
   const sectionProfile = document.createElement('section');
 
   const template = `
     <section id="contenedorView2" class="contenedorView2">
+    <section id="user-perfil" class="user-perfil">
+        <img class="img-profile" src="img/libro9.png" alt="">
+        <img class="img-perfil" src='${currentUser().photoURL}'/>
+        <p class="email-perfil">${currentUser().email}</p>
+    <section>
     <input type="text" class="registro" id="nombres" placeholder=" Ingresar Nombres">
     <input type="text" class="registro" id="apellidos" placeholder=" Ingresar Apellidos">
     <input type="email" class="registro" id="email" placeholder=" Ingresar Correo Electronico">

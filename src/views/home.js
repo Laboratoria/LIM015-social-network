@@ -72,13 +72,16 @@ export default () => {
             </section>
 
             </section>
-          </section>
+        </section>
     `;
 
   sectionHome.innerHTML = template;
   sectionHome.setAttribute('class', 'contenedor-Home');
+  
   // const containerPost = document.getElementById('container-post');
   // containerPost.appendChild(sharingPost);
+
   // console.log(containerPost);
+ 
   return sectionHome;
 };
