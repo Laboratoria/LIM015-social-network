@@ -1,4 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Marvel&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Atma&family=Gowun+Batang&family=Marvel&family=Roboto&display=swap');
+/* font-family: 'Amatic SC', cursive;
+font-family: 'Atma', cursive;
+font-family: 'Gowun Batang', serif;
+font-family: 'Marvel', sans-serif;
+font-family: 'Roboto', sans-serif; */
 
 /*codigo del unicode de fontawesome*/
 ::placeholder {
@@ -10,12 +15,57 @@ body {
   background-color: #EFF7F6;
 }
 
+.text-welcome{
+  font-family: 'Marvel', cursive;
+  font-size: 25px;
+  font-weight: bolder;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+p.text-text {
+  height: 17px;
+  left: 48px;
+  top: 196px;
+  text-align: center;
+  font-size: 18px;
+  font-family: 'Marvel', sans-serif;
+}
+
+img.logo-ibook {
+  margin-top: 10px;
+  margin-bottom: 20px;
+
+}
+
+a.btn-register, a.btn-forget {
+  /* margin-top: 2px;
+  margin-bottom: 10px; */
+  color:  blue;
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+p#error.error {
+  margin-top: 5px;
+  /* margin-bottom: 5px; */
+
+}
+
+.text-login {
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+}
+
 #contenedorSignUp, #contenedorSignIn {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 100px;
 }
 
 .registro {
@@ -27,7 +77,7 @@ body {
   border-radius: 6px;
   outline: none;
   padding: 1.2px;
-} 
+}
 
 .registro-signUp, .registro-signin {
   width: 138px;
@@ -39,12 +89,6 @@ body {
   margin: 10px ;
 }
 
-p{
-  width: 264px;
-  height: 17px;
-  left: 48px;
-  top: 196px;
-}
 
 /* iniciar sesion con contrasena  */
 .data-container {
@@ -56,8 +100,31 @@ p{
 
 /* botones de google y facebook  */
 .btn-fb-google {
-  margin: 10px 0;
+  margin: 5px;
+  margin-bottom: 10px;
+  justify-content: space-evenly;
 }
+
+.button {
+  border: none;
+  background: none;
+}
+
+.fab {
+  font-weight: 400;
+  font-size: 35px;
+  font-style: normal;
+  color: blue;
+}
+
+.fa-google:before {
+  content: "\f1a0";
+  color: red;
+}
+
+
+
+
 
 /* navegador */
 
@@ -65,9 +132,9 @@ header {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 10px 10%;
-  background-color:cyan;
-  font-family: monospace;
+  background-color: rgb(148, 145, 187);
+  font-family: 'roboto', sans-serif;
+  font-size: 18px;
 }
 
 .nav-bar ul{
@@ -95,7 +162,8 @@ header {
 }
 
 .user-perfil {
-  border: 2px solid greenyellow;
+  border: 2px solid rgb(222, 144, 238);
+  background: rgb(231, 200, 238);
   border-radius: 5px;
   padding: 2%;
   margin-bottom: 5%;
@@ -110,16 +178,20 @@ header {
 
 .container-perfil {
 display: flex;
-justify-content: space-between;
+justify-content: space-around;
 } 
 
-.content-post {
-  width: 52%;
-  border:2px solid purple;
-  border-radius: 5px;
-  height: 100%;
-  padding: 4px;
-  margin: 4px;
+.content-post, .content-post2 {
+  width: 600px;
+    border: 2px solid purple;
+    border-radius: 5px;
+    height: 140px;
+    padding: 4px;
+    margin: 10px;
+}
+
+.container-general {
+  display: block;
 }
 
 .padding {
@@ -148,14 +220,11 @@ justify-content: space-between;
 }
 
 .btn-share {
-  font-family: "Patua One";
-  background-color:powderblue;
+  background-color: rebeccapurple;
   color: #ffffff;
   padding: 7px 15px;
   border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 13px;
+  border-radius: 6px;
 }
 
 .hide {
@@ -223,14 +292,17 @@ justify-content: space-between;
   border-radius: 15px;
   outline: none;
   text-align: justify;
+  height: 45px;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .btn-picture {
   color: #fefefe;
-  background: palegreen;
+  background: slategrey;
   padding: 10px;
   border-radius: 50%;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .flex-bottom-form {
@@ -239,18 +311,20 @@ justify-content: space-between;
   justify-content: space-around;
 }
 
-/* agregando */
-
 .img-perfil {
   border-radius: 50%;
 }
 
 .email-perfil {
-  margin-top: 10%;
-  margin-left: 5%;
-  font-family: "Ubuntu", sans-serif;
   font-size: 20px;
   font-weight: bold;
+  text-align: center;
+}
+
+.text-phrase {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 
