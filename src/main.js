@@ -7,6 +7,11 @@ const headerTag = document.getElementById('header');
 const contentPrincipal = document.getElementById('content');
 const footerTag = document.getElementById('footer');
 
+const init = () => {
+  window.addEventListener('hashchange', () => {
+    const hashCurrent = window.location.hash;
+    console.log(hashCurrent);
+  });
+};
 
-
-contentPrincipal.innerHTML = login();
+window.addEventListener('load', init);
