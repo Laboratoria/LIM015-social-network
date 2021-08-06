@@ -1,19 +1,37 @@
-const auth = firebase.auth();
-const signUpButton = document.getElementById('signupbutton');
-signUpButton.addEventListener('click', (e) => {
-  e.preventDefault();
-  const email = document.getElementById('signupemail').value;
-  const password = document.getElementById('signuppassword').value;
-  auth.createUserWithEmailAndPassword(email, password) // promise
-    .then((userCredential) => {
-      console.log(userCredential, 'sign up');
+// auth status changes
+// const auth = firebase.auth();
+// auth.onAuthStateChanged((user) => {
+//   if (user) {
+//     console.log('user log in');
+//   } else {
+//     console.log('user logged out');
+//   }
+// });
+// login
+export const login = (email, password) => {
+  const auth = firebase.auth();
+  auth.signInWithEmailAndPassword(email, password) // promise
+    .then(() => {
+      // login.reset();
+      window.location.href = '#news'; // redirigir
     }).catch((error) => {
       console.log(error, 'error');
     });
-});
+};
+// signup
+export const signUp = (email, password) => {
+  const auth = firebase.auth();
+  auth.createUserWithEmailAndPassword(email, password)
+    .then(() => {
+      window.location.href = '#news';
+    }).catch((error) => {
+      console.log(error, 'error');
+    });
+};
+
 // Google Authentication
-const googleIcon = document.getElementById('googlesvg');
-googleIcon.addEventListener('click', (e) => {
+export const googleAuth = () => {
+  const auth = firebase.auth();
   const provider = new firebase.auth.GoogleAuthProvider();
   // plano, una copia del plano para reutilizarlo -- es una nueva instancia de authprovider
   auth.signInWithPopup(provider)
@@ -22,12 +40,10 @@ googleIcon.addEventListener('click', (e) => {
     }).catch((error) => {
       console.log(error, 'cant access');
     });
-});
+};
 // Facebook Authentication
-const facebookIcon = document.getElementById('fbsvg');
-facebookIcon.addEventListener('click', (e) => {
-  e.preventDefault();
-  // console.log(auth);
+export const facebookAuth = () => {
+  const auth = firebase.auth();
   const provider = new firebase.auth.FacebookAuthProvider();
   auth.signInWithPopup(provider)
     .then((result) => {
@@ -35,4 +51,4 @@ facebookIcon.addEventListener('click', (e) => {
     }).catch((error) => {
       console.log(error, 'cant access to facebook');
     });
-});
+};

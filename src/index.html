@@ -18,73 +18,8 @@
 </head>
 
 <body>
-  <!-- Login -->
-  <section class="container">
-    <div class="form-container">
-      <div class="login-title">
-        <h1 class="timeword">It's Time to <span class="wordtravel login-title">Travel!</span></h1>
-      </div>
-
-      <form id="login" class="login-info">
-
-        <span class="input">
-          <i class="fas fa-envelope"></i>
-          <input id="loginemail" class="inputextcolor" type="email" placeholder="Email" required>
-        </span><br>
-
-        <span class="input">
-          <i class="fas fa-lock"></i>
-          <input id="loginpassword" class="inputextcolor" type="password" placeholder="Password" required>
-        </span><br>
-
-        <button id="button-login" class="button-login">Sign in</button>
-        <br>
-        <p class="ortext"><strong>- OR -</strong></p>
-        <br>
-        <div class="icon-container">
-          <img id="googlesvg" src="./images/flat-color-icons_google (1).svg" alt="google icon" srcset="" />
-          <img id="fbsvg" src="./images/logos_facebook.svg" alt=" facebook icon" srcset="" />
-        </div>
-        <p class="register-text">Don't have an account?<a class="register-text" href="">Sign Up</a></p>
-      </form>
-    </div>
-
-  </section>
-
-  <!-- Create Account/Sign Up -->
-  <section class="container">
-    <div class="form-container">
-      <div class="login-title">
-        <h1 class="timeword">Welcome<span class="wordtravel login-title">Traveler!</span><span class="text-signup"> A
-            few steps to start your journey</span></h1>
-
-      </div>
-      <form id="signup" class="login-info">
-
-        <span class="input">
-          <i class="fas fa-user"></i>
-          <input id="signupname" class="inputextcolor" type="text" placeholder="Name" required>
-        </span><br>
-
-
-        <span class="input">
-          <i class="fas fa-envelope"></i>
-          <input id="signupemail" class="inputextcolor" type="email" placeholder="Email" required>
-        </span><br>
-
-        <span class="input">
-          <i class="fas fa-lock"></i>
-          <input id="signuppassword" class="inputextcolor" type="password" placeholder="Password" required>
-        </span><br>
-
-        <button id="signupbutton" class="button-login">Sign Up</button>
-        <br>
-
-        <br>
-      </form>
-    </div>
-
-  </section>
+  <!-- NEWS -->
+  <div id="root"> </div>
 
   <!-- Fire Base Scripts -->
   <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -108,8 +43,9 @@
     //const auth = firebase.auth();
   </script>
   <!--End of Fire Base Scripts -->
-
+  <script type="module" src="./lib/router.js"></script>
   <script type="module" src="main.js"></script>
+
 </body>
 
 </html>
