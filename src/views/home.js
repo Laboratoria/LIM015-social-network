@@ -1,7 +1,8 @@
 // Inicio de las publicaciones
 // import { sharePost } from '../firebase/data-base.js';
-// import { sharingPost } from '../views/post.js';
+// import { sharingPost } from './post.js';
 import { currentUser } from '../firebase/autenticacion.js';
+// import { sharePost } from '../firebase/data-base.js';
 
 export default () => {
   const sectionHome = document.createElement('section');
@@ -47,7 +48,7 @@ export default () => {
                 <section class="content-post">
                   <section class="form-save">
                     <form class="padding" maxlength="50" required>
-                      <textarea placeholder="¿Que quieres compartir?" class="textArea-comment "></textarea>
+                      <textarea placeholder="¿Que quieres compartir?" id="textArea-comment" class="textArea-comment "></textarea>
                           <section class="flex-bottom-form">
                             <section>
                                 <label for="fileButton">
@@ -60,7 +61,7 @@ export default () => {
                                 <option value="publico" selected>Público</option>
                                 <option value="privado" select>Privado</option>
                             </select>
-                            <input type="button" class="btn-share" value="compartir">
+                            <input type="button" class="btn-share" id="btn-share" value="compartir">
                           </section>
                     </form>
                   </section>
@@ -72,16 +73,11 @@ export default () => {
             </section>
 
             </section>
-        </section>
+          </section>
     `;
 
   sectionHome.innerHTML = template;
   sectionHome.setAttribute('class', 'contenedor-Home');
-  
-  // const containerPost = document.getElementById('container-post');
-  // containerPost.appendChild(sharingPost);
 
-  // console.log(containerPost);
- 
   return sectionHome;
 };
