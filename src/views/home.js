@@ -2,8 +2,9 @@
 // import { sharingPost } from './post.js';
 import { currentUser } from '../firebase/autenticacion.js';
 import { addPost } from '../views-controllers/post-control.js';
+import { getPost } from '../firebase/data-base.js';
 
-export const homehome = (post) => {
+export default (post) => {
   const sectionHome = document.createElement('section');
   const template = `
   <!-- comienza cuadrado del costado -->
@@ -82,14 +83,17 @@ export const homehome = (post) => {
   const btnShare = sectionHome.querySelector('#btn-share');
 
   btnShare.addEventListener('click', addPost);
-  console.log(post);
   //   post.forEach((obj) => containerPost.appendChild(sharingPost(obj)));
 
-  //   for (let i = 0; i < pos.length; i++) {
+  //   for (let i = 0; i < post.length; i++) {
   //     containerPost.appendChild(sharingPost(post[i]));
   //    }
-  // containerPost.innerHTML = 'Holaaa';
-  //   containerPost.appendChild('sharingPost');
 
+  window.addEventListener('DOMContentLoaded', async (e) => {
+    const querysnapshot = await getPost();
+    querysnapshot.forEach((doc) => {
+      console.log(doc.data());
+    });
+  });
   return sectionHome;
 };

@@ -17,3 +17,5 @@ export const sharePost = (post, email, nombre, id, like, privacy) => firebase.fi
   likes: like,
   timePost: new Date(),
 });
+
+export const getPost = () => firebase.firestore().collection('posts').getPost();
