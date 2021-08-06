@@ -122,10 +122,6 @@ p#error.error {
   color: red;
 }
 
-
-
-
-
 /* navegador */
 
 header {
@@ -326,6 +322,12 @@ justify-content: space-around;
   flex-direction: column;
   align-items: center;
 }
+
+.img-class {
+  display: flex;
+  justify-content: center;
+}
+
 
 
 .footer {
