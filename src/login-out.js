@@ -1,4 +1,4 @@
-// SECCION LOGIN
+// SECCION LOGIN HTML
 const main = document.querySelector('.container');
 
 // Crear el elemento
@@ -73,6 +73,7 @@ formularios.innerHTML = `
 
 main.appendChild(formularios);
 
+// FUNCIÓN DE LA BOLA
 const ingresar = document.getElementById('ingresar');
 const registrar = document.getElementById('registrar');
 const container = document.querySelector('.container');
