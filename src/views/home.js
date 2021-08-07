@@ -2,7 +2,8 @@
 // import { sharingPost } from './post.js';
 import { currentUser } from '../firebase/autenticacion.js';
 import { addPost } from '../views-controllers/post-control.js';
-import { getPost } from '../firebase/data-base.js';
+import { salir } from '../views-controllers/signin-control.js';
+// import { getPost } from '../firebase/data-base.js';
 
 export default (post) => {
   const sectionHome = document.createElement('section');
@@ -16,7 +17,7 @@ export default (post) => {
                     <ul>
                         <li><a href="#/home">HOME</a></li>
                         <li class="current-user"><a href="#/profile">${currentUser().displayName}</a></li>
-                        <li><a href="#/">SIGN-OUT</a></li>
+                        <li><a href="#/" id="signOut" >SIGN-OUT</a></li>
                     </ul>
                 </nav>
             </header>
@@ -81,19 +82,24 @@ export default (post) => {
 
   const containerPost = sectionHome.querySelector('#container-post');
   const btnShare = sectionHome.querySelector('#btn-share');
+  const signOut = sectionHome.querySelector('#signOut');
 
   btnShare.addEventListener('click', addPost);
-  //   post.forEach((obj) => containerPost.appendChild(sharingPost(obj)));
+  signOut.addEventListener('click', salir);
+
+  //   post.forEach((obj) => {
+  //     containerPost.appendChild(sharingPost(obj));
+  //   });
 
   //   for (let i = 0; i < post.length; i++) {
   //     containerPost.appendChild(sharingPost(post[i]));
   //    }
 
-  window.addEventListener('DOMContentLoaded', async (e) => {
-    const querysnapshot = await getPost();
-    querysnapshot.forEach((doc) => {
-      console.log(doc.data());
-    });
-  });
+  //   window.addEventListener('DOMContentLoaded', async (e) => {
+  //     const querysnapshot = await getPost();
+  //     querysnapshot.forEach((doc) => {
+  //       console.log(doc.data());
+  //     });
+  //   });
   return sectionHome;
 };
