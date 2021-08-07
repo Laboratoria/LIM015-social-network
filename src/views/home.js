@@ -1,9 +1,8 @@
 // Inicio de las publicaciones
-// import { sharingPost } from './post.js';
+import { sharingPost } from './post.js';
 import { currentUser } from '../firebase/autenticacion.js';
 import { addPost } from '../views-controllers/post-control.js';
 import { salir } from '../views-controllers/signin-control.js';
-// import { getPost } from '../firebase/data-base.js';
 
 export default (post) => {
   const sectionHome = document.createElement('section');
@@ -25,7 +24,7 @@ export default (post) => {
             <section class = "container-perfil">
             <section id="user-perfil" class="user-perfil">
                 <img class="img-profile" src="img/libro9.png" alt="">
-                   <figure class="img-class"> <img class="img-perfil" src='${currentUser().photoURL}'/> </figure>
+                  <figure class="img-class"> <img class="img-perfil" src='${currentUser().photoURL}'/> </figure>
                     <p class="email-perfil">${currentUser().email}</p>
                 <section>
                     <section class="flex margin">
@@ -88,20 +87,9 @@ export default (post) => {
   btnShare.addEventListener('click', addPost);
   signOut.addEventListener('click', salir);
 
-  //   post.forEach((obj) => {
-  //     containerPost.appendChild(sharingPost(obj));
-  //   });
-
-  //   for (let i = 0; i < post.length; i++) {
-  //     containerPost.appendChild(sharingPost(post[i]));
-  //    }
-
-  //   window.addEventListener('DOMContentLoaded', async (e) => {
-  //     const querysnapshot = await getPost();
-  //     querysnapshot.forEach((doc) => {
-  //       console.log(doc.data());
-  //     });
-  //   });
+  post.forEach((obj) => {
+    containerPost.appendChild(sharingPost(obj));
+  });
 
   return sectionHome;
 };
