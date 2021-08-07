@@ -9,5 +9,7 @@ export const login = () => {
   <button type='submit'class='btnStart'>SIGN IN</button>
   </form>
   `;
-  return view;
+  const divElement = document.createElement('div');
+  divElement.innerHTML = view;
+  return divElement;
 };

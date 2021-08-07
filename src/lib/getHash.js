@@ -1,3 +1,3 @@
-const getHash = () => {
-  console.log(window.location.hash.slice(1).toLocaleLowerCase().split('/')[1]);
+const getHash = (hash) => {
+  console.log(hash.slice(1).toLocaleLowerCase().split('/')[1]);
 };
