@@ -47,3 +47,21 @@ export const signInWithGoogle = () => {
     // console.log(error);
   });
 };
+
+export const resetPasword = () => {
+  const email = document.querySelector('#username').value;
+  firebase.auth().sendPasswordResetEmail(email)
+    .then(() => {
+      console.log('Se ha enviado la nueva contraseña');
+    }).catch((error) => {
+      console.error(error);
+    });
+};
+
+export const salir = () => {
+  firebase.auth().signOut().then(() => {
+    console.log('Lograste salir');
+  }).catch((error) => {
+    console.log('Hubo un error', error);
+  });
+};

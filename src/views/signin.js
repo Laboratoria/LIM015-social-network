@@ -1,4 +1,9 @@
-import { signIn, signInWithGoogle, signInFb } from '../views-controllers/signin-control.js';
+import {
+  signIn,
+  signInWithGoogle,
+  signInFb,
+  resetPasword,
+} from '../views-controllers/signin-control.js';
 
 export default () => {
   const sectionSignIn = document.createElement('section');
@@ -16,7 +21,7 @@ export default () => {
           <input type="password" class="registro" id="password1" placeholder=" Password" required>
           <input type="button" class="registro-signin" href="#/home" id="sign-in" value="Sign-In">
           <p class="error" id="error"></p>
-          <a href="#" class="btn-forget">¿Olvidaste tu contraseña?</a>
+          <a href="#" class="btn-forget" id="btnForget">¿Olvidaste tu contraseña?</a>
         <p class="text-login">Ingresar por</p>
     <!-- Seccion donde estan los botones -->
       <section class="btn-fb-google">
@@ -36,10 +41,12 @@ export default () => {
   const btnSignIn = sectionSignIn.querySelector('#sign-in');
   const btnSignGog = sectionSignIn.querySelector('#btn-gg');
   const btnSignFb = sectionSignIn.querySelector('#btn-fb');
+  const btnForget = sectionSignIn.querySelector('#btnForget');
 
   btnSignIn.addEventListener('click', signIn);
   btnSignGog.addEventListener('click', signInWithGoogle);
   btnSignFb.addEventListener('click', signInFb);
+  btnForget.addEventListener('click', resetPasword);
 
   return sectionSignIn;
 };

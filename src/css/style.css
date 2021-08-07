@@ -49,6 +49,8 @@ a.btn-register, a.btn-forget {
 }
 
 p#error.error {
+  color: #E01E37;
+  font-weight: bold;
   margin-top: 5px;
   /* margin-bottom: 5px; */
 
@@ -121,10 +123,6 @@ p#error.error {
   content: "\f1a0";
   color: red;
 }
-
-
-
-
 
 /* navegador */
 
@@ -326,6 +324,12 @@ justify-content: space-around;
   flex-direction: column;
   align-items: center;
 }
+
+.img-class {
+  display: flex;
+  justify-content: center;
+}
+
 
 
 .footer {

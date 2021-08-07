@@ -1,9 +1,11 @@
 // Inicio de las publicaciones
-// import { sharePost } from '../firebase/data-base.js';
-// import { sharingPost } from '../views/post.js';
+// import { sharingPost } from './post.js';
 import { currentUser } from '../firebase/autenticacion.js';
+import { addPost } from '../views-controllers/post-control.js';
+import { salir } from '../views-controllers/signin-control.js';
+// import { getPost } from '../firebase/data-base.js';
 
-export default () => {
+export default (post) => {
   const sectionHome = document.createElement('section');
   const template = `
   <!-- comienza cuadrado del costado -->
@@ -15,7 +17,7 @@ export default () => {
                     <ul>
                         <li><a href="#/home">HOME</a></li>
                         <li class="current-user"><a href="#/profile">${currentUser().displayName}</a></li>
-                        <li><a href="#/">SIGN-OUT</a></li>
+                        <li><a href="#/" id="signOut" >SIGN-OUT</a></li>
                     </ul>
                 </nav>
             </header>
@@ -23,7 +25,7 @@ export default () => {
             <section class = "container-perfil">
             <section id="user-perfil" class="user-perfil">
                 <img class="img-profile" src="img/libro9.png" alt="">
-                    <img class="img-perfil" src='${currentUser().photoURL}'/>
+                   <figure class="img-class"> <img class="img-perfil" src='${currentUser().photoURL}'/> </figure>
                     <p class="email-perfil">${currentUser().email}</p>
                 <section>
                     <section class="flex margin">
@@ -47,7 +49,7 @@ export default () => {
                 <section class="content-post">
                   <section class="form-save">
                     <form class="padding" maxlength="50" required>
-                      <textarea placeholder="¿Que quieres compartir?" class="textArea-comment "></textarea>
+                      <textarea placeholder="¿Que quieres compartir?" id="textPost" class="textArea-comment "></textarea>
                           <section class="flex-bottom-form">
                             <section>
                                 <label for="fileButton">
@@ -56,11 +58,11 @@ export default () => {
                                 </label>
                                 <input type="file" class="hide">
                             </section>
-                            <select class="btn-select">
+                            <select class="btn-select" id="choosePrivacy">
                                 <option value="publico" selected>Público</option>
                                 <option value="privado" select>Privado</option>
                             </select>
-                            <input type="button" class="btn-share" value="compartir">
+                            <input type="button" class="btn-share" value="compartir" id="btn-share">
                           </section>
                     </form>
                   </section>
@@ -79,9 +81,27 @@ export default () => {
   sectionHome.innerHTML = template;
   sectionHome.setAttribute('class', 'contenedor-Home');
 
-  // const containerPost = document.getElementById('container-post');
-  // containerPost.appendChild(sharingPost);
-  // console.log(containerPost);
+  const containerPost = sectionHome.querySelector('#container-post');
+  const btnShare = sectionHome.querySelector('#btn-share');
+  const signOut = sectionHome.querySelector('#signOut');
+
+  btnShare.addEventListener('click', addPost);
+  signOut.addEventListener('click', salir);
+
+  //   post.forEach((obj) => {
+  //     containerPost.appendChild(sharingPost(obj));
+  //   });
+
+  //   for (let i = 0; i < post.length; i++) {
+  //     containerPost.appendChild(sharingPost(post[i]));
+  //    }
+
+  //   window.addEventListener('DOMContentLoaded', async (e) => {
+  //     const querysnapshot = await getPost();
+  //     querysnapshot.forEach((doc) => {
+  //       console.log(doc.data());
+  //     });
+  //   });
 
   return sectionHome;
 };
