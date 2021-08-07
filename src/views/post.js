@@ -1,4 +1,4 @@
-export const sharingPost = () => {
+export const sharingPost = (data) => {
   const sectionPost = document.createElement('section');
   const template = `
   <section>
@@ -22,10 +22,7 @@ export const sharingPost = () => {
                           </span>
                       </section>
                       <section class="middle-post">
-                          <section class="textarea no-border padding" id="text-lomismo" contenteditable="false">YA NOS
-                              FALTA
-                              POCO</section>
-                          
+                          <section class="textarea no-border padding" id="text-lomismo" contenteditable="false">${data.postText}</section>
                       </section>
                       <section class="bottom-post padding">
                           <section class="bottom-heart">

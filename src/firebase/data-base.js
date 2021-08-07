@@ -18,4 +18,11 @@ export const sharePost = (post, email, nombre, id, like, privacy) => firebase.fi
   timePost: new Date(),
 });
 
-export const getPost = () => firebase.firestore().collection('posts').getPost();
+export const getPost = (callback) => firebase.firestore().collection('posts').orderBy('timePost', 'desc')
+  .onSnapshot((querySnapshot) => {
+    const postGetPost = [];
+    querySnapshot.forEach((doc) => {
+      postGetPost.push({ id: doc.id, ...doc.data() });
+    });
+    callback(postGetPost);
+  });

@@ -1,5 +1,5 @@
 // Inicio de las publicaciones
-// import { sharingPost } from './post.js';
+import { sharingPost } from './post.js';
 import { currentUser } from '../firebase/autenticacion.js';
 import { addPost } from '../views-controllers/post-control.js';
 import { salir } from '../views-controllers/signin-control.js';
@@ -87,9 +87,9 @@ export default (post) => {
   btnShare.addEventListener('click', addPost);
   signOut.addEventListener('click', salir);
 
-  //   post.forEach((obj) => {
-  //     containerPost.appendChild(sharingPost(obj));
-  //   });
+  post.forEach((obj) => {
+    containerPost.appendChild(sharingPost(obj));
+  });
 
   //   for (let i = 0; i < post.length; i++) {
   //     containerPost.appendChild(sharingPost(post[i]));
