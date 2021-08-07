@@ -181,11 +181,11 @@ justify-content: space-around;
 
 .content-post, .content-post2 {
   width: 600px;
-    border: 2px solid purple;
-    border-radius: 5px;
-    height: 140px;
-    padding: 4px;
-    margin: 10px;
+  border: 2px solid purple;
+  border-radius: 5px;
+  height: 140px;
+  padding: 4px;
+  margin: 10px;
 }
 
 .container-general {

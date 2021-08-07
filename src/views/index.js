@@ -5,7 +5,7 @@ import Home from './home.js';
 import Profile from './profile.js';
 import Error from './error.js';
 
-export const conponents = {
+export const components = {
   signin: Signin,
   signup: Signup,
   home: Home,
