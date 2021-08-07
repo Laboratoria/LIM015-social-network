@@ -1,13 +1,10 @@
 // Este es el punto de entrada de tu aplicacion
-// import {  } from './pages/login.js';
-
-// Etiquetas globales traidas del body html
-const contentPrincipal = document.getElementById('content');
+import { changePages } from './routes/router.js';
 
 const init = () => {
-  console.log(window.location.hash);
+  changePages(window.location.hash);
   window.addEventListener('hashchange', () => {
-    console.log(window.location.hash);
+    changePages(window.location.hash);
   });
 };
 
