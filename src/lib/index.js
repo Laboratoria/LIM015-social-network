@@ -7,5 +7,5 @@ import error404 from '../pages/error404.js';
 export const components = () => {
   Login: login,
   SignIn: signIn,
-  Error404: error404,
+  Error404: error404
 };
