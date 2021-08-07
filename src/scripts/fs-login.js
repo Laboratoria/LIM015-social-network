@@ -1,3 +1,8 @@
+import firebaseConfig from './fs-config.js';
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
 firebase.firestore();
 
 const provider = new firebase.auth.GoogleAuthProvider();
