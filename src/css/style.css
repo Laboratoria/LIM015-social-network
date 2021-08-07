@@ -49,6 +49,8 @@ a.btn-register, a.btn-forget {
 }
 
 p#error.error {
+  color: #E01E37;
+  font-weight: bold;
   margin-top: 5px;
   /* margin-bottom: 5px; */
 
