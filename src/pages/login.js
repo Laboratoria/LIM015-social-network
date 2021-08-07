@@ -6,7 +6,7 @@ export const login = () => {
   <input type='email' id='email' placeholder='✉ Email' class='input' required />
   <input type='password' id='password1' placeholder='🔑 Password' class='input' required />
   <button type='submit'class='btnStart'>LOG IN</button>
-  <input type='button'class='btnStart'>SIGN IN</button>
+  <button type='submit'class='btnStart'>SIGN IN</button>
   </form>
   `;
   return view;
