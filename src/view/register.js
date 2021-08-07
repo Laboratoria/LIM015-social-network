@@ -1,8 +1,8 @@
 export const registerTemplate = () => {
-    const container = document.querySelector('#container');
-    const sectionLogIn = document.createElement('div');
-    sectionLogIn.classList.add('iOne');
-    const templateLogIn =  `<div class="container">
+  const container = document.querySelector('#container');
+  const sectionRegister = document.createElement('div');
+  sectionRegister.classList.add('iTwo');
+  const templateLogIn = `
     <div class="divCabecera">
       <img src="./img/logoTuristik.png" class="imgLogo" alt="LogoTuristik">
     </div>
@@ -19,8 +19,8 @@ export const registerTemplate = () => {
     <div class="divIconG">
       <img src="./img/icons8-logo-de-google.svg" alt="iGoogle" class="iGoogle">
     </div>
-  </div>`;
-    sectionLogIn.innerHTML = templateLogIn;
-    container.appendChild(sectionLogIn);
-    return logInTemplate;
-  };
+    `;
+  sectionRegister.innerHTML = templateLogIn;
+  container.appendChild(sectionRegister);
+  return registerTemplate;
+};
