@@ -20,3 +20,9 @@ export const addPost = (e) => {
     alert('Ingrese su post');
   }
 };
+
+export const editLikes = (idD, like) => {
+  firebase.firestore().collection('posts').doc(idD).update({
+    likes: like,
+  });
+};

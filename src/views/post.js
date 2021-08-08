@@ -1,5 +1,5 @@
-import { currentUser } from '../firebase/autenticacion.js';
-import { editLikes } from '../firebase/data-base.js';
+// import { currentUser } from '../firebase/autenticacion.js';
+import { editLikes } from '../views-controllers/post-control.js';
 
 export const sharingPost = (data) => {
   const time = new Date(data.timePost.toDate());
