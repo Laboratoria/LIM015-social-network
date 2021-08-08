@@ -1,3 +1,6 @@
+import firebase from '../lib/firebase.js';
+const auth = firebase.auth();
+console.log(auth);
 export const login = () => {
   const view = `
   <form>
