@@ -179,7 +179,7 @@ display: flex;
 justify-content: space-around;
 } 
 
-.content-post, .content-post2 {
+.content-post, .section-post {
   width: 600px;
   border: 2px solid purple;
   border-radius: 5px;
@@ -330,7 +330,39 @@ justify-content: space-around;
   justify-content: center;
 }
 
+.bottom-post {
+  display: flex;
+  justify-content: space-around;
+}
 
+.only-flex, .display-name, .date-publication {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.bottom-heart, .show-comment {
+  border: none;
+  background: none;
+}
+
+.bottom-heart:hover{
+  color: black;
+  background-color: red;
+}
+
+.fa.fa-heart-o:before {
+  content: "\f004";
+  color: red;
+}
+
+.fa.fa-comment-o:before {
+  content: "\f075";
+  color: blue;
+}
 
 .footer {
   font-size: 20px;

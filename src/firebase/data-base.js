@@ -26,3 +26,9 @@ export const getPost = (callback) => firebase.firestore().collection('posts').or
     });
     callback(postGetPost);
   });
+
+export const editLikes = (idD, like) => {
+  firebase.firestore().collection('posts').doc(idD).update({
+    likes: like,
+  });
+};
