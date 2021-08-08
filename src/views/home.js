@@ -3,7 +3,6 @@ import { sharingPost } from './post.js';
 import { currentUser } from '../firebase/autenticacion.js';
 import { addPost } from '../views-controllers/post-control.js';
 import { salir } from '../views-controllers/signin-control.js';
-// import { getPost } from '../firebase/data-base.js';
 
 export default (post) => {
   const sectionHome = document.createElement('section');
@@ -91,15 +90,5 @@ export default (post) => {
     containerPost.appendChild(sharingPost(obj));
   });
 
-  //   for (let i = 0; i < post.length; i++) {
-  //     containerPost.appendChild(sharingPost(post[i]));
-  //    }
-
-  //   window.addEventListener('DOMContentLoaded', async (e) => {
-  //     const querysnapshot = await getPost();
-  //     querysnapshot.forEach((doc) => {
-  //       console.log(doc.data());
-  //     });
-  //   });
   return sectionHome;
 };
