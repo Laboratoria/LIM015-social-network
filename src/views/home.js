@@ -24,7 +24,7 @@ export default (post) => {
             <section class = "container-perfil">
             <section id="user-perfil" class="user-perfil">
                 <img class="img-profile" src="img/libro9.png" alt="">
-                   <figure class="img-class"> <img class="img-perfil" src='${currentUser().photoURL}'/> </figure>
+                  <figure class="img-class"> <img class="img-perfil" src='${currentUser().photoURL}'/> </figure>
                     <p class="email-perfil">${currentUser().email}</p>
                 <section>
                     <section class="flex margin">
@@ -73,7 +73,8 @@ export default (post) => {
             </section>
 
             </section>
-        </section>
+          </section>
+
     `;
 
   sectionHome.innerHTML = template;

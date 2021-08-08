@@ -31,6 +31,7 @@ export default () => {
       <label class="registrate">¿No tienes una cuenta?&nbsp;<a class="btn-register" href="#/signup" id="registrate">Regístrate.</a></label>
     </form>
   </section>
+
     `;
 
   // agregar clase para dar css
