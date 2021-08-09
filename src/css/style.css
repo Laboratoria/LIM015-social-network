@@ -89,6 +89,7 @@ p#error.error {
   border: 1px solid #E01E37;
   border-radius: 6px;
   margin: 10px ;
+  cursor: pointer;
 }
 
 
@@ -117,11 +118,13 @@ p#error.error {
   font-size: 35px;
   font-style: normal;
   color: blue;
+  cursor: pointer;
 }
 
 .fa-google:before {
   content: "\f1a0";
   color: red;
+  cursor: pointer;
 }
 
 /* navegador */
@@ -223,6 +226,7 @@ justify-content: space-around;
   padding: 7px 15px;
   border: none;
   border-radius: 6px;
+  cursor: pointer;
 }
 
 .hide {
@@ -347,6 +351,7 @@ justify-content: space-around;
 .bottom-heart, .show-comment {
   border: none;
   background: none;
+  cursor: pointer;
 }
 
 .bottom-heart:hover{
