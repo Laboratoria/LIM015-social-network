@@ -1,5 +1,1 @@
-import { logInTemplate } from './view/login.js';
-import { registerTemplate } from './view/register.js';
-
-logInTemplate();
-registerTemplate();
+import {} from './controller/router.js'
