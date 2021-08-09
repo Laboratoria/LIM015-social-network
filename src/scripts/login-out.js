@@ -1,3 +1,4 @@
+import { signUp, signIn, googleLogin } from './fs-login.js';
 // SECCION LOGIN HTML
 const main = document.querySelector('.container');
 
@@ -85,4 +86,26 @@ registrar.addEventListener('click', () => {
 
 ingresar.addEventListener('click', () => {
   container.classList.remove('modoRegistro');
+});
+
+// Registrarse con email y password
+const signupForm = document.querySelector('.sign-up-form');
+const email = document.getElementById('signin-email').value;
+const password = document.getElementById('signin-password').value;
+signupForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  signUp(email, password);
+});
+
+// Ingresar con email y password
+const signinForm = document.querySelector('.sign-in-form');
+signinForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  signIn(email, password);
+});
+
+// Ingresar con Google
+const googleBtn = document.querySelector('.google');
+googleBtn.addEventListener('click', () => {
+  googleLogin();
 });
