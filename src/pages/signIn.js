@@ -1,4 +1,13 @@
+/* eslint-disable quotes */
+/* eslint-disable no-alert */
+/* eslint-disable padded-blocks */
+/* eslint-disable eqeqeq */
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-console */
+import firebase from '../lib/firebase.js';
+
 export const signIn = () => {
+
   const view = `
   <section class="contenedorRegister">
   <form>
@@ -18,3 +27,37 @@ export const signIn = () => {
   divElement.innerHTML = view;
   return divElement;
 };
+export const register = () => {
+  console.log('existe registrar');
+  if (document.getElementById('registrar')) {
+    document.getElementById('registrar').addEventListener('click', (e) => {
+      e.preventDefault();
+      console.log('registrando');
+      const nameRegister = document.getElementById('userName').value;
+      const emailUser = document.getElementById('email').value;
+      const passWord = document.getElementById('password1').value;
+      const confirmPass = document.getElementById('password2').value;
+
+      if (passWord == confirmPass) {
+        console.log('las claves son identicas, se procede a usar firebase');
+        firebase.auth().createUserWithEmailAndPassword(emailUser, passWord)
+          .then((userCredential) => {
+            // Signed in
+            const user = userCredential.user;
+            console.log(user);
+            console.log('conexion firebase register');
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorCode, errorMessage);
+          });
+
+      } else {
+
+        alert("Las contraseñas no coiciden");
+      }
+    });
+  }
+};
+
