@@ -33,13 +33,17 @@ export const changeView = (route) => {
   const viewRoot = document.querySelector('#root');
   viewRoot.innerHTML = '';
   switch (route) {
-    case '#/Home' :
-      {return viewRoot.appendChild(components.Home())}
-    case '#/Profile' :
-      {return viewRoot.appendChild(components.Profile())}
-      default :
-      { return viewRoot.appendChild(components.LogIn()) }
-    break;
+    case '#/Home':
+    { return viewRoot.appendChild(components.Home());
+    }
+    case '#/Profile':
+    { return viewRoot.appendChild(components.Profile());
+    }
+    case '#/Register':
+    { return viewRoot.appendChild(components.Register());
+    }
+    default:
+    { return viewRoot.appendChild(components.LogIn());
+    }
   }
-  console.log(route);
 };
