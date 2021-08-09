@@ -1,20 +1,7 @@
-import firebaseConfig from './fs-config.js';
+// import firebaseConfig from './fs-config.js';
 
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-firebase.analytics();
-firebase.firestore();
-
-const provider = new firebase.auth.GoogleAuthProvider();
-
-const signupForm = document.querySelector('.sign-up-form');
-
-signupForm.addEventListener('submit', (e) => {
-  e.preventDefault();
+export const signUp = (email, password) => {
   // const userName = document.getElementById('signup-user').value;
-  const email = document.getElementById('signup-email').value;
-  const password = document.getElementById('signup-password').value;
-
   firebase
     .auth()
     .createUserWithEmailAndPassword(email, password)
@@ -38,16 +25,10 @@ signupForm.addEventListener('submit', (e) => {
       alert('La contraseña debe tener mínimo 6 caracteres \n 〜(꒪꒳꒪)〜');
       console.log(error.code, error.message);
     });
-});
+};
 
 // SING IN
-const signinForm = document.querySelector('.sign-in-form');
-
-signinForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const email = document.getElementById('signin-email').value;
-  const password = document.getElementById('signin-password').value;
-
+export const signIn = (email, password) => {
   firebase
     .auth()
     .signInWithEmailAndPassword(email, password)
@@ -61,11 +42,11 @@ signinForm.addEventListener('submit', (e) => {
       console.log(error.code, error.message);
       alert('Contraseña o Email incorrecto \n (╯ರ ~ ರ)╯︵ ┻━┻');
     });
-});
+};
 
 // GOOGLE LOGIN
-const googleBtn = document.querySelector('.google');
-googleBtn.addEventListener('click', () => {
+export const googleLogin = () => {
+  const provider = new firebase.auth.GoogleAuthProvider();
   firebase
     .auth()
     .signInWithPopup(provider)
@@ -88,6 +69,4 @@ googleBtn.addEventListener('click', () => {
       console.log(error.credential);
       // ...
     });
-});
-
-// const facebookBtn = document.querySelector('.facebook');
+};
