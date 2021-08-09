@@ -1,21 +1,16 @@
-import { auth } from './fs-config.js';
+import { auth } from './scripts/fs-config.js';
 
 const init = () => {
   // window.addEventListener('hashchange', () => {
-    console.log('hola');
+  console.log('hola');
   // });
 };
 
-
-
 auth.onAuthStateChanged((user) => {
   if (user) {
-    console.log("auth-signin");
+    console.log('auth-signin');
     init();
-  
   } else {
-    console.log("auth-signout");
-  
+    console.log('auth-signout');
   }
-  
-  });
+});
