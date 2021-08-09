@@ -94,7 +94,6 @@ const signupForm = document.querySelector('.sign-up-form');
 signupForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const sigupEmail = document.getElementById('signup-email').value;
-  console.log(typeof sigupEmail);
   const signupPassword = document.getElementById('signup-password').value;
   signUp(sigupEmail, signupPassword);
 });
