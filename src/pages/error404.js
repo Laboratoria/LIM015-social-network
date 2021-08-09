@@ -1,4 +1,4 @@
-export const error404 = () => {
+export const notFound = () => {
   const view = `
   <p>Oops! page not found</p>
   `;
