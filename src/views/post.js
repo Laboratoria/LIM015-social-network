@@ -1,5 +1,5 @@
 // import { currentUser } from '../firebase/autenticacion.js';
-import { editLikes } from '../views-controllers/post-control.js';
+import { editLikes, deletePost, editPost } from '../views-controllers/post-control.js';
 
 export const sharingPost = (data) => {
   const time = new Date(data.timePost.toDate());
@@ -23,25 +23,29 @@ export const sharingPost = (data) => {
                               ${time.getDate()}${'/'}${time.getMonth() + 1}${'/'}${time.getFullYear()}
                               </p>
                           </section>
-                          <span id="delete-lomismo" class="hide">
+                          <button id="deletePost" class="">
                               <i class="fas fa-trash" aria-hidden="true"></i>
-                          </span>
+                          </button>
+                          <button id="editPost">
+                            <i class="fa fa-heart-floppy-o iconSave" aria-hidden="true"></i>
+                          </button>
                       </section>
                       <section class="middle-post">
                           <section class="textarea no-border padding" id="text-lomismo" contenteditable="false">${data.postText}</section>
                       </section>
                       <section class="bottom-post">
-                          <button id="like-${data.id}" class="bottom-heart"><i id="count-Like" class="fa fa-heart-o heart-empty" aria-hidden="true">  ${data.likes}</i></button>
+                          <button id="like-${data.id}" class="bottom-heart">
+                          <i id="count-Like" class="fa fa-heart-o heart-empty" aria-hidden="true">  ${data.likes}</i></button>
                           <button class="show-comment">
                               <span id="show-comment">
                                   <i class="fa fa-comment-o show-comment" aria-hidden="true"></i>
                               </span>
-                              <a class="counter-heart">2</a>
+                              <a class="counter-comment">2</a>
                           </button>
-                          <span class="margin-left hide">
+                          <!-- <span class="margin-left hide">
                               <i class="fa fa-heart-floppy-o iconSave" aria-hidden="true"></i>
                               <span></span>
-                          </span>
+                          </span> -->
                       </section>
                       <section class="hide">
                           <form class="form-comment" maxlength="50" required>
@@ -62,6 +66,16 @@ export const sharingPost = (data) => {
   sectionPost.setAttribute('class', 'contenedor-post');
 
   const btnLike = sectionPost.querySelector(`#like-${data.id}`);
+  const deletedPost = sectionPost.querySelector('#deletePost');
+  const editedPost = sectionPost.querySelector('#editPost');
+
+  deletedPost.addEventListener('click', () => {
+    deletePost(data.id);
+  });
+
+  editedPost.addEventListener('click', () => {
+    editPost(data.id);
+  });
 
   btnLike.addEventListener('click', () => {
     const likeValue = data.likes + 1;

@@ -26,3 +26,10 @@ export const editLikes = (idD, like) => {
     likes: like,
   });
 };
+
+export const deletePost = (idDocPost) => firebase.firestore().collection('posts').doc(idDocPost).delete();
+
+export const editPost = (idDocPost, newText) => firebase.firestore().collection('posts').doc(idDocPost).update({
+  text: newText,
+  timePost: new Date(),
+});
