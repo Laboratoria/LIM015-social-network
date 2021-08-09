@@ -26,9 +26,6 @@ export const sharingPost = (data) => {
                           <button id="deletePost" class="">
                               <i class="fas fa-trash" aria-hidden="true"></i>
                           </button>
-                          <button id="editPost">
-                            <i class="fa fa-heart-floppy-o iconSave" aria-hidden="true"></i>
-                          </button>
                       </section>
                       <section class="middle-post">
                           <section class="textarea no-border padding" id="text-lomismo" contenteditable="false">${data.postText}</section>
