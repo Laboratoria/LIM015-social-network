@@ -1,5 +1,4 @@
 export const registerTemplate = () => {
-  const container = document.querySelector('#container');
   const sectionRegister = document.createElement('div');
   sectionRegister.classList.add('iTwo');
   const templateLogIn = `
@@ -15,12 +14,11 @@ export const registerTemplate = () => {
       <input type="password" name="password" placeholder="Password" id="passwordRegister" class="inputForm" required>
     </form>
     <button type="submit" class="btnRegister">Register</button><br>
-    <span>Already a member? <a id="linkLogIn" href="#">Log In</a> </span>
+    <span>Already a member? <a id="linkLogIn" href="#/LogIn">Log In</a> </span>
     <div class="divIconG">
       <img src="./img/icons8-logo-de-google.svg" alt="iGoogle" class="iGoogle">
     </div>
     `;
   sectionRegister.innerHTML = templateLogIn;
-  container.appendChild(sectionRegister);
-  return registerTemplate;
+  return sectionRegister;
 };

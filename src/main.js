@@ -1,5 +1,7 @@
-import { logInTemplate } from './view/login.js';
-import { registerTemplate } from './view/register.js';
+import { changeView } from './controller/router.js';
 
-logInTemplate();
-registerTemplate();
+const initialize = () => {
+  changeView(window.location.hash)
+  window.addEventListener('hashchange', () => changeView(window.location.hash));
+};
+window.addEventListener('load', initialize);

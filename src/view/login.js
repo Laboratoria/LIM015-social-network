@@ -1,5 +1,4 @@
 export const logInTemplate = () => {
-  const container = document.querySelector('#container');
   const sectionLogIn = document.createElement('div');
   sectionLogIn.classList.add('iOne');
   const templateLogIn = `
@@ -12,12 +11,11 @@ export const logInTemplate = () => {
       <input id="passwordLogIn" type="password" placeholder="Enter Password" class="inputForm" required>
     </form>
     <button type="submit" class="btnLogIn">Log In</button><br>
-    <span>New here? <a id="linkRegister" href="#">Register</a></span>
+    <span>New here? <a id="linkRegister" href="#/Register">Register</a></span>
     <div class="divIconG">
       <img src="./img/icons8-logo-de-google.svg" alt="iGoogle" class="iGoogle">
     </div>
     `;
   sectionLogIn.innerHTML = templateLogIn;
-  container.appendChild(sectionLogIn);
-  return logInTemplate;
+  return sectionLogIn;
 };
