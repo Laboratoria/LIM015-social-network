@@ -33,9 +33,7 @@ export const signIn = (email, password) => {
 // GOOGLE LOGIN
 export const googleLogin = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
-  firebase
-    .auth()
-    .signInWithPopup(provider)
+  auth.signInWithPopup(provider)
     .then((result) => {
       const credential = result.credential;
       // This gives you a Google Access Token. You can use it to access the Google API.
