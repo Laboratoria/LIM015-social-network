@@ -1,21 +1,9 @@
-// import firebaseConfig from './fs-config.js';
+import { auth } from './fs-config.js';
 
 export const signUp = (email, password) => {
   // const userName = document.getElementById('signup-user').value;
-  firebase
-    .auth()
-    .createUserWithEmailAndPassword(email, password)
+  auth.createUserWithEmailAndPassword(email, password)
     .then((userCredential) => {
-    /*  const user = firebase.auth().currentUser;
-      if (user !== null) {
-      // The user object has basic properties such as display name, email, etc.
-        const userName = document.getElementById('signup-user').value;
-        let name = user.displayName;
-        name = userName;
-        const userEmail = user.email;
-        const uid = user.uid;
-        console.log(name, userEmail, uid);
-      } */
       // Signed in
       console.log('signed up');
       console.log(userCredential);
@@ -29,9 +17,7 @@ export const signUp = (email, password) => {
 
 // SING IN
 export const signIn = (email, password) => {
-  firebase
-    .auth()
-    .signInWithEmailAndPassword(email, password)
+  auth.signInWithEmailAndPassword(email, password)
     .then((userCredential) => {
       // Signed in
       const user = userCredential.user;

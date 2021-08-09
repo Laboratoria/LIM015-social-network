@@ -90,18 +90,23 @@ ingresar.addEventListener('click', () => {
 
 // Registrarse con email y password
 const signupForm = document.querySelector('.sign-up-form');
-const email = document.getElementById('signin-email').value;
-const password = document.getElementById('signin-password').value;
+
 signupForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  signUp(email, password);
+  const sigupEmail = document.getElementById('signup-email').value;
+  console.log(typeof sigupEmail);
+  const signupPassword = document.getElementById('signup-password').value;
+  signUp(sigupEmail, signupPassword);
 });
 
 // Ingresar con email y password
 const signinForm = document.querySelector('.sign-in-form');
+
 signinForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  signIn(email, password);
+  const siginEmail = document.getElementById('signin-email').value;
+  const signinPassword = document.getElementById('signin-password').value;
+  signIn(siginEmail, signinPassword);
 });
 
 // Ingresar con Google
