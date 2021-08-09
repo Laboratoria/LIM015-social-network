@@ -6,7 +6,8 @@ export const addPost = (e) => {
   const post = document.getElementById('textPost').value;
   const privacy = document.getElementById('choosePrivacy').value;
   const user = currentUser();
-  const countLike = 0;
+  // eslint-disable-next-line prefer-const
+  let countLike = 0;
   if (post !== '') {
     sharePost(post, user.email, user.displayName, user.uid, countLike, privacy)
       .then(() => {
@@ -18,4 +19,10 @@ export const addPost = (e) => {
   } else {
     alert('Ingrese su post');
   }
+};
+
+export const editLikes = (idD, like) => {
+  firebase.firestore().collection('posts').doc(idD).update({
+    likes: like,
+  });
 };

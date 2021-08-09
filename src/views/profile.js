@@ -6,8 +6,7 @@ export default () => {
   const template = `
     <section id="contenedorView2" class="contenedorView2">
     <section id="user-perfil" class="user-perfil">
-        <img class="img-profile" src="img/libro9.png" alt="">
-        <img class="img-perfil" src='${currentUser().photoURL}'/>
+        <figure class="img-class"> <img class="img-perfil" src='${currentUser().photoURL}'/> </figure>
         <p class="email-perfil">${currentUser().email}</p>
     <section>
     <input type="text" class="registro" id="nombres" placeholder=" Ingresar Nombres">

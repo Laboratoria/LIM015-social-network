@@ -1,4 +1,8 @@
+// import { currentUser } from '../firebase/autenticacion.js';
+import { editLikes } from '../views-controllers/post-control.js';
+
 export const sharingPost = (data) => {
+  const time = new Date(data.timePost.toDate());
   const sectionPost = document.createElement('section');
   const template = `
   <section>
@@ -8,14 +12,16 @@ export const sharingPost = (data) => {
                       <section class="user-publicated padding flex-name-post">
                           <section class="only-flex">
                               <section>
-                                  <p>Name</p>
+                                  <p class="display-name">${data.user}</p>
                                   <select id="selectPriv-lomismo" class="btn-select" name="select">
                                       <option value="privado">Privado</option>
                                       <option value="público" selected>Público</option>
                                   </select>
                               </section>
-                              <p class="date-publication">Falta
-                                  p.&nbsp;m.</p>
+                              <p class="date-publication">
+                              ${time.getHours()}${':'}${time.getMinutes()}
+                              ${time.getDate()}${'/'}${time.getMonth() + 1}${'/'}${time.getFullYear()}
+                              </p>
                           </section>
                           <span id="delete-lomismo" class="hide">
                               <i class="fas fa-trash" aria-hidden="true"></i>
@@ -24,26 +30,16 @@ export const sharingPost = (data) => {
                       <section class="middle-post">
                           <section class="textarea no-border padding" id="text-lomismo" contenteditable="false">${data.postText}</section>
                       </section>
-                      <section class="bottom-post padding">
-                          <section class="bottom-heart">
-                              <i class="fa fa-heart-o heart-empty" aria-hidden="true">
-                              </i>
-                              <i class="fa fa-heart-full hide" aria-hidden="true">
-                              </i>
-                              <a class="counter-heart">8
-                              </a>
-                          </section>
-                          <section class>
+                      <section class="bottom-post">
+                          <button id="like-${data.id}" class="bottom-heart"><i id="count-Like" class="fa fa-heart-o heart-empty" aria-hidden="true">  ${data.likes}</i></button>
+                          <button class="show-comment">
                               <span id="show-comment">
-                                  <i class="fa fa-comment-o show-comment" aria-hidden="true">
-                                  </i>
+                                  <i class="fa fa-comment-o show-comment" aria-hidden="true"></i>
                               </span>
-                              <a class="counter-heart">2
-                              </a>
-                          </section>
+                              <a class="counter-heart">2</a>
+                          </button>
                           <span class="margin-left hide">
-                              <i class="fa fa-heart-floppy-o iconSave" aria-hidden="true">
-                              </i>
+                              <i class="fa fa-heart-floppy-o iconSave" aria-hidden="true"></i>
                               <span></span>
                           </span>
                       </section>
@@ -52,8 +48,7 @@ export const sharingPost = (data) => {
                               <textarea placeholder="Escribe tu comentario" class="textarea-comment">
                               </textarea>
                               <span class="margin">
-                                  <i class="fa fa-paper-plane btn-comment" aria-hidden="true">
-                                  </i>
+                                  <i class="fa fa-paper-plane btn-comment" aria-hidden="true"></i>
                               </span>
                           </form>
                       </section>
@@ -65,6 +60,13 @@ export const sharingPost = (data) => {
 
   sectionPost.innerHTML = template;
   sectionPost.setAttribute('class', 'contenedor-post');
+
+  const btnLike = sectionPost.querySelector(`#like-${data.id}`);
+
+  btnLike.addEventListener('click', () => {
+    const likeValue = data.likes + 1;
+    editLikes(data.id, likeValue);
+  });
 
   return sectionPost;
 };
