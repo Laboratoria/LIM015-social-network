@@ -1,3 +1,8 @@
+/* eslint-disable quotes */
+/* eslint-disable no-alert */
+/* eslint-disable padded-blocks */
+/* eslint-disable eqeqeq */
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
 import firebase from '../lib/firebase.js';
 
@@ -25,9 +30,9 @@ export const login = () => {
 
 export const logueo = () => {
   if (document.getElementById('logeo')) {
-    console.log('existo');
+    // console.log('existo');
     document.getElementById('logeo').addEventListener('click', (e) => {
-      console.log(e);
+      // console.log(e);
       e.preventDefault();
       const emailUser = document.getElementById('email').value;
       const password = document.getElementById('password1').value;
@@ -48,10 +53,9 @@ export const logueo = () => {
         });
     });
   }
-
 };
 export const register = () => {
-  console.log('existe registrar')
+  console.log('existe registrar');
   if (document.getElementById('registrar')) {
     document.getElementById('registrar').addEventListener('click', (e) => {
       e.preventDefault();
@@ -78,7 +82,7 @@ export const register = () => {
 
       } else {
 
-        alert("Las contraseñas no coiciden")
+        alert("Las contraseñas no coiciden");
       }
     });
   }
