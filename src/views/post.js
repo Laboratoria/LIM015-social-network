@@ -13,7 +13,7 @@ export const sharingPost = (data) => {
                           <section class="only-flex">
                               <section>
                                   <p class="display-name">${data.user}</p>
-                                  <select id="selectPriv-lomismo" class="btn-select" name="select">
+                                  <select id="select-Priv" class="btn-select" name="select">
                                       <option value="privado">Privado</option>
                                       <option value="público" selected>Público</option>
                                   </select>
@@ -23,7 +23,7 @@ export const sharingPost = (data) => {
                               ${time.getDate()}${'/'}${time.getMonth() + 1}${'/'}${time.getFullYear()}
                               </p>
                           </section>
-                          <span id="delete-lomismo" class="hide">
+                          <span id="deletePost" class="hide">
                               <i class="fas fa-trash" aria-hidden="true"></i>
                           </span>
                       </section>
@@ -38,7 +38,7 @@ export const sharingPost = (data) => {
                               </span>
                               <a class="counter-heart">2</a>
                           </button>
-                          <span class="margin-left hide">
+                          <span class=" heart-hide">
                               <i class="fa fa-heart-floppy-o iconSave" aria-hidden="true"></i>
                               <span></span>
                           </span>
@@ -47,7 +47,7 @@ export const sharingPost = (data) => {
                           <form class="form-comment" maxlength="50" required>
                               <textarea placeholder="Escribe tu comentario" class="textarea-comment">
                               </textarea>
-                              <span class="margin">
+                              <span class="comment">
                                   <i class="fa fa-paper-plane btn-comment" aria-hidden="true"></i>
                               </span>
                           </form>
