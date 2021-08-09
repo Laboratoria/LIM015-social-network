@@ -21,6 +21,39 @@
   <!-- NEWS -->
   <div id="root"> </div>
 
+  <!-- <header id="container" class="navcontainer">
+    <nav id="menu">
+      <ul class="options-container">
+        <a class="menuoptions" href="#profile">Profile</a>
+        <p class="menuoptions">Discover<img class="navicons" src="./images/logoairplane.svg" alt="airplanelogo"
+            srcset="" /></p>
+        <a class="menuoptions" href="#login">Log out<img class="navicons" src="./images/logout.svg" alt="logouticon"
+            srcset="" /></a>
+      </ul>
+    </nav>
+  </header>
+  
+  <section id="newscontainer" class="newscontainer">
+    <div class="profile-container">
+      <div id="image-name" class="image-name">
+      </div>
+    </div>
+    
+    <section class="post-container">
+      <div class="post-text" id="post text">
+        <input class="status" type="text" placeholder="What's on your mind?">
+        <div class="buttons">
+          <img class="svgimage" src="./images/post-image.svg" alt="image-post" srcset="">
+          <button class="post">Post</button>
+        </div>
+      </div>
+    </section>
+  </section> -->
+
+
+
+
+
   <!-- Fire Base Scripts -->
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
@@ -40,7 +73,10 @@
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
-    //const auth = firebase.auth();
+   // const fireStore = firebase.firestore();
+    //Initialize firestore
+    //fireStore.settings({ timestampsInSnapshots: true });
+
   </script>
   <!--End of Fire Base Scripts -->
   <script type="module" src="./lib/router.js"></script>

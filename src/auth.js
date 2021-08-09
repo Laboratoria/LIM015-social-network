@@ -8,11 +8,14 @@
 //   }
 // });
 // login
+
+// const fireStore = firebase.firestore();
+
 export const login = (email, password) => {
   const auth = firebase.auth();
   auth.signInWithEmailAndPassword(email, password) // promise
-    .then(() => {
-      // login.reset();
+    .then((userCredential) => {
+      console.log(userCredential, 'login in');
       window.location.href = '#news'; // redirigir
     }).catch((error) => {
       console.log(error, 'error');
@@ -22,8 +25,9 @@ export const login = (email, password) => {
 export const signUp = (email, password) => {
   const auth = firebase.auth();
   auth.createUserWithEmailAndPassword(email, password)
-    .then(() => {
-      window.location.href = '#news';
+    .then((userCredential) => {
+      console.log(userCredential, 'sign up');
+      // window.location.href = '#news';
     }).catch((error) => {
       console.log(error, 'error');
     });
@@ -31,24 +35,32 @@ export const signUp = (email, password) => {
 
 // Google Authentication
 export const googleAuth = () => {
-  const auth = firebase.auth();
   const provider = new firebase.auth.GoogleAuthProvider();
   // plano, una copia del plano para reutilizarlo -- es una nueva instancia de authprovider
+  const auth = firebase.auth();
   auth.signInWithPopup(provider)
-    .then((result) => {
-      console.log(result, 'sign in with google');
+    .then(() => {
+      window.location.href = '#news';
     }).catch((error) => {
       console.log(error, 'cant access');
     });
 };
 // Facebook Authentication
 export const facebookAuth = () => {
-  const auth = firebase.auth();
   const provider = new firebase.auth.FacebookAuthProvider();
+  const auth = firebase.auth();
   auth.signInWithPopup(provider)
-    .then((result) => {
-      console.log(result, 'sign in with facebook');
+    .then(() => {
+      window.location.href = '#news';
     }).catch((error) => {
       console.log(error, 'cant access to facebook');
+    });
+};
+// Log out
+export const logOutPage = () => {
+  const auth = firebase.auth();
+  auth.signOut()
+    .then(() => {
+      console.log('log out');
     });
 };

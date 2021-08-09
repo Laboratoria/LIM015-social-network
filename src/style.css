@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Raleway&display=swap');
-/* :root {
-    background-color: #ffea62;;
-} */
+ :root {
+    --primary-color : #ffea62;
+} 
 
 * {
     font-family: 'Raleway', sans-serif;
@@ -109,3 +109,60 @@
     font-size: 15px;
 }
 /* Nav */
+.options-container{
+    justify-content: center;
+    background-color: var(--primary-color);
+    display: flex;
+    text-align: center;
+    font-size: 25px;
+    padding: 14px;
+}
+.menuoptions{
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding-right: 126px;
+    padding-left: 100px;
+    text-decoration: none;
+    color: black;
+    
+}
+.navicons{
+    padding-left: 9px;
+}
+.newscontainer{
+    background-color: #e5e5f7;
+    width: 100%;
+}
+.post-container{
+    display: flex;
+    justify-content: center;
+    background-color: #F5F3F3;  
+    border-radius: 15px;
+    width: 280px;
+    height: 150px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+}
+.status{
+    width: 264px;
+    height: 84px;
+    border-radius: 6px;
+    background-color: #E8E5E5;
+    border: none;
+    margin-top: 20px;
+}
+.buttons{
+    padding-top: 10px;
+}
+.post{
+    width: 76px;
+    height: 24px;
+    border: none;
+    font-size: 15px;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    margin-left: 56px;
+
+}
+.svgimage{
+    padding-right: 106px;
+}

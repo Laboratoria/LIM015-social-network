@@ -1,20 +1,28 @@
 import { changeRoute, pages } from './lib/router.js';
 import {
-  login, googleAuth, facebookAuth, signUp,
+  login, googleAuth, facebookAuth, signUp, logOutPage,
 } from './auth.js';
 
 // al recargar la pagina agrega el html
 const root = document.querySelector('#root');
 const pathName = window.location.pathname;
 const pathNameNoSlash = pathName.replace('/', '');
-if (pathName === '/') window.location.href = '/login';
-root.innerHTML = pages[pathNameNoSlash];
-
+// if (pathName === '/') window.location.href = '/login';
+const inicialize = () => {
+  const html = pages[pathNameNoSlash];
+  if (html) {
+    root.innerHTML = html;
+  } else {
+    // root.innerHTML = pages.login;
+    window.location.hash = '#login';
+  }
+};
+inicialize();
 // Paso 1 cambia el html al hacer click
 window.addEventListener('hashchange', () => {
   const hashChange = window.location.hash;
-  const hashChangeNoSlash = hashChange.replace('#', '');
-  root.innerHTML = pages[hashChangeNoSlash];
+  const hashChangeNoHash = hashChange.replace('#', '');
+  root.innerHTML = pages[hashChangeNoHash];
   changeRoute(hashChange);
 });
 // Al hacer click atras y adelante te muestra el contenido correspondiente
@@ -23,7 +31,7 @@ window.onpopstate = () => {
 };
 
 if (pathName === '/login') {
-  const loginForm = document.querySelector('#login');
+  // const loginForm = document.querySelector('#login');
   const email = document.querySelector('#loginemail');
   const password = document.querySelector('#loginpassword');
   const googleIcon = document.querySelector('#googlesvg');
@@ -35,7 +43,6 @@ if (pathName === '/login') {
     const emailValue = email.value;
     const passwordValue = password.value;
     login(emailValue, passwordValue);
-    loginForm.reset();
   });
 
   // function for Google Authentication
@@ -49,7 +56,7 @@ if (pathName === '/login') {
 }
 
 if (pathName === '/signup') {
-  const signupform = document.querySelector('#signupform');
+  // const signupform = document.querySelector('#signupform');
   const email = document.querySelector('#signupemail');
   const password = document.querySelector('#signuppassword');
   const signUpButton = document.querySelector('#signupbutton');
@@ -59,6 +66,14 @@ if (pathName === '/signup') {
     const emailValue = email.value;
     const passwordValue = password.value;
     signUp(emailValue, passwordValue);
-    signupform.reset();
+    // signupform.reset();
+  });
+}
+
+if (pathName === '/news') {
+  // Log out
+  const logOut = document.querySelector('#logout');
+  logOut.addEventListener('click', () => {
+    logOutPage();
   });
 }
