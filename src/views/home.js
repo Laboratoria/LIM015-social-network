@@ -11,7 +11,7 @@ export default (post) => {
       <section id="container" class="container">
         <section>
             <header>
-                <h2 class="white">welcome a iBook</h2>
+            <img class="logo-ibook" src="img/logo-ibook.png" width="160px" alt="logo de iBook"/>
                 <nav class="nav-bar" id="nav">
                     <ul>
                         <li><a href="#/home">HOME</a></li>

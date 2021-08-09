@@ -10,6 +10,11 @@ font-family: 'Roboto', sans-serif; */
   font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f007";
 }
 
+* {
+  margin: 0;
+  padding: auto;
+}
+
 body {
   font-family: 'Marvel', sans-serif;
   background-color: #EFF7F6;
@@ -136,6 +141,7 @@ header {
   background-color: rgb(148, 145, 187);
   font-family: 'roboto', sans-serif;
   font-size: 18px;
+  height: 70px;
 }
 
 .nav-bar ul{
