@@ -13,7 +13,7 @@ export const sharingPost = (data) => {
                           <section class="only-flex">
                               <section>
                                   <p class="display-name">${data.user}</p>
-                                  <select id="selectPriv-lomismo" class="btn-select" name="select">
+                                  <select id="select-Priv" class="btn-select" name="select">
                                       <option value="privado">Privado</option>
                                       <option value="público" selected>Público</option>
                                   </select>
@@ -23,11 +23,14 @@ export const sharingPost = (data) => {
                               ${time.getDate()}${'/'}${time.getMonth() + 1}${'/'}${time.getFullYear()}
                               </p>
                           </section>
-                          <button id="deletePost" class="">
+                          <button id="deletePost">
                               <i class="fas fa-trash" aria-hidden="true"></i>
                           </button>
+                          <button id="savePost">
+                          <i class="fas fa-save" aria-hidden="true"></i>
+                          </button>
                           <button id="editPost">
-                            <i class="fa fa-heart-floppy-o iconSave" aria-hidden="true"></i>
+                          <i class="fas fa-edit" aria-hidden="true"></i>
                           </button>
                       </section>
                       <section class="middle-post">
@@ -38,7 +41,7 @@ export const sharingPost = (data) => {
                           <i id="count-Like" class="fa fa-heart-o heart-empty" aria-hidden="true">  ${data.likes}</i></button>
                           <button class="show-comment">
                               <span id="show-comment">
-                                  <i class="fa fa-comment-o show-comment" aria-hidden="true"></i>
+                                <i class="fa fa-comment-o show-comment" aria-hidden="true"></i>
                               </span>
                               <a class="counter-comment">2</a>
                           </button>
@@ -51,7 +54,7 @@ export const sharingPost = (data) => {
                           <form class="form-comment" maxlength="50" required>
                               <textarea placeholder="Escribe tu comentario" class="textarea-comment">
                               </textarea>
-                              <span class="margin">
+                              <span class="comment">
                                   <i class="fa fa-paper-plane btn-comment" aria-hidden="true"></i>
                               </span>
                           </form>
@@ -68,6 +71,7 @@ export const sharingPost = (data) => {
   const btnLike = sectionPost.querySelector(`#like-${data.id}`);
   const deletedPost = sectionPost.querySelector('#deletePost');
   const editedPost = sectionPost.querySelector('#editPost');
+  const savePost = sectionPost.querySelector('#savePost');
 
   deletedPost.addEventListener('click', () => {
     deletePost(data.id);
