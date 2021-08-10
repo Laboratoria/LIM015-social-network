@@ -139,6 +139,11 @@ header {
   width: 100%;
 }
 
+.nav-bar ul{
+  display: flex;
+  justify-content: space-around;
+}
+
 .nav-bar li{
   list-style: none;
   display: inline-block;
