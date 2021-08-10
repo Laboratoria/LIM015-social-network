@@ -15,6 +15,7 @@ export const sharePost = (post, email, nombre, id, like, privacy, photo) => fire
   mail: email,
   mode: privacy,
   likes: like,
+  Photo: photo,
   timePost: new Date(),
   Photo: photo,
 });
