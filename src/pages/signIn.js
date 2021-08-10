@@ -14,7 +14,7 @@ export const signIn = () => {
   <button type='submit'class='btnStart' id="registrar">SIGN IN</button>
   </div>
   </form>
-  <</section>
+  </section>
   `;
   const divElement = document.createElement('div');
   divElement.innerHTML = view;
@@ -24,30 +24,26 @@ export const signIn = () => {
 export const register = () => {
   document.getElementById('registrar').addEventListener('click', (e) => {
     e.preventDefault();
-    // console.log('registrando');
-    const nameRegister = document.getElementById('userName').value;
+    // const nameRegister = document.getElementById('userName').value;
     const emailUser = document.getElementById('email').value;
     const passWord = document.getElementById('password1').value;
     const confirmPass = document.getElementById('password2').value;
 
-    if (passWord === confirmPass) {
-      console.log('las claves son identicas, se procede a usar firebase');
-      // metodo de firebase para crear un usuario
+    if (passWord == confirmPass) {
       firebase.auth().createUserWithEmailAndPassword(emailUser, passWord)
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          // console.log(user);
-          console.log('registro exitoso');
+          console.log(user);
+          console.log('conexion firebase register');
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          console.log(errorCode);
-          alert(errorMessage);
+          console.log(errorCode, errorMessage);
         });
     } else {
-      alert('Las contraseñas no coiciden');
+      alert("Las contraseñas no coiciden");
     }
   });
 };
