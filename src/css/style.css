@@ -363,9 +363,9 @@ justify-content: space-around;
 .bottom-heart:hover{
   color: black;
   background-color: red;
-}
+} */
 
-.fa.fa-heart-o:before {
+/* .fa.fa-heart-o:before {
   content: "\f004";
   color: red;
 }
@@ -373,7 +373,7 @@ justify-content: space-around;
 .fa.fa-comment-o:before {
   content: "\f075";
   color: blue;
-}
+} */
 
 .footer {
   font-size: 20px;
