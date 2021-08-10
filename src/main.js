@@ -1,9 +1,9 @@
 import { auth } from './scripts/fs-config.js';
 
 const init = () => {
-  // window.addEventListener('hashchange', () => {
-  console.log('hola');
-  // });
+  window.addEventListener('hashchange', () => {
+    console.log(window.location.hash);
+  });
 };
 
 auth.onAuthStateChanged((user) => {
