@@ -1,5 +1,7 @@
 // import { currentUser } from '../firebase/autenticacion.js';
 import { editLikes, deletePost, editPost } from '../views-controllers/post-control.js';
+// import { editLikes, deletePost, deleteLike, getAllLikes}
+// from '../views-controllers/post-control.js';
 
 export const sharingPost = (data) => {
   const time = new Date(data.timePost.toDate());
@@ -13,7 +15,7 @@ export const sharingPost = (data) => {
                           <section class="only-flex">
                               <section>
                                   <p class="display-name">${data.user}</p>
-                                  <select id="selectPriv-lomismo" class="btn-select" name="select">
+                                  <select id="select-Priv" class="btn-select" name="select">
                                       <option value="privado">Privado</option>
                                       <option value="público" selected>Público</option>
                                   </select>
@@ -23,22 +25,29 @@ export const sharingPost = (data) => {
                               ${time.getDate()}${'/'}${time.getMonth() + 1}${'/'}${time.getFullYear()}
                               </p>
                           </section>
-                          <button id="deletePost" class="">
+                          <button id="deletePost">
                               <i class="fas fa-trash" aria-hidden="true"></i>
                           </button>
-                          <button id="editPost">
-                            <i class="fa fa-heart-floppy-o iconSave" aria-hidden="true"></i>
+                          <button id="savePost" class="hide">
+                              <i class="fas fa-save" aria-hidden="true"></i>
+                          </button>
+                          <button id="edit-${data.id}">
+                               <i class="fas fa-edit" aria-hidden="true"></i>
                           </button>
                       </section>
                       <section class="middle-post">
-                          <section class="textarea no-border padding" id="text-lomismo" contenteditable="false">${data.postText}</section>
+                          <textarea class="textarea no-border padding" id="text-post" disabled>${data.postText}</textarea>
                       </section>
                       <section class="bottom-post">
                           <button id="like-${data.id}" class="bottom-heart">
-                          <i id="count-Like" class="fa fa-heart-o heart-empty" aria-hidden="true">  ${data.likes}</i></button>
+                          <i class="fa fa-heart heart-full" aria-hidden="true" id="dislike-${data.id}" i>
+                          </button> 
+                          <button>
+                          <i id="counter-${data.id}" class="fa fa-heart-o heart-empty" aria-hidden="true">  ${data.likes}</i>
+                          </button>
                           <button class="show-comment">
                               <span id="show-comment">
-                                  <i class="fa fa-comment-o show-comment" aria-hidden="true"></i>
+                                <i class="fa fa-comment-o show-comment" aria-hidden="true"></i>
                               </span>
                               <a class="counter-comment">2</a>
                           </button>
@@ -51,7 +60,7 @@ export const sharingPost = (data) => {
                           <form class="form-comment" maxlength="50" required>
                               <textarea placeholder="Escribe tu comentario" class="textarea-comment">
                               </textarea>
-                              <span class="margin">
+                              <span class="comment">
                                   <i class="fa fa-paper-plane btn-comment" aria-hidden="true"></i>
                               </span>
                           </form>
@@ -65,22 +74,61 @@ export const sharingPost = (data) => {
   sectionPost.innerHTML = template;
   sectionPost.setAttribute('class', 'contenedor-post');
 
-  const btnLike = sectionPost.querySelector(`#like-${data.id}`);
+  // const counter = sectionPost.querySelector(`#counter-${data.id}`);
+  // const btnLike = sectionPost.querySelector(`#like-${data.id}`);
+  // const btnDislike = sectionPost.querySelector(`#dislike-${data.id}`);
+  // const callbackLikes = (likes) => {
+  //   counter.innerHTML = '';
+  //   counter.innerHTML = likes.length;
+  //   const user = likes.find((like)=> like.id === currentUser().uid);
+  //   if (user === undefined) {
+  //     // btnDislike.classList.add('hide');
+  //     btnLike.classList.remove('hide');
+  //     btnLike.addEventListener('click', (e) => {
+  //       e.preventDefault();
+  //       editLikes(data.id);
+  //       btnDislike.classList.add('hide');
+  //       btnLike.classList.remove('hide');
+  //     });
+  //   } else {
+  //     btnDislike.addEventListener('click', (e) => {
+  //       e.preventDefault();
+  //       deleteLike(data.id);
+  //       btnLike.classList.add('hide');
+  //       btnDislike.classList.remove('hide');
+  //     });
+  //   }
+  // };
+
+  // getAllLikes(data.id, callbackLikes);
+
   const deletedPost = sectionPost.querySelector('#deletePost');
-  const editedPost = sectionPost.querySelector('#editPost');
+  const editedPost = sectionPost.querySelector(`#edit-${data.id}`);
+  const savePost = sectionPost.querySelector('#savePost');
+  const textToEdit = sectionPost.querySelector('#text-post');
 
   deletedPost.addEventListener('click', () => {
     deletePost(data.id);
   });
 
   editedPost.addEventListener('click', () => {
-    editPost(data.id);
+    savePost.classList.remove('hide');
+    editedPost.classList.add('hide');
+    textToEdit.disabled = false;
+    textToEdit.select();
   });
 
-  btnLike.addEventListener('click', () => {
-    const likeValue = data.likes + 1;
-    editLikes(data.id, likeValue);
+  savePost.addEventListener('click', () => {
+    editedPost.classList.remove('hide');
+    savePost.classList.add('hide');
+    editPost(data.id, textToEdit.value);
+    textToEdit.disabled = true;
   });
+
+  // btnLike.addEventListener('click', () => {
+  //   const likeValue = data.likes + 1;
+  //   editLikes(data.id, likeValue);
+  // });
 
   return sectionPost;
 };

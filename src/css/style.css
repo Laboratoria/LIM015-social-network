@@ -10,6 +10,11 @@ font-family: 'Roboto', sans-serif; */
   font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f007";
 }
 
+* {
+  margin: 0;
+  padding: auto;
+}
+
 body {
   font-family: 'Marvel', sans-serif;
   background-color: #EFF7F6;
@@ -136,6 +141,8 @@ header {
   background-color: rgb(148, 145, 187);
   font-family: 'roboto', sans-serif;
   font-size: 18px;
+  height: 70px;
+  width: 100%;
 }
 
 .nav-bar ul{
@@ -357,9 +364,9 @@ justify-content: space-around;
 .bottom-heart:hover{
   color: black;
   background-color: red;
-}
+} */
 
-.fa.fa-heart-o:before {
+/* .fa.fa-heart-o:before {
   content: "\f004";
   color: red;
 }
@@ -367,7 +374,7 @@ justify-content: space-around;
 .fa.fa-comment-o:before {
   content: "\f075";
   color: blue;
-}
+} */
 
 .footer {
   font-size: 20px;
