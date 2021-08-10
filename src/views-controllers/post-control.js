@@ -51,4 +51,3 @@ export const editPost = (idDocPost, newText) => firebase.firestore().collection(
   postText: newText,
   timePost: new Date(),
 });
-
