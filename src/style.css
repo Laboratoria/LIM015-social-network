@@ -63,15 +63,14 @@ footer{
     display: flex;
     flex-flow: row wrap;
     padding: 20px 20px 10px 20px;
-    color: #2f2f2f;
-    background-color: #fff;
+    color: #fff;
+    background-color: #61453D;
     border-top: 1px solid #2f2f2f;
     font-weight: 100;
     text-transform: lowercase;
     display: flex;
     justify-content: center;
   }
-  
   footer{
     flex:  1 100%;
   }

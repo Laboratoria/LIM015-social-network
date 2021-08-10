@@ -34,28 +34,24 @@ export const login = () => {
 };
 
 export const logueo = () => {
-  if (document.getElementById('logeo')) {
-    // console.log('existo');
-    document.getElementById('logeo').addEventListener('click', (e) => {
-      // console.log(e);
-      e.preventDefault();
-      const emailUser = document.getElementById('email').value;
-      const password = document.getElementById('password1').value;
-      // https://firebase.google.com/docs/web/setup#available-libraries
+  document.getElementById('logeo').addEventListener('click', (e) => {
+    e.preventDefault();
+    const emailUser = document.getElementById('email').value;
+    const password = document.getElementById('password1').value;
 
-      // Este es el enlace para habilitar la autenticación de firebase (se copia html)
-      firebase.auth().signInWithEmailAndPassword(emailUser, password)
-        .then((userCredential) => {
-          // Signed in
-          const user = userCredential.user;
-          console.log(user);
-          console.log('se conecto firebase');
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          console.log(errorCode, errorMessage);
-        });
-    });
-  }
+    // documentacion firebase: https://firebase.google.com/docs/web/setup#available-libraries
+    // Este es el metodo de firebase para autenticar:
+    firebase.auth().signInWithEmailAndPassword(emailUser, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log('se conecto a firebase');
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode);
+        alert(errorMessage);
+      });
+  });
 };

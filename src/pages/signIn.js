@@ -1,13 +1,6 @@
-/* eslint-disable quotes */
-/* eslint-disable no-alert */
-/* eslint-disable padded-blocks */
-/* eslint-disable eqeqeq */
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-console */
 import firebase from '../lib/firebase.js';
 
 export const signIn = () => {
-
   const view = `
   <section class="contenedorRegister">
   <form>
@@ -27,8 +20,8 @@ export const signIn = () => {
   divElement.innerHTML = view;
   return divElement;
 };
+
 export const register = () => {
-  console.log('existe registrar');
   if (document.getElementById('registrar')) {
     document.getElementById('registrar').addEventListener('click', (e) => {
       e.preventDefault();
@@ -52,9 +45,7 @@ export const register = () => {
             const errorMessage = error.message;
             console.log(errorCode, errorMessage);
           });
-
       } else {
-
         alert("Las contraseñas no coiciden");
       }
     });
