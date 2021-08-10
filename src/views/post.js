@@ -1,8 +1,7 @@
 // import { currentUser } from '../firebase/autenticacion.js';
-import { deletePost } from '../views-controllers/post-control.js';
+import { editLikes, deletePost, editPost } from '../views-controllers/post-control.js';
 // import { editLikes, deletePost, deleteLike, getAllLikes}
 // from '../views-controllers/post-control.js';
-// import { currentUser } from '../firebase/autenticacion.js';
 
 export const sharingPost = (data) => {
   const time = new Date(data.timePost.toDate());
@@ -30,14 +29,14 @@ export const sharingPost = (data) => {
                               <i class="fas fa-trash" aria-hidden="true"></i>
                           </button>
                           <button id="savePost" class="hide">
-                          <i class="fas fa-save" aria-hidden="true"></i>
+                              <i class="fas fa-save" aria-hidden="true"></i>
                           </button>
-                          <button id="editPost">
-                          <i class="fas fa-edit" aria-hidden="true"></i>
+                          <button id="edit-${data.id}">
+                               <i class="fas fa-edit" aria-hidden="true"></i>
                           </button>
                       </section>
                       <section class="middle-post">
-                          <section class="textarea no-border padding" id="text-lomismo" contenteditable="false">${data.postText}</section>
+                          <textarea class="textarea no-border padding" id="text-post" disabled>${data.postText}</textarea>
                       </section>
                       <section class="bottom-post">
                           <button id="like-${data.id}" class="bottom-heart">
@@ -104,9 +103,26 @@ export const sharingPost = (data) => {
   // getAllLikes(data.id, callbackLikes);
 
   const deletedPost = sectionPost.querySelector('#deletePost');
+  const editedPost = sectionPost.querySelector(`#edit-${data.id}`);
+  const savePost = sectionPost.querySelector('#savePost');
+  const textToEdit = sectionPost.querySelector('#text-post');
 
   deletedPost.addEventListener('click', () => {
     deletePost(data.id);
+  });
+
+  editedPost.addEventListener('click', () => {
+    savePost.classList.remove('hide');
+    editedPost.classList.add('hide');
+    textToEdit.disabled = false;
+    textToEdit.select();
+  });
+
+  savePost.addEventListener('click', () => {
+    editedPost.classList.remove('hide');
+    savePost.classList.add('hide');
+    editPost(data.id, textToEdit.value);
+    textToEdit.disabled = true;
   });
 
   // btnLike.addEventListener('click', () => {

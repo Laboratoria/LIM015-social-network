@@ -45,3 +45,9 @@ export const addPost = (e) => {
 
 // eliminar post
 export const deletePost = (idDocPost) => firebase.firestore().collection('posts').doc(idDocPost).delete();
+
+export const editPost = (idDocPost, newText) => firebase.firestore().collection('posts').doc(idDocPost).update({
+  postText: newText,
+  timePost: new Date(),
+});
+
