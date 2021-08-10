@@ -20,8 +20,8 @@ export const signIn = () => {
   divElement.innerHTML = view;
   return divElement;
 };
+
 export const register = () => {
-  console.log('existe registrar');
   if (document.getElementById('registrar')) {
     document.getElementById('registrar').addEventListener('click', (e) => {
       e.preventDefault();
