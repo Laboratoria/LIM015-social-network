@@ -1,5 +1,6 @@
-import home from './home.js';
+import Home from './home.js';
 
-export const components = {
-  Home: home,
+const components = {
+  home: Home,
 };
+export { components };
