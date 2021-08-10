@@ -1,4 +1,4 @@
-import { currentUser } from '../firebase/autenticacion.js';
+// import { currentUser } from '../firebase/autenticacion.js';
 import { deletePost, editPost } from '../views-controllers/post-control.js';
 // import { editLikes, deletePost, deleteLike, getAllLikes}
 // from '../views-controllers/post-control.js';
@@ -43,11 +43,11 @@ export const sharingPost = (data) => {
                     <section class="middle-post">
 
                       <section class="content-posts">
-                          <figure class="user-img"> <img class="img-perfil2" src='${currentUser().photoURL}'/> </figure>
+                          <figure class="user-img"> <img class="img-perfil2" src='${data.Photo}'/> </figure>
                           <section class="form-save">
                             <form class="form-save" maxlength="50" required>
                             <textarea class="textarea-post" id="text-post" disabled>${data.postText}</textarea>
-                         
+
                             <button id="like-${data.id}" class="bottom-heart">
                             <i class="fa fa-heart heart-full" aria-hidden="true" id="dislike-${data.id}" i>
                             </button> 

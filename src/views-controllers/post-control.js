@@ -6,10 +6,11 @@ export const addPost = (e) => {
   const post = document.getElementById('textPost').value;
   const privacy = document.getElementById('choosePrivacy').value;
   const user = currentUser();
+  const Photo = currentUser().photoURL;
   // eslint-disable-next-line prefer-const
   let countLike = 0;
   if (post !== '') {
-    sharePost(post, user.email, user.displayName, user.uid, countLike, privacy)
+    sharePost(post, user.email, user.displayName, user.uid, countLike, privacy, Photo)
       .then(() => {
         document.getElementById('textPost').value = '';
         console.log('se agrego el post');
