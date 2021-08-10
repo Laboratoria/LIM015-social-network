@@ -8,13 +8,14 @@ export const createUser = (nombre, email, id, photo) => {
   return addUserCollection;
 };
 
-export const sharePost = (post, email, nombre, id, like, privacy) => firebase.firestore().collection('posts').add({
+export const sharePost = (post, email, nombre, id, like, privacy, photo) => firebase.firestore().collection('posts').add({
   postText: post,
   idUser: id,
   user: nombre,
   mail: email,
   mode: privacy,
   likes: like,
+  Photo: photo,
   timePost: new Date(),
 });
 
