@@ -6,7 +6,7 @@
 }
 
 header{
-    display: none;
+    display: block;
 }
 
 body,button,
