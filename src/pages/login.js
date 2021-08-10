@@ -22,7 +22,7 @@ export const login = () => {
   </div>
   <div class="imgFacebookGoogle">
     <h3>Or sign in with ...</h3>
-  <'images/facebook.png' alt='Facebook' class='facebook'>
+  <img src='images/facebook.png' alt='Facebook' class='facebook'>
   <img src='images/google.png' alt='Google' clas<img src=s="google">
   </div>
   </form>
