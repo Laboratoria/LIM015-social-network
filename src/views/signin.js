@@ -16,7 +16,7 @@ export default () => {
   </section>
     <!-- Seccion donde esta el formulario de SignIn -->
     <form class="data-container">
-        <img class="logo-ibook" src="img/logo-ibook.png" width="200px" alt="logo de iBook"/>
+        <img class="logo-ibook" value="Correo Electronico" src="img/logo-ibook.png" width="200px" alt="logo de iBook"/>
         <input type="email" class="registro" id="username" placeholder=" E-mail" required>
           <input type="password" class="registro" id="password1" placeholder=" Password" required>
           <input type="button" class="registro-signin" href="#/home" id="sign-in" value="Sign-In">

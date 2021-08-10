@@ -1,5 +1,5 @@
-// import { currentUser } from '../firebase/autenticacion.js';
-import { editLikes, deletePost, editPost } from '../views-controllers/post-control.js';
+import { currentUser } from '../firebase/autenticacion.js';
+import { deletePost, editPost } from '../views-controllers/post-control.js';
 // import { editLikes, deletePost, deleteLike, getAllLikes}
 // from '../views-controllers/post-control.js';
 
@@ -15,60 +15,69 @@ export const sharingPost = (data) => {
                           <section class="only-flex">
                               <section>
                                   <p class="display-name">${data.user}</p>
-                                  <select id="select-Priv" class="btn-select" name="select">
-                                      <option value="privado">Privado</option>
-                                      <option value="público" selected>Público</option>
-                                  </select>
                               </section>
                               <p class="date-publication">
                               ${time.getHours()}${':'}${time.getMinutes()}
                               ${time.getDate()}${'/'}${time.getMonth() + 1}${'/'}${time.getFullYear()}
                               </p>
                           </section>
-                          <button id="deletePost">
-                              <i class="fas fa-trash" aria-hidden="true"></i>
-                          </button>
-                          <button id="savePost" class="hide">
-                              <i class="fas fa-save" aria-hidden="true"></i>
-                          </button>
-                          <button id="edit-${data.id}">
-                               <i class="fas fa-edit" aria-hidden="true"></i>
-                          </button>
+                          <section class="button-btn">
+                            <select id="select-Priv" class="btn-select" name="select">
+                              <option value="privado">Privado</option>
+                              <option value="público" selected>Público</option>
+                            </select>
+                            <section>
+                            <button id="deletePost">
+                                <i class="fas fa-trash" aria-hidden="true"></i>
+                            </button>
+                            <button id="savePost" class="hide">
+                                <i class="fas fa-save" aria-hidden="true"></i>
+                            </button>
+                            <button id="edit-${data.id}">
+                                <i class="fas fa-edit" aria-hidden="true"></i>
+                            </button>
+                            </section>
+                          </section>
                       </section>
-                      <section class="middle-post">
-                          <textarea class="textarea no-border padding" id="text-post" disabled>${data.postText}</textarea>
+
+                    <section class="middle-post">
+
+                      <section class="content-posts">
+                          <figure class="user-img"> <img class="img-perfil2" src='${currentUser().photoURL}'/> </figure>
+                          <section class="form-save">
+                            <form class="form-save" maxlength="50" required>
+                            <textarea class="textarea-post" id="text-post" disabled>${data.postText}</textarea>
+                         
+                            <button id="like-${data.id}" class="bottom-heart">
+                            <i class="fa fa-heart heart-full" aria-hidden="true" id="dislike-${data.id}" i>
+                            </button> 
+                            <button>
+                            <i id="counter-${data.id}" class="fa fa-heart-o heart-empty" aria-hidden="true">  ${data.likes}</i>
+                            </button>
+                            <button class="show-comment">
+                                <span id="show-comment">
+                                  <i class="fa fa-comment-o show-comment" aria-hidden="true"></i>
+                                </span>
+                                <a class="counter-comment">2</a>
+                            </button>
+                            <!-- <span class="margin-left hide">
+                                <i class="fa fa-heart-floppy-o iconSave" aria-hidden="true"></i>
+                                <span></span>
+                            </span> -->
+                          </section>
+                          <section class="hide">
+                            <form class="form-comment" maxlength="50" required>
+                                <textarea placeholder="Escribe tu comentario" class="textarea-comment">
+                                </textarea>
+                                <span class="comment">
+                                    <i class="fa fa-paper-plane btn-comment" aria-hidden="true"></i>
+                                </span>
+                            </form>
+                          </section>
                       </section>
-                      <section class="bottom-post">
-                          <button id="like-${data.id}" class="bottom-heart">
-                          <i class="fa fa-heart heart-full" aria-hidden="true" id="dislike-${data.id}" i>
-                          </button> 
-                          <button>
-                          <i id="counter-${data.id}" class="fa fa-heart-o heart-empty" aria-hidden="true">  ${data.likes}</i>
-                          </button>
-                          <button class="show-comment">
-                              <span id="show-comment">
-                                <i class="fa fa-comment-o show-comment" aria-hidden="true"></i>
-                              </span>
-                              <a class="counter-comment">2</a>
-                          </button>
-                          <!-- <span class="margin-left hide">
-                              <i class="fa fa-heart-floppy-o iconSave" aria-hidden="true"></i>
-                              <span></span>
-                          </span> -->
-                      </section>
-                      <section class="hide">
-                          <form class="form-comment" maxlength="50" required>
-                              <textarea placeholder="Escribe tu comentario" class="textarea-comment">
-                              </textarea>
-                              <span class="comment">
-                                  <i class="fa fa-paper-plane btn-comment" aria-hidden="true"></i>
-                              </span>
-                          </form>
-                      </section>
-                  </section>
               </li>
-          </ul>
-      </section>
+            </ul>
+    </section>
       `;
 
   sectionPost.innerHTML = template;

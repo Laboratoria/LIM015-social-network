@@ -46,7 +46,7 @@ export default (post) => {
             <!--Estos son para que las personas puedan escribir sus post-->
             <section class="content-general">
                 <section class="content-post">
-                <figure class="user-img"> <img class="img-perfil" src='${currentUser().photoURL}'/> </figure>
+                <figure class="user-img"> <img class="img-perfil2" src='${currentUser().photoURL}'/> </figure>
                 <section class="form-save">
                     <form class="padding" maxlength="50" required>
                     <textarea placeholder="¿Que quieres compartir?" id="textPost" class="textArea-comment "></textarea>
@@ -62,17 +62,16 @@ export default (post) => {
                                 <option value="publico" selected>Público</option>
                                 <option value="privado" select>Privado</option>
                             </select>
-                            <input type="button" class="btn-share" value="compartir" id="btn-share">
+                            <input type="button" class="btn-share" value="Publicar" id="btn-share">
                         </section>
                     </form>
                 </section>
-                </section>
+            </section>
 
                 <!--Estos son para que las personas puedan ver sus post-->
                 <section id="container-post"></section>
-
+                    
             </section>
-
             </section>
         </section>
     `;

@@ -20,6 +20,8 @@ body {
   background-color: #EFF7F6;
 }
 
+/* Pagina de Inicio - AGRUPADO POR PAMELA */
+/* Parte izquierda de la pagina de inicio*/
 .text-welcome{
   font-family: 'Marvel', cursive;
   font-size: 25px;
@@ -31,40 +33,18 @@ body {
 
 p.text-text {
   height: 17px;
-  left: 48px;
-  top: 196px;
   text-align: center;
   font-size: 18px;
   font-family: 'Marvel', sans-serif;
+  padding: 10px;
 }
 
-img.logo-ibook {
-  margin-top: 10px;
-  margin-bottom: 20px;
-
-}
-
-a.btn-register, a.btn-forget {
-  /* margin-top: 2px;
-  margin-bottom: 10px; */
-  color:  blue;
-  font-size: 16px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-p#error.error {
-  color: #E01E37;
-  font-weight: bold;
-  margin-top: 5px;
-  /* margin-bottom: 5px; */
-
-}
-
-.text-login {
-  margin-top: 10px;
-  margin-bottom: 10px;
-
+/* Parte derecha de la pagina de incio */
+.data-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #contenedorSignUp, #contenedorSignIn {
@@ -73,6 +53,10 @@ p#error.error {
   justify-content: space-evenly;
   margin: auto;
   margin-top: 100px;
+}
+
+img.logo-ibook {
+  margin: 20px 0px 20px;
 }
 
 .registro {
@@ -86,7 +70,8 @@ p#error.error {
   padding: 1.2px;
 }
 
-.registro-signUp, .registro-signin {
+/* Boton de inicio y registro */
+.registro-signin, .registro-signUp {
   width: 138px;
   height: 42px;
   color: white;
@@ -94,28 +79,37 @@ p#error.error {
   border: 1px solid #E01E37;
   border-radius: 6px;
   margin: 10px ;
-  cursor: pointer;
 }
 
+/* mensaje de error en signIn */
+p#error.error {
+  color: #E01E37;
+  font-weight: bold;
+  margin: 5px 0px 5px;
+}
 
-/* iniciar sesion con contrasena  */
-.data-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+a.btn-register, a.btn-forget {
+  color:  blue;
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.text-login {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 /* botones de google y facebook  */
+.button {
+  border: none;
+  background: none;
+}
+
 .btn-fb-google {
   margin: 5px;
   margin-bottom: 10px;
   justify-content: space-evenly;
-}
-
-.button {
-  border: none;
-  background: none;
 }
 
 .fab {
@@ -132,7 +126,7 @@ p#error.error {
   cursor: pointer;
 }
 
-/* navegador */
+/* Navegador - AGRUPADO PAMELA*/
 
 header {
   display: flex;
@@ -145,14 +139,9 @@ header {
   width: 100%;
 }
 
-.nav-bar ul{
-  display: flex;
-  justify-content: space-around;
-}
-
 .nav-bar li{
   list-style: none;
-    display: inline-block;
+  display: inline-block;
 }
 
 .nav-bar li:hover{
@@ -166,30 +155,72 @@ header {
   font-weight: bold;
   padding: 0 29px;
   align-items: center;
-  display: flex; 
+  display: flex;
 }
 
-.user-perfil {
-  border: 2px solid rgb(222, 144, 238);
-  background: rgb(231, 200, 238);
-  border-radius: 5px;
-  padding: 2%;
-  margin-bottom: 5%;
-  height: 70%;
-  width: 40%;
-  margin-top: 0.7%;
+/* Pagina de Home */
+.container-perfil {
+  display: flex;
+  justify-content: space-around;
 }
 
+/* Contenedor de Perfil de usuario, cuantos libros lees? - AGRUPADO PAMELA*/
 .img-profile {
   width: 100%;
 }
 
-.container-perfil {
-display: flex;
-justify-content: space-around;
-} 
+.user-perfil {
+  width: 270px;
+  height: 360px;
+  border: 2px solid rgb(135, 125, 224);
+  background: rgb(176, 205, 212);
+  border-radius: 5px;
+  margin: 10px;
+  padding: 5px;
+}
 
-.content-post, .section-post {
+.img-perfil {
+  border-radius: 50%;
+  margin: 10px;
+}
+
+.email-perfil {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px 0px 10px;
+}
+
+.text-phrase {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0px 10px;
+}
+
+/* Post para publicar - AGRUPADO PAMELA* */
+
+.textArea-comment {
+  resize: none;
+  background-color:plum;
+  width: 390px;
+  height: 45px;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 15px;
+  outline: none;
+  text-align: justify;
+}
+
+.img-perfil2 {
+  width: 96px;
+  border-radius: 50%;
+  margin: 10px;
+  padding: 10px;
+}
+
+.content-post {
+  display: flex;
   width: 600px;
   border: 2px solid purple;
   border-radius: 5px;
@@ -198,18 +229,12 @@ justify-content: space-around;
   margin: 10px;
 }
 
-.container-general {
-  display: block;
-}
-
-.padding {
-  padding: 2%;
-}
-
-.file-name {
-  border:black;
-  width: 90px;
-  font-size: 10px;
+.btn-picture {
+  color: #fefefe;
+  background: slategrey;
+  padding: 10px;
+  border-radius: 50%;
+  /* cursor: pointer; */
 }
 
 .btn-select {
@@ -219,13 +244,75 @@ justify-content: space-around;
   cursor: pointer;
   background: transparent;
   font-family: "Ubuntu", sans-serif;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: bold;
 }
 
 .btn-select select option {
-  padding: 30px;
+  padding: 20px;
 }
+
+/* Post ya publicados - AGRUPADO PAMELA*/
+.section-post {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  height: 200px;
+  border: 2px solid purple;
+  border-radius: 5px;
+  padding: 4px;
+  margin: 10px;
+}
+
+.content-posts {
+  display: flex;
+  justify-content: unset;
+  align-items: center;
+}
+
+.textarea-post {
+  resize: none;
+  background-color:plum;
+  width: 390px;
+  height: 45px;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 15px;
+  outline: none;
+  text-align: justify;
+}
+
+.only-flex, .display-name, .date-publication {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  text-align: center;
+  padding: 5px;
+  font-family: 'Marvel', sans-serif;
+  background-color: #9da9cf;
+}
+
+.button-btn {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.form-save {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 
+
+.file-name {
+  border:black;
+  width: 90px;
+  font-size: 10px;
+}
+ */
+/* 
 
 .btn-share {
   background-color: rebeccapurple;
@@ -238,7 +325,7 @@ justify-content: space-around;
 
 .hide {
   display: none;
-}
+} */
 
 .ul-parent {
   padding-left: 0px;
@@ -251,11 +338,6 @@ justify-content: space-around;
   width: 100%;
   padding-left: 0px;
   padding-right: 0px;
-}
-
-.user-publicated {
-  background-color: #9da9cf;
-  font-size: 12px;
 }
 
 .only-flex {
@@ -291,28 +373,7 @@ justify-content: space-around;
   flex-direction: column;
 }
 
-.textArea-comment {
-  resize: none;
-  background-color:plum;
-  width: -webkit-fill-available;
-  margin: 0 3% 0% 5%;
-  border: none;
-  padding: 1% 0 0 2%;
-  border-radius: 15px;
-  outline: none;
-  text-align: justify;
-  height: 45px;
-  margin-bottom: 10px;
-  margin-top: 10px;
-}
 
-.btn-picture {
-  color: #fefefe;
-  background: slategrey;
-  padding: 10px;
-  border-radius: 50%;
-  /* cursor: pointer; */
-}
 
 .flex-bottom-form {
   display: flex;
@@ -320,21 +381,6 @@ justify-content: space-around;
   justify-content: space-around;
 }
 
-.img-perfil {
-  border-radius: 50%;
-}
-
-.email-perfil {
-  font-size: 20px;
-  font-weight: bold;
-  text-align: center;
-}
-
-.text-phrase {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
 .img-class {
   display: flex;
@@ -346,14 +392,7 @@ justify-content: space-around;
   justify-content: space-around;
 }
 
-.only-flex, .display-name, .date-publication {
-  display: flex;
-  justify-content: space-between;
-  font-size: 15px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  font-family: 'Roboto', sans-serif;
-}
+
 
 .bottom-heart, .show-comment {
   border: none;
@@ -366,6 +405,9 @@ justify-content: space-around;
   background-color: red;
 } */
 
+
+
+
 /* .fa.fa-heart-o:before {
   content: "\f004";
   color: red;
@@ -376,17 +418,37 @@ justify-content: space-around;
   color: blue;
 } */
 
+/* Profile - AGRUPADO PAMELA */
+.edit-profile {
+  display: flex;
+  justify-content: center;
+  /* margin: 20px;
+  padding: 20px;
+  border: 10px; */
+}
+
+.user-img {
+  display: flex;
+  justify-content: center;
+}
+
+.profile-view {
+  display: grid;
+  justify-content: center;
+}
+
+
+
 .footer {
   font-size: 20px;
   position: fixed;
-  left: 0;
-  bottom: 0;
   width: 100%;
   background-color:#6EA4BB;
   color: white;
   text-align: center;
   padding: 10px;
 }
+
 
 @media only screen and (min-width: 280px) and (max-width: 479px) {
   .contenedorView1 {
