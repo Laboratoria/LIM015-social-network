@@ -1,9 +1,6 @@
-import Profile from './profile.js';
-import MainPage from './appMainPage.js';
+import Home from './home.js';
 
 const components = {
-  profile: Profile,
-  mainPage: MainPage,
+  home: Home,
 };
-
 export { components };

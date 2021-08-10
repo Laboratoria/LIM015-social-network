@@ -1,21 +1,18 @@
-import { auth } from './fs-config.js';
+import { changeView } from './router.js';
+import { auth } from './scripts/fs-config.js';
 
 const init = () => {
-  // window.addEventListener('hashchange', () => {
-    console.log('hola');
-  // });
+  // changeView(window.location.hash);
+  window.addEventListener('hashchange', () => {
+    changeView(window.location.hash);
+  });
 };
-
-
 
 auth.onAuthStateChanged((user) => {
   if (user) {
-    console.log("auth-signin");
+    console.log('auth-signin');
     init();
-  
   } else {
-    console.log("auth-signout");
-  
+    console.log('auth-signout');
   }
-  
-  });
+});
