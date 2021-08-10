@@ -1,3 +1,4 @@
+/* eslint-disable eol-last */
 /* eslint-disable quotes */
 /* eslint-disable no-alert */
 /* eslint-disable padded-blocks */
@@ -60,4 +61,3 @@ export const register = () => {
     });
   }
 };
-
