@@ -9,5 +9,4 @@ export const components = {
   SignIn: signIn,
   Timeline: timeline,
   NotFound: notFound,
-
 };
