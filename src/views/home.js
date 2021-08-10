@@ -1,5 +1,4 @@
 export default () => {
-  const main = document.querySelector('.container');
   const article = document.createElement('article');
   article.className = 'home';
   article.innerHTML = `
@@ -36,5 +35,4 @@ export default () => {
    </section>
   </section>
   `;
-  main.appendChild(article);
 };
