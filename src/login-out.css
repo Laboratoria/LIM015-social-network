@@ -6,7 +6,7 @@
 }
 
 header{
-    display: none;
+    display: block;
 }
 
 body,button,
@@ -370,3 +370,11 @@ form.sign-up-form{
         left: 50%;
     }
 }
+
+/*murito*/
+.home{
+    background-color: #f2e4f7;
+}
+.top-section{
+
+    }
