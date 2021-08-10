@@ -22,31 +22,32 @@ export const signIn = () => {
 };
 
 export const register = () => {
-  if (document.getElementById('registrar')) {
-    document.getElementById('registrar').addEventListener('click', (e) => {
-      e.preventDefault();
-      console.log('registrando');
-      const nameRegister = document.getElementById('userName').value;
-      const emailUser = document.getElementById('email').value;
-      const passWord = document.getElementById('password1').value;
-      const confirmPass = document.getElementById('password2').value;
+  document.getElementById('registrar').addEventListener('click', (e) => {
+    e.preventDefault();
+    // console.log('registrando');
+    const nameRegister = document.getElementById('userName').value;
+    const emailUser = document.getElementById('email').value;
+    const passWord = document.getElementById('password1').value;
+    const confirmPass = document.getElementById('password2').value;
 
-      if (passWord == confirmPass) {
-        console.log('las claves son identicas, se procede a usar firebase');
-        firebase.auth().createUserWithEmailAndPassword(emailUser, passWord)
-          .then((userCredential) => {
-            // Signed in
-            const user = userCredential.user;
-            console.log(user);
-            console.log('conexion firebase register');
-          })
-          .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log(errorCode, errorMessage);
-          });
-      } else {
-        alert("Las contraseñas no coiciden");
-      }
-    });
-  }
+    if (passWord === confirmPass) {
+      console.log('las claves son identicas, se procede a usar firebase');
+      // metodo de firebase para crear un usuario
+      firebase.auth().createUserWithEmailAndPassword(emailUser, passWord)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          // console.log(user);
+          console.log('registro exitoso');
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorCode);
+          alert(errorMessage);
+        });
+    } else {
+      alert('Las contraseñas no coiciden');
+    }
+  });
+};
