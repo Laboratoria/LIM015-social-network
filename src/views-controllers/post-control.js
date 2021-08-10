@@ -30,6 +30,6 @@ export const editLikes = (idD, like) => {
 export const deletePost = (idDocPost) => firebase.firestore().collection('posts').doc(idDocPost).delete();
 
 export const editPost = (idDocPost, newText) => firebase.firestore().collection('posts').doc(idDocPost).update({
-  text: newText,
+  postText: newText,
   timePost: new Date(),
 });

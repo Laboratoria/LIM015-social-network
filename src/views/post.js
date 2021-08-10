@@ -13,7 +13,7 @@ export const sharingPost = (data) => {
                           <section class="only-flex">
                               <section>
                                   <p class="display-name">${data.user}</p>
-                                  <select id="selectPriv-lomismo" class="btn-select" name="select">
+                                  <select id="select-Priv" class="btn-select" name="select">
                                       <option value="privado">Privado</option>
                                       <option value="público" selected>Público</option>
                                   </select>
@@ -26,9 +26,15 @@ export const sharingPost = (data) => {
                           <button id="deletePost" class="">
                               <i class="fas fa-trash" aria-hidden="true"></i>
                           </button>
+                          <button id="savePost" class="hide">
+                              <i class="fas fa-save" aria-hidden="true"></i>
+                          </button>
+                          <button id="edit-${data.id}">
+                               <i class="fas fa-edit" aria-hidden="true"></i>
+                          </button>
                       </section>
                       <section class="middle-post">
-                          <section class="textarea no-border padding" id="text-lomismo" contenteditable="false">${data.postText}</section>
+                          <textarea class="textarea no-border padding" id="text-post" disabled>${data.postText}</textarea>
                       </section>
                       <section class="bottom-post">
                           <button id="like-${data.id}" class="bottom-heart">
@@ -48,7 +54,7 @@ export const sharingPost = (data) => {
                           <form class="form-comment" maxlength="50" required>
                               <textarea placeholder="Escribe tu comentario" class="textarea-comment">
                               </textarea>
-                              <span class="margin">
+                              <span class="comment">
                                   <i class="fa fa-paper-plane btn-comment" aria-hidden="true"></i>
                               </span>
                           </form>
@@ -64,14 +70,26 @@ export const sharingPost = (data) => {
 
   const btnLike = sectionPost.querySelector(`#like-${data.id}`);
   const deletedPost = sectionPost.querySelector('#deletePost');
-  const editedPost = sectionPost.querySelector('#editPost');
+  const editedPost = sectionPost.querySelector(`#edit-${data.id}`);
+  const savePost = sectionPost.querySelector('#savePost');
+  const textToEdit = sectionPost.querySelector('#text-post');
 
   deletedPost.addEventListener('click', () => {
     deletePost(data.id);
   });
 
   editedPost.addEventListener('click', () => {
-    editPost(data.id);
+    savePost.classList.remove('hide');
+    editedPost.classList.add('hide');
+    textToEdit.disabled = false;
+    textToEdit.select();
+  });
+
+  savePost.addEventListener('click', () => {
+    editedPost.classList.remove('hide');
+    savePost.classList.add('hide');
+    editPost(data.id, textToEdit.value);
+    textToEdit.disabled = true;
   });
 
   btnLike.addEventListener('click', () => {

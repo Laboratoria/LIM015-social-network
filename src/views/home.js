@@ -7,11 +7,11 @@ import { salir } from '../views-controllers/signin-control.js';
 export default (post) => {
   const sectionHome = document.createElement('section');
   const template = `
-  <!-- comienza cuadrado del costado -->
-  <section id="container" class="container">
+      <!-- comienza cuadrado del costado -->
+      <section id="container" class="container">
         <section>
             <header>
-                <h2 class="white">welcome a iBook</h2>
+            <img class="logo-ibook" src="img/logo-ibook.png" width="160px" alt="logo de iBook"/>
                 <nav class="nav-bar" id="nav">
                     <ul>
                         <li><a href="#/home">HOME</a></li>
@@ -24,7 +24,7 @@ export default (post) => {
             <section class = "container-perfil">
             <section id="user-perfil" class="user-perfil">
                 <img class="img-profile" src="img/libro9.png" alt="">
-                  <figure class="img-class"> <img class="img-perfil" src='${currentUser().photoURL}'/> </figure>
+            <figure class="img-class"> <img class="img-perfil" src='${currentUser().photoURL}'/> </figure>
                     <p class="email-perfil">${currentUser().email}</p>
                 <section>
                     <section class="flex margin">
@@ -43,13 +43,13 @@ export default (post) => {
                     </section>
                 </section>
             </section>
-  <!--Estos son para que las personas puedan escribir sus post-->
+<!--Estos son para que las personas puedan escribir sus post-->
             <section class="content-general">
                 <section class="content-post">
-                  <section class="form-save">
+                <section class="form-save">
                     <form class="padding" maxlength="50" required>
-                      <textarea placeholder="¿Que quieres compartir?" id="textPost" class="textArea-comment "></textarea>
-                          <section class="flex-bottom-form">
+                    <textarea placeholder="¿Que quieres compartir?" id="textPost" class="textArea-comment "></textarea>
+                        <section class="flex-bottom-form">
                             <section>
                                 <label for="fileButton">
                                     <i class="far fa-image btn-picture" aria-hidden="true">
@@ -62,9 +62,9 @@ export default (post) => {
                                 <option value="privado" select>Privado</option>
                             </select>
                             <input type="button" class="btn-share" value="compartir" id="btn-share">
-                          </section>
+                        </section>
                     </form>
-                  </section>
+                </section>
                 </section>
 
                 <!--Estos son para que las personas puedan ver sus post-->
@@ -73,8 +73,7 @@ export default (post) => {
             </section>
 
             </section>
-          </section>
-
+        </section>
     `;
 
   sectionHome.innerHTML = template;
