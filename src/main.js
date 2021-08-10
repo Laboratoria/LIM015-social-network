@@ -15,6 +15,4 @@ const init = () => {
   });
 };
 
-//window.logueo = logueo;
-
 window.addEventListener('load', init);

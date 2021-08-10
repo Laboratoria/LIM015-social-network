@@ -151,15 +151,14 @@ footer {
     display: flex;
     flex-flow: row wrap;
     padding: 20px 20px 10px 20px;
-    color: #ffffff;
-    background-color: rgb(56, 43, 43);
+    color: #fff;
+    background-color: #61453D;
     border-top: 1px solid #2f2f2f;
     font-weight: 100;
     text-transform: lowercase;
     display: flex;
     justify-content: center;
   }
-  
   footer{
     flex:  1 100%;
   } */
