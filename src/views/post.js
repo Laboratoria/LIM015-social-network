@@ -1,4 +1,4 @@
-// import { currentUser } from '../firebase/autenticacion.js';
+import { currentUser } from '../firebase/autenticacion.js';
 import { deletePost, editPost } from '../views-controllers/post-control.js';
 // import { editLikes, deletePost, deleteLike, getAllLikes}
 // from '../views-controllers/post-control.js';
@@ -116,23 +116,28 @@ export const sharingPost = (data) => {
   const savePost = sectionPost.querySelector('#savePost');
   const textToEdit = sectionPost.querySelector('#text-post');
 
-  deletedPost.addEventListener('click', () => {
-    deletePost(data.id);
-  });
-
-  editedPost.addEventListener('click', () => {
-    savePost.classList.remove('hide');
+  if (data.idUser !== currentUser().uid) {
+    deletedPost.classList.add('hide');
     editedPost.classList.add('hide');
-    textToEdit.disabled = false;
-    textToEdit.select();
-  });
+  } else {
+    deletedPost.addEventListener('click', () => {
+      deletePost(data.id);
+    });
 
-  savePost.addEventListener('click', () => {
-    editedPost.classList.remove('hide');
-    savePost.classList.add('hide');
-    editPost(data.id, textToEdit.value);
-    textToEdit.disabled = true;
-  });
+    editedPost.addEventListener('click', () => {
+      savePost.classList.remove('hide');
+      editedPost.classList.add('hide');
+      textToEdit.disabled = false;
+      textToEdit.select();
+    });
+
+    savePost.addEventListener('click', () => {
+      editedPost.classList.remove('hide');
+      savePost.classList.add('hide');
+      editPost(data.id, textToEdit.value);
+      textToEdit.disabled = true;
+    });
+  }
 
   // btnLike.addEventListener('click', () => {
   //   const likeValue = data.likes + 1;
