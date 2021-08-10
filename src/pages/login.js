@@ -22,8 +22,8 @@ export const login = () => {
   </div>
   <div class="imgFacebookGoogle">
     <h3>Or sign in with ...</h3>
-  <img src='images/facebook.png' alt='Facebook' class='facebook'>
-  <img src='images/google.png' alt='Google' class="google">
+  <'images/facebook.png' alt='Facebook' class='facebook'>
+  <img src='images/google.png' alt='Google' clas<img src=s="google">
   </div>
   </form>
   </section>
