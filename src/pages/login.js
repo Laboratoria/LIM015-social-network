@@ -75,20 +75,3 @@ export const logueo = () => {
     }
   });
 };
-
-export const loginWithFacebook = () => {
-  document.getElementById('facebook').addEventListener('click', (e) => {
-    e.preventDefault();
-    console.log('paso fb');
-  });
-};
-
-const authSuccess = () => {
-  auth.onAuthStateChanged(user => {
-    if (user) {
-      console.log('auth: sign in')
-    } else {
-      console.log('auth: sign out')
-    }
-  });
-};
