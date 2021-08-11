@@ -81,6 +81,10 @@ img.logo-ibook {
   margin: 10px ;
 }
 
+#username.registro, #password1.registro {
+  width: 200px;
+}
+
 /* mensaje de error en signIn */
 p#error.error {
   color: #E01E37;
@@ -133,7 +137,7 @@ header {
   justify-content: space-around;
   align-items: center;
   background-color: coral;
-  font-family: 'roboto', sans-serif;
+  font-family: 'marvel', sans-serif;
   font-size: 18px;
   height: 70px;
   width: 100%;
@@ -161,7 +165,9 @@ header {
 /* Pagina de Home */
 .container-perfil {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  margin-left: 150px;
+  margin-right: 150px;
 }
 
 /* Contenedor de Perfil de usuario, cuantos libros lees? - AGRUPADO PAMELA*/
@@ -436,9 +442,8 @@ header {
 .edit-profile {
   display: flex;
   justify-content: center;
-  /* margin: 20px;
-  padding: 20px;
-  border: 10px; */
+  margin-bottom: 50px;
+  margin-top: 50px;
 }
 
 .user-img {
