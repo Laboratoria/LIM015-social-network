@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=MuseoModerno:wght@200;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;700;900&display=swap');
 *{
     padding: 0;
     margin: 0;
@@ -370,11 +371,3 @@ form.sign-up-form{
         left: 50%;
     }
 }
-
-/*murito*/
-.home{
-    background-color: #f2e4f7;
-}
-.top-section{
-
-    }
