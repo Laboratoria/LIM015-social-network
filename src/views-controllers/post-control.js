@@ -22,11 +22,11 @@ export const addPost = (e) => {
   }
 };
 
-// export const editLikes = (idD, like) => {
-//   firebase.firestore().collection('posts').doc(idD).update({
-//     likes: like,
-//   });
-// };
+export const editLikes = (idD, like) => {
+  firebase.firestore().collection('posts').doc(idD).update({
+    likes: like,
+  });
+};
 
 // export const getAllLikes = (postText, callback) =>{
 //   firebase.firestore().collection('posts').doc(postText).collection('likes')
