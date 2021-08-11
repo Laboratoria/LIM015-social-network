@@ -5,7 +5,7 @@ const signUpPage = `<section class="container">
         few steps to start your journey</span></h1>
 
   </div>
-  <form id="signupform" class="login-info">
+  <div class="login-info">
 
     <span class="input">
       <i class="fas fa-user"></i>
@@ -27,7 +27,7 @@ const signUpPage = `<section class="container">
     <br>
 
     <br>
-  </form>
+  </div>
 </div>
 
 </section>

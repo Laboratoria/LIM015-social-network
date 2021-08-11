@@ -97,6 +97,7 @@
     font-size: 13px;
     color: white;
     column-gap: 98px;
+    cursor: pointer;
 }
 .ortext{
     text-align: center;

@@ -1,11 +1,13 @@
 const newsPage = `<header id="container" class="navcontainer">
   <nav id="menu">
     <ul class="options-container">
-      <a class="menuoptions" href="#profile">Profile</a>
-      <p class="menuoptions">Discover<img id = "logout" class="navicons" src="./images/logoairplane.svg" alt="airplanelogo"
+      <p id="profile" class="menuoptions">Profile</p>
+      <p class="menuoptions">Discover<img class="navicons" src="./images/logoairplane.svg" alt="airplanelogo"
           srcset="" /></p>
-      <a class="menuoptions" href="#login">Log out<img class="navicons" src="./images/logout.svg" alt="logouticon"
-          srcset="" /></a>
+      <div id= "logout" class="menuoptions">
+      <p>Log out</p>
+      <img class="navicons" src="./images/logout.svg" alt="logouticon"
+          srcset="" /></div>
     </ul>
   </nav>
 </header>

@@ -24,7 +24,7 @@ const loginPage = ` <section class="container">
       <img id="googlesvg" src="./images/flat-color-icons_google (1).svg" alt="google icon" srcset="" />
       <img id="fbsvg" src="./images/logos_facebook.svg" alt=" facebook icon" srcset="" />
     </div>
-    <p class="register-text">Don't have an account?<a id="signup" class="register-text" href="#signup">Sign Up</a>
+    <p class="register-text">Don't have an account?<span id="signup" class="register-text" >Sign Up</span>
     </p>
   </form>
 </div>
