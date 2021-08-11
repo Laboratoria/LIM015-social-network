@@ -5,7 +5,7 @@ const changeView = (route) => {
   const main = document.querySelector('.views'); // este main es para las vistas
   main.innerHTML = '';
   switch (route) {
-    case '#/home': main.appendChild(components.home());
+    case '#/community': main.appendChild(components.community());
       break;
     case '#/logout': logout();
       break;

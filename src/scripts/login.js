@@ -113,5 +113,3 @@ const googleBtn = document.querySelector('.google');
 googleBtn.addEventListener('click', () => {
   googleLogin();
 });
-
-// Log out

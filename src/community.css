@@ -1,8 +1,6 @@
-    /*murito*/
     @import url('https://fonts.googleapis.com/css2?family=MuseoModerno:wght@200;500;600;700;800&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;700;900&display=swap');
-
-    * {
+    @import url('https://fonts.googleapis.com/css2?family=Capriola&display=swap');
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -10,39 +8,38 @@
 
     html { 
     font-family: 'MuseoModerno', sans-serif;
-    background-color: #DBCADE;
+    background-color: #f2e0f5;
     }
     
 
     nav{
         display:flex;
         align-items:center;
-        justify-content:space-evenly;
+        justify-content:space-between;
         padding: 0px 10%;
         margin-top:10px;
         margin-bottom:-20px;
-        z-index:100;
       }
-  
+
   
   .nav-left{
     display:flex;
     margin-left:5rem;
   }
   
-  .nav.right ul li{
+  .nav-right ul li{
     list-style:none;
     display:inline-block;
     margin:20px;
   }
   
-  .nav a i{
+  .nav-right a i{
     color: #7b68b4;
     font-size: 1.7rem;
     transition: color .5s ease;
   }
   
-  .nav a:hover i {
+  .nav-right a:hover i {
       color: rgb(251, 139, 255);
   }
   
@@ -87,25 +84,36 @@
     margin-left:25%;
     margin-top:-12%;
     font-size: 1rem;
-    font-family: Roboto;
+    font-family: Capriola;
     color:#6b6b6b;
-    font-weight: 500;
+    font-weight: 600;
+  }
+
+  .tuerca{
+    margin-top: 12px;
+    margin-left: 15px;
+    border-radius: 100%;
+    width: 20px;
   }
    /*posters animes populares*/
   .animes-container{
+    display: grid;
+    grid: auto;
+    width: 100%;
     background:#fff;
     margin-top:20px;
     border-radius:20px;
     margin-bottom:0px;
   }
   .title-anime{
+    margin-top: 20px;
     margin-bottom: 10px;
     display:flex;
     justify-content:center;
     font-size: 0.8rem;
-    font-family: Roboto;
+    font-family: Capriola;
     color:#6b6b6b;
-    font-weight: 500;
+    font-weight: 400;
   }
   .posters-container{
    display:grid;

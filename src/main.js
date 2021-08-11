@@ -1,7 +1,7 @@
 import { changeView } from './router.js';
 import { auth } from './scripts/fs-config.js';
 
-const init = () => {
+const vistas = () => {
   changeView(window.location.hash);
   window.addEventListener('hashchange', () => {
     changeView(window.location.hash);
@@ -11,7 +11,7 @@ const init = () => {
 auth.onAuthStateChanged((user) => {
   if (user) {
     console.log('auth-signin');
-    init();
+    vistas();
     document.querySelector('.container').style.display = 'none'; // acá oculto el main que contiene el login
     document.getElementById('header').style.display = 'flex'; // acá muestro el header con el navbar
   } else {
