@@ -12,6 +12,8 @@ auth.onAuthStateChanged((user) => {
   if (user) {
     console.log('auth-signin');
     init();
+    document.querySelector('.container').style.display = 'none'; // acá oculto el main que contiene el login
+    document.getElementById('header').style.display = 'flex'; // acá muestro el header con el navbar
   } else {
     console.log('auth-signout');
   }
