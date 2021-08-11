@@ -8,24 +8,36 @@ import firebase from '../lib/firebase.js';
 
 export const login = () => {
   const view = `
+  <header id='header'>
+    <nav class='menu'>
+      <ul>
+        <li class='items'>
+          <a href='#/'>Login</a>
+        </li>
+        <li class='items'>
+          <a href='#/SignIn'>Sign In</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
   <section class="contenedorFormulario">
-  <form >
-  <img src='images/laRuta-02.png' alt='La ruta logo' class='logo'/>
-  <p class='welcome'>Welcome Traveler!</p>
-  <input type='email' id='email' placeholder='✉ Email' class='input' />
-  <input type='password' id='password1' placeholder='🔑 Password' class='input' />
-  <div class="buttons">
-    <button id='logeo' type='submit' class='btnStart'>LOG IN</button>
-  </div>
-  <div  class="buttons">
-    <button type='submit'class='btnStart'>SIGN IN</button>
-  </div>
-  <h3>Or sign in with ...</h3>
-  <div class="imgFacebookGoogle">
-  <img id='facebook' src='images/facebook.png' alt='Facebook' class='facebook'>
-  <img id='google' src='images/google.png' alt='Google' class="google">
-  </div>
-  </form>
+    <form >
+      <img src='images/laRuta-02.png' alt='La ruta logo' class='logo'/>
+      <p class='welcome'>Welcome Traveler!</p>
+      <input type='email' id='email' placeholder='✉ Email' class='input' />
+      <input type='password' id='password1' placeholder='🔑 Password' class='input' />
+      <div class="buttons">
+        <button id='logeo' type='submit' class='btnStart'>LOG IN</button>
+      </div>
+      <div  class="buttons">
+        <button type='submit'class='btnStart'>SIGN IN</button>
+      </div>
+      <h3>Or sign in with ...</h3>
+      <div class="imgFacebookGoogle">
+      <img id='facebook' src='images/facebook.png' alt='Facebook' class='facebook'>
+      <img id='google' src='images/google.png' alt='Google' class="google">
+      </div>
+    </form>
   </section>
   `;
   const divElement = document.createElement('div');
