@@ -1,5 +1,6 @@
 import { currentUser } from '../firebase/autenticacion.js';
 import { editLikes, deletePost, editPost } from '../views-controllers/post-control.js';
+
 // import { editLikes, deletePost, deleteLike, getAllLikes}
 // from '../views-controllers/post-control.js';
 
@@ -122,7 +123,7 @@ export const sharingPost = (data) => {
     deletedPost.addEventListener('click', () => {
       deletePost(data.id);
     });
-
+    
     deletedPost.addEventListener('click', () => {
       deletePost(data.id);
     });
