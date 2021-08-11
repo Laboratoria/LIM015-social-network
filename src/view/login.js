@@ -13,29 +13,30 @@ export const logInTemplate = () => {
     </form>
     <span>New here? <a id="linkRegister" href="#/Register">Register</a></span>
     <div class="divIconG">
-      <img src="./img/icons8-logo-de-google.svg" alt="iGoogle" class="iGoogle">
+      <button id = 'btnGoogle'>
+        <img src="./img/icons8-logo-de-google.svg" alt="iGoogle" class="iGoogle">
+      </button>
+      <div id = 'error-logueo'></div>
     </div>
     `;
   sectionLogIn.innerHTML = templateLogIn;
 
-  const btnLogIn = sectionLogIn.querySelector('.btnLogIn');
-
-  function logIn() {
-    console.log('Si funciona');
-    const userEmail = sectionLogIn.querySelector('#emailLogIn').value;
-    const userPassword = sectionLogIn.querySelector('#passwordLogIn').value;
-
-    firebase.auth().signInWithEmailAndPassword(userEmail, userPassword).catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      window.alert('Error: ' + errorMessage);
-    });
-  }
-  btnLogIn.addEventListener('click', logIn);
+  const messageError = sectionLogIn.querySelector('#error-logueo');
+  const provider = new firebase.auth.GoogleAuthProvider();
+  const inicioSesionGoogle = () => {
+    firebase.auth()
+      .signInWithPopup(provider)
+      .then(() => {
+        console.log('logueado');
+        window.location.hash = '#/Home';
+        messageError.innerHTML = '';
+      })
+      .catch(() => {
+        console.log('error');
+        messageError.innerHTML = 'Error de logueo';
+      });
+  };
+  const btnGoogle = sectionLogIn.querySelector('#btnGoogle');
+  btnGoogle.addEventListener('click', inicioSesionGoogle, false);
   return sectionLogIn;
 };
-
-// Metodo de autoentificacion
-// La condicion autoentificacion exitosa
-
-// la condicion autoentificacion fallida
