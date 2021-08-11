@@ -18,6 +18,7 @@ export const signIn = () => {
     <form>
     <img src='images/laRuta-02.png' alt='La ruta logo' class='logo'/>
     <p class='welcome'>Welcome Traveler!</p>
+    <span id='errorMessage'></span>
     <input type='text' id='userName' placeholder='👤 Name' class='input' required />
     <input type='email' id='email' placeholder='✉ Email' class='input' required />
     <input type='password' id='password1' placeholder='🔑 Password' class='input' required />

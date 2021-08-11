@@ -24,8 +24,9 @@ export const login = () => {
     <form >
       <img src='images/laRuta-02.png' alt='La ruta logo' class='logo'/>
       <p class='welcome'>Welcome Traveler!</p>
+      <span id='errorMessage'></span>
       <input type='email' id='email' placeholder='✉ Email' class='input' />
-      <input type='password' id='password1' placeholder='🔑 Password' class='input' />
+      <input type='password' id='password1' placeholder='🔑 Password' class='input' minlength='6'/>
       <div class='buttons'>
         <button id='logeo' type='submit' class='btnStart'>LOG IN</button>
       </div>
@@ -46,13 +47,15 @@ export const login = () => {
 };
 
 export const logueo = () => {
-  document.getElementById('logeo').addEventListener('click', (e) => {
+  const btnLogin = document.getElementById("logeo");
+  const btnSign = document.getElementById("submit");
+  btnLogin.addEventListener('click', (e) => {
     e.preventDefault();
-    const emailUser = document.getElementById('email').value;
-    const password = document.getElementById('password1').value;
-
-    if (emailUser === '' || password === '') {
-      alert('You must log in first');
+    const emailUser = document.getElementById("email").value;
+    const password = document.getElementById("password1").value;
+    const alertErrorMessage = document.getElementById("errorMessage");
+    if (emailUser === "" || password === "") {
+      alertErrorMessage.textContent = "You must log in first";
     } else {
       // documentacion firebase: https://firebase.google.com/docs/web/setup#available-libraries
       // Este es el metodo de firebase para autenticar:
@@ -62,16 +65,20 @@ export const logueo = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log('se conecto a firebase');
-          window.location.hash = '#/Timeline';
+          alertErrorMessage.textContent = "se conecto a firebase";
+          window.location.hash = "#/Timeline";
           window.location.reload();
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
           console.log(errorCode);
-          alert(errorMessage);
+          alertErrorMessage.textContent = errorMessage;
         });
     }
+  });
+  btnLogin.addEventListener('click', () => {
+    window.location.hash = "#/SignIn";
+    window.location.reload();
   });
 };

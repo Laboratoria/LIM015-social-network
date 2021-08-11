@@ -92,13 +92,7 @@ h3 {
 }
 
 /**************************Diseño de TimeLine*********************/
-.publication{
-border-color: #aaaaaa;
-  border-width: 1px;
-  border-style: solid;
-  width: 400px;
-  height: 250px;
-}
+
 
 .textAreaPublication{
   display: flex;
@@ -124,6 +118,34 @@ border-color: #aaaaaa;
   justify-content: center;
 }
 
+/***************************Timeline*********************/
+figure{
+  height: 20%;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  margin: auto;
+}
+figure img{
+  width: 100%;
+}
+nameProfile{
+  text-align: center;
+  text-align: center;
+}
+status{
+  text-align: center;
+  text-align: center;
+}
+.publication {
+    border-color: #aaaaaa;
+    border-width: 1px;
+    border-style: solid;
+    width: 400px;
+    height: 250px;
+    margin: auto;
+}
 /***************************Diseño footer*********************/
 footer {
   background-color: rgb(56, 43, 43);
