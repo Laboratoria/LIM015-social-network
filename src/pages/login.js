@@ -20,10 +20,10 @@ export const login = () => {
   <div  class="buttons">
     <button type='submit'class='btnStart'>SIGN IN</button>
   </div>
+  <h3>Or sign in with ...</h3>
   <div class="imgFacebookGoogle">
-    <h3>Or sign in with ...</h3>
-  <button id='facebook'><img src='images/facebook.png' alt='Facebook' class='facebook'></button>
-  <button id='google'><img src='images/google.png' alt='Google' clas<img src=s="google"></button>
+  <img id='facebook' src='images/facebook.png' alt='Facebook' class='facebook'>
+  <img id='google' src='images/google.png' alt='Google' class="google">
   </div>
   </form>
   </section>
