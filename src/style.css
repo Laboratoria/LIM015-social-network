@@ -1,102 +1,93 @@
 /******************** Import de url de fuente*********************/
-
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 /*********Se borra el formato del navegador por defecto **********/
-
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
 }
-
-/************************Diseño de Header************************/
+/************************ body ************************/
 body{
     background: #F4F4F4;
 }
+/************************Diseño de Header************************/
+header{
+  height: 1.2rem;
+}
 .menu{
   background: #4DBC4D;
-  height: 50px;
+  height: 100%;
 }
 .menu ul{
+  height:100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  position: relative;
   list-style-type: none;
 }
-
-/**********************Contenido de login y SignIn*****************/
-
-.logo{
-  width: 200px;
-  height: 180px;
-  margin-top: 15px;
-  text-align: center;
-  
-}
-
-.items{
-  width: 200px;
-  height: 80px;
-  margin-top: 10px;
+.items {
   text-align: justify;
 }
-
+.items a{
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+/**********************Contenido de login y SignIn*****************/
+.logo{
+  width: 70%;
+  height: 35%;
+  display: block;
+  margin: auto;
+}
 .input{
   display: flex;
-  align-content: space-around;
-  flex: 1 0 auto;
   border: 1px solid #ccc;
-  padding: 0.5em 1em;
   border-radius: 20px;
   text-align: center;
   margin-top: 20px;
   margin-bottom: 20px;
+  width: 60%;
+  height: 5%;
+  margin: 3% auto;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
 }
 
 .btnStart{
   border: none;
   background-color: #4DBC4D;
-  padding: 8px 18px;
-  font-size: 12px;
   cursor: pointer;
   display: flex;
   border-radius: 16px;
-  margin-top: 20px;
-  margin-bottom: 20px;
   font-style: initial;
-  justify-content: center;
-
+  width: 25%;
+  margin: 3%;
+  padding: 5%;
 }
-.buttons{
-  display: flex;
-  justify-content: center;
 
+h3 {
+  text-align: center;
+  color: #525151;
+  margin: 2%;
+  font-weight: bold;
 }
+
 
 .imgFacebookGoogle{
-  cursor: pointer;
-  margin-top: 15px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
 }
 
-h3{
-  text-align: center;
-  font-size: 15px;
-  color: #525151;
-}
-
-.facebook {
-  width: 50px;
-  height: 50px;
-}
-
-.google {
-  width: 50px;
+.iconSocial{
+  cursor: pointer;
+  margin: 0% 2%;
   height: 50px;
 }
 
@@ -136,8 +127,6 @@ border-color: #aaaaaa;
 /***************************Diseño footer*********************/
 footer {
   background-color: rgb(56, 43, 43);
-  position: absolute;
-  bottom: 0;
   width: 100%;
   height: 40px;
   color:#ffffff;
@@ -145,24 +134,8 @@ footer {
   flex-flow: row wrap;
   justify-content: center;
   border-top: 1px solid #2f2f2f;
+  position: absolute;
 }
-
-/* footer{
-    display: flex;
-    flex-flow: row wrap;
-    padding: 20px 20px 10px 20px;
-    color: #fff;
-    background-color: #61453D;
-    border-top: 1px solid #2f2f2f;
-    font-weight: 100;
-    text-transform: lowercase;
-    display: flex;
-    justify-content: center;
-  }
-  footer{
-    flex:  1 100%;
-  } */
-
 /*************************Media queries*****************************/
 
 @media screen and (max-width: 970px) {
@@ -177,8 +150,7 @@ footer {
 .welcome{
   margin-top: 10px;
   text-align: center;
-  text-size-adjust:senr ;
-
+  font-weight: bold;
 }
 .contenedorFormulario{
     display: flex;

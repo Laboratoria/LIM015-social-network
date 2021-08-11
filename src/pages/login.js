@@ -20,22 +20,22 @@ export const login = () => {
       </ul>
     </nav>
   </header>
-  <section class="contenedorFormulario">
+  <section class='contenedorFormulario'>
     <form >
       <img src='images/laRuta-02.png' alt='La ruta logo' class='logo'/>
       <p class='welcome'>Welcome Traveler!</p>
       <input type='email' id='email' placeholder='✉ Email' class='input' />
       <input type='password' id='password1' placeholder='🔑 Password' class='input' />
-      <div class="buttons">
+      <div class='buttons'>
         <button id='logeo' type='submit' class='btnStart'>LOG IN</button>
       </div>
-      <div  class="buttons">
+      <div  class='buttons'>
         <button type='submit'class='btnStart'>SIGN IN</button>
       </div>
       <h3>Or sign in with ...</h3>
-      <div class="imgFacebookGoogle">
-      <img id='facebook' src='images/facebook.png' alt='Facebook' class='facebook'>
-      <img id='google' src='images/google.png' alt='Google' class="google">
+      <div class='imgFacebookGoogle'>
+        <img id='facebook' src='images/facebook.png' alt='Facebook' class='iconSocial'>
+        <img id='google' src='images/google.png' alt='Google' class="iconSocial">
       </div>
     </form>
   </section>
@@ -62,7 +62,9 @@ export const logueo = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log("se conecto a firebase");
+          console.log('se conecto a firebase');
+          window.location.hash = '#/Timeline';
+          window.location.reload();
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -75,18 +77,18 @@ export const logueo = () => {
 };
 
 export const loginWithFacebook = () => {
-  document.getElementById("facebook").addEventListener('click', (e) => {
+  document.getElementById('facebook').addEventListener('click', (e) => {
     e.preventDefault();
     console.log('paso fb');
   });
 };
 
-// const authSuccess = () => {
-//   auth.onAuthStateChanged(user => {
-//     if (user) {
-//       console.log('auth: sign in')
-//     } else {
-//       console.log('auth: sign out')
-//     }
-//   });
-// };
+const authSuccess = () => {
+  auth.onAuthStateChanged(user => {
+    if (user) {
+      console.log('auth: sign in')
+    } else {
+      console.log('auth: sign out')
+    }
+  });
+};
