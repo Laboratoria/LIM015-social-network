@@ -1,5 +1,6 @@
 import { currentUser } from '../firebase/autenticacion.js';
-import { deletePost, editPost } from '../views-controllers/post-control.js';
+import { editLikes, deletePost, editPost } from '../views-controllers/post-control.js';
+
 // import { editLikes, deletePost, deleteLike, getAllLikes}
 // from '../views-controllers/post-control.js';
 
@@ -47,19 +48,17 @@ export const sharingPost = (data) => {
                           <section class="form-save">
                             <form class="form-save" maxlength="50" required>
                             <textarea class="textarea-post" id="text-post" disabled>${data.postText}</textarea>
-
+                              <section class="heart-commet">
                             <button id="like-${data.id}" class="bottom-heart">
-                            <i class="fa fa-heart heart-full" aria-hidden="true" id="dislike-${data.id}" i>
+                            <i id="count-Like" class="fa fa-heart-o heart-empty" aria-hidden="true">  ${data.likes}</i>
                             </button> 
-                            <button>
-                            <i id="counter-${data.id}" class="fa fa-heart-o heart-empty" aria-hidden="true">  ${data.likes}</i>
-                            </button>
                             <button class="show-comment">
                                 <span id="show-comment">
                                   <i class="fa fa-comment-o show-comment" aria-hidden="true"></i>
                                 </span>
                                 <a class="counter-comment">2</a>
                             </button>
+                            </section>
                             <!-- <span class="margin-left hide">
                                 <i class="fa fa-heart-floppy-o iconSave" aria-hidden="true"></i>
                                 <span></span>
@@ -111,6 +110,7 @@ export const sharingPost = (data) => {
 
   // getAllLikes(data.id, callbackLikes);
 
+  const btnLike = sectionPost.querySelector(`#like-${data.id}`);
   const deletedPost = sectionPost.querySelector('#deletePost');
   const editedPost = sectionPost.querySelector(`#edit-${data.id}`);
   const savePost = sectionPost.querySelector('#savePost');
@@ -120,6 +120,10 @@ export const sharingPost = (data) => {
     deletedPost.classList.add('hide');
     editedPost.classList.add('hide');
   } else {
+    deletedPost.addEventListener('click', () => {
+      deletePost(data.id);
+    });
+    
     deletedPost.addEventListener('click', () => {
       deletePost(data.id);
     });
@@ -139,10 +143,10 @@ export const sharingPost = (data) => {
     });
   }
 
-  // btnLike.addEventListener('click', () => {
-  //   const likeValue = data.likes + 1;
-  //   editLikes(data.id, likeValue);
-  // });
+  btnLike.addEventListener('click', () => {
+    const likeValue = data.likes + 1;
+    editLikes(data.id, likeValue);
+  });
 
   return sectionPost;
 };

@@ -17,6 +17,7 @@ export const sharePost = (post, email, nombre, id, like, privacy, photo) => fire
   likes: like,
   Photo: photo,
   timePost: new Date(),
+  Photo: photo,
 });
 
 export const getPost = (callback) => firebase.firestore().collection('posts').orderBy('timePost', 'desc')
