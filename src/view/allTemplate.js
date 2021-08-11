@@ -11,10 +11,10 @@ export const navigator = () => {
     <header>
         <nav>
             <ul>
-                <li><a href="#">Turistik</a></li>
-                <li><a href="#Home">Home</a></li>
-                <li><a href="#Profile">Profile</a></li>
-                <li><a href="#LogOut">LogOut</a></li>
+                <li><a href="#/">Turistik</a></li>
+                <li><a href="#/Home">Home</a></li>
+                <li><a href="#/Profile">Profile</a></li>
+                <li><a href="#/LogOut">LogOut</a></li>
             </ul>
         </nav>
     </header>
