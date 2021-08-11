@@ -29,7 +29,7 @@ export const register = () => {
     const passWord = document.getElementById('password1').value;
     const confirmPass = document.getElementById('password2').value;
 
-    if (passWord == confirmPass) {
+    if (passWord === confirmPass) {
       firebase.auth().createUserWithEmailAndPassword(emailUser, passWord)
         .then((userCredential) => {
           // Signed in
@@ -43,7 +43,7 @@ export const register = () => {
           console.log(errorCode, errorMessage);
         });
     } else {
-      alert("Las contraseñas no coiciden");
+      alert('Las contraseñas no coiciden');
     }
   });
 };
