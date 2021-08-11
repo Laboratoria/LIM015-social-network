@@ -10,23 +10,28 @@
   <title>Tomodachi</title>
 </head>
 <body>
-  <header>
+  <header id="header">
     <nav>
-      <ul>
-        <li>
-          <a href="#/login"> login </a>
-        </li>
-        <li>
-          <a href="#/home"> Home </a>
-        </li>
-        <li>
-          <a href="#/profile"> perfil </a>
-        </li>
-      </ul>
+     <div class="nav-left">
+     <h1 class="tittle">Tomodachi</h1>
+      </div>
+      <div class="nav-right"> 
+        <ul>
+          <li>
+            <a href="#/home"><i class="fas fa-home"></i></a>
+          </li>
+          <li>
+            <a href="#/profile"><i class="fas fa-user"></i></a>
+          </li>
+          <li>
+            <a href="#/logout"><i class="fas fa-sign-out-alt"></i></a>
+          </li>
+        </ul>
+      </div>
     </nav>
   </header>
-  <main class="container">    
-  </main>  
+  <main class="container"></main> 
+  <main class="views"></main> 
  
   <!--FIREBASE-->
     <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -43,7 +48,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-analytics.js"></script>
 
      <!--Custom Code-->
-     <script type="module" src="./scripts/login-out.js"></script>
+     <script type="module" src="./scripts/login.js"></script>
      <script type="module" src="main.js"></script>
 </body>
 </html>

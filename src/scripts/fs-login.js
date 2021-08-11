@@ -54,3 +54,12 @@ export const googleLogin = () => {
       // ...
     });
 };
+
+// Log out
+export const logout = () => {
+  auth.signOut().then(() => {
+    console.log('signed out');
+  }).catch((error) => {
+    console.log(error);
+  });
+};

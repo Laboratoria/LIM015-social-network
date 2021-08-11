@@ -1,18 +1,8 @@
 export default () => {
-  const main = document.querySelector('.container');
   const article = document.createElement('article');
   article.className = 'home';
   article.innerHTML = `
   <section class="top-section">
-    <header class="home-header">
-      <h2>Tomodachi</h2>
-      <div class="icons">
-        <i class="fas fa-home"></i>
-        <i class="fas fa-user"></i>
-        <i class="fas fa-sign-out-alt"></i>
-      </div>
-    </header>
-    <section class="bottom-section">
       <aside class="home-sidebar">
         <div class="user-container">
           <h3>Usuario :3</h3>
@@ -33,8 +23,7 @@ export default () => {
        <div class="posts">
        </div>
       </article>
-   </section>
   </section>
   `;
-  main.appendChild(article);
+  return article;
 };
