@@ -1,180 +1,170 @@
-    @import url('https://fonts.googleapis.com/css2?family=MuseoModerno:wght@200;500;600;700;800&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Capriola&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=MuseoModerno:wght@200;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Capriola&display=swap');
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    }
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-family: 'MuseoModerno', sans-serif;
+  background-color: #f2e0f5;
+}
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 10%;
+  margin-top: 10px;
+  margin-bottom: -20px;
+}
+.nav-left {
+  display: flex;
+  margin-left: 5rem;
+}
+.nav-right ul li {
+  list-style: none;
+  display: inline-block;
+  margin: 20px;
+}
+.nav-right i {
+  color: #7b68b4;
+  font-size: 1.7rem;
+  transition: color 0.5s ease;
+}
 
-    html { 
-    font-family: 'MuseoModerno', sans-serif;
-    background-color: #f2e0f5;
-    }
-    
+.nav-right i:hover {
+  color: rgb(251, 139, 255);
+}
 
-    nav{
-        display:flex;
-        align-items:center;
-        justify-content:space-between;
-        padding: 0px 10%;
-        margin-top:10px;
-        margin-bottom:-20px;
-      }
+.bottom-section {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 20px;
+  width: 80%;
+  margin: 0 auto;
+}
 
-  
-  .nav-left{
-    display:flex;
-    margin-left:5rem;
-  }
-  
-  .nav-right ul li{
-    list-style:none;
-    display:inline-block;
-    margin:20px;
-  }
-  
-  .nav-right i{
-    color: #7b68b4;
-    font-size: 1.7rem;
-    transition: color .5s ease;
-  }
-  
-  .nav-right i:hover{
-      color: rgb(251, 139, 255);
-  }
-  
-  .bottom-section{
-    display:grid;
-    grid-template-columns: 350px 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-gap: 20px;
-    width:80%;
-    margin: 0 auto;
-  }
-  
-  /*aside (perfil y peliculas)*/
-  .home-sidebar{
-    grid-column: 1;
-    grid-row: 1 / span 2;
-    width: 100%;
-    background:none;
-    
-  }
-  
-  .user-container {
-    display:grid;
-    grid: auto;
-    border-radius: 15px;
-    width: 100%;
-    height: 75px;
-    background:#fff; 
-    margin-top:20px;
-    font-size: 1rem;
-  }
-  
-  .waifu{
-    margin-top: 12px;
-    margin-left: 15px;
-    border-radius: 100%;
-    width: 50px;
-    height: 50px;
-  }
-  
-  .user-container p{
-    margin-left:25%;
-    margin-top:-12%;
-    font-size: 1rem;
-    font-family: Capriola;
-    color:#6b6b6b;
-    font-weight: 600;
-  }
+/*aside (perfil y peliculas)*/
+.home-sidebar {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  width: 100%;
+  background: none;
+}
 
-  .tuerca{
-    margin-top: 12px;
-    margin-left: 15px;
-    border-radius: 100%;
-    width: 20px;
-  }
-   /*posters animes populares*/
-  .animes-container{
-    display: grid;
-    grid: auto;
-    width: 100%;
-    background:#fff;
-    margin-top:20px;
-    border-radius:20px;
-    margin-bottom:0px;
-  }
-  .title-anime{
-    margin-top: 20px;
-    margin-bottom: 10px;
-    display:flex;
-    justify-content:center;
-    font-size: 0.8rem;
-    font-family: Capriola;
-    color:#6b6b6b;
-    font-weight: 400;
-  }
-  .posters-container{
-   display:grid;
-   grid-template-columns:repeat(2, auto);
-   grid-gap:10px;
-   margin-top:10px;
-   margin-left:8px;
-   margin-bottom:20px;
-  }
-  .posters-container div img{
-    width:95%;
-    border-radius:13px;
-  }
-  
-  
-  /*article*/
-  .post{
-    grid-column: 2;
-    grid-row: 1;
-    width: 100%;
-    height: 500px;
-    background:none;
-  }
-  
-  .post-txt{
-    border-radius: 20px;
-    width: 103%;
-    height: 100%;
-    text-align: center;
-  }
-  
-  .txt{
-     border: none;
-     border-radius: 20px;
-     width: 100%;
-     height: 120px;
-     margin-top: 20px;
-     resize:none;
-     outline:none;
-  }
-  
-  .txt:placeholder{
-    color: silver;
-    font-size: 1.4rem;
-    padding-left: 5px;
-  }
-  
-  .post-txt .btn-share{
-    background-color: #848282;
-    color: white;
-    width: 100px;
-    height: 40px;
-    border: none;
-    text-align: center;
-    font-size: 1rem;
-    cursor: pointer;
-    border-radius: 20px;
-    transition: .5s;
-  }
+.user-container {
+  display: grid;
+  grid: auto;
+  border-radius: 15px;
+  width: 100%;
+  height: 75px;
+  background: #fff;
+  margin-top: 20px;
+  font-size: 1rem;
+}
 
-  .post-txt .btn-share:hover {
-    background-color: #b17cdd;
-  }
-  
+.waifu {
+  margin-top: 12px;
+  margin-left: 15px;
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+}
+
+.user-container p {
+  margin-left: 25%;
+  margin-top: -12%;
+  font-size: 1rem;
+  font-family: 'Capriola', monospace;
+  color: #6b6b6b;
+  font-weight: 600;
+}
+
+.tuerca {
+  margin-top: 12px;
+  margin-left: 15px;
+  border-radius: 100%;
+  width: 20px;
+}
+/*posters animes populares*/
+.animes-container {
+  display: grid;
+  grid: auto;
+  width: 100%;
+  background: #fff;
+  margin-top: 20px;
+  border-radius: 20px;
+  margin-bottom: 0px;
+}
+.title-anime {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-family: 'Capriola', monospace;
+  color: #6b6b6b;
+  font-weight: 400;
+}
+.posters-container {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-gap: 10px;
+  margin-top: 10px;
+  margin-left: 8px;
+  margin-bottom: 20px;
+}
+.posters-container div img {
+  width: 95%;
+  border-radius: 13px;
+}
+
+/*article*/
+.post {
+  grid-column: 2;
+  grid-row: 1;
+  width: 100%;
+  height: 500px;
+  background: none;
+}
+
+.post-txt {
+  border-radius: 20px;
+  width: 103%;
+  height: 100%;
+  text-align: center;
+}
+
+.txt {
+  border: none;
+  border-radius: 20px;
+  width: 100%;
+  height: 120px;
+  margin-top: 20px;
+  resize: none;
+  outline: none;
+}
+
+.txt:placeholder {
+  color: silver;
+  font-size: 1.4rem;
+  padding-left: 5px;
+}
+
+.post-txt .btn-share {
+  background-color: #848282;
+  color: white;
+  width: 100px;
+  height: 40px;
+  border: none;
+  text-align: center;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: 0.5s;
+}
+
+.post-txt .btn-share:hover {
+  background-color: #b17cdd;
+}
