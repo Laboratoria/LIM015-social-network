@@ -1,14 +1,9 @@
-* {
-    margin: 0;
-    box-sizing: border-box;
-}
-
 body {
     font-family: sans-serif;
 }
 
 .header {
-    background-color: #0769e9;
+    background: linear-gradient(65deg,#FECD1A,#9D0191,#FD3A69,#120078);
     height: 80px;
     position: fixed;
     width: 100%;
@@ -65,6 +60,11 @@ body {
 
     display: none;
 }
+
+.containerHome {
+    top: 7rem;
+}
+
 
 @media (max-width: 767px) {
     .navMenu {
