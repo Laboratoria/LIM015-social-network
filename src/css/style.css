@@ -434,6 +434,8 @@ header {
 .fa.fa-heart-o:before {
   content: "\f004";
   color: red;
+  font-weight: 600;
+  font-size: 18px;
 }
 
 .fa.fa-comment-o:before {

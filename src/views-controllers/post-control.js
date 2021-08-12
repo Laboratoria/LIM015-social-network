@@ -28,22 +28,6 @@ export const editLikes = (idD, like) => {
   });
 };
 
-// export const getAllLikes = (postText, callback) =>{
-//   firebase.firestore().collection('posts').doc(postText).collection('likes')
-//     .onSnapshot((querySnapshot) => {
-//       const data = [];
-//       querySnapshot.forEach((doc) => {
-//         data.push({ id: doc.id, ...doc.data() });
-//       });
-//       callback(data);
-//     });
-// };
-
-// export const deleteLike = (user, post) =>
-// firebase.firestore().collection('posts').doc(post).collection('likes')
-//   .doc(user)
-//   .delete();
-
 // eliminar post
 export const deletePost = (idDocPost) => firebase.firestore().collection('posts').doc(idDocPost).delete();
 

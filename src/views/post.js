@@ -1,9 +1,6 @@
 import { currentUser } from '../firebase/autenticacion.js';
 import { editLikes, deletePost, editPost } from '../views-controllers/post-control.js';
 
-// import { editLikes, deletePost, deleteLike, getAllLikes}
-// from '../views-controllers/post-control.js';
-
 export const sharingPost = (data) => {
   const time = new Date(data.timePost.toDate());
   const sectionPost = document.createElement('section');
@@ -11,6 +8,7 @@ export const sharingPost = (data) => {
   <section>
           <ul class="ul-parent">
               <li class="li-child">
+              <!-- contenedor del nombre, fecha ,eliminar,guardar y editar post-->
                   <section class="section-post">
                       <section class="user-publicated padding flex-name-post">
                           <section class="only-flex">
@@ -40,7 +38,8 @@ export const sharingPost = (data) => {
                             </section>
                           </section>
                       </section>
-
+                    
+                      <!--contenedor de la publicacion-->
                     <section class="middle-post">
 
                       <section class="content-posts">
@@ -50,7 +49,7 @@ export const sharingPost = (data) => {
                             <textarea class="textarea-post" id="text-post" disabled>${data.postText}</textarea>
                               <section class="heart-commet">
                             <button id="like-${data.id}" class="bottom-heart">
-                              <i id="count-Like" class="fa fa-heart-o heart-empty" aria-hidden="true">  ${data.likes}</i>
+                            <i id="count-Like" class="fa fa-heart-o heart-empty" aria-hidden="true">  ${data.likes}</i>
                             </button> 
                             <button class="show-comment">
                                 <span id="show-comment">
@@ -82,34 +81,6 @@ export const sharingPost = (data) => {
   sectionPost.innerHTML = template;
   sectionPost.setAttribute('class', 'contenedor-post');
 
-  // const counter = sectionPost.querySelector(`#counter-${data.id}`);
-  // const btnLike = sectionPost.querySelector(`#like-${data.id}`);
-  // const btnDislike = sectionPost.querySelector(`#dislike-${data.id}`);
-  // const callbackLikes = (likes) => {
-  //   counter.innerHTML = '';
-  //   counter.innerHTML = likes.length;
-  //   const user = likes.find((like)=> like.id === currentUser().uid);
-  //   if (user === undefined) {
-  //     // btnDislike.classList.add('hide');
-  //     btnLike.classList.remove('hide');
-  //     btnLike.addEventListener('click', (e) => {
-  //       e.preventDefault();
-  //       editLikes(data.id);
-  //       btnDislike.classList.add('hide');
-  //       btnLike.classList.remove('hide');
-  //     });
-  //   } else {
-  //     btnDislike.addEventListener('click', (e) => {
-  //       e.preventDefault();
-  //       deleteLike(data.id);
-  //       btnLike.classList.add('hide');
-  //       btnDislike.classList.remove('hide');
-  //     });
-  //   }
-  // };
-
-  // getAllLikes(data.id, callbackLikes);
-
   const btnLike = sectionPost.querySelector(`#like-${data.id}`);
   const deletedPost = sectionPost.querySelector('#deletePost');
   const editedPost = sectionPost.querySelector(`#edit-${data.id}`);
@@ -123,7 +94,6 @@ export const sharingPost = (data) => {
     deletedPost.addEventListener('click', () => {
       deletePost(data.id);
     });
-
     editedPost.addEventListener('click', () => {
       savePost.classList.remove('hide');
       editedPost.classList.add('hide');
