@@ -1,5 +1,6 @@
 import { currentUser } from '../firebase/autenticacion.js';
 import { editLikes, deletePost, editPost } from '../views-controllers/post-control.js';
+import { comment } from '../firebase/data-base.js';
 
 export const sharingPost = (data) => {
   const time = new Date(data.timePost.toDate());
@@ -67,7 +68,7 @@ export const sharingPost = (data) => {
                             <form class="form-comment" maxlength="50" required>
                                 <textarea placeholder="Escribe tu comentario" id="tex-comment" class="textarea-comment">
                                 </textarea>
-                                <button>
+                                <button id="comment-plane">
                                 <span class="comment">
                                     <i class="fa fa-paper-plane btn-comment" aria-hidden="true"></i>
                                 </span>
@@ -114,6 +115,17 @@ export const sharingPost = (data) => {
   btnLike.addEventListener('click', () => {
     const likeValue = data.likes + 1;
     editLikes(data.id, likeValue);
+  });
+
+  // agregando comentarios al post
+
+  const btnComment = sectionPost.querySelector('#comment-plane');
+  btnComment.addEventListener('click', () => {
+    const textComment = sectionPost.querySelector('#tex-comment').value;
+    comment(data.id, data.user, textComment)
+      .then(() => {
+        sectionPost.querySelector('#tex-comment').value = '';
+      });
   });
 
   return sectionPost;
