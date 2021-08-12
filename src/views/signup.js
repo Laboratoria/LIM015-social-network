@@ -15,7 +15,7 @@ export default () => {
     <input type="email" class="registro" id="email" placeholder=" Correo Electronico" required>
     <input type="password" class="registro" id="password" placeholder=" Contraseña" required>
     <input type="submit" href="#/" class="registro-signUp" id="signUp" value="Registrar">
-    <p class="error" id="error1"></p>
+    <p class="error" class="error" id="error1"></p>
     <label class="welcome-SignUp">¿Ya tienes una cuenta?&nbsp;<a class="bold" href="#/" id="Ingresa">Ingresa.</a></label>
     </form>
   </section>

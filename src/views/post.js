@@ -28,13 +28,13 @@ export const sharingPost = (data) => {
                               <option value="público" selected>Público</option>
                             </select>
                             <section>
-                            <button id="deletePost">
+                            <button id="deletePost" class="botones">
                                 <i class="fas fa-trash" aria-hidden="true"></i>
                             </button>
-                            <button id="savePost" class="hide">
+                            <button id="savePost" class="hide botones">
                                 <i class="fas fa-save" aria-hidden="true"></i>
                             </button>
-                            <button id="edit-${data.id}">
+                            <button id="edit-${data.id}" class="botones">
                                 <i class="fas fa-edit" aria-hidden="true"></i>
                             </button>
                             </section>
@@ -50,7 +50,7 @@ export const sharingPost = (data) => {
                             <textarea class="textarea-post" id="text-post" disabled>${data.postText}</textarea>
                               <section class="heart-commet">
                             <button id="like-${data.id}" class="bottom-heart">
-                            <i id="count-Like" class="fa fa-heart-o heart-empty" aria-hidden="true">  ${data.likes}</i>
+                              <i id="count-Like" class="fa fa-heart-o heart-empty" aria-hidden="true">  ${data.likes}</i>
                             </button> 
                             <button class="show-comment">
                                 <span id="show-comment">
@@ -120,10 +120,6 @@ export const sharingPost = (data) => {
     deletedPost.classList.add('hide');
     editedPost.classList.add('hide');
   } else {
-    deletedPost.addEventListener('click', () => {
-      deletePost(data.id);
-    });
-    
     deletedPost.addEventListener('click', () => {
       deletePost(data.id);
     });
