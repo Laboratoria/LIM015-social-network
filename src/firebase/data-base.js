@@ -27,3 +27,11 @@ export const getPost = (callback) => firebase.firestore().collection('posts').or
     });
     callback(postGetPost);
   });
+
+export const comment = (id, nombre, idPost, text) => firebase.firestore().collection('comment').add({
+  idPost,
+  idUser: id,
+  user: nombre,
+  coments: text,
+  timePost: new Date(),
+});
