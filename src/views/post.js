@@ -63,13 +63,15 @@ export const sharingPost = (data) => {
                                 <span></span>
                             </span> -->
                           </section>
-                          <section class="hide">
+                          <section class="">
                             <form class="form-comment" maxlength="50" required>
-                                <textarea placeholder="Escribe tu comentario" class="textarea-comment">
+                                <textarea placeholder="Escribe tu comentario" id="tex-comment" class="textarea-comment">
                                 </textarea>
+                                <button>
                                 <span class="comment">
                                     <i class="fa fa-paper-plane btn-comment" aria-hidden="true"></i>
                                 </span>
+                                </button>
                             </form>
                           </section>
                       </section>
