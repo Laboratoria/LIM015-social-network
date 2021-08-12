@@ -10,6 +10,7 @@ export const sharingPost = (data) => {
   <section>
           <ul class="ul-parent">
               <li class="li-child">
+              <!-- contenedor del nombre, fecha ,eliminar,guardar y editar post-->
                   <section class="section-post">
                       <section class="user-publicated padding flex-name-post">
                           <section class="only-flex">
@@ -39,7 +40,8 @@ export const sharingPost = (data) => {
                             </section>
                           </section>
                       </section>
-
+                    
+                      <!--contenedor de la publicacion-->
                     <section class="middle-post">
 
                       <section class="content-posts">
