@@ -1,4 +1,4 @@
-import { sharePost } from '../firebase/data-base.js';
+import { sharePost, comment } from '../firebase/data-base.js';
 import { currentUser } from '../firebase/autenticacion.js';
 
 export const addPost = (e) => {
@@ -35,3 +35,8 @@ export const editPost = (idDocPost, newText) => firebase.firestore().collection(
   postText: newText,
   timePost: new Date(),
 });
+
+// añadir comentarios 
+
+export const addComment = () => firebase.firestore().collection('comment').doc();
+
