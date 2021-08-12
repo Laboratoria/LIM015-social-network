@@ -211,7 +211,7 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [Manual Mocks con Jest - Documentación oficial](https://jestjs.io/docs/es-ES/manual-mocks)
 </p></details>
 
-- [ ] **Módulos de ECMAScript (ES Modules)**
+- [x] **Módulos de ECMAScript (ES Modules)**
 
   <details><summary>Links</summary><p>
 
