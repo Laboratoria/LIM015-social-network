@@ -84,9 +84,9 @@ img.logo-ibook {
 #username.registro, #password1.registro {
   width: 200px;
 }
-
+/* YOOOOOOOOO */
 /* mensaje de error en signIn */
-p#error.error {
+.error {
   color: #E01E37;
   font-weight: bold;
   margin: 5px 0px 5px;
@@ -136,7 +136,7 @@ header {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: coral;
+  background-color: #84A59D;
   font-family: 'marvel', sans-serif;
   font-size: 18px;
   height: 70px;
@@ -314,6 +314,9 @@ header {
   display: flex;
   justify-content: space-between;
   padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: -10px;
 }
 
 .form-save {
@@ -431,6 +434,8 @@ header {
 .fa.fa-heart-o:before {
   content: "\f004";
   color: red;
+  font-weight: 600;
+  font-size: 18px;
 }
 
 .fa.fa-comment-o:before {
@@ -456,6 +461,33 @@ header {
   justify-content: center;
 }
 
+.botones {
+  border-radius: 40%;
+  width: 40px;
+  height: 40px;
+}
+/* Pagina de error */
+
+.contenedor-Error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15%;
+}
+
+.error-page {
+  border: 1px solid black;
+}
+
+.error-400, .not-found {
+  display: flex;
+  justify-content: center;
+}
+
+.img-err {
+  display: flex;
+  justify-content: center;
+}
 
 
 .footer {

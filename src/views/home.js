@@ -86,8 +86,8 @@ export default (post) => {
   btnShare.addEventListener('click', addPost);
   signOut.addEventListener('click', salir);
 
-  post.forEach((obj) => {
-    containerPost.appendChild(sharingPost(obj));
+  post.forEach((obj, i) => {
+    containerPost.appendChild(sharingPost(obj, i));
   });
 
   return sectionHome;
