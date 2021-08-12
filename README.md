@@ -46,7 +46,7 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
 
 ### HTML
 
-- [ ] **Uso de HTML semántico**
+- [x] **Uso de HTML semántico**
 
   <details><summary>Links</summary><p>
 
@@ -56,7 +56,7 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
 
 ### CSS
 
-- [ ] **Uso de selectores de CSS**
+- [x] **Uso de selectores de CSS**
 
   <details><summary>Links</summary><p>
 
@@ -64,7 +64,7 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [CSS Selectors - MDN](https://developer.mozilla.org/es/docs/Web/CSS/CSS_Selectors)
 </p></details>
 
-- [ ] **Modelo de caja (box model): borde, margen, padding**
+- [x] **Modelo de caja (box model): borde, margen, padding**
 
   <details><summary>Links</summary><p>
 
@@ -75,7 +75,7 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [display - CSS Tricks](https://css-tricks.com/almanac/properties/d/display/)
 </p></details>
 
-- [ ] **Uso de flexbox en CSS**
+- [x] **Uso de flexbox en CSS**
 
   <details><summary>Links</summary><p>
 
@@ -84,7 +84,7 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [Flexbox - MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox)
 </p></details>
 
-- [ ] **Uso de CSS Grid Layout**
+- [x] **Uso de CSS Grid Layout**
 
   <details><summary>Links</summary><p>
 
@@ -94,7 +94,7 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
 
 ### Web APIs
 
-- [ ] **Uso de selectores del DOM**
+- [x] **Uso de selectores del DOM**
 
   <details><summary>Links</summary><p>
 
@@ -147,16 +147,16 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [Array.prototype.reduce() - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
 </p></details>
 
-- [ ] **Objetos (key, value)**
+- [x] **Objetos (key, value)**
 
   <details><summary>Links</summary><p>
 
   * [Objetos en JavaScript](https://curriculum.laboratoria.la/es/topics/javascript/05-objects/01-objects)
 </p></details>
 
-- [ ] **Diferenciar entre tipos de datos primitivos y no primitivos**
+- [x] **Diferenciar entre tipos de datos primitivos y no primitivos**
 
-- [ ] **Variables (declaración, asignación, ámbito)**
+- [x] **Variables (declaración, asignación, ámbito)**
 
   <details><summary>Links</summary><p>
 
@@ -221,7 +221,7 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
 
 - [ ] **Uso de linter (ESLINT)**
 
-- [ ] **Uso de identificadores descriptivos (Nomenclatura y Semántica)**
+- [x] **Uso de identificadores descriptivos (Nomenclatura y Semántica)**
 
 - [ ] **Diferenciar entre expresiones (expressions) y sentencias (statements)**
 
@@ -242,15 +242,15 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
 
 ### Control de Versiones (Git y GitHub)
 
-- [ ] **Git: Instalación y configuración**
+- [x] **Git: Instalación y configuración**
 
-- [ ] **Git: Control de versiones con git (init, clone, add, commit, status, push, pull, remote)**
+- [x] **Git: Control de versiones con git (init, clone, add, commit, status, push, pull, remote)**
 
 - [ ] **Git: Integración de cambios entre ramas (branch, checkout, fetch, merge, reset, rebase, tag)**
 
 - [ ] **GitHub: Creación de cuenta y repos, configuración de llaves SSH**
 
-- [ ] **GitHub: Despliegue con GitHub Pages**
+- [x] **GitHub: Despliegue con GitHub Pages**
 
   <details><summary>Links</summary><p>
 
@@ -263,17 +263,17 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
 
 ### UX (User eXperience)
 
-- [ ] **Diseñar la aplicación pensando en y entendiendo al usuario**
+- [x] **Diseñar la aplicación pensando en y entendiendo al usuario**
 
 - [ ] **Crear prototipos para obtener feedback e iterar**
 
-- [ ] **Aplicar los principios de diseño visual (contraste, alineación, jerarquía)**
+- [x] **Aplicar los principios de diseño visual (contraste, alineación, jerarquía)**
 
 - [ ] **Planear y ejecutar tests de usabilidad**
 
 ### Firebase
 
-- [ ] **Firebase Auth**
+- [x] **Firebase Auth**
 
   <details><summary>Links</summary><p>
 
