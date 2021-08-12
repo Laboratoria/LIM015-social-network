@@ -13,6 +13,7 @@ export const error = () => {
   <div class="star star3"></div>
   <div class="star star4"></div>
   <div class="star star5"></div>
+  <div class="star star6"></div>
   
   <div class="error">
     <div class="title">404</div>

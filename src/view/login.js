@@ -22,10 +22,11 @@ export const logInTemplate = () => {
   sectionLogIn.innerHTML = templateLogIn;
 
   const messageError = sectionLogIn.querySelector('#error-logueo');
-  
+
   const inicioSesionGoogle = () => {
-  const provider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth()
+    const provider = new firebase.auth.GoogleAuthProvider();
+    firebase
+      .auth()
       .signInWithPopup(provider)
       .then((result) => {
         const credential = result.credential;
@@ -33,8 +34,8 @@ export const logInTemplate = () => {
         const user = result.user;
         //console.log('user' , user);
         //console.log('logueado');
-        window.location.hash = '#/Home';
-        messageError.innerHTML = '';
+        window.location.hash = "#/Home";
+        messageError.innerHTML = "";
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -43,11 +44,10 @@ export const logInTemplate = () => {
         const credential = error.credential;
         //console.log('error' , errorMessage)
         //console.log('error');
-        messageError.innerHTML = 'Error de logueo';
+        messageError.innerHTML = "Error de logueo";
       });
   };
-  const btnGoogle = sectionLogIn.querySelector('#btnGoogle');
-  btnGoogle.addEventListener('click', inicioSesionGoogle , false)
-return sectionLogIn;  
+  const btnGoogle = sectionLogIn.querySelector("#btnGoogle");
+  btnGoogle.addEventListener("click", inicioSesionGoogle, false);
+  return sectionLogIn;
 };
-  

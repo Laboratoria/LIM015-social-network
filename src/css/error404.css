@@ -75,8 +75,8 @@
   animation-delay: 1s;
 }
 .star2 {
-  top: 60%;
-  left: 90%;
+  top: 65%;
+  left: 95%;
   animation-delay: 3s;
 }
 .star3 {
@@ -92,6 +92,11 @@
   top: 20%;
   left: 30%;
   animation-delay: 0.5s;
+}
+.star6 {
+  top: 75%;
+  left: 85%;
+  animation-delay: 2.5s;
 }
 .error {
   position: absolute;
