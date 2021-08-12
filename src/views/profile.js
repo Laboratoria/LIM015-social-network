@@ -4,17 +4,32 @@ export default () => {
   const sectionProfile = document.createElement('section');
 
   const template = `
-    <section id="contenedorView2" class="contenedorView2">
-    <section id="user-perfil" class="user-perfil">
-        <figure class="img-class"> <img class="img-perfil" src='${currentUser().photoURL}'/> </figure>
-        <p class="email-perfil">${currentUser().email}</p>
-    <section>
-    <input type="text" class="registro" id="nombres" placeholder=" Ingresar Nombres">
-    <input type="text" class="registro" id="apellidos" placeholder=" Ingresar Apellidos">
-    <input type="email" class="registro" id="email" placeholder=" Ingresar Correo Electronico">
-    <input type="password" class="registro" id="password" placeholder=" Ingresar Contraseña">
-    <input type="password" class="registro" id="password" placeholder=" Verificar Contraseña">
-    <input type="submit" href="#/home" class="registro" value="Guardar cambios">
+    <section id="contenedorProfile" class="contenedorProfile">
+
+      <header>
+          <img class="logo-ibook" src="img/logo-ibook.png" width="160px" alt="logo de iBook"/>
+          <nav class="nav-bar" id="nav">
+            <ul>
+                <li><a href="#/home">HOME</a></li>
+                <li class="current-user"><a href="#/profile">PROFILE</a></li>
+                <li><a href="#/" id="signOut" >SIGN-OUT</a></li>
+            </ul>
+          </nav>
+      </header>
+
+      <section class="edit-profile">
+        <section class="user-prof">
+          <figure class="user-img"> <img class="img-perfil" src='${currentUser().photoURL}'/> </figure>
+            <form class="profile-view">
+              <span>Nombres</span>
+              <input type="text" class="registro" id="nombres" placeholder="${currentUser().displayName}" disabled>
+
+              <span>Correo Electronico</span>
+              <input type="text" class="registro" id="nombres" placeholder="${currentUser().email}" disabled>
+
+              <input type="submit" href="#/home" class="registro" value="Guardar cambios">
+            </form>
+        </section>
     </section>
   `;
 

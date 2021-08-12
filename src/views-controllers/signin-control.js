@@ -30,21 +30,18 @@ export const signIn = () => {
 };
 
 export const signInFb = () => {
-  loginFacebook().then((response) => {
-    // console.log(response);
+  loginFacebook().then(() => {
     changeRoute('#/home');
   }).catch((error) => {
-    // console.log(error);
+    console.log(error);
   });
 };
 
 export const signInWithGoogle = () => {
-  loginGoogle().then((response) => {
-    // console.log(response);
-    // console.log(currentUser());
+  loginGoogle().then(() => {
     changeRoute('#/home');
   }).catch((error) => {
-    // console.log(error);
+    console.log(error);
   });
 };
 
@@ -52,7 +49,8 @@ export const resetPasword = () => {
   const email = document.querySelector('#username').value;
   firebase.auth().sendPasswordResetEmail(email)
     .then(() => {
-      console.log('Se ha enviado la nueva contraseña');
+      // Yo
+      document.getElementById('error').innerHTML = 'Se ha enviado un mensaje a tu correo';
     }).catch((error) => {
       console.error(error);
     });

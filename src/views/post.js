@@ -1,7 +1,5 @@
 import { currentUser } from '../firebase/autenticacion.js';
 import { editLikes, deletePost, editPost } from '../views-controllers/post-control.js';
-// import { editLikes, deletePost, deleteLike, getAllLikes}
-// from '../views-controllers/post-control.js';
 
 export const sharingPost = (data) => {
   const time = new Date(data.timePost.toDate());
@@ -28,13 +26,13 @@ export const sharingPost = (data) => {
                               <option value="público" selected>Público</option>
                             </select>
                             <section>
-                            <button id="deletePost">
+                            <button id="deletePost" class="botones">
                                 <i class="fas fa-trash" aria-hidden="true"></i>
                             </button>
-                            <button id="savePost" class="hide">
+                            <button id="savePost" class="hide botones">
                                 <i class="fas fa-save" aria-hidden="true"></i>
                             </button>
-                            <button id="edit-${data.id}">
+                            <button id="edit-${data.id}" class="botones">
                                 <i class="fas fa-edit" aria-hidden="true"></i>
                             </button>
                             </section>
@@ -83,34 +81,6 @@ export const sharingPost = (data) => {
   sectionPost.innerHTML = template;
   sectionPost.setAttribute('class', 'contenedor-post');
 
-  // const counter = sectionPost.querySelector(`#counter-${data.id}`);
-  // const btnLike = sectionPost.querySelector(`#like-${data.id}`);
-  // const btnDislike = sectionPost.querySelector(`#dislike-${data.id}`);
-  // const callbackLikes = (likes) => {
-  //   counter.innerHTML = '';
-  //   counter.innerHTML = likes.length;
-  //   const user = likes.find((like)=> like.id === currentUser().uid);
-  //   if (user === undefined) {
-  //     // btnDislike.classList.add('hide');
-  //     btnLike.classList.remove('hide');
-  //     btnLike.addEventListener('click', (e) => {
-  //       e.preventDefault();
-  //       editLikes(data.id);
-  //       btnDislike.classList.add('hide');
-  //       btnLike.classList.remove('hide');
-  //     });
-  //   } else {
-  //     btnDislike.addEventListener('click', (e) => {
-  //       e.preventDefault();
-  //       deleteLike(data.id);
-  //       btnLike.classList.add('hide');
-  //       btnDislike.classList.remove('hide');
-  //     });
-  //   }
-  // };
-
-  // getAllLikes(data.id, callbackLikes);
-
   const btnLike = sectionPost.querySelector(`#like-${data.id}`);
   const deletedPost = sectionPost.querySelector('#deletePost');
   const editedPost = sectionPost.querySelector(`#edit-${data.id}`);
@@ -124,11 +94,6 @@ export const sharingPost = (data) => {
     deletedPost.addEventListener('click', () => {
       deletePost(data.id);
     });
-
-    deletedPost.addEventListener('click', () => {
-      deletePost(data.id);
-    });
-
     editedPost.addEventListener('click', () => {
       savePost.classList.remove('hide');
       editedPost.classList.add('hide');
