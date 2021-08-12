@@ -1,4 +1,7 @@
-import { signUp, signIn, googleLogin } from './fs-login.js';
+import {
+  signUp, signIn, googleLogin, logout,
+} from './fs-login.js';
+
 // SECCION LOGIN HTML
 const main = document.querySelector('.container');
 
@@ -112,4 +115,10 @@ signinForm.addEventListener('submit', (e) => {
 const googleBtn = document.querySelector('.google');
 googleBtn.addEventListener('click', () => {
   googleLogin();
+});
+
+// Logout
+const Logout = document.querySelector('.fa-sign-out-alt');
+Logout.addEventListener('click', () => {
+  logout();
 });

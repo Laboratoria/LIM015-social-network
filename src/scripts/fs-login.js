@@ -59,6 +59,7 @@ export const googleLogin = () => {
 export const logout = () => {
   auth.signOut().then(() => {
     console.log('signed out');
+    window.location.reload();
   }).catch((error) => {
     console.log(error);
   });

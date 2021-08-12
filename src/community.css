@@ -33,13 +33,13 @@
     margin:20px;
   }
   
-  .nav-right a i{
+  .nav-right i{
     color: #7b68b4;
     font-size: 1.7rem;
     transition: color .5s ease;
   }
   
-  .nav-right a:hover i {
+  .nav-right i:hover{
       color: rgb(251, 139, 255);
   }
   
