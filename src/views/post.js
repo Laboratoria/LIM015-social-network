@@ -43,6 +43,16 @@ export const sharingPost = (data) => {
                       <!--contenedor de la publicacion-->
                     <section class="middle-post">
 
+                    <aside class="modal-container" id="modal-container">
+                      <aside class="modal modal-close" id="modal">
+                        <p class="close-estatistics">¿Deseas borrar tu post?</p>
+                        <section class="btn-modal">
+                          <button class="yes" id="aceptar">SI</button>
+                          <button class="no" id="close">NO</button>
+                        </sectionc>
+                      </aside>
+                  </aside>
+
                       <section class="content-posts">
                           <figure class="user-img"> <img class="img-perfil2" src='${data.Photo}'/> </figure>
                           <section class="form-save">
@@ -51,7 +61,7 @@ export const sharingPost = (data) => {
                               <section class="heart-commet">
                             <button id="like-${data.id}" class="bottom-heart">
                             <i id="count-Like" class="fa fa-heart-o heart-empty" aria-hidden="true">  ${data.likes}</i>
-                            </button> 
+                            </button>
                             <button class="show-comment">
                                 <span id="show-comment">
                                   <i class="fa fa-comment-o show-comment" aria-hidden="true"></i>
@@ -64,8 +74,8 @@ export const sharingPost = (data) => {
                                 <span></span>
                             </span> -->
                           </section>
-                          <section class="">
-                                form class="form-comment" maxlength="50" required>
+                          <section class="comment-form">
+                            <form class="form-comment" maxlength="50" required>
                                 <textarea placeholder="Escribe tu comentario" id="tex-comment" class="textarea-comment">
                                 </textarea>
                                 <button id="comment-plane">
@@ -90,13 +100,33 @@ export const sharingPost = (data) => {
   const savePost = sectionPost.querySelector('#savePost');
   const textToEdit = sectionPost.querySelector('#text-post');
 
+  const close = sectionPost.querySelector('#close');
+  const modal = sectionPost.querySelector('#modal');
+  const modalContainer = sectionPost.querySelector('#modal-container');
+  const aceptar = sectionPost.querySelector('#aceptar');
+
   if (data.idUser !== currentUser().uid) {
     deletedPost.classList.add('hide');
     editedPost.classList.add('hide');
   } else {
     deletedPost.addEventListener('click', () => {
+      modalContainer.style.opacity = '1';
+      modalContainer.style.visibility = 'visible';
+      modal.classList.toggle('modal-close');
+    });
+    close.addEventListener('click', () => {
+      modal.classList.toggle('modal-close');
+
+      setTimeout(() => {
+        modalContainer.style.opacity = '0';
+        modalContainer.style.visibility = 'hidden';
+      }, 600);
+    });
+
+    aceptar.addEventListener('click', () => {
       deletePost(data.id);
     });
+
     editedPost.addEventListener('click', () => {
       savePost.classList.remove('hide');
       editedPost.classList.add('hide');

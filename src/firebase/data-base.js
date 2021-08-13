@@ -37,12 +37,14 @@ export const comment = (id, nombre, idD, text) => firebase.firestore().collectio
     timePost: new Date(),
   });
 
-export const getComments = (postId, callback) => firebase.firestore().collection('posts').doc(postId).collection('comments')
-  .orderBy('timePost', 'desc')
-  .onSnapshot((querySnapshot) => {
-    const data = [];
-    querySnapshot.forEach((doc) => {
-      data.push({ id: doc.id, ...doc.data() });
+export const getComment = (postId, callback) => {
+  firebase.firestore().collection('posts').doc(postId).collection('comment')
+    .orderBy('timePost', 'desc')
+    .onSnapshot((querySnapshot) => {
+      const data = [];
+      querySnapshot.forEach((doc) => {
+        data.push({ id: doc.id, ...doc.data() });
+      });
+      callback(data);
     });
-    callback(data);
-  });
+};
