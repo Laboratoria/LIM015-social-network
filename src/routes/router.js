@@ -1,24 +1,23 @@
-import { components } from '../lib/index.js';
+import { COMPONENTS } from '../lib/dictionary.js';
 
-export const changePages = (hash) => {
-  // Etiquetas globales traidas del body html
-  const contentPrincipal = document.getElementById('content');
-  // para que no se agregue de uno en uno y no se sume
-  contentPrincipal.innerHTML = '';
-  // casuisticas
+export const changeViews = (hash) => {
+  const contentElement = document.querySelector('#content');
+  contentElement.innerHTML = '';
   switch (hash) {
+    case '#':
     case '#/':
-    case '':
-    case '#': {
-      return contentPrincipal.appendChild(components.Login());
-    }
-    case '#/SignIn': {
-      return contentPrincipal.appendChild(components.SignIn());
-    }
-    case '#/Timeline': {
-      return contentPrincipal.appendChild(components.Timeline());
-    }
+    case '#/home':
+    case '#/logOut':
+      return contentElement.appendChild(COMPONENTS.inicio());
+    case '#/login':
+      return contentElement.appendChild(COMPONENTS.inicioSesion());
+    case '#/signUp':
+      return contentElement.appendChild(COMPONENTS.registro());
+    case '#/profile':
+      return contentElement.appendChild(COMPONENTS.perfil());
+    case '#/timeLine':
+      return contentElement.appendChild(COMPONENTS.muro());
     default:
-      return contentPrincipal.appendChild(components.NotFound());
+      return contentElement.appendChild(COMPONENTS.diferente());
   }
 };

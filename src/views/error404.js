@@ -1,6 +1,6 @@
-export const notFound = () => {
+export const NOTFOUND = () => {
   const view = `
-  <div class='error404'></div>
+  <p class='error404'>Ups! Página no encontrada!</p>
   `;
   const divElement = document.createElement('div');
   divElement.innerHTML = view;

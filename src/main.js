@@ -1,17 +1,9 @@
-/* eslint-disable spaced-comment */
+import { changeViews } from './routes/router.js';
 // Este es el punto de entrada de tu aplicacion
-import { changePages } from './routes/router.js';
-import { logueo } from './pages/login.js';
-import { register } from './pages/signIn.js';
-
 const init = () => {
-  changePages(window.location.hash);
-  logueo();
-  register();
+  changeViews(window.location.hash);
   window.addEventListener('hashchange', () => {
-    logueo();
-    register();
-    changePages(window.location.hash);
+    changeViews(window.location.hash);
   });
 };
 

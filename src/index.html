@@ -1,18 +1,46 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang='es'>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./style/login-signin.css">
+  <link rel="stylesheet" href="./style/error404.css">
+  <link rel="stylesheet" href="./style/timeline.css">
   <link rel="icon" href="./images/icono.ico">
   <title>La ruta</title>
 </head>
 
 <body>
-  <section id='content'></section>
+  <header id='header'>
+    <nav class='menu'>
+      <ul>
+        <li class='items home'>
+          <a href='#/home'>La Ruta</a>
+        </li>
+        <li class='items login'>
+          <a href='#/login'>Iniciar Sesión</a>
+        </li>
+        <li class='items signUp'>
+          <a href='#/signUp'>Registrarse</a>
+        </li>
+        <li class='items profile hidden' >
+          <a href='#/profile'>Perfil</a>
+        </li>
+        <li class='items timeline hidden' >
+          <a href='#/timeLine'>Muro</a>
+        </li>
+        <li class='items logOut hidden' >
+          <a href='#/logOut'>Salir</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id='content' class='content'></section>
+
   <footer id='footer'>
-    <p>&copy; 2021 Created by YupiGroup - All right reserved</p>
+    <p class='footer'>&copy; 2021 Creado por YupiGroup - Todos los Derechos Reservados</p>
   </footer>
 
   <!--FIREBASE SCRIPTS-->
