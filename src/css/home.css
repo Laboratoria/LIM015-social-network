@@ -57,6 +57,8 @@ body {
     font-size: 30px;
     padding: 0 20px;
     line-height: 60px;
+    cursor: pointer;
+
     display: none;
 }
 
@@ -70,7 +72,7 @@ body {
         flex-direction: column;
         align-items: center;
         margin-right: 20px;
-        background-color: #2c3e50;
+        background-color: #986D8E  /* #A03C78 */ /* #7B6079 */ /* #763857 */;
         position: fixed;
         left: 0;
         top: 80px;
@@ -79,6 +81,9 @@ body {
 
         height: calc(100% - 80px);
         overflow-y: auto;
+
+        left: 100%;
+        transition: left 0.3s;
     }
 
     .navMenuItem {
@@ -88,5 +93,13 @@ body {
     .navMenuLink:hover {
         background: none;
         color: #83c5f7;
+    }
+
+    .navToggle {
+        display: block;
+    }
+
+    .navMenuVisible {
+        left: 0;
     }
 }

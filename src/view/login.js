@@ -45,6 +45,7 @@ export const logInTemplate = () => {
         // console.log('error' , errorMessage)
         // console.log('error');
         messageError.innerHTML = 'Error de logueo';
+        window.location.hash = '#/Error404';
       });
   };
   const btnGoogle = sectionLogIn.querySelector('#btnGoogle');
