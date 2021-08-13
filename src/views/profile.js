@@ -3,7 +3,7 @@ export const PROFILE = () => {
   <section class='contenedorProfile'>
     <img src='../images/photoProfile2.jpeg' alt='photo profile' />
     <p>Luana</p>
-    <p>Status</p>
+    <p>Estado: Ocupada!</p>
   </section>
   `;
   const divElement = document.createElement('div');
