@@ -22,7 +22,7 @@ export const SIGNUP = () => {
   // CONSTANTES GLOBALES
   const btnSignUp = divElement.querySelector('#signUp');
   // INPUTS GENERALES
-  const formElement = divElement.querySelector('#form');// AGREGO1
+  const formElement = divElement.querySelector('#form');
   const errorMessageElement = divElement.querySelector('#errorMessage');
   const userNameInput = divElement.querySelector('#userName');
   const emailUser = divElement.querySelector('#email');
@@ -40,12 +40,10 @@ export const SIGNUP = () => {
       /* AQUI TODO PASA OK */
       errorMessageElement.textContent = '';
       /* AQUI CODIGO DE FIREBASE */
-      // comienza las pruebas
       formElement.addEventListener('submit', (e) => {
         e.preventDefault();
         registerWithFirebase(emailUser.value, password.value, errorMessageElement);
       });
-      // window.location.hash = '#/login';
     }
   });
   // TERMINA AQUI
