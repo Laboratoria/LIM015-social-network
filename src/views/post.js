@@ -45,10 +45,13 @@ export const sharingPost = (data) => {
 
                     <aside class="modal-container" id="modal-container">
                       <aside class="modal modal-close" id="modal">
-                       <p class="close-estatistics">¿Deseas borrar tu post?</p>
-                       <button class="yes" id="aceptar">SI</button><button class="no" id="close">NO</button>
+                        <p class="close-estatistics">¿Deseas borrar tu post?</p>
+                        <section class="btn-modal">
+                          <button class="yes" id="aceptar">SI</button>
+                          <button class="no" id="close">NO</button>
+                        </sectionc>
                       </aside>
-                   </aside>
+                  </aside>
 
                       <section class="content-posts">
                           <figure class="user-img"> <img class="img-perfil2" src='${data.Photo}'/> </figure>
@@ -58,7 +61,7 @@ export const sharingPost = (data) => {
                               <section class="heart-commet">
                             <button id="like-${data.id}" class="bottom-heart">
                             <i id="count-Like" class="fa fa-heart-o heart-empty" aria-hidden="true">  ${data.likes}</i>
-                            </button> 
+                            </button>
                             <button class="show-comment">
                                 <span id="show-comment">
                                   <i class="fa fa-comment-o show-comment" aria-hidden="true"></i>
@@ -71,7 +74,7 @@ export const sharingPost = (data) => {
                                 <span></span>
                             </span> -->
                           </section>
-                          <section class="">
+                          <section class="comment-form">
                             <form class="form-comment" maxlength="50" required>
                                 <textarea placeholder="Escribe tu comentario" id="tex-comment" class="textarea-comment">
                                 </textarea>
