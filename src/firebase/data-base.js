@@ -28,10 +28,21 @@ export const getPost = (callback) => firebase.firestore().collection('posts').or
     callback(postGetPost);
   });
 
-export const comment = (id, nombre, idPost, text) => firebase.firestore().collection('comment').add({
-  idPost,
-  idUser: id,
-  user: nombre,
-  coments: text,
-  timePost: new Date(),
-});
+export const comment = (id, nombre, idD, text) => firebase.firestore().collection('posts').doc(idD).collection('comment')
+  .add({
+    postId: idD,
+    idUser: id,
+    user: nombre,
+    comment: text,
+    timePost: new Date(),
+  });
+
+export const getComments = (postId, callback) => firebase.firestore().collection('posts').doc(postId).collection('comments')
+  .orderBy('timePost', 'desc')
+  .onSnapshot((querySnapshot) => {
+    const data = [];
+    querySnapshot.forEach((doc) => {
+      data.push({ id: doc.id, ...doc.data() });
+    });
+    callback(data);
+  });
