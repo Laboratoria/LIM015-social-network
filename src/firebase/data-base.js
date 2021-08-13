@@ -36,3 +36,15 @@ export const comment = (id, nombre, idD, text) => firebase.firestore().collectio
     comment: text,
     timePost: new Date(),
   });
+
+export const getComment = (postId, callback) => {
+  firebase.firestore().collection('posts').doc(postId).collection('comment')
+    .orderBy('timePost', 'desc')
+    .onSnapshot((querySnapshot) => {
+      const data = [];
+      querySnapshot.forEach((doc) => {
+        data.push({ id: doc.id, ...doc.data() });
+      });
+      callback(data);
+    });
+};

@@ -18,7 +18,7 @@ export const signIn = () => {
       } else {
         changeRoute('#/home');
       }
-      console.log(result);
+      console.log('lograste entrar');
     }).catch((error) => {
       const errorMessage = error.message;
       if (email === '' || password === '') {
@@ -40,6 +40,7 @@ export const signInFb = () => {
 export const signInWithGoogle = () => {
   loginGoogle().then(() => {
     changeRoute('#/home');
+    alert('Ingresaste a iBook!!!');
   }).catch((error) => {
     console.log(error);
   });

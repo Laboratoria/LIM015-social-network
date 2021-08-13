@@ -523,6 +523,9 @@ header {
   width: 360px;
   height: 140px;
   background-color: lightgrey;
+  border-radius: 10px;
+  transform: translateY(0%);
+  transition: transform 1s;
 }
 
 .yes, .no {
@@ -531,12 +534,14 @@ header {
   border-radius: 5px;
   border: none;
   margin-right: 10px;
-  padding: 4px 0 4px
+  padding: 4px 0 4px;
+  font-size: 15px;
+  font-weight: 600;
 }
 
 .modal-close {
   transform: translateY(-200%);
-}
+} 
 
 .close-estatistics {
   background: white;
@@ -545,6 +550,9 @@ header {
   text-align: center;
   padding-top: 10px;
   padding-bottom: 5px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bolder;
 }
 
 .footer {

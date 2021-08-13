@@ -117,7 +117,7 @@ export const sharingPost = (data) => {
     close.addEventListener('click', () => {
       modal.classList.toggle('modal-close');
 
-      setTimeout(function () {
+      setTimeout(() => {
         modalContainer.style.opacity = '0';
         modalContainer.style.visibility = 'hidden';
       }, 600);
