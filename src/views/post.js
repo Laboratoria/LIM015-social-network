@@ -1,6 +1,6 @@
 import { currentUser } from '../firebase/autenticacion.js';
 import { editLikes, deletePost, editPost } from '../views-controllers/post-control.js';
-import { comment, getComments } from '../firebase/data-base.js';
+import { comment } from '../firebase/data-base.js';
 
 export const sharingPost = (data) => {
   const time = new Date(data.timePost.toDate());
@@ -69,22 +69,18 @@ export const sharingPost = (data) => {
                                 <a class="counter-comment">2</a>
                             </button>
                             </section>
-                            <!-- <span class="margin-left hide">
-                                <i class="fa fa-heart-floppy-o iconSave" aria-hidden="true"></i>
-                                <span></span>
-                            </span> -->
-                          </section>
-                          <section class="comment-form">
+                            <section class="comment-form">
                             <form class="form-comment" maxlength="50" required>
-                                <textarea placeholder="Escribe tu comentario" id="tex-comment" class="textarea-comment">
-                                </textarea>
-                                <button id="comment-plane">
+                              <textarea placeholder="Escribe tu comentario" id="tex-comment" class="textarea-comment">
+                              </textarea>
+                              <button id="comment-plane">
                                 <span class="comment">
-                                    <i class="fa fa-paper-plane btn-comment" aria-hidden="true"></i>
+                                  <i class="fa fa-paper-plane btn-comment" aria-hidden="true"></i>
                                 </span>
-                                </button>
+                              </button>
                             </form>
                           </section>
+                          <section></section>
                       </section>
               </li>
             </ul>
