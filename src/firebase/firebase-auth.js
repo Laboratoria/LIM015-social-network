@@ -62,27 +62,27 @@ export const login = (email, password, errores) => {
 export const loginWithFacebook = () => {
   const provider = new firebase.auth.FacebookAuthProvider();
   firebase
-  .auth()
-  .signInWithPopup(provider)
-  .then((result) => {
-    /** @type {firebase.auth.OAuthCredential} */
-    const credential = result.credential;
-    // The signed-in user info.
-    const user = result.user;
-    // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-    const accessToken = credential.accessToken;
-    // ...
-  })
-  .catch((error) => {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // The email of the user's account used.
-    const email = error.email;
-    // The firebase.auth.AuthCredential type that was used.
-    const credential = error.credential;
-    // ...
-  });
+    .auth()
+    .signInWithPopup(provider)
+    .then((result) => {
+      /** @type {firebase.auth.OAuthCredential} */
+      const credential = result.credential;
+      // The signed-in user info.
+      const user = result.user;
+      // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+      const accessToken = credential.accessToken;
+      window.location.hash = '#/timeLine';
+    })
+    .catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.email;
+      // The firebase.auth.AuthCredential type that was used.
+      const credential = error.credential;
+      // ...
+    });
 };
 
 // LOGUEARSE CON GOOGLE
@@ -90,27 +90,38 @@ export const loginWithGoogle = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
   firebase.auth().signInWithPopup(provider).then((result) => {
     console.log(result);
-    console.log("google sign in");
+    console.log('google sign in');
+    window.location.hash = '#/timeLine';
   })
-    .catch(err => {
-      console.log(err);
+    .catch((error) => {
+      console.log(error);
     });
 };
 
-
 // ------------- OTROS METODOS -------------
-// METODO QUE DETECTA LA AUTENTICACION DEL USUARIO
-export const firebaseWatcher = () => {
-  firebase.auth().onAuthStateChanged((user) => {
+// METODO PARA CERRAR SESION
+export const logOutUser = () => {
+  firebase.auth().signOut().then(() => {
+    console.log('signup out successful');
+    window.location.hash = '#/home';
+  });
+};
+
+// METODO QUE OCULTA LOS LINKS - falta llamarlo
+export const loginCheck = (user, e1, e2, e3, e4, e5, e6) => {
   if (user) {
-    // User is signed in, see docs for a list of available properties
-    // https://firebase.google.com/docs/reference/js/firebase.User
-    const uid = user.uid;
-    console.log('el usuario esta logueado');
-    console.log(uid);
+    e1.style.display = 'block';
+    e2.style.display = 'block';
+    e3.style.display = 'block';
+    e4.style.display = 'none';
+    e5.style.display = 'none';
+    e6.style.display = 'none';
   } else {
-    // User is signed out
-    console.log('al usuario le falta loguearse');
+    e1.style.display = 'none';
+    e2.style.display = 'none';
+    e3.style.display = 'none';
+    e4.style.display = 'block';
+    e5.style.display = 'block';
+    e6.style.display = 'block';
   }
-});
 };

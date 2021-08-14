@@ -1,3 +1,5 @@
+import { logOutUser } from '../firebase/firebase-auth.js';
+// import { firebaseWatcher } from '../firebase/firebase-firestore.js';
 // Constante a exportar
 export const TIMELINE = () => {
   const view = `
@@ -33,5 +35,23 @@ export const TIMELINE = () => {
   `;
   const divElement = document.createElement('div');
   divElement.innerHTML = view;
+  // Constantes Globales
+  const btnShare = divElement.querySelector('#buttonShare');
+  const linkAboutLogOut = document.querySelector('.logOut a');
+  // INPUTS GENERALES
+  const textPost = divElement.querySelector('#textAreaPublication');
+  const userNamePost = divElement.querySelector('#userNamePost');
+  const postContent = divElement.querySelector('#postContent');
+  // FUNCIONALIDAD
+  // ------------------------- Boton compartir -------------------------
+  btnShare.addEventListener('click', () => {
+    // aqui va lo de firestore
+    console.log(textPost.value);
+  });
+  // ------------------------- Ancla salir -------------------------
+  linkAboutLogOut.addEventListener('click', (e) => {
+    e.preventDefault();
+    logOutUser();
+  });
   return divElement;
 };

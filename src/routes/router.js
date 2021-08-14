@@ -4,10 +4,10 @@ export const changeViews = (hash) => {
   const contentElement = document.querySelector('#content');
   contentElement.innerHTML = '';
   switch (hash) {
+    case '':
     case '#':
     case '#/':
     case '#/home':
-    case '#/logOut':
       return contentElement.appendChild(COMPONENTS.inicio());
     case '#/login':
       return contentElement.appendChild(COMPONENTS.inicioSesion());

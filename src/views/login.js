@@ -36,7 +36,8 @@ export const LOGIN = () => {
   const password = divElement.querySelector('#password1');
 
   // ------------------------- Boton Inicio sesion -------------------------
-  btnLogin.addEventListener('click', () => {
+  btnLogin.addEventListener('click', (e) => {
+    e.preventDefault();
     if (emailUser.value === '' && password.value === '') {
       errorMessageElement.textContent = 'Ups 🙈, ingresa un correo y una contraseña!';
     } else if (emailUser.value !== '' && password.value === '') {
@@ -54,18 +55,20 @@ export const LOGIN = () => {
   });
 
   // ------------------------- Boton Registrarse -LISTO!!!! -------------------------
-  btnSignUp.addEventListener('click', () => {
+  btnSignUp.addEventListener('click', (e) => {
+    e.preventDefault();
     window.location.hash = '#/signUp';
   });
 
   // ------------------------- Boton Facebook - inicio de sesion -------------------------
-  btnFacebook.addEventListener('click', () => {
-    console.log('Ingresaras con Facebook ?');
+  btnFacebook.addEventListener('click', (e) => {
+    e.preventDefault();
     loginWithFacebook();
   });
 
   // ------------------------- Boton Google - inicio de sesion -------------------------
-  btnGoogle.addEventListener('click', () => {
+  btnGoogle.addEventListener('click', (e) => {
+    e.preventDefault();
     loginWithGoogle();
   });
 
