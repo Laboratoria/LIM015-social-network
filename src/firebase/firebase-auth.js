@@ -60,5 +60,48 @@ export const login = (email, password, errores) => {
 
 // LOGUEARSE CON FACEBOOK
 export const loginWithFacebook = () => {
+  const provider = new firebase.auth.FacebookAuthProvider();
+  firebase
+  .auth()
+  .signInWithPopup(provider)
+  .then((result) => {
+    /** @type {firebase.auth.OAuthCredential} */
+    var credential = result.credential;
 
+    // The signed-in user info.
+    var user = result.user;
+
+    // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+    var accessToken = credential.accessToken;
+
+    // ...
+  })
+  .catch((error) => {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // The email of the user's account used.
+    var email = error.email;
+    // The firebase.auth.AuthCredential type that was used.
+    var credential = error.credential;
+
+    // ...
+  });
+};
+
+// ------------- OTROS METODOS -------------
+// METODO QUE DETECTA LA AUTENTICACION DEL USUARIO
+export const firebaseWatcher = () => {
+  firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    const uid = user.uid;
+    console.log('el usuario esta logueado');
+    console.log(uid);
+  } else {
+    // User is signed out
+    console.log('al usuario le falta loguearse');
+  }
+});
 };
