@@ -1,4 +1,4 @@
-import { sharePost } from '../firebase/data-base.js';
+import { sharePost, deleteLikeDb, addLikeDb } from '../firebase/data-base.js';
 import { currentUser } from '../firebase/autenticacion.js';
 
 export const addPost = (e) => {
@@ -8,9 +8,9 @@ export const addPost = (e) => {
   const user = currentUser();
   const Photo = currentUser().photoURL;
   // eslint-disable-next-line prefer-const
-  let countLike = 0;
+  // let countLike = 0;
   if (post !== '') {
-    sharePost(post, user.email, user.displayName, user.uid, countLike, privacy, Photo)
+    sharePost(post, user.email, user.displayName, user.uid, privacy, Photo)
       .then(() => {
         document.getElementById('textPost').value = '';
         console.log('se agrego el post');
@@ -21,11 +21,24 @@ export const addPost = (e) => {
     alert('Ingrese su post');
   }
 };
+// borre const editLikes
+// export const editLikes = (idD, like) => {
+//   firebase.firestore().collection('posts').doc(idD).update({
+//     likes: like,
+//   });
+// };
 
-export const editLikes = (idD, like) => {
-  firebase.firestore().collection('posts').doc(idD).update({
-    likes: like,
-  });
+// likes
+export const deleteLikePost = (idPost) => {
+  deleteLikeDb(currentUser().uid, idPost)
+    .then(() => {
+    });
+};
+
+export const addLike = (idPost) => {
+  addLikeDb(currentUser().uid, idPost, currentUser().email)
+    .then(() => {
+    });
 };
 
 // eliminar post

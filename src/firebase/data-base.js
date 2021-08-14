@@ -8,13 +8,13 @@ export const createUser = (nombre, email, id, photo) => {
   return addUserCollection;
 };
 
-export const sharePost = (post, email, nombre, id, like, privacy, photo) => firebase.firestore().collection('posts').add({
+// quite el like de esta coleccion
+export const sharePost = (post, email, nombre, id, privacy, photo) => firebase.firestore().collection('posts').add({
   postText: post,
   idUser: id,
   user: nombre,
   mail: email,
   mode: privacy,
-  likes: like,
   Photo: photo,
   timePost: new Date(),
 });
@@ -46,5 +46,28 @@ export const getComment = (postId, callback) => {
         data.push({ id: doc.id, ...doc.data() });
       });
       callback(data);
+    });
+};
+
+// creando los likes
+export const addLikeDb = (iduser, idPost, email) => firebase.firestore().collection('posts').doc(idPost).collection('likes')
+  .doc(iduser)
+  .set({
+    iduser,
+    idPost,
+    email,
+  });
+export const deleteLikeDb = (iduser, idPost) => firebase.firestore().collection('posts').doc(idPost).collection('likes')
+  .doc(iduser)
+  .delete();
+export const getLike = (idPost, contadorLikes, likesPintadosPost) => {
+  firebase.firestore().collection('posts').doc(idPost).collection('likes')
+    .onSnapshot((querySnapshot) => {
+      const likes = [];
+      querySnapshot.forEach((doc) => {
+        likes.push({ id: doc.id, ...doc.data() });
+      });
+      contadorLikes(likes);
+      likesPintadosPost(likes);
     });
 };
