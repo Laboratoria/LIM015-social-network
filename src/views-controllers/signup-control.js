@@ -1,5 +1,5 @@
 import { userSignUp, currentUser, verifyEmail } from '../firebase/autenticacion.js';
-import { createUser } from '../firebase/data-base.js';
+// import { createUser } from '../firebase/data-base.js';
 
 export const signUpUser = (e) => {
   e.preventDefault(); // cancela el evento de reinicio del formulario
@@ -19,7 +19,7 @@ export const signUpUser = (e) => {
         // yo
         msgerr.textContent = 'Por favor revise su bandeja de entrada para verificar su cuenta';
       }
-      createUser(name, email, currentUser.uid, foto);
+      // createUser(name, email, currentUser.uid, foto);
     }).catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;

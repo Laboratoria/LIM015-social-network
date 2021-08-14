@@ -1,6 +1,7 @@
 import { currentUser } from '../firebase/autenticacion.js';
-import { deletePost, editPost, deleteLikePost, addLike } from '../views-controllers/post-control.js';
-import { comment, getLike} from '../firebase/data-base.js';
+import { deleteLikePost, addLike } from '../views-controllers/post-control.js';
+import { getLike, deletePost, editPost } from '../firebase/data-base.js';
+// import { comment } from '../firebase/data-base.js';
 
 export const sharingPost = (data) => {
   const time = new Date(data.timePost.toDate());
@@ -180,14 +181,14 @@ export const sharingPost = (data) => {
 
   // agregando comentarios al post
 
-  const btnComment = sectionPost.querySelector('#comment-plane');
-  btnComment.addEventListener('click', () => {
-    const textComment = sectionPost.querySelector('#tex-comment').value;
-    comment(currentUser().email, `${data.id}`, currentUser().uid, textComment)
-      .then(() => {
-        sectionPost.querySelector('#tex-comment').value = '';
-      });
-  });
+  // const btnComment = sectionPost.querySelector('#comment-plane');
+  // btnComment.addEventListener('click', () => {
+  //   const textComment = sectionPost.querySelector('#tex-comment').value;
+  //   comment(currentUser().email, `${data.id}`, currentUser().uid, textComment)
+  //     .then(() => {
+  //       sectionPost.querySelector('#tex-comment').value = '';
+  //     });
+  // });
 
   return sectionPost;
 };

@@ -24,3 +24,12 @@ export const currentUser = () => firebase.auth().currentUser;
 export const verifyEmail = () => (
   firebase.auth().currentUser.sendEmailVerification()
 );
+
+// falta test
+export const changePasword = (email) => (
+  firebase.auth().sendPasswordResetEmail(email)
+);
+
+export const leave = () => (
+  firebase.auth().signOut()
+);
