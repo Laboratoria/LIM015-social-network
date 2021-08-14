@@ -16,12 +16,14 @@ formularios.innerHTML = `
           <h2 class="title">Ingresa</h2>
           <div class="input-field">
             <i class="fas fa-envelope"></i>
-            <input type="email" id="signin-email" placeholder="Email"/>
+            <input type="email" id="signin-email" placeholder="Email"/> 
           </div>
+          <div> <span id="error-email"></span> </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
             <input type="password" id="signin-password" placeholder="Contraseña">
           </div>
+          <div> <p id="error-password"></p> </div>
           <input type="submit" value="Ingresar" class="btn solid">
           <p class="social-text">O ingresa con:</p>
           <div class="social-media">
@@ -109,6 +111,11 @@ signinForm.addEventListener('submit', (e) => {
   const siginEmail = document.getElementById('signin-email').value;
   const signinPassword = document.getElementById('signin-password').value;
   signIn(siginEmail, signinPassword);
+  // const errorMsgEmail = document.getElementById('error-email');
+  const errorMsgPassword = document.getElementById('error-password');
+  if (siginEmail === '' || signinPassword === '') {
+    errorMsgPassword.innerHTML = 'Debes ingresar tu email y contraseña <br> (╯ರ ~ ರ)╯︵ ┻━┻';
+  }
 });
 
 // Ingresar con Google

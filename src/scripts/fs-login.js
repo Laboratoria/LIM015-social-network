@@ -26,7 +26,6 @@ export const signIn = (email, password) => {
     })
     .catch((error) => {
       console.log(error.code, error.message);
-      alert('Contraseña o Email incorrecto \n (╯ರ ~ ರ)╯︵ ┻━┻');
     });
 };
 
