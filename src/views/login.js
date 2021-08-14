@@ -1,4 +1,4 @@
-import { login } from '../firebase/firebase-auth.js';
+import { login, loginWithFacebook, loginWithGoogle } from '../firebase/firebase-auth.js';
 // Constante a exportar
 export const LOGIN = () => {
   const view = `
@@ -61,11 +61,12 @@ export const LOGIN = () => {
   // ------------------------- Boton Facebook - inicio de sesion -------------------------
   btnFacebook.addEventListener('click', () => {
     console.log('Ingresaras con Facebook ?');
+    loginWithFacebook();
   });
 
   // ------------------------- Boton Google - inicio de sesion -------------------------
   btnGoogle.addEventListener('click', () => {
-    console.log('Ingresaras con Google ?');
+    loginWithGoogle();
   });
 
   // termina
