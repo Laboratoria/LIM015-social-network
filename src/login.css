@@ -9,7 +9,10 @@
 header{
     display: none;    
 }
-
+#si-error-password, #si-error-email, #su-error-password {
+    color: #CB3234;
+    text-align: center;
+}
 body,button,
 input {
   font-family: "MuseoModerno", sans-serif;
