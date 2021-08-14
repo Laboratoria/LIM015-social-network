@@ -39,7 +39,7 @@ describe('Registro de usuario', () => {
 //   it('Debería enviar un email de verificación', () => { 
 //     const mockSendEmail = jest.fn();
 //     firebase.auth().currentUser.sendEmailVerification = mockSendEmail;
-//     verifyEmail('rociosulca@gmail.com');
+//     verifyEmail();
 //     expect(mockSendEmail).toHaveBeenCalled();
 //     expect(mockSendEmail.mock.calls).toHaveLength(1);
 //   });

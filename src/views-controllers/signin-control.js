@@ -1,5 +1,5 @@
 // TODO AVERIGUAR
-import { userSignIn, loginFacebook, loginGoogle } from '../firebase/autenticacion.js';
+import { userSignIn, loginFacebook, loginGoogle, changePasword, leave } from '../firebase/autenticacion.js';
 
 // Para que es el changeRoute?
 const changeRoute = (route) => {
@@ -45,12 +45,10 @@ export const signInWithGoogle = () => {
     console.log(error);
   });
 };
-
+// cambiar resetPasword
 export const resetPasword = () => {
-  const email = document.querySelector('#username').value;
-  firebase.auth().sendPasswordResetEmail(email)
-    .then(() => {
-      // Yo
+const email = document.querySelector('#username').value;
+changePasword(email).then(() => {
       document.getElementById('error').innerHTML = 'Se ha enviado un mensaje a tu correo';
     }).catch((error) => {
       console.error(error);
@@ -58,7 +56,7 @@ export const resetPasword = () => {
 };
 
 export const salir = () => {
-  firebase.auth().signOut().then(() => {
+  leave().then(() => {
     console.log('Lograste salir');
   }).catch((error) => {
     console.log('Hubo un error', error);
