@@ -25,29 +25,36 @@ export const logInTemplate = () => {
 
   const inicioSesionGoogle = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
+    console.log(inicioSesionGoogle);
     firebase
       .auth()
       .signInWithPopup(provider)
       .then((result) => {
-        const credential = result.credential;
-        const token = credential.accessToken;
+        /* const credential = result.credential;
+        const token = credential.accessToken; */
         const user = result.user;
-        // console.log('user' , user);
+        console.log('user', user);
         // console.log('logueado');
         window.location.hash = '#/Home';
         messageError.innerHTML = '';
       })
       .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
+        /* const errorCode = error.code;
         const email = error.email;
-        const credential = error.credential;
-        // console.log('error' , errorMessage)
+        const credential = error.credential; */
+        console.log('error', errorMessage);
         // console.log('error');
-        messageError.innerHTML = 'Error de logueo';
-        window.location.hash = '#/Error404';
+        /* window.location.hash = '#/Error404'; */
       });
   };
+
+  if (firebase.auth().currentUser === null) {
+    window.location.hash = '#/LogIn';
+    const sesionActivaGoogle = false;
+    console.log('sesion activa', sesionActivaGoogle);
+  }
+
   const btnGoogle = sectionLogIn.querySelector('#btnGoogle');
   btnGoogle.addEventListener('click', inicioSesionGoogle, false);
   return sectionLogIn;

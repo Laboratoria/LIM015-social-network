@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-cycle
 import { changeView } from './controller/router.js';
 
 const initialize = () => {
@@ -16,5 +17,3 @@ const initialize = () => {
   window.addEventListener('hashchange', () => changeView(window.location.hash));
 };
 window.addEventListener('load', initialize);
-
-
