@@ -7,10 +7,10 @@ export const SIGNUP = () => {
     <img src='images/laRuta-02.png' alt='La ruta logo' class='logo'/>
     <p class='welcome'>Bienvenid@ viajer@!</p>
     <span id='errorMessage' class='errorMessage'></span>
-    <input type='text' id='userName' placeholder='👤 Nombre' class='input' required />
-    <input type='email' id='email' placeholder='✉ Correo Electrónico' class='input' required />
-    <input type='password' id='password1' placeholder='🔑 Constraseña' class='input' minlength='6' required />
-    <input type='password' id='password2' placeholder='🔑 Confirmar Constraseña' class='input' minlength='6' required />
+    <input type='text' id='userName' placeholder='  Nombre' class='input' required />
+    <input type='email' id='email' placeholder='  Correo Electrónico' class='input' required />
+    <input type='password' id='password1' placeholder='  Constraseña' class='input' minlength='6' required />
+    <input type='password' id='password2' placeholder='  Confirmar Constraseña' class='input' minlength='6' required />
     <div class='buttons'>
       <button type='submit' class='btnStart' id='signUp'>Registrarse</button>
     </div>

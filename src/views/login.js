@@ -7,8 +7,8 @@ export const LOGIN = () => {
       <img src='images/laRuta-02.png' alt='La ruta logo' class='logo'/>
       <p class='welcome'>Bienvenid@ viajer@!</p>
       <span id='errorMessage' class='errorMessage'></span>
-      <input type='email' id='email' placeholder='✉ Correo electrónico' class='input' />
-      <input type='password' id='password1' placeholder='🔑 Contraseña' class='input' minlength='6'/>
+      <input type='email' id='email' placeholder='  Correo electrónico' class='input' />
+      <input type='password' id='password1' placeholder='  Contraseña' class='input' minlength='6'/>
       <div class='buttons'>
         <button id='login' type='submit' class='btnStart'>Iniciar Sesión</button>
       </div>
@@ -16,9 +16,9 @@ export const LOGIN = () => {
         <button id='signUp' type='button'class='btnStart'>Registrarse</button>
       </div>
       <p>O ingresa con...</p>
-      <div class='imgFacebookGoogle'>
-        <button id='btnFacebook' type='button'><img id='facebook' src='images/facebook.png' alt='Facebook' class='iconSocial'></button>
-        <button id='btnGoogle' type='button'><img id='google' src='images/google.png' alt='Google' class='iconSocial'></button>
+      <div class='contentbtn'>
+        <button id='btnFacebook' class='btnFacebookGoogle' type='button'><img id='facebook' src='images/facebook.png' alt='Facebook' class='iconSocial'></button>
+        <button id='btnGoogle' class='btnFacebookGoogle' type='button'><img id='google' src='images/google.png' alt='Google' class='iconSocial'></button>
       </div>
     </form>
   </section>
