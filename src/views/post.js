@@ -1,6 +1,6 @@
 import { currentUser } from '../firebase/autenticacion.js';
-import { editLikes } from '../views-controllers/post-control.js';
-import { deletePost, editPost } from '../firebase/data-base.js';
+import { deleteLikePost, addLike } from '../views-controllers/post-control.js';
+import { getLike, deletePost, editPost } from '../firebase/data-base.js';
 // import { comment } from '../firebase/data-base.js';
 
 export const sharingPost = (data) => {
@@ -60,8 +60,9 @@ export const sharingPost = (data) => {
                             <form class="form-save" maxlength="50" required>
                             <textarea class="textarea-post" id="text-post" disabled>${data.postText}</textarea>
                               <section class="heart-commet">
-                            <button id="like-${data.id}" class="bottom-heart">
-                            <i id="count-Like" class="fa fa-heart-o heart-empty" aria-hidden="true">  ${data.likes}</i>
+                            <button id="liked-${data.id}" class="bottom-heart">
+                            <p id="container-like"></p>
+                            <i id="counter-${data.id}" class="fa fa-heart-o heart-empty" aria-hidden="true"></i>
                             </button>
                             <button class="show-comment">
                                 <span id="show-comment">
@@ -91,7 +92,44 @@ export const sharingPost = (data) => {
   sectionPost.innerHTML = template;
   sectionPost.setAttribute('class', 'contenedor-post');
 
-  const btnLike = sectionPost.querySelector(`#like-${data.id}`);
+  // borre const de like
+  // const btnLike = sectionPost.querySelector(`#like-${data.id}`);
+
+  const btnLike = sectionPost.querySelector(`#liked-${data.id}`);
+  const counterLike = sectionPost.querySelector(`#counter-${data.id}`);
+  // agregando likes
+  const contadorLikes = (likes) => {
+    const countLike = likes.length;
+    counterLike.innerHTML = countLike;
+  };
+
+  const likesPintadosPost = (likes) => {
+    likes.forEach((element) => {
+      if (currentUser().uid === element.id) {
+        btnLike.classList.remove('not-like');
+        btnLike.classList.add('liked');
+        btnLike.dataset.like = '1';
+      }
+    });
+  };
+
+  getLike(data.id, contadorLikes, likesPintadosPost);
+
+  btnLike.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (e.target.dataset.like === '0') {
+      e.target.dataset.like = '1';
+      addLike(data.id);
+      btnLike.classList.remove('not-like');
+      btnLike.classList.add('liked');
+    } else {
+      e.target.dataset.like = '0';
+      deleteLikePost(data.id);
+      btnLike.classList.remove('liked');
+      btnLike.classList.add('not-like');
+    }
+  });
+
   const deletedPost = sectionPost.querySelector('#deletePost');
   const editedPost = sectionPost.querySelector(`#edit-${data.id}`);
   const savePost = sectionPost.querySelector('#savePost');
@@ -139,14 +177,11 @@ export const sharingPost = (data) => {
     });
   }
 
-  btnLike.addEventListener('click', () => {
-    const likeValue = data.likes + 1;
-    editLikes(data.id, likeValue);
-  });
+  // borre funcionalidad del like
 
   // agregando comentarios al post
 
-  const btnComment = sectionPost.querySelector('#comment-plane');
+  // const btnComment = sectionPost.querySelector('#comment-plane');
   // btnComment.addEventListener('click', () => {
   //   const textComment = sectionPost.querySelector('#tex-comment').value;
   //   comment(currentUser().email, `${data.id}`, currentUser().uid, textComment)
