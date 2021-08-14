@@ -1,9 +1,5 @@
-
-
-
-
-export const sharingCommet = (data) => {
-  const time = new Date(data.timePost.toDate());
+export const sharingCommet = () => {
+//   const time = new Date(data.timePost.toDate());
   const sectionComment = document.createElement('section');
   const template = `
         

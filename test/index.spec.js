@@ -5,23 +5,20 @@ import {
   loginGoogle,
   loginFacebook,
   verifyEmail,
+  currentUser,
 } from '../src/firebase/autenticacion.js';
 
-// eslint-disable-next-line import/no-unresolved
+
 const firebasemock = require('firebase-mock');
 
-const mockauth = new firebasemock.MockAuthentication();
-const mockstorage = new firebasemock.MockStorage();
-const mockfirestore = new firebasemock.MockFirestore();
+const mockauth = new firebasemock.MockFirebase();
+const mockdatabase = new firebasemock.MockFirebase();
 mockauth.autoFlush();
-mockfirestore.autoFlush();
 
 global.firebase = firebasemock.MockFirebaseSdk(
   // use null if your code does not use RTDB
-  () => null,
+  path => (path ? mockdatabase.child(path) : null),
   () => mockauth,
-  () => mockstorage,
-  () => mockfirestore,
 );
 
 // describe('myFunction', () => {
@@ -31,28 +28,29 @@ global.firebase = firebasemock.MockFirebaseSdk(
 // });
 
 describe('Registro de usuario', () => {
-  it('Deberia poder registrarse', () => userSignUp('prueba@test.com', 'pruebatest')
+  it('Deberia poder registrarse', () => userSignUp('gutmontemel@gmail.com', 'melissa')
     .then((user) => {
-      expect(user.email).toBe('prueba@test.com');
-      expect(user.password).toBe('pruebatest');
+      expect(user.email).toBe('gutmontemel@gmail.com');
+      expect(user.password).toBe('melissa');
     }));
 });
 
-describe('Verficar cuenta email', () => {
-  // it('Debería poder verificar el email', () => verifyEmail('gabhu@hotmail.es')
-  it('Debería enviar un email de verificación', () => {
-    const mockSendEmail = jest.fn();
-    firebase.auth().currentUser.sendEmailVerification = mockSendEmail;
-    verifyEmail();
-    expect(mockSendEmail).toHaveBeenCalled();
-    expect(mockSendEmail.mock.calls).toHaveLength(1);
-  });
-});
+// describe('Verficar cuenta email', () => {
+//   it('Debería enviar un email de verificación', () => { 
+//     const mockSendEmail = jest.fn();
+//     firebase.auth().currentUser.sendEmailVerification = mockSendEmail;
+//     verifyEmail('rociosulca@gmail.com');
+//     expect(mockSendEmail).toHaveBeenCalled();
+//     expect(mockSendEmail.mock.calls).toHaveLength(1);
+//   });
+// });
+
+
 
 describe('Iniciar sesion con correo', () => {
-  it('Deberia poder iniciar sesión', () => userSignIn('pamela.rupay31@rs.com', 'laboratoria')
+  it('Deberia poder iniciar sesión', () => userSignIn('pamela.rupay31@google.com', 'laboratoria')
     .then((user) => {
-      expect(user.email).toBe('pamela.rupay31@rs.com');
+      expect(user.email).toBe('pamela.rupay31@google.com');
     }));
 });
 
@@ -69,4 +67,14 @@ describe('Logearse con facebook', () => {
     .then((user) => {
       expect(user.providerData[0].providerId).toBe('facebook.com');
     }));
+});
+
+describe('Verify current user ', () => {
+  it('Deberia extraer a usuario logeado', () => {
+    const mockUser = {
+      currentUser: { uid: '001' },
+    };
+    firebase.auth().currentUser = mockUser.currentUser;
+    expect(currentUser().uid).toEqual('001');
+  });
 });
