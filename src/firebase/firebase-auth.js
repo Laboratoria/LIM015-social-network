@@ -1,5 +1,5 @@
 import firebase from './firebase.js';
-// --------------------------------- VIEW SIGN UP ---------------------------------
+// --------------------------------- VIEW REGISTRARSE ---------------------------------
 // CREAR NUEVO USUARIO CON FIREBASE
 export const registerWithFirebase = (email, password, errores) => {
   firebase.auth().createUserWithEmailAndPassword(email, password)

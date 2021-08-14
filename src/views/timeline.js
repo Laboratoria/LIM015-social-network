@@ -1,3 +1,4 @@
+// Constante a exportar
 export const TIMELINE = () => {
   const view = `
   <section>
