@@ -15,7 +15,7 @@ const loginPage = ` <section class="container">
       <i class="fas fa-lock"></i>
       <input id="loginpassword" class="inputextcolor" type="password" placeholder="Password" required>
     </span><br>
-
+    <p id='error'></p>
     <button id="button-login" class="button-login">Sign in</button>
     <br>
     <p class="ortext"><strong>- OR -</strong></p>

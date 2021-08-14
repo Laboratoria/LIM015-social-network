@@ -22,6 +22,8 @@ const signUpPage = `<section class="container">
       <i class="fas fa-lock"></i>
       <input id="signuppassword" class="inputextcolor" type="password" placeholder="Password" required>
     </span><br>
+    <p id="emailmessage" ></p>
+    <p id="errormsj" ></p>
 
     <button id="signupbutton" class="button-login">Sign Up</button>
     <br>

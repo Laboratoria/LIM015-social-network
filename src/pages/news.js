@@ -6,7 +6,7 @@ const newsPage = `<header id="container" class="navcontainer">
           srcset="" /></p>
       <div id= "logout" class="menuoptions">
       <p>Log out</p>
-      <img class="navicons" src="./images/logout.svg" alt="logouticon"
+      <img id="userImage" class="navicons" src="" alt="logouticon"
           srcset="" /></div>
     </ul>
   </nav>
@@ -15,6 +15,7 @@ const newsPage = `<header id="container" class="navcontainer">
 <section id="newscontainer" class="newscontainer">
   <div class="profile-container">
     <div id="image-name" class="image-name">
+    <img class="" src="./images/post-image.svg" alt="image-post" srcset="">
     </div>
   </div>
   <section class="post-container">

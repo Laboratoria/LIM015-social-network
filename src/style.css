@@ -86,7 +86,7 @@
     justify-content: center;
     align-items: center;
     column-gap: 52px;
-    padding-bottom: 45px;
+    padding-bottom: 42px;
  }
 .icons{
     padding: 20px;
@@ -103,7 +103,7 @@
     text-align: center;
     color: white;
     font-size: 14px;
-    padding: 10px;
+    padding: 14px;
 }
 /* sign up  */
 .text-signup{
@@ -166,4 +166,9 @@
 }
 .svgimage{
     padding-right: 106px;
+}
+#error{
+    color: white;
+    font-size: 15px;
+    /* margin: 5px; */
 }
