@@ -11,5 +11,10 @@ const firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+<<<<<<< HEAD
+=======
+firebase.analytics();
+// constantes iniciales de firebase
+>>>>>>> 1e3e3a6215d688648e7c6b868ba4ce7cbe31d33c
 
 export default firebase;

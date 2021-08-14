@@ -1,10 +1,12 @@
+import { registerWithFirebase } from '../firebase/firebase-auth.js';
+// Constante a exportar
 export const SIGNUP = () => {
   const view = `
   <section class='contenedorRegister'>
-    <form>
+    <form id='form'>
     <img src='images/laRuta-02.png' alt='La ruta logo' class='logo'/>
     <p class='welcome'>Bienvenid@ viajer@!</p>
-    <span id='errorMessage'></span>
+    <span id='errorMessage' class='errorMessage'></span>
     <input type='text' id='userName' placeholder='👤 Nombre' class='input' required />
     <input type='email' id='email' placeholder='✉ Correo Electrónico' class='input' required />
     <input type='password' id='password1' placeholder='🔑 Constraseña' class='input' minlength='6' required />
@@ -20,7 +22,8 @@ export const SIGNUP = () => {
   // CONSTANTES GLOBALES
   const btnSignUp = divElement.querySelector('#signUp');
   // INPUTS GENERALES
-  const errorMessage = divElement.querySelector('#errorMessage');
+  const formElement = divElement.querySelector('#form');
+  const errorMessageElement = divElement.querySelector('#errorMessage');
   const userNameInput = divElement.querySelector('#userName');
   const emailUser = divElement.querySelector('#email');
   const password = divElement.querySelector('#password1');
@@ -28,17 +31,19 @@ export const SIGNUP = () => {
   // ------------------------- Boton Registrarse -------------------------
   btnSignUp.addEventListener('click', () => {
     if (password.value !== confirmPass.value) {
-      errorMessage.textContent = 'Por favor, confirma tu contraseña 🙊';
+      errorMessageElement.textContent = 'Por favor, confirma tu contraseña 🙊';
     } else if (
       userNameInput.value === '' && emailUser.value === '' && password.value === '' && confirmPass.value === ''
     ) {
-      errorMessage.textContent = '⚡ Por favor complete todos los campos ⚡';
+      errorMessageElement.textContent = '⚡ Por favor complete todos los campos ⚡';
     } else {
       /* AQUI TODO PASA OK */
-      console.log('PASO TODO OK');
-      errorMessage.textContent = '';
+      errorMessageElement.textContent = '';
       /* AQUI CODIGO DE FIREBASE */
-      window.location.hash = '#/login';
+      formElement.addEventListener('submit', (e) => {
+        e.preventDefault();
+        registerWithFirebase(emailUser.value, password.value, errorMessageElement);
+      });
     }
   });
   // TERMINA AQUI

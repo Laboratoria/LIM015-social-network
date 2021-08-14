@@ -1,3 +1,5 @@
+import { login, loginWithFacebook, loginWithGoogle } from '../firebase/firebase-auth.js';
+// Constante a exportar
 export const LOGIN = () => {
   const view = `
   <section class='contenedorFormulario'>
@@ -29,24 +31,25 @@ export const LOGIN = () => {
   const btnFacebook = divElement.querySelector('#btnFacebook');
   const btnGoogle = divElement.querySelector('#btnGoogle');
   // INPUTS GENERALES
-  const errorMessage = divElement.querySelector('#errorMessage');
+  const errorMessageElement = divElement.querySelector('#errorMessage');
   const emailUser = divElement.querySelector('#email');
   const password = divElement.querySelector('#password1');
 
   // ------------------------- Boton Inicio sesion -------------------------
   btnLogin.addEventListener('click', () => {
     if (emailUser.value === '' && password.value === '') {
-      errorMessage.textContent = 'Ups 🙈, ingresa un correo y una contraseña!';
+      errorMessageElement.textContent = 'Ups 🙈, ingresa un correo y una contraseña!';
     } else if (emailUser.value !== '' && password.value === '') {
-      errorMessage.textContent = 'Ups 🙉, ingresa una contraseña';
+      errorMessageElement.textContent = 'Ups 🙉, ingresa una contraseña';
     } else if (emailUser.value === '' && password.value !== '') {
-      errorMessage.textContent = 'Ups 🙉, ingresa un correo correcto -> e.g. a@gmail.com';
+      errorMessageElement.textContent = 'Ups 🙉, ingresa un correo correcto -> e.g. a@gmail.com';
     } else {
       /* OJO-CASO PASA EXITOSAMENTE */
-      errorMessage.textContent = '';
+      errorMessageElement.textContent = '';
       /* OJO-AQUI DEBE CAMBIARSE EL HASH SOLO SI EL CORREO
       Y CONTRASENA SON CORRECTOS CON FIREBASE */
-      window.location.hash = '#/timeLine';
+      /* FALTARIA LA VALIDACION DE FIREBASE ------ OJOOOOOO ------- */
+      login(emailUser.value, password.value, errorMessageElement);
     }
   });
 
@@ -58,11 +61,12 @@ export const LOGIN = () => {
   // ------------------------- Boton Facebook - inicio de sesion -------------------------
   btnFacebook.addEventListener('click', () => {
     console.log('Ingresaras con Facebook ?');
+    loginWithFacebook();
   });
 
   // ------------------------- Boton Google - inicio de sesion -------------------------
   btnGoogle.addEventListener('click', () => {
-    console.log('Ingresaras con Google ?');
+    loginWithGoogle();
   });
 
   // termina
