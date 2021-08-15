@@ -6,19 +6,25 @@ import {
   loginFacebook,
   verifyEmail,
   currentUser,
+  changePasword,
+  leave,
 } from '../src/firebase/autenticacion.js';
 
 
 const firebasemock = require('firebase-mock');
 
-const mockauth = new firebasemock.MockFirebase();
-const mockdatabase = new firebasemock.MockFirebase();
+const mockauth = new firebasemock.MockAuthentication();
+const mockstorage = new firebasemock.MockStorage();
+const mockfirestore = new firebasemock.MockFirestore();
 mockauth.autoFlush();
+mockfirestore.autoFlush();
 
 global.firebase = firebasemock.MockFirebaseSdk(
   // use null if your code does not use RTDB
-  path => (path ? mockdatabase.child(path) : null),
+  () => null,
   () => mockauth,
+  () => mockstorage,
+  () => mockfirestore,
 );
 
 // describe('myFunction', () => {
@@ -35,16 +41,15 @@ describe('Registro de usuario', () => {
     }));
 });
 
-// describe('Verficar cuenta email', () => {
-//   it('Debería enviar un email de verificación', () => { 
-//     const mockSendEmail = jest.fn();
-//     firebase.auth().currentUser.sendEmailVerification = mockSendEmail;
-//     verifyEmail();
-//     expect(mockSendEmail).toHaveBeenCalled();
-//     expect(mockSendEmail.mock.calls).toHaveLength(1);
-//   });
-// });
-
+describe('Verficar cuenta email', () => {
+  it('Debería enviar un email de verificación', () => {
+    const mockSendEmail = jest.fn();
+    firebase.auth().currentUser.sendEmailVerification = mockSendEmail;
+    verifyEmail();
+    expect(mockSendEmail).toHaveBeenCalled();
+    expect(mockSendEmail.mock.calls).toHaveLength(1);
+  });
+});
 
 
 describe('Iniciar sesion con correo', () => {
@@ -77,4 +82,24 @@ describe('Verify current user ', () => {
     firebase.auth().currentUser = mockUser.currentUser;
     expect(currentUser().uid).toEqual('001');
   });
+});
+
+describe('Send recover password', () => {
+  it('Deberia enviar un email para restablecer contraseña', () => {
+    const mockSendPasswordResetEmail = jest.fn();
+    firebase.auth().sendPasswordResetEmail = mockSendPasswordResetEmail;
+    changePasword('test@gmail.com');
+    // verificar si fue llamado el metodo de firebase
+    expect(mockSendPasswordResetEmail).toHaveBeenCalled();
+    expect(mockSendPasswordResetEmail.mock.calls).toHaveLength(1);
+    // verificar si el metodo recibio como arg el email
+    expect(mockSendPasswordResetEmail).toHaveBeenCalledWith('test@gmail.com');
+  });
+});
+
+describe('Cerrar Sesión', () => {
+  it('Deberia poder cerrar sesión', () => leave()
+    .then((user) => {
+      expect(user).toBe(undefined);
+    }));
 });

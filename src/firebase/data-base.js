@@ -71,6 +71,3 @@ export const getLike = (idPost, contadorLikes, likesPintadosPost) => {
 //       callback(data);
 //     });
 // };
-
-
-
