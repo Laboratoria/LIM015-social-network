@@ -10,7 +10,7 @@ export const signUp = (email, password) => {
       // ...
     })
     .catch((error) => {
-      alert('La contraseña debe tener mínimo 6 caracteres \n 〜(꒪꒳꒪)〜');
+      // alert('La contraseña debe tener mínimo 6 caracteres \n 〜(꒪꒳꒪)〜');
       console.log(error.code, error.message);
     });
 };
