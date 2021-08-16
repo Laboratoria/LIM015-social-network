@@ -1,5 +1,5 @@
 import { logOutUser } from '../firebase/firebase-auth.js';
-// import { firebaseWatcher } from '../firebase/firebase-firestore.js';
+import { addPostCollection } from '../firebase/firebase-firestore.js';
 // Constante a exportar
 export const TIMELINE = () => {
   const view = `
@@ -46,7 +46,7 @@ export const TIMELINE = () => {
   // ------------------------- Boton compartir -------------------------
   btnShare.addEventListener('click', () => {
     // aqui va lo de firestore
-    console.log(textPost.value);
+    addPostCollection('Andrea', textPost.value);
   });
   // ------------------------- Ancla salir -------------------------
   linkAboutLogOut.addEventListener('click', (e) => {
