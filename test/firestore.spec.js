@@ -27,12 +27,12 @@ global.firebase = new MockFirebase(fixtureData, { isNaiveSnapshotListenerEnabled
 
 
 describe('Agrega los post', () => {
- it('Deberia añadir un post', (done) => sharePost( 'hola que tal', 'rita@hotmail.com', 'rita', '', '', 'public', '' )
- .then(() => getPost(
-     (data) => {
-        const result = data.find(postGetPost => postGetPost.postText === 'hola que tal');
-        expect(result.postText).toBe('hola que tal');
-        done();
-     },
- )));
+  it('Deberia añadir un post', () => sharePost( 'hola que tal', 'rita@hotmail.com', 'rita', '', '', 'public', '' )
+  .then(() => getPost(
+      (data) => {
+          const result = data.find(postGetPost => postGetPost.postText === 'hola que tal');
+          expect(result.postText).toBe('hola que tal');
+          done();
+      },
+  )));
 });
