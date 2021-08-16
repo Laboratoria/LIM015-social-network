@@ -18,6 +18,11 @@ export const getPost = (callback) => firebase.firestore().collection('posts').or
     callback(postGetPost);
   });
 
+  // privacidad
+  export const privacyPost = (idPost, typePost) => firebase.firestore().collection('posts').doc(idPost).update({
+    typePost,
+  });
+
 // eliminar post
 export const deletePost = (idDocPost) => firebase.firestore().collection('posts').doc(idDocPost).delete();
 

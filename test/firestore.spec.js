@@ -25,14 +25,18 @@ const fixtureData = {
 
 global.firebase = new MockFirebase(fixtureData, { isNaiveSnapshotListenerEnabled: true });
 
+//borre un string
 
-describe('Agrega los post', () => {
- it('Deberia añadir un post', (done) => sharePost( 'hola que tal', 'rita@hotmail.com', 'rita', '', '', 'public', '' )
- .then(() => getPost(
-     (data) => {
-        const result = data.find(postGetPost => postGetPost.postText === 'hola que tal');
-        expect(result.postText).toBe('hola que tal');
+describe('sharePost', () => {
+  it('Deberia añadir un post', done => sharePost('primer post', 'rita@hotmail.com', 'rita', '', '', 'public','')
+    .then(async() => {
+      const callback = (notes) => {
+        const result = notes.find(elemento => elemento.postText=== 'primer post');
+        expect(result.postText).toBe('primer post');
         done();
-     },
- )));
-});
+      };
+      getPost(callback).then((resp) =>
+      expect(result.postText).toBe('primer post')
+      )
+    }));
+  });

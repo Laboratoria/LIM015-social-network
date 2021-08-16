@@ -1,11 +1,13 @@
 import { currentUser } from '../firebase/autenticacion.js';
 import { deleteLikePost, addLike } from '../views-controllers/post-control.js';
-import { getLike, deletePost, editPost } from '../firebase/data-base.js';
+import { getLike, deletePost, editPost , } from '../firebase/data-base.js';
 // import { comment } from '../firebase/data-base.js';
+// importe privacy...mel
 
 export const sharingPost = (data) => {
   const time = new Date(data.timePost.toDate());
   const sectionPost = document.createElement('section');
+  // if (data.typePost === 'Público'  || currentUser().uid === data.idPost){  
   const template = `
   <section>
           <ul class="ul-parent">
@@ -23,10 +25,12 @@ export const sharingPost = (data) => {
                               </p>
                           </section>
                           <section class="button-btn">
-                            <select id="select-Priv" class="btn-select" name="select">
-                              <option value="privado">Privado</option>
-                              <option value="público" selected>Público</option>
+                            <select class ="btn-select" id= "options-privacy-${data.id}">
+                            
+                            <option value ="público"></option>
+                            <option value ="Privado"></option>
                             </select>
+    
                             <section>
                             <button id="deletePost" class="botones">
                                 <i class="fas fa-trash" aria-hidden="true"></i>
@@ -113,6 +117,14 @@ export const sharingPost = (data) => {
     });
   };
 
+//   // agregando privacidad
+//   const tipoPost = sectionPost.querySelector(`#options-privacy-${data.id}`);
+//   tipoPost.addEventListener('change', () => {
+//     const nuevoTipoPost = tipoPost.value;
+//     privacyPost(data.id, nuevoTipoPost);
+//   });
+// }
+
   getLike(data.id, contadorLikes, likesPintadosPost);
 
   btnLike.addEventListener('click', (e) => {
@@ -191,4 +203,5 @@ export const sharingPost = (data) => {
   // });
 
   return sectionPost;
+
 };
