@@ -21,5 +21,5 @@ export const signUpUser = (e) => {
       msgerr.classList.add('error-message');
       msgerr.textContent = error.message;
     // ..
-  });
+    });
 };
