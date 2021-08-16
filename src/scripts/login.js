@@ -24,7 +24,7 @@ formularios.innerHTML = `
             <input type="password" id="signin-password" placeholder="Contraseña">
           </div>
           <div> <p id="si-error-password"></p> </div>
-          <input type="submit" value="Ingresar" class="btn solid">
+          <input type="submit" value="Ingresar" class="button solid">
           <p class="social-text">O ingresa con:</p>
           <div class="social-media">
             <a href="#" id="googleLogin" class="social-icon google">
@@ -49,7 +49,7 @@ formularios.innerHTML = `
             <input type="password" id="signup-password" placeholder="Contraseña">
           </div>
           <div> <p id="su-error-password"></p> </div>
-          <input type="submit" value="Registrar" class="btn solid">
+          <input type="submit" value="Registrar" class="button solid">
         </form>
       </section>
     </article>
@@ -61,7 +61,7 @@ formularios.innerHTML = `
           <p>
        ¡únete a nosotros, comparte y diviértete!
           </p>
-          <button class="btn transparent" id="registrar">Regístrate</button>
+          <button class="button transparent" id="registrar">Regístrate</button>
         </div>
         <img src="images/log.png" class="image knj" alt=""/>
       </section>
@@ -72,7 +72,7 @@ formularios.innerHTML = `
           <p>
             ¡Logueate y no esperes más!
           </p>
-          <button class="btn transparent" id="ingresar">Ingresar</button>
+          <button class="button transparent" id="ingresar">Ingresar</button>
         </div>
         <img src="images/bnh.png" class="image bnh" alt="" />
       </section>

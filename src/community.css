@@ -1,170 +1,546 @@
-@import url('https://fonts.googleapis.com/css2?family=MuseoModerno:wght@200;500;600;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Capriola&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+:root {
+  --dark-one: #333;
+  --main-color: #784cfb;
+  --light-one: #fff;
+}
+
+/* Estilos generales */
+
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
+
 html {
-  font-family: 'MuseoModerno', sans-serif;
-  background-color: #f2e0f5;
+  scroll-behavior: smooth;
 }
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0px 10%;
-  margin-top: 10px;
-  margin-bottom: -20px;
+
+body,
+button,
+input,
+textarea {
+  font-family: "Poppins", sans-serif;
 }
-.nav-left {
-  display: flex;
-  margin-left: 5rem;
+
+a {
+  text-decoration: none;
 }
-.nav-right ul li {
+
+ul {
   list-style: none;
-  display: inline-block;
-  margin: 20px;
-}
-.nav-right i {
-  color: #7b68b4;
-  font-size: 1.7rem;
-  transition: color 0.5s ease;
 }
 
-.nav-right i:hover {
-  color: rgb(251, 139, 255);
+img {
+  width: 100%;
 }
 
-.bottom-section {
-  display: grid;
-  grid-template-columns: 350px 1fr;
-  grid-template-rows: 1fr 1fr;
-  grid-gap: 20px;
-  width: 80%;
+.contenedor {
+  position: relative;
+  z-index: 5;
+  max-width: 92rem;
+  padding: 0 4rem;
   margin: 0 auto;
 }
+/* End Genral Styles */
 
-/*aside (perfil y peliculas)*/
-.home-sidebar {
-  grid-column: 1;
-  grid-row: 1 / span 2;
+
+/* Nav */
+
+nav {
   width: 100%;
-  background: none;
+  position: relative;
 }
 
-.user-container {
-  display: grid;
-  grid: auto;
-  border-radius: 15px;
-  width: 100%;
-  height: 75px;
-  background: #fff;
-  margin-top: 20px;
-  font-size: 1rem;
-}
-
-.waifu {
-  margin-top: 12px;
-  margin-left: 15px;
-  border-radius: 100%;
-  width: 50px;
-  height: 50px;
-}
-
-.user-container p {
-  margin-left: 25%;
-  margin-top: -12%;
-  font-size: 1rem;
-  font-family: 'Capriola', monospace;
-  color: #6b6b6b;
-  font-weight: 600;
-}
-
-.tuerca {
-  margin-top: 12px;
-  margin-left: 15px;
-  border-radius: 100%;
-  width: 20px;
-}
-/*posters animes populares*/
-.animes-container {
-  display: grid;
-  grid: auto;
-  width: 100%;
-  background: #fff;
-  margin-top: 20px;
-  border-radius: 20px;
-  margin-bottom: 0px;
-}
-.title-anime {
-  margin-top: 20px;
-  margin-bottom: 10px;
+nav .contenedor {
   display: flex;
-  justify-content: center;
-  font-size: 0.8rem;
-  font-family: 'Capriola', monospace;
-  color: #6b6b6b;
-  font-weight: 400;
-}
-.posters-container {
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  grid-gap: 10px;
-  margin-top: 10px;
-  margin-left: 8px;
-  margin-bottom: 20px;
-}
-.posters-container div img {
-  width: 95%;
-  border-radius: 13px;
+  justify-content: space-between;
+  height: 7rem;
+  align-items: center;
+  background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
 }
 
-/*article*/
-.post {
-  grid-column: 2;
-  grid-row: 1;
-  width: 100%;
-  height: 500px;
-  background: none;
+.logo {
+  display: flex;
 }
 
-.post-txt {
-  border-radius: 20px;
-  width: 103%;
-  height: 100%;
-  text-align: center;
+.links ul {
+  display: flex;
 }
 
-.txt {
-  border: none;
-  border-radius: 20px;
-  width: 100%;
-  height: 120px;
-  margin-top: 20px;
-  resize: none;
-  outline: none;
-}
-
-.txt:placeholder {
-  color: silver;
-  font-size: 1.4rem;
-  padding-left: 5px;
-}
-
-.post-txt .btn-share {
-  background-color: #848282;
-  color: white;
-  width: 100px;
-  height: 40px;
-  border: none;
-  text-align: center;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 20px;
+.links i {
+  display: inline-block;
+  padding: 0.9rem 2.5rem;
+  color: var(--dark-one);
+  font-size: 2rem;
   transition: 0.5s;
 }
 
-.post-txt .btn-share:hover {
-  background-color: #b17cdd;
+.links i:hover {
+  color: var(--main-color);
 }
+
+/* Fin del nav */
+
+
+/* Imágenes de anime */
+.text-anime {
+  text-align: center;
+  color: #6b6b6b;
+  margin-top: 2rem;
+}
+
+.grid-item {
+  width: 100%;
+  padding: 1.2rem 1.2rem;
+}
+
+.gallery-image {
+  position: relative;
+  margin-left: auto;
+  margin-right:auto;
+  border-radius: 16px;
+  height: 310px;
+  width: 70%; 
+}
+
+.gallery-image img {
+  position: absolute;
+  height: 100%;
+  width: 150%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: center;
+  transition: 0.5s;
+  border-radius: 20px;
+}
+
+.gallery-image .img-overlay {
+  position: absolute;
+  width: 165%;
+  height: 110%;
+  top: -5%;
+  left: -32%;
+  z-index: 2;
+  color: var(--light-one);
+  background-color: rgba(120, 76, 251, 0.55);
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  justify-content:flex-end;
+  padding: 2rem 3.2rem;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.img-description {
+  width: 100%;
+}
+
+.img-overlay h3 {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 1.6rem;
+}
+
+.img-overlay h5 {
+  font-size: 1.15rem;
+  font-weight: 300;
+}
+
+.gallery-image:hover .img-overlay {
+  opacity: 1;
+}
+
+.gallery-image:hover img {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+/*Fin de imágenes de anime */
+
+
+/* Muro*/
+.muro {
+  position: relative;
+  width: 100%;
+  padding: 3.5rem 0 8.5rem 0;
+  top: 0%;
+  height: 0%;
+  background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+}
+
+.muro-box {
+  width: 100%;
+  background-color: var(--light-one);
+  width: 100%;
+  border-radius: 45px;
+  padding: 5.5rem 4.5rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.muro-info {
+  padding-right: 2rem;
+  
+}
+
+.muro-info .title{
+  margin-bottom:1.5rem;
+  font-size: 1.8rem;
+}
+
+.muro-form {
+  padding-left: 2rem;
+}
+
+.img-wrap {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  margin-top: 1rem;
+}
+
+.information {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2.3rem;
+}
+
+.info-text {
+  font-size: 1.2rem;
+}
+
+.contact-img img{
+  border-radius: 50%;
+  width: 67px;
+  height: 67px;
+  display: inline-block;
+  margin-right: 1.5rem;
+}
+
+.muro-form .title {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.muro-form .column {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto-fit, minmax(130px, 1fr);
+  grid-column-gap: 0.6rem;
+}
+
+.contact-input {
+  padding: 1.2rem 2.1rem;
+  margin: 0.6rem 0;
+  border: none;
+  outline: none;
+  background: #e7e7e7;
+  border-radius: 4rem;
+  font-weight: 600;
+  font-size: 1.25rem;
+  transition: 0.5s;
+}
+
+.contact-input::placeholder {
+  font-weight: 400;
+}
+
+.contact-input.textarea {
+  resize: none;
+  min-height: 250px;
+  border-radius: 2rem;
+}
+
+.contact-input:hover {
+  background-color: #cccccc;
+  
+}
+
+.contact-input:focus {
+  background-image: linear-gradient(-20deg, #e9defa 0%, #fcdbf4 100%);
+  
+}
+
+.btn-share{
+  text-align: center;
+}
+
+.btn {
+  margin-top: 0.6rem;
+  display: inline-block;
+  padding: 0.85rem 2rem;
+  background-color: var(--main-color);
+  color: var(--light-one);
+  border-radius: 2rem;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: 0.3s;
+  border: none;  
+}
+
+.btn:hover {
+  background-color: #6b44e0;
+}
+
+/* fin muro */
+
+
+
+/* Responsive */
+
+@media (max-width: 1280px) {
+  .text {
+    font-size: 1rem;
+  }
+
+  .links i {
+    font-size: 1.9rem;
+    padding: 0.65rem 2.7rem;
+  }
+
+  .title {
+    font-size: 2.1rem;
+    padding-bottom: 0.65rem;
+  }
+
+  .btn {
+    padding: 0.75rem 1.7rem;
+    font-size: 0.8rem;
+  }
+
+  nav .contenedor {
+    height: 4.5rem;
+  }
+
+  .logo {
+    width: 28%;
+  }
+
+  .grid-item {
+    width: 104%;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .gallery-image {
+    height: 360px;
+    position: relative;
+  }
+
+  .gallery-image .img-overlay {
+    padding: 1.4rem 2rem;
+  }
+
+  .img-overlay h3 {
+    font-size: 1.3rem;
+  }
+
+  .img-overlay h5 {
+    font-size: 1rem;
+  }
+
+  .muro {
+    padding: 3.5rem 0 6rem 0;
+  }
+
+  .muro-form {
+    padding-left: 1rem;
+  }
+
+  .muro-info {
+    padding-right: 1rem;
+  }
+
+  .muro-box {
+    padding: 3.6rem 3rem;
+  }
+
+  .img-wrap {
+    margin-top: 1.2rem;
+  }
+
+  .contact-icon {
+    min-width: 50px;
+    height: 50px;
+    font-size: 1rem;
+    margin-right: 0.8rem;
+  }
+
+  .contact-icon i {
+    line-height: 50px;
+  }
+
+  .info-text {
+    font-size: 1.2rem;
+  }
+
+  .contact-input {
+    font-size: 1.1rem;
+    padding: 0.9rem 1.6rem;
+    margin: 0.4rem 0;
+  }
+
+  .column .btn{
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  
+  .grid-item {
+    width: 90%;
+    padding: 1.0rem 0.8rem;
+  }
+
+  .gallery-image {
+    height: 210px;
+    position: relative;
+  }
+
+  .gallery-image .img-overlay {
+    padding: 1.4rem 2rem;
+  }
+
+  .img-overlay h3 {
+    font-size: 1.3rem;
+  }
+
+  .img-overlay h5 {
+    font-size: 1rem;
+  }
+
+} 
+
+@media (max-width: 850px) {
+  .logo {
+    width: 35%;
+  }
+
+  .links i {
+    font-size: 1.8rem;
+    padding: 0.65rem 2.7rem;
+  } 
+
+  .grid-item {
+    width: 50%;
+  }
+
+  .gallery-image {
+    height: 210px;
+    max-width: 270px;
+  }
+
+  .muro-box {
+    grid-template-columns: 1fr;
+    padding: 3.2rem 2.7rem;
+  }
+
+  .muro-info {
+    padding-right: 0;
+    padding-bottom: 0.5rem;
+  }
+
+  .muro-form {
+    padding-left: 0;
+    padding-top: 0.5rem;
+  }
+
+  .muro-form h3 {
+   font-size: 1.8rem;
+  }
+
+  .img-wrap {
+    margin-top: 0.7rem;
+  }
+
+  .information:not(:last-child) {
+    margin-bottom: 0.8rem;
+  }
+
+  .contact-input.textarea {
+    min-height: 220px;
+    font-size: 1.2rem;
+  }
+
+  .text-anime{
+    display: none;
+  }
+
+  .img-wrap{
+    display: none;
+  }
+
+  .column .btn{
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-item {
+    width: 100%;
+  }
+
+  .links i {
+    font-size: 1.3rem;
+    padding: 0.65rem 1.7rem;
+  }
+
+  .logo {
+    width: 40%;
+  }
+}
+
+@media (max-width: 560px) {
+  .logo {
+    width: 35%;
+  }
+
+  .links i {
+    font-size: 1.4rem;
+    padding: 0.65rem 1.5rem;
+  }
+
+  .contenedor {
+    padding: 0 2rem;
+  }
+
+  .text {
+    font-size: 0.92rem;
+  }
+
+  .muro {
+    padding: 3.5rem 0 5rem 0;
+  }
+
+  .text-anime{
+    display: none;
+  }
+
+  .img-wrap{
+    display: none;
+  }
+
+  .muro-box {
+    padding: 2.3rem 2rem;
+    border-radius: 30px;
+  }
+
+  .muro-form .column {
+    grid-column-gap: 0.3rem;
+  }
+
+  .contact-input {
+    font-size: 0.8rem;
+    padding: 0.8rem 1.4rem;
+    margin: 0.25rem 0;
+  }
+
+  .column .btn{
+    font-size: 0.8rem;
+  }
+}
+
+/* Fin Responsive */
