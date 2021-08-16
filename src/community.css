@@ -179,7 +179,7 @@ nav .contenedor {
   border-radius: 45px;
   padding: 5.5rem 4.5rem;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 0.6fr 1.3fr;
 }
 
 .muro-info {
@@ -360,6 +360,7 @@ nav .contenedor {
 
   .img-wrap {
     margin-top: 1.2rem;
+    
   }
 
   .contact-icon {
