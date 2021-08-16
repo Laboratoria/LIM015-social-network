@@ -15,7 +15,7 @@ body {
   background-color: #EFF7F6;
 }
 
-/* Pagina de Inicio - AGRUPADO POR PAMELA */
+/* Pagina de Inicio */
 /* Parte izquierda de la pagina de inicio*/
 .text-welcome{
   font-family: 'Marvel', cursive;
@@ -55,7 +55,7 @@ img.logo-ibook {
 }
 
 .registro {
-  width: 264px;
+  width: 200px;
   height: 37px;
   margin: 8px;
   background: #FFFFFF;
@@ -76,7 +76,7 @@ img.logo-ibook {
   margin: 10px ;
 }
 
-#username.registro, #password1.registro {
+#username.registro, #password.registro {
   width: 200px;
 }
 /* YOOOOOOOOO */
@@ -97,6 +97,13 @@ a.btn-register, a.btn-forget {
 .text-login {
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.data-container2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* botones de google y facebook  */
@@ -125,7 +132,7 @@ a.btn-register, a.btn-forget {
   cursor: pointer;
 }
 
-/* Navegador - AGRUPADO PAMELA*/
+/* Navegador */
 
 header {
   display: flex;
@@ -145,7 +152,8 @@ header {
 
 .nav-bar li:hover{
   border-color: solid 1em black;
-  font-family:fantasy;
+  font-family: fantasy;
+  font-size: 20px;
   cursor:pointer;
 }
 
@@ -154,6 +162,8 @@ header {
   font-weight: bold;
   padding: 0 29px;
   align-items: center;
+  font-family: fantasy;
+  color: black;
   display: flex;
 }
 
@@ -163,17 +173,16 @@ header {
   justify-content: space-evenly;
   margin-left: 150px;
   margin-right: 150px;
-  
 }
 
-/* Contenedor de Perfil de usuario, cuantos libros lees? - AGRUPADO PAMELA*/
+/* Contenedor de Perfil de usuario, cuantos libros lees? */
 .img-profile {
   width: 100%;
 }
 
 .user-perfil {
   width: 270px;
-  height: 360px;
+  height: 400px;
   border: none ;
   background: lightgray;
   border-radius: 5px;
@@ -184,6 +193,10 @@ header {
 .img-perfil {
   border-radius: 50%;
   margin: 10px;
+}
+
+.texts {
+  margin-left: 10px;
 }
 
 .email-perfil {
@@ -200,7 +213,7 @@ header {
   padding: 10px 0px 10px;
 }
 
-/* Post para publicar - AGRUPADO PAMELA* */
+/* Post para publicar */
 
 .textArea-comment {
   resize: none;
@@ -249,7 +262,7 @@ header {
   margin: 5px ;
 }
 
-/* Post ya publicados - AGRUPADO PAMELA*/
+/* Post ya publicados */
 .section-post {
   display: flex;
   flex-direction: column;
@@ -286,7 +299,7 @@ header {
   text-align: center;
   padding: 5px;
   font-family: 'Marvel', sans-serif;
-  background-color: coral;
+  background-color: #84A59D;
   border-radius: 5px;
 }
 
@@ -366,11 +379,11 @@ header {
   font-family: "Ubuntu", sans-serif;
   font-size: 13px;
   font-weight: bold;
-} 
+}
 
 .btn-select select option {
   padding: 20px;
-} 
+}
 
 .date-publication{
   margin-left: 10px;
@@ -421,7 +434,7 @@ header {
 
 .bottom-heart:hover{
   color: black;
-} 
+}
 
 .fa.fa-heart-o:before {
   content: "\f004";
@@ -432,10 +445,12 @@ header {
 
 .fa.fa-comment-o:before {
   content: "\f075";
+  font-weight: 600;
   color: blue;
-} 
+  font-size: 18px;
+}
 
-/* Profile - AGRUPADO PAMELA */
+/* Profile */
 .edit-profile {
   display: flex;
   justify-content: center;
@@ -520,7 +535,7 @@ header {
 
 .modal-close {
   transform: translateY(-200%);
-} 
+}
 
 .close-estatistics {
   background: white;
@@ -545,8 +560,10 @@ header {
 }
 
 
-@media only screen and (min-width: 280px) and (max-width: 479px) {
+@media only screen and (min-width: 375px) and (max-width: 479px) {
   .contenedorView1 {
     margin-top: 40%;
   }
 }
+
+

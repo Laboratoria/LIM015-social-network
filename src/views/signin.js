@@ -23,18 +23,18 @@ export default () => {
           </section>
           <section class="i">
             <i class="fas fa-lock"></i>
-            <input type="password" class="registro" id="password1" placeholder="Password" required>
+            <input type="password" class="registro" id="password" placeholder="Password" required>
           </section>
           <input type="button" class="registro-signin" href="#/home" id="sign-in" value="Sign-In">
           <p class="error" id="error"></p>
           <a href="#" class="btn-forget" id="btnForget">¿Olvidaste tu contraseña?</a>
-        <p class="text-login">Ingresar por</p>
-    <!-- Seccion donde estan los botones -->
-      <section class="btn-fb-google">
-        <button id="btn-fb" class="button"><i class="fab fa-facebook"></i></button>
-        <button id="btn-gg" class="button"><i class="fab fa-google"></i></button>
-      </section>
-      <label class="registrate">¿No tienes una cuenta?&nbsp;<a class="btn-register" href="#/signup" id="registrate">Regístrate.</a></label>
+          <p class="text-login">Ingresar por</p>
+          <!-- Seccion donde estan los botones -->
+          <section class="btn-fb-google">
+            <button id="btn-fb" class="button"><i class="fab fa-facebook"></i></button>
+            <button id="btn-gg" class="button"><i class="fab fa-google"></i></button>
+          </section>
+          <label class="registrate">¿No tienes una cuenta?&nbsp;<a class="btn-register" href="#/signup" id="registrate">Regístrate.</a></label>
     </form>
   </section>
 
