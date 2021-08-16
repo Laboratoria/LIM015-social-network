@@ -7,7 +7,6 @@ export default () => {
     <div class="muro-box">
       <div class="muro-info">
         <h3 class="title">Bienvenidx</h3>
-
         <div class="information">
           <div class="contact-img">
             <img src="./images/user.jpg" alt="" />
@@ -19,7 +18,6 @@ export default () => {
           Animes populares
         </h2>
         <div class="img-wrap">
-
           <div class="grid-item">
             <div class="gallery-image">
               <img src="./images/port3.jpg" alt="" />
@@ -31,7 +29,6 @@ export default () => {
               </div>
             </div>
           </div> 
-
           <div class="grid-item">
             <div class="gallery-image">
               <img src="./images/port4.png" alt="" />
@@ -43,13 +40,12 @@ export default () => {
               </div>
             </div>
           </div>  
-
           <div class="grid-item">
             <div class="gallery-image">
               <img src="./images/port1.png" alt="" />
               <div class="img-overlay">
                 <div class="img-description">
-                  <h3>Attack on Titans</h3>
+                  <h3>Attack on Titan</h3>
                   <h5>Final Season</h5>
                 </div>
               </div>
@@ -68,17 +64,13 @@ export default () => {
           </div>
         </div>
       </div>
-
       <div class="muro-form">
-        <h3 class="title">Postea ♥</h3>
+        <h3 class="title">Postea ♥ :</h3>
         <div class="column">
-        
-        <div class="column">
-          <textarea
+           <textarea
             name="message"
             class="contact-input textarea"
-            placeholder="¿Qué quieres compartir?"
-          ></textarea>
+            placeholder="¿Qué quieres compartir?"></textarea>
         </div>
         <div class="btn-share">
         <button type="submit" class="btn">Compartir</button></div> 

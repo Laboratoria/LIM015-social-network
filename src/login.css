@@ -13,6 +13,7 @@ header{
 #si-error-password, #si-error-email, #su-error-password {
     color: #CB3234;
     text-align: center;
+    font-size: 0.8rem;
 }
 body,button,
 input {
