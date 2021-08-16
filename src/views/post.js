@@ -61,8 +61,8 @@ export const sharingPost = (data) => {
                             <textarea class="textarea-post" id="text-post" disabled>${data.postText}</textarea>
                               <section class="heart-commet">
                             <button id="liked-${data.id}" class="bottom-heart">
-                            <p id="container-like"></p>
-                            <i id="counter-${data.id}" class="fa fa-heart-o heart-empty" aria-hidden="true"></i>
+                                <p id="container-like"></p>
+                                <i id="counter-${data.id}" class="fa fa-heart-o heart-empty" aria-hidden="true"></i>
                             </button>
                             <button class="show-comment">
                                 <span id="show-comment">

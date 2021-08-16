@@ -4,20 +4,36 @@ export default () => {
   const sectionSignUp = document.createElement('section');
   const template = `
   <section id="contenedorSignUp" class="contenedorSignUp">
-  <section class="side">
-      <img class="ibook-img" src="img/ibook-img.png" width="300px" alt="imagen relacionado a ibook"/>
-      <p>"Leer es estar soñando con los ojos abiertos"</p>
-    </section>
-    <form class="data-container">
-    <img class="logo-ibook-png" src="img/logo-ibook.png" width="200px" alt="logo de iBook"/>
-    <p class="welcome-SignUp">Registrate:</p>
-    <input type="text" class="registro" id="nombres" placeholder=" Nombres" required>
-    <input type="email" class="registro" id="email" placeholder=" Correo Electronico" required>
-    <input type="password" class="registro" id="password" placeholder=" Contraseña" required>
-    <input type="submit" href="#/" class="registro-signUp" id="signUp" value="Registrar">
-    <p class="error" class="error" id="error1"></p>
-    <label class="welcome-SignUp">¿Ya tienes una cuenta?&nbsp;<a class="bold" href="#/" id="Ingresa">Ingresa.</a></label>
-    </form>
+        <section class="side">
+        <p class="text-welcome">REGISTRATE</p>
+          <img class="ibook-img" src="img/ibook-img.png" width="300px" alt="imagen relacionado a ibook"/>
+          <p class="text-text">"Leer es estar soñando con los ojos abiertos"</p>
+        </section>
+
+        <!-- Seccion donde esta el formulario de SignUp -->
+        <form class="data-container">
+          <img class="logo-ibook" src="img/logo-ibook.png" width="200px" alt="logo de iBook"/>
+          <section>
+          <!-- <p class="welcome-SignUp">Registrate:</p> -->
+          </section>
+          <section>
+            <i class="fas fa-user"></i>
+            <input type="text" class="registro" id="nombres" placeholder="Nombres" required>
+          </section>
+
+          <section>
+            <i class="fas fa-at"></i>
+            <input type="email" class="registro" id="email" placeholder="Correo Electronico" required>
+          </section>
+
+          <section class="i">
+              <i class="fas fa-lock"></i>
+              <input type="password" class="registro" id="password" placeholder="Contraseña" required>
+          </section>
+          <input type="button" class="registro-signUp" href="#/" id="signUp" value="Registrar">
+          <p class="error" class="error" id="error"></p>
+          <label class="registrate">¿Ya tienes una cuenta?&nbsp;<a class="btn-register" href="#/" id="registrate">Ingresa.</a></label>
+          </form>
   </section>
   `;
 
