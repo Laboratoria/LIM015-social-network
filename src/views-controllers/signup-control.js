@@ -1,4 +1,4 @@
-import { userSignUp, currentUser, verifyEmail } from '../firebase/autenticacion.js';
+import { userSignUp, verifyEmail } from '../firebase/autenticacion.js';
 // import { createUser } from '../firebase/data-base.js';
 
 export const signUpUser = (e) => {
@@ -7,8 +7,7 @@ export const signUpUser = (e) => {
   const email = document.querySelector('#email').value;
   const password = document.querySelector('#password').value;
   // yo
-  const msgerr = document.querySelector('#error1');
-  const foto = 'foto';
+  const msgerr = document.querySelector('#error-message');
 
   userSignUp(email, password)
     .then(() => {
@@ -16,13 +15,11 @@ export const signUpUser = (e) => {
         console.log('errorrr');
       } else {
         verifyEmail();
-        // yo
         msgerr.textContent = 'Por favor revise su bandeja de entrada para verificar su cuenta';
       }
-      // createUser(name, email, currentUser.uid, foto);
     }).catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
+      msgerr.classList.add('error-message');
+      msgerr.textContent = error.message;
     // ..
     });
 };

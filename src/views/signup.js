@@ -31,7 +31,7 @@ export default () => {
               <input type="password" class="registro" id="password" placeholder="Contraseña" required>
           </section>
           <input type="button" class="registro-signUp" href="#/" id="signUp" value="Registrar">
-          <p class="error" class="error" id="error"></p>
+          <p class="error-message" id="error-message"></p>
           <label class="registrate">¿Ya tienes una cuenta?&nbsp;<a class="btn-register" href="#/" id="registrate">Ingresa.</a></label>
           </form>
   </section>

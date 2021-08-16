@@ -19,12 +19,12 @@ export const getPost = (callback) => firebase.firestore().collection('posts').or
   });
 
 // eliminar post
-export const deletePost = (idDocPost) => firebase.firestore().collection('posts').doc(idDocPost).delete();
-
 export const editPost = (idDocPost, newText) => firebase.firestore().collection('posts').doc(idDocPost).update({
   postText: newText,
   timePost: new Date(),
 });
+
+export const deletePost = (idDocPost) => firebase.firestore().collection('posts').doc(idDocPost).delete();
 
 // creando los likes
 export const addLikeDb = (iduser, idPost, email) => firebase.firestore().collection('posts').doc(idPost).collection('likes')
@@ -51,7 +51,8 @@ export const getLike = (idPost, contadorLikes, likesPintadosPost) => {
     });
 };
 
-// export const comment = (id, nombre, idD, text) => firebase.firestore().collection('posts').doc(idD).collection('comment')
+// export const comment = (id, nombre, idD, text) =>
+// firebase.firestore().collection('posts').doc(idD).collection('comment')
 //   .add({
 //     postId: idD,
 //     idUser: id,
