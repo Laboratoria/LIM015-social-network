@@ -1,0 +1,20 @@
+.postMessage div{
+  background-color: #4DBC4D;
+  display:flex;
+}
+.fa-times-circle{
+  background-color: #4DBC4D;
+}
+#postContent{
+  background-color: #FFFFFF;
+}
+#reactionPost{
+  background-color: rgba(0, 0, 0, 20%);
+  display:flex;
+}
+.fa-heart{
+  background-color: #FC2F48;
+}
+.fa-share-square{
+  background-color: #FFFFFF;
+}

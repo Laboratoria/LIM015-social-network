@@ -20,7 +20,7 @@ export const firebaseWatcher = () => {
   });
 };
 
-// METODO PARA ACTUALIZAR UNA COLECCION EN FIRESTORE
+// METODO PARA AGREGAR UNA COLECCION DE POSTS EN FIRESTORE
 export const addPostCollection = (user, postContent) => {
   firebase.firestore().collection('publicaciones').add(user)
     .then((docRef) => {
@@ -43,6 +43,16 @@ export const addPostCollection = (user, postContent) => {
       console.error('Error writing document: ', error);
     });
 };
+
+// METODO PARA ACTUALIZAR UNA PUBLICACION EN FIRESTORE
+export const updatePost = (element) => {
+  firebase.firestore().collection('publicaciones').doc('user').update({
+    post: element.value,
+  });
+};
+
+
+
 
 // PRUEBA - PARA CREAR USUARIO
 export const addNewUser = () => {
