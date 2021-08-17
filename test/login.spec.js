@@ -38,20 +38,14 @@ describe('Registro de usuario', () => {
 });
 
 describe('Verficar cuenta email', () => {
-  it('Debería enviar un email de verificación', () => {
-    const mockSendEmail = jest.fn();
-    firebase.auth().currentUser.sendEmailVerification = mockSendEmail;
-    verifyEmail();
-    expect(mockSendEmail).toHaveBeenCalled();
-    expect(mockSendEmail.mock.calls).toHaveLength(1);
-  });
-});
-
-
-describe('Iniciar sesion con correo', () => {
-  it('Deberia poder iniciar sesión', () => userSignIn('pamela.rupay31@google.com', 'laboratoria')
-    .then((user) => {
-      expect(user.email).toBe('pamela.rupay31@google.com');
+  it('Debería enviar un email de verificación', () => 
+  userSignIn('pamela.rupay31@google.com', 'laboratoria')
+    .then(() => {
+      const mockSendEmail = jest.fn();
+      firebase.auth().currentUser.sendEmailVerification = mockSendEmail;
+      verifyEmail();
+      expect(mockSendEmail).toHaveBeenCalled();
+      expect(mockSendEmail.mock.calls).toHaveLength(1);
     }));
 });
 
