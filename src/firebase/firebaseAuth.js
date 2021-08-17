@@ -1,5 +1,9 @@
 // Aqui todas las funciones que involucran FIREBASE AUTH
 
+// Iniciar sesion con cuenta registrada
+
+//  Registro con correo y contraseña
+
 // Iniciar sesion con cuenta de Google
 export const logInWithGoogle = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
