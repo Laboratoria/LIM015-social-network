@@ -8,6 +8,27 @@
     padding: 0;
     font-family: 'Roboto', sans-serif;
 }
+/******** header ********/
+header{
+  display: flex;
+  background-color: #4DBC4D;
+}
+.menu{
+  display: flex;
+  justify-content: center;
+}
+.menu ul{
+  display: flex;
+  list-style: none;
+  cursor: pointer;
+  flex-wrap: wrap;
+}
+.items{
+  
+}
+.items a{
+
+}
 /******** body ********/
 body{
     background: #F4F4F4;
