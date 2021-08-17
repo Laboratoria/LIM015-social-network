@@ -1,3 +1,4 @@
+import firebase from '../firebase/firebase.js';
 import { logOutUser } from '../firebase/firebase-auth.js';
 import { addPostCollection } from '../firebase/firebase-firestore.js';
 // Constante a exportar
@@ -16,21 +17,10 @@ export const TIMELINE = () => {
       <button id='buttonImg' type='button' class='buttonImg'>&#xf009</button>
     </div>
     <div class='buttons'>
-      <button id='buttonShare' type='submit' class='buttonShare'>Share</button>
+      <button id='buttonShare' type='submit' class='buttonShare'>Compartir</button>
     </div>
   </div>
-  <section>
-    <div class='postMessage'>
-      <div>
-        <p>Post by<span id='userNamePost'></span></p>
-        <span id='closeItem'><i class="fas fa-times-circle"></i></span>
-      </div>
-      <div id='postContent'></div>
-      <div id='reactionPost'>
-        <span><i class="fas fa-heart"></i></span>
-        <span><i class="fas fa-share-square"></i></span>
-      </div>
-    </div>
+  <section id='posts'>
   </section>
   `;
   const divElement = document.createElement('div');
@@ -41,12 +31,22 @@ export const TIMELINE = () => {
   // INPUTS GENERALES
   const textPost = divElement.querySelector('#textAreaPublication');
   const userNamePost = divElement.querySelector('#userNamePost');
-  const postContent = divElement.querySelector('#postContent');
+  const postContent = divElement.querySelector('#posts');
   // FUNCIONALIDAD
   // ------------------------- Boton compartir -------------------------
   btnShare.addEventListener('click', () => {
+    if (textPost.value === '') {
+      console.log('publicacion vacia');
+    } else {
     // aqui va lo de firestore
-    addPostCollection('Andrea', textPost.value);
+      const user = {
+        dateExample: firebase.firestore.Timestamp.fromDate(new Date()),
+        mail: 'estefania_8_3@hotmail.com',
+        activo: true,
+        post: textPost.value,
+      };
+      addPostCollection(user, postContent);
+    }
   });
   // ------------------------- Ancla salir -------------------------
   linkAboutLogOut.addEventListener('click', (e) => {

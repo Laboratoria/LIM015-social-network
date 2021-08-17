@@ -20,16 +20,24 @@ export const firebaseWatcher = () => {
   });
 };
 
-// METODO PARA CREAR UNA COLECCION EN FIRESTORE
-export const addPostCollection = (nameUser, postMessage) => {
-  firebase.firestore().collection('publicaciones').doc('user').set({
-    dateExample: firebase.firestore.Timestamp.fromDate(new Date()),
-    name: nameUser,
-    post: postMessage,
-    likePost: 0,
-  }, { merge: true })
-    .then(() => {
-      console.log('Document successfully written!');
+// METODO PARA ACTUALIZAR UNA COLECCION EN FIRESTORE
+export const addPostCollection = (user, postContent) => {
+  firebase.firestore().collection('publicaciones').add(user)
+    .then((docRef) => {
+      console.log(docRef);
+      console.log(firebase.auth().currentUser);
+      console.log(user);
+      postContent.innerHTML += `<div class='postMessage'>
+      <div>
+        <p>Publicado por<span id='userNamePost'></span></p>
+        <span id='closeItem'><i class="fas fa-times-circle"></i></span>
+      </div>
+      <div id='postContent'>${user.post}</div>
+      <div id='reactionPost'>
+        <span><i class="fas fa-heart"></i></span>
+        <span><i class="fas fa-share-square"></i></span>
+      </div>
+    </div>`;
     })
     .catch((error) => {
       console.error('Error writing document: ', error);
