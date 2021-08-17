@@ -46,13 +46,19 @@ export const addPostCollection = (user, postContent) => {
 
 // METODO PARA ACTUALIZAR UNA PUBLICACION EN FIRESTORE
 export const updatePost = (element) => {
-  firebase.firestore().collection('publicaciones').doc('user').update({
-    post: element.value,
+  firebase.firestore().collection('publicaciones').doc('user')
+    .update({
+      post: element.value,
   });
 };
 
-
-
+// METODO PARA BORRAR UNA PUBLICACION EN FIRESTORE
+export const deletePost = () => {
+  firebase.firestore().collection('publicaciones').doc('user')
+    .delete()
+    .then(() => console.log('borrado'))
+    .catch((error) => console.log(error));
+};
 
 // PRUEBA - PARA CREAR USUARIO
 export const addNewUser = () => {
