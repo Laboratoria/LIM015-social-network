@@ -55,7 +55,7 @@ export const signInWithGoogle = () => {
 export const resetPasword = () => {
   const email = document.querySelector('#username').value;
   changePasword(email).then(() => {
-    document.getElementById('error').innerHTML = 'Se ha enviado un mensaje a tu correo';
+    document.getElementById('error-message').innerHTML = 'Se ha enviado un mensaje a tu correo';
   }).catch((error) => {
     console.error(error);
   });

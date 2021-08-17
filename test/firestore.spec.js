@@ -5,9 +5,9 @@ import {
   getPost,
   editPost,
   deletePost,
-  getLike,
   addLikeDb,
   deleteLikeDb,
+  getLike,
 } from '../src/firebase/data-base';
 
 const fixtureData = {
@@ -56,8 +56,7 @@ describe('Edit Post', () => {
   it('Deberia actualizar editar del post', () => editPost('id_001', 'hola que tal')
     .then(() => getPost(
       (data) => {
-        // console.log(data);
-        const result = data.find((posts) => posts.postText === 'hola que tal');
+        const result = data.find((postGetPost) => postGetPost.postText === 'hola que tal');
         expect(result.postText).toBe('hola que tal');
       },
     )));

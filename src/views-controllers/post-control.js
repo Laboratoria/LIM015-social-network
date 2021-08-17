@@ -8,7 +8,6 @@ export const addPost = (e) => {
   const user = currentUser();
   const Photo = currentUser().photoURL;
   // eslint-disable-next-line prefer-const
-  // let countLike = 0;
   if (post !== '') {
     sharePost(post, user.email, user.displayName, user.uid, privacy, Photo)
       .then(() => {
@@ -21,12 +20,6 @@ export const addPost = (e) => {
     alert('Ingrese su post');
   }
 };
-// borre const editLikes
-// export const editLikes = (idD, like) => {
-//   firebase.firestore().collection('posts').doc(idD).update({
-//     likes: like,
-//   });
-// };
 
 // likes
 export const deleteLikePost = (idPost) => {
