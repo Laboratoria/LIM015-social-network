@@ -1,20 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Atma&family=Gowun+Batang&family=Marvel&family=Roboto&display=swap');
-/* font-family: 'Amatic SC', cursive;
-font-family: 'Atma', cursive;
-font-family: 'Gowun Batang', serif;
-font-family: 'Marvel', sans-serif;
-font-family: 'Roboto', sans-serif; */
-
 * {
   margin: 0;
   padding: auto;
 }
-
 body {
   font-family: 'Marvel', sans-serif;
   background-color: #EFF7F6;
 }
-
 /* Pagina de Inicio */
 /* Parte izquierda de la pagina de inicio*/
 .text-welcome{
@@ -76,10 +67,6 @@ img.logo-ibook {
   margin: 10px ;
 }
 
-#username.registro, #password.registro {
-  width: 200px;
-}
-/* YOOOOOOOOO */
 /* mensaje de error en signIn */
 .error-message {
   color: #E01E37;
@@ -97,13 +84,6 @@ a.btn-register, a.btn-forget {
 .text-login {
   margin-top: 10px;
   margin-bottom: 10px;
-}
-
-.data-container2 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 /* botones de google y facebook  */
@@ -132,7 +112,7 @@ a.btn-register, a.btn-forget {
   cursor: pointer;
 }
 
-/* Navegador */
+/* HOME */
 
 header {
   display: flex;
@@ -167,7 +147,6 @@ header {
   display: flex;
 }
 
-/* Pagina de Home */
 .container-perfil {
   display: flex;
   justify-content: space-evenly;
@@ -183,7 +162,6 @@ header {
 .user-perfil {
   width: 270px;
   height: 400px;
-  border: none ;
   background: lightgray;
   border-radius: 5px;
   margin: 10px;
@@ -223,7 +201,7 @@ header {
   margin: 10px;
   padding: 10px;
   border-radius: 15px;
-  outline: none;
+  border: none;
   text-align: justify;
 }
 
@@ -242,14 +220,6 @@ header {
   border-radius: 5px;
   height: 140px;
   margin: 20px;
-}
-
-.btn-picture {
-  color: #fefefe;
-  background: slategrey;
-  padding: 10px;
-  border-radius: 50%;
-  /* cursor: pointer; */
 }
 
 .btn-share {
@@ -329,30 +299,7 @@ header {
   resize: none;
   background: darkgray;
   border: darkgray;
-  }
-
-/* 
-
-.file-name {
-  border:black;
-  width: 90px;
-  font-size: 10px;
 }
- */
-/* 
-
-.btn-share {
-  background-color: rebeccapurple;
-  color: #ffffff;
-  padding: 7px 15px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.hide {
-  display: none;
-} */
 
 .ul-parent {
   padding-left: 0px;
@@ -366,9 +313,9 @@ header {
   padding-right: 0px;
 }
 
-.only-flex {
+/* .only-flex {
   display: flex;
-}
+} */
 
 .btn-select {
   border: none;
@@ -386,8 +333,8 @@ header {
 }
 
 .date-publication{
-  margin-left: 10px;
-  color: black;
+  margin-right: 20px;
+  color:black;
 }
 
 .hide {
@@ -399,14 +346,11 @@ header {
   flex-direction: column;
 }
 
-
-
 .flex-bottom-form {
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
-
 
 .img-class {
   display: flex;
@@ -417,7 +361,6 @@ header {
   display: flex;
   justify-content: space-around;
 }
-
 
 /* estilos para heart y el commet */
 .heart-commet {
@@ -473,6 +416,7 @@ header {
   width: 40px;
   height: 40px;
 }
+
 /* Pagina de error */
 
 .contenedor-Error {
@@ -495,6 +439,8 @@ header {
   display: flex;
   justify-content: center;
 }
+
+/* Modales */
 
 .modal-container {
   opacity: 0;
@@ -549,36 +495,26 @@ header {
   font-weight: bolder;
 }
 
-.footer {
-  font-size: 20px;
-  position: fixed;
-  width: 100%;
-  background-color:#6EA4BB;
-  color: white;
-  text-align: center;
-  padding: 10px;
+
+
+@media screen and (max-width: 1280px) {
+  body {
+    background-color: brown;
+  }
 }
-
-
-@media only screen and (min-width: 280px) and (max-width: 479px) {
-  .contenedorView1 {
-    margin-top: 40%;
+@media screen and (max-width: 800px) {
+  body {
+    background-color: coral;
   }
   .side {
-    background-color: #E01E37;
     display: none;
   }
-  .container-perfil {
-    display: flex;
-    flex-direction: column;
-  }
-  .user-perfil {
-    width: 500%;
-    height: 100%;
-  }
-  header {
-    width: 200%;
+}
+@media screen and (max-width: 480px) {
+  body {
+     background-color: darkgreen; 
+  } 
+  .side {
+    display: none;
   }
 }
-
-
