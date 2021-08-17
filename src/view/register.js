@@ -1,8 +1,9 @@
-/* eslint-disable max-len */
+import { registerWithEmailClick } from '../lib/index.js';
+
 export const registerTemplate = () => {
   const sectionRegister = document.createElement('div');
   sectionRegister.classList.add('iTwo');
-  const templateLogIn = `
+  const templateRegister = `
     <div class="divCabecera">
       <img src="./img/logoTuristik.png" class="imgLogo" alt="LogoTuristik">
     </div>
@@ -13,35 +14,19 @@ export const registerTemplate = () => {
       <input type="email" placeholder="Email" id="emailRegister" class="inputForm" required>
       <!-- PASSWORD INPUT -->
       <input type="password" name="password" placeholder="Password" id="passwordRegister" class="inputForm" required>
-    </form>
-    <button type="submit" class="btnRegister">Register</button><br>
+      <button type="button" class="btnRegister" id="registerButton" >Register</button>
+      </form>
+    <br>
     <span>Already a member? <a id="linkLogIn" href="#/LogIn">Log In</a> </span>
     <div class="divIconG">
       <img src="./img/icons8-logo-de-google.svg" alt="iGoogle" class="iGoogle">
     </div>
     `;
-  sectionRegister.innerHTML = templateLogIn;
+  sectionRegister.innerHTML = templateRegister;
+  const btnRegister = sectionRegister.querySelector('#registerButton');
+  const emailRegister = sectionRegister.querySelector('#emailRegister').value;
+  const passwordRegister = sectionRegister.querySelector('#passwordRegister').value;
+  console.log(btnRegister, emailRegister, passwordRegister);
+  btnRegister.addEventListener('click', registerWithEmailClick);
   return sectionRegister;
 };
-
-/*
-export const registerUser = (email, password) => {
-  console.log(email, password);
-  firebase
-    .auth()
-    .createUserWithEmailAndPassword(email, password)
-    .then((userCredential) => {
-      console.log(userCredential.user);
-    })
-    .catch((error) => {
-      console.log('error', error.message);
-    });
-};
-const btnRegister = document.querySelector('.btnRegister');
-btnRegister.addEventListener('submit', (event) => {
-  const emailRegister = document.querySelector('#emailRegister').value;
-  const passwordRegister = document.querySelector('#passwordRegister').value;
-  event.preventDefault();
-  registerUser(emailRegister.trim(), passwordRegister.trim());
-});
- */
