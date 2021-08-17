@@ -41,9 +41,10 @@ export const TIMELINE = () => {
     // aqui va lo de firestore
       const user = {
         dateExample: firebase.firestore.Timestamp.fromDate(new Date()),
-        mail: 'estefania_8_3@hotmail.com',
+        mail: '',
         activo: true,
         post: textPost.value,
+        likePost: 0,
       };
       addPostCollection(user, postContent);
     }
