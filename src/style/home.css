@@ -1,14 +1,14 @@
 /************************Contenedor de home******************************/
 .contentHome{
   width: 100%;
-  display: block;
+  display: flex;
   flex-direction: column;
   justify-content: center;
 }
 /**************************Contenedor de la info y el botón***********************/
 
 .contentInfo{
-  display: block;
+  display: flex;
   justify-content: center;
   flex-direction: column;
   width: 100%;
@@ -35,7 +35,7 @@
   width: 100%;
   margin-top: 0;
 }
-/**************************************Medio queries***************************/
+/**************************************Media queries***************************/
 
                                 @media (min-width: 970px){
 
