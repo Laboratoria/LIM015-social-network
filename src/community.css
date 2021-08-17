@@ -151,6 +151,14 @@ nav .contenedor {
   font-weight: 300;
 }
 
+.contact-img img{
+  border-radius: 50%;
+  width: 67px;
+  height: 67px;
+  display: inline-block;
+  margin-right: 1.5rem;
+}
+
 .gallery-image:hover .img-overlay {
   opacity: 1;
 }
@@ -173,7 +181,6 @@ nav .contenedor {
 }
 
 .muro-box {
-  width: 100%;
   background-color: var(--light-one);
   width: 100%;
   border-radius: 45px;
@@ -210,14 +217,6 @@ nav .contenedor {
 
 .info-text {
   font-size: 1.2rem;
-}
-
-.contact-img img{
-  border-radius: 50%;
-  width: 67px;
-  height: 67px;
-  display: inline-block;
-  margin-right: 1.5rem;
 }
 
 .muro-form .title {
@@ -360,7 +359,7 @@ nav .contenedor {
 
   .img-wrap {
     margin-top: 1.2rem;
-    
+
   }
 
   .contact-icon {
@@ -467,10 +466,6 @@ nav .contenedor {
   }
 
   .text-anime{
-    display: none;
-  }
-
-  .img-wrap{
     display: none;
   }
 
