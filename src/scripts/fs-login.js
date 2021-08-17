@@ -3,14 +3,17 @@ import { auth } from './fs-config.js';
 export const signUp = (email, password) => {
   // const userName = document.getElementById('signup-user').value;
   auth.createUserWithEmailAndPassword(email, password)
-    .then((userCredential) => {
+    .then((result) => {
       // Signed in
       console.log('signed up');
-      console.log(userCredential);
+      console.log(result.user);
+      const emailAdress = result.user.email;
+      console.log(emailAdress);
+      console.log(result.user.displayName);
       // ...
     })
     .catch((error) => {
-      alert('La contraseña debe tener mínimo 6 caracteres \n 〜(꒪꒳꒪)〜');
+      // alert('La contraseña debe tener mínimo 6 caracteres \n 〜(꒪꒳꒪)〜');
       console.log(error.code, error.message);
     });
 };
@@ -26,7 +29,6 @@ export const signIn = (email, password) => {
     })
     .catch((error) => {
       console.log(error.code, error.message);
-      alert('Contraseña o Email incorrecto \n (╯ರ ~ ರ)╯︵ ┻━┻');
     });
 };
 
@@ -39,7 +41,11 @@ export const googleLogin = () => {
       // This gives you a Google Access Token. You can use it to access the Google API.
       console.log(credential.accessToken);
       // The signed-in user info.
+      const username = result.user.displayName;
+      const emaiAdress = result.user.email;
       console.log(result.user);
+      console.log(username);
+      console.log(emaiAdress);
       console.log('signed in with Google');
       // ...
     })
@@ -53,4 +59,14 @@ export const googleLogin = () => {
       console.log(error.credential);
       // ...
     });
+};
+
+// Log out
+export const logout = () => {
+  auth.signOut().then(() => {
+    console.log('signed out');
+    window.location.reload();
+  }).catch((error) => {
+    console.log(error);
+  });
 };

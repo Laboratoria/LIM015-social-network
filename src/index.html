@@ -6,23 +6,31 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script
       src="https://kit.fontawesome.com/64d58efce2.js"crossorigin="anonymous"></script>  
-  <link rel="stylesheet" href="login-out.css"/>
+  <link rel="shortcut icon" href="./images/star.png" type="image/x-icon">
+  <link rel="stylesheet" href="login.css"/>
+  <link rel="stylesheet" href="community.css"/>
   <title>Tomodachi</title>
 </head>
 <body>
-  <header>
+  <header id="header">
     <nav>
-      <ul>
-        <li>
-          <a href="#/login"> login </a>
-        </li>
-        <li>
-          <a href="#/home"> Home </a>
-        </li>
-        <li>
-          <a href="#/profile"> perfil </a>
-        </li>
-      </ul>
+    <div class="contenedor">
+      <div class="logo">
+        <img src="images/logo.png" alt="" />
+      </div> 
+      <div class="links">
+        <ul>
+          <li>
+            <a href="#/community"><i class="fas fa-home"></i></a>
+          </li>
+          <li>
+            <a href="#/profile"><i class="fas fa-user"></i></a>
+          </li>
+          <li>
+            <i class="fas fa-sign-out-alt"></i>
+          </li>
+        </ul>
+      </div>
     </nav>
   </header>
   <main class="container"></main> 
@@ -43,7 +51,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-analytics.js"></script>
 
      <!--Custom Code-->
-     <script type="module" src="./scripts/login-out.js"></script>
+     <script type="module" src="./scripts/login.js"></script>
      <script type="module" src="main.js"></script>
 </body>
 </html>

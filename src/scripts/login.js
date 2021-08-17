@@ -1,4 +1,7 @@
-import { signUp, signIn, googleLogin } from './fs-login.js';
+import {
+  signUp, signIn, googleLogin, logout,
+} from './fs-login.js';
+
 // SECCION LOGIN HTML
 const main = document.querySelector('.container');
 
@@ -13,13 +16,15 @@ formularios.innerHTML = `
           <h2 class="title">Ingresa</h2>
           <div class="input-field">
             <i class="fas fa-envelope"></i>
-            <input type="email" id="signin-email" placeholder="Email"/>
+            <input type="email" id="signin-email" placeholder="Email"/> 
           </div>
+          <div> <p id="si-error-email"></p> </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
             <input type="password" id="signin-password" placeholder="Contraseña">
           </div>
-          <input type="submit" value="Ingresar" class="btn solid">
+          <div> <p id="si-error-password"></p> </div>
+          <input type="submit" value="Ingresar" class="button solid">
           <p class="social-text">O ingresa con:</p>
           <div class="social-media">
             <a href="#" id="googleLogin" class="social-icon google">
@@ -43,7 +48,8 @@ formularios.innerHTML = `
             <i class="fas fa-lock"></i>
             <input type="password" id="signup-password" placeholder="Contraseña">
           </div>
-          <input type="submit" value="Registrar" class="btn solid">
+          <div> <p id="su-error-password"></p> </div>
+          <input type="submit" value="Registrar" class="button solid">
         </form>
       </section>
     </article>
@@ -55,7 +61,7 @@ formularios.innerHTML = `
           <p>
        ¡únete a nosotros, comparte y diviértete!
           </p>
-          <button class="btn transparent" id="registrar">Regístrate</button>
+          <button class="button transparent" id="registrar">Regístrate</button>
         </div>
         <img src="images/log.png" class="image knj" alt=""/>
       </section>
@@ -66,7 +72,7 @@ formularios.innerHTML = `
           <p>
             ¡Logueate y no esperes más!
           </p>
-          <button class="btn transparent" id="ingresar">Ingresar</button>
+          <button class="button transparent" id="ingresar">Ingresar</button>
         </div>
         <img src="images/bnh.png" class="image bnh" alt="" />
       </section>
@@ -93,9 +99,14 @@ const signupForm = document.querySelector('.sign-up-form');
 
 signupForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  const sigupEmail = document.getElementById('signup-email').value;
+  const signupEmail = document.getElementById('signup-email').value;
   const signupPassword = document.getElementById('signup-password').value;
-  signUp(sigupEmail, signupPassword);
+  const errorMsgPassword = document.getElementById('su-error-password');
+
+  signUp(signupEmail, signupPassword);
+  if (signupEmail === '' || signupPassword === '') {
+    errorMsgPassword.innerHTML = 'Debes llenar todos los campos <br> (╯ರ ~ ರ)╯︵ ┻━┻';
+  }
 });
 
 // Ingresar con email y password
@@ -103,13 +114,25 @@ const signinForm = document.querySelector('.sign-in-form');
 
 signinForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  const siginEmail = document.getElementById('signin-email').value;
+  const siginEmail = document.getElementById('signin-email').value; // INPUTS
   const signinPassword = document.getElementById('signin-password').value;
+  // const errorMsgEmail = document.getElementById('si-error-email'); // MENSAJES DE ERROR
+  const errorMsgPassword = document.getElementById('si-error-password'); // "signIn Error Password"
+
   signIn(siginEmail, signinPassword);
+  if (siginEmail === '' || signinPassword === '') {
+    errorMsgPassword.innerHTML = 'Debes ingresar tu email y contraseña <br> (╯ರ ~ ರ)╯︵ ┻━┻';
+  }
 });
 
 // Ingresar con Google
 const googleBtn = document.querySelector('.google');
 googleBtn.addEventListener('click', () => {
   googleLogin();
+});
+
+// Logout
+const Logout = document.querySelector('.fa-sign-out-alt');
+Logout.addEventListener('click', () => {
+  logout();
 });

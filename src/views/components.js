@@ -1,6 +1,6 @@
-import Home from './home.js';
+import Community from './community.js';
 
 const components = {
-  home: Home,
+  community: Community,
 };
 export { components };
