@@ -6,16 +6,12 @@
   --light-one: #fff;
 }
 
-/* Estilos generales */
+/********* Estilos generales **************/
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 body,
@@ -44,10 +40,10 @@ img {
   padding: 0 4rem;
   margin: 0 auto;
 }
-/* End Genral Styles */
 
 
-/* Nav */
+
+/************* Nav *************/
 
 nav {
   width: 100%;
@@ -82,22 +78,74 @@ nav .contenedor {
   color: var(--main-color);
 }
 
-/* Fin del nav */
+
+/***********************MURO estilos********************/
+.muro {
+  position: relative;
+  width: 100%;
+  padding: 3.5rem 0 8.5rem 0;
+  background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+}
+
+.muro_user-posters {
+  background-color: var(--light-one);
+  width: 100%;
+  border-radius: 45px;
+  padding: 5.5rem 4.5rem;
+  display: grid;
+  grid-template-columns: 0.6fr 1.3fr;
+}
+
+.muro-info {
+  padding-right: 1rem;
+}
+
+.muro-info .title{
+  margin-bottom:1.5rem;
+  font-size: 1.8rem;
+}
 
 
-/* Imágenes de anime */
-.text-anime {
+/*****************INFO DEL USUARIO*********************/
+.information-user {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2.3rem;
+}
+
+
+.user-img img{
+  border-radius: 50%;
+  width: 67px;
+  height: 67px;
+  display: inline-block;
+  margin-right: 1.5rem;
+}
+
+.user-name {
+  font-size: 1.2rem;
+}
+
+
+/****************IMÁGENES DE ANIME***************/
+.title-anime {
   text-align: center;
   color: #6b6b6b;
   margin-top: 2rem;
 }
 
-.grid-item {
+.container-posters {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  margin-top: 1rem;
+}
+
+.div-poster {
   width: 100%;
   padding: 1.2rem 1.2rem;
 }
 
-.gallery-image {
+.poster_effect-text {
   position: relative;
   margin-left: auto;
   margin-right:auto;
@@ -106,10 +154,10 @@ nav .contenedor {
   width: 70%; 
 }
 
-.gallery-image img {
+.poster_effect-text img {
   position: absolute;
-  height: 100%;
-  width: 150%;
+  line-height: 1.5;
+  width: 120px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -118,12 +166,12 @@ nav .contenedor {
   border-radius: 20px;
 }
 
-.gallery-image .img-overlay {
+.poster_effect-text .img-overlay {
   position: absolute;
-  width: 165%;
-  height: 110%;
-  top: -5%;
-  left: -32%;
+  width: 152%;
+  height: 60%;
+  top: 20%;
+  left: -27%;
   z-index: 2;
   color: var(--light-one);
   background-color: rgba(120, 76, 251, 0.55);
@@ -136,102 +184,51 @@ nav .contenedor {
   transition: 0.3s;
 }
 
-.img-description {
+.img-titles {
   width: 100%;
 }
 
 .img-overlay h3 {
   font-weight: 600;
   text-transform: uppercase;
-  font-size: 1.6rem;
-}
-
-.img-overlay h5 {
-  font-size: 1.15rem;
-  font-weight: 300;
-}
-
-.contact-img img{
-  border-radius: 50%;
-  width: 67px;
-  height: 67px;
-  display: inline-block;
-  margin-right: 1.5rem;
-}
-
-.gallery-image:hover .img-overlay {
-  opacity: 1;
-}
-
-.gallery-image:hover img {
-  transform: translate(-50%, -50%) scale(1.1);
-}
-
-/*Fin de imágenes de anime */
-
-
-/* Muro*/
-.muro {
-  position: relative;
-  width: 100%;
-  padding: 3.5rem 0 8.5rem 0;
-  top: 0%;
-  height: 0%;
-  background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
-}
-
-.muro-box {
-  background-color: var(--light-one);
-  width: 100%;
-  border-radius: 45px;
-  padding: 5.5rem 4.5rem;
-  display: grid;
-  grid-template-columns: 0.6fr 1.3fr;
-}
-
-.muro-info {
-  padding-right: 2rem;
-  
-}
-
-.muro-info .title{
-  margin-bottom:1.5rem;
-  font-size: 1.8rem;
-}
-
-.muro-form {
-  padding-left: 2rem;
-}
-
-.img-wrap {
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  margin-top: 1rem;
-}
-
-.information {
-  display: flex;
-  align-items: center;
-  margin-bottom: 2.3rem;
-}
-
-.info-text {
   font-size: 1.2rem;
 }
 
-.muro-form .title {
+.img-overlay h5 {
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+
+.poster_effect-text:hover .img-overlay {
+  opacity: 1;
+}
+
+.poster_effect-text:hover img {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+
+
+
+/********************COLUMNA DE POSTS*********************/
+
+.muro-posts {
+  padding-left: 2rem;
+}
+
+.muro-posts .title {
   margin: 0;
   font-size: 1.8rem;
 }
 
-.muro-form .column {
+.muro-posts .txt-post {
   width: 100%;
   display: grid;
   grid-template-columns: auto-fit, minmax(130px, 1fr);
   grid-column-gap: 0.6rem;
 }
 
-.contact-input {
+.posts {
   padding: 1.2rem 2.1rem;
   margin: 0.6rem 0;
   border: none;
@@ -243,27 +240,25 @@ nav .contenedor {
   transition: 0.5s;
 }
 
-.contact-input::placeholder {
+.posts::placeholder {
   font-weight: 400;
 }
 
-.contact-input.textarea {
+.posts.textarea {
   resize: none;
   min-height: 250px;
-  border-radius: 2rem;
+  border-radius: 2rem; 
 }
 
-.contact-input:hover {
+.posts:hover {
   background-color: #cccccc;
-  
 }
 
-.contact-input:focus {
-  background-image: linear-gradient(-20deg, #e9defa 0%, #fcdbf4 100%);
-  
+.posts:focus {
+  background-image: linear-gradient(-20deg, #e9defa 0%, #fcdbf4 100%); 
 }
 
-.btn-share{
+.btn-share {
   text-align: center;
 }
 
@@ -285,11 +280,10 @@ nav .contenedor {
   background-color: #6b44e0;
 }
 
-/* fin muro */
 
 
 
-/* Responsive */
+/********* Responsive ************/
 
 @media (max-width: 1280px) {
   .text {
@@ -319,17 +313,17 @@ nav .contenedor {
     width: 28%;
   }
 
-  .grid-item {
+  .div-poster {
     width: 104%;
     padding: 0.6rem 1.2rem;
   }
 
-  .gallery-image {
+  .poster_effect-text {
     height: 360px;
     position: relative;
   }
 
-  .gallery-image .img-overlay {
+  .poster_effect-text .img-overlay {
     padding: 1.4rem 2rem;
   }
 
@@ -345,7 +339,7 @@ nav .contenedor {
     padding: 3.5rem 0 6rem 0;
   }
 
-  .muro-form {
+  .muro-posts {
     padding-left: 1rem;
   }
 
@@ -353,11 +347,11 @@ nav .contenedor {
     padding-right: 1rem;
   }
 
-  .muro-box {
+  .muro_user-posters {
     padding: 3.6rem 3rem;
   }
 
-  .img-wrap {
+  .container-posters {
     margin-top: 1.2rem;
 
   }
@@ -373,34 +367,34 @@ nav .contenedor {
     line-height: 50px;
   }
 
-  .info-text {
+  .user-name {
     font-size: 1.2rem;
   }
 
-  .contact-input {
+  .posts {
     font-size: 1.1rem;
     padding: 0.9rem 1.6rem;
     margin: 0.4rem 0;
   }
 
-  .column .btn{
+  .txt-post .btn{
     font-size: 1rem;
   }
 }
 
 @media (max-width: 1000px) {
   
-  .grid-item {
+  .div-poster {
     width: 90%;
     padding: 1.0rem 0.8rem;
   }
 
-  .gallery-image {
+  .poster_effect-text {
     height: 210px;
     position: relative;
   }
 
-  .gallery-image .img-overlay {
+  .poster_effect-text .img-overlay {
     padding: 1.4rem 2rem;
   }
 
@@ -424,16 +418,16 @@ nav .contenedor {
     padding: 0.65rem 2.7rem;
   } 
 
-  .grid-item {
+  .div-poster {
     width: 50%;
   }
 
-  .gallery-image {
+  .poster_effect-text {
     height: 210px;
     max-width: 270px;
   }
 
-  .muro-box {
+  .muro_user-posters {
     grid-template-columns: 1fr;
     padding: 3.2rem 2.7rem;
   }
@@ -443,39 +437,35 @@ nav .contenedor {
     padding-bottom: 0.5rem;
   }
 
-  .muro-form {
+  .muro-posts {
     padding-left: 0;
     padding-top: 0.5rem;
   }
 
-  .muro-form h3 {
+  .muro-posts h3 {
    font-size: 1.8rem;
   }
 
-  .img-wrap {
+  .container-posters {
     margin-top: 0.7rem;
   }
 
-  .information:not(:last-child) {
-    margin-bottom: 0.8rem;
-  }
-
-  .contact-input.textarea {
+  .posts.textarea {
     min-height: 220px;
     font-size: 1.2rem;
   }
 
-  .text-anime{
+  .title-anime{
     display: none;
   }
 
-  .column .btn{
+  .txt-post .btn{
     font-size: 1rem;
   }
 }
 
 @media (max-width: 600px) {
-  .grid-item {
+  .div-poster {
     width: 100%;
   }
 
@@ -511,30 +501,30 @@ nav .contenedor {
     padding: 3.5rem 0 5rem 0;
   }
 
-  .text-anime{
+  .title-anime{
     display: none;
   }
 
-  .img-wrap{
+  .container-posters {
     display: none;
   }
 
-  .muro-box {
+  .muro_user-posters {
     padding: 2.3rem 2rem;
     border-radius: 30px;
   }
 
-  .muro-form .column {
+  .muro-posts .txt-post {
     grid-column-gap: 0.3rem;
   }
 
-  .contact-input {
+  .posts {
     font-size: 0.8rem;
     padding: 0.8rem 1.4rem;
     margin: 0.25rem 0;
   }
 
-  .column .btn{
+  .txt-post .btn{
     font-size: 0.8rem;
   }
 }
