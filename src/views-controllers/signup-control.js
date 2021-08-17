@@ -5,7 +5,7 @@ export const signUpUser = (e) => {
   e.preventDefault(); // cancela el evento de reinicio del formulario
   const name = document.querySelector('#nombres').value;
   const email = document.querySelector('#email').value;
-  const password = document.querySelector('#password').value;
+  const password = document.querySelector('#password1').value;
   // yo
   const msgerr = document.querySelector('#error-message');
 

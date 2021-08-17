@@ -3,7 +3,11 @@ import MockFirebase from 'mock-cloud-firestore';
 import {
   sharePost,
   getPost,
+  editPost,
   deletePost,
+  getLike,
+  addLikeDb,
+  deleteLikeDb,
 } from '../src/firebase/data-base';
 
 const fixtureData = {
@@ -19,6 +23,17 @@ const fixtureData = {
           Photo: '',
           likes: '',
           user: 'Prueba Test',
+          __collection__: {
+            likes: {
+              __doc__: {
+                xyz012: {
+                  iduser: 'xyz012',
+                  idPost: 'abcd123456',
+                  email: 'prueba@gmail.com',
+                },
+              },
+            },
+          },
         },
       },
     },
@@ -37,15 +52,16 @@ describe('Agrega los post', () => {
     )));
 });
 
-// describe('Edit Post', () => {
-//   it('Deberia actualizar editar del post', () => editPost('id_001', 'post editado')
-//     .then(() => getPost(
-//       (data) => {
-//         const result = data.find((posts) => posts.postText === 'post editado');
-//         expect(result.posts.postText).toBe('post editado');
-//       },
-//     )));
-// });
+describe('Edit Post', () => {
+  it('Deberia actualizar editar del post', () => editPost('id_001', 'hola que tal')
+    .then(() => getPost(
+      (data) => {
+        // console.log(data);
+        const result = data.find((posts) => posts.postText === 'hola que tal');
+        expect(result.postText).toBe('hola que tal');
+      },
+    )));
+});
 
 describe('Delete Post', () => {
   it('Debería poder eliminar un post', () => deletePost('id_001')
@@ -55,4 +71,36 @@ describe('Delete Post', () => {
         expect(result).toBe(undefined);
       },
     )));
+});
+
+describe('addLikeDb', () => {
+  it('deberia agregar like a un post', (done) => {
+    addLikeDb('xyz012', 'abcd123456', 'prueba@gmail.com')
+      .then(() => {
+        getLike(
+          'abcd123456',
+          (likes) => {
+            const result = likes.find((post) => post.iduser === 'xyz012');
+            expect(result.iduser).toBe('xyz012');
+          },
+          () => { done(); },
+        );
+      });
+  });
+});
+
+describe('deleteLikeDb', () => {
+  it('deberia eliminar un like al post dado', (done) => {
+    deleteLikeDb('xyz012', 'abcd123456')
+      .then(() => {
+        getLike(
+          'abcd123456',
+          (likes) => {
+            const result = likes.find((elemento) => elemento.id === 'xyz012');
+            expect(result).toBe(undefined);
+          },
+          () => { done(); },
+        );
+      });
+  });
 });
