@@ -3,10 +3,13 @@ import { auth } from './fs-config.js';
 export const signUp = (email, password) => {
   // const userName = document.getElementById('signup-user').value;
   auth.createUserWithEmailAndPassword(email, password)
-    .then((userCredential) => {
+    .then((result) => {
       // Signed in
       console.log('signed up');
-      console.log(userCredential);
+      console.log(result.user);
+      const emailAdress = result.user.email;
+      console.log(emailAdress);
+      console.log(result.user.displayName);
       // ...
     })
     .catch((error) => {
@@ -38,7 +41,11 @@ export const googleLogin = () => {
       // This gives you a Google Access Token. You can use it to access the Google API.
       console.log(credential.accessToken);
       // The signed-in user info.
+      const username = result.user.displayName;
+      const emaiAdress = result.user.email;
       console.log(result.user);
+      console.log(username);
+      console.log(emaiAdress);
       console.log('signed in with Google');
       // ...
     })
