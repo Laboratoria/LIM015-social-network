@@ -560,9 +560,24 @@ header {
 }
 
 
-@media only screen and (min-width: 375px) and (max-width: 479px) {
+@media only screen and (min-width: 280px) and (max-width: 479px) {
   .contenedorView1 {
     margin-top: 40%;
+  }
+  .side {
+    background-color: #E01E37;
+    display: none;
+  }
+  .container-perfil {
+    display: flex;
+    flex-direction: column;
+  }
+  .user-perfil {
+    width: 500%;
+    height: 100%;
+  }
+  header {
+    width: 200%;
   }
 }
 
