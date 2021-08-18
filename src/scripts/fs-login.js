@@ -1,16 +1,16 @@
 import { auth } from './fs-config.js';
 
-const usuarios = firebase.firestore().collection('InfoUser');
+// const usuarios = firebase.firestore().collection('InfoUser');
 
 export const signUp = (email, password) => {
   // const userName = document.getElementById('signup-user').value;
   auth.createUserWithEmailAndPassword(email, password)
     .then((result) => {
       // Signed in
-      console.log('signed up');
-      const Email = result.user.email;
-      const newUser = usuarios.push();
-      newUser.set({ email: Email });
+      console.log('signed up', result);
+      // const Email = result.user.email;
+      // const newUser = usuarios.push();
+      // newUser.set({ email: Email });
       /* console.log(result.user);
       console.log(result.user.displayName);
       const User = {
