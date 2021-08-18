@@ -54,7 +54,7 @@ export default (post) => {
                         <section class="flex-bottom-form">
                             <section>
                                 <label for="fileButton">
-                                    <i class="far fa-image btn-picture" aria-hidden="true">
+                                    <i class="far fa-image btn-picture"  aria-hidden="true">
                                     </i>
                                 </label>
                                 <input type="file" class="hide">
