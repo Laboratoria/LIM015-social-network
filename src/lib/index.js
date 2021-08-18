@@ -1,7 +1,18 @@
 /* eslint-disable no-unused-vars */
-import { logInWithGoogle, logout } from '../firebase/firebaseAuth.js';
+import { logInWithGoogle, logout, registerWithEmail } from '../firebase/firebaseAuth.js';
 
-// aqui exportaras las funciones que necesites
+// registro de usuario con email y password
+export const registerWithEmailClick = (email, password) => {
+  registerWithEmail()
+    .then((userCredential) => {
+      console.log(userCredential.user);
+    })
+    .catch((error) => {
+      console.log('error', error.message);
+    });
+};
+
+// inicio de sesion con google
 export const logInWithGoogleClick = () => {
   const messageError = document.querySelector('#error-logueo');
   logInWithGoogle()
@@ -22,6 +33,7 @@ export const logInWithGoogleClick = () => {
     });
 };
 
+// cerrar sesion
 export const logoutClick = () => {
   logout()
     .then(() => {
