@@ -10,7 +10,6 @@ import {
   leave,
 } from '../src/firebase/autenticacion.js';
 
-
 const firebasemock = require('firebase-mock');
 
 const mockauth = new firebasemock.MockFirebase();
@@ -19,7 +18,7 @@ mockauth.autoFlush();
 
 global.firebase = firebasemock.MockFirebaseSdk(
   // use null if your code does not use RTDB
-  path => (path ? mockdatabase.child(path) : null),
+  (path) => (path ? mockdatabase.child(path) : null),
   () => mockauth,
 );
 
@@ -38,8 +37,7 @@ describe('Registro de usuario', () => {
 });
 
 describe('Verficar cuenta email', () => {
-  it('Debería enviar un email de verificación', () => 
-  userSignIn('pamela.rupay31@google.com', 'laboratoria')
+  it('Debería enviar un email de verificación', () => userSignIn('pamela.rupay31@google.com', 'laboratoria')
     .then(() => {
       const mockSendEmail = jest.fn();
       firebase.auth().currentUser.sendEmailVerification = mockSendEmail;

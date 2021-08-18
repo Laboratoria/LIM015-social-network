@@ -26,7 +26,7 @@ export default () => {
             <input type="password" class="registro" id="password" placeholder="Password" required>
           </section>
           <input type="button" class="registro-signin" href="#/home" id="sign-in" value="Sign-In">
-          <p class="error" id="error"></p>
+          <p class="error-message" id="error-message"></p>
           <a href="#" class="btn-forget" id="btnForget">¿Olvidaste tu contraseña?</a>
           <p class="text-login">Ingresar por</p>
           <!-- Seccion donde estan los botones -->

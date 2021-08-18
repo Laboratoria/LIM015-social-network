@@ -44,7 +44,7 @@ export const sharingPost = (data) => {
                             </section>
                           </section>
                       </section>
-                    
+
                       <!--contenedor de la publicacion-->
                     <section class="middle-post">
 
@@ -75,18 +75,6 @@ export const sharingPost = (data) => {
                                 <a class="counter-comment">2</a>
                             </button>
                             </section>
-                            <section class="comment-form">
-                            <form class="form-comment" maxlength="50" required>
-                              <textarea placeholder="Escribe tu comentario" id="tex-comment" class="textarea-comment">
-                              </textarea>
-                              <button id="comment-plane">
-                                <span class="comment">
-                                  <i class="fa fa-paper-plane btn-comment" aria-hidden="true"></i>
-                                </span>
-                              </button>
-                            </form>
-                          </section>
-                          <section></section>
                       </section>
               </li>
             </ul>

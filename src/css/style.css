@@ -1,21 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Atma&family=Gowun+Batang&family=Marvel&family=Roboto&display=swap');
-/* font-family: 'Amatic SC', cursive;
-font-family: 'Atma', cursive;
-font-family: 'Gowun Batang', serif;
-font-family: 'Marvel', sans-serif;
-font-family: 'Roboto', sans-serif; */
-
 * {
   margin: 0;
   padding: auto;
 }
-
 body {
   font-family: 'Marvel', sans-serif;
   background-color: #EFF7F6;
 }
-
-/* Pagina de Inicio - AGRUPADO POR PAMELA */
+/* Pagina de Inicio */
 /* Parte izquierda de la pagina de inicio*/
 .text-welcome{
   font-family: 'Marvel', cursive;
@@ -55,7 +46,7 @@ img.logo-ibook {
 }
 
 .registro {
-  width: 264px;
+  width: 200px;
   height: 37px;
   margin: 8px;
   background: #FFFFFF;
@@ -76,12 +67,8 @@ img.logo-ibook {
   margin: 10px ;
 }
 
-#username.registro, #password1.registro {
-  width: 200px;
-}
-/* YOOOOOOOOO */
 /* mensaje de error en signIn */
-.error {
+.error-message {
   color: #E01E37;
   font-weight: bold;
   margin: 5px 0px 5px;
@@ -125,7 +112,7 @@ a.btn-register, a.btn-forget {
   cursor: pointer;
 }
 
-/* Navegador - AGRUPADO PAMELA*/
+/* HOME */
 
 header {
   display: flex;
@@ -145,7 +132,8 @@ header {
 
 .nav-bar li:hover{
   border-color: solid 1em black;
-  font-family:fantasy;
+  font-family: fantasy;
+  font-size: 20px;
   cursor:pointer;
 }
 
@@ -154,27 +142,26 @@ header {
   font-weight: bold;
   padding: 0 29px;
   align-items: center;
+  font-family: fantasy;
+  color: black;
   display: flex;
 }
 
-/* Pagina de Home */
 .container-perfil {
   display: flex;
   justify-content: space-evenly;
   margin-left: 150px;
   margin-right: 150px;
-  
 }
 
-/* Contenedor de Perfil de usuario, cuantos libros lees? - AGRUPADO PAMELA*/
+/* Contenedor de Perfil de usuario, cuantos libros lees? */
 .img-profile {
   width: 100%;
 }
 
 .user-perfil {
   width: 270px;
-  height: 360px;
-  border: none ;
+  height: 400px;
   background: lightgray;
   border-radius: 5px;
   margin: 10px;
@@ -184,6 +171,10 @@ header {
 .img-perfil {
   border-radius: 50%;
   margin: 10px;
+}
+
+.texts {
+  margin-left: 10px;
 }
 
 .email-perfil {
@@ -200,7 +191,7 @@ header {
   padding: 10px 0px 10px;
 }
 
-/* Post para publicar - AGRUPADO PAMELA* */
+/* Post para publicar */
 
 .textArea-comment {
   resize: none;
@@ -210,11 +201,11 @@ header {
   margin: 10px;
   padding: 10px;
   border-radius: 15px;
-  outline: none;
+  border: none;
   text-align: justify;
 }
 
-.img-perfil2 {
+.img-perfil2, .img-perfil3  {
   width: 96px;
   border-radius: 50%;
   margin: 10px;
@@ -231,14 +222,6 @@ header {
   margin: 20px;
 }
 
-.btn-picture {
-  color: #fefefe;
-  background: slategrey;
-  padding: 10px;
-  border-radius: 50%;
-  /* cursor: pointer; */
-}
-
 .btn-share {
   width: 138px;
   height: 30px;
@@ -249,7 +232,7 @@ header {
   margin: 5px ;
 }
 
-/* Post ya publicados - AGRUPADO PAMELA*/
+/* Post ya publicados */
 .section-post {
   display: flex;
   flex-direction: column;
@@ -286,7 +269,7 @@ header {
   text-align: center;
   padding: 5px;
   font-family: 'Marvel', sans-serif;
-  background-color: coral;
+  background-color: #84A59D;
   border-radius: 5px;
 }
 
@@ -316,30 +299,7 @@ header {
   resize: none;
   background: darkgray;
   border: darkgray;
-  }
-
-/* 
-
-.file-name {
-  border:black;
-  width: 90px;
-  font-size: 10px;
 }
- */
-/* 
-
-.btn-share {
-  background-color: rebeccapurple;
-  color: #ffffff;
-  padding: 7px 15px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.hide {
-  display: none;
-} */
 
 .ul-parent {
   padding-left: 0px;
@@ -353,9 +313,9 @@ header {
   padding-right: 0px;
 }
 
-.only-flex {
+/* .only-flex {
   display: flex;
-}
+} */
 
 .btn-select {
   border: none;
@@ -366,15 +326,15 @@ header {
   font-family: "Ubuntu", sans-serif;
   font-size: 13px;
   font-weight: bold;
-} 
+}
 
 .btn-select select option {
   padding: 20px;
-} 
+}
 
 .date-publication{
-  margin-left: 10px;
-  color: black;
+  margin-right: 20px;
+  color:black;
 }
 
 .hide {
@@ -386,14 +346,11 @@ header {
   flex-direction: column;
 }
 
-
-
 .flex-bottom-form {
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
-
 
 .img-class {
   display: flex;
@@ -404,7 +361,6 @@ header {
   display: flex;
   justify-content: space-around;
 }
-
 
 /* estilos para heart y el commet */
 .heart-commet {
@@ -421,7 +377,7 @@ header {
 
 .bottom-heart:hover{
   color: black;
-} 
+}
 
 .fa.fa-heart-o:before {
   content: "\f004";
@@ -432,10 +388,12 @@ header {
 
 .fa.fa-comment-o:before {
   content: "\f075";
+  font-weight: 600;
   color: blue;
-} 
+  font-size: 18px;
+}
 
-/* Profile - AGRUPADO PAMELA */
+/* Profile */
 .edit-profile {
   display: flex;
   justify-content: center;
@@ -458,6 +416,7 @@ header {
   width: 40px;
   height: 40px;
 }
+
 /* Pagina de error */
 
 .contenedor-Error {
@@ -480,6 +439,8 @@ header {
   display: flex;
   justify-content: center;
 }
+
+/* Modales */
 
 .modal-container {
   opacity: 0;
@@ -520,7 +481,7 @@ header {
 
 .modal-close {
   transform: translateY(-200%);
-} 
+}
 
 .close-estatistics {
   background: white;
@@ -534,19 +495,54 @@ header {
   font-weight: bolder;
 }
 
-.footer {
-  font-size: 20px;
-  position: fixed;
-  width: 100%;
-  background-color:#6EA4BB;
-  color: white;
-  text-align: center;
-  padding: 10px;
+@media screen and (max-width: 1280px) {
+  body {
+    background-color: brown;
+  }
+  .user-perfil {
+    width: 100%;
+    margin-left: -40px;
+  }
+  .content-general {
+    margin-right: -30px;
+  }
 }
 
-
-@media only screen and (min-width: 280px) and (max-width: 479px) {
-  .contenedorView1 {
-    margin-top: 40%;
+@media screen and (max-width: 800px) {
+  body {
+    background-color: coral;
+  }
+  .side {
+    display: none;
+  }
+  .container-perfil {
+    display: flex;
+    flex-direction: column;
+  }
+  .user-perfil {
+    width: 100%;
+    margin-left: 0px;
+    height: 100%;
+  }
+  .flex-bottom-form {
+    width: 160%;
+    padding-left: 10%;
+  }
+  .section-post {
+    width: 116%;
+    margin-left: -10%;
+  }
+  .textArea-comment {
+    width: 160%
+  }
+  .textarea-post {
+    width: 100%;
+  }
+  .img-perfil2 {
+    width: 100%;
+  }
+  .img-perfil3 {
+    width: 80%;
+    height: 80%;
   }
 }
