@@ -1,5 +1,6 @@
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebase = require('firebase/app').default;
+require('firebase/auth');
+
 export const firebaseConfig = {
   apiKey: 'AIzaSyBmuPuol1G8A-QpcLM4uii_5BY942WqEoU',
   authDomain: 'anime-forum-215d6.firebaseapp.com',
@@ -12,6 +13,8 @@ export const firebaseConfig = {
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-firebase.analytics();
-firebase.firestore();
+// firebase.analytics();
+// firebase.firestore();
 export const auth = firebase.auth();
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
