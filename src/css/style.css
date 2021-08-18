@@ -495,13 +495,19 @@ header {
   font-weight: bolder;
 }
 
-
-
 @media screen and (max-width: 1280px) {
   body {
     background-color: brown;
   }
+  .user-perfil {
+    width: 100%;
+    margin-left: -40px;
+  }
+  .content-general {
+    margin-right: -30px;
+  }
 }
+
 @media screen and (max-width: 800px) {
   body {
     background-color: coral;
@@ -509,12 +515,40 @@ header {
   .side {
     display: none;
   }
+  .container-perfil {
+    display: flex;
+    flex-direction: column;
+  }
+  .user-perfil {
+    width: 100%;
+    margin-left: 0px;
+    height: 100%;
+  }
+  .content-post {
+    width: 116%;
+    margin-left: -10%;
+  }
+  .section-post {
+    width: 116%;
+    margin-left: -10%;
+  }
+  .textArea-comment {
+    width: 390px;
+    height: 45px;
+  }
 }
+
 @media screen and (max-width: 480px) {
   body {
      background-color: darkgreen; 
   } 
   .side {
     display: none;
+  }
+  .textArea-comment {
+    width: 100%;
+  }
+  .form-save {
+    width: 100%;
   }
 }
