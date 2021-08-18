@@ -1,89 +1,64 @@
 import firebase from './firebase.js';
 
-// METODO PARA OBTENER UN POST ESPECIFICO
-export const getPost = (id) => firebase.firestore().collection('publicaciones').doc(id).get();
-
-// PRUEBA - PARA CREAR USUARIO - ERROR
-export const addNewUser = (nameUser, mailUser) => {
-  firebase.firestore().collection('users').add({
-    name: nameUser,
-    mail: mailUser,
-  })
-    .then((docRef) => {
-      console.log('Document written with ID: ', docRef.id);
-    })
-    .catch((error) => {
-      console.error('Error adding document: ', error);
-    });
-};
-
 // METODO PARA AGREGAR UNA COLECCION DE POSTS EN FIRESTORE
-export const addPostCollection = (nameUser, mailUser, postMessage) => {
-  firebase.firestore().collection('publicaciones').add({
-    name: nameUser,
-    mail: mailUser,
+export const addPostCollection = (nameUser, mailCurrentUser, postMessage) => {
+  firebase.firestore().collection('posts').add({
+    author: nameUser,
+    mail: mailCurrentUser,
     post: postMessage,
+    time: firebase.firestore.Timestamp.fromDate(new Date()),
+    privacyUserPost: false,
+    likes: 0,
   })
     .then((docRef) => {
+      console.log('POST EN FIRESTORE');
       console.log(docRef);
       console.log(docRef.id);
+      console.log(docRef.path);
+      return docRef;
     })
     .catch((error) => {
       console.error('Error writing document: ', error);
     });
 };
 
-// METODO PARA SUBIR UN POST A FIRESTORE
-export const savePost = (post, FieldValue, name, photoURL, email,
-  uid, privacyUserPost, datePost, hearts) => {
-  firebase.firestore().collection('publicaciones').doc().set({
-    post,
-    timestamp: FieldValue.serverTimestamp(), // tiempo de creación del post en nanosegundos
-    name,
-    photoURL,
-    email,
-    uid,
-    privacyUserPost,
-    datePost,
-    hearts,
-  });
-};
-
-// METODO PARA CONSULTAR TODA LA COLECCION DE POSTS EN FIRESTORE
-export const showPost = () => {
-  firebase.firestore().collection('publicaciones')
-    .onSnapshot((snapshot) => {
-      const documentos = [];
-      snapshot.forEach((snapHijo) => {
-        documentos.push({
-          id: snapHijo.id,
-          ...snapHijo.data(),
-        });
+// METODO PARA OBTENER TODOS LOS POSTS
+export const getPosts = (element) => {
+  firebase.firestore().collection('posts').get()
+    .then((docRef) => {
+      console.log(docRef);
+      docRef.forEach((doc) => {
+        console.log(doc.data());
+        element.innerHTML += `<div class='postMessage'>
+          <div>
+            <p>Publicado por<span id='userNamePost'></span></p>
+            <button id='btnDelete' class='btnDelete'><i class="fas fa-times-circle"></i></button>
+          </div>
+          <div id='postContent'>${doc.data().post}</div>
+          <div id='reactionPost'>
+            <button id='btnLike' class='btnLike'><i class="fas fa-heart"></i></button>
+            <button id='btnEdit' class='btnEdit'><i class="fas fa-edit"></i></button>
+          </div>
+        </div>`;
       });
-      console.log(documentos.id);
+    })
+    .catch((error) => {
+      console.error('Error writing document: ', error);
     });
 };
 
-// METODO PARA ACTUALIZAR UNA PUBLICACION EN FIRESTORE
-export const updatePost = (id, elementContent) => {
-  firebase.firestore().collection('publicaciones').doc(id)
-    .update(elementContent);
+// METODO PARA OBTENER TODOS LOS POSTS ACTUALIZADOS
+export const onGetPosts = (callback) => {
+  firebase.firestore().collection('posts').onSnapshot(callback);
 };
 
-// METODO PARA BORRAR UNA PUBLICACION EN FIRESTORE
-export const deletePost = (id) => {
-  firebase.firestore().collection('publicaciones').doc(id)
-    .delete()
-    .then(() => console.log('borrado'))
-    .catch((error) => console.log(error));
-};
-
-// METODO PARA ACTUALIZAR LA PRIVACIDAD EN FIRESTORE
-export const updatePrivacy = (id, privacyUserPost) => {
-  firebase.firestore().collection('publicaciones').doc(id).update(privacyUserPost);
-};
-
-// METODO PARA ACTUALIZAR LA PRIVACIDAD EN FIRESTORE
-export const updateLikes = (id, hearts) => {
-  firebase.firestore().collection('publicaciones').doc(id).update(hearts);
+// METODO PARA OBTENER EL ID
+export const getPostId = (id) => {
+  firebase.firestore().collection('posts').doc(id).get()
+    .then((docRef) => {
+      console.log(docRef.id);
+    })
+    .catch((error) => {
+      console.error('Error writing document: ', error);
+    });
 };

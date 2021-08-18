@@ -1,6 +1,6 @@
 // import firebase from '../firebase/firebase.js';
-import { logOutUser, firebaseWatcher } from '../firebase/firebase-auth.js';
-import { addPostCollection } from '../firebase/firebase-firestore.js';
+import { logOutUser } from '../firebase/firebase-auth.js';
+import { addPostCollection, getPosts, onGetPosts } from '../firebase/firebase-firestore.js';
 // Constante a exportar
 export const TIMELINE = () => {
   const view = `
@@ -27,6 +27,7 @@ export const TIMELINE = () => {
   divElement.innerHTML = view;
   // Constantes Globales
   const btnShare = divElement.querySelector('#buttonShare');
+  const btnImg = divElement.querySelector('#buttonImg');
   const linkAboutLogOut = document.querySelector('.logOut a');
   // INPUTS GENERALES
   const textPost = divElement.querySelector('#textAreaPublication');
@@ -40,11 +41,20 @@ export const TIMELINE = () => {
       console.log('publicacion vacia');
     } else {
     // aqui va lo de firestore
-      addPostCollection('andrea', 'estef@gmail.com', postContent.value);
+      addPostCollection('Luana', 'estf@gmail.com', textPost.value);
+      textPost.value = '';
     }
   });
-  // ------------------------- mostrar imagen de cuenta existente -------------------------
-  firebaseWatcher(imgElement);
+  // ----- boton prueba --LUEGO IGNORAR
+  btnImg.addEventListener('click', () => {
+    // getPost('0HJolO5wJHzHBSt83huL');
+  });
+  onGetPosts(() => {
+    postContent.innerHTML = '';
+    getPosts(postContent);
+  });
+  // ------------------------- NUEVAS CONSTANTES LUEGO DE REGISTRARSE -------------------------
+  const btnDelete = postContent.querySelectorAll('btnDelete');
   // ------------------------- Ancla salir -------------------------
   linkAboutLogOut.addEventListener('click', (e) => {
     e.preventDefault();
