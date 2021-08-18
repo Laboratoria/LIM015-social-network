@@ -7,8 +7,9 @@ import { getLike, deletePost, editPost , } from '../firebase/data-base.js';
 export const sharingPost = (data) => {
   const time = new Date(data.timePost.toDate());
   const sectionPost = document.createElement('section');
-  // if (data.typePost === 'Público'  || currentUser().uid === data.idPost){  
-  const template = `
+  let template = '';
+  if (data.mode === 'publico' || data.mail === currentUser().mail) {
+    template = `
   <section>
           <ul class="ul-parent">
               <li class="li-child">
@@ -25,12 +26,7 @@ export const sharingPost = (data) => {
                               </p>
                           </section>
                           <section class="button-btn">
-                            <select class ="btn-select" id= "options-privacy-${data.id}">
-                            
-                            <option value ="público"></option>
-                            <option value ="Privado"></option>
-                            </select>
-    
+                            <p class="m-info"><strong>${data.mode}</strong></p>
                             <section>
                             <button id="deletePost" class="botones">
                                 <i class="fas fa-trash" aria-hidden="true"></i>
@@ -81,105 +77,94 @@ export const sharingPost = (data) => {
     </section>
       `;
 
-  sectionPost.innerHTML = template;
-  sectionPost.setAttribute('class', 'contenedor-post');
+    sectionPost.innerHTML = template;
+    sectionPost.setAttribute('class', 'contenedor-post');
 
-  // borre const de like
-  // const btnLike = sectionPost.querySelector(`#like-${data.id}`);
+    const btnLike = sectionPost.querySelector(`#liked-${data.id}`);
+    const counterLike = sectionPost.querySelector(`#counter-${data.id}`);
+    // agregando likes
+    const contadorLikes = (likes) => {
+      const countLike = likes.length;
+      counterLike.innerHTML = countLike;
+    };
 
-  const btnLike = sectionPost.querySelector(`#liked-${data.id}`);
-  const counterLike = sectionPost.querySelector(`#counter-${data.id}`);
-  // agregando likes
-  const contadorLikes = (likes) => {
-    const countLike = likes.length;
-    counterLike.innerHTML = countLike;
-  };
+    const likesPintadosPost = (likes) => {
+      likes.forEach((element) => {
+        if (currentUser().uid === element.id) {
+          btnLike.classList.remove('not-like');
+          btnLike.classList.add('liked');
+          btnLike.dataset.like = '1';
+        }
+      });
+    };
 
-  const likesPintadosPost = (likes) => {
-    likes.forEach((element) => {
-      if (currentUser().uid === element.id) {
+    getLike(data.id, contadorLikes, likesPintadosPost);
+
+    btnLike.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (e.target.dataset.like === '0') {
+        e.target.dataset.like = '1';
+        addLike(data.id);
         btnLike.classList.remove('not-like');
         btnLike.classList.add('liked');
-        btnLike.dataset.like = '1';
+      } else {
+        e.target.dataset.like = '0';
+        deleteLikePost(data.id);
+        btnLike.classList.remove('liked');
+        btnLike.classList.add('not-like');
       }
     });
-  };
 
-//   // agregando privacidad
-//   const tipoPost = sectionPost.querySelector(`#options-privacy-${data.id}`);
-//   tipoPost.addEventListener('change', () => {
-//     const nuevoTipoPost = tipoPost.value;
-//     privacyPost(data.id, nuevoTipoPost);
-//   });
-// }
+    const deletedPost = sectionPost.querySelector('#deletePost');
+    const editedPost = sectionPost.querySelector(`#edit-${data.id}`);
+    const savePost = sectionPost.querySelector('#savePost');
+    const textToEdit = sectionPost.querySelector('#text-post');
 
-  getLike(data.id, contadorLikes, likesPintadosPost);
+    const close = sectionPost.querySelector('#close');
+    const modal = sectionPost.querySelector('#modal');
+    const modalContainer = sectionPost.querySelector('#modal-container');
+    const aceptar = sectionPost.querySelector('#aceptar');
 
-  btnLike.addEventListener('click', (e) => {
-    e.preventDefault();
-    if (e.target.dataset.like === '0') {
-      e.target.dataset.like = '1';
-      addLike(data.id);
-      btnLike.classList.remove('not-like');
-      btnLike.classList.add('liked');
-    } else {
-      e.target.dataset.like = '0';
-      deleteLikePost(data.id);
-      btnLike.classList.remove('liked');
-      btnLike.classList.add('not-like');
-    }
-  });
-
-  const deletedPost = sectionPost.querySelector('#deletePost');
-  const editedPost = sectionPost.querySelector(`#edit-${data.id}`);
-  const savePost = sectionPost.querySelector('#savePost');
-  const textToEdit = sectionPost.querySelector('#text-post');
-
-  const close = sectionPost.querySelector('#close');
-  const modal = sectionPost.querySelector('#modal');
-  const modalContainer = sectionPost.querySelector('#modal-container');
-  const aceptar = sectionPost.querySelector('#aceptar');
-
-  if (data.idUser !== currentUser().uid) {
-    deletedPost.classList.add('hide');
-    editedPost.classList.add('hide');
-  } else {
-    deletedPost.addEventListener('click', () => {
-      modalContainer.style.opacity = '1';
-      modalContainer.style.visibility = 'visible';
-      modal.classList.toggle('modal-close');
-    });
-    close.addEventListener('click', () => {
-      modal.classList.toggle('modal-close');
-
-      setTimeout(() => {
-        modalContainer.style.opacity = '0';
-        modalContainer.style.visibility = 'hidden';
-      }, 600);
-    });
-
-    aceptar.addEventListener('click', () => {
-      deletePost(data.id);
-    });
-
-    editedPost.addEventListener('click', () => {
-      savePost.classList.remove('hide');
+    if (data.idUser !== currentUser().uid) {
+      deletedPost.classList.add('hide');
       editedPost.classList.add('hide');
-      textToEdit.disabled = false;
-      textToEdit.select();
-    });
+    } else {
+      deletedPost.addEventListener('click', () => {
+        modalContainer.style.opacity = '1';
+        modalContainer.style.visibility = 'visible';
+        modal.classList.toggle('modal-close');
+      });
+      close.addEventListener('click', () => {
+        modal.classList.toggle('modal-close');
 
-    savePost.addEventListener('click', () => {
-      editedPost.classList.remove('hide');
-      savePost.classList.add('hide');
-      editPost(data.id, textToEdit.value);
-      textToEdit.disabled = true;
-    });
-  }
+        setTimeout(() => {
+          modalContainer.style.opacity = '0';
+          modalContainer.style.visibility = 'hidden';
+        }, 600);
+      });
 
-  // borre funcionalidad del like
+      aceptar.addEventListener('click', () => {
+        deletePost(data.id);
+      });
 
-  // agregando comentarios al post
+      editedPost.addEventListener('click', () => {
+        savePost.classList.remove('hide');
+        editedPost.classList.add('hide');
+        textToEdit.disabled = false;
+        textToEdit.select();
+      });
+
+      savePost.addEventListener('click', () => {
+        editedPost.classList.remove('hide');
+        savePost.classList.add('hide');
+        editPost(data.id, textToEdit.value);
+        textToEdit.disabled = true;
+      });
+    }
+
+    // borre funcionalidad del like
+
+    // agregando comentarios al post
 
   // const btnComment = sectionPost.querySelector('#comment-plane');
   // btnComment.addEventListener('click', () => {
@@ -189,7 +174,6 @@ export const sharingPost = (data) => {
   //       sectionPost.querySelector('#tex-comment').value = '';
   //     });
   // });
-
+  }
   return sectionPost;
-
 };

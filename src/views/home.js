@@ -50,15 +50,8 @@ export default (post) => {
                 <figure class="user-img"> <img class="img-perfil3" src='${currentUser().photoURL}'/> </figure>
                 <section class="form-save">
                     <form class="padding" maxlength="50" required>
-                    <textarea placeholder="¿Que quieres compartir?" id="textPost" class="textArea-comment "></textarea>
+                    <textarea placeholder="¿Que reseña deseas compartir?" id="textPost" class="textArea-comment "></textarea>
                         <section class="flex-bottom-form">
-                            <section>
-                                <label for="fileButton">
-                                    <i class="far fa-image btn-picture"  aria-hidden="true">
-                                    </i>
-                                </label>
-                                <input type="file" class="hide">
-                            </section>
                             <select class="btn-select" id="choosePrivacy">
                                 <option value="publico" selected>Público</option>
                                 <option value="privado" select>Privado</option>
