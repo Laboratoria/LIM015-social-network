@@ -14,9 +14,14 @@ export default () => {
            <div class="user-img">
              <img src="./images/user.jpg" alt="" />
            </div>
-           <p class="user-name">name</p>
+           <p class="user-name">Nadia Ynes</p>
          </div>
          <hr>
+         <!--Div de Banner-->
+         <div class="banner">
+            <img src="images/banner.gif" alt="" title="¡Estreno!" />
+         </div>
+
          <h2 class="title-anime">
           Animes populares
          </h2>
