@@ -4,6 +4,7 @@ import { logout } from './scripts/fs-login.js';
 const changeView = (route) => {
   const main = document.querySelector('.views'); // este main es para las vistas
   main.innerHTML = '';
+  main.appendChild(components.community());
   switch (route) {
     case '#/community': main.appendChild(components.community());
       break;
