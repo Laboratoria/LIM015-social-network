@@ -1,3 +1,6 @@
+const firebase = require('firebase/app').default;
+require('firebase/auth');
+
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 export const firebaseConfig = {
@@ -9,10 +12,8 @@ export const firebaseConfig = {
   appId: '1:958811000471:web:2d5f5089cd2420f413a3d2',
   measurementId: 'G-J7PWEV55T7',
 };
-
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-firebase.analytics();
-firebase.firestore();
+// firebase.analytics();
+// firebase.firestore();
 export const auth = firebase.auth();
-// export const database = firebase.dataBase();
