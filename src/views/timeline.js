@@ -54,7 +54,8 @@ export const TIMELINE = () => {
     getPosts(postContent);
   });
   // ------------------------- NUEVAS CONSTANTES LUEGO DE REGISTRARSE -------------------------
-  const btnDelete = postContent.querySelectorAll('btnDelete');
+  const btnDelete = document.querySelectorAll('.btnDelete');
+  console.log(btnDelete);
   // ------------------------- Ancla salir -------------------------
   linkAboutLogOut.addEventListener('click', (e) => {
     e.preventDefault();

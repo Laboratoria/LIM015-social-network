@@ -22,9 +22,9 @@ export const addPostCollection = (nameUser, mailCurrentUser, postMessage) => {
     });
 };
 
-// METODO PARA OBTENER TODOS LOS POSTS
+// METODO PARA OBTENER TODOS LOS POSTS EN ORDEN DESCENDENTE
 export const getPosts = (element) => {
-  firebase.firestore().collection('posts').get()
+  firebase.firestore().collection('posts').orderBy('time', 'desc').get()
     .then((docRef) => {
       console.log(docRef);
       docRef.forEach((doc) => {
@@ -32,12 +32,12 @@ export const getPosts = (element) => {
         element.innerHTML += `<div class='postMessage'>
           <div>
             <p>Publicado por<span id='userNamePost'></span></p>
-            <button id='btnDelete' class='btnDelete'><i class="fas fa-times-circle"></i></button>
+            <button class='btnDelete'><i class="fas fa-times-circle"></i></button>
           </div>
           <div id='postContent'>${doc.data().post}</div>
           <div id='reactionPost'>
-            <button id='btnLike' class='btnLike'><i class="fas fa-heart"></i></button>
-            <button id='btnEdit' class='btnEdit'><i class="fas fa-edit"></i></button>
+            <button class='btnLike'><i class="fas fa-heart"></i></button>
+            <button class='btnEdit'><i class="fas fa-edit"></i></button>
           </div>
         </div>`;
       });
