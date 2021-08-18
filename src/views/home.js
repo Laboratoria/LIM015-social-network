@@ -52,7 +52,6 @@ export default (post) => {
                     <form class="padding" maxlength="50" required>
                     <textarea placeholder="¿Que reseña deseas compartir?" id="textPost" class="textArea-comment "></textarea>
                         <section class="flex-bottom-form">
-                            
                             <select class="btn-select" id="choosePrivacy">
                                 <option value="publico" selected>Público</option>
                                 <option value="privado" select>Privado</option>
