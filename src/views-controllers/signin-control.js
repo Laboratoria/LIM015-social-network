@@ -46,7 +46,6 @@ export const signInFb = () => {
 export const signInWithGoogle = () => {
   loginGoogle().then(() => {
     changeRoute('#/home');
-    alert('Ingresaste a iBook!!!');
   }).catch((error) => {
     console.log(error);
   });
