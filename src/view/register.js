@@ -1,5 +1,3 @@
-import { registerWithEmailClick } from '../lib/index.js';
-
 export const registerTemplate = () => {
   const sectionRegister = document.createElement('div');
   sectionRegister.classList.add('iTwo');
@@ -27,8 +25,5 @@ export const registerTemplate = () => {
   const emailRegister = sectionRegister.querySelector('#emailRegister').value;
   const passwordRegister = sectionRegister.querySelector('#passwordRegister').value;
   console.log(btnRegister, emailRegister, passwordRegister);
-  btnRegister.addEventListener('click', registerWithEmailClick) => {
-    
-  };
   return sectionRegister;
 };

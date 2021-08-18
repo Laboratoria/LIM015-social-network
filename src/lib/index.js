@@ -10,6 +10,7 @@ export const registerWithEmailClick = (event) => {
   console.log(name);
   registerWithEmail(user, password)
     .then(() => {
+      // eslint-disable-next-line no-shadow
       const user = firebase.auth().currentUser;
       console.log(user);
     })
