@@ -4,11 +4,14 @@ import { logInWithGoogle, logout, registerWithEmail } from '../firebase/firebase
 // registro de usuario con email y password
 export const registerWithEmailClick = (email, password) => {
   registerWithEmail()
-    .then((userCredential) => {
-      console.log(userCredential.user);
+    .then(userCredential => { 
+     userCredential.user
+     .updateProfile({
+       displayName: userName, 
+     })
     })
     .catch((error) => {
-      console.log('error', error.message);
+      userCredential.message;
     });
 };
 

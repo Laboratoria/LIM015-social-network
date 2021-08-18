@@ -1,4 +1,4 @@
-import { registerWithEmailClick } from '../lib/index.js';
+import { registerWithEmail } from '../firebase/firebaseAuth.js';
 
 export const registerTemplate = () => {
   const sectionRegister = document.createElement('div');
@@ -14,7 +14,7 @@ export const registerTemplate = () => {
       <input type="email" placeholder="Email" id="emailRegister" class="inputForm" required>
       <!-- PASSWORD INPUT -->
       <input type="password" name="password" placeholder="Password" id="passwordRegister" class="inputForm" required>
-      <button type="submit" class="btnRegister" id="registerButton" >Register</button>
+      <button type="button" class="btnRegister" id="registerButton" >Register</button>
       </form>
     <br>
     <span>Already a member? <a id="linkLogIn" href="#/LogIn">Log In</a> </span>
@@ -23,10 +23,15 @@ export const registerTemplate = () => {
     </div>
     `;
   sectionRegister.innerHTML = templateRegister;
+  const formRegister = sectionRegister.querySelector('#formRegister');
   const btnRegister = sectionRegister.querySelector('#registerButton');
+  const nameUser = sectionRegister.querySelector('#nameRegister').value;
   const emailRegister = sectionRegister.querySelector('#emailRegister').value;
   const passwordRegister = sectionRegister.querySelector('#passwordRegister').value;
-  console.log(btnRegister, emailRegister, passwordRegister);
-  btnRegister.addEventListener('click', registerWithEmailClick);
+  btnRegister.addEventListener('click', (e) => { e.preventDefault();
+    registerWithEmail(emailRegister, passwordRegister);
+    
+  });
+
   return sectionRegister;
 };
