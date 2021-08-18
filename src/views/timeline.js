@@ -1,18 +1,18 @@
-import firebase from '../firebase/firebase.js';
-import { logOutUser } from '../firebase/firebase-auth.js';
+// import firebase from '../firebase/firebase.js';
+import { logOutUser, firebaseWatcher } from '../firebase/firebase-auth.js';
 import { addPostCollection } from '../firebase/firebase-firestore.js';
 // Constante a exportar
 export const TIMELINE = () => {
   const view = `
   <section>
     <figure>
-      <img src="../images//photoProfile2.jpeg" alt="photoProfile" />
+      <img id='imgUser' src="../images//photoProfile2.jpeg" alt="photoProfile" />
     </figure>
     <p id='nameProfile'>Luana Cevallos</p>
     <p id='status'>Estado: Viajera Empedernida</p>
   </section>
   <div class='publication'>
-    <textarea name='publication' id='textAreaPublication' class='textAreaPublication' placeholder='¿Qué deseas compartir con la comunidad de viajeros?' cols='30' rows='10'></textarea>
+    <textarea name='publication' id='textAreaPublication' class='textAreaPublication' placeholder='¿Qué deseas compartir con la comunidad de viajeros?' rows='3'></textarea>
     <div class='buttons'>
       <button id='buttonImg' type='button' class='buttonImg'>&#xf009</button>
     </div>
@@ -32,6 +32,7 @@ export const TIMELINE = () => {
   const textPost = divElement.querySelector('#textAreaPublication');
   const userNamePost = divElement.querySelector('#userNamePost');
   const postContent = divElement.querySelector('#posts');
+  const imgElement = divElement.querySelector('#imgUser');
   // FUNCIONALIDAD
   // ------------------------- Boton compartir -------------------------
   btnShare.addEventListener('click', () => {
@@ -39,16 +40,11 @@ export const TIMELINE = () => {
       console.log('publicacion vacia');
     } else {
     // aqui va lo de firestore
-      const user = {
-        dateExample: firebase.firestore.Timestamp.fromDate(new Date()),
-        mail: '',
-        activo: true,
-        post: textPost.value,
-        likePost: 0,
-      };
-      addPostCollection(user, postContent);
+      addPostCollection('andrea', 'estef@gmail.com', postContent.value);
     }
   });
+  // ------------------------- mostrar imagen de cuenta existente -------------------------
+  firebaseWatcher(imgElement);
   // ------------------------- Ancla salir -------------------------
   linkAboutLogOut.addEventListener('click', (e) => {
     e.preventDefault();

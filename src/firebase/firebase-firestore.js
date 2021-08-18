@@ -1,71 +1,13 @@
 import firebase from './firebase.js';
-// METODO QUE DETECTA LA AUTENTICACION DEL USUARIO - PENDIENTE
-export const firebaseWatcher = () => {
-  firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      // User is signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/firebase.User
-      const uid = user.uid;
-      console.log('el usuario esta logueado');
-      console.log(uid);
-      // if (user.photoURL) {
-      //   $('#avatar').attr('src', user.photoURL)
-      // } else {
-      //   $('#avatar').attr('src', 'images/photoProfile2.jpeg')
-      // }
-    } else {
-      // User is signed out
-      console.log('al usuario le falta loguearse');
-    }
-  });
-};
 
-// METODO PARA AGREGAR UNA COLECCION DE POSTS EN FIRESTORE
-export const addPostCollection = (user, postContent) => {
-  firebase.firestore().collection('publicaciones').add(user)
-    .then((docRef) => {
-      console.log(docRef);
-      console.log(firebase.auth().currentUser);
-      console.log(user);
-      postContent.innerHTML += `<div class='postMessage'>
-      <div>
-        <p>Publicado por<span id='userNamePost'></span></p>
-        <span id='closeItem'><i class="fas fa-times-circle"></i></span>
-      </div>
-      <div id='postContent'>${user.post}</div>
-      <div id='reactionPost'>
-        <span><i class="fas fa-heart"></i></span>
-        <span><i class="fas fa-share-square"></i></span>
-      </div>
-    </div>`;
-    })
-    .catch((error) => {
-      console.error('Error writing document: ', error);
-    });
-};
+// METODO PARA OBTENER UN POST ESPECIFICO
+export const getPost = (id) => firebase.firestore().collection('publicaciones').doc(id).get();
 
-// METODO PARA ACTUALIZAR UNA PUBLICACION EN FIRESTORE
-export const updatePost = (element) => {
-  firebase.firestore().collection('publicaciones').doc('user')
-    .update({
-      post: element.value,
-  });
-};
-
-// METODO PARA BORRAR UNA PUBLICACION EN FIRESTORE
-export const deletePost = () => {
-  firebase.firestore().collection('publicaciones').doc('user')
-    .delete()
-    .then(() => console.log('borrado'))
-    .catch((error) => console.log(error));
-};
-
-// PRUEBA - PARA CREAR USUARIO
-export const addNewUser = () => {
+// PRUEBA - PARA CREAR USUARIO - ERROR
+export const addNewUser = (nameUser, mailUser) => {
   firebase.firestore().collection('users').add({
-    first: 'Ada',
-    last: 'Lovelace',
-    born: 1815,
+    name: nameUser,
+    mail: mailUser,
   })
     .then((docRef) => {
       console.log('Document written with ID: ', docRef.id);
@@ -73,4 +15,75 @@ export const addNewUser = () => {
     .catch((error) => {
       console.error('Error adding document: ', error);
     });
+};
+
+// METODO PARA AGREGAR UNA COLECCION DE POSTS EN FIRESTORE
+export const addPostCollection = (nameUser, mailUser, postMessage) => {
+  firebase.firestore().collection('publicaciones').add({
+    name: nameUser,
+    mail: mailUser,
+    post: postMessage,
+  })
+    .then((docRef) => {
+      console.log(docRef);
+      console.log(docRef.id);
+    })
+    .catch((error) => {
+      console.error('Error writing document: ', error);
+    });
+};
+
+// METODO PARA SUBIR UN POST A FIRESTORE
+export const savePost = (post, FieldValue, name, photoURL, email,
+  uid, privacyUserPost, datePost, hearts) => {
+  firebase.firestore().collection('publicaciones').doc().set({
+    post,
+    timestamp: FieldValue.serverTimestamp(), // tiempo de creación del post en nanosegundos
+    name,
+    photoURL,
+    email,
+    uid,
+    privacyUserPost,
+    datePost,
+    hearts,
+  });
+};
+
+// METODO PARA CONSULTAR TODA LA COLECCION DE POSTS EN FIRESTORE
+export const showPost = () => {
+  firebase.firestore().collection('publicaciones')
+    .onSnapshot((snapshot) => {
+      const documentos = [];
+      snapshot.forEach((snapHijo) => {
+        documentos.push({
+          id: snapHijo.id,
+          ...snapHijo.data(),
+        });
+      });
+      console.log(documentos.id);
+    });
+};
+
+// METODO PARA ACTUALIZAR UNA PUBLICACION EN FIRESTORE
+export const updatePost = (id, elementContent) => {
+  firebase.firestore().collection('publicaciones').doc(id)
+    .update(elementContent);
+};
+
+// METODO PARA BORRAR UNA PUBLICACION EN FIRESTORE
+export const deletePost = (id) => {
+  firebase.firestore().collection('publicaciones').doc(id)
+    .delete()
+    .then(() => console.log('borrado'))
+    .catch((error) => console.log(error));
+};
+
+// METODO PARA ACTUALIZAR LA PRIVACIDAD EN FIRESTORE
+export const updatePrivacy = (id, privacyUserPost) => {
+  firebase.firestore().collection('publicaciones').doc(id).update(privacyUserPost);
+};
+
+// METODO PARA ACTUALIZAR LA PRIVACIDAD EN FIRESTORE
+export const updateLikes = (id, hearts) => {
+  firebase.firestore().collection('publicaciones').doc(id).update(hearts);
 };

@@ -1,4 +1,27 @@
+/* eslint-disable no-param-reassign */
 import firebase from './firebase.js';
+
+// METODO QUE DETECTA LA AUTENTICACION DEL USUARIO - PENDIENTE
+export const firebaseWatcher = (element) => {
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/firebase.User
+      const uid = user.uid;
+      console.log('el usuario esta logueado');
+      console.log(uid);
+      if (user.photoURL) {
+        element.attr('src', user.photoURL);
+      } else {
+        element.attr('src', '../images/photoProfile2.jpeg');
+      }
+    } else {
+      // User is signed out
+      console.log('al usuario le falta loguearse');
+    }
+  });
+};
+
 // --------------------------------- VIEW REGISTRARSE ---------------------------------
 // CREAR NUEVO USUARIO CON FIREBASE
 export const registerWithFirebase = (email, password, errores) => {

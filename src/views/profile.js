@@ -10,5 +10,7 @@ export const PROFILE = () => {
   `;
   const divElement = document.createElement('div');
   divElement.innerHTML = view;
+  // FUNCIONALIDAD
+  
   return divElement;
 };

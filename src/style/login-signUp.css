@@ -10,12 +10,13 @@
 }
 /******** header ********/
 header{
-  display: flex;
   background-color: #4DBC4D;
+  margin-bottom: 10%;
 }
 .menu{
   display: flex;
   justify-content: center;
+  height: 3rem;
 }
 .menu ul{
   display: flex;
@@ -27,7 +28,7 @@ header{
   
 }
 .items a{
-
+  
 }
 /******** body ********/
 body{

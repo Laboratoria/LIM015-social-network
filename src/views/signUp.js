@@ -1,4 +1,5 @@
 import { registerWithFirebase } from '../firebase/firebase-auth.js';
+import { addNewUser } from '../firebase/firebase-firestore.js';
 // Constante a exportar
 export const SIGNUP = () => {
   const view = `
