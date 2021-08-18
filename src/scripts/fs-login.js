@@ -1,16 +1,22 @@
 import { auth } from './fs-config.js';
 
+const usuarios = firebase.firestore().collection('InfoUser');
+
 export const signUp = (email, password) => {
   // const userName = document.getElementById('signup-user').value;
   auth.createUserWithEmailAndPassword(email, password)
     .then((result) => {
       // Signed in
       console.log('signed up');
-      console.log(result.user);
-      const emailAdress = result.user.email;
-      console.log(emailAdress);
+      const Email = result.user.email;
+      const newUser = usuarios.push();
+      newUser.set({ email: Email });
+      /* console.log(result.user);
       console.log(result.user.displayName);
-      // ...
+      const User = {
+        email: Email,
+      };
+      console.log(User); */
     })
     .catch((error) => {
       // alert('La contraseña debe tener mínimo 6 caracteres \n 〜(꒪꒳꒪)〜');
@@ -41,11 +47,20 @@ export const googleLogin = () => {
       // This gives you a Google Access Token. You can use it to access the Google API.
       console.log(credential.accessToken);
       // The signed-in user info.
-      const username = result.user.displayName;
-      const emaiAdress = result.user.email;
-      console.log(result.user);
-      console.log(username);
-      console.log(emaiAdress);
+      const Name = result.user.displayName;
+      const Email = result.user.email;
+      const Photo = result.user.photoURL;
+      /* const User = {
+        name: Name,
+        email: Email,
+        photo: Photo,
+      }; */
+      firebase.firestore().collection('InfoUser').database().set({
+        name: Name,
+        email: Email,
+        photo: Photo,
+      });
+      // console.log(User);
       console.log('signed in with Google');
       // ...
     })
