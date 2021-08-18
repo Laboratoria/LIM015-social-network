@@ -14,7 +14,7 @@ export default () => {
            <div class="user-img">
              <img src="./images/user.jpg" alt="" />
            </div>
-           <p class="user-name">Nadia Ynes</p>
+           <p class="user-name">Username</p>
          </div>
          <hr>
          <!--Div de Banner-->
