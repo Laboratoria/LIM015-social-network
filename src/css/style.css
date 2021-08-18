@@ -496,9 +496,6 @@ header {
 }
 
 @media screen and (max-width: 1280px) {
-  body {
-    background-color: brown;
-  }
   .user-perfil {
     width: 100%;
     margin-left: -40px;
@@ -509,9 +506,6 @@ header {
 }
 
 @media screen and (max-width: 800px) {
-  body {
-    background-color: coral;
-  }
   .side {
     display: none;
   }

@@ -1,6 +1,6 @@
 import { currentUser } from '../firebase/autenticacion.js';
 import { deleteLikePost, addLike } from '../views-controllers/post-control.js';
-import { getLike, deletePost, editPost , } from '../firebase/data-base.js';
+import { getLike, deletePost, editPost } from '../firebase/data-base.js';
 // import { comment } from '../firebase/data-base.js';
 // importe privacy...mel
 
@@ -60,7 +60,7 @@ export const sharingPost = (data) => {
                             <form class="form-save" maxlength="50" required>
                             <textarea class="textarea-post" id="text-post" disabled>${data.postText}</textarea>
                               <section class="heart-commet">
-                            <button id="liked-${data.id}" class="bottom-heart">
+                            <button id="liked-${data.id}" class="bottom-heart" data-like="0">
                                 <p id="container-like"></p>
                                 <i id="counter-${data.id}" class="fa fa-heart-o heart-empty" aria-hidden="true"></i>
                             </button>
@@ -102,7 +102,7 @@ export const sharingPost = (data) => {
 
     btnLike.addEventListener('click', (e) => {
       e.preventDefault();
-      if (e.target.dataset.like === '0') {
+      if (e.currentTarget.dataset && e.currentTarget.dataset.like === '0') {
         e.target.dataset.like = '1';
         addLike(data.id);
         btnLike.classList.remove('not-like');
