@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+import { registerWithEmail } from '../firebase/firebaseAuth.js';
+
+>>>>>>> 1364a937bf604abc7ad95e3e7a8b8668c5ebe11c
 export const registerTemplate = () => {
   const sectionRegister = document.createElement('div');
   sectionRegister.classList.add('iTwo');
@@ -21,9 +26,15 @@ export const registerTemplate = () => {
     </div>
     `;
   sectionRegister.innerHTML = templateRegister;
+  const formRegister = sectionRegister.querySelector('#formRegister');
   const btnRegister = sectionRegister.querySelector('#registerButton');
+  const nameUser = sectionRegister.querySelector('#nameRegister').value;
   const emailRegister = sectionRegister.querySelector('#emailRegister').value;
   const passwordRegister = sectionRegister.querySelector('#passwordRegister').value;
-  console.log(btnRegister, emailRegister, passwordRegister);
+  btnRegister.addEventListener('click', (e) => { e.preventDefault();
+    registerWithEmail(emailRegister, passwordRegister);
+    
+  });
+
   return sectionRegister;
 };

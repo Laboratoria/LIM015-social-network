@@ -2,20 +2,16 @@
 import { logInWithGoogle, logout, registerWithEmail } from '../firebase/firebaseAuth.js';
 
 // registro de usuario con email y password
-export const registerWithEmailClick = (event) => {
-  event.preventDefault();
-  const user = event.target.correo.value;
-  const password = event.target.contrasena.value;
-  const name = event.target.nombres.value;
-  console.log(name);
-  registerWithEmail(user, password)
-    .then(() => {
-      // eslint-disable-next-line no-shadow
-      const user = firebase.auth().currentUser;
-      console.log(user);
+export const registerWithEmailClick = (email, password) => {
+  registerWithEmail()
+    .then(userCredential => {
+      userCredential.user
+        .updateProfile({
+          displayName: nameUser,
+        });
     })
     .catch((error) => {
-      console.log('error', error.message);
+      userCredential.message;
     });
 };
 
