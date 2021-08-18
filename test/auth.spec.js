@@ -1,8 +1,8 @@
 import {
   signUp, // signIn, googleLogin, logout,
 } from '../src/scripts/fs-login.js';
-import { firebaseConfig } from '../src/scripts/fs-config.js';
-/*
+// import { firebaseConfig } from '../src/scripts/fs-config.js';
+
 const firebasemock = require('firebase-mock');
 
 const mockauth = new firebasemock.MockFirebase();
@@ -12,20 +12,20 @@ global.firebase = firebasemock.MockFirebaseSdk(
   () => null,
   () => mockauth,
 );
-*/
-const firebasemock = require('firebase-mock');
 
-const mockauth = new firebasemock.MockFirebase(firebaseConfig);
-const mockfirestore = new firebasemock.MockFirestore();
-mockfirestore.autoFlush();
-mockauth.autoFlush();
+// const firebasemock = require('firebase-mock');
 
-global.firebase = firebasemock.MockFirebaseSdk(
-  // use null if your code does not use RTDB
-  () => null,
-  () => mockauth,
-  () => mockfirestore,
-);
+// const mockauth = new firebasemock.MockFirebase(firebaseConfig);
+// const mockfirestore = new firebasemock.MockFirestore();
+// mockfirestore.autoFlush();
+// mockauth.autoFlush();
+
+// global.firebase = firebasemock.MockFirebaseSdk(
+//   // use null if your code does not use RTDB
+//   () => null,
+//   () => mockauth,
+//   () => mockfirestore,
+// );
 /*
 const firebasemock = require('firebase-mock');
 
