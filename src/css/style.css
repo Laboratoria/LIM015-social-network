@@ -495,8 +495,6 @@ header {
   font-weight: bolder;
 }
 
-
-
 @media screen and (max-width: 1280px) {
   body {
     background-color: brown;
@@ -525,10 +523,6 @@ header {
     width: 100%;
     margin-left: 0px;
     height: 100%;
-  }
-  .content-post {
-    width: 116%;
-    margin-left: -10%;
   }
   .flex-bottom-form {
     width: 160%;
