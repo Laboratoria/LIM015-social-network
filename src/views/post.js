@@ -1,6 +1,6 @@
 import { currentUser } from '../firebase/autenticacion.js';
 import { deleteLikePost, addLike } from '../views-controllers/post-control.js';
-import { getLike, deletePost, editPost , } from '../firebase/data-base.js';
+import { getLike, deletePost, editPost } from '../firebase/data-base.js';
 // import { comment } from '../firebase/data-base.js';
 // importe privacy...mel
 
