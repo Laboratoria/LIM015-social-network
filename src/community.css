@@ -14,7 +14,6 @@
   box-sizing: border-box;
 }
 
-body,
 button,
 input,
 textarea {
@@ -124,6 +123,7 @@ nav .contenedor {
 
 .user-name {
   font-size: 1.2rem;
+  font-family: "Poppins", sans-serif;
 }
 
 
@@ -132,12 +132,14 @@ nav .contenedor {
   text-align: center;
   color: #6b6b6b;
   margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
 .container-posters {
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  grid-gap: 20px;
 }
 
 .div-poster {
@@ -150,14 +152,14 @@ nav .contenedor {
   margin-left: auto;
   margin-right:auto;
   border-radius: 16px;
-  height: 310px;
-  width: 70%; 
+  height: 9.5rem;
+  width: 80%; 
 }
 
 .poster_effect-text img {
   position: absolute;
   line-height: 1.5;
-  width: 120px;
+  width: 130px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -168,10 +170,10 @@ nav .contenedor {
 
 .poster_effect-text .img-overlay {
   position: absolute;
-  width: 152%;
-  height: 60%;
-  top: 20%;
-  left: -27%;
+  width: 142px;
+  height: 132%;
+  top: -16%;
+  left: 19%;
   z-index: 2;
   color: var(--light-one);
   background-color: rgba(120, 76, 251, 0.55);
@@ -189,13 +191,15 @@ nav .contenedor {
 }
 
 .img-overlay h3 {
-  font-weight: 600;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
   text-transform: uppercase;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .img-overlay h5 {
-  font-size: 0.9rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
   font-weight: 300;
 }
 
@@ -319,7 +323,7 @@ nav .contenedor {
   }
 
   .poster_effect-text {
-    height: 360px;
+    height: 9.7rem;
     position: relative;
   }
 
@@ -390,7 +394,7 @@ nav .contenedor {
   }
 
   .poster_effect-text {
-    height: 210px;
+    height: 9.7rem;
     position: relative;
   }
 
@@ -423,7 +427,7 @@ nav .contenedor {
   }
 
   .poster_effect-text {
-    height: 210px;
+    height: 9.7rem;
     max-width: 270px;
   }
 
@@ -447,7 +451,7 @@ nav .contenedor {
   }
 
   .container-posters {
-    margin-top: 0.7rem;
+    display: none;
   }
 
   .posts.textarea {
