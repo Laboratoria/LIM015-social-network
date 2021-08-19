@@ -2,8 +2,7 @@
 import { logOutUser } from '../firebase/firebase-auth.js';
 import {
   addPostCollection, getPosts, onGetPosts,
-  deletePost, updatePost
-} from '../firebase/firebase-firestore.js';
+  deletePost, updatePost } from '../firebase/firebase-firestore.js';
 
 // Constante a exportar
 export const TIMELINE = () => {
