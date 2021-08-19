@@ -132,7 +132,7 @@ header {
 
 .nav-bar li:hover{
   border-color: solid 1em black;
-  font-family: fantasy;
+  /* font-family: fantasy; */
   font-size: 20px;
   cursor:pointer;
 }
@@ -142,7 +142,7 @@ header {
   font-weight: bold;
   padding: 0 29px;
   align-items: center;
-  font-family: fantasy;
+  /* font-family: fantasy; */
   color: black;
   display: flex;
 }

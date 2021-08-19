@@ -108,7 +108,7 @@ export const sharingPost = (data) => {
         btnLike.classList.remove('not-like');
         btnLike.classList.add('liked');
       } else {
-        e.target.dataset.like = '0';
+        e.currentTarget.dataset.like = '0';
         deleteLikePost(data.id);
         btnLike.classList.remove('liked');
         btnLike.classList.add('not-like');
