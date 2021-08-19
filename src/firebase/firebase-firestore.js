@@ -1,7 +1,7 @@
 import firebase from './firebase.js';
 
 // METODO PARA AGREGAR UNA COLECCION DE POSTS EN FIRESTORE
-export const addPostCollection = (nameUser, mailCurrentUser, postMessage) => {
+export const addPostCollection = (nameUser, mailCurrentUser, postMessage, idUser) => {
   const postCollection = firebase.firestore().collection('posts').add({
     author: nameUser,
     mail: mailCurrentUser,
@@ -9,6 +9,7 @@ export const addPostCollection = (nameUser, mailCurrentUser, postMessage) => {
     time: firebase.firestore.Timestamp.fromDate(new Date()),
     privacyUserPost: false,
     likes: 0,
+    id: idUser,
   });
   return postCollection;
 };

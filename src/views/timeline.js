@@ -13,12 +13,12 @@ export const TIMELINE = () => {
       <img id='imgUser' src="../images/imgDefault3.png" alt="photoProfile" />
     </figure>
     <p id='nameProfile'></p>
-    <p id='status'>Estado: Viajera Empedernida</p>
+    <p id='status'>Estado: Viajer@ Empedernid@</p>
   </section>
   <div class='publication'>
     <textarea name='publication' id='textAreaPublication' class='textAreaPublication' placeholder='¿Qué deseas compartir con la comunidad de viajeros?' rows='3'></textarea>
     <div class='buttons'>
-      <button id='buttonImg' type='button' class='buttonImg'>BTN</button>
+      <button id='buttonImg' type='button' class='buttonImg'>🏞</button>
     </div>
     <div class='buttons'>
       <button id='buttonShare' type='submit' class='buttonShare'>Compartir</button>
@@ -57,7 +57,8 @@ export const TIMELINE = () => {
       console.log('publicacion vacia');
     } else {
     // aqui va lo de firestore
-      addPostCollection(localStorage.getItem('userName'), localStorage.getItem('userEmail'), textPost.value).then((promise) => {
+      addPostCollection(localStorage.getItem('userName'), localStorage.getItem('userEmail'), textPost.value, localStorage.getItem('userId'))
+        .then((promise) => {
         const idCollection = promise.id;
         const pathCollection = promise.path;
         console.log(idCollection, pathCollection);
