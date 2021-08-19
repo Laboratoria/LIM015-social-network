@@ -26,7 +26,7 @@ export const sharingPost = (data) => {
                               </p>
                           </section>
                           <section class="button-btn">
-                            <p class="m-info"><strong>${data.mode}</strong></p>
+                            <p class="m-info">${data.mode}</p>
                             <section>
                             <button id="deletePost" class="botones">
                                 <i class="fas fa-trash" aria-hidden="true"></i>
