@@ -2,7 +2,7 @@
 import { logOutUser } from '../firebase/firebase-auth.js';
 import {
   addPostCollection, getPosts, onGetPosts,
-  deletePost, getPostId
+  deletePost, updatePost
 } from '../firebase/firebase-firestore.js';
 
 // Constante a exportar
@@ -70,29 +70,33 @@ export const TIMELINE = () => {
         postContent.innerHTML += `<div class='postMessage'>
           <div>
             <p>Publicado por<span id='userNamePost'></span></p>
-            <button id='${idPost}' class='btnDelete'><i class="fas fa-times-circle"></i></button>
+            <button id='${idPost}' class='btnDelete'>close</i></button>
           </div>
           <div class='postContent'>${postInfo.post}</div>
           <div id='reactionPost'>
-            <button id='${idPost}' class='btnLike'><i class="fas fa-heart"></i></button>
-            <button id='${idPost}' class='btnEdit'><i class="fas fa-edit"></i></button>
+            <button id='${idPost}' class='btnLike'>Likes</button>
+            <button id='${idPost}' class='btnEdit'>Edit</i></button>
           </div>
         </div>`;
-      });
-      // ------------------------- Boton Delete -------------------------
-      const btnDelete = divElement.querySelectorAll('.btnDelete');
-      console.log(btnDelete);
-      btnDelete.addEventListener('click', () => {
-        deletePost(idPost).then(() => {
-          console.log('Document succesfully deleted!');
-        });
       });
     })
       .catch((error) => {
         console.log(error);
       });
   });
-
+  // ------------------------- Boton Delete -------------------------
+  divElement.addEventListener('click', async (e) => {
+    if (e.target.className === 'btnDelete') {
+      // await console.log(e.target.id);
+      await deletePost(e.target.id);
+    };
+  });
+  // ------------------------- Boton Edit ------------------------- PENDIENTE
+  divElement.addEventListener('click', async (e) => {
+    if (e.target.className === 'btnEdit') {
+      await updatePost(e.target.id, textPost.value);
+    };
+  });
   // ------------------------- Ancla salir -------------------------
   linkAboutLogOut.addEventListener('click', (e) => {
     e.preventDefault();

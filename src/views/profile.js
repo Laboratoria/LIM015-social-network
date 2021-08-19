@@ -1,4 +1,4 @@
-import { getPostId, deletePost } from '../firebase/firebase-firestore.js';
+// import { getPostId, deletePost } from '../firebase/firebase-firestore.js';
 export const PROFILE = () => {
   const view = `
   <section>
@@ -18,10 +18,10 @@ export const PROFILE = () => {
   //   console.log(collection);
   // });
 
-  console.log(deletePost());
-  deletePost(id).then(() => {
-    console.log('borrado');
-  });
+  // console.log(deletePost());
+  // deletePost(id).then(() => {
+  //   console.log('borrado');
+  // });
   
   // FUNCION PARA OBTENER ID DEL POST
   // console.log(getPostId());

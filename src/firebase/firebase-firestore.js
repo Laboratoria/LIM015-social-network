@@ -19,17 +19,23 @@ export const getPosts = () => {
   return postOnFirestore;
 };
 
-// METODO PARA OBTENER TODOS LOS POSTS ACTUALIZADOS
+// METODO PARA OBTENER TODOS LOS POSTS ACTUALIZADOS (snapshot)
 export const onGetPosts = (callback) => {
   const getPostOnFirestore = firebase.firestore().collection('posts').onSnapshot(callback);
   return getPostOnFirestore;
 };
 
-// METODO PARA OBTENER UN ID ESPECIFICO DE UN POST -NO FUNCIONA
-export const getPostId = (id) => firebase.firestore().collection('posts').doc(id).get();
-
 // METODO PARA BORRAR UNA PUBLICACION EN FIRESTORE
 export const deletePost = (id) => {
   const deletePostOnFirestore = firebase.firestore().collection('posts').doc(id).delete();
   return deletePostOnFirestore;
+};
+
+// METODO PARA ACTUALIZAR UNA PUBLICACION EN FIRESTORE
+export const updatePost = (id, change) => {
+  const updatePostById = firebase.firestore().collection('posts').doc(id)
+    .update(
+      { post: change },
+    );
+  return updatePostById;
 };
