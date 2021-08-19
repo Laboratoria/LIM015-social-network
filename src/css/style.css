@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two&family=Neucha&family=Satisfy&family=Style+Script&display=swap');
+/* font-family: 'Lobster Two', cursive;
+font-family: 'Style Script', cursive;
+font-family: 'Neucha', cursive;
+font-family: 'Satisfy', cursive; */
+
 * {
   margin: 0;
   padding: auto;
@@ -119,8 +125,9 @@ header {
   justify-content: space-around;
   align-items: center;
   background-color: #84A59D;
-  font-family: 'marvel', sans-serif;
-  font-size: 18px;
+  font-family: 'Lobster Two', cursive;
+  font-size: 28px;
+  font-weight: bolder;
   height: 70px;
   width: 100%;
 }
@@ -132,8 +139,9 @@ header {
 
 .nav-bar li:hover{
   border-color: solid 1em black;
-  font-family: fantasy;
-  font-size: 20px;
+  font-family: 'Lobster Two', cursive;
+  font-weight: bolder;
+  font-size: 32px;
   cursor:pointer;
 }
 
@@ -142,7 +150,7 @@ header {
   font-weight: bold;
   padding: 0 29px;
   align-items: center;
-  font-family: fantasy;
+  font-family: 'Lobster Two', cursive;
   color: black;
   display: flex;
 }
@@ -195,6 +203,9 @@ header {
 
 .textArea-comment {
   resize: none;
+  font-family: 'Marvel', sans-serif;
+  text-decoration-color: black;
+  font-size: 16px;
   background-color:lightcyan;
   width: 390px;
   height: 45px;
@@ -252,6 +263,9 @@ header {
 
 .textarea-post {
   resize: none;
+  font-family: 'Marvel', sans-serif;
+  font-size: 15px;
+  color: black;
   background-color:lightcyan;
   width: 390px;
   height: 45px;
@@ -323,7 +337,7 @@ header {
   width: min-content;
   cursor: pointer;
   background: transparent;
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'Marvel', sans-serif;
   font-size: 13px;
   font-weight: bold;
 }
@@ -375,7 +389,11 @@ header {
   cursor: pointer;
 }
 
-
+/* .far fa-heart, .not-like {
+  content: "\f004";
+  color: red;
+  font-weight: 600;
+  font-size: 18px;
 
 .not-like{
   background-image: url('https://img.icons8.com/ios/50/000000/like.png');
@@ -386,6 +404,7 @@ header {
     border: none;
     width: 25px;
     height: 25px;
+
 }
 .liked{
   background-image: url('https://img.icons8.com/officel/16/000000/hearts.png');
@@ -397,6 +416,13 @@ header {
     height: 25px;
 }
 
+
+.fas fa-heart, .liked {
+  content: "\f004";
+  color: red;
+  font-weight: 600;
+  font-size: 18px;
+} */
 
 .fa.fa-comment-o:before {
   content: "\f075";
