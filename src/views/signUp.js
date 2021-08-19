@@ -21,7 +21,6 @@ export const SIGNUP = () => {
   divElement.innerHTML = view;
   // CONSTANTES GLOBALES
   const btnSignUp = divElement.querySelector('#signUp');
-  // INPUTS GENERALES
   const formElement = divElement.querySelector('#form');
   const errorMessageElement = divElement.querySelector('#errorMessage');
   const userNameInput = divElement.querySelector('#userName');
@@ -42,10 +41,36 @@ export const SIGNUP = () => {
       /* AQUI CODIGO DE FIREBASE */
       formElement.addEventListener('submit', (e) => {
         e.preventDefault();
-        registerWithFirebase(emailUser.value, password.value, errorMessageElement);
+        registerWithFirebase(emailUser.value, password.value)
+          .then((userCredential) => {
+            if (userCredential.user.displayName === null) {
+              localStorage.setItem('userName', userNameInput.value);
+            } else {
+              localStorage.setItem('userName', userCredential.user.displayName);
+            }
+            localStorage.setItem('userEmail', userCredential.user.email);
+            localStorage.setItem('userPhoto', userCredential.user.photoURL);
+            localStorage.setItem('userId', userCredential.user.uid);
+            errorMessageElement.textContent = '';
+            window.location.hash = '#/login';
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            switch (errorCode) {
+              case 'auth/email-already-in-use':
+                errorMessageElement.textContent = '⚡ El correo electrónico ingresado ya existe ⚡';
+                break;
+              case 'auth/invalid-email':
+                errorMessageElement.textContent = '⚡ Lo lamentamos, el correo que ingresaste no es valido ⚡';
+                break;
+              default:
+                errorMessageElement.textContent = errorMessage;
+            }
+          });
       });
     }
   });
-  // TERMINA AQUI
+  // AQUI TERMINA DE INSERTARSE EL TEMPLATE STRING
   return divElement;
 };

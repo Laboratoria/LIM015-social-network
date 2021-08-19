@@ -2,7 +2,7 @@
 import firebase from './firebase.js';
 
 // METODO QUE DETECTA LA AUTENTICACION DEL USUARIO - PENDIENTE
-export const firebaseWatcher = (element) => {
+export const firebaseWatcher = () => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       // User is signed in, see docs for a list of available properties
@@ -10,11 +10,6 @@ export const firebaseWatcher = (element) => {
       const uid = user.uid;
       console.log('el usuario esta logueado');
       console.log(uid);
-      if (user.photoURL) {
-        element.attr('src', user.photoURL);
-      } else {
-        element.attr('src', '../images/photoProfile2.jpeg');
-      }
     } else {
       // User is signed out
       console.log('al usuario le falta loguearse');
@@ -24,29 +19,9 @@ export const firebaseWatcher = (element) => {
 
 // --------------------------------- VIEW REGISTRARSE ---------------------------------
 // CREAR NUEVO USUARIO CON FIREBASE
-export const registerWithFirebase = (email, password, errores) => {
-  firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
-      console.log(user);
-      errores.textContent = '';
-      window.location.hash = '#/login';
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      switch (errorCode) {
-        case 'auth/email-already-in-use':
-          errores.textContent = '⚡ El correo electrónico ingresado ya existe ⚡';
-          break;
-        case 'auth/invalid-email':
-          errores.textContent = '⚡ Lo lamentamos, el correo que ingresaste no es valido ⚡';
-          break;
-        default:
-          errores.textContent = errorMessage;
-      }
-    });
+export const registerWithFirebase = (email, password) => {
+  const register = firebase.auth().createUserWithEmailAndPassword(email, password);
+  return register;
 };
 
 // --------------------------------- VIEW INICIO DE SESION ---------------------------------
@@ -127,6 +102,7 @@ export const logOutUser = () => {
   firebase.auth().signOut().then(() => {
     console.log('signup out successful');
     window.location.hash = '#/home';
+    localStorage.clear();
   });
 };
 
