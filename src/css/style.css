@@ -414,7 +414,8 @@ header {
   content: "\f004";
   color: red;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 18px
+}
 
 .fas fa-heart, .liked {
   content: "\f004";
@@ -556,7 +557,7 @@ header {
     height: 100%;
   }
   .flex-bottom-form {
-    width: 160%;
+    width: 100%;
     padding-left: 10%;
   }
   .section-post {
@@ -564,16 +565,61 @@ header {
     margin-left: -10%;
   }
   .textArea-comment {
-    width: 160%
+    width: 110%
   }
   .textarea-post {
-    width: 100%;
+    width: 60%;
+    margin-left: -53px;
   }
   .img-perfil2 {
     width: 100%;
+    margin-left: 30px;
   }
   .img-perfil3 {
     width: 80%;
     height: 80%;
+  }
+  .content-post {
+    width: 123%;
+    margin-left: -14%;
+    margin-right: -45%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .side {
+    display: none;
+  }
+  .container-perfil {
+    display: flex;
+    flex-direction: column;
+  }
+  .user-perfil {
+    width: 100%;
+    margin-left: 0px;
+    height: 100%;
+  }
+  .content-post {
+    width: 189%;
+    margin-left: -54%;
+    margin-right: -65%;
+  }
+  .textArea-comment {
+    width: 100%
+  }
+  .textarea-post {
+    width: 60%;
+    margin-left: -53px;
+  }
+  .img-perfil3 {
+    width: 50%;
+    height: 50%;
+  }
+  .section-post {
+    width: 186%;
+    margin-left: -50%;
+    margin-right: -40%;
+  }
+  .heart-commet {
+    width: 390px;
   }
 }
