@@ -70,12 +70,12 @@ export const TIMELINE = () => {
         postContent.innerHTML += `<div class='postMessage'>
           <div>
             <p>Publicado por<span id='userNamePost'></span></p>
-            <button id='${idPost}' class='btnDelete'>close</i></button>
+            <button id='${idPost}' class='btnDelete'>CLOSE</button>
           </div>
           <div class='postContent'>${postInfo.post}</div>
           <div id='reactionPost'>
-            <button id='${idPost}' class='btnLike'>Likes</button>
-            <button id='${idPost}' class='btnEdit'>Edit</i></button>
+            <button id='${idPost}' class='btnLike'>LIKE</button>
+            <button id='${idPost}' class='btnEdit'>EDIT</button>
           </div>
         </div>`;
       });
@@ -100,7 +100,11 @@ export const TIMELINE = () => {
   // ------------------------- Ancla salir -------------------------
   linkAboutLogOut.addEventListener('click', (e) => {
     e.preventDefault();
-    logOutUser();
+    logOutUser().then(() => {
+      console.log('cierre de sesion exitoso');
+      window.location.hash = '#/';
+      localStorage.clear();
+    });
   });
   return divElement;
 };

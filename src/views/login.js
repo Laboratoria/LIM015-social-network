@@ -45,16 +45,44 @@ export const LOGIN = () => {
     } else if (emailUser.value === '' && password.value !== '') {
       errorMessageElement.textContent = 'Ups 🙉, ingresa un correo correcto -> e.g. a@gmail.com';
     } else {
-      /* OJO-CASO PASA EXITOSAMENTE */
       errorMessageElement.textContent = '';
-      /* OJO-AQUI DEBE CAMBIARSE EL HASH SOLO SI EL CORREO
-      Y CONTRASENA SON CORRECTOS CON FIREBASE */
-      /* FALTARIA LA VALIDACION DE FIREBASE ------ OJOOOOOO ------- */
-      login(emailUser.value, password.value, errorMessageElement);
+      // código de firebase
+      login(emailUser.value, password.value)
+        .then((userCredential) => {
+          if (userCredential.user.displayName === null) {
+            localStorage.getItem('userName');
+          } else {
+            localStorage.setItem('userName', userCredential.user.displayName);
+          }
+          localStorage.setItem('userEmail', userCredential.user.email);
+          localStorage.setItem('userPhoto', userCredential.user.photoURL);
+          localStorage.setItem('userId', userCredential.user.uid);
+          window.location.hash = '#/timeLine';
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          switch (errorCode) {
+            case 'auth/wrong-password':
+              errorMessageElement.textContent = '⚡ La contraseña es incorrecta ⚡';
+              break;
+            case 'auth/invalid-email':
+              errorMessageElement.textContent = '⚡ El correo ingresado no es válido ⚡';
+              break;
+            case 'auth/user-not-found':
+              errorMessageElement.textContent = '⚡ Usuario y/o contraseña incorrecta ⚡';
+              break;
+            case 'auth/too-many-requests':
+              errorMessageElement.textContent = '⚡ Superó su numero de intentos permitidos, vuelva a intentarlo luego ⚡';
+              break;
+            default:
+              errorMessageElement.textContent = errorMessage;
+          }
+        });
     }
   });
 
-  // ------------------------- Boton Registrarse -LISTO!!!! -------------------------
+  // ------------------------- Boton Registrarse -------------------------
   btnSignUp.addEventListener('click', (e) => {
     e.preventDefault();
     window.location.hash = '#/signUp';
@@ -63,15 +91,61 @@ export const LOGIN = () => {
   // ------------------------- Boton Facebook - inicio de sesion -------------------------
   btnFacebook.addEventListener('click', (e) => {
     e.preventDefault();
-    loginWithFacebook();
+    loginWithFacebook()
+      .then((result) => {
+        /** @type {firebase.auth.OAuthCredential} */
+        const credential = result.credential;
+        console.log(credential);
+        // The signed-in user info.
+        const user = result.user;
+        console.log(credential);
+        // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+        const accessToken = credential.accessToken;
+        console.log(accessToken);
+        // AQUI DEBE ESTAR LA OBTENCION DEL PEDIDO
+        if (result.user.displayName === null) {
+          localStorage.setItem('userName', 'nuevo usuario');
+        } else {
+          localStorage.setItem('userName', result.user.displayName);
+        }
+        localStorage.setItem('userEmail', result.user.email);
+        localStorage.setItem('userPhoto', result.user.photoURL);
+        localStorage.setItem('userId', result.user.uid);
+        // cambio de hash
+        window.location.hash = '#/timeLine';
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.email;
+        // The firebase.auth.AuthCredential type that was used.
+        const credential = error.credential;
+        console.log(errorCode, errorMessage, email, credential);
+      });
   });
 
   // ------------------------- Boton Google - inicio de sesion -------------------------
   btnGoogle.addEventListener('click', (e) => {
     e.preventDefault();
-    loginWithGoogle();
+    loginWithGoogle()
+      .then((result) => {
+        if (result.user.displayName === null) {
+          localStorage.setItem('userName', 'nuevo usuario');
+        } else {
+          localStorage.setItem('userName', result.user.displayName);
+        }
+        localStorage.setItem('userEmail', result.user.email);
+        localStorage.setItem('userPhoto', result.user.photoURL);
+        localStorage.setItem('userId', result.user.uid);
+        // cambio del hash
+        window.location.hash = '#/timeLine';
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   });
-
-  // termina
+  // AQUI TERMINA DE INSERTARSE EL TEMPLATE STRING
   return divElement;
 };
