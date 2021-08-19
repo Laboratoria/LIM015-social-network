@@ -389,12 +389,6 @@ header {
   cursor: pointer;
 }
 
-/* .far fa-heart, .not-like {
-  content: "\f004";
-  color: red;
-  font-weight: 600;
-  font-size: 18px;
-
 .not-like{
   background-image: url('https://img.icons8.com/ios/50/000000/like.png');
     background-size: cover;
@@ -404,8 +398,8 @@ header {
     border: none;
     width: 25px;
     height: 25px;
-
 }
+
 .liked{
   background-image: url('https://img.icons8.com/officel/16/000000/hearts.png');
   background-size: cover;
@@ -416,6 +410,11 @@ header {
     height: 25px;
 }
 
+/* .far fa-heart, .not-like {
+  content: "\f004";
+  color: red;
+  font-weight: 600;
+  font-size: 18px;
 
 .fas fa-heart, .liked {
   content: "\f004";
