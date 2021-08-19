@@ -22,7 +22,7 @@ export const PROFILE = () => {
   // deletePost(id).then(() => {
   //   console.log('borrado');
   // });
-  
+
   // FUNCION PARA OBTENER ID DEL POST
   // console.log(getPostId());
   // getPostId().then((collection) => {
@@ -30,7 +30,7 @@ export const PROFILE = () => {
   //   console.log(collection.id);
   //   console.log(collection.ref.id);
   // });
-  
+
   // listo
   // getPosts().then((collection) => {
   //   collection.forEach((docRef) => {
