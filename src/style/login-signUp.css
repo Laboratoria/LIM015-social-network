@@ -10,25 +10,62 @@
 }
 /******** header ********/
 header{
-  background-color: #4DBC4D;
-  margin-bottom: 10%;
+    background-color: #4DBC4D;
+    margin-bottom: 10%;
 }
+
 .menu{
-  display: flex;
-  justify-content: center;
-  height: 3rem;
+    display: flex;
+    justify-content: space-between;
+    height: 3rem;
+    /* flex-wrap: wrap; */
 }
+
+figure{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+}
+
+.subLogo{
+    width: 100%;
+    margin-left: 10px;
+}
+
 .menu ul{
-  display: flex;
-  list-style: none;
-  cursor: pointer;
-  flex-wrap: wrap;
+    width: 65%;
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    cursor: pointer;
+    margin-right: 15px;
+    align-items: center;
+    flex-wrap: wrap;
 }
+
+a{
+    border-radius: 10px;
+    padding: 0.2em;
+}
+
+a:hover{
+    background-color: rgb(51, 134, 31);
+    color: rgb(255, 255, 255);
+}
+
+.itemNav{
+    color: rgb(255, 255, 255);
+    font-size: 0.8em;
+    font-weight: 300;
+    text-decoration: none
+}
+
 .items{
-  
+    cursor: pointer;
 }
 .items a{
-  
+    
 }
 /******** body ********/
 body{
@@ -141,6 +178,18 @@ footer {
 /********Media queries**********/
 
 @media (min-width: 970px) {
+
+.menu{
+    height: 4rem;
+}
+
+figure{
+    width: 15%;
+}
+
+.itemNav{
+    font-size: 1.5em;
+}
 
     .contenedorFormulario, .contenedorRegister{
         width: 80%;
