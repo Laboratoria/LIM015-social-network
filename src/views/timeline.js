@@ -10,15 +10,15 @@ export const TIMELINE = () => {
   const view = `
   <section>
     <figure>
-      <img id='imgUser' src="../images//photoProfile2.jpeg" alt="photoProfile" />
+      <img id='imgUser' src="../images/imgDefault3.png" alt="photoProfile" />
     </figure>
-    <p id='nameProfile'>Luana Cevallos</p>
+    <p id='nameProfile'></p>
     <p id='status'>Estado: Viajera Empedernida</p>
   </section>
   <div class='publication'>
     <textarea name='publication' id='textAreaPublication' class='textAreaPublication' placeholder='¿Qué deseas compartir con la comunidad de viajeros?' rows='3'></textarea>
     <div class='buttons'>
-      <button id='buttonImg' type='button' class='buttonImg'>&#xf009</button>
+      <button id='buttonImg' type='button' class='buttonImg'>BTN</button>
     </div>
     <div class='buttons'>
       <button id='buttonShare' type='submit' class='buttonShare'>Compartir</button>
@@ -33,19 +33,31 @@ export const TIMELINE = () => {
   const btnShare = divElement.querySelector('#buttonShare');
   const btnImg = divElement.querySelector('#buttonImg');
   const linkAboutLogOut = document.querySelector('.logOut a');
-  // INPUTS GENERALES
   const textPost = divElement.querySelector('#textAreaPublication');
-  const userNamePost = divElement.querySelector('#userNamePost');
+  const userNameProfile = divElement.querySelector('#nameProfile');
+  // const userNamePost = divElement.querySelector('#userNamePost');
   const postContent = divElement.querySelector('#posts');
   const imgElement = divElement.querySelector('#imgUser');
   // FUNCIONALIDAD
+  // ------------------------- Foto de perfil -------------------------
+  if(localStorage.getItem('userPhoto')) {
+      imgElement.src = localStorage.getItem('userPhoto');
+    } else {
+      imgElement.src = "../images/imgDefault3.png";
+  }
+  // -------------------------  Mostrar nombre de perfil -------------------------
+  if (localStorage.getItem('userName') === null) {
+    userNameProfile.textContent = localStorage.getItem('userEmail');
+  } else {
+    userNameProfile.textContent = localStorage.getItem('userName');
+  }
   // ------------------------- Boton compartir -------------------------
   btnShare.addEventListener('click', () => {
     if (textPost.value === '') {
       console.log('publicacion vacia');
     } else {
     // aqui va lo de firestore
-      addPostCollection('', '', textPost.value).then((promise) => {
+      addPostCollection(localStorage.getItem('userName'), localStorage.getItem('userEmail'), textPost.value).then((promise) => {
         const idCollection = promise.id;
         const pathCollection = promise.path;
         console.log(idCollection, pathCollection);
@@ -56,6 +68,7 @@ export const TIMELINE = () => {
   // ------------------------- Ejecutarse cuando se actualice la pagina -------------------------
   onGetPosts(() => {
     postContent.innerHTML = '';
+    // SNAPSHOT
     getPosts().then((docRef) => {
       docRef.forEach((docAboutCollection) => {
         const idPost = docAboutCollection.ref.id;
@@ -67,17 +80,18 @@ export const TIMELINE = () => {
         console.log(docAboutCollection);
         console.log(postInfo);
         console.log(postInfo.post);
-        postContent.innerHTML += `<div class='postMessage'>
+        postContent.innerHTML += `<section class='postMessage'>
           <div>
-            <p>Publicado por<span id='userNamePost'></span></p>
-            <button id='${idPost}' class='btnDelete'>CLOSE</button>
+            <p>Publicado por <span id='userNamePost'>${postInfo.mail}</span></p>
+            <button id='${idPost}' class='btnDelete'>&#128465;</button>
           </div>
           <div class='postContent'>${postInfo.post}</div>
           <div id='reactionPost'>
-            <button id='${idPost}' class='btnLike'>LIKE</button>
-            <button id='${idPost}' class='btnEdit'>EDIT</button>
+            <button id='${idPost}' class='btnLike'>&#128077;</button>
+            <button id='${idPost}' class='btnEdit'>&#9997;</button>
+            <button id='${idPost}' class='btnEdit'>&#128172;</button>
           </div>
-        </div>`;
+        </section>`;
       });
     })
       .catch((error) => {
@@ -87,15 +101,14 @@ export const TIMELINE = () => {
   // ------------------------- Boton Delete -------------------------
   divElement.addEventListener('click', async (e) => {
     if (e.target.className === 'btnDelete') {
-      // await console.log(e.target.id);
       await deletePost(e.target.id);
-    };
+    }
   });
   // ------------------------- Boton Edit ------------------------- PENDIENTE
   divElement.addEventListener('click', async (e) => {
     if (e.target.className === 'btnEdit') {
       await updatePost(e.target.id, textPost.value);
-    };
+    }
   });
   // ------------------------- Ancla salir -------------------------
   linkAboutLogOut.addEventListener('click', (e) => {
