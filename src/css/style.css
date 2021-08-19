@@ -305,7 +305,7 @@ header {
   border: none;
 }
 
-.comment-form {
+/* .comment-form {
   display: flex;
 }
 
@@ -313,7 +313,7 @@ header {
   resize: none;
   background: darkgray;
   border: darkgray;
-}
+} */
 
 .ul-parent {
   padding-left: 0px;
