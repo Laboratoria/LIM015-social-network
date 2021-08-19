@@ -43,7 +43,7 @@ const fixtureData = {
 global.firebase = new MockFirebase(fixtureData, { isNaiveSnapshotListenerEnabled: true });
 
 describe('Agrega los post', () => {
-  it('Deberia añadir un post', () => sharePost('hola que tal', 'rita@hotmail.com', 'rita', '', '', 'public', '')
+  it('Deberia añadir un post', () => sharePost('hola que tal', 'id_002', 'rita@hotmail.com', 'rita', '', '', 'public', '')
     .then(() => getPost(
       (data) => {
         const result = data.find((postGetPost) => postGetPost.postText === 'hola que tal');

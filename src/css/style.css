@@ -383,23 +383,39 @@ header {
   width: 412px;
 }
 
-.bottom-heart, .show-comment {
+.show-comment {
   border: none;
   background: none;
   cursor: pointer;
 }
-
-.bottom-heart:hover{
-  color: black;
-}
-
 
 /* .far fa-heart, .not-like {
   content: "\f004";
   color: red;
   font-weight: 600;
   font-size: 18px;
+
+.not-like{
+  background-image: url('https://img.icons8.com/ios/50/000000/like.png');
+    background-size: cover;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 30%;
+    border: none;
+    width: 25px;
+    height: 25px;
+
 }
+.liked{
+  background-image: url('https://img.icons8.com/officel/16/000000/hearts.png');
+  background-size: cover;
+    cursor: pointer;
+    border-radius: 30%;
+    border: none;
+    width: 25px;
+    height: 25px;
+}
+
 
 .fas fa-heart, .liked {
   content: "\f004";
