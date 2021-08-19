@@ -1,6 +1,10 @@
 // import firebase from '../firebase/firebase.js';
 import { logOutUser } from '../firebase/firebase-auth.js';
-import { addPostCollection, getPosts, onGetPosts } from '../firebase/firebase-firestore.js';
+import {
+  addPostCollection, getPosts, onGetPosts,
+  deletePost, getPostId
+} from '../firebase/firebase-firestore.js';
+
 // Constante a exportar
 export const TIMELINE = () => {
   const view = `
@@ -41,21 +45,54 @@ export const TIMELINE = () => {
       console.log('publicacion vacia');
     } else {
     // aqui va lo de firestore
-      addPostCollection('Luana', 'estf@gmail.com', textPost.value);
-      textPost.value = '';
+      addPostCollection('', '', textPost.value).then((promise) => {
+        const idCollection = promise.id;
+        const pathCollection = promise.path;
+        console.log(idCollection, pathCollection);
+        textPost.value = '';
+      });
     }
   });
-  // ----- boton prueba --LUEGO IGNORAR
-  btnImg.addEventListener('click', () => {
-    // getPost('0HJolO5wJHzHBSt83huL');
-  });
+  // ------------------------- Ejecutarse cuando se actualice la pagina -------------------------
   onGetPosts(() => {
     postContent.innerHTML = '';
-    getPosts(postContent);
+    getPosts().then((docRef) => {
+      docRef.forEach((docAboutCollection) => {
+        const idPost = docAboutCollection.ref.id;
+        const existPost = docAboutCollection.exists;
+        const pathPost = docAboutCollection.ref.path;
+        const postInfo = docAboutCollection.data();
+        console.log(docAboutCollection);
+        console.log(idPost, existPost, pathPost);
+        console.log(docAboutCollection);
+        console.log(postInfo);
+        console.log(postInfo.post);
+        postContent.innerHTML += `<div class='postMessage'>
+          <div>
+            <p>Publicado por<span id='userNamePost'></span></p>
+            <button id='${idPost}' class='btnDelete'><i class="fas fa-times-circle"></i></button>
+          </div>
+          <div class='postContent'>${postInfo.post}</div>
+          <div id='reactionPost'>
+            <button id='${idPost}' class='btnLike'><i class="fas fa-heart"></i></button>
+            <button id='${idPost}' class='btnEdit'><i class="fas fa-edit"></i></button>
+          </div>
+        </div>`;
+      });
+      // ------------------------- Boton Delete -------------------------
+      const btnDelete = divElement.querySelectorAll('.btnDelete');
+      console.log(btnDelete);
+      btnDelete.addEventListener('click', () => {
+        deletePost(idPost).then(() => {
+          console.log('Document succesfully deleted!');
+        });
+      });
+    })
+      .catch((error) => {
+        console.log(error);
+      });
   });
-  // ------------------------- NUEVAS CONSTANTES LUEGO DE REGISTRARSE -------------------------
-  const btnDelete = document.querySelectorAll('.btnDelete');
-  console.log(btnDelete);
+
   // ------------------------- Ancla salir -------------------------
   linkAboutLogOut.addEventListener('click', (e) => {
     e.preventDefault();

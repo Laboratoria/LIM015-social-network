@@ -1,3 +1,4 @@
+import { getPostId, deletePost } from '../firebase/firebase-firestore.js';
 export const PROFILE = () => {
   const view = `
   <section>
@@ -10,7 +11,31 @@ export const PROFILE = () => {
   `;
   const divElement = document.createElement('div');
   divElement.innerHTML = view;
-  // FUNCIONALIDAD
+  // FUNCIONALIDAD - PRUEBA ------ OK
+  // console.log(deletePost('81I4dJM8rD871wjejZi1'));
+
+  // deletePost('81I4dJM8rD871wjejZi1').then((collection) => {
+  //   console.log(collection);
+  // });
+
+  console.log(deletePost());
+  deletePost(id).then(() => {
+    console.log('borrado');
+  });
   
+  // FUNCION PARA OBTENER ID DEL POST
+  // console.log(getPostId());
+  // getPostId().then((collection) => {
+  //   console.log(collection);
+  //   console.log(collection.id);
+  //   console.log(collection.ref.id);
+  // });
+  
+  // listo
+  // getPosts().then((collection) => {
+  //   collection.forEach((docRef) => {
+  //     console.log(docRef.data());
+  //   });
+  // });
   return divElement;
 };
