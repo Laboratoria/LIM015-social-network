@@ -8,6 +8,8 @@ export default () => {
       <h1 class="not-found">Página no encontrada</h1>
       <p>El archivo especificado no se encontró en este sitio web. Por favor, 
       compruebe la URL para errores y vuelva a intentarlo.</p>
+      <a href="#/" id="registrate" class="btn-register">Home.</a>
+
       </section>
     </section>
         `;
