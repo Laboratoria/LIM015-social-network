@@ -375,28 +375,27 @@ header {
   cursor: pointer;
 }
 
-/* .bottom-heart, 
- .bottom-heart:hover{
-  color: black;
-} */
 
-/* .fa.fa-heart-o:before {
-  content: "\f004";
-  color: red;
-  font-weight: 600;
-  font-size: 18px;
-} */
 
-/* .not-like{
-  background-image:url('https://img.icons8.com/ios/50/000000/like.png');
-  background-size: cover;
-  cursor:pointer;
+.not-like{
+  background-image: url('https://img.icons8.com/ios/50/000000/like.png');
+    background-size: cover;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 30%;
+    border: none;
+    width: 25px;
+    height: 25px;
 }
 .liked{
   background-image: url('https://img.icons8.com/officel/16/000000/hearts.png');
   background-size: cover;
-  cursor:pointer;
-} */
+    cursor: pointer;
+    border-radius: 30%;
+    border: none;
+    width: 25px;
+    height: 25px;
+}
 
 
 .fa.fa-comment-o:before {

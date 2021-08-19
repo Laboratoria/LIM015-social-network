@@ -8,7 +8,7 @@ export const sharingPost = (data) => {
   const time = new Date(data.timePost.toDate());
   const sectionPost = document.createElement('section');
   let template = '';
-  if (data.mode === 'publico' || data.mail === currentUser().mail) {
+  if (data.mode === 'publico' || currentUser().uid === data.idUser) {
     template = `
   <section>
           <ul class="ul-parent">
@@ -60,9 +60,9 @@ export const sharingPost = (data) => {
                             <form class="form-save" maxlength="50" required>
                             <textarea class="textarea-post" id="text-post" disabled>${data.postText}</textarea>
                               <section class="heart-commet">
-                            <button id="liked-${data.id}" class="bottom-heart" data-like="0">
+                            <button id="liked-${data.id}" class="bottom-heart not-like liked" data-like="0">
                                 <p id="container-like"></p>
-                                <i id="counter-${data.id}" class="fa fa-heart-o heart-empty" aria-hidden="true"></i>
+                                <i id="counter-${data.id}"  aria-hidden="true"></i>
                             </button>
                             <button class="show-comment">
                                 <span id="show-comment">
@@ -108,7 +108,7 @@ export const sharingPost = (data) => {
         btnLike.classList.remove('not-like');
         btnLike.classList.add('liked');
       } else {
-        e.target.dataset.like = '0';
+        e.currentTarget.dataset.like = '0';
         deleteLikePost(data.id);
         btnLike.classList.remove('liked');
         btnLike.classList.add('not-like');
