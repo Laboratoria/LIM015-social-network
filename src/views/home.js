@@ -14,9 +14,10 @@ export default (post) => {
             <img class="logo-ibook" src="img/logo-ibook.png" width="160px" alt="logo de iBook"/>
                 <nav class="nav-bar" id="nav">
                     <ul>
-                        <li><a href="#/home">HOME</a></li>
-                        <li class="current-user"><a href="#/profile">${currentUser().displayName}</a></li>
-                        <li><a href="#/" id="signOut" >SIGN-OUT</a></li>
+                        <li><a href="#/home">Home</a></li>
+                        <!-- <li class="current-user"><a href="#/profile">${currentUser().displayName}</a></li> -->
+                        <li class="current-user"><a href="#/profile">Profile</a></li>
+                        <li><a href="#/" id="signOut" >Sign-Out</a></li>
                     </ul>
                 </nav>
             </header>

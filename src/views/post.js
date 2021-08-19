@@ -26,7 +26,7 @@ export const sharingPost = (data) => {
                               </p>
                           </section>
                           <section class="button-btn">
-                            <p class="m-info"><strong>${data.mode}</strong></p>
+                            <p class="m-info">${data.mode}</p>
                             <section>
                             <button id="deletePost" class="botones">
                                 <i class="fas fa-trash" aria-hidden="true"></i>
@@ -62,7 +62,7 @@ export const sharingPost = (data) => {
                               <section class="heart-commet">
                             <button id="liked-${data.id}" class="bottom-heart" data-like="0">
                                 <p id="container-like"></p>
-                                <i id="counter-${data.id}" class="fa fa-heart-o heart-empty" aria-hidden="true"></i>
+                                <i id="counter-${data.id}" class="far fa-heart" aria-hidden="true"></i>
                             </button>
                             <button class="show-comment">
                                 <span id="show-comment">
@@ -108,7 +108,7 @@ export const sharingPost = (data) => {
         btnLike.classList.remove('not-like');
         btnLike.classList.add('liked');
       } else {
-        e.target.dataset.like = '0';
+        e.currentTarget.dataset.like = '0';
         deleteLikePost(data.id);
         btnLike.classList.remove('liked');
         btnLike.classList.add('not-like');
