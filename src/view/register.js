@@ -19,7 +19,7 @@ export const registerTemplate = () => {
       <!-- CONFIRMED PASSWORD INPUT -->
       <input type="password" placeholder="Confirmed Password" id="confirmedPassword" class="inputForm" required>
       <span id="errorConfirmPassword" class="errorMessage"></span>
-      <div>
+      <div clas="errorConten">
         <span id="errorGeneral" class="errorMessage"></span>
       </div>
       <button type="submit" class="btnRegister" id="registerButton" >Register</button>

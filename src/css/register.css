@@ -32,15 +32,13 @@
     border: 1px solid #120078;
     border-radius: 10px;
     margin-bottom: 10px;
+    margin-top: 10px;
 }
 .iGoogle {
     width: 26.42px;
     height: 25.81px;
     margin-top: 10px;
 }
-/* .errorConten {
-    margin: 1rem;
-} */
 .errorMessage {
     color: red;
     font-weight: bold;
