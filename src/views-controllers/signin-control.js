@@ -20,7 +20,7 @@ export const signIn = () => {
   return userSignIn(email, password)
     .then((result) => {
       if (result.user.emailVerified === false) {
-        document.getElementById('error').innerHTML = 'No has verificado tu dirección de email';
+        document.getElementById('error-message').innerHTML = 'No has verificado tu dirección de email';
       } else {
         changeRoute('#/home');
       }
@@ -28,9 +28,9 @@ export const signIn = () => {
     }).catch((error) => {
       const errorMessage = error.message;
       if (email === '' || password === '') {
-        document.getElementById('error').innerHTML = 'Ingresa los campos completos';
+        document.getElementById('error-message').innerHTML = 'Ingresa los campos completos';
       } else if (errorMessage) {
-        document.getElementById('error').innerHTML = 'La contraseña no es válida o el usuario no está registrado.';
+        document.getElementById('error-message').innerHTML = 'La contraseña no es válida o el usuario no está registrado.';
       }
     });
 };

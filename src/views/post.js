@@ -64,12 +64,6 @@ export const sharingPost = (data) => {
                                 <p id="container-like"></p>
                                 <i id="counter-${data.id}"  aria-hidden="true"></i>
                             </button>
-                            <button class="show-comment">
-                                <span id="show-comment">
-                                  <i class="fa fa-comment-o show-comment" aria-hidden="true"></i>
-                                </span>
-                                <a class="counter-comment">2</a>
-                            </button>
                             </section>
                       </section>
               </li>
