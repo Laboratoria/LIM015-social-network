@@ -86,11 +86,11 @@ export const TIMELINE = () => {
             <p>Publicado por <span id='userNamePost'>${postInfo.mail}</span></p>
           </div>
           <input name='${idPost}'disabled class='postContent' value='${postInfo.post}'>
+          <div id='reactionPost'>
           <button id='${idPost}' class='btnEdit'>Edit</button>
           <button id='${idPost}' class='btnSave'>✅</button>
           <button id='${idPost}' class='btnDelete'>⌦;</button>
-          <div id='reactionPost'>
-            <button id='${idPost}' class='btnLike'>&#128077;</button>
+          <button id='${idPost}' class='btnLike'>&#128077;</button>
           </div>
         </section>`;
       });
