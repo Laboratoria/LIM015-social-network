@@ -8,15 +8,6 @@ export const signUp = (email, password) => {
     .then((result) => {
       // Signed in
       console.log('signed up', result);
-      // const Email = result.user.email;
-      // const newUser = usuarios.push();
-      // newUser.set({ email: Email });
-      /* console.log(result.user);
-      console.log(result.user.displayName);
-      const User = {
-        email: Email,
-      };
-      console.log(User); */
     })
     .catch((error) => {
       console.log(error.code, error.message);
@@ -45,23 +36,17 @@ export const googleLogin = () => {
       const credential = result.credential;
       // This gives you a Google Access Token. You can use it to access the Google API.
       console.log(credential.accessToken);
-      // The signed-in user info.
+      // Envío la información del usuario al LocalStorage
       const Name = result.user.displayName;
       const Email = result.user.email;
       const Photo = result.user.photoURL;
-      /* const User = {
+      const User = {
         name: Name,
         email: Email,
         photo: Photo,
-      }; */
-      firebase.firestore().collection('InfoUser').database().set({
-        name: Name,
-        email: Email,
-        photo: Photo,
-      });
-      // console.log(User);
+      };
+      localStorage.setItem('user', JSON.stringify(User));
       console.log('signed in with Google');
-      // ...
     })
     .catch((error) => {
       console.error('no se pudo iniciar sesión con gugul :c');

@@ -1,6 +1,7 @@
 import {
   signUp, signIn, googleLogin, logout,
 } from './fs-login.js';
+import { vistas } from '../main.js';
 
 // SECCION LOGIN HTML
 const main = document.querySelector('.container');
@@ -129,6 +130,9 @@ signinForm.addEventListener('submit', (e) => {
 const googleBtn = document.querySelector('.google');
 googleBtn.addEventListener('click', () => {
   googleLogin();
+  vistas();
+  document.querySelector('.container').style.display = 'none'; // acá oculto el main que contiene el login
+  document.getElementById('header').style.display = 'flex'; // acá muestro el header con el navbar
 });
 
 // Logout
