@@ -1,56 +1,20 @@
 import {
   signUp, // signIn, googleLogin, logout,
 } from '../src/scripts/fs-login.js';
-<<<<<<< HEAD
 // import { firebaseConfig } from '../src/scripts/fs-config.js';
 const firebasemock = require('firebase-mock');
 
 const mockauth = new firebasemock.MockFirebase();
-=======
-import { firebaseConfig } from '../src/scripts/fs-config.js';
-/*
-const firebasemock = require('firebase-mock');
-
-const mockauth = new firebasemock.MockFirebase();
-mockauth.autoFlush();
-
-global.firebase = firebasemock.MockFirebaseSdk(
-  () => null,
-  () => mockauth,
-);
-*/
-const firebasemock = require('firebase-mock');
-
-const mockauth = new firebasemock.MockFirebase(firebaseConfig);
-const mockfirestore = new firebasemock.MockFirestore();
-mockfirestore.autoFlush();
->>>>>>> df49375969360263bfebaf4d55f901ca2a52212d
 mockauth.autoFlush();
 global.firebase = firebasemock.MockFirebaseSdk(
   // use null if your code does not use RTDB
   () => null,
   () => mockauth,
-  () => mockfirestore,
+//  () => mockfirestore,
 );
-<<<<<<< HEAD
-// const firebasemock = require('firebase-mock');
-// const mockauth = new firebasemock.MockFirebase(firebaseConfig);
-// const mockfirestore = new firebasemock.MockFirestore();
-// mockfirestore.autoFlush();
-// mockauth.autoFlush();
-// global.firebase = firebasemock.MockFirebaseSdk(
-//   // use null if your code does not use RTDB
-//   () => null,
-//   () => mockauth,
-//   () => mockfirestore,
-// );
-/*
-const firebasemock = require('firebase-mock');
-=======
 /*
 const firebasemock = require('firebase-mock');
 
->>>>>>> df49375969360263bfebaf4d55f901ca2a52212d
 const mockauth = new firebasemock.MockAuthentication();
 const mockdatabase = new firebasemock.MockFirebase();
 const firebase = require('firebase');
@@ -72,10 +36,6 @@ describe('signUp', () => {
 test('se creó un usuario', () => signUp('hola@gmail.com', '123456').then((user) => {
   expect(user.email).toBe('hola@gmail.com');
 }));
-<<<<<<< HEAD
-=======
-
->>>>>>> df49375969360263bfebaf4d55f901ca2a52212d
 describe('lista de notas', () => {
   it('Debería poder iniciar sesion', () => signUp('front@end.la', '123456')
     .then((user) => {
