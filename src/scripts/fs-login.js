@@ -6,8 +6,9 @@ export const signUp = (email, password) => {
   // const userName = document.getElementById('signup-user').value;
   auth.createUserWithEmailAndPassword(email, password)
     .then((result) => {
-      // Signed in
-      console.log('signed up', result);
+      const Email = result.user.email;
+      localStorage.setItem('email', Email);
+      console.log('signed up');
     })
     .catch((error) => {
       console.log(error.code, error.message);
@@ -17,11 +18,10 @@ export const signUp = (email, password) => {
 // SIGN IN
 export const signIn = (email, password) => {
   auth.signInWithEmailAndPassword(email, password)
-    .then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
-      console.log('signed in', user);
-      // ...
+    .then((result) => {
+      const Email = result.user.email;
+      localStorage.setItem('email', Email);
+      console.log('signed in');
     })
     .catch((error) => {
       console.log(error.code, error.message);

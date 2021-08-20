@@ -100,6 +100,8 @@ const signupForm = document.querySelector('.sign-up-form');
 
 signupForm.addEventListener('submit', (e) => {
   e.preventDefault();
+  const userName = document.getElementById('signup-user').value;
+  localStorage.setItem('name', userName);
   const signupEmail = document.getElementById('signup-email').value;
   const signupPassword = document.getElementById('signup-password').value;
   const errorMsgPassword = document.getElementById('su-error-password');

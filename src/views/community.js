@@ -1,6 +1,8 @@
 export default () => {
   const article = document.createElement('article');
   const googleUser = JSON.parse(localStorage.getItem('user'));
+  const emailUserName = localStorage.getItem('name');
+  const emailUserEmail = localStorage.getItem('email');
   article.className = 'home';
   article.innerHTML = `
   <section class="muro" id="muro">
@@ -13,9 +15,9 @@ export default () => {
          <!--Información del usuario-->
          <div class="information-user">
            <div class="user-img">
-             <img src="${googleUser.photo}" alt="" />
+           ${googleUser.photo ? `<img src="${googleUser.photo}" alt="" />` : '<img src="images/profileDefault.jpeg" alt="" />'}
            </div>
-           <p class="user-name">${googleUser.name}<br>${googleUser.email}</p>
+           ${googleUser.name ? `<p class="user-name">${googleUser.name}<br>${googleUser.email}</p>` : `<p class="user-name">${emailUserName}<br>${emailUserEmail}</p>`}
          </div>
          <hr>
          <!--Div de Banner-->
