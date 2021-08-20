@@ -1,13 +1,13 @@
 import { changeView } from './router.js';
-import { auth } from './scripts/fs-config.js';
+// import { auth } from './scripts/fs-config.js';
 
-const vistas = () => {
+export const vistas = () => {
   changeView(window.location.hash);
   window.addEventListener('hashchange', () => {
     changeView(window.location.hash);
   });
 };
-
+/*
 auth.onAuthStateChanged((user) => {
   if (user) {
     console.log('auth-signin');
@@ -18,3 +18,4 @@ auth.onAuthStateChanged((user) => {
     console.log('auth-signout');
   }
 });
+*/

@@ -7,25 +7,12 @@ const firebasemock = require('firebase-mock');
 
 const mockauth = new firebasemock.MockFirebase();
 mockauth.autoFlush();
-
 global.firebase = firebasemock.MockFirebaseSdk(
+  // use null if your code does not use RTDB
   () => null,
   () => mockauth,
+//  () => mockfirestore,
 );
-
-// const firebasemock = require('firebase-mock');
-
-// const mockauth = new firebasemock.MockFirebase(firebaseConfig);
-// const mockfirestore = new firebasemock.MockFirestore();
-// mockfirestore.autoFlush();
-// mockauth.autoFlush();
-
-// global.firebase = firebasemock.MockFirebaseSdk(
-//   // use null if your code does not use RTDB
-//   () => null,
-//   () => mockauth,
-//   () => mockfirestore,
-// );
 /*
 const firebasemock = require('firebase-mock');
 
@@ -50,7 +37,6 @@ describe('signUp', () => {
 test('se creó un usuario', () => signUp('hola@gmail.com', '123456').then((user) => {
   expect(user.email).toBe('hola@gmail.com');
 }));
-
 describe('lista de notas', () => {
   it('Debería poder iniciar sesion', () => signUp('front@end.la', '123456')
     .then((user) => {
