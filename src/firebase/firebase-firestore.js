@@ -35,8 +35,9 @@ export const deletePost = (id) => {
 // METODO PARA ACTUALIZAR UNA PUBLICACION EN FIRESTORE
 export const updatePost = (id, change) => {
   const updatePostById = firebase.firestore().collection('posts').doc(id)
-    .update(
+    .set(
       { post: change },
+      { merge: true },
     );
   return updatePostById;
 };

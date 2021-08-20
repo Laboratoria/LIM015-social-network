@@ -2,7 +2,8 @@
 import { logOutUser } from '../firebase/firebase-auth.js';
 import {
   addPostCollection, getPosts, onGetPosts,
-  deletePost, updatePost } from '../firebase/firebase-firestore.js';
+  deletePost, updatePost
+} from '../firebase/firebase-firestore.js';
 
 // Constante a exportar
 export const TIMELINE = () => {
@@ -39,10 +40,10 @@ export const TIMELINE = () => {
   const imgElement = divElement.querySelector('#imgUser');
   // FUNCIONALIDAD
   // ------------------------- Foto de perfil -------------------------
-  if(localStorage.getItem('userPhoto')) {
-      imgElement.src = localStorage.getItem('userPhoto');
-    } else {
-      imgElement.src = "../images/imgDefault3.png";
+  if (localStorage.getItem('userPhoto')) {
+    imgElement.src = localStorage.getItem('userPhoto');
+  } else {
+    imgElement.src = "../images/imgDefault3.png";
   }
   // -------------------------  Mostrar nombre de perfil -------------------------
   if (localStorage.getItem('userName') === null) {
@@ -55,14 +56,14 @@ export const TIMELINE = () => {
     if (textPost.value === '') {
       console.log('publicacion vacia');
     } else {
-    // aqui va lo de firestore
+      // aqui va lo de firestore
       addPostCollection(localStorage.getItem('userName'), localStorage.getItem('userEmail'), textPost.value, localStorage.getItem('userId'))
         .then((promise) => {
-        const idCollection = promise.id;
-        const pathCollection = promise.path;
-        console.log(idCollection, pathCollection);
-        textPost.value = '';
-      });
+          const idCollection = promise.id;
+          const pathCollection = promise.path;
+          console.log(idCollection, pathCollection);
+          textPost.value = '';
+        });
     }
   });
   // ------------------------- Ejecutarse cuando se actualice la pagina -------------------------
@@ -83,13 +84,13 @@ export const TIMELINE = () => {
         postContent.innerHTML += `<section class='postMessage'>
           <div>
             <p>Publicado por <span id='userNamePost'>${postInfo.mail}</span></p>
-            <button id='${idPost}' class='btnDelete'>&#128465;</button>
           </div>
-          <div class='postContent'>${postInfo.post}</div>
+          <input name='${idPost}'disabled class='postContent' value='${postInfo.post}'>
+          <button id='${idPost}' class='btnEdit'>Edit</button>
+          <button id='${idPost}' class='btnSave'>✅</button>
+          <button id='${idPost}' class='btnDelete'>⌦;</button>
           <div id='reactionPost'>
             <button id='${idPost}' class='btnLike'>&#128077;</button>
-            <button id='${idPost}' class='btnEdit'>&#9997;</button>
-            <button id='${idPost}' class='btnEdit'>&#128172;</button>
           </div>
         </section>`;
       });
@@ -97,17 +98,26 @@ export const TIMELINE = () => {
       .catch((error) => {
         console.log(error);
       });
+
+    // ------------------------- Boton Edit ------------------------- PENDIENTE
+    divElement.addEventListener('click', async (e) => {
+      if (e.target.className === 'btnEdit') {
+        document.querySelector(`input[name="${e.target.id}"]`).disabled = false;
+      }
+    });
+    // ------------------------- Boton Save  -------------------------
+    divElement.addEventListener('click', async (e) => {
+      if (e.target.className === 'btnSave') {
+        const postSave = document.querySelector(`input[name="${e.target.id}"]`);
+        await updatePost(e.target.id, postSave.value);
+        postSave.disabled = true;
+      };
+    });
   });
   // ------------------------- Boton Delete -------------------------
   divElement.addEventListener('click', async (e) => {
     if (e.target.className === 'btnDelete') {
       await deletePost(e.target.id);
-    }
-  });
-  // ------------------------- Boton Edit ------------------------- PENDIENTE
-  divElement.addEventListener('click', async (e) => {
-    if (e.target.className === 'btnEdit') {
-      await updatePost(e.target.id, textPost.value);
     }
   });
   // ------------------------- Ancla salir -------------------------
