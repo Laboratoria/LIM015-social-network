@@ -15,9 +15,9 @@ export default () => {
          <!--Información del usuario-->
          <div class="information-user">
            <div class="user-img">
-           ${googleUser.photo ? `<img src="${googleUser.photo}" alt="" />` : '<img src="images/profileDefault.jpeg" alt="" />'}
+           ${googleUser !== null ? `<img src="${googleUser.photo}" alt="" />` : '<img src="images/profileDefault.jpeg" alt="" />'}
            </div>
-           ${googleUser.name ? `<p class="user-name">${googleUser.name}<br>${googleUser.email}</p>` : `<p class="user-name">${emailUserName}<br>${emailUserEmail}</p>`}
+           ${googleUser !== null ? `<p class="user-name">${googleUser.name}<br>${googleUser.email}</p>` : `<p class="user-name">${emailUserName}<br>${emailUserEmail}</p>`}
          </div>
          <hr>
          <!--Div de Banner-->
