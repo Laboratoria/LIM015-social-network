@@ -87,6 +87,7 @@ export const TIMELINE = () => {
           <div id='reactionPost' class='reactionPost'>
             <button id='${idPost}' class='btnLike'>&#128077;</button>
             <button id='${idPost}' class='btnEdit'>&#9997;</button>
+            <button id='${idPost}' class='btnSave'>save</button>
             <button id='${idPost}' class='btnComments'>&#128172;</button>
           </div>
         </section>`;
