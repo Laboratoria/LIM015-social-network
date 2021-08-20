@@ -1,9 +1,9 @@
-const firebase = require('firebase/app').default;
-require('firebase/auth');
+// import firebase from 'firebase';
+// import 'firebase/auth';
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-export const firebaseConfig = {
+const firebaseConfig = {
   apiKey: 'AIzaSyBmuPuol1G8A-QpcLM4uii_5BY942WqEoU',
   authDomain: 'anime-forum-215d6.firebaseapp.com',
   projectId: 'anime-forum-215d6',
@@ -17,4 +17,3 @@ firebase.initializeApp(firebaseConfig);
 // firebase.analytics();
 // firebase.firestore();
 export const auth = firebase.auth();
-// export const database = firebase.dataBase();

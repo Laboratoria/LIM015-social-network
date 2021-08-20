@@ -1,16 +1,16 @@
 import { auth } from './fs-config.js';
 
-const usuarios = firebase.firestore().collection('InfoUser');
-
+// const usuarios = firebase.firestore().collection('InfoUser');
+// SIGN UP
 export const signUp = (email, password) => {
   // const userName = document.getElementById('signup-user').value;
   auth.createUserWithEmailAndPassword(email, password)
     .then((result) => {
       // Signed in
-      console.log('signed up');
-      const Email = result.user.email;
-      const newUser = usuarios.push();
-      newUser.set({ email: Email });
+      console.log('signed up', result);
+      // const Email = result.user.email;
+      // const newUser = usuarios.push();
+      // newUser.set({ email: Email });
       /* console.log(result.user);
       console.log(result.user.displayName);
       const User = {
@@ -19,12 +19,11 @@ export const signUp = (email, password) => {
       console.log(User); */
     })
     .catch((error) => {
-      // alert('La contraseña debe tener mínimo 6 caracteres \n 〜(꒪꒳꒪)〜');
       console.log(error.code, error.message);
     });
 };
 
-// SING IN
+// SIGN IN
 export const signIn = (email, password) => {
   auth.signInWithEmailAndPassword(email, password)
     .then((userCredential) => {

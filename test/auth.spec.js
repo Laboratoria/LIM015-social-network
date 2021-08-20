@@ -2,6 +2,7 @@ import {
   signUp, // signIn, googleLogin, logout,
 } from '../src/scripts/fs-login.js';
 // import { firebaseConfig } from '../src/scripts/fs-config.js';
+
 const firebasemock = require('firebase-mock');
 
 const mockauth = new firebasemock.MockFirebase();
