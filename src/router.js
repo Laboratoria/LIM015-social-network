@@ -8,6 +8,8 @@ const changeView = (route) => {
   switch (route) {
     case '#/community': main.appendChild(components.community());
       break;
+    case '#/profile': main.appendChild(components.profile());
+      break;
     case '#/logout': logout();
       break;
     default:
