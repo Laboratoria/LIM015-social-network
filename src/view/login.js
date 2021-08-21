@@ -37,10 +37,44 @@ export const logInTemplate = () => {
     const sesionActivaGoogle = false;
     console.log('sesion activa', sesionActivaGoogle);
   } */
-  return sectionLogIn;
+
+  const loginUser = (email, password) => {
+    firebase
+      .auth()
+      .sigInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        console.log(userCredential);
+      })
+      .catch((error) => {
+        console.log('error', error);
+      });
+  };
+
+  const EmailVerication = () => {
+    firebase.auth().currentUser.sendEmailVerification().then(() => {
+      window.alert('mensaje de verificacion enviado');
+    })
+      .catch((error) => {
+        window.alert(error.message);
+      });
+
+    return sectionLogIn;
+  };
 };
 
-/* btnLogin.addEventListener('click', (event) => {
+/* firebase.auth().signInWithEmailAndPassword(email, password)
+  .then((userCredential) => {
+    // Signed in
+    var user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+  });
+  /////////
+
+btnLogin.addEventListener('click', (event) => {
   event.preventDefault();
   const LogInEmail = containerAll.querySelector('#emailLogIn').value;
   const LogInPassword = containerAll.querySelector('#passwordLogIn').value;
