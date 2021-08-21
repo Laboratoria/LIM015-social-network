@@ -4,15 +4,21 @@ import firebase from './firebase.js';
 export const firebaseWatcher = () => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-      console.log('HOLA PASE');
-      // User is signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/firebase.User
-      const uid = user.uid;
-      console.log('el usuario esta logueado');
-      console.log(uid);
+      console.log('esta conectado');
+      document.querySelector('.home a').style.display = 'none';
+      document.querySelector('.login a').style.display = 'none';
+      document.querySelector('.signUp a').style.display = 'none';
+      document.querySelector('.profile a').style.display = 'block';
+      document.querySelector('.timeline a').style.display = 'block';
+      document.querySelector('.logOut a').style.display = 'block';
     } else {
-      // User is signed out
-      console.log('al usuario le falta loguearse');
+      console.log('esta desconectado');
+      document.querySelector('.home a').style.display = 'block';
+      document.querySelector('.login a').style.display = 'block';
+      document.querySelector('.signUp a').style.display = 'block';
+      document.querySelector('.profile a').style.display = 'none';
+      document.querySelector('.timeline a').style.display = 'none';
+      document.querySelector('.logOut a').style.display = 'none';
     }
   });
 };

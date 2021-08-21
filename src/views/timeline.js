@@ -8,23 +8,21 @@ import {
 // Constante a exportar
 export const TIMELINE = () => {
   const view = `
-  <section>
+  <section class='profileContainer'>
     <figure>
-      <img id='imgUser' src="../images/imgDefault3.png" alt="photoProfile" />
+      <img id='imgUser' class='imgProfile' src="../images/imgDefault3.png" alt="photoProfile" />
     </figure>
-    <p id='nameProfile'></p>
-    <p id='status'>Estado: Viajera Empedernida</p>
+    <p id='nameProfile' class='nameProfile'></p>
+    <p id='status' class='status'>Estado: Viajer@ Empedernid@</p>
   </section>
-  <div class='publication'>
+  <section class='publication'>
     <textarea name='publication' id='textAreaPublication' class='textAreaPublication' placeholder='¿Qué deseas compartir con la comunidad de viajeros?' rows='3'></textarea>
-    <div class='buttons'>
-      <button id='buttonImg' type='button' class='buttonImg'>BTN</button>
-    </div>
-    <div class='buttons'>
+    <div class='buttonsPost'>
+      <button id='buttonImg' type='button' class='buttonImg'>&#127889;</button>
       <button id='buttonShare' type='submit' class='buttonShare'>Compartir</button>
     </div>
-  </div>
-  <section id='posts'>
+  </section>
+  <section id='posts' class='postSection'>
   </section>
   `;
   const divElement = document.createElement('div');
@@ -35,15 +33,14 @@ export const TIMELINE = () => {
   const linkAboutLogOut = document.querySelector('.logOut a');
   const textPost = divElement.querySelector('#textAreaPublication');
   const userNameProfile = divElement.querySelector('#nameProfile');
-  // const userNamePost = divElement.querySelector('#userNamePost');
   const postContent = divElement.querySelector('#posts');
   const imgElement = divElement.querySelector('#imgUser');
   // FUNCIONALIDAD
   // ------------------------- Foto de perfil -------------------------
-  if(localStorage.getItem('userPhoto')) {
-      imgElement.src = localStorage.getItem('userPhoto');
-    } else {
-      imgElement.src = "../images/imgDefault3.png";
+  if (localStorage.getItem('userPhoto')) {
+    imgElement.src = localStorage.getItem('userPhoto');
+  } else {
+    imgElement.src = '../images/imgDefault3.png';
   }
   // -------------------------  Mostrar nombre de perfil -------------------------
   if (localStorage.getItem('userName') === null) {
@@ -56,13 +53,14 @@ export const TIMELINE = () => {
     if (textPost.value === '') {
       console.log('publicacion vacia');
     } else {
-    // aqui va lo de firestore
-      addPostCollection(localStorage.getItem('userName'), localStorage.getItem('userEmail'), textPost.value).then((promise) => {
-        const idCollection = promise.id;
-        const pathCollection = promise.path;
-        console.log(idCollection, pathCollection);
-        textPost.value = '';
-      });
+      // aqui va lo de firestore
+      addPostCollection(localStorage.getItem('userName'), localStorage.getItem('userEmail'), textPost.value, localStorage.getItem('userId'))
+        .then((promise) => {
+          const idCollection = promise.id;
+          const pathCollection = promise.path;
+          console.log(idCollection, pathCollection);
+          textPost.value = '';
+        });
     }
   });
   // ------------------------- Ejecutarse cuando se actualice la pagina -------------------------
@@ -81,15 +79,20 @@ export const TIMELINE = () => {
         console.log(postInfo);
         console.log(postInfo.post);
         postContent.innerHTML += `<section class='postMessage'>
-          <div>
+          <div class='authorPost'>
             <p>Publicado por <span id='userNamePost'>${postInfo.mail}</span></p>
-            <button id='${idPost}' class='btnDelete'>&#128465;</button>
+            <button id='${idPost}' class='btnDelete'>&#10062;</button>
           </div>
-          <div class='postContent'>${postInfo.post}</div>
-          <div id='reactionPost'>
-            <button id='${idPost}' class='btnLike'>&#128077;</button>
-            <button id='${idPost}' class='btnEdit'>&#9997;</button>
-            <button id='${idPost}' class='btnEdit'>&#128172;</button>
+          <div class='sectionAboutPost'>
+            <input name='${idPost}' disabled class='postContent' value='${postInfo.post}'>
+            <div>
+              <button id='${idPost}' class='btnEdit'>&#9997;</button>
+              <button id='${idPost}' class='btnSave'>&#9989;</button>
+            </div>
+          </div>
+          <div id='reactionPost' class='reactionPost'>
+            <button id='${idPost}' class='btnLove'>&#x2764;</button>
+            <button id='${idPost}' class='btnComments'>&#128172;</button>
           </div>
         </section>`;
       });
@@ -97,17 +100,26 @@ export const TIMELINE = () => {
       .catch((error) => {
         console.log(error);
       });
+
+    // ------------------------- Boton Edit -------------------------
+    divElement.addEventListener('click', async (e) => {
+      if (e.target.className === 'btnEdit') {
+        document.querySelector(`input[name="${e.target.id}"]`).disabled = false;
+      }
+    });
+    // ------------------------- Boton Save  -------------------------
+    divElement.addEventListener('click', async (e) => {
+      if (e.target.className === 'btnSave') {
+        const postSave = document.querySelector(`input[name="${e.target.id}"]`);
+        await updatePost(e.target.id, postSave.value);
+        postSave.disabled = true;
+      }
+    });
   });
   // ------------------------- Boton Delete -------------------------
   divElement.addEventListener('click', async (e) => {
     if (e.target.className === 'btnDelete') {
       await deletePost(e.target.id);
-    }
-  });
-  // ------------------------- Boton Edit ------------------------- PENDIENTE
-  divElement.addEventListener('click', async (e) => {
-    if (e.target.className === 'btnEdit') {
-      await updatePost(e.target.id, textPost.value);
     }
   });
   // ------------------------- Ancla salir -------------------------

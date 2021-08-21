@@ -1,14 +1,105 @@
-.postMessage div{
-  background-color: #4DBC4D;
-  display:flex;
+.publication{
+  display: flex;
+  flex-direction: column;
+  background-color: #FFFFFF;
+  border: 1px solid #C6C3C3;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-.fa-times-circle{
+.textAreaPublication{
+  width: 90%;
+  margin: 4% auto;
+  border: 1px solid #999898;
+  box-sizing: border-box;
+  border-radius: 6px;
+}
+.textAreaPublication::placeholder{
+  color: rgba(104, 158, 224, 0.8);
+  text-align: center;
+  align-self: center;
+  padding-top: 3%;
+  font-weight: normal;
+}
+.buttonsPost{
+  display: flex;
+  justify-content: space-between;
+  margin: 2% 2%;
+}
+.buttonImg{
+  background: none;
+  border: 0;
+  color: inherit;
+}
+.buttonShare{
   background-color: #4DBC4D;
+  border-radius: 15px;
+  border: 1px solid #4DBC4D;
+  padding: 1%;
+  color: rgba(255, 255, 255, 1);
+}
+.postSection{
+
+}
+.postMessage{
+  margin: 5% 0;
+  border: 1px solid #C6C3C3;
+  box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+}
+.authorPost{
+  display: flex;
+  justify-content: space-between;
+  background-color: #4DBC4D;
+}
+.authorPost p{
+  color: #FFFFFF;
+}
+.btnDelete{
+  background: none;
+  border: 0;
+  cursor: pointer;
+  margin: 0 2%;
+}
+.sectionAboutPost{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 .postContent{
-  background-color: #FFFFFF;
+  width: 80%;
+  margin: 2%;
+  padding: 2%;
+  border: none;
 }
-#reactionPost{
+.sectionAboutPost div{
+  display: flex;
+  justify-content: space-evenly;
+  margin: 2%;
+}
+.btnEdit {
+  background: none;
+  border: 0;
+  color: inherit;
+  margin: 1%;
+}
+.btnSave{
+  background: none;
+  border: 0;
+  color: inherit;
+  margin: 1%;
+}
+.reactionPost{
+  display: flex;
   background-color: rgba(0, 0, 0, 20%);
-  display:flex;
+  justify-content: flex-start;
+}
+.btnLove{
+  background: none;
+  border: 0;
+  color: inherit;
+  margin: 1%;
+}
+.btnComments{
+  background: none;
+  border: 0;
+  color: inherit;
+  margin: 1%;
 }

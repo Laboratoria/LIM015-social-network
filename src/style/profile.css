@@ -1,0 +1,43 @@
+.profileContainer{
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 2px solid #7D7D7D;
+  box-sizing: border-box;
+  border-radius: 6px;
+  margin: 2% auto;
+  background-color: #B5D3B1;
+  margin-top: -8%;
+}
+.profileContainer figure{
+  display: flex;
+  width: 50%;
+  height: 50%;
+  align-content: center;
+}
+.imgProfile{
+  width: 80%;
+  border-radius: 20%;
+  margin: 2% 0;
+}
+.nameProfile{
+  margin: 0;
+  color: rgba(104, 158, 224, 1);
+  text-transform: uppercase;
+}
+.status{
+  color: rgba(43, 43, 43, 1)
+}
+.aboutUser{
+  margin: 2% auto;
+  border: 2px solid #7D7D7D;
+  box-sizing: border-box;
+  border-radius: 6px;
+}
+.aboutUser h2{
+  text-align: center;
+}
+.aboutUser p {
+
+}
