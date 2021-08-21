@@ -18,7 +18,7 @@ export const TIMELINE = () => {
   <section class='publication'>
     <textarea name='publication' id='textAreaPublication' class='textAreaPublication' placeholder='¿Qué deseas compartir con la comunidad de viajeros?' rows='3'></textarea>
     <div class='buttonsPost'>
-      <button id='buttonImg' type='button' class='buttonImg'>🏞</button>
+      <button id='buttonImg' type='button' class='buttonImg'>&#127889;</button>
       <button id='buttonShare' type='submit' class='buttonShare'>Compartir</button>
     </div>
   </section>
@@ -81,13 +81,17 @@ export const TIMELINE = () => {
         postContent.innerHTML += `<section class='postMessage'>
           <div class='authorPost'>
             <p>Publicado por <span id='userNamePost'>${postInfo.mail}</span></p>
-            <button id='${idPost}' class='btnDelete'>⌦;</button>
+            <button id='${idPost}' class='btnDelete'>&#10062;</button>
           </div>
-          <input name='${idPost}'disabled class='postContent' value='${postInfo.post}'>
+          <div class='sectionAboutPost'>
+            <input name='${idPost}' disabled class='postContent' value='${postInfo.post}'>
+            <div>
+              <button id='${idPost}' class='btnEdit'>&#9997;</button>
+              <button id='${idPost}' class='btnSave'>&#9989;</button>
+            </div>
+          </div>
           <div id='reactionPost' class='reactionPost'>
-            <button id='${idPost}' class='btnLike'>&#128077;</button>
-            <button id='${idPost}' class='btnEdit'>&#9997;</button>
-            <button id='${idPost}' class='btnSave'>✅</button>
+            <button id='${idPost}' class='btnLove'>&#x2764;</button>
             <button id='${idPost}' class='btnComments'>&#128172;</button>
           </div>
         </section>`;
@@ -97,7 +101,7 @@ export const TIMELINE = () => {
         console.log(error);
       });
 
-    // ------------------------- Boton Edit ------------------------- PENDIENTE
+    // ------------------------- Boton Edit -------------------------
     divElement.addEventListener('click', async (e) => {
       if (e.target.className === 'btnEdit') {
         document.querySelector(`input[name="${e.target.id}"]`).disabled = false;

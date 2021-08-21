@@ -4,6 +4,7 @@ export const PROFILE = () => {
   <section class='profileContainer'>
     <figure>
       <img id='imgUser' class='imgProfile' src="../images/imgDefault3.png" alt="photoProfile" />
+      <button class='addImage'>&#10133;</button>
     </figure>
     <p id='nameProfile' class='nameProfile'>Ariana</p>
     <p id='status' class='status'>Estado: Viajer@ Empedernid@</p>
@@ -26,11 +27,11 @@ export const PROFILE = () => {
     imgElement.src = '../images/imgDefault3.png';
   }
   // -------------------------  Mostrar nombre de perfil -------------------------
-  // if (localStorage.getItem('userName') === null) {
-  //   userNameProfile.textContent = localStorage.getItem('userEmail');
-  // } else {
-  //   userNameProfile.textContent = localStorage.getItem('userName');
-  // }
+  if (localStorage.getItem('userName') === null) {
+    userNameProfile.textContent = localStorage.getItem('userEmail');
+  } else {
+    userNameProfile.textContent = localStorage.getItem('userName');
+  }
 
   // AQUI TERMINA LA VISTA
   return divElement;
