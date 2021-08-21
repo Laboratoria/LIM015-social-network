@@ -91,7 +91,7 @@ export const TIMELINE = () => {
             </div>
           </div>
           <div id='reactionPost' class='reactionPost'>
-            <button id='${idPost}' class='btnLove'>&#x2764;</button>
+            <button id='${idPost}' class='btnLove'>&#10084;</button>
             <button id='${idPost}' class='btnComments'>&#128172;</button>
           </div>
         </section>`;
@@ -104,13 +104,13 @@ export const TIMELINE = () => {
     // ------------------------- Boton Edit -------------------------
     divElement.addEventListener('click', async (e) => {
       if (e.target.className === 'btnEdit') {
-        document.querySelector(`input[name="${e.target.id}"]`).disabled = false;
+        document.querySelector(`input[name='${e.target.id}']`).disabled = false;
       }
     });
     // ------------------------- Boton Save  -------------------------
     divElement.addEventListener('click', async (e) => {
       if (e.target.className === 'btnSave') {
-        const postSave = document.querySelector(`input[name="${e.target.id}"]`);
+        const postSave = document.querySelector(`input[name='${e.target.id}']`);
         await updatePost(e.target.id, postSave.value);
         postSave.disabled = true;
       }

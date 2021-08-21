@@ -1,0 +1,13 @@
+.errorSection{
+  display: flex;
+  flex-direction: column-reverse;
+}
+.error404{
+  width: 90%;
+  text-transform: uppercase;
+  margin: auto;
+}
+.errorImg{
+  width: 100%;
+  padding: 5%;
+}

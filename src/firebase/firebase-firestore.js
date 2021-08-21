@@ -41,3 +41,11 @@ export const updatePost = (id, change) => {
     );
   return updatePostById;
 };
+
+// METODO PARA ACTUALIZAR LOS LIKES DE LOS POSTS
+
+// METODO PARA CONSULTAR POST ESPECIFICOS
+export const searchPosts = (text) => {
+  const search = firebase.firestore().collection('posts').where('post', 'in', [text]);
+  return search;
+}
