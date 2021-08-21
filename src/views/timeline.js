@@ -113,7 +113,7 @@ export const TIMELINE = () => {
         const postSave = document.querySelector(`input[name="${e.target.id}"]`);
         await updatePost(e.target.id, postSave.value);
         postSave.disabled = true;
-      };
+      }
     });
   });
   // ------------------------- Boton Delete -------------------------
