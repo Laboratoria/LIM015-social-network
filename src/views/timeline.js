@@ -53,7 +53,7 @@ export const TIMELINE = () => {
     if (textPost.value === '') {
       console.log('publicacion vacia');
     } else {
-    // aqui va lo de firestore
+      // aqui va lo de firestore
       addPostCollection(localStorage.getItem('userName'), localStorage.getItem('userEmail'), textPost.value, localStorage.getItem('userId'))
         .then((promise) => {
           const idCollection = promise.id;
@@ -81,13 +81,13 @@ export const TIMELINE = () => {
         postContent.innerHTML += `<section class='postMessage'>
           <div class='authorPost'>
             <p>Publicado por <span id='userNamePost'>${postInfo.mail}</span></p>
-            <button id='${idPost}' class='btnDelete'>&#128465;</button>
+            <button id='${idPost}' class='btnDelete'>⌦;</button>
           </div>
-          <div class='postContent'>${postInfo.post}</div>
+          <input name='${idPost}'disabled class='postContent' value='${postInfo.post}'>
           <div id='reactionPost' class='reactionPost'>
             <button id='${idPost}' class='btnLike'>&#128077;</button>
             <button id='${idPost}' class='btnEdit'>&#9997;</button>
-            <button id='${idPost}' class='btnSave'>save</button>
+            <button id='${idPost}' class='btnSave'>✅</button>
             <button id='${idPost}' class='btnComments'>&#128172;</button>
           </div>
         </section>`;
@@ -96,17 +96,26 @@ export const TIMELINE = () => {
       .catch((error) => {
         console.log(error);
       });
+
+    // ------------------------- Boton Edit ------------------------- PENDIENTE
+    divElement.addEventListener('click', async (e) => {
+      if (e.target.className === 'btnEdit') {
+        document.querySelector(`input[name="${e.target.id}"]`).disabled = false;
+      }
+    });
+    // ------------------------- Boton Save  -------------------------
+    divElement.addEventListener('click', async (e) => {
+      if (e.target.className === 'btnSave') {
+        const postSave = document.querySelector(`input[name="${e.target.id}"]`);
+        await updatePost(e.target.id, postSave.value);
+        postSave.disabled = true;
+      };
+    });
   });
   // ------------------------- Boton Delete -------------------------
   divElement.addEventListener('click', async (e) => {
     if (e.target.className === 'btnDelete') {
       await deletePost(e.target.id);
-    }
-  });
-  // ------------------------- Boton Edit ------------------------- PENDIENTE
-  divElement.addEventListener('click', async (e) => {
-    if (e.target.className === 'btnEdit') {
-      await updatePost(e.target.id, textPost.value);
     }
   });
   // ------------------------- Ancla salir -------------------------
