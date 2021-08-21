@@ -2,7 +2,7 @@ import firebase from './firebase.js';
 
 // METODO QUE DETECTA LA AUTENTICACION DEL USUARIO - PENDIENTE DE RESOLVER
 export const firebaseWatcher = () => {
-  firebase.auth().onAuthStateChanged((user) => {
+  const authWatcher = firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       console.log('HOLA PASE');
       // User is signed in, see docs for a list of available properties
@@ -15,6 +15,7 @@ export const firebaseWatcher = () => {
       console.log('al usuario le falta loguearse');
     }
   });
+  return authWatcher;
 };
 
 // --------------------------------- VIEW REGISTRARSE ---------------------------------
