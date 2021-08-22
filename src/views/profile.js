@@ -1,20 +1,23 @@
 // import { getPostId, deletePost } from '../firebase/firebase-firestore.js';
 export const PROFILE = () => {
   const view = `
-  <section class='profileContainer'>
+  <section class='profileContent'>
     <figure>
       <img id='imgUser' class='imgProfile' src="../images/imgDefault3.png" alt="photoProfile" />
       <button class='addImage'>&#10133;</button>
     </figure>
+    <section class='nameStatus'>
     <p id='nameProfile' class='nameProfile'>Ariana</p>
     <p id='status' class='status'>Estado: Viajer@ Empedernid@</p>
-  </section>
+    </section>
+    </section>
   <section class='aboutUser'>
     <h2>Sobre mí:</h2>
     <p>Me encanta viajar</p>
   </section>
   `;
   const divElement = document.createElement('div');
+  divElement.className = 'divContentProfile';
   divElement.innerHTML = view;
   // CONSTANTES GLOBALES
   const imgElement = divElement.querySelector('#imgUser');
