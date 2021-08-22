@@ -34,7 +34,7 @@ export const registerTemplate = () => {
   const errorPassword = sectionRegister.querySelector('#errorPassword');
   const errorConfirmPassword = sectionRegister.querySelector('#errorConfirmPassword');
   const errorGeneral = sectionRegister.querySelector('#errorGeneral');
-  const messages = [];
+  let messages = [];
 
   const EmailVerication = () => (
     firebase.auth().currentUser.sendEmailVerification()
@@ -47,6 +47,7 @@ export const registerTemplate = () => {
     const emailRegister = sectionRegister.querySelector('#emailRegister').value;
     const passwordRegister = sectionRegister.querySelector('#passwordRegister').value;
     const confirmPassword = sectionRegister.querySelector('#confirmedPassword').value;
+    messages = [];
     if (emailRegister === '' || passwordRegister === '' || nameUser === '' || confirmPassword === '') {
       messages.push('Llenar todos los campos');
       errorGeneral.innerHTML = messages;
