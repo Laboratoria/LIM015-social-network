@@ -79,12 +79,14 @@
   border: 0;
   color: inherit;
   margin: 1%;
+  cursor: pointer;
 }
 .btnSave{
   background: none;
   border: 0;
   color: inherit;
   margin: 1%;
+  cursor: pointer;
 }
 .reactionPost{
   display: flex;
@@ -96,10 +98,19 @@
   border: 0;
   color: inherit;
   margin: 1%;
+  cursor: pointer;
+}
+.btnDkislike{
+  background: none;
+  border: 0;
+  color: inherit;
+  margin: 1%;
+  cursor: pointer;
 }
 .btnComments{
   background: none;
   border: 0;
   color: inherit;
   margin: 1%;
+  cursor: pointer;
 }
