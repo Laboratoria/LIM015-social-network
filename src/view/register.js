@@ -36,6 +36,10 @@ export const registerTemplate = () => {
   const errorGeneral = sectionRegister.querySelector('#errorGeneral');
   const messages = [];
 
+  const EmailVerication = () => (
+    firebase.auth().currentUser.sendEmailVerification()
+  );
+
   // Registro de cuenta con correo y contraseña
   btnRegister.addEventListener('click', (e) => {
     e.preventDefault();
@@ -58,6 +62,8 @@ export const registerTemplate = () => {
     } else {
       registerWithEmail(emailRegister, passwordRegister)
         .then(() => {
+          EmailVerication();
+          window.alert('mensaje de verificacion enviado');
           window.location.hash = '#/LogIn';
         }).catch((err) => {
           const errorCode = err.code;
