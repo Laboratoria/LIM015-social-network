@@ -8,24 +8,29 @@ import {
 // Constante a exportar
 export const TIMELINE = () => {
   const view = `
-  <section class='profileContainer'>
-    <figure>
-      <img id='imgUser' class='imgProfile' src="../images/imgDefault3.png" alt="photoProfile" />
-    </figure>
-    <p id='nameProfile' class='nameProfile'></p>
-    <p id='status' class='status'>Estado: Viajer@ Empedernid@</p>
-  </section>
-  <section class='publication'>
-    <textarea name='publication' id='textAreaPublication' class='textAreaPublication' placeholder='¿Qué deseas compartir con la comunidad de viajeros?' rows='3'></textarea>
-    <div class='buttonsPost'>
-      <button id='buttonImg' type='button' class='buttonImg'>&#127889;</button>
-      <button id='buttonShare' type='submit' class='buttonShare'>Compartir</button>
-    </div>
-  </section>
-  <section id='posts' class='postSection'>
+  <section class='timeLineContainer'>
+    <section class='profileContainer'>
+      <figure>
+        <img id='imgUser' class='imgProfile' src="../images/imgDefault3.png" alt="photoProfile" />
+      </figure>
+      <p id='nameProfile' class='nameProfile'></p>
+      <p id='status' class='status'>Estado: Viajer@ Empedernid@</p>
+    </section>
+    <section class='publicationContainer'>
+    <section class='publication'>
+      <textarea name='publication' id='textAreaPublication' class='textAreaPublication' placeholder='¿Qué deseas compartir con la comunidad de viajeros?' rows='3'></textarea>
+      <div class='buttonsPost'>
+        <button id='buttonImg' type='button' class='buttonImg'>&#127889;</button>
+        <button id='buttonShare' type='submit' class='buttonShare'>Compartir</button>
+      </div>
+      </section>
+    <section id='posts' class='postSection'>
+    </section>
+    </section>
   </section>
   `;
   const divElement = document.createElement('div');
+  divElement.className = 'divContent';
   divElement.innerHTML = view;
   // Constantes Globales
   const btnShare = divElement.querySelector('#buttonShare');
@@ -80,7 +85,7 @@ export const TIMELINE = () => {
         // console.log(postInfo.post);
         postContent.innerHTML += `<section class='postMessage'>
           <div class='authorPost' name='${postInfo.id}'>
-            <p>Publicado por <span id='userNamePost'>${postInfo.mail}</span></p>
+            <p>Publicado por <span id='userNamePost' class='userNamePost' >${postInfo.mail}</span></p>
             <button id='${idPost}' class='btnDelete'>&#10062;</button>
           </div>
           <div class='sectionAboutPost'>
@@ -88,10 +93,10 @@ export const TIMELINE = () => {
             <div>
               <button id='${idPost}' class='btnEdit'>&#9997;</button>
               <button id='${idPost}' class='btnSave'>&#9989;</button>
-            </div>
+          </div>
           </div>
           <div id='reactionPost' class='reactionPost'>
-            <button id='${idPost}' class='btnLove'>&#128420;</button>
+            <button id='${idPost}' class='btnLove'>&#x2764;&#xfe0f;</button>
             <span name='${idPost}'>0</span>
             <button id='${idPost}' class='btnDkislike'>&#128078;</button>
             <button id='${idPost}' class='btnComments'>&#128172;</button>
