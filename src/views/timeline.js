@@ -2,7 +2,7 @@
 import { logOutUser } from '../firebase/firebase-auth.js';
 import {
   addPostCollection, getPosts, onGetPosts,
-  deletePost, updatePost
+  deletePost, updatePost,
 } from '../firebase/firebase-firestore.js';
 
 // Constante a exportar
@@ -78,13 +78,13 @@ export const TIMELINE = () => {
         const existPost = docAboutCollection.exists;
         const pathPost = docAboutCollection.ref.path;
         const postInfo = docAboutCollection.data();
-        console.log(docAboutCollection);
-        console.log(idPost, existPost, pathPost);
-        console.log(docAboutCollection);
-        console.log(postInfo);
-        console.log(postInfo.post);
+        // console.log(docAboutCollection);
+        // console.log(idPost, existPost, pathPost);
+        // console.log(docAboutCollection);
+        // console.log(postInfo);
+        // console.log(postInfo.post);
         postContent.innerHTML += `<section class='postMessage'>
-          <div class='authorPost'>
+          <div class='authorPost' name='${postInfo.id}'>
             <p>Publicado por <span id='userNamePost' class='userNamePost' >${postInfo.mail}</span></p>
             <button id='${idPost}' class='btnDelete'>&#10062;</button>
           </div>
@@ -97,7 +97,10 @@ export const TIMELINE = () => {
           </div>
           <div id='reactionPost' class='reactionPost'>
             <button id='${idPost}' class='btnLove'>&#x2764;&#xfe0f;</button>
+            <span name='${idPost}'>0</span>
+            <button id='${idPost}' class='btnDkislike'>&#128078;</button>
             <button id='${idPost}' class='btnComments'>&#128172;</button>
+            <span>0</span>
           </div>
         </section>`;
       });
@@ -105,17 +108,36 @@ export const TIMELINE = () => {
       .catch((error) => {
         console.log(error);
       });
-
+    // ------------------------- Boton love -------------------------
+    let counter = 0;
+    divElement.addEventListener('click', async (e) => {
+      if (e.target.className === 'btnLove') {
+        counter++;
+        console.log(counter);
+        e.target.innerHTML = '&#128155;';
+        document.querySelector(`span[name='${e.target.id}']`).textContent = counter;
+        localStorage.setItem('hearts', counter);
+      }
+    });
+    // ------------------------- Boton dislike -------------------------
+    divElement.addEventListener('click', async (e) => {
+      if (e.target.className === 'btnDkislike') {
+        counter--;
+        console.log(counter);
+        document.querySelector(`span[name='${e.target.id}']`).textContent = counter;
+        localStorage.setItem('hearts', counter);
+      }
+    });
     // ------------------------- Boton Edit -------------------------
     divElement.addEventListener('click', async (e) => {
       if (e.target.className === 'btnEdit') {
-        document.querySelector(`input[name="${e.target.id}"]`).disabled = false;
+        document.querySelector(`input[name='${e.target.id}']`).disabled = false;
       }
     });
     // ------------------------- Boton Save  -------------------------
     divElement.addEventListener('click', async (e) => {
       if (e.target.className === 'btnSave') {
-        const postSave = document.querySelector(`input[name="${e.target.id}"]`);
+        const postSave = document.querySelector(`input[name='${e.target.id}']`);
         await updatePost(e.target.id, postSave.value);
         postSave.disabled = true;
       }

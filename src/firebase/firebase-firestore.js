@@ -8,7 +8,7 @@ export const addPostCollection = (nameUser, mailCurrentUser, postMessage, idUser
     post: postMessage,
     time: firebase.firestore.Timestamp.fromDate(new Date()),
     privacyUserPost: false,
-    likes: 0,
+    likes: [],
     id: idUser,
   });
   return postCollection;
@@ -37,6 +37,16 @@ export const updatePost = (id, change) => {
   const updatePostById = firebase.firestore().collection('posts').doc(id)
     .set(
       { post: change },
+      { merge: true },
+    );
+  return updatePostById;
+};
+
+// METODO PARA ACTUALIZAR LOS CORAZONES DE LOS POSTS
+export const updateLoves = (id, likes) => {
+  const updatePostById = firebase.firestore().collection('posts').doc(id)
+    .set(
+      { likes },
       { merge: true },
     );
   return updatePostById;

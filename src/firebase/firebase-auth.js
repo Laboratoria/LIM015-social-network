@@ -11,6 +11,7 @@ export const firebaseWatcher = () => {
       document.querySelector('.profile a').style.display = 'block';
       document.querySelector('.timeline a').style.display = 'block';
       document.querySelector('.logOut a').style.display = 'block';
+      window.location.hash = '#/timeLine';
     } else {
       console.log('esta desconectado');
       document.querySelector('.home a').style.display = 'block';
