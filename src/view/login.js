@@ -52,16 +52,6 @@ export const logInTemplate = () => {
         console.log('error', error);
       });
   };
-
-  const EmailVerication = () => {
-    firebase.auth().currentUser.sendEmailVerification().then(() => {
-      window.alert('mensaje de verificacion enviado');
-    })
-      .catch((error) => {
-        window.alert(error.message);
-      });
-
-  };
   */
 };
 
