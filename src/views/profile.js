@@ -2,6 +2,8 @@ export default () => {
   const article = document.createElement('article');
   const usergoogle = JSON.parse(localStorage.getItem('user'));
   const emailUser = localStorage.getItem('email');
+  const emailName = localStorage.getItem('name');
+
   article.innerHTML = `
   <section class="profile" id="profile">
   <div class="contenedor">
@@ -17,7 +19,7 @@ export default () => {
              ${usergoogle !== null ? `<img src="${usergoogle.photo}" class="pic-user" alt="" />` : '<img src="images/profileDefault.jpeg" class="pic-user" alt="" />'}
            </div>
            <div class="nameUser">
-             ${emailUser !== null ? `<h2>${emailUser}</h2>` : `<h2>${usergoogle.email}</h2>`}
+             ${emailUser !== null ? `<h2>${emailName}<br>${emailUser}</h2>` : `<h2>${usergoogle.name}<br>${usergoogle.email}</h2>`}
            </div>
            <button class="follow">Follow</button>
         </div>

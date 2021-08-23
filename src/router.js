@@ -6,9 +6,9 @@ const changeView = (route) => {
   main.innerHTML = '';
   main.appendChild(components.community());
   switch (route) {
-    case '#/community': main.appendChild(components.community());
+    case '#/community': main.innerHTML = ''; main.appendChild(components.community());
       break;
-    case '#/profile': main.appendChild(components.profile());
+    case '#/profile': main.innerHTML = ''; main.appendChild(components.profile());
       break;
     case '#/logout': logout();
       break;
