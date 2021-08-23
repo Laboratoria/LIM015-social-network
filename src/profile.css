@@ -1,0 +1,447 @@
+@import url('https://fonts.googleapis.com/css2?family=MuseoModerno:wght@200;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+:root {
+  --dark-one: rgb(92, 92, 92);
+  --main-color: #9a54b6;
+  --light-one: #fff;
+}
+
+/********* Estilos generales **************/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+
+html{
+  background-image: linear-gradient(to right, #dae7e7 0%, #efc7f7 100%);
+}
+
+button,
+input,
+textarea {
+  font-family: "Poppins", sans-serif;
+}
+
+body::-webkit-scrollbar {
+  width: 18px;
+  background: #ffffff;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #bd97e0d5;
+  border-radius: 12px;
+}
+
+body::-webkit-scrollbar-thumb:active {
+  background-color: #bebebe;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+}
+
+.contenedor {
+  position: relative;
+  z-index: 5;
+  max-width: 92rem;
+  padding: 0 6rem;
+  margin: 0 auto;
+}
+
+
+/************* Nav *************/
+
+nav {
+  width: 100%;
+  position: relative;
+}
+
+nav .contenedor {
+  display: flex;
+  justify-content: space-between;
+  height: 7rem;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+}
+
+.links ul {
+  display: flex;
+}
+
+.links i {
+  display: inline-block;
+  padding: 0.9rem 2.5rem;
+  color: var(--dark-one);
+  font-size: 2rem;
+  transition: 0.5s;
+}
+
+.links i:hover {
+  color: var(--main-color);
+}
+
+/***********************Estilos********************/
+.section-profile {
+  background-color: var(--light-one);
+  width: 100%;
+  border-radius: 45px;
+  padding: 3rem 3.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  box-shadow: 0 0 10px 0 rgba(73, 73, 73, 0.63);
+  margin-bottom: 2rem;
+}
+
+.profile .title {
+  margin-bottom:2rem;
+  font-size: 1.8rem;
+  font-family: "MuseoModerno", sans-serif;
+}
+
+
+/*****************INFO DEL USUARIO*********************/
+
+.profile-banner {
+  background-image: linear-gradient(to right, #f4fad6 0%, #ffafbd 0%, #c9ffbf 100%);
+  height: 300px;
+  width: 100%;
+  background-size:100%;
+  object-fit: cover; 
+  background-attachment: fixed;
+  position: relative;
+  border-radius: 50px;
+}
+
+.Section-user {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  -ms-overflow-style: none; 
+}
+
+.pic-user {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  border: 10px solid #c6bcf0;
+  transition: all 0.4s ease;
+  position: relative;
+  margin-top: -100px;
+  margin-bottom: -25px;
+}
+
+.pic-user:hover {
+  border-radius: 50%;
+  box-shadow: 0 0 15px 0 rgb(41, 41, 41);  
+}
+
+.nameUser {
+  font-size: 1.2rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  align-items: center;
+  text-align: center;
+  margin: 0.5rem;
+}
+
+.follow {
+  font-family: "MuseoModerno", sans-serif;
+  color: var(--light-one);
+  background: #846ab3ce;
+  font-size: 1.3rem;
+  font-weight: 500;
+  letter-spacing: 0.030em;
+  border: none;
+  border-radius: 25px;
+  min-height: 40px;
+  width: 100px;
+  margin: 17px;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+.follow:hover {
+  width: 115px;
+  background: #943ddbe0;
+}
+
+/********************COLUMNA "EDITAR PERFIL" *********************/
+
+
+.info-user {
+  padding-left: 2rem;
+}
+
+.info-user .title {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.info-user .txt-info {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto-fit, minmax(130px, 1fr);
+  grid-column-gap: 0.6rem;
+}
+
+.edit {
+  padding: 1.2rem 2.1rem;
+  margin: 0.6rem 0;
+  border: none;
+  outline: none;
+  background: #e7e7e7;
+  border-radius: 4rem;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: 0.5s;
+}
+
+.edit::placeholder {
+  font-weight: 400;
+}
+
+.edit.textarea {
+  resize: none;
+  min-height: 150px;
+  border-radius: 2rem; 
+}
+
+.edit:hover {
+  background-color: #cccccc;
+}
+
+.edit:focus {
+  background-image: linear-gradient(-20deg, #e9defa 0%, #fcdbf4 100%); 
+}
+
+.btn-edit {
+  text-align: center;
+}
+
+.btn {
+  margin-top: 0.6rem;
+  display: inline-block;
+  padding: 0.6rem 1rem;
+  background-color: var(--main-color);
+  color: var(--light-one);
+  border-radius: 1rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+  transition: 0.3s;
+  border: none;  
+}
+
+.btn:hover {
+  background-color: #5d5f5e;
+}
+
+.text-print {
+  padding: 1.2rem 2.1rem;
+  font-family: "Poppins", sans-serif;
+  margin: 0.6rem 0;
+  border: none;
+  outline: none;
+  background: #f0f0f0b6;
+  border-radius: 3.5rem;
+  font-size: 1rem;
+  transition: 0.5s;
+}
+
+/********* Responsive ************/
+
+@media (max-width: 1280px) {
+  .text {
+    font-size: 1rem;
+  }
+
+  .links i {
+    font-size: 1.9rem;
+    padding: 0.65rem 2.7rem;
+  }
+
+  .title {
+    font-size: 2.1rem;
+    padding-bottom: 0.65rem;
+  }
+
+  .btn {
+    padding: 0.75rem 1.7rem;
+    font-size: 0.8rem;
+  }
+
+  nav .contenedor {
+    height: 6rem;
+  }
+
+  .logo {
+    width: 28%;
+  }
+
+  .info-user {
+    padding-left: 1rem;
+  }
+
+  .pic-user {
+    height: 160px;
+    width: 160px;
+    border-radius: 50%;
+    border: 10px solid #c6bcf0;
+    transition: all 0.4s ease;
+    position: relative;
+    margin-top: -100px;
+  }
+
+  .profile {
+    padding-right: 1rem;
+  }
+
+  .section-profile {
+    padding: 3.6rem 3rem;
+  }
+
+   .contact-icon {
+    min-width: 50px;
+    height: 50px;
+    font-size: 1rem;
+    margin-right: 0.8rem;
+  }
+
+  .contact-icon i {
+    line-height: 50px;
+  }
+
+  .edit {
+    font-size: 1.1rem;
+    padding: 0.9rem 1.6rem;
+    margin: 0.4rem 0;
+  }
+
+  .btn-edit .btn{
+    font-size: 1.05rem;
+  }
+
+}
+
+@media (max-width: 1000px) {
+
+  .btn-edit .btn{
+    font-size: 0.9rem;
+  }
+} 
+
+@media (max-width: 850px) {
+  .logo {
+    width: 35%;
+  }
+
+  .links i {
+    font-size: 1.8rem;
+    padding: 0.65rem 2.7rem;
+  } 
+
+  .information-user {
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+  }
+
+  .section-profile {
+    grid-template-columns: 1fr;
+    padding: 3.2rem 2.7rem;
+  }
+
+  .profile {
+    padding-right: 0;
+    padding-bottom: 0.5rem;
+  }
+
+  .info-user {
+    padding-left: 0;
+    padding-top: 0.5rem;
+  }
+
+  .info-user h3 {
+   font-size: 1.8rem;
+  }
+
+  .edit .textarea {
+    min-height: 220px;
+    font-size: 1.2rem;
+  }
+
+  .txt-info .btn{
+    font-size: 1rem;
+  }
+
+}
+
+@media (max-width: 600px) {
+  
+  .links i {
+    font-size: 1.3rem;
+    padding: 0.65rem 1.7rem;
+  }
+
+  .logo {
+    width: 40%;
+  }
+
+}
+
+@media (max-width: 560px) {
+  .logo {
+    width: 35%;
+  }
+
+  .links i {
+    font-size: 1.4rem;
+    padding: 0.65rem 1.5rem;
+  }
+
+  .contenedor {
+    padding: 0 3rem;
+  }
+
+  .text {
+    font-size: 0.92rem;
+  }
+
+  .section-profile {
+    padding: 2.3rem 2rem;
+    border-radius: 30px;
+  }
+
+  .info-user .txt-info {
+    grid-column-gap: 0.3rem;
+  }
+
+  .edit {
+    font-size: 0.8rem;
+    padding: 0.8rem 1.4rem;
+    margin: 0.25rem 0;
+  }
+
+  .txt-info .btn{
+    font-size: 0.8rem;
+  }
+}
+
+/* Fin Responsive */

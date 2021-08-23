@@ -1,6 +1,43 @@
 export default () => {
   const article = document.createElement('article');
+  const usergoogle = JSON.parse(localStorage.getItem('user'));
+  const emailUser = localStorage.getItem('email');
   article.innerHTML = `
-<p>Hola</p>`;
+  <section class="profile" id="profile">
+  <div class="contenedor">
+    <!--Sección de Perfil-->
+    <div class="section-profile">
+      <div class="profile">
+        <div class="profile-banner">
+        </div>
+
+        <!--Información del usuario-->
+        <div class="Section-user">
+           <div class="information-user">
+             ${usergoogle !== null ? `<img src="${usergoogle.photo}" class="pic-user" alt="" />` : '<img src="images/profileDefault.jpeg" class="pic-user" alt="" />'}
+           </div>
+           <div class="nameUser">
+             ${emailUser !== null ? `<h2>${emailUser}</h2>` : `<h2>${usergoogle.email}</h2>`}
+           </div>
+           <button class="follow">Follow</button>
+        </div>
+           
+        <!--Columna de Gustos e intereses del usuario-->
+        <div class="info-user">
+          <h3 class="title">Acerca de mi:</h3>
+          <div class="txt-info">
+          <textarea
+           name="message"
+           class="edit textarea"
+           placeholder="Comparte tus gustos en intereses"></textarea>
+        </div>
+       <div class="btn-edit">
+        <button type="submit" class="btn">Editar</button>
+       </div>
+        <p class="text-print">texto impreso</p>  
+     </div>
+    </div>
+  </div>
+</section>`;
   return article;
 };

@@ -1,6 +1,5 @@
 import { auth } from './fs-config.js';
 
-// const usuarios = firebase.firestore().collection('InfoUser');
 // SIGN UP
 export const signUp = (email, password) => auth.createUserWithEmailAndPassword(email, password);
 
@@ -13,7 +12,7 @@ export const googleLogin = () => {
   return auth.signInWithPopup(provider);
 };
 
-// Log out
+// LOG OUT
 export const logout = () => {
   auth.signOut().then(() => {
     console.log('signed out');

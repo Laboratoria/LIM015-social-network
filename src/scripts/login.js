@@ -3,7 +3,7 @@ import {
 } from './fs-login.js';
 import { vistas } from '../main.js';
 
-// SECCION LOGIN HTML
+// SECCIÓN LOGIN HTML
 const main = document.querySelector('.container');
 
 // Crear el elemento
@@ -87,7 +87,6 @@ const registrar = document.getElementById('registrar');
 const container = document.querySelector('.container');
 
 registrar.addEventListener('click', () => {
-// console.log('registrar');
   container.classList.add('modoRegistro');
 });
 
@@ -95,13 +94,12 @@ ingresar.addEventListener('click', () => {
   container.classList.remove('modoRegistro');
 });
 
-// Registrarse con email y password
+// SIGN UP - REGISTRARSE CON EMAIL Y PASSWORD
 const signupForm = document.querySelector('.sign-up-form');
 
 signupForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const userName = document.getElementById('signup-user').value;
-  localStorage.setItem('name', userName);
   const signupEmail = document.getElementById('signup-email').value;
   const signupPassword = document.getElementById('signup-password').value;
   const errorMsgPassword = document.getElementById('su-error-password');
@@ -113,13 +111,14 @@ signupForm.addEventListener('submit', (e) => {
     const Email = result.user.email;
     localStorage.setItem('email', Email);
     console.log('signed up');
+    localStorage.setItem('name', userName);
   })
     .catch((error) => {
       console.log(error.code, error.message);
     });
 });
 
-// Ingresar con email y password
+// SIGN IN - INGRESAR CON EMAIL Y PASSWORD
 const signinForm = document.querySelector('.sign-in-form');
 
 signinForm.addEventListener('submit', (e) => {
@@ -146,7 +145,7 @@ signinForm.addEventListener('submit', (e) => {
   }
 });
 
-// Ingresar con Google
+// INGRESAR CON GOOGLE
 const googleBtn = document.querySelector('.google');
 googleBtn.addEventListener('click', () => {
   googleLogin().then((result) => {
@@ -179,7 +178,7 @@ googleBtn.addEventListener('click', () => {
     });
 });
 
-// Logout
+// LOG OUT
 const Logout = document.querySelector('.fa-sign-out-alt');
 Logout.addEventListener('click', () => {
   logout();
