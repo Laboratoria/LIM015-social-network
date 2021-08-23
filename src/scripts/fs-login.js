@@ -17,7 +17,6 @@ export const logout = () => {
   auth.signOut().then(() => {
     console.log('signed out');
     localStorage.removeItem('user');
-    localStorage.removeItem('name');
     localStorage.removeItem('email');
     window.location.reload();
   }).catch((error) => {
