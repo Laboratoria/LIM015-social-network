@@ -1,0 +1,39 @@
+:root{
+  --color-main: rgba(242, 167, 27, 1);
+  --color-secondary: rgba(191, 134, 63, 1);
+  --color-light-brown: rgba(217, 199, 184, 1);
+  --color-transparent-brown: rgba(217, 199, 184, 0.4);
+  --color-yellow: rgba(242, 195, 53, 1);
+  --color-light-yellow: rgba(242, 205, 92, 1);
+  --color-gray: rgba(161, 165, 172, 1);
+}
+
+*{
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+.icon{
+  font-size: 28px;
+  color: var(--color-secondary);
+}
+
+.icon-gray{
+  color: var(--color-gray);
+}
+
+.formText{
+  color: var(--color-secondary);
+}
+
+.formBox{
+  height: 48px;
+  width: 319px;
+}
+
+.formBox::placeholder{
+  color: var(--color-gray);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+}
