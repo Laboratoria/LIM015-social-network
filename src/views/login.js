@@ -1,4 +1,4 @@
-import { login, loginWithFacebook, loginWithGoogle } from '../firebase/firebase-auth.js';
+import { login, loginWithFacebook, loginWithGoogle, firebaseWatcher } from '../firebase/firebase-auth.js';
 // Constante a exportar
 export const LOGIN = () => {
   const view = `
@@ -57,7 +57,7 @@ export const LOGIN = () => {
           localStorage.setItem('userEmail', userCredential.user.email);
           localStorage.setItem('userPhoto', userCredential.user.photoURL);
           localStorage.setItem('userId', userCredential.user.uid);
-          window.location.hash = '#/timeLine';
+          firebaseWatcher();
         })
         .catch((error) => {
           const errorCode = error.code;

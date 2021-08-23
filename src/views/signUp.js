@@ -27,18 +27,24 @@ export const SIGNUP = () => {
   const emailUser = divElement.querySelector('#email');
   const password = divElement.querySelector('#password1');
   const confirmPass = divElement.querySelector('#password2');
+  // ------------------------- ESCONDER RESTO DE LINKS -------------------------
+  document.querySelector('.profile a').style.display = 'none';
+  document.querySelector('.timeline a').style.display = 'none';
+  document.querySelector('.logOut a').style.display = 'none';
   // ------------------------- Boton Registrarse -------------------------
-  btnSignUp.addEventListener('click', () => {
+  btnSignUp.addEventListener('click', (e) => {
+    const expReg = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
     if (password.value !== confirmPass.value) {
       errorMessageElement.textContent = 'Por favor, confirma tu contraseña 🙊';
     } else if (
       userNameInput.value === '' && emailUser.value === '' && password.value === '' && confirmPass.value === ''
     ) {
       errorMessageElement.textContent = '⚡ Por favor complete todos los campos ⚡';
+    } else if (emailUser.value !== expReg) {
+      errorMessageElement.textContent = 'Ups 🙉, ingresa un correo válido por favor';
     } else {
-      /* AQUI TODO PASA OK */
       errorMessageElement.textContent = '';
-      /* AQUI CODIGO DE FIREBASE */
+      /* AQUI TODO PASA OK */
       formElement.addEventListener('submit', (e) => {
         e.preventDefault();
         registerWithFirebase(emailUser.value, password.value)
@@ -48,9 +54,6 @@ export const SIGNUP = () => {
             } else {
               localStorage.setItem('userName', userCredential.user.displayName);
             }
-            localStorage.setItem('userEmail', userCredential.user.email);
-            localStorage.setItem('userPhoto', userCredential.user.photoURL);
-            localStorage.setItem('userId', userCredential.user.uid);
             errorMessageElement.textContent = '';
             window.location.hash = '#/login';
           })

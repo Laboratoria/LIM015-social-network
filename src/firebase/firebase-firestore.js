@@ -45,9 +45,14 @@ export const updatePost = (id, change) => {
 // METODO PARA ACTUALIZAR LOS CORAZONES DE LOS POSTS
 export const updateLoves = (id, likes) => {
   const updatePostById = firebase.firestore().collection('posts').doc(id)
-    .set(
+    .update(
       { likes },
-      { merge: true },
     );
   return updatePostById;
+};
+
+// METODO PARA OBTENER UN POST SEGUN SU ID
+export const getPostsUserId = (id) => {
+  const postOnFirestore = firebase.firestore().collection('posts').doc(id).get();
+  return postOnFirestore;
 };

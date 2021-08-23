@@ -15,6 +15,10 @@ export const HOME = () => {
   divElement.innerHTML = view;
   // Constantes globales
   const btnStart = divElement.querySelector('#btnStart');
+  // ------------------------- ESCONDER RESTO DE LINKS -------------------------
+  document.querySelector('.profile a').style.display = 'none';
+  document.querySelector('.timeline a').style.display = 'none';
+  document.querySelector('.logOut a').style.display = 'none';
   // ------------------------- Boton Empezar -------------------------
   btnStart.addEventListener('click', () => {
     window.location.hash = '#/login';

@@ -1,8 +1,8 @@
 // import firebase from '../firebase/firebase.js';
-import { logOutUser } from '../firebase/firebase-auth.js';
+import { logOutUser, firebaseWatcher } from '../firebase/firebase-auth.js';
 import {
   addPostCollection, getPosts, onGetPosts,
-  deletePost, updatePost,
+  deletePost, updatePost, updateLoves, getPostsUserId
 } from '../firebase/firebase-firestore.js';
 
 // Constante a exportar
@@ -41,6 +41,7 @@ export const TIMELINE = () => {
   const postContent = divElement.querySelector('#posts');
   const imgElement = divElement.querySelector('#imgUser');
   // FUNCIONALIDAD
+  firebaseWatcher();
   // ------------------------- Foto de perfil -------------------------
   if (localStorage.getItem('userPhoto')) {
     imgElement.src = localStorage.getItem('userPhoto');
@@ -97,7 +98,7 @@ export const TIMELINE = () => {
           </div>
           <div id='reactionPost' class='reactionPost'>
             <button id='${idPost}' class='btnLove'>&#x2764;&#xfe0f;</button>
-            <span name='${idPost}'>0</span>
+            <span name='${idPost}'>${postInfo.likes}</span>
             <button id='${idPost}' class='btnDkislike'>&#128078;</button>
             <button id='${idPost}' class='btnComments'>&#128172;</button>
             <span>0</span>
@@ -109,14 +110,17 @@ export const TIMELINE = () => {
         console.log(error);
       });
     // ------------------------- Boton love -------------------------
-    let counter = 0;
     divElement.addEventListener('click', async (e) => {
       if (e.target.className === 'btnLove') {
-        counter++;
-        console.log(counter);
-        e.target.innerHTML = '&#128155;';
-        document.querySelector(`span[name='${e.target.id}']`).textContent = counter;
-        localStorage.setItem('hearts', counter);
+        // console.log(getPostsUserId(e.target.id));
+        getPostsUserId(e.target.id)
+          .then((postInfo) => {
+            if (postInfo.data().id === localStorage.getItem('userId')) {
+              console.log('BIEN, ERES LA MISMA PERSONA');
+            } else {
+              console.log('RAYOS! NO ERES EL MISMO USUARIO :C');
+            }
+          });
       }
     });
     // ------------------------- Boton dislike -------------------------
@@ -131,22 +135,47 @@ export const TIMELINE = () => {
     // ------------------------- Boton Edit -------------------------
     divElement.addEventListener('click', async (e) => {
       if (e.target.className === 'btnEdit') {
-        document.querySelector(`input[name='${e.target.id}']`).disabled = false;
+        getPostsUserId(e.target.id)
+          .then((postInfo) => {
+            if (postInfo.data().id === localStorage.getItem('userId')) {
+              console.log('BIEN, ERES LA MISMA PERSONA');
+              document.querySelector(`input[name='${e.target.id}']`).disabled = false;
+            } else {
+              console.log('RAYOS! NO ERES EL MISMO USUARIO :C');
+              document.querySelector(`input[name='${e.target.id}']`).disabled = true;
+            }
+          });
       }
     });
     // ------------------------- Boton Save  -------------------------
     divElement.addEventListener('click', async (e) => {
       if (e.target.className === 'btnSave') {
         const postSave = document.querySelector(`input[name='${e.target.id}']`);
-        await updatePost(e.target.id, postSave.value);
-        postSave.disabled = true;
+        getPostsUserId(e.target.id)
+          .then((postInfo) => {
+            if (postInfo.data().id === localStorage.getItem('userId')) {
+              console.log('BIEN, ERES LA MISMA PERSONA');
+              updatePost(e.target.id, postSave.value);
+            } else {
+              console.log('RAYOS! NO ERES EL MISMO USUARIO :C');
+              document.querySelector(`input[name='${e.target.id}']`).disabled = true;
+            }
+          });
       }
     });
   });
   // ------------------------- Boton Delete -------------------------
   divElement.addEventListener('click', async (e) => {
     if (e.target.className === 'btnDelete') {
-      await deletePost(e.target.id);
+      getPostsUserId(e.target.id)
+        .then((postInfo) => {
+          if (postInfo.data().id === localStorage.getItem('userId')) {
+            console.log('BIEN, ERES LA MISMA PERSONA');
+            deletePost(e.target.id);
+          } else {
+            console.log('RAYOS! NO ERES EL MISMO USUARIO :C');
+          }
+        });
     }
   });
   // ------------------------- Ancla salir -------------------------
