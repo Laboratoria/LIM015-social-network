@@ -105,11 +105,18 @@ signupForm.addEventListener('submit', (e) => {
   const signupEmail = document.getElementById('signup-email').value;
   const signupPassword = document.getElementById('signup-password').value;
   const errorMsgPassword = document.getElementById('su-error-password');
-
-  signUp(signupEmail, signupPassword);
   if (signupEmail === '' || signupPassword === '') {
     errorMsgPassword.innerHTML = 'Debes llenar todos los campos <br> (╯ರ ~ ರ)╯︵ ┻━┻';
   }
+
+  signUp(signupEmail, signupPassword).then((result) => {
+    const Email = result.user.email;
+    localStorage.setItem('email', Email);
+    console.log('signed up');
+  })
+    .catch((error) => {
+      console.log(error.code, error.message);
+    });
 });
 
 // Ingresar con email y password
@@ -122,7 +129,18 @@ signinForm.addEventListener('submit', (e) => {
   // const errorMsgEmail = document.getElementById('si-error-email'); // MENSAJES DE ERROR
   const errorMsgPassword = document.getElementById('si-error-password'); // "signIn Error Password"
 
-  signIn(siginEmail, signinPassword);
+  signIn(siginEmail, signinPassword).then((result) => {
+    const Email = result.user.email;
+    localStorage.setItem('email', Email);
+    console.log('signed in');
+    vistas();
+    document.querySelector('.container').style.display = 'none'; // acá oculto el main que contiene el login
+    document.getElementById('header').style.display = 'flex'; // acá muestro el header con el navbar
+  })
+    .catch((error) => {
+      console.log(error.code, error.message);
+    });
+
   if (siginEmail === '' || signinPassword === '') {
     errorMsgPassword.innerHTML = 'Debes ingresar tu email y contraseña <br> (╯ರ ~ ರ)╯︵ ┻━┻';
   }
@@ -131,10 +149,34 @@ signinForm.addEventListener('submit', (e) => {
 // Ingresar con Google
 const googleBtn = document.querySelector('.google');
 googleBtn.addEventListener('click', () => {
-  googleLogin();
-  vistas();
-  document.querySelector('.container').style.display = 'none'; // acá oculto el main que contiene el login
-  document.getElementById('header').style.display = 'flex'; // acá muestro el header con el navbar
+  googleLogin().then((result) => {
+    const credential = result.credential;
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    console.log(credential.accessToken);
+    // Envío la información del usuario al LocalStorage
+    const Name = result.user.displayName;
+    const Email = result.user.email;
+    const Photo = result.user.photoURL;
+    const User = {
+      name: Name,
+      email: Email,
+      photo: Photo,
+    };
+    localStorage.setItem('user', JSON.stringify(User));
+    console.log('signed in with Google');
+    vistas();
+    document.querySelector('.container').style.display = 'none'; // acá oculto el main que contiene el login
+    document.getElementById('header').style.display = 'flex'; // acá muestro el header con el navbar
+  })
+    .catch((error) => {
+      console.error('no se pudo iniciar sesión con gugul :c');
+      console.log(error.code);
+      console.log(error.message);
+      // The email of the user's account used.
+      console.log(error.email);
+      // The firebase.auth.AuthCredential type that was used.
+      console.log(error.credential);
+    });
 });
 
 // Logout
