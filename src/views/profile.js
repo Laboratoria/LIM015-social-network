@@ -32,7 +32,7 @@ export default () => {
            placeholder="Comparte tus gustos en intereses"></textarea>
         </div>
        <div class="btn-edit">
-        <button type="submit" class="btn">Editar</button>
+        <button type="submit" class="edit_button">Editar</button>
        </div>
         <p class="text-print">texto impreso</p>  
      </div>

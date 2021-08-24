@@ -236,7 +236,7 @@ nav .contenedor {
   text-align: center;
 }
 
-.btn {
+.edit_button {
   margin-top: 0.6rem;
   display: inline-block;
   padding: 0.6rem 1rem;
@@ -282,7 +282,7 @@ nav .contenedor {
     padding-bottom: 0.65rem;
   }
 
-  .btn {
+  .edit_button {
     padding: 0.75rem 1.7rem;
     font-size: 0.8rem;
   }
@@ -334,7 +334,7 @@ nav .contenedor {
     margin: 0.4rem 0;
   }
 
-  .btn-edit .btn{
+  .btn-edit .edit_button{
     font-size: 1.05rem;
   }
 
@@ -342,7 +342,7 @@ nav .contenedor {
 
 @media (max-width: 1000px) {
 
-  .btn-edit .btn{
+  .btn-edit .edit_button{
     font-size: 0.9rem;
   }
 } 
@@ -387,7 +387,7 @@ nav .contenedor {
     font-size: 1.2rem;
   }
 
-  .txt-info .btn{
+  .txt-info .edit_button{
     font-size: 1rem;
   }
 
@@ -439,7 +439,7 @@ nav .contenedor {
     margin: 0.25rem 0;
   }
 
-  .txt-info .btn{
+  .txt-info .edit_button{
     font-size: 0.8rem;
   }
 }
