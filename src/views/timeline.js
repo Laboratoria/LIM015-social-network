@@ -112,13 +112,17 @@ export const TIMELINE = () => {
     // ------------------------- Boton love -------------------------
     divElement.addEventListener('click', async (e) => {
       if (e.target.className === 'btnLove') {
-        // console.log(getPostsUserId(e.target.id));
         getPostsUserId(e.target.id)
           .then((postInfo) => {
             if (postInfo.data().id === localStorage.getItem('userId')) {
               console.log('BIEN, ERES LA MISMA PERSONA');
+              console.log(postInfo.data());
+              console.log(postInfo.data().likes);
+              console.log(postInfo.data().likes.length);
+              updateLoves(e.target.id, 1);
             } else {
               console.log('RAYOS! NO ERES EL MISMO USUARIO :C');
+              updateLoves(e.target.id, 1);
             }
           });
       }
@@ -126,10 +130,16 @@ export const TIMELINE = () => {
     // ------------------------- Boton dislike -------------------------
     divElement.addEventListener('click', async (e) => {
       if (e.target.className === 'btnDkislike') {
-        counter--;
-        console.log(counter);
-        document.querySelector(`span[name='${e.target.id}']`).textContent = counter;
-        localStorage.setItem('hearts', counter);
+        getPostsUserId(e.target.id)
+          .then((postInfo) => {
+            if (postInfo.data().id === localStorage.getItem('userId')) {
+              console.log('BIEN, ERES LA MISMA PERSONA');
+              updateLoves(e.target.id, 0);
+            } else {
+              console.log('RAYOS! NO ERES EL MISMO USUARIO :C');
+              updateLoves(e.target.id, 0);
+            }
+          });
       }
     });
     // ------------------------- Boton Edit -------------------------

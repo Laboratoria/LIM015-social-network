@@ -32,7 +32,7 @@ export const SIGNUP = () => {
   document.querySelector('.timeline a').style.display = 'none';
   document.querySelector('.logOut a').style.display = 'none';
   // ------------------------- Boton Registrarse -------------------------
-  btnSignUp.addEventListener('click', (e) => {
+  btnSignUp.addEventListener('click', () => {
     const expReg = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
     if (password.value !== confirmPass.value) {
       errorMessageElement.textContent = 'Por favor, confirma tu contraseña 🙊';
