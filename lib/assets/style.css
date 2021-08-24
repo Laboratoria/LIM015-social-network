@@ -11,25 +11,24 @@
 *{
   font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
-  font-size: 12px;
+  font-size: 14px;
   margin: 0;
 }
 
+/* Components */
 .icon{
   font-size: 28px;
   color: var(--color-secondary);
 }
-
 .icon-gray{
   color: var(--color-gray);
 }
-
 .formText{
   color: var(--color-secondary);
 }
 .formBox{
   height: 48px;
-  width: 319px;
+  min-width: 319px;
   outline: none;
 }
 .formBox::placeholder{
@@ -41,7 +40,7 @@
 .signUpContainer{
   background-image: url(./img/backgroung-mobile.svg);
   max-width: 100%;
-  height:100vh;
+  height: 100vh;
   overflow-x: hidden;
 }
 .signUpContainer section{
@@ -62,17 +61,18 @@
   display: none;
 }
 .signUp-form .formBox{
-  border-radius: 71px;
-  background: #ffffff; 
+  border-radius: 30px;
   padding: 18px 10px 18px 28px;
-  border:0;
+  border: 0;
   margin-top: 20px;
-  font-size: 14px;
+}
+.passwordContainer{
+  position: relative;
 }
 .signUp-form .icon{
   position: absolute;
-  top: 340px;
-  right: 25px;
+  top: 28px;
+  right: 12px;
 }
 .checkbox{
   display: flex;
