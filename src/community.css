@@ -155,6 +155,18 @@ figcaption {
   transition: all 0.4s ease;
 }
 
+.poster_effect-text img {
+  position: absolute;
+  line-height: 1.5;
+  width: 180px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: center;
+  transition: 0.5s;
+  border-radius: 20px;
+}
+
 .user-img img:hover {
   box-shadow: 0 0 15px 0 rgb(41, 41, 41);
   border-radius: 50%;
@@ -209,24 +221,11 @@ figcaption {
   width: 80%; 
 }
 
-.poster_effect-text img {
-  position: absolute;
-  line-height: 1.5;
-  width: 180px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transform-origin: center;
-  transition: 0.5s;
-  border-radius: 20px;
-}
-
 .poster_effect-text .img-overlay {
   position: absolute;
   width: 199px;
   height: 128%;
   top: -14%;
-  left: 3%;
   z-index: 2;
   color: var(--light-one);
   background-color: rgba(120, 76, 251, 0.55);
@@ -319,7 +318,7 @@ figcaption {
   text-align: center;
 }
 
-.btn {
+.post_btn {
   margin-top: 0.6rem;
   display: inline-block;
   padding: 0.85rem 2rem;
@@ -330,10 +329,11 @@ figcaption {
   text-transform: uppercase;
   font-weight: 500;
   transition: 0.3s;
-  border: none;  
+  border: none;
+  cursor: pointer;  
 }
 
-.btn:hover {
+.post_btn:hover {
   background-color: #6b44e0;
 }
 
@@ -357,7 +357,7 @@ figcaption {
     padding-bottom: 0.65rem;
   }
 
-  .btn {
+  .post_btn {
     padding: 0.75rem 1.7rem;
     font-size: 0.8rem;
   }
@@ -435,7 +435,7 @@ figcaption {
     margin: 0.4rem 0;
   }
 
-  .btn-share .btn{
+  .btn-share .post_btn{
     font-size: 1.05rem;
   }
 
@@ -469,7 +469,7 @@ figcaption {
   .img-overlay h5 {
     font-size: 1rem;
   }
-  .btn-share .btn{
+  .btn-share .post_btn{
     font-size: 0.9rem;
   }
 } 
@@ -537,7 +537,7 @@ figcaption {
     display: none;
   }
 
-  .txt-post .btn{
+  .txt-post .post_btn{
     font-size: 1rem;
   }
 
@@ -615,7 +615,7 @@ figcaption {
     margin: 0.25rem 0;
   }
 
-  .txt-post .btn{
+  .txt-post .post_btn{
     font-size: 0.8rem;
   }
 }

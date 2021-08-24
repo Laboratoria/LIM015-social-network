@@ -12,7 +12,7 @@ auth.onAuthStateChanged((user) => {
   if (user) {
     console.log('auth-signin');
     vistas();
-    document.querySelector('.container').style.display = 'none'; // oculto el main que contiene el login
+document.querySelector('.container').style.display = 'none'; // oculto el main que contiene el login
     document.getElementById('header').style.display = 'flex'; // acá muestro el header con el navbar
   } else {
     console.log('auth-signout');
