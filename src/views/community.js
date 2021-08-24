@@ -88,7 +88,7 @@ export default () => {
             placeholder="¿Qué quieres compartir?"></textarea>
          </div>
         <div class="btn-share">
-         <button type="submit" class="btn">Compartir</button>
+         <button type="submit" class="post_btn">Compartir</button>
         </div> 
       </div>
      </div>
