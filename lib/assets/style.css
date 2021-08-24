@@ -30,6 +30,7 @@
 .formBox{
   height: 48px;
   width: 319px;
+  outline: none;
 }
 .formBox::placeholder{
   color: var(--color-gray);
