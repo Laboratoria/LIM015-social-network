@@ -37,3 +37,32 @@
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
 }
+
+.formGroup-correct {
+  color: #1ed12d;
+  opacity: 1;
+}
+
+.is-active {
+  color: #bb2929;
+}
+
+p.inputErrorEmail, .inputErrorPassword {
+  font-size: 12px;
+  margin-bottom: 0;
+  display: none;
+}
+
+span.form-error {
+  font-family: 'Roboto', sans-serif;
+  color: #bb2929;
+}
+
+.none{
+  display: none;
+}
+
+.form-error.is-active{
+  display: block;
+  animation: show-message 1s 1 normal 0s ease-in-out both;
+}
