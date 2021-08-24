@@ -318,7 +318,7 @@ figcaption {
   text-align: center;
 }
 
-.btn {
+.post_btn {
   margin-top: 0.6rem;
   display: inline-block;
   padding: 0.85rem 2rem;
@@ -329,10 +329,11 @@ figcaption {
   text-transform: uppercase;
   font-weight: 500;
   transition: 0.3s;
-  border: none;  
+  border: none;
+  cursor: pointer;  
 }
 
-.btn:hover {
+.post_btn:hover {
   background-color: #6b44e0;
 }
 
@@ -356,7 +357,7 @@ figcaption {
     padding-bottom: 0.65rem;
   }
 
-  .btn {
+  .post_btn {
     padding: 0.75rem 1.7rem;
     font-size: 0.8rem;
   }
@@ -434,7 +435,7 @@ figcaption {
     margin: 0.4rem 0;
   }
 
-  .btn-share .btn{
+  .btn-share .post_btn{
     font-size: 1.05rem;
   }
 
@@ -468,7 +469,7 @@ figcaption {
   .img-overlay h5 {
     font-size: 1rem;
   }
-  .btn-share .btn{
+  .btn-share .post_btn{
     font-size: 0.9rem;
   }
 } 
@@ -536,7 +537,7 @@ figcaption {
     display: none;
   }
 
-  .txt-post .btn{
+  .txt-post .post_btn{
     font-size: 1rem;
   }
 
@@ -614,7 +615,7 @@ figcaption {
     margin: 0.25rem 0;
   }
 
-  .txt-post .btn{
+  .txt-post .post_btn{
     font-size: 0.8rem;
   }
 }
