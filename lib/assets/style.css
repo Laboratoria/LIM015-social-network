@@ -138,9 +138,6 @@
   .signUp-form .formBox{
     border: 1px solid var(--color-main);
   }
-  .signUp-form .icon{
-    top: 265px;
-  }
 }
 /* .formGroup-correct {
   color: #1ed12d;
