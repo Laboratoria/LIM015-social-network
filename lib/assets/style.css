@@ -1,0 +1,209 @@
+:root{
+  --color-main: rgba(242, 167, 27, 1);
+  --color-secondary: rgba(191, 134, 63, 1);
+  --color-light-brown: rgba(217, 199, 184, 1);
+  --color-transparent-brown: rgba(217, 199, 184, 0.4);
+  --color-yellow: rgba(242, 195, 53, 1);
+  --color-light-yellow: rgba(242, 205, 92, 1);
+  --color-gray: rgba(161, 165, 172, 1);
+}
+
+*{
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Components */
+.desktop-logo{
+  display: none;
+}
+.icon{
+  font-size: 28px;
+  color: var(--color-secondary);
+}
+.icon-gray{
+  color: var(--color-gray);
+}
+.formText{
+  color: var(--color-secondary);
+}
+.formBox{
+  margin-top: 20px;
+  height: 48px;
+  min-width: 319px;
+  border-radius: 30px;
+  padding: 18px 10px 18px 28px;
+  border: 1px solid #fff;
+  outline: none;
+  background: #fff;
+}
+.formBox::placeholder{
+  color: var(--color-gray);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+}
+.formBox:focus{
+  border: 1px solid var(--color-main);
+}
+.passwordContainer{
+  position: relative;
+}
+.icon-eye{
+  position: absolute;
+  top: 28px;
+  right: 12px;
+}
+.formButton{
+  margin-top: 20px;
+  background-color: var(--color-main);
+  min-width: 200px;
+  height: 58px;
+  border-radius: 65px;
+  border: 0;
+  color: #ffffff;
+  font-size: 17px;
+}
+/*--------------------Login---------------------*/
+.loginSection, .signUpSection{
+  flex-basis: 100%;
+}
+.loginForm, .signUpForm{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.loginForm .formText{
+  margin-top: 20px;
+}
+/*--------------------SIGN UP----------------------*/
+.signUpContainer, .loginContainer{
+  background: url(./img/backgroung-mobile.svg) no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow-x: hidden;
+}
+.checkbox{
+  min-width: 319px;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 15px;
+  margin-top: 20px;
+}
+.checkbox .formText{
+  padding-left: 10px;
+  font-size: 13px;
+  padding-top: 3px;
+}
+
+.container-checkBox{
+  display: block;
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 20px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.container-checkBox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 22px;
+  width: 22px;
+  border: 0.5px solid var(--color-main);
+  border-radius: 5px;
+  background-color: white;
+}
+.container-checkBox:hover input ~ .checkmark {
+  background-color: var(--color-gray);
+}
+.container-checkBox input:checked ~ .checkmark {
+  background-color: var(--color-main);
+}
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.container-checkBox input:checked ~ .checkmark:after {
+  display: block;
+}
+.container-checkBox .checkmark:after {
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* validation forms */
+.formText.question, .formText b{
+  font-size: 17px;
+  margin-top: 20px;
+}
+.formText b{
+  padding-left: 5px;
+}
+
+@media only screen and (min-width: 1200px){
+  .loginSection, .signUpSection{
+    flex-basis: 50%;
+  }
+  .signUpContainer, .loginContainer{
+    justify-content: flex-end;
+  }
+  .signUpContainer, .loginContainer{
+    background: url(./img/background.png) no-repeat center center fixed;
+    background-size: cover;
+  }
+  .mobil-logo{
+    display: none;
+  }
+  .desktop-logo{
+    display: block;
+  }
+  .formBox{
+    border: 1px solid var(--color-main);
+  }
+  .formBox:focus{
+    border: 1px solid var(--color-secondary);
+  }
+}
+
+.is-active {
+  color: #bb2929;
+}
+
+span.form-error {
+  color: #bb2929;
+  max-width: 300px;
+  margin: 0.1rem;
+  font-size: 12px;
+}
+
+.none{
+  display: none;
+}
+
+.form-error.is-active{
+  display: block;
+  animation: show-message 1s 1 normal 0s ease-in-out both;
+}
