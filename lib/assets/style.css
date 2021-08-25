@@ -77,6 +77,7 @@
 .checkbox{
   display: flex;
   width: 100%;
+  height: max-content;
   justify-content: flex-start;
   padding-left: 15px;
   margin-top: 20px;
@@ -84,17 +85,62 @@
 .checkbox .formText{
   padding-left: 10px;
   font-size: 13px;
-  font: 400;
+  padding-top: 3px;
 }
-.checkbox .formCheckBox{
-  width: 22px;
-  height:22px;
-  outline: 0px;
-  border:0;
+
+.container-checkBox{
+  display: block;
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 12px;
   cursor: pointer;
+  font-size: 20px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
-.checkbox .formCheckBox:checked{
+.container-checkBox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 22px;
+  width: 22px;
+  border: 0.5px solid var(--color-main);
+  border-radius: 5px;
+  background-color: white;
+}
+.container-checkBox:hover input ~ .checkmark {
+  background-color: var(--color-gray);
+}
+.container-checkBox input:checked ~ .checkmark {
   background-color: var(--color-main);
+}
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.container-checkBox input:checked ~ .checkmark:after {
+  display: block;
+}
+.container-checkBox .checkmark:after {
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 .signUp-form button{
   margin-top: 20px;
