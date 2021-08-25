@@ -31,50 +31,34 @@ export default () => {
 
          <!--contendedor de posters de anime-->
          <div class="container-posters">
-           <div class="div-poster">
-             <div class="poster_effect-text">
-               <img src="./images/port3.jpg" alt="" />
-               <div class="img-overlay">
-                 <div class="img-titles">
-                   <h3>JOJO'S</h3>
-                   <h5>5th Season</h5>
-                 </div>
-              </div>
-            </div>
-           </div> 
-           <div class="div-poster">
-            <div class="poster_effect-text">
-              <img src="./images/port4.png" alt="" />
-              <div class="img-overlay">
-                <div class="img-titles">
-                  <h3>Demon Slayer</h3>
-                  <h5>Movie</h5>
-                </div>
-              </div>
-            </div>
-           </div>  
-           <div class="div-poster">
-            <div class="poster_effect-text">
-              <img src="./images/port1.png" alt="" />
-              <div class="img-overlay">
-                <div class="img-titles">
-                  <h3>Attack on Titan</h3>
-                  <h5>Final Season</h5>
-                </div>
-              </div>
-            </div>
-           </div>
-           <div class="div-poster">
-            <div class="poster_effect-text">
-              <img src="./images/port2.png" alt="" />
-              <div class="img-overlay">
-                <div class="img-titles">
-                  <h3>Tokio Revengers</h3>
-                  <h5>Episode 19</h5>
-                </div>
-              </div>
-            </div>
-          </div>
+         <figure>
+         <img src="./images/port1.png" alt="">
+         <figcaption>
+           <h3>Attack on Titan<br>Final Season</h3>
+           <h5></h5>
+         </figcaption>
+       </figure>
+       
+       <figure>
+         <img src="./images/port2.png" alt="">
+         <figcaption>
+           <h3>Tokio Revengers<br>Episode 19</h3>
+         </figcaption>
+       </figure>
+
+       <figure>
+         <img src="./images/port3.jpg" alt="">
+         <figcaption>
+           <h3>JOJO'S<br>5th Season</h3>
+         </figcaption>
+       </figure>
+  
+       <figure>
+         <img src="./images/port4.png" alt="">
+         <figcaption>
+           <h3>Demon Slayer<br>Movie</h3>
+         </figcaption>
+       </figure>
         </div>
       </div>
 

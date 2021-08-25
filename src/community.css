@@ -203,68 +203,62 @@ figcaption {
 .container-posters {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 auto;
-  grid-gap: 20px;
-}
-
-.div-poster {
+  grid-gap: 40px;
+  justify-content: space-around;
   width: 100%;
-  padding: 1.2rem 1.2rem;
 }
 
-.poster_effect-text {
+figure {
+  display: block; 
   position: relative;
-  margin-left: auto;
-  margin-right:auto;
-  border-radius: 16px;
-  height: 13.5rem;
-  width: 80%; 
+  float:left;
+  overflow: hidden; 
+  width:200px;
+  padding:0;
+  margin: 1%;
+  border-radius: 26px;
 }
 
-.poster_effect-text .img-overlay {
-  position: absolute;
-  width: 199px;
-  height: 128%;
-  top: -14%;
-  z-index: 2;
-  color: var(--light-one);
-  background-color: rgba(120, 76, 251, 0.55);
-  display: flex;
-  flex-direction: column;
-  border-radius: 20px;
-  justify-content:flex-end;
-  padding: 2rem 3.2rem;
-  opacity: 0;
-  transition: 0.3s;
+figure img{
+  border-radius: 25px;
 }
 
-.img-titles {
-  width: 100%;
+/*propiedades fig caption*/
+figcaption {
+  position: absolute; 
+  left:0;
+  height:98%;
+  background: rgba(164, 78, 214, 0.582); 
+  padding: 0; 
+  width:100%;
+  border-radius: 26px;
 }
 
-.img-overlay h3 {
+/*animación del fig caption*/
+figcaption { 
+  top: -100%;
+  transition: all 0.6s ease;
+  -webkit-transition: all 0.6s ease;
+  -moz-transition:    all 0.6s ease;
+  -o-transition:      all 0.6s ease;
+  }
+
+figcaption h3, h5{
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
-  font-family: "Poppins", sans-serif;
-  text-transform: uppercase;
-  font-size: 1.4rem;
+  text-align:center;
+  font-size: 1.2rem;
+  margin:0 auto;
+  color:#fff;
+  padding:72% 5%;
+  text-decoration: none;
 }
 
-.img-overlay h5 {
-  font-family: "Poppins", sans-serif;
-  font-size: 1rem;
-  font-weight: 300;
-}
 
-.poster_effect-text:hover .img-overlay {
+figure:hover figcaption {
   opacity: 1;
+  top: 0%;
 }
-
-.poster_effect-text:hover img {
-  transform: translate(-50%, -50%) scale(1.1);
-}
-
-
-
 
 /********************COLUMNA DE POSTS*********************/
 
@@ -370,29 +364,7 @@ figcaption {
     width: 28%;
   }
 
-  .div-poster {
-    width: 104%;
-    padding: 0.6rem 1.2rem;
-  }
-
-  .poster_effect-text {
-    height: 14.7rem;
-    position: relative;
-  }
-
-  .poster_effect-text .img-overlay {
-    padding: 1.4rem 2rem;
-  }
-
-  .img-overlay h3 {
-    font-size: 1.3rem;
-  }
-
-  .img-overlay h5 {
-    font-size: 1rem;
-  }
-
-  .muro {
+   .muro {
     padding: 0.8rem 0 8.5rem 0;
   }
 
@@ -448,29 +420,12 @@ figcaption {
     font-weight: 600;
   }
   
-  .div-poster {
-    width: 90%;
-    padding: 1.0rem 0.8rem;
-  }
-
-  .poster_effect-text {
-    height: 14.7rem;
-    position: relative;
-  }
-
-  .poster_effect-text .img-overlay {
-    padding: 1.4rem 2rem;
-  }
-
-  .img-overlay h3 {
-    font-size: 1.3rem;
-  }
-
-  .img-overlay h5 {
-    font-size: 1rem;
-  }
   .btn-share .post_btn{
     font-size: 0.9rem;
+  }
+
+  .banner {
+    width: 80%;
   }
 } 
 
@@ -494,15 +449,6 @@ figcaption {
   .user-name {
     font-size: 1.4rem;
     font-weight: 700;
-  }
-
-  .div-poster {
-    width: 50%;
-  }
-
-  .poster_effect-text {
-    height: 9.7rem;
-    max-width: 270px;
   }
 
   .muro_user-posters {
@@ -547,11 +493,7 @@ figcaption {
 }
 
 @media (max-width: 600px) {
-  .div-poster {
-    width: 100%;
-  }
-
-  .links i {
+   .links i {
     font-size: 1.3rem;
     padding: 0.65rem 1.7rem;
   }
