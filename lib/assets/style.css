@@ -65,6 +65,13 @@
   color: #ffffff;
   font-size: 17px;
 }
+.formButton:hover{
+  background: #fff;
+  color: var(--color-main);
+  border: 1px solid var(--color-main);
+  box-shadow: 0px 0px 5px var(--color-main);
+  transition: 0.3s;
+}
 /*--------------------Login---------------------*/
 .loginSection, .signUpSection{
   flex-basis: 100%;
