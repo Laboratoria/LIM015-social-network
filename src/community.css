@@ -179,8 +179,8 @@ figcaption {
   font-weight: 600;
 }
 
-/*****************BANNER************************/
-.banner {
+/*****************PUBLICIDAD************************/
+.Crunchyroll {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -424,7 +424,7 @@ figure:hover figcaption {
     font-size: 0.9rem;
   }
 
-  .banner {
+  .Crunchyroll {
     width: 80%;
   }
 } 
@@ -487,7 +487,7 @@ figure:hover figcaption {
     font-size: 1rem;
   }
 
-  .banner {
+  .Crunchyroll {
     display: none;
   }
 }
@@ -502,7 +502,7 @@ figure:hover figcaption {
     width: 40%;
   }
 
-  .banner {
+  .Crunchyroll {
     display: none;
   }
 }
@@ -538,7 +538,7 @@ figure:hover figcaption {
     display: none;
   }
 
-  .banner {
+  .Crunchyroll {
     display: none;
   }
 

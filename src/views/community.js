@@ -21,8 +21,8 @@ export default () => {
          </div>
          <hr>
          <!--Div de Banner-->
-         <div class="banner">
-            <img src="images/banner.gif" alt="" title="¡Estreno!" />
+         <div class="Crunchyroll">
+            <img src="./images/banner.gif" alt="" title="¡Crunchyroll!" />
          </div>
 
          <h2 class="title-anime">
