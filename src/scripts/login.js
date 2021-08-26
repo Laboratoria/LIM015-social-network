@@ -133,8 +133,6 @@ signinForm.addEventListener('submit', (e) => {
     localStorage.setItem('email', Email);
     console.log('signed in');
     vistas();
-    document.querySelector('.container').style.display = 'none'; // acá oculto el main que contiene el login
-    document.getElementById('header').style.display = 'flex'; // acá muestro el header con el navbar
   })
     .catch((error) => {
       console.log(error.code, error.message);
@@ -164,8 +162,6 @@ googleBtn.addEventListener('click', () => {
     localStorage.setItem('user', JSON.stringify(User));
     console.log('signed in with Google');
     vistas();
-    document.querySelector('.container').style.display = 'none'; // acá oculto el main que contiene el login
-    document.getElementById('header').style.display = 'flex'; // acá muestro el header con el navbar
   })
     .catch((error) => {
       console.error('no se pudo iniciar sesión con gugul :c');
