@@ -1,4 +1,7 @@
+import { savePost } from '../scripts/fs-firestore.js';
+
 export default () => {
+  const main = document.querySelector('.views'); // este main es para las vistas
   const article = document.createElement('article');
   const googleUser = JSON.parse(localStorage.getItem('user'));
   const emailUserName = localStorage.getItem('name');
@@ -79,5 +82,26 @@ export default () => {
    </div>
  </section>
   `;
-  return article;
+  main.appendChild(article);
+  /*
+  // esta es otra forma de hacer lo de abajo
+  main.addEventListener('click', (e) => {
+    if (e.target.className === 'post_btn') {
+      const post = document.querySelector('.posts');
+      savePost(post).then(() => {
+        console.log('se mandó');
+      });
+      post.value = '';
+    }
+  });
+  */
+  const shareBtn = document.querySelector('.post_btn');
+  shareBtn.addEventListener('click', () => {
+    console.log('tocasteelbotón');
+    const post = document.querySelector('.posts');
+    savePost(post).then(() => {
+      console.log('se mandó');
+    });
+    post.value = '';
+  });
 };
