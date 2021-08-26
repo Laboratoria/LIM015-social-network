@@ -336,83 +336,6 @@ figure:hover figcaption {
 
 /********* Responsive ************/
 
-@media (max-width: 1280px) {
-  .text {
-    font-size: 1rem;
-  }
-
-  .links i {
-    font-size: 1.9rem;
-    padding: 0.65rem 2.7rem;
-  }
-
-  .title {
-    font-size: 2.1rem;
-    padding-bottom: 0.65rem;
-  }
-
-  .post_btn {
-    padding: 0.75rem 1.7rem;
-    font-size: 0.8rem;
-  }
-
-  nav .contenedor {
-    height: 6rem;
-  }
-
-  .logo {
-    width: 28%;
-  }
-
-   .muro {
-    padding: 0.8rem 0 8.5rem 0;
-  }
-
-  .muro-posts {
-    padding-left: 1rem;
-  }
-
-  .muro-info {
-    padding-right: 1rem;
-  }
-
-  .muro_user-posters {
-    padding: 3.6rem 3rem;
-  }
-
-  .container-posters {
-    margin-top: 1.2rem;
-
-  }
-
-  .contact-icon {
-    min-width: 50px;
-    height: 50px;
-    font-size: 1rem;
-    margin-right: 0.8rem;
-  }
-
-  .contact-icon i {
-    line-height: 50px;
-  }
-
-  .user-name {
-    font-size: 1.1rem;
-    font-weight: 600;
-  }
-
-  .posts {
-    font-size: 1.1rem;
-    padding: 0.9rem 1.6rem;
-    margin: 0.4rem 0;
-  }
-
-  .btn-share .post_btn{
-    font-size: 1.05rem;
-  }
-
-}
-
 @media (max-width: 1000px) {
 
   .user-name {
@@ -447,7 +370,7 @@ figure:hover figcaption {
   }
 
   .user-name {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 700;
   }
 
@@ -493,6 +416,21 @@ figure:hover figcaption {
 }
 
 @media (max-width: 600px) {
+  .user-img img{
+    border-radius: 50%;
+    width: 57px;
+    height: 57px;
+    display: inline-block;
+    margin-right: 0.8rem;
+    transition: all 0.4s ease;
+  }
+
+  .user-name {
+    font-size: 0.9rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+  }
+
    .links i {
     font-size: 1.3rem;
     padding: 0.65rem 1.7rem;
@@ -505,6 +443,12 @@ figure:hover figcaption {
   .Crunchyroll {
     display: none;
   }
+
+  .muro-posts .title {
+    margin: 0;
+    font-size: 1.3rem;
+  }
+    
 }
 
 @media (max-width: 560px) {
@@ -552,13 +496,66 @@ figure:hover figcaption {
   }
 
   .posts {
-    font-size: 0.8rem;
+    font-size: 0.5rem;
     padding: 0.8rem 1.4rem;
     margin: 0.25rem 0;
   }
 
   .txt-post .post_btn{
     font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 350px) {
+
+  .logo img {
+    display: none;
+  }
+
+  .links i {
+    font-size: 1.4rem;
+    padding: 0.65rem 1.60rem;
+
+  }
+
+  .contenedor {
+    padding: 0 3rem;
+  }
+
+  .user-name {
+    font-size: 0.6rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+  }
+
+  .text {
+    font-size: 0.92rem;
+  }
+
+  .muro {
+    padding: 0.8rem 0 8.5rem 0;
+  }
+
+  .title-anime{
+    display: none;
+  }
+
+  .container-posters {
+    display: none;
+  }
+
+  .Crunchyroll {
+    display: none;
+  }
+
+  .txt-post .posts {
+    font-size: 0.9rem;
+    padding: 0.5rem 1.2rem;
+    margin: 0.25rem 0;
+  }
+
+  .btn-share .post_btn{
+    font-size: 0.7rem;
   }
 }
 
