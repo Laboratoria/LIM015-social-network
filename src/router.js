@@ -1,17 +1,12 @@
 import { components } from './views/components.js';
 import { logout } from './scripts/fs-login.js';
-// import { firestore } from './scripts/fs-firestore.js';
 
 const changeView = (route) => {
   const main = document.querySelector('.views'); // este main es para las vistas
   components.community();
-  // firestore();
   switch (route) {
     case '#/community': main.innerHTML = '';
       components.community();
-      /*
-      firestore();
-      */
       break;
     case '#/profile': main.innerHTML = '';
       components.profile();

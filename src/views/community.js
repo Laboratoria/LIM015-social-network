@@ -1,3 +1,5 @@
+import { savePost } from '../scripts/fs-firestore.js';
+
 export default () => {
   const main = document.querySelector('.views'); // este main es para las vistas
   const article = document.createElement('article');
@@ -81,4 +83,14 @@ export default () => {
  </section>
   `;
   main.appendChild(article);
+
+  main.addEventListener('click', (e) => {
+    if (e.target.className === 'post_btn') {
+      const post = document.querySelector('.posts');
+      savePost(post).then(() => {
+        console.log('se mandó');
+      });
+      post.value = '';
+    }
+  });
 };
