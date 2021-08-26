@@ -384,7 +384,7 @@ nav .contenedor {
 
   .edit .textarea {
     min-height: 220px;
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   .txt-info .edit_button{
@@ -404,6 +404,40 @@ nav .contenedor {
     width: 40%;
   }
 
+  .profile-banner {
+    background-image: linear-gradient(to right, #f4fad6 0%, #ffafbd 0%, #c9ffbf 100%);
+    height: 200px;
+    width: 100%;
+  }
+
+  .pic-user {
+    height: 140px;
+    width: 140px;
+  }
+
+  .nameUser {
+    font-size: 0.8rem;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .follow {
+    font-size: 1.1rem;
+    min-height: 40px;
+    width: 90px;
+    margin: 17px;
+    transition: all 0.4s ease;
+    cursor: pointer;
+  }
+  
+  .follow:hover {
+    width: 105px;
+    background: #943ddbe0;
+  }
+  
+  .edit .textarea {
+    min-height: 220px;
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 560px) {

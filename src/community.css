@@ -447,7 +447,7 @@ figure:hover figcaption {
   }
 
   .user-name {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 700;
   }
 
@@ -493,6 +493,21 @@ figure:hover figcaption {
 }
 
 @media (max-width: 600px) {
+  .user-img img{
+    border-radius: 50%;
+    width: 57px;
+    height: 57px;
+    display: inline-block;
+    margin-right: 0.8rem;
+    transition: all 0.4s ease;
+  }
+
+  .user-name {
+    font-size: 0.9rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+  }
+
    .links i {
     font-size: 1.3rem;
     padding: 0.65rem 1.7rem;
@@ -505,6 +520,12 @@ figure:hover figcaption {
   .Crunchyroll {
     display: none;
   }
+
+  .muro-posts .title {
+    margin: 0;
+    font-size: 1.3rem;
+  }
+    
 }
 
 @media (max-width: 560px) {
@@ -552,7 +573,7 @@ figure:hover figcaption {
   }
 
   .posts {
-    font-size: 0.8rem;
+    font-size: 0.5rem;
     padding: 0.8rem 1.4rem;
     margin: 0.25rem 0;
   }

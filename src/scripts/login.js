@@ -1,3 +1,5 @@
+/* eslint-disable no-trailing-spaces */
+/* eslint-disable no-multiple-empty-lines */
 import {
   signUp, signIn, googleLogin, logout,
 } from './fs-login.js';
@@ -81,7 +83,7 @@ formularios.innerHTML = `
 
 main.appendChild(formularios);
 
-// FUNCIÓN DE LA BOLA
+// FUNCIÓN DE LA BOLA RODANTE
 const ingresar = document.getElementById('ingresar');
 const registrar = document.getElementById('registrar');
 const container = document.querySelector('.container');
@@ -94,19 +96,25 @@ ingresar.addEventListener('click', () => {
   container.classList.remove('modoRegistro');
 });
 
+
 // SIGN UP - REGISTRARSE CON EMAIL Y PASSWORD
 const signupForm = document.querySelector('.sign-up-form');
 
 signupForm.addEventListener('submit', (e) => {
   e.preventDefault();
+
+  // Inputs
   const userName = document.getElementById('signup-user').value;
   const signupEmail = document.getElementById('signup-email').value;
   const signupPassword = document.getElementById('signup-password').value;
+  
+  // Mensaje de error
   const errorMsgPassword = document.getElementById('su-error-password');
   if (signupEmail === '' || signupPassword === '') {
     errorMsgPassword.innerHTML = 'Debes llenar todos los campos <br> (╯ರ ~ ರ)╯︵ ┻━┻';
   }
 
+  // Promesa - Crea una cuenta basada en contraseña
   signUp(signupEmail, signupPassword).then((result) => {
     const Email = result.user.email;
     localStorage.setItem('email', Email);
@@ -116,42 +124,58 @@ signupForm.addEventListener('submit', (e) => {
     .catch((error) => {
       console.log(error.code, error.message);
     });
+
+  // Limpiar el formulario signupForm
+  signupForm.reset();
 });
+
 
 // SIGN IN - INGRESAR CON EMAIL Y PASSWORD
 const signinForm = document.querySelector('.sign-in-form');
 
 signinForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  const siginEmail = document.getElementById('signin-email').value; // INPUTS
-  const signinPassword = document.getElementById('signin-password').value;
-  // const errorMsgEmail = document.getElementById('si-error-email'); // MENSAJES DE ERROR
-  const errorMsgPassword = document.getElementById('si-error-password'); // "signIn Error Password"
 
+  // Inputs
+  const siginEmail = document.getElementById('signin-email').value; 
+  const signinPassword = document.getElementById('signin-password').value;
+  
+  // Mensaje de Error
+  // const errorMsgEmail = document.getElementById('si-error-email');
+  const errorMsgPassword = document.getElementById('si-error-password');
+  if (siginEmail === '' || signinPassword === '') {
+    errorMsgPassword.innerHTML = 'Debes ingresar tu email y contraseña <br> (╯ರ ~ ರ)╯︵ ┻━┻';
+  }
+
+  // Promesa - Permite que se acceda con un email y una contraseña
   signIn(siginEmail, signinPassword).then((result) => {
     const Email = result.user.email;
     localStorage.setItem('email', Email);
     console.log('signed in');
     vistas();
-    document.querySelector('.container').style.display = 'none'; // acá oculto el main que contiene el login
-    document.getElementById('header').style.display = 'flex'; // acá muestro el header con el navbar
+
+    // acá oculto el main que contiene el login
+    document.querySelector('.container').style.display = 'none'; 
+    // acá muestro el header con el navbar
+    document.getElementById('header').style.display = 'flex'; 
   })
     .catch((error) => {
       console.log(error.code, error.message);
     });
 
-  if (siginEmail === '' || signinPassword === '') {
-    errorMsgPassword.innerHTML = 'Debes ingresar tu email y contraseña <br> (╯ರ ~ ರ)╯︵ ┻━┻';
-  }
+  // Limpiar el formulario signinForm
+  signinForm.reset();
 });
+
 
 // INGRESAR CON GOOGLE
 const googleBtn = document.querySelector('.google');
 googleBtn.addEventListener('click', () => {
   googleLogin().then((result) => {
     const credential = result.credential;
-    // This gives you a Google Access Token. You can use it to access the Google API.
+    // Esto le da el token de acceso a Google. Puedes utilizarlo para acceder a la API de Google.
     console.log(credential.accessToken);
+
     // Envío la información del usuario al LocalStorage
     const Name = result.user.displayName;
     const Email = result.user.email;
@@ -164,8 +188,11 @@ googleBtn.addEventListener('click', () => {
     localStorage.setItem('user', JSON.stringify(User));
     console.log('signed in with Google');
     vistas();
-    document.querySelector('.container').style.display = 'none'; // acá oculto el main que contiene el login
-    document.getElementById('header').style.display = 'flex'; // acá muestro el header con el navbar
+
+    // Acá oculto el main que contiene el login
+    document.querySelector('.container').style.display = 'none'; 
+    // Acá muestro el header con el navbar
+    document.getElementById('header').style.display = 'flex'; 
   })
     .catch((error) => {
       console.error('no se pudo iniciar sesión con gugul :c');
