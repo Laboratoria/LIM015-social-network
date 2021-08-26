@@ -78,7 +78,7 @@ export default () => {
          <button type="submit" class="post_btn">Compartir</button>
         </div> 
         <div class="container-posts">
-        <p class="text-print">texto impreso</p> 
+         <!-- Acá se agregan los posts -->
         </div>
       </div>
      </div>
@@ -98,7 +98,7 @@ export default () => {
     }
   });
   */
-
+  const contenedor = document.querySelector('.container-posts');
   // Ejecuta savePost enviando el contenido de la textarea
   const shareBtn = document.querySelector('.post_btn');
   shareBtn.addEventListener('click', () => {
@@ -107,13 +107,14 @@ export default () => {
       console.log('se mandó');
     });
     post.value = '';
+    contenedor.innerHTML = '';
   });
 
   // Función que ejecuta getPost y muestra los posts en un template
   const publications = () => {
     getPost().onSnapshot((doc) => {
       doc.forEach((docs) => {
-        console.log(docs.data());
+        contenedor.innerHTML += `<p class="text-print">${docs.data().Post}</p>`;
       });
     });
   };
