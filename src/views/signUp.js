@@ -8,7 +8,7 @@ export const SIGNUP = () => {
     <p class='welcome'>Bienvenid@ viajer@!</p>
     <span id='errorMessage' class='errorMessage'></span>
     <input type='text' id='userName' placeholder='  Nombre' class='input' required />
-    <input type='email' id='email' placeholder='  Correo Electrónico' class='input' required />
+    <input type='email' id='email' pattern: [a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5} placeholder='  Correo Electrónico' class='input' required />
     <input type='password' id='password1' placeholder='  Constraseña' class='input' minlength='6' required />
     <input type='password' id='password2' placeholder='  Confirmar Constraseña' class='input' minlength='6' required />
     <div class='buttons'>
@@ -33,15 +33,12 @@ export const SIGNUP = () => {
   document.querySelector('.logOut a').style.display = 'none';
   // ------------------------- Boton Registrarse -------------------------
   btnSignUp.addEventListener('click', () => {
-    const expReg = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
     if (password.value !== confirmPass.value) {
       errorMessageElement.textContent = 'Por favor, confirma tu contraseña 🙊';
     } else if (
       userNameInput.value === '' && emailUser.value === '' && password.value === '' && confirmPass.value === ''
     ) {
       errorMessageElement.textContent = '⚡ Por favor complete todos los campos ⚡';
-    } else if (emailUser.value !== expReg) {
-      errorMessageElement.textContent = 'Ups 🙉, ingresa un correo válido por favor';
     } else {
       errorMessageElement.textContent = '';
       /* AQUI TODO PASA OK */

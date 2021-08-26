@@ -70,6 +70,8 @@ export const TIMELINE = () => {
     }
   });
   // ------------------------- Ejecutarse cuando se actualice la pagina -------------------------
+  const emailUser = localStorage.getItem('userEmail');
+  const userId = localStorage.getItem('userId');
   onGetPosts(() => {
     postContent.innerHTML = '';
     // SNAPSHOT
