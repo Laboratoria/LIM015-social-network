@@ -5,7 +5,7 @@ export default () => {
   const template = `
   <section id="contenedorSignUp" class="contenedorSignUp">
         <section class="side">
-        <p class="text-welcome">REGISTRATE</p>
+        <p class="text-welcome">Registrate</p>
           <img class="ibook-img" src="img/ibook-img.png" width="300px" alt="imagen relacionado a ibook"/>
           <p class="text-text">"Leer es estar soñando con los ojos abiertos"</p>
         </section>
