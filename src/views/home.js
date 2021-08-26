@@ -2,9 +2,11 @@ export const HOME = () => {
   const view = ` 
   <div class="contentHome">
     <div class="contentInfo">
-      <p class="homeInfo">Sabemos que la pandemia ha dejado estragos en todos y nos ha privado de una de las cosas que mas nos gusta hacer que es viajar, y que mejor que una red social para compartir experiencias ¿no? es aquí donde nace LA RUTA, para volvernos a conectar con nuestros paisajes compartiendo las mejores experiencias con otros usuarios y la clave es el ahorro!
+      <p class="homeInfo"> Viaja  &#x1f304; Disfruta &#x1f453; Comparte &#x1f450;
       </p>
-        <button id='btnStart' type="button" class='btnStart empezar'>Empezar</button>
+      <div class="contentBtn">
+        <button id='btnStart' type="button" class='buttonStart'>Empezar</button>
+      </div>
     </div>
     <div class="contentImgHome">
       <img src="../images/home.png" alt="imagenHome" class="imgHome">

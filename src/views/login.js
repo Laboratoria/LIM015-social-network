@@ -1,19 +1,21 @@
-import { login, loginWithFacebook, loginWithGoogle, firebaseWatcher } from '../firebase/firebase-auth.js';
+import { login, loginWithFacebook, loginWithGoogle } from '../firebase/firebase-auth.js';
 // Constante a exportar
 export const LOGIN = () => {
   const view = `
   <section class='contenedorFormulario'>
     <form >
-      <img src='images/laRuta-02.png' alt='La ruta logo' class='logo'/>
+      <img src='../images/laRuta-02.png' alt='La ruta logo' class='logo'/>
       <p class='welcome'>Bienvenid@ viajer@!</p>
       <span id='errorMessage' class='errorMessage'></span>
       <input type='email' id='email' placeholder='  Correo electrónico' class='input' />
       <input type='password' id='password1' placeholder='  Contraseña' class='input' minlength='6'/>
-      <div class='buttons'>
-        <button id='login' type='submit' class='btnStart'>Iniciar Sesión</button>
-      </div>
-      <div  class='buttons'>
-        <button id='signUp' type='button'class='btnStart'>Registrarse</button>
+      <div class='contentButtons'>
+        <div class='buttons'>
+          <button id='login' type='submit' class='btnStart'>Iniciar Sesión</button>
+        </div>
+        <div  class='buttons'>
+          <button id='signUp' type='button'class='btnStart'>Registrarse</button>
+        </div>
       </div>
       <p>O ingresa con...</p>
       <div class='contentbtn'>
@@ -34,7 +36,10 @@ export const LOGIN = () => {
   const errorMessageElement = divElement.querySelector('#errorMessage');
   const emailUser = divElement.querySelector('#email');
   const password = divElement.querySelector('#password1');
-
+  // ------------------------- ESCONDER RESTO DE LINKS -------------------------
+  document.querySelector('.profile a').style.display = 'none';
+  document.querySelector('.timeline a').style.display = 'none';
+  document.querySelector('.logOut a').style.display = 'none';
   // ------------------------- Boton Inicio sesion -------------------------
   btnLogin.addEventListener('click', (e) => {
     e.preventDefault();
@@ -57,7 +62,7 @@ export const LOGIN = () => {
           localStorage.setItem('userEmail', userCredential.user.email);
           localStorage.setItem('userPhoto', userCredential.user.photoURL);
           localStorage.setItem('userId', userCredential.user.uid);
-          firebaseWatcher();
+          window.location.hash = '#/timeLine';
         })
         .catch((error) => {
           const errorCode = error.code;
