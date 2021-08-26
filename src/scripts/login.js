@@ -94,7 +94,6 @@ ingresar.addEventListener('click', () => {
   container.classList.remove('modoRegistro');
 });
 
-
 // SIGN UP - REGISTRARSE CON EMAIL Y PASSWORD
 const signupForm = document.querySelector('.sign-up-form');
 
@@ -105,7 +104,7 @@ signupForm.addEventListener('submit', (e) => {
   const userName = document.getElementById('signup-user').value;
   const signupEmail = document.getElementById('signup-email').value;
   const signupPassword = document.getElementById('signup-password').value;
-  
+
   // Mensaje de error
   const errorMsgPassword = document.getElementById('su-error-password');
   if (signupEmail === '' || signupPassword === '') {
@@ -127,7 +126,6 @@ signupForm.addEventListener('submit', (e) => {
   signupForm.reset();
 });
 
-
 // SIGN IN - INGRESAR CON EMAIL Y PASSWORD
 const signinForm = document.querySelector('.sign-in-form');
 
@@ -135,9 +133,9 @@ signinForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
   // Inputs
-  const siginEmail = document.getElementById('signin-email').value; 
+  const siginEmail = document.getElementById('signin-email').value;
   const signinPassword = document.getElementById('signin-password').value;
-  
+
   // Mensaje de Error
   // const errorMsgEmail = document.getElementById('si-error-email');
   const errorMsgPassword = document.getElementById('si-error-password');
@@ -159,7 +157,6 @@ signinForm.addEventListener('submit', (e) => {
   // Limpiar el formulario signinForm
   signinForm.reset();
 });
-
 
 // INGRESAR CON GOOGLE
 const googleBtn = document.querySelector('.google');
