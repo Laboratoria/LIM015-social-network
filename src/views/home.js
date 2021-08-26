@@ -39,7 +39,7 @@ export default (post) => {
                             </section>
                             <section class="text-phrase">
                                 <p>Mi frase del mes:</p>
-                                <i class="fas fa-bahai margin" aria-hidden="true">&nbsp Vive al limite</i>
+                                <i class="fas fa-bahai margin" aria-hidden="true">&nbsp "Vive al limite"</i>
                             </section>
                         </section>
                     </section>
