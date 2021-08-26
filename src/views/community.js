@@ -80,5 +80,5 @@ export default () => {
    </div>
  </section>
   `;
-  return main.appendChild(article);
+  main.appendChild(article);
 };

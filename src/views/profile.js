@@ -42,5 +42,5 @@ export default () => {
     </div>
   </div>
 </section>`;
-  return main.appendChild(article);
+  main.appendChild(article);
 };
