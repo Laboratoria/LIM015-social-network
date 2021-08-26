@@ -33,7 +33,7 @@ export const SIGNUP = () => {
   document.querySelector('.logOut a').style.display = 'none';
   // ------------------------- Boton Registrarse -------------------------
   btnSignUp.addEventListener('click', () => {
-    const expReg = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+    const expReg = /[a-zA-Z0-9._%+-]+@(?:[a-zA-Z]+\.)+[a-zA-Z]{2,4}/g;
     if (password.value !== confirmPass.value) {
       errorMessageElement.textContent = 'Por favor, confirma tu contraseña 🙊';
     } else if (
@@ -42,6 +42,7 @@ export const SIGNUP = () => {
       errorMessageElement.textContent = '⚡ Por favor complete todos los campos ⚡';
     } else if (emailUser.value !== expReg) {
       errorMessageElement.textContent = 'Ups 🙉, ingresa un correo válido por favor';
+      debugger
     } else {
       errorMessageElement.textContent = '';
       /* AQUI TODO PASA OK */

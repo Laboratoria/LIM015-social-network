@@ -1,8 +1,8 @@
 // importamos la funcion que vamos a testear
-import { myFunction } from '../src/lib/index';
+import { COMPONENTS } from '../src/lib/dictionary.js';
 
 describe('myFunction', () => {
   it('debería ser una función', () => {
-    expect(typeof myFunction).toBe('function');
+    expect(typeof COMPONENTS).toBe('function');
   });
 });
