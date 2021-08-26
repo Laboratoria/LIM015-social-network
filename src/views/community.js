@@ -1,4 +1,5 @@
 export default () => {
+  const main = document.querySelector('.views'); // este main es para las vistas
   const article = document.createElement('article');
   const googleUser = JSON.parse(localStorage.getItem('user'));
   const emailUserName = localStorage.getItem('name');
@@ -79,5 +80,5 @@ export default () => {
    </div>
  </section>
   `;
-  return article;
+  return main.appendChild(article);
 };
