@@ -83,7 +83,8 @@ export default () => {
  </section>
   `;
   main.appendChild(article);
-
+  /*
+  // esta es otra forma de hacer lo de abajo
   main.addEventListener('click', (e) => {
     if (e.target.className === 'post_btn') {
       const post = document.querySelector('.posts');
@@ -92,5 +93,15 @@ export default () => {
       });
       post.value = '';
     }
+  });
+  */
+  const shareBtn = document.querySelector('.post_btn');
+  shareBtn.addEventListener('click', () => {
+    console.log('tocasteelbotón');
+    const post = document.querySelector('.posts');
+    savePost(post).then(() => {
+      console.log('se mandó');
+    });
+    post.value = '';
   });
 };
