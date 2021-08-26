@@ -1,5 +1,3 @@
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable no-multiple-empty-lines */
 import {
   signUp, signIn, googleLogin, logout,
 } from './fs-login.js';
