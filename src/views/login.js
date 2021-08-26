@@ -4,16 +4,18 @@ export const LOGIN = () => {
   const view = `
   <section class='contenedorFormulario'>
     <form >
-      <img src='images/laRuta-02.png' alt='La ruta logo' class='logo'/>
+      <img src='../images/laRuta-02.png' alt='La ruta logo' class='logo'/>
       <p class='welcome'>Bienvenid@ viajer@!</p>
       <span id='errorMessage' class='errorMessage'></span>
       <input type='email' id='email' placeholder='  Correo electrónico' class='input' />
       <input type='password' id='password1' placeholder='  Contraseña' class='input' minlength='6'/>
-      <div class='buttons'>
-        <button id='login' type='submit' class='btnStart'>Iniciar Sesión</button>
-      </div>
-      <div  class='buttons'>
-        <button id='signUp' type='button'class='btnStart'>Registrarse</button>
+      <div class='contentButtons'>
+        <div class='buttons'>
+          <button id='login' type='submit' class='btnStart'>Iniciar Sesión</button>
+        </div>
+        <div  class='buttons'>
+          <button id='signUp' type='button'class='btnStart'>Registrarse</button>
+        </div>
       </div>
       <p>O ingresa con...</p>
       <div class='contentbtn'>

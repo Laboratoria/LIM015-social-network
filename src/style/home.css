@@ -16,12 +16,37 @@
 
 /*************************información de home*****************************/
 .homeInfo{
-  display: block;
+  display: flex;
   justify-content: center;
   width: 80%;
-  font-size: calc(0.7em + 1vw);
+  font-size: calc(2em + 1vw);
   text-align: center;
   margin-bottom: 10%;
+}
+
+.contentBtn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttonStart{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: #4DBC4D;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  border-radius: 16px;
+  text-align: center;
+  font-style: initial;
+  font-size: calc(0.5em + 1vw);
+  width: 28%;
+  margin: 5%;
+  padding: 2%;
 }
 
 /***************************Contenedor de la imagen de Home********************/
@@ -49,7 +74,7 @@
 /**************************Contenedor de la info y el botón***********************/
 .contentInfo{
   display: flex;
-  justify-content: center;
+  justify-content: center; 
   width: 40%;
 }
 
@@ -58,10 +83,11 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  font-size: calc(0.7em + 1vw);
-  text-align: left;
+  font-size: calc(1em + 1vw);
+  text-align: center;
   margin-bottom: 10%;
 }
+
 
 /***************************Contenedor de la imagen de Home********************/
 .contentImgHome{
