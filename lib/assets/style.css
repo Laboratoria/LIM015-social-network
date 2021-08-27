@@ -189,9 +189,9 @@ a{
 .modal-content {
   background-color: #fefefe;
   margin: auto;
-  padding: 1rem;
+  padding: 1.5rem;
   border: 1px solid #888;
-  width: 30%;
+  width: 80%;
   height: max-content;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
   animation-name: animatetop;
@@ -219,13 +219,16 @@ a{
   border-radius: 10px 10px 0 0;
   width: 100%;
   color: var(--color-main);
-  padding: 20px 20px 0;
+  padding-top: 10px;
 }
 .modal-header h2{
   padding-top: 5px;
   font-size: 20px;
 }
-.modal-body {padding: 40px 15px;}
+.modal-body {
+  padding: 20px 0;
+  width: 100%;
+}
 .modal-body .modalEmail{
   color: var(--color-secondary);
 }
@@ -233,9 +236,20 @@ a{
   padding: 0px 16px 20px;
   color: var(--color-secondary)
 }
+.modal-redirect:hover {
+ cursor: pointer;
+ color: var(--color-main);
+}
 @keyframes animatetop {
   from {top: -300px; opacity: 0}
   to {top: 0; opacity: 1}
+}
+
+@media only screen and (min-width: 600px){
+  /* Modals */
+  .modal-content {
+    width: 50%;
+  }
 }
 
 @media only screen and (min-width: 1200px){
@@ -260,6 +274,10 @@ a{
   }
   .formBox:focus{
     border: 1px solid var(--color-secondary);
+  }
+  /*modals*/
+  .modal-content {
+    width: 30%;
   }
 }
 
