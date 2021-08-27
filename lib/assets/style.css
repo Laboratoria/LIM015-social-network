@@ -237,14 +237,13 @@ a{
   color: var(--color-secondary)
 }
 .modal-redirect:hover {
- cursor: pointer;
- color: var(--color-main);
+  cursor: pointer;
+  color: var(--color-main);
 }
 @keyframes animatetop {
   from {top: -300px; opacity: 0}
   to {top: 0; opacity: 1}
 }
-
 @media only screen and (min-width: 600px){
   /* Modals */
   .modal-content {
