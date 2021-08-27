@@ -14,9 +14,7 @@
   font-size: 14px;
   margin: 0;
 }
-a{
-  text-decoration: none;
-}
+
 /* Components */
 .desktop-logo{
   display: none;
@@ -30,6 +28,14 @@ a{
 }
 .formText{
   color: var(--color-secondary);
+  max-width: 300px;
+  text-align: center;
+}
+.formText-bold{
+  font-weight: 700;
+}
+.formText-medium{
+  font-size: 18px;
 }
 .formBox{
   margin-top: 20px;
@@ -75,19 +81,7 @@ a{
   transition: 0.3s;
 }
 /*--------------------Login---------------------*/
-.loginSection, .signUpSection{
-  flex-basis: 100%;
-}
-.loginForm, .signUpForm{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.loginForm .formText{
-  margin-top: 20px;
-}
-/*--------------------SIGN UP----------------------*/
-.signUpContainer, .loginContainer{
+.signUpContainer, .loginContainer, .resetPasswordContainer{
   background: url(./img/backgroung-mobile.svg) no-repeat center center fixed;
   background-size: cover;
   height: 100vh;
@@ -95,6 +89,39 @@ a{
   align-items: center;
   overflow-x: hidden;
 }
+.loginSection, .signUpSection, .resetPasswordSection{
+  flex-basis: 100%;
+}
+.loginForm, .signUpForm, .resetPasswordForm{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.loginForm .formText, .resetPasswordForm .formText{
+  margin-top: 20px;
+}
+/*-------------------- RESET PASSWORD----------------------*/
+.resetPasswordContainer .desktop-logo{
+  display: block;
+  width: 200px;
+}
+.resetPasswordContainer{
+  background-image: url(./img/resetBackground.svg);
+}
+.resetPasswordContainer .formBox{
+  border: 1px solid var(--color-main);
+}
+.resetPasswordContainer .formBox:focus{
+  border: 1px solid var(--color-secondary);
+}
+.resetPasswordContainer .icon{
+  margin: 5px;
+  height: 70px;
+}
+.resetPasswordForm .formText.formText-medium{
+  margin-top: 5px;
+}
+/*--------------------SIGN UP----------------------*/
 .checkbox{
   min-width: 319px;
   display: flex;
@@ -107,7 +134,6 @@ a{
   font-size: 13px;
   padding-top: 3px;
 }
-
 .container-checkBox{
   display: block;
   position: relative;
@@ -252,15 +278,13 @@ a{
 }
 
 @media only screen and (min-width: 1200px){
-  .loginSection, .signUpSection{
+  .loginSection, .signUpSection, .resetPasswordSection{
     flex-basis: 50%;
   }
-  .signUpContainer, .loginContainer{
-    justify-content: flex-end;
-  }
-  .signUpContainer, .loginContainer{
+  .signUpContainer, .loginContainer, .resetPasswordContainer{
     background: url(./img/background.png) no-repeat center center fixed;
     background-size: cover;
+    justify-content: flex-end;
   }
   .mobil-logo{
     display: none;
