@@ -1,4 +1,4 @@
-import { savePost } from '../scripts/fs-firestore.js';
+import { savePost, getPost } from '../scripts/fs-firestore.js';
 
 export default () => {
   const main = document.querySelector('.views'); // este main es para las vistas
@@ -77,6 +77,9 @@ export default () => {
         <div class="btn-share">
          <button type="submit" class="post_btn">Compartir</button>
         </div> 
+        <div class="container-posts">
+         <!-- Acá se agregan los posts -->
+        </div>
       </div>
      </div>
    </div>
@@ -95,13 +98,25 @@ export default () => {
     }
   });
   */
+  const contenedor = document.querySelector('.container-posts');
+  // Ejecuta savePost enviando el contenido de la textarea
   const shareBtn = document.querySelector('.post_btn');
   shareBtn.addEventListener('click', () => {
-    console.log('tocasteelbotón');
     const post = document.querySelector('.posts');
     savePost(post).then(() => {
       console.log('se mandó');
     });
     post.value = '';
+    contenedor.innerHTML = '';
   });
+
+  // Función que ejecuta getPost y muestra los posts en un template
+  const publications = () => {
+    getPost().onSnapshot((doc) => {
+      doc.forEach((docs) => {
+        contenedor.innerHTML += `<p class="text-print">${docs.data().Post}</p>`;
+      });
+    });
+  };
+  publications();
 };
