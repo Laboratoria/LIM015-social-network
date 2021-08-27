@@ -64,7 +64,7 @@ formularios.innerHTML = `
           </p>
           <button class="button transparent" id="registrar">Regístrate</button>
         </div>
-        <img src="images/log.png" class="image knj" alt=""/>
+        <img src="images/log.png" class="image knj" alt="Personajes de Demon Slayer"/>
       </section>
 
       <section class="panel right-panel">
@@ -75,7 +75,7 @@ formularios.innerHTML = `
           </p>
           <button class="button transparent" id="ingresar">Ingresar</button>
         </div>
-        <img src="images/bnh.png" class="image bnh" alt="" />
+        <img src="images/bnh.png" class="image bnh" alt="Personajes de Boku no Hero" />
       </section>
 `;
 

@@ -17,7 +17,7 @@ export default () => {
         <!--Información del usuario-->
         <div class="Section-user">
            <div class="information-user">
-             ${usergoogle !== null ? `<img src="${usergoogle.photo}" class="pic-user" alt="" />` : '<img src="images/profileDefault.jpeg" class="pic-user" alt="" />'}
+             ${usergoogle !== null ? `<img src="${usergoogle.photo}" class="pic-user" alt="Foto de perfil" />` : '<img src="images/profileDefault.jpeg" class="pic-user" alt="Foto de perfil por defecto" />'}
            </div>
            <div class="nameUser">
              ${emailUser !== null ? `<h2>${emailName}<br>${emailUser}</h2>` : `<h2>${usergoogle.name}<br>${usergoogle.email}</h2>`}

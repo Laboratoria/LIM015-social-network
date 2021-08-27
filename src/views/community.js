@@ -18,14 +18,14 @@ export default () => {
          <!--Información del usuario-->
          <div class="information-user">
            <div class="user-img">
-           ${googleUser !== null ? `<img src="${googleUser.photo}" alt="" />` : '<img src="images/profileDefault.jpeg" alt="" />'}
+           ${googleUser !== null ? `<img src="${googleUser.photo}" alt="Foto de perfil" />` : '<img src="images/profileDefault.jpeg" alt="Foto de perfil por defecto" />'}
            </div>
            ${googleUser !== null ? `<p class="user-name">${googleUser.name}<br>${googleUser.email}</p>` : `<p class="user-name">${emailUserName}<br>${emailUserEmail}</p>`}
          </div>
          <hr>
          <!--Div de Banner-->
          <div class="Crunchyroll">
-            <img src="./images/banner.gif" alt="" title="¡Crunchyroll!" />
+            <img src="./images/banner.gif" alt="Publicidad de Crunchyroll" title="¡Crunchyroll!" />
          </div>
 
          <h2 class="title-anime">
@@ -35,7 +35,7 @@ export default () => {
          <!--contendedor de posters de anime-->
          <div class="container-posters">
          <figure>
-         <img src="./images/port1.png" alt="">
+         <img src="./images/port1.png" alt="Poster de Shingeki no Kyojin">
          <figcaption>
            <h3>Attack on Titan<br>Final Season</h3>
            <h5></h5>
@@ -43,21 +43,21 @@ export default () => {
        </figure>
        
        <figure>
-         <img src="./images/port2.png" alt="">
+         <img src="./images/port2.png" alt="Poster de Tokyo Revengers">
          <figcaption>
            <h3>Tokio Revengers<br>Episode 19</h3>
          </figcaption>
        </figure>
 
        <figure>
-         <img src="./images/port3.jpg" alt="">
+         <img src="./images/port3.jpg" alt="Poster de Jojo's">
          <figcaption>
            <h3>JOJO'S<br>5th Season</h3>
          </figcaption>
        </figure>
   
        <figure>
-         <img src="./images/port4.png" alt="">
+         <img src="./images/port4.png" alt="Poster de Demon Slayer">
          <figcaption>
            <h3>Demon Slayer<br>Movie</h3>
          </figcaption>
