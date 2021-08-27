@@ -98,7 +98,7 @@ export const TIMELINE = () => {
           </div>
           <div id='reactionPost' class='reactionPost'>
             <button id='${idPost}' class='btnLove'>&#x2764;&#xfe0f;</button>
-            <span name='${idPost}'>${postInfo.likes}</span>
+            <span name='${idPost}'>${postInfo.likes.length}</span>
             <button id='${idPost}' class='btnDkislike'>&#128078;</button>
             <button id='${idPost}' class='btnComments'>&#128172;</button>
             <span>0</span>
@@ -114,16 +114,20 @@ export const TIMELINE = () => {
       if (e.target.className === 'btnLove') {
         getPostsUserId(e.target.id)
           .then((postInfo) => {
-            if (postInfo.data().id === localStorage.getItem('userId')) {
-              console.log('BIEN, ERES LA MISMA PERSONA');
-              console.log(postInfo.data());
-              console.log(postInfo.data().likes);
-              console.log(postInfo.data().likes.length);
-              updateLoves(e.target.id, 1);
-            } else {
-              console.log('RAYOS! NO ERES EL MISMO USUARIO :C');
-              updateLoves(e.target.id, 1);
-            }
+            const userId = localStorage.getItem('userId');
+            const userLikes = postInfo.data().likes;
+            const newLike = {
+              userEmail: localStorage.getItem('userEmail'),
+              userID: userId,
+            };
+            userLikes.push(newLike);
+            updateLoves(e.target.id, userLikes);
+            // console.log(userLikes);
+            // console.log(e.target);
+            // console.log(e.target.id);
+            // console.log(userId);
+            // console.log(userLikes.includes(userID));
+            // userLikes.filter((arr) => console.log(arr.userID));
           });
       }
     });

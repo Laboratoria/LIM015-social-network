@@ -8,7 +8,7 @@ export const addPostCollection = (nameUser, mailCurrentUser, postMessage, idUser
     post: postMessage,
     time: firebase.firestore.Timestamp.fromDate(new Date()),
     privacyUserPost: false,
-    likes: 0,
+    likes: [],
     id: idUser,
   });
   return postCollection;
