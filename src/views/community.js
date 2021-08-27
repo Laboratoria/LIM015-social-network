@@ -99,13 +99,19 @@ export default () => {
   });
   */
   const contenedor = document.querySelector('.container-posts');
-  // Ejecuta savePost enviando el contenido de la textarea
+  // Ejecuta savePost enviando el contenido del textarea
   const shareBtn = document.querySelector('.post_btn');
   shareBtn.addEventListener('click', () => {
     const post = document.querySelector('.posts');
-    savePost(post).then(() => {
-      console.log('se mandó');
-    });
+    if (googleUser === null) {
+      savePost(post, emailUserName, emailUserEmail).then(() => {
+        console.log('se mandó');
+      });
+    } else {
+      savePost(post, googleUser.name, googleUser.email, googleUser.photo).then(() => {
+        console.log('se mandó');
+      });
+    }
     post.value = '';
     contenedor.innerHTML = '';
   });
@@ -114,7 +120,7 @@ export default () => {
   const publications = () => {
     getPost().onSnapshot((doc) => {
       doc.forEach((docs) => {
-        contenedor.innerHTML += `<p class="text-print">${docs.data().Post}</p>`;
+        contenedor.innerHTML += `<p class="text-print">${docs.data().post}</p>`;
       });
     });
   };
