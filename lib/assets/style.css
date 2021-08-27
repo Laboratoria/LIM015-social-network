@@ -100,6 +100,9 @@
 .loginForm .formText, .resetPasswordForm .formText{
   margin-top: 20px;
 }
+a{
+  text-decoration: none;
+}
 /*-------------------- RESET PASSWORD----------------------*/
 .resetPasswordContainer .desktop-logo{
   display: block;
