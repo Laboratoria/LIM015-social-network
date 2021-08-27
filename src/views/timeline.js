@@ -2,7 +2,7 @@
 import { logOutUser, firebaseWatcher } from '../firebase/firebase-auth.js';
 import {
   addPostCollection, getPosts, onGetPosts,
-  deletePost, updatePost, updateLoves, getPostsUserId
+  deletePost, updatePost, updateLoves, getPostsUserId,
 } from '../firebase/firebase-firestore.js';
 
 // Constante a exportar
@@ -34,7 +34,7 @@ export const TIMELINE = () => {
   divElement.innerHTML = view;
   // Constantes Globales
   const btnShare = divElement.querySelector('#buttonShare');
-  const btnImg = divElement.querySelector('#buttonImg');
+  // const btnImg = divElement.querySelector('#buttonImg');
   const linkAboutLogOut = document.querySelector('.logOut a');
   const textPost = divElement.querySelector('#textAreaPublication');
   const userNameProfile = divElement.querySelector('#nameProfile');
@@ -57,16 +57,11 @@ export const TIMELINE = () => {
   // ------------------------- Boton compartir -------------------------
   btnShare.addEventListener('click', () => {
     if (textPost.value === '') {
-      console.log('publicacion vacia');
+      textPost.placeholder = 'Escribe algo por favor';
     } else {
       // aqui va lo de firestore
-      addPostCollection(localStorage.getItem('userName'), localStorage.getItem('userEmail'), textPost.value, localStorage.getItem('userId'))
-        .then((promise) => {
-          const idCollection = promise.id;
-          const pathCollection = promise.path;
-          console.log(idCollection, pathCollection);
-          textPost.value = '';
-        });
+      addPostCollection(localStorage.getItem('userName'), localStorage.getItem('userEmail'), textPost.value, localStorage.getItem('userId'));
+      textPost.value = '';
     }
   });
   // ------------------------- Ejecutarse cuando se actualice la pagina -------------------------
@@ -76,8 +71,8 @@ export const TIMELINE = () => {
     getPosts().then((docRef) => {
       docRef.forEach((docAboutCollection) => {
         const idPost = docAboutCollection.ref.id;
-        const existPost = docAboutCollection.exists;
-        const pathPost = docAboutCollection.ref.path;
+        // const existPost = docAboutCollection.exists;
+        // const pathPost = docAboutCollection.ref.path;
         const postInfo = docAboutCollection.data();
         // console.log(docAboutCollection);
         // console.log(idPost, existPost, pathPost);
@@ -105,10 +100,10 @@ export const TIMELINE = () => {
           </div>
         </section>`;
       });
-    })
-      .catch((error) => {
-        console.log(error);
-      });
+    });
+    // .catch((error) => {
+    //   console.log(error);
+    // });
     // ------------------------- Boton love -------------------------
     divElement.addEventListener('click', async (e) => {
       if (e.target.className === 'btnLove') {
@@ -122,12 +117,6 @@ export const TIMELINE = () => {
             };
             userLikes.push(newLike);
             updateLoves(e.target.id, userLikes);
-            // console.log(userLikes);
-            // console.log(e.target);
-            // console.log(e.target.id);
-            // console.log(userId);
-            // console.log(userLikes.includes(userID));
-            // userLikes.filter((arr) => console.log(arr.userID));
           });
       }
     });
@@ -136,13 +125,9 @@ export const TIMELINE = () => {
       if (e.target.className === 'btnDkislike') {
         getPostsUserId(e.target.id)
           .then((postInfo) => {
-            if (postInfo.data().id === localStorage.getItem('userId')) {
-              console.log('BIEN, ERES LA MISMA PERSONA');
-              updateLoves(e.target.id, 0);
-            } else {
-              console.log('RAYOS! NO ERES EL MISMO USUARIO :C');
-              updateLoves(e.target.id, 0);
-            }
+            const userLikes = postInfo.data().likes;
+            userLikes.pop();
+            updateLoves(e.target.id, userLikes);
           });
       }
     });
@@ -152,10 +137,8 @@ export const TIMELINE = () => {
         getPostsUserId(e.target.id)
           .then((postInfo) => {
             if (postInfo.data().id === localStorage.getItem('userId')) {
-              console.log('BIEN, ERES LA MISMA PERSONA');
               document.querySelector(`input[name='${e.target.id}']`).disabled = false;
             } else {
-              console.log('RAYOS! NO ERES EL MISMO USUARIO :C');
               document.querySelector(`input[name='${e.target.id}']`).disabled = true;
             }
           });
@@ -168,10 +151,8 @@ export const TIMELINE = () => {
         getPostsUserId(e.target.id)
           .then((postInfo) => {
             if (postInfo.data().id === localStorage.getItem('userId')) {
-              console.log('BIEN, ERES LA MISMA PERSONA');
               updatePost(e.target.id, postSave.value);
             } else {
-              console.log('RAYOS! NO ERES EL MISMO USUARIO :C');
               document.querySelector(`input[name='${e.target.id}']`).disabled = true;
             }
           });
@@ -184,10 +165,7 @@ export const TIMELINE = () => {
       getPostsUserId(e.target.id)
         .then((postInfo) => {
           if (postInfo.data().id === localStorage.getItem('userId')) {
-            console.log('BIEN, ERES LA MISMA PERSONA');
             deletePost(e.target.id);
-          } else {
-            console.log('RAYOS! NO ERES EL MISMO USUARIO :C');
           }
         });
     }
@@ -196,7 +174,7 @@ export const TIMELINE = () => {
   linkAboutLogOut.addEventListener('click', (e) => {
     e.preventDefault();
     logOutUser().then(() => {
-      console.log('cierre de sesion exitoso');
+      // console.log('cierre de sesion exitoso');
       window.location.hash = '#/';
       localStorage.clear();
     });

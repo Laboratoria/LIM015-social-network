@@ -4,7 +4,7 @@ import firebase from './firebase.js';
 export const firebaseWatcher = () => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-      console.log('esta conectado');
+      // console.log('esta conectado');
       document.querySelector('.home a').style.display = 'none';
       document.querySelector('.login a').style.display = 'none';
       document.querySelector('.signUp a').style.display = 'none';
@@ -13,7 +13,7 @@ export const firebaseWatcher = () => {
       document.querySelector('.logOut a').style.display = 'block';
       window.location.hash = '#/timeLine';
     } else {
-      console.log('esta desconectado');
+      // console.log('esta desconectado');
       document.querySelector('.home a').style.display = 'block';
       document.querySelector('.login a').style.display = 'block';
       document.querySelector('.signUp a').style.display = 'block';

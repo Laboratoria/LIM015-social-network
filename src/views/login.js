@@ -99,14 +99,14 @@ export const LOGIN = () => {
     loginWithFacebook()
       .then((result) => {
         /** @type {firebase.auth.OAuthCredential} */
-        const credential = result.credential;
-        console.log(credential);
+        // const credential = result.credential;
+        // console.log(credential);
         // The signed-in user info.
-        const user = result.user;
-        console.log(credential);
+        // const user = result.user;
+        // console.log(credential);
         // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-        const accessToken = credential.accessToken;
-        console.log(accessToken);
+        // const accessToken = credential.accessToken;
+        // console.log(accessToken);
         // AQUI DEBE ESTAR LA OBTENCION DEL PEDIDO
         if (result.user.displayName === null) {
           localStorage.setItem('userName', 'nuevo usuario');
@@ -118,16 +118,6 @@ export const LOGIN = () => {
         localStorage.setItem('userId', result.user.uid);
         // cambio de hash
         window.location.hash = '#/timeLine';
-      })
-      .catch((error) => {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // The email of the user's account used.
-        const email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        const credential = error.credential;
-        console.log(errorCode, errorMessage, email, credential);
       });
   });
 
@@ -146,9 +136,6 @@ export const LOGIN = () => {
         localStorage.setItem('userId', result.user.uid);
         // cambio del hash
         window.location.hash = '#/timeLine';
-      })
-      .catch((error) => {
-        console.log(error);
       });
   });
   // AQUI TERMINA DE INSERTARSE EL TEMPLATE STRING
