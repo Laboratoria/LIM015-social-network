@@ -52,8 +52,8 @@
     background-color: #4DBC4D;
     color: rgb(255, 255, 255);
     cursor: pointer;
-    display: flex;
-    justify-content: center;
+    /* display: flex;
+    justify-content: center; */
     border-radius: 16px;
     text-align: center;
     font-style: initial;
@@ -135,9 +135,9 @@ a:hover{
 .items{
     cursor: pointer;
 }
-.items a{
+/* .items a{
     
-}
+} */
 /******** body ********/
 body{
     background: #F4F4F4;
@@ -170,8 +170,8 @@ body{
     background-color: #C4C4C4;
     color: #2f2f2f;
     border-radius: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    /* margin-top: 20px;
+    margin-bottom: 20px; */
     font-size: calc(0.5em + 1vw);
     width: 40%;
     height: 5%;
@@ -330,7 +330,7 @@ footer {
 .buttonShare{
     width: 6em;
     font-size: 1em;
-    padding: 2%;
+    /* padding: 2%; */
     background-color: #4DBC4D;
     border-radius: 15px;
     border: 1px solid #4DBC4D;
@@ -366,7 +366,7 @@ footer {
     border: none;
     cursor: pointer;
     margin: 0 2%;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 .sectionAboutPost{
@@ -415,7 +415,7 @@ footer {
 
 .btnLove{
     font-size: 1.5em;
-    color: rgb(134, 11, 11);
+    /* color: rgb(134, 11, 11); */
     background: none;
     border: 0;
     color: inherit;
