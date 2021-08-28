@@ -99,12 +99,14 @@ export default () => {
   });
   */
   const contenedor = document.querySelector('.container-posts');
+  const defaultImg = 'https://cdn.myanimelist.net/images/userimages/3950429.jpg?t=1505773800';
+
   // Ejecuta savePost enviando el contenido del textarea
   const shareBtn = document.querySelector('.post_btn');
   shareBtn.addEventListener('click', () => {
     const post = document.querySelector('.posts');
     if (googleUser === null) {
-      savePost(post, emailUserName, emailUserEmail).then(() => {
+      savePost(post, emailUserName, emailUserEmail, defaultImg).then(() => {
         console.log('se mandó');
       });
     } else {
@@ -120,7 +122,17 @@ export default () => {
   const publications = () => {
     getPost().onSnapshot((doc) => {
       doc.forEach((docs) => {
-        contenedor.innerHTML += `<p class="text-print">${docs.data().post}</p>`;
+        contenedor.innerHTML += ` 
+        <section class="section-post">
+          <div class="user-post">
+           <div class="user-img-post">
+             <img src="${docs.data().photo}" alt="Foto de perfil" />
+             <p class="user-name">${docs.data().name}</p>
+           </div>
+           <div class="icons-post"><i class="fas fa-trash-alt"></i><i class="fas fa-edit"></i></div>
+         </div>
+          <div><p class="text-print-post">${docs.data().post}</p></div>
+        </section>`;
       });
     });
   };
