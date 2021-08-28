@@ -1,3 +1,4 @@
+/*************************************** Generales ********************************/
 /******* Import de url de fuente********/
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
@@ -8,6 +9,76 @@
     padding: 0;
     font-family: 'Roboto', sans-serif;
 }
+
+/**********************************Home****************************************/
+
+/****************Contenedor de home****************/
+.contentHome{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+/****************Contenedor de la info y el botón************/
+
+.contentInfo{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+/******************información de home********************/
+.homeInfo{
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    font-size: calc(2em + 1vw);
+    text-align: center;
+    margin-bottom: 10%;
+}
+
+.contentBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonStart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: #4DBC4D;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    border-radius: 16px;
+    text-align: center;
+    font-style: initial;
+    font-size: calc(0.5em + 1vw);
+    width: 28%;
+    margin: 5%;
+    padding: 2%;
+}
+
+/*********Contenedor de la imagen de Home************/
+.contentImgHome{
+    max-width: 100%;
+    left: auto;
+    margin-top: 0;
+}
+
+.imgHome{
+    width: 100%;
+    margin-top: 0;
+}
+
+/********************************** fin Home****************************************/
+
+/********************************** Login signUp *********************************/
+
 /******** header ********/
 header{
     background-color: #4DBC4D;
@@ -175,9 +246,325 @@ footer {
     color: white;
     font-size: calc(0.5em + 1vw);
 }
-/********Media queries**********/
 
-@media (min-width: 970px) {
+/************************************ fin de Login y signUp  ********************************/
+
+/*********************************** Timeline************************************/
+
+.divContent{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content{
+    width: 100%;
+}
+
+.timeLineContainer{
+    width: 100%;
+    height: 40%;
+}
+
+.profileContainer{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid #A4A3A3;
+    background-color: #ebffe6;
+    border-radius: 6px;
+    margin: 2% auto;
+    margin-top: 0%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.publication{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    border: 1px solid #C6C3C3;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.publicationContainer{
+    width: 100%;
+}
+
+.textAreaPublication{
+    width: 80%;
+    height: 50%;
+    margin: 4% auto;
+    border: 3px solid #b4b4b4;
+    box-sizing: border-box;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+
+.textAreaPublication::placeholder{
+    color: #7e7e7e;
+    padding: 3%;
+    font-weight: 400;
+}
+
+
+.buttonsPost{
+    display: flex;
+    justify-content: space-between;
+    margin: 3% 3%;
+    cursor: pointer;
+}
+
+.buttonImg{
+    font-size: 2em;
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.buttonShare{
+    width: 6em;
+    font-size: 1em;
+    padding: 2%;
+    background-color: #4DBC4D;
+    border-radius: 15px;
+    border: 1px solid #4DBC4D;
+    padding: 1% 2%;
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+    cursor: pointer;
+}
+
+.postSection{
+    width: 100%;
+}
+
+.postMessage{
+    margin: 5% 0;
+    border: 1px solid #C6C3C3;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+}
+
+.authorPost{
+    display: flex;
+    justify-content: space-between;
+    background-color: #4DBC4D;
+}
+
+.authorPost p{
+    color: #FFFFFF;
+}
+
+.btnDelete{
+    font-size: 1.5em;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin: 0 2%;
+    cursor: pointer;
+}
+
+.sectionAboutPost{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.postContent{
+    width: 78%;
+    margin: 2%;
+    padding: 2%;
+    font-size: 1.5em;
+    border: none;
+}
+
+.sectionAboutPost div{
+    display: flex;
+    justify-content: space-between;
+    margin: 2%;
+}
+
+.btnEdit {
+    font-size: 1.5em;
+    background: none;
+    border: none;
+    color: inherit;
+    margin: 1%;
+    cursor: pointer;
+}
+
+.btnSave{
+    font-size: 1.5em;
+    background: none;
+    border: none;
+    color: inherit;
+    margin: 1%;
+    cursor: pointer;
+}
+
+.reactionPost{
+    display: flex;
+    background-color: rgba(0, 0, 0, 20%);
+    justify-content: flex-start;
+}
+
+.btnLove{
+    font-size: 1.5em;
+    color: rgb(134, 11, 11);
+    background: none;
+    border: 0;
+    color: inherit;
+    margin: 1%;
+    cursor: pointer;
+}
+.btnDkislike{
+    background: none;
+    border: 0;
+    color: inherit;
+    margin: 1%;
+    cursor: pointer;
+}
+
+.btnComments{
+    font-size: 1.5em;
+    background: none;
+    border: 0;
+    color: inherit;
+    margin: 1%;
+    cursor: pointer;
+}
+
+/*********************************** Fin de Timeline ************************************/
+
+/******************************************** Profile *******************************************/
+
+.divContentProfile{
+    width: 50%;
+}
+
+.profileContent{
+width: 100%;
+height: 50%;
+display: flex;
+flex-flow: column wrap;
+justify-content: space-between;
+align-items: center;
+border: 2px solid #777777;
+border-radius: 6px;
+margin: 2% auto;
+margin-top: 0%;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.profileContainer figure{
+    width: 50%;
+    height: 50%;
+    align-content: center;
+}
+
+.nameStatus{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10%;
+}
+
+.imgProfile{
+    border-radius: 20%;
+    margin-top: 5%;
+}
+
+.nameProfile{
+    margin: 0;
+    color: rgba(104, 158, 224, 1);
+    font-weight: 800;
+}
+
+.status{
+    color: rgba(43, 43, 43, 1)
+}
+
+.aboutUser{
+    margin: 2% auto;
+    border: 2px solid #7D7D7D;
+    box-sizing: border-box;
+    border-radius: 6px;
+}
+
+.aboutUser h2{
+    text-align: center;
+}
+
+/******************************************** Fin de Profile *******************************************/
+
+/***************************************** Error 404 ******************************************/
+
+.errorSection{
+    display: flex;
+    flex-direction: column-reverse;
+}
+.error404{
+    width: 90%;
+    text-transform: uppercase;
+    margin: auto;
+}
+.errorImg{
+    width: 100%;
+    padding: 5%;
+}
+
+/***************************************** Fin de Error 404 ******************************************/
+
+
+/***********************************************MEDIA QUERIES*******************************************/
+
+
+                                @media (min-width: 970px){
+
+/**************************************************Home************************************************/
+
+.contentHome{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: -5%;
+}
+
+/**************************Contenedor de la info y el botón***********************/
+.contentInfo{
+    display: flex;
+    justify-content: center; 
+    width: 40%;
+}
+
+/*************************información de home*****************************/
+.homeInfo{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: calc(1em + 1vw);
+    text-align: center;
+    margin-bottom: 10%;
+}
+
+
+/***************************Contenedor de la imagen de Home********************/
+.contentImgHome{
+    max-width: 100%;
+    left: auto;
+}
+
+.imgHome{
+    width: 100%;
+    }
+
+/********************************** fin de Home****************************************/
+
+/************************************* login y signUp *******************************/
 
 .menu{
     height: 4rem;
@@ -232,9 +619,85 @@ figure{
     }
 }
 
+/************************************* Fin login y signUp *******************************/
+
+@media (min-width: 768px) {
+
+/*********************************** Timeline ************************************/
+
+    .timeLineContainer{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    }
+
+    /* .profileContaiter{
+    width: 50%;
+    } */
+
+    .publicationContainer{
+    width: 50%;
+    }
+
+/*********************************** Fin de Timeline ************************************/
+
+/******************************************** Profile *******************************************/
+
+    .profileContainer{
+    width: 40%;
+    height: 70%;
+    }
+
+    .nameProfile{
+    font-size: 1em;
+    }
+}
+
+/******************************************** Fin de Profile *******************************************/
+
+
 @media (max-width: 411px){
+
+/************************************* login y signUp *******************************/
 
     .input{
     font-size: calc(0.4em + 1vw);
     }
 }
+
+/************************************* Fin de login y signUp *******************************/
+
+@media (max-width: 360px){
+
+/***********************************  Timeline ************************************/
+    .buttonImg{
+    font-size: 1em;
+    }
+
+    .btnDelete{
+    font-size: 1em;
+    }
+
+    .postContent{
+    font-size: 1em;
+    }
+
+        .userNamePost{
+    font-size: 0.7em;
+    }
+
+    .btnEdit {
+        font-size: 1em;
+    }
+    .btnSave{
+        font-size: 1em;
+    }
+
+    .btnLove{
+        font-size: 1em;
+    }
+    .btnComments{
+        font-size: 1em;
+    }
+}
+/*********************************** Fin de Timeline************************************/
