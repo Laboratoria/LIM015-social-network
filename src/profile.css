@@ -4,59 +4,8 @@ html{
   background-image: linear-gradient(to right, #dae7e7 0%, #efc7f7 100%);
 }
 
-a {
-  text-decoration: none;
-}
-
-ul {
-  list-style: none;
-}
-
 img {
   width: 100%;
-}
-
-.contenedor {
-  position: relative;
-  z-index: 5;
-  max-width: 92rem;
-  padding: 0 6rem;
-  margin: 0 auto;
-}
-
-
-/************* Nav *************/
-
-nav {
-  width: 100%;
-  position: relative;
-}
-
-nav .contenedor {
-  display: flex;
-  justify-content: space-between;
-  height: 7rem;
-  align-items: center;
-}
-
-.logo {
-  display: flex;
-}
-
-.links ul {
-  display: flex;
-}
-
-.links i {
-  display: inline-block;
-  padding: 0.9rem 2.5rem;
-  color: var(--dark-one);
-  font-size: 2rem;
-  transition: 0.5s;
-}
-
-.links i:hover {
-  color: var(--main-color);
 }
 
 /***********************Estilos********************/
@@ -233,11 +182,6 @@ nav .contenedor {
     font-size: 1rem;
   }
 
-  .links i {
-    font-size: 1.9rem;
-    padding: 0.65rem 2.7rem;
-  }
-
   .title {
     font-size: 2.1rem;
     padding-bottom: 0.65rem;
@@ -246,10 +190,6 @@ nav .contenedor {
   .edit_button {
     padding: 0.75rem 1.7rem;
     font-size: 0.8rem;
-  }
-
-  nav .contenedor {
-    height: 6rem;
   }
 
   .logo {

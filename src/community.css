@@ -44,7 +44,6 @@ img {
 }
 
 .contenedor {
-  
   position: relative;
   z-index: 5;
   max-width: 92rem;
@@ -75,8 +74,8 @@ nav .contenedor {
 }
 
 .links i {
-  display: inline-block;
-  padding: 0.9rem 2.5rem;
+  font-size: 1.9rem;
+  padding: 0.65rem 2.7rem;
   color: var(--dark-one);
   font-size: 2rem;
   transition: 0.5s;
@@ -100,7 +99,7 @@ nav .contenedor {
   border-radius: 45px;
   padding: 5.5rem 4.5rem;
   display: grid;
-  grid-template-columns: 0.6fr 1.3fr;
+  grid-template-columns: 35% 65%;
   box-shadow: 0 0 10px 0 rgba(73, 73, 73, 0.63);
 }
 
@@ -132,28 +131,6 @@ nav .contenedor {
   position: relative;
   
 }
-
-/*.user-img:hover {
-  box-shadow: 0 0 15px 0 rgb(41, 41, 41);  
-  border-radius: 50%;
-}
-
-.poster_effect-text img {
-  position: absolute;
-  line-height: 1.5;
-  width: 180px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transform-origin: center;
-  transition: 0.5s;
-  border-radius: 20px;
-}
-
-.user-img img:hover {
-  box-shadow: 0 0 15px 0 rgb(41, 41, 41);
-  border-radius: 50%;
-}*/
 
 .user-name {
   font-size: 1rem;
@@ -345,6 +322,13 @@ figure:hover figcaption {
   display: flex;
   width: 20%;
   justify-content: space-evenly;
+}
+.fa-trash-alt, .fa-edit {
+  color: var(--dark-one);
+  transition: 0.5s;
+}
+.fa-trash-alt:hover, .fa-edit:hover {
+  color: var(--main-color);
 }
 
 .text-print-post {
