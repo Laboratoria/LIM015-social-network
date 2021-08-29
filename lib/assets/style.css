@@ -72,6 +72,7 @@
   border: 0;
   color: #ffffff;
   font-size: 17px;
+  cursor: pointer;
 }
 .formButton:hover{
   background: #fff;
@@ -102,6 +103,7 @@
 }
 a{
   text-decoration: none;
+  cursor: pointer;
 }
 /*-------------------- RESET PASSWORD----------------------*/
 .resetPasswordContainer .desktop-logo{
@@ -169,16 +171,10 @@ a{
 .container-checkBox:hover input ~ .checkmark {
   background-color: var(--color-gray);
 }
-.container-checkBox input:checked ~ .checkmark {
-  background-color: var(--color-main);
-}
 .checkmark:after {
   content: "";
   position: absolute;
   display: none;
-}
-.container-checkBox input:checked ~ .checkmark:after {
-  display: block;
 }
 .container-checkBox .checkmark:after {
   left: 6px;
@@ -190,6 +186,12 @@ a{
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+.container-checkBox input:checked ~ .checkmark {
+  background-color: var(--color-main);
+}
+.container-checkBox input:checked ~ .checkmark:after {
+  display: block;
 }
 
 /* validation forms */
