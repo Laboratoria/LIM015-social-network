@@ -28,6 +28,9 @@ export const SIGNUP = () => {
   const password = divElement.querySelector('#password1');
   const confirmPass = divElement.querySelector('#password2');
   // ------------------------- ESCONDER RESTO DE LINKS -------------------------
+  document.querySelector('.home a').style.display = 'block';
+  document.querySelector('.login a').style.display = 'block';
+  document.querySelector('.signUp a').style.display = 'block';
   document.querySelector('.profile a').style.display = 'none';
   document.querySelector('.timeline a').style.display = 'none';
   document.querySelector('.logOut a').style.display = 'none';

@@ -1,8 +1,12 @@
 // importamos la funcion que vamos a testear
-import { COMPONENTS } from '../src/lib/dictionary.js';
+import { registerWithFirebase } from '../src/firebase/firebase-auth.js';
 
-describe('myDictionary', () => {
-  it('debería ser una función', () => {
-    expect(typeof COMPONENTS).toBe('function');
+describe('registerWithFirebase', () => {
+  // beforeEach(() => {
+  //   global.firebase = {
+  //     auth: () => {},
+  //   };
+  it('Deberia ser una función', () => {
+    expect(typeof registerWithFirebase).toBe('function');
   });
 });

@@ -37,6 +37,9 @@ export const LOGIN = () => {
   const emailUser = divElement.querySelector('#email');
   const password = divElement.querySelector('#password1');
   // ------------------------- ESCONDER RESTO DE LINKS -------------------------
+  document.querySelector('.home a').style.display = 'block';
+  document.querySelector('.login a').style.display = 'block';
+  document.querySelector('.signUp a').style.display = 'block';
   document.querySelector('.profile a').style.display = 'none';
   document.querySelector('.timeline a').style.display = 'none';
   document.querySelector('.logOut a').style.display = 'none';

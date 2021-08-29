@@ -192,6 +192,7 @@ body{
 .btnStart{
     border: none;
     background-color: #4DBC4D;
+    color: rgb(255, 255, 255);
     cursor: pointer;
     display: flex;
     justify-content: center;

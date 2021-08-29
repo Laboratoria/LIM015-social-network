@@ -1,4 +1,3 @@
-// import { getPostId, deletePost } from '../firebase/firebase-firestore.js';
 export const PROFILE = () => {
   const view = `
   <section class='profileContent'>
@@ -23,11 +22,17 @@ export const PROFILE = () => {
   const imgElement = divElement.querySelector('#imgUser');
   const userNameProfile = divElement.querySelector('#nameProfile');
   // FUNCIONALIDAD
+  document.querySelector('.home a').style.display = 'none';
+  document.querySelector('.login a').style.display = 'none';
+  document.querySelector('.signUp a').style.display = 'none';
+  document.querySelector('.profile a').style.display = 'block';
+  document.querySelector('.timeline a').style.display = 'block';
+  document.querySelector('.logOut a').style.display = 'block';
   // ------------------------- Foto de perfil -------------------------
-  if (localStorage.getItem('userPhoto')) {
-    imgElement.src = localStorage.getItem('userPhoto');
-  } else {
+  if (localStorage.getItem('userPhoto') === 'null') {
     imgElement.src = '../images/imgDefault3.png';
+  } else {
+    imgElement.src = localStorage.getItem('userPhoto');
   }
   // -------------------------  Mostrar nombre de perfil -------------------------
   if (localStorage.getItem('userName') === null) {

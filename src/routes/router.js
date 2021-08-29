@@ -8,6 +8,7 @@ export const changeViews = (hash) => {
     case '#':
     case '#/':
     case '#/home':
+    case '#/logOut':
       return contentElement.appendChild(COMPONENTS.inicio());
     case '#/login':
       return contentElement.appendChild(COMPONENTS.inicioSesion());

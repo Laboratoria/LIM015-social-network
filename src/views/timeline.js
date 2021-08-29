@@ -1,5 +1,5 @@
 // import firebase from '../firebase/firebase.js';
-import { logOutUser, firebaseWatcher } from '../firebase/firebase-auth.js';
+import { logOutUser } from '../firebase/firebase-auth.js';
 import {
   addPostCollection, getPosts, onGetPosts,
   deletePost, updatePost, updateLoves, getPostsUserId,
@@ -41,12 +41,17 @@ export const TIMELINE = () => {
   const postContent = divElement.querySelector('#posts');
   const imgElement = divElement.querySelector('#imgUser');
   // FUNCIONALIDAD
-  firebaseWatcher();
+  document.querySelector('.home a').style.display = 'none';
+  document.querySelector('.login a').style.display = 'none';
+  document.querySelector('.signUp a').style.display = 'none';
+  document.querySelector('.profile a').style.display = 'block';
+  document.querySelector('.timeline a').style.display = 'block';
+  document.querySelector('.logOut a').style.display = 'block';
   // ------------------------- Foto de perfil -------------------------
-  if (localStorage.getItem('userPhoto')) {
-    imgElement.src = localStorage.getItem('userPhoto');
-  } else {
+  if (localStorage.getItem('userPhoto') === 'null') {
     imgElement.src = '../images/imgDefault3.png';
+  } else {
+    imgElement.src = localStorage.getItem('userPhoto');
   }
   // -------------------------  Mostrar nombre de perfil -------------------------
   if (localStorage.getItem('userName') === null) {
@@ -94,7 +99,6 @@ export const TIMELINE = () => {
           <div id='reactionPost' class='reactionPost'>
             <button id='${idPost}' class='btnLove'>&#x2764;&#xfe0f;</button>
             <span name='${idPost}'>${postInfo.likes.length}</span>
-            <button id='${idPost}' class='btnDkislike'>&#128078;</button>
             <button id='${idPost}' class='btnComments'>&#128172;</button>
             <span>0</span>
           </div>
@@ -107,27 +111,23 @@ export const TIMELINE = () => {
     // ------------------------- Boton love -------------------------
     divElement.addEventListener('click', async (e) => {
       if (e.target.className === 'btnLove') {
+        const userId = localStorage.getItem('userId');
+        const newLike = {
+          userEmail: localStorage.getItem('userEmail'),
+          userID: userId,
+        };
         getPostsUserId(e.target.id)
           .then((postInfo) => {
-            const userId = localStorage.getItem('userId');
-            const userLikes = postInfo.data().likes;
-            const newLike = {
-              userEmail: localStorage.getItem('userEmail'),
-              userID: userId,
-            };
-            userLikes.push(newLike);
-            updateLoves(e.target.id, userLikes);
-          });
-      }
-    });
-    // ------------------------- Boton dislike -------------------------
-    divElement.addEventListener('click', async (e) => {
-      if (e.target.className === 'btnDkislike') {
-        getPostsUserId(e.target.id)
-          .then((postInfo) => {
-            const userLikes = postInfo.data().likes;
-            userLikes.pop();
-            updateLoves(e.target.id, userLikes);
+            const postData = postInfo.data();
+            const userLikes = postData.likes;
+            const filterLikeByIdUser = userLikes.filter((like) => like.userID === userId);
+            const filterLikeByIdOtherUser = userLikes.filter((like) => like.userID !== userId);
+            if (filterLikeByIdUser.length !== 0) {
+              updateLoves(postInfo.id, filterLikeByIdOtherUser);
+            } else {
+              userLikes.push(newLike);
+              updateLoves(postInfo.id, userLikes);
+            }
           });
       }
     });
