@@ -451,6 +451,7 @@ footer {
 .profileContent{
 width: 100%;
 height: 50%;
+background-color: #ebffe6;
 display: flex;
 flex-flow: column wrap;
 justify-content: space-between;
@@ -462,9 +463,8 @@ margin-top: 0%;
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.profileContainer figure{
-    width: 50%;
-    height: 50%;
+.profileContainer{
+    height: 40%;
     align-content: center;
 }
 
@@ -474,9 +474,11 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     margin-top: 10%;
 }
 
+
 .imgProfile{
+    width: 150%;
     border-radius: 20%;
-    margin-top: 5%;
+    margin-top: 20%;
 }
 
 .nameProfile{
@@ -490,6 +492,7 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .aboutUser{
+    background-color: #ebffe6;
     margin: 2% auto;
     border: 2px solid #7D7D7D;
     box-sizing: border-box;
@@ -497,7 +500,17 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .aboutUser h2{
+    margin-top: 2%;
+    font-size: 200%;
     text-align: center;
+}
+
+.statusProfile{
+    font-size: 150%;
+}
+
+.myInfo{
+    font-size: 150%;
 }
 
 /******************************************** Fin de Profile *******************************************/
@@ -668,6 +681,7 @@ figure{
 
 /************************************* Fin de login y signUp *******************************/
 
+
 @media (max-width: 360px){
 
 /***********************************  Timeline ************************************/
@@ -701,4 +715,5 @@ figure{
         font-size: 1em;
     }
 }
+
 /*********************************** Fin de Timeline************************************/
