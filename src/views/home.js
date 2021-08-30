@@ -2,15 +2,16 @@ export const HOME = () => {
   const view = ` 
   <div class="contentHome">
     <div class="contentInfo">
-      <p class="homeInfo"> Viaja  &#x1f304; Disfruta &#x1f453; Comparte &#x1f450;
-      </p>
-      <div class="contentBtn">
-        <button id='btnStart' type="button" class='buttonStart'>Empezar</button>
+      <div class="contentInfoHome">
+          <p class="homeInfo"> Viaja  &#x1f304; Disfruta &#x1f453; Comparte &#x1f450;</p>
+        </div>
+          <div class="contentBtn">
+            <button id='btnStart' type="button" class='buttonStart'>Empezar</button>
+          </div>
+        </div>
+        <div class="contentImgHome">
+          <img src="../images/home.png" alt="imagenHome" class="imgHome">
       </div>
-    </div>
-    <div class="contentImgHome">
-      <img src="../images/home.png" alt="imagenHome" class="imgHome">
-    </div>
   </div>
   `;
   const divElement = document.createElement('div');

@@ -28,6 +28,11 @@
     width: 100%;
 }
 
+.contentInfoHome{
+    display: flex;
+    justify-content: center;
+}
+
 /******************información de home********************/
 .homeInfo{
     display: flex;
@@ -451,6 +456,7 @@ footer {
 .profileContent{
 width: 100%;
 height: 50%;
+background-color: #ebffe6;
 display: flex;
 flex-flow: column wrap;
 justify-content: space-between;
@@ -462,21 +468,17 @@ margin-top: 0%;
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.profileContainer figure{
-    width: 50%;
-    height: 50%;
-    align-content: center;
-}
-
 .nameStatus{
     display: flex;
     flex-direction: column;
     margin-top: 10%;
 }
 
+
 .imgProfile{
+    width: 150%;
     border-radius: 20%;
-    margin-top: 5%;
+    margin-top: 20%;
 }
 
 .nameProfile{
@@ -490,6 +492,7 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .aboutUser{
+    background-color: #ebffe6;
     margin: 2% auto;
     border: 2px solid #7D7D7D;
     box-sizing: border-box;
@@ -497,7 +500,17 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .aboutUser h2{
+    margin-top: 2%;
+    font-size: 200%;
     text-align: center;
+}
+
+.statusProfile{
+    font-size: 150%;
+}
+
+.myInfo{
+    font-size: 150%;
 }
 
 /******************************************** Fin de Profile *******************************************/
@@ -633,7 +646,7 @@ figure{
     }
 
     /* .profileContaiter{
-    width: 50%;
+    height: 20%;
     } */
 
     .publicationContainer{
@@ -646,7 +659,7 @@ figure{
 
     .profileContainer{
     width: 40%;
-    height: 70%;
+    height: 30%;
     }
 
     .nameProfile{
@@ -667,6 +680,7 @@ figure{
 }
 
 /************************************* Fin de login y signUp *******************************/
+
 
 @media (max-width: 360px){
 
@@ -701,4 +715,5 @@ figure{
         font-size: 1em;
     }
 }
+
 /*********************************** Fin de Timeline************************************/
