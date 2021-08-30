@@ -83,15 +83,22 @@ src\images\timeLine.png
 ![Prototipo en Desktop](src\images\HUpagina1.png)
 
 ![Prototipo en Desktop](src\images\HUpagina2.png)
-__*TOPIC:*__  
+
+__*TOPIC:*__  Turismo  
 __*OBJETIVOS PRINCIPALES:*__  
-Permitir a cualquier usuario crear una cuenta de acceso y loguearse con ella; crear, editar, borrar y "likear" publicacciones.
+- Permitir a cualquier usuario crear una cuenta de acceso y loguearse con ella; crear, editar, borrar y "likear" publicacciones.
+- Permitir al usuario loguearse con su cuenta de google
+- Permitir compartir publicaciones con la comunidad de viajeros
+- Permitir al usuario editar, eliminar sus posts
+- Poder darle 1 solo like por usuario a cada publicación
+
 __*Quiénes son los principales usuarios de producto:*__
+Todas las personas que les interesa viajar o compartir sus experiencias
 
 __*Qué problema resuelve el producto / para qué le servirá a estos usuarios:*__
-
+Luego de la pandemia, muchas personas desearan salir de sus hogares a un viaje ya sea express o de larga estadia, sin embargo muchas personas no conocen los destinos turisticos que tiene su país y con esta red pueden descubrir a través de otros viajeros propuestas económicas, divertidas y completas
 ### Otras especificaciones
-
+Este proyecto esta realizado desde el frontend con vanilla js y con ayuda de firebase poemos tener un backend amigable y en tiempo real
 ### Imagenes del proyecto
 
 __*PROTOTIPO DEN FIGMA:*__  
@@ -103,7 +110,7 @@ Inicio del proyecto: 27/07/2021
 ![Prototipo en Desktop](src\images\laRutaPrototipoEnMovil.png)
 
 * __*PRODUCTO FINAL:*__
-Fin del proyecto: /07/2021  
+Fin del proyecto: 31/07/2021  
 
 ![Home](src\images\desktopFinal.png)
 
