@@ -5,11 +5,11 @@ import {
   sendPasswordReset,
   sendEmail,
   onAuthStateChanged,
+  signOut,
 } from '../lib/firebase/functions.js';
 
 const firebaseMock = require('firebase-mock');
 
-// const mockfirebase = new firebaseMock.MockFirebase();
 const mockauth = new firebaseMock.MockAuthentication();
 mockauth.autoFlush();
 
@@ -18,15 +18,16 @@ global.firebase = new firebaseMock.MockFirebaseSdk(
   () => mockauth,
 );
 
+const users = {
+  email: 'ben@example.com',
+  password: 'examplePass',
+};
+
 describe('addUser', () => {
-  it('debería ser una función', () => {
+  it('addUser debería ser una función', () => {
     expect(typeof addUser).toBe('function');
   });
   it('', () => {
-    const users = {
-      email: 'ben@example.com',
-      password: 'examplePass',
-    };
     addUser(users.email, users.password)
       .then((user) => {
         expect(user).toEqual(users);
@@ -35,14 +36,10 @@ describe('addUser', () => {
 });
 
 describe('loginUser', () => {
-  it('debería ser una función', () => {
+  it('loginUser debería ser una función', () => {
     expect(typeof loginUser).toBe('function');
   });
   it('', () => {
-    const users = {
-      email: 'ben@example.com',
-      password: 'examplePass',
-    };
     loginUser(users.email, users.password)
       .then((user) => {
         expect(user).toEqual(users);
@@ -55,10 +52,6 @@ describe('googleLogin', () => {
     expect(typeof googleLogin).toBe('function');
   });
   it('', () => {
-    const users = {
-      email: 'ben@example.com',
-      password: 'examplePass',
-    };
     googleLogin(users.email, users.password)
       .then((user) => {
         expect(user).toEqual(users);
@@ -72,9 +65,6 @@ describe('sendPasswordResetEmail', () => {
   });
   it('', () => {
     const mocksendPasswordResetEmail = jest.fn();
-    const users = {
-      email: 'ben@example.com',
-    };
     firebase.auth().sendPasswordResetEmail = mocksendPasswordResetEmail;
     sendPasswordReset(users.email);
     expect(mocksendPasswordResetEmail).toHaveBeenCalled();
@@ -105,4 +95,11 @@ describe('onAuthStateChanged', () => {
     onAuthStateChanged(callback);
     expect(callback).toEqual(callback);
   });
+});
+
+describe('signOut', () => {
+  it('deberia cerrar sesion', () => signOut()
+    .then((user) => {
+      expect(user).toBe(undefined);
+    }));
 });
