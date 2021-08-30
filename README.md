@@ -78,6 +78,11 @@ __FIREBASE:__
 [] Observables  
 
 ### Especificaciones
+src\images\timeLine.png
+
+![Prototipo en Desktop](src\images\HUpagina1.png)
+
+![Prototipo en Desktop](src\images\HUpagina2.png)
 __*TOPIC:*__  
 __*OBJETIVOS PRINCIPALES:*__  
 Permitir a cualquier usuario crear una cuenta de acceso y loguearse con ella; crear, editar, borrar y "likear" publicacciones.
@@ -88,15 +93,30 @@ __*Qué problema resuelve el producto / para qué le servirá a estos usuarios:*
 ### Otras especificaciones
 
 ### Imagenes del proyecto
-* __*Imagenes iniciales:*__
+
+__*PROTOTIPO DEN FIGMA:*__  
+
 Inicio del proyecto: 27/07/2021  
 
 ![Prototipo en Desktop](src\images\laRutaPrototipoEnDesktop.png)
 
 ![Prototipo en Desktop](src\images\laRutaPrototipoEnMovil.png)
 
-* __*Producto final:*__
+* __*PRODUCTO FINAL:*__
 Fin del proyecto: /07/2021  
+
+![Home](src\images\desktopFinal.png)
+
+![Prototipo en Desktop](src\images\tabletFinal.png)
+
+![Prototipo en Desktop](src\images\iniciaConGoogle.png)
+
+![Prototipo en Desktop](src\images\registrase.png)
+
+![Prototipo en Desktop](src\images\inciarSesion.png)
+
+![Prototipo en Desktop](src\images\timeLine.png)
+
 [project](https://github.com/Andu15/LIM015-social-network/tree/Development)
 
 ### Links relacionados
