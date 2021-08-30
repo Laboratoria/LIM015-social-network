@@ -28,6 +28,11 @@
     width: 100%;
 }
 
+.contentInfoHome{
+    display: flex;
+    justify-content: center;
+}
+
 /******************información de home********************/
 .homeInfo{
     display: flex;
@@ -646,7 +651,7 @@ figure{
     }
 
     /* .profileContaiter{
-    width: 50%;
+    height: 20%;
     } */
 
     .publicationContainer{
@@ -659,7 +664,7 @@ figure{
 
     .profileContainer{
     width: 40%;
-    height: 70%;
+    height: 30%;
     }
 
     .nameProfile{
