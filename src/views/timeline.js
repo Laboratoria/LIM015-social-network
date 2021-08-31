@@ -80,7 +80,6 @@ export const TIMELINE = () => {
         // const pathPost = docAboutCollection.ref.path;
         const postInfo = docAboutCollection.data();
         // console.log(docAboutCollection);
-        console.log(postInfo);
         // console.log(docAboutCollection);
         // console.log(idPost, existPost, pathPost);
         // console.log(docAboutCollection);
