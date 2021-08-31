@@ -14,4 +14,4 @@ firebase.initializeApp(firebaseConfig);
 // firebase.analytics();
 // constantes iniciales de firebase
 
-export default firebase;
+// export default firebase;

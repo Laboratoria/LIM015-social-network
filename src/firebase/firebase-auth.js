@@ -1,4 +1,3 @@
-import firebase from './firebase.js';
 // --------------------------------- VIEW REGISTRARSE ---------------------------------
 // CREAR NUEVO USUARIO CON FIREBASE
 export const registerWithFirebase = (email, password) => {
