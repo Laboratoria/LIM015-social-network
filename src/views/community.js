@@ -1,4 +1,4 @@
-import { savePost, getPost } from '../scripts/fs-firestore.js';
+import { savePost, getPost, deletePost } from '../scripts/fs-firestore.js';
 
 export default () => {
   const main = document.querySelector('.views'); // este main es para las vistas
@@ -122,17 +122,28 @@ export default () => {
   const publications = () => {
     getPost().onSnapshot((doc) => {
       doc.forEach((docs) => {
+        const infoPosts = docs.data();
         contenedor.innerHTML += ` 
         <section class="section-post">
           <div class="user-post">
            <div class="user-img-post">
-             <img src="${docs.data().photo}" alt="Foto de perfil" />
-             <p class="user-name">${docs.data().name}</p>
+             <img src="${infoPosts.photo}" alt="Foto de perfil" />
+             <p class="user-name">${infoPosts.name}</p>
            </div>
-           <div class="icons-post"><i class="fas fa-trash-alt"></i><i class="fas fa-edit"></i></div>
+           <div class="icons-post"><i class="fas fa-trash-alt" id=${docs.id}></i><i class="fas fa-edit"></i></div>
          </div>
-          <div><p class="text-print-post">${docs.data().post}</p></div>
+          <div><p class="text-print-post">${infoPosts.post}</p></div>
         </section>`;
+      });
+
+      // Función para borrar los posts
+      const deleteBtns = document.querySelectorAll('.fa-trash-alt');
+      console.log(deleteBtns);
+      deleteBtns.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          contenedor.innerHTML = '';
+          deletePost(e.target.id);
+        });
       });
     });
   };
