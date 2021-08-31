@@ -25,7 +25,7 @@ export default () => {
          <hr>
          <!--Div de Banner-->
          <div class="Crunchyroll">
-            <img src="./images/banner.gif" alt="Publicidad de Crunchyroll" title="¡Crunchyroll!" />
+            <a href="https://www.crunchyroll.com/es" target="_blank"><img src="./images/banner.gif" alt="Publicidad de Crunchyroll" title="¡Crunchyroll!" /></a>
          </div>
 
          <h2 class="title-anime">
@@ -35,7 +35,8 @@ export default () => {
          <!--contendedor de posters de anime-->
          <div class="container-posters">
          <figure>
-         <img src="./images/port1.png" alt="Poster de Shingeki no Kyojin">
+         <a href="https://www.crunchyroll.com/es/attack-on-titan
+         " target="_blank"><img src="./images/port1.png" alt="Poster de Shingeki no Kyojin"></a>
          <figcaption>
            <h3>Attack on Titan<br>Final Season</h3>
            <h5></h5>
@@ -43,21 +44,24 @@ export default () => {
        </figure>
        
        <figure>
-         <img src="./images/port2.png" alt="Poster de Tokyo Revengers">
+         <a href="https://www.crunchyroll.com/es/tokyo-revengers
+         " target="_blank"><img src="./images/port2.png" alt="Poster de Tokyo Revengers"></a>
          <figcaption>
            <h3>Tokio Revengers<br>Episode 19</h3>
          </figcaption>
        </figure>
 
        <figure>
-         <img src="./images/port3.jpg" alt="Poster de Jojo's">
+         <a href="https://www.crunchyroll.com/es/jojos-bizarre-adventure
+         " target="_blank"><img src="./images/port3.jpg" alt="Poster de Jojo's"></a>
          <figcaption>
            <h3>JOJO'S<br>5th Season</h3>
          </figcaption>
        </figure>
   
        <figure>
-         <img src="./images/port4.png" alt="Poster de Demon Slayer">
+         <a href="https://www.crunchyroll.com/es/anime-news/2021/06/16/demon-slayer-kimetsu-no-yaiba-the-movie-mugen-train-hace-explotar-el-mercado-japons-con-su-lanzamiento-en-bddvd
+         " target="_blank"><img src="./images/port4.png" alt="Poster de Demon Slayer"></a>
          <figcaption>
            <h3>Demon Slayer<br>Movie</h3>
          </figcaption>
@@ -67,7 +71,7 @@ export default () => {
 
       <!--Columna de posts-->
       <div class="muro-posts">
-         <h3 class="title">Postea ♥ :</h3>
+         <h3 class="title">Postea:</h3>
          <div class="txt-post">
            <textarea
             name="message"

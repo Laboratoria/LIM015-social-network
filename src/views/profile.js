@@ -10,7 +10,7 @@ export default () => {
   <div class="contenedor">
     <!--Sección de Perfil-->
     <div class="section-profile">
-      <div class="profile">
+      
         <div class="profile-banner">
         </div>
 
@@ -38,7 +38,7 @@ export default () => {
         <button type="submit" class="edit_button">Editar</button>
        </div>
         <p class="text-print">texto impreso</p>  
-     </div>
+     
     </div>
   </div>
 </section>`;

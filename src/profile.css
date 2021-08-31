@@ -1,36 +1,26 @@
-/********* Estilos generales **************/
-
-html{
-  background-image: linear-gradient(to right, #dae7e7 0%, #efc7f7 100%);
-}
-
-img {
-  width: 100%;
-}
-
 /***********************Estilos********************/
 .section-profile {
   background-color: var(--light-one);
   width: 100%;
   border-radius: 45px;
-  padding: 3rem 3.5rem;
+  padding: 2rem 2.5rem;
   display: grid;
   grid-template-columns: 1fr;
   box-shadow: 0 0 10px 0 rgba(73, 73, 73, 0.63);
   margin-bottom: 2rem;
 }
 
-.profile .title {
+.info-user .title {
   margin-bottom:2rem;
   font-size: 1.8rem;
 }
 
-
 /*****************INFO DEL USUARIO*********************/
 
 .profile-banner {
+  display: flex;
   background-image: linear-gradient(to right, #f4fad6 0%, #ffafbd 0%, #c9ffbf 100%);
-  height: 300px;
+  height: 250px;
   width: 100%;
   background-size:100%;
   object-fit: cover; 
@@ -56,7 +46,7 @@ img {
   transition: all 0.4s ease;
   position: relative;
   margin-top: -100px;
-  margin-bottom: -25px;
+  margin-bottom: 10px;
 }
 
 .pic-user:hover {
@@ -148,12 +138,13 @@ img {
 
 .edit_button {
   margin-top: 0.6rem;
+  margin-bottom: 0.6rem ;
   display: inline-block;
-  padding: 0.6rem 1rem;
+  padding: 0.5rem 1rem;
   background-color: var(--main-color);
   color: var(--light-one);
-  border-radius: 1rem;
-  font-size: 1.05rem;
+  border-radius: 1.25rem;
+  font-size: 1.02rem;
   font-weight: 500;
   transition: 0.3s;
   border: none;  
@@ -171,107 +162,21 @@ img {
   outline: none;
   background: #f0f0f0b6;
   border-radius: 3.5rem;
-  font-size: 1rem;
+  font-size: 0.9rem;
   transition: 0.5s;
 }
 
 /********* Responsive ************/
 
-@media (max-width: 1280px) {
-  .text {
-    font-size: 1rem;
-  }
-
-  .title {
-    font-size: 2.1rem;
-    padding-bottom: 0.65rem;
-  }
-
-  .edit_button {
-    padding: 0.75rem 1.7rem;
-    font-size: 0.8rem;
-  }
-
-  .logo {
-    width: 28%;
-  }
-
-  .info-user {
-    padding-left: 1rem;
-  }
-
-  .pic-user {
-    height: 160px;
-    width: 160px;
-    border-radius: 50%;
-    border: 10px solid #c6bcf0;
-    transition: all 0.4s ease;
-    position: relative;
-    margin-top: -100px;
-  }
-
-  .profile {
-    padding-right: 1rem;
-  }
-
-  .section-profile {
-    padding: 3.6rem 3rem;
-  }
-
-   .contact-icon {
-    min-width: 50px;
-    height: 50px;
-    font-size: 1rem;
-    margin-right: 0.8rem;
-  }
-
-  .contact-icon i {
-    line-height: 50px;
-  }
-
-  .edit {
-    font-size: 1.1rem;
-    padding: 0.9rem 1.6rem;
-    margin: 0.4rem 0;
-  }
-
-  .btn-edit .edit_button{
-    font-size: 1.05rem;
-  }
-
-}
-
-@media (max-width: 1000px) {
-
-  .btn-edit .edit_button{
-    font-size: 0.9rem;
-  }
-} 
-
 @media (max-width: 850px) {
-  .logo {
-    width: 35%;
+ 
+  .pic-user{ 
+    height: 155px;
+    width: 155px;
   }
 
-  .links i {
-    font-size: 1.8rem;
-    padding: 0.65rem 2.7rem;
-  } 
-
-  .information-user {
-    display: flex;
-    align-items: center;
-    justify-content: center;  
-  }
-
-  .section-profile {
-    grid-template-columns: 1fr;
-    padding: 3.2rem 2.7rem;
-  }
-
-  .profile {
-    padding-right: 0;
-    padding-bottom: 0.5rem;
+  .nameUser {
+    font-size: 1rem;
   }
 
   .info-user {
@@ -294,19 +199,9 @@ img {
 
 }
 
-@media (max-width: 600px) {
+@media (max-width: 470px) {
   
-  .links i {
-    font-size: 1.3rem;
-    padding: 0.65rem 1.7rem;
-  }
-
-  .logo {
-    width: 40%;
-  }
-
   .profile-banner {
-    background-image: linear-gradient(to right, #f4fad6 0%, #ffafbd 0%, #c9ffbf 100%);
     height: 200px;
     width: 100%;
   }
@@ -338,44 +233,6 @@ img {
   .edit .textarea {
     min-height: 220px;
     font-size: 1rem;
-  }
-}
-
-@media (max-width: 560px) {
-  .logo {
-    width: 35%;
-  }
-
-  .links i {
-    font-size: 1.4rem;
-    padding: 0.65rem 1.5rem;
-  }
-
-  .contenedor {
-    padding: 0 3rem;
-  }
-
-  .text {
-    font-size: 0.92rem;
-  }
-
-  .section-profile {
-    padding: 2.3rem 2rem;
-    border-radius: 30px;
-  }
-
-  .info-user .txt-info {
-    grid-column-gap: 0.3rem;
-  }
-
-  .edit {
-    font-size: 0.8rem;
-    padding: 0.8rem 1.4rem;
-    margin: 0.25rem 0;
-  }
-
-  .txt-info .edit_button{
-    font-size: 0.8rem;
   }
 }
 
