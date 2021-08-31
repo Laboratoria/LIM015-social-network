@@ -67,7 +67,7 @@ export default () => {
 
       <!--Columna de posts-->
       <div class="muro-posts">
-         <h3 class="title">Postea ♥ :</h3>
+         <h3 class="title">Postea:</h3>
          <div class="txt-post">
            <textarea
             name="message"
