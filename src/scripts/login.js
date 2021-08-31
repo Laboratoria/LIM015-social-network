@@ -53,7 +53,6 @@ formularios.innerHTML = `
           <input type="submit" value="Registrar" class="button solid">
         </form>
       </section>
-    </article>
 
     <article class="panels-container">
       <section class="panel left-panel">
@@ -77,6 +76,7 @@ formularios.innerHTML = `
         </div>
         <img src="images/bnh.png" class="image bnh" alt="Personajes de Boku no Hero" />
       </section>
+    </article>
 `;
 
 main.appendChild(formularios);
