@@ -15,7 +15,6 @@
   font-size: 1.8rem;
 }
 
-
 /*****************INFO DEL USUARIO*********************/
 
 .profile-banner {
@@ -171,11 +170,6 @@
 
 @media (max-width: 850px) {
  
-  /*.section-profile {
-    grid-template-columns: 1fr;
-    padding: 3.2rem 2.7rem;
-  }*/
-
   .pic-user{ 
     height: 155px;
     width: 155px;

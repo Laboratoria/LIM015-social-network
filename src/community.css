@@ -1,3 +1,6 @@
+
+/************ Estilos generales **************/
+
 :root {
   --dark-one: rgb(92, 92, 92);
   --main-color: #9a54b6;
@@ -5,10 +8,7 @@
   --secondary-font: "Poppins", sans-serif;
 }
 
-/********* Estilos generales **************/
-
 html{
-  /*background-image: linear-gradient(to right, #dae7e7 0%, #efc7f7 100%);*/
   background-image: linear-gradient(to right, #bebcdb 0%, #b3eccd 100%);
 }
 
@@ -20,7 +20,7 @@ textarea {
 
 body::-webkit-scrollbar {
   width: 18px;
-  background: #ffffff;
+  background: var(--light-one);
 }
 
 body::-webkit-scrollbar-thumb {
@@ -142,17 +142,14 @@ nav .contenedor {
 
 .Crunchyroll {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  margin: auto;
+  text-align: center;
   margin-bottom: 2rem;
   margin-top: 2rem;
   cursor: pointer;
 }
 
 .Crunchyroll img {
-  width: 85%;
+  width: 87%;
   border-radius: 20px;
 }
 
@@ -210,7 +207,7 @@ figcaption h3, h5{
   text-align:center;
   font-size: 1.2rem;
   margin:0 auto;
-  color:#fff;
+  color: var( --light-one);
   padding:72% 5%;
   text-decoration: none;
 }
