@@ -80,9 +80,9 @@ __FIREBASE:__
 ### Especificaciones
 src\images\timeLine.png
 
-![Prototipo en Desktop](src\images\HUpagina1.png)
+![Historia de usuario 1](https://github.com/noelishernandezdg/LIM015-social-network/blob/main/src/images/HUpagina1.png)
 
-![Prototipo en Desktop](src\images\HUpagina2.png)
+![Historia de usuario 2](https://github.com/noelishernandezdg/LIM015-social-network/blob/main/src/images/HUpagina2.png)
 
 __*TOPIC:*__  Turismo  
 __*OBJETIVOS PRINCIPALES:*__  
