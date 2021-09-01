@@ -136,33 +136,43 @@ export default () => {
            </div>
            <div class="icons-post"><i class="fas fa-trash-alt" id=${docs.id}></i><i class="fas fa-edit"></i></div>
          </div>
-          <div><p class="text-print-post">${docs.data().post}</p></div>
-        </section>
-        <!--Modal-->
-        <div class="modal-fondo">
-         <div class="modal-contenedor">
-            <h4 class="titulo">Aviso</h4>
-            <p class="close">X</p>
-            <div class="contenido">
-             <p>¿Estás seguro que quieres eliminar este valioso post?</p>
-            </div>
-            <div class="modal-botones">
-            <button class="no">No</button> 
-            <button class="si">Si</button> 
-           </div>
-          </div>
-        </div>;
           <div><p class="text-print-post">${infoPosts.post}</p></div>
+         
+          <!--Modal-->
+          <div class="modal-fondo">
+            <div class="modal-contenedor">
+              <h1 class="titulo">¡Aviso!</h1>
+              <div class="contenido">
+                <p class="mensaje-modal">¿Estás seguro que quieres eliminar este valioso post?</p>
+              </div>
+              <div class="modal-botones">
+               <button class="no">No (￣ヘ￣;)</button> 
+               <button class="si">Si ( ಥ‿ಥ )</button> 
+              </div>
+           </div>
+         </div> 
         </section>`;
       });
 
       // Función para borrar los posts
       const deleteBtns = document.querySelectorAll('.fa-trash-alt');
-      console.log(deleteBtns);
+      const si = document.querySelector('.si');
+      const no = document.querySelector('.no');
+      // console.log(deleteBtns);
+      const modal = document.querySelector('.modal-fondo');
       deleteBtns.forEach((btn) => {
         btn.addEventListener('click', (e) => {
-          contenedor.innerHTML = '';
-          deletePost(e.target.id);
+          console.log(e.target.id);
+          modal.classList.add('show-modal');
+          si.addEventListener('click', () => {
+            contenedor.innerHTML = '';
+            deletePost(e.target.id);
+            modal.classList.remove('show-modal');
+          });
+          // NO
+          no.addEventListener('click', () => {
+            modal.classList.remove('show-modal');
+          });
         });
       });
     });
