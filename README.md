@@ -130,9 +130,9 @@ __*PROTOTIPO DEN FIGMA:*__
 
 Inicio del proyecto: 27/07/2021  
 
-![la Ruta Prototipo En Desktop](src\images\laRutaPrototipoEnDesktop.png)
+![la Ruta Prototipo En Desktop](https://github.com/noelishernandezdg/LIM015-social-network/blob/main/src/images/laRutaPrototipoEnDesktop.png)
 
-![la Ruta Prototipo En Movil](src\images\laRutaPrototipoEnMovil.png)
+![la Ruta Prototipo En Movil](https://github.com/noelishernandezdg/LIM015-social-network/blob/main/src/images/laRutaPrototipoEnMovil.png)
 
 * __*PRODUCTO FINAL:*__
 
