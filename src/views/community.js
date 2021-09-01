@@ -136,7 +136,21 @@ export default () => {
            <div class="icons-post"><i class="fas fa-trash-alt"></i><i class="fas fa-edit"></i></div>
          </div>
           <div><p class="text-print-post">${docs.data().post}</p></div>
-        </section>`;
+        </section>
+        <!--Modal-->
+        <div class="modal-fondo">
+         <div class="modal-contenedor">
+            <h4 class="titulo">Aviso</h4>
+            <p class="close">X</p>
+            <div class="contenido">
+             <p>¿Estás seguro que quieres eliminar este valioso post?</p>
+            </div>
+            <div class="modal-botones">
+            <button class="no">No</button> 
+            <button class="si">Si</button> 
+           </div>
+          </div>
+        </div>`;
       });
     });
   };
