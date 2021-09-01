@@ -78,7 +78,6 @@ __FIREBASE:__
 [] Observables  
 
 ### Especificaciones
-src\images\timeLine.png
 
 ![Historia de usuario 1](https://github.com/noelishernandezdg/LIM015-social-network/blob/main/src/images/HUpagina1.png)
 
@@ -105,24 +104,24 @@ __*PROTOTIPO DEN FIGMA:*__
 
 Inicio del proyecto: 27/07/2021  
 
-![Prototipo en Desktop](src\images\laRutaPrototipoEnDesktop.png)
+![la Ruta Prototipo En Desktop](src\images\laRutaPrototipoEnDesktop.png)
 
-![Prototipo en Desktop](src\images\laRutaPrototipoEnMovil.png)
+![la Ruta Prototipo En Movil](src\images\laRutaPrototipoEnMovil.png)
 
 * __*PRODUCTO FINAL:*__
 Fin del proyecto: 31/07/2021  
 
-![Home](src\images\desktopFinal.png)
+![Home](https://github.com/noelishernandezdg/LIM015-social-network/blob/main/src/images/desktopFinal.png)
 
-![Prototipo en Desktop](src\images\tabletFinal.png)
+![Tablet](https://github.com/noelishernandezdg/LIM015-social-network/blob/main/src/images/tabletFinal.png)
 
-![Prototipo en Desktop](src\images\iniciaConGoogle.png)
+![inicia ConGoogle](https://github.com/noelishernandezdg/LIM015-social-network/blob/main/src/images/iniciaConGoogle.png)
 
-![Prototipo en Desktop](src\images\registrase.png)
+![registrase](https://github.com/noelishernandezdg/LIM015-social-network/blob/main/src/images/registrase.png)
 
-![Prototipo en Desktop](src\images\inciarSesion.png)
+![inciarSesion](https://github.com/noelishernandezdg/LIM015-social-network/blob/main/src/images/inciarSesion.png)
 
-![Prototipo en Desktop](src\images\timeLine.png)
+![timeLine](https://github.com/noelishernandezdg/LIM015-social-network/blob/main/src/images/timeLine.png)
 
 [project](https://github.com/Andu15/LIM015-social-network/tree/Development)
 
