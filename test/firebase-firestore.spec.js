@@ -5,7 +5,9 @@
 // documentación: https://www.npmjs.com/package/mock-cloud-firestore
 import MockFirebase from 'mock-cloud-firestore';
 import {
-  addPostCollection, getPosts, deletePost,
+  addPostCollection,
+  getPosts,
+  deletePost,
   updatePost,
 } from '../src/firebase/firebase-firestore.js';
 
