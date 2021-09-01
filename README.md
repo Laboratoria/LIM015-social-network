@@ -22,7 +22,7 @@ en una ronda de financiamiento con inversionistas, se presentó una red social
 para químicos en la que los usuarios podían publicar artículos sobre sus
 investigaciones, comentar en los artículos de sus colegas, y filtrar artículos
 de acuerdo a determinadas etiquetas o su popularidad, lo más reciente, o lo
-más comentado.
+más comentado. 'hola'
 
 ## 2. Resumen del proyecto
 
