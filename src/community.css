@@ -349,7 +349,7 @@ figure:hover figcaption {
 }
 
 /****************MODAL********************/
-.modal-fondo{
+.modal-fondo {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -360,13 +360,18 @@ figure:hover figcaption {
   left: 0;
   background: rgba(131, 131, 131, 0.212);
   transition: all 500ms ease;
-  /*opacity: 0;
-  visibility: hidden;*/
+  opacity: 0;
+  visibility: hidden;
+}
+
+.show-modal {
+  opacity: 1;
+  visibility: visible;
 }
 
 .modal-contenedor {
-  width: 400px;
-  height: 300px;
+  width: 380px;
+  height: 280px;
   margin: auto;
   background: #fff;
   box-shadow: 1px 7px 25px rgba(0, 0, 0, 0.199);
@@ -377,25 +382,50 @@ figure:hover figcaption {
   }
 
   .titulo {
-    padding: 10px;
-    background: rgb(218, 196, 238);
-    border-radius: 15px;
-    font-size: 1.2rem;
+  padding: 10px;
+  background: rgb(218, 196, 238);
+  border-radius: 20px;
+  font-size: 1.8rem;
   }
 
-  .close {
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  color: black;
-  font-size: 15px;
-  cursor: pointer;
+  .mensaje-modal {
+  font-family: var(--secondary-font);
+  font-size: 1.2rem;
+  color: rgb(70, 67, 71);
+  text-align: center;
+  /*margin-top: 2.8rem;*/
+  margin: 2.5rem 20px;
   }
 
   .modal-botones {
-    display: flex;
-    justify-content: space-evenly;  
+  display: flex;
+  justify-content: space-evenly;  
+  margin-top: rem;
   }
+
+  .no, .si {
+  display: inline-block;
+  color: var(--light-one);
+  background: #846ab3ce;
+  font-size: 1.1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 19px;
+  min-height: 40px;
+  width: 120px;
+  margin: 17px;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  }
+
+ .si:hover {
+   background: #ff8ed0e0;
+  }
+
+  .no:hover {
+    background: #ff8ed0e0; 
+  }
+
 /********* Responsive ************/
 
 @media (max-width: 850px) {
