@@ -1,3 +1,8 @@
+// 1. Instalar 'npm install --save-dev mock-cloud-firestore'
+// 2. Anular la variable global firebase
+// 3. Importar la dependencia por defecto desde node_modules file 'mock-cloud-firestore'
+// 4. Crear una constante que sea nuestro simulador de firebase y reemplazarlo a nivel global
+// documentación: https://www.npmjs.com/package/mock-cloud-firestore
 import MockFirebase from 'mock-cloud-firestore';
 import {
   addPostCollection, getPosts, deletePost,
