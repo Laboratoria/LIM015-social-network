@@ -1,8 +1,8 @@
 // import firebase from '../firebase/firebase.js';
-import { logOutUser, firebaseWatcher } from '../firebase/firebase-auth.js';
+import { logOutUser } from '../firebase/firebase-auth.js';
 import {
   addPostCollection, getPosts, onGetPosts,
-  deletePost, updatePost, updateLoves, getPostsUserId
+  deletePost, updatePost, updateLoves, getPostsUserId,
 } from '../firebase/firebase-firestore.js';
 
 // Constante a exportar
@@ -34,19 +34,24 @@ export const TIMELINE = () => {
   divElement.innerHTML = view;
   // Constantes Globales
   const btnShare = divElement.querySelector('#buttonShare');
-  const btnImg = divElement.querySelector('#buttonImg');
+  // const btnImg = divElement.querySelector('#buttonImg');
   const linkAboutLogOut = document.querySelector('.logOut a');
   const textPost = divElement.querySelector('#textAreaPublication');
   const userNameProfile = divElement.querySelector('#nameProfile');
   const postContent = divElement.querySelector('#posts');
   const imgElement = divElement.querySelector('#imgUser');
   // FUNCIONALIDAD
-  firebaseWatcher();
+  document.querySelector('.home a').style.display = 'none';
+  document.querySelector('.login a').style.display = 'none';
+  document.querySelector('.signUp a').style.display = 'none';
+  document.querySelector('.profile a').style.display = 'block';
+  document.querySelector('.timeline a').style.display = 'block';
+  document.querySelector('.logOut a').style.display = 'block';
   // ------------------------- Foto de perfil -------------------------
-  if (localStorage.getItem('userPhoto')) {
-    imgElement.src = localStorage.getItem('userPhoto');
-  } else {
+  if (localStorage.getItem('userPhoto') === 'null') {
     imgElement.src = '../images/imgDefault3.png';
+  } else {
+    imgElement.src = localStorage.getItem('userPhoto');
   }
   // -------------------------  Mostrar nombre de perfil -------------------------
   if (localStorage.getItem('userName') === null) {
@@ -57,16 +62,11 @@ export const TIMELINE = () => {
   // ------------------------- Boton compartir -------------------------
   btnShare.addEventListener('click', () => {
     if (textPost.value === '') {
-      console.log('publicacion vacia');
+      textPost.placeholder = 'Escribe algo por favor';
     } else {
       // aqui va lo de firestore
-      addPostCollection(localStorage.getItem('userName'), localStorage.getItem('userEmail'), textPost.value, localStorage.getItem('userId'))
-        .then((promise) => {
-          const idCollection = promise.id;
-          const pathCollection = promise.path;
-          console.log(idCollection, pathCollection);
-          textPost.value = '';
-        });
+      addPostCollection(localStorage.getItem('userName'), localStorage.getItem('userEmail'), textPost.value, localStorage.getItem('userId'));
+      textPost.value = '';
     }
   });
   // ------------------------- Ejecutarse cuando se actualice la pagina -------------------------
@@ -76,9 +76,10 @@ export const TIMELINE = () => {
     getPosts().then((docRef) => {
       docRef.forEach((docAboutCollection) => {
         const idPost = docAboutCollection.ref.id;
-        const existPost = docAboutCollection.exists;
-        const pathPost = docAboutCollection.ref.path;
+        // const existPost = docAboutCollection.exists;
+        // const pathPost = docAboutCollection.ref.path;
         const postInfo = docAboutCollection.data();
+        // console.log(docAboutCollection);
         // console.log(docAboutCollection);
         // console.log(idPost, existPost, pathPost);
         // console.log(docAboutCollection);
@@ -98,46 +99,35 @@ export const TIMELINE = () => {
           </div>
           <div id='reactionPost' class='reactionPost'>
             <button id='${idPost}' class='btnLove'>&#x2764;&#xfe0f;</button>
-            <span name='${idPost}'>${postInfo.likes}</span>
-            <button id='${idPost}' class='btnDkislike'>&#128078;</button>
+            <span name='${idPost}'>${postInfo.likes.length}</span>
             <button id='${idPost}' class='btnComments'>&#128172;</button>
             <span>0</span>
           </div>
         </section>`;
       });
-    })
-      .catch((error) => {
-        console.log(error);
-      });
+    });
+    // .catch((error) => {
+    //   console.log(error);
+    // });
     // ------------------------- Boton love -------------------------
     divElement.addEventListener('click', async (e) => {
       if (e.target.className === 'btnLove') {
+        const userId = localStorage.getItem('userId');
+        const newLike = {
+          userEmail: localStorage.getItem('userEmail'),
+          userID: userId,
+        };
         getPostsUserId(e.target.id)
           .then((postInfo) => {
-            if (postInfo.data().id === localStorage.getItem('userId')) {
-              console.log('BIEN, ERES LA MISMA PERSONA');
-              console.log(postInfo.data());
-              console.log(postInfo.data().likes);
-              console.log(postInfo.data().likes.length);
-              updateLoves(e.target.id, 1);
+            const postData = postInfo.data();
+            const userLikes = postData.likes;
+            const filterLikeByIdUser = userLikes.filter((like) => like.userID === userId);
+            const filterLikeByIdOtherUser = userLikes.filter((like) => like.userID !== userId);
+            if (filterLikeByIdUser.length !== 0) {
+              updateLoves(postInfo.id, filterLikeByIdOtherUser);
             } else {
-              console.log('RAYOS! NO ERES EL MISMO USUARIO :C');
-              updateLoves(e.target.id, 1);
-            }
-          });
-      }
-    });
-    // ------------------------- Boton dislike -------------------------
-    divElement.addEventListener('click', async (e) => {
-      if (e.target.className === 'btnDkislike') {
-        getPostsUserId(e.target.id)
-          .then((postInfo) => {
-            if (postInfo.data().id === localStorage.getItem('userId')) {
-              console.log('BIEN, ERES LA MISMA PERSONA');
-              updateLoves(e.target.id, 0);
-            } else {
-              console.log('RAYOS! NO ERES EL MISMO USUARIO :C');
-              updateLoves(e.target.id, 0);
+              userLikes.push(newLike);
+              updateLoves(postInfo.id, userLikes);
             }
           });
       }
@@ -148,10 +138,8 @@ export const TIMELINE = () => {
         getPostsUserId(e.target.id)
           .then((postInfo) => {
             if (postInfo.data().id === localStorage.getItem('userId')) {
-              console.log('BIEN, ERES LA MISMA PERSONA');
               document.querySelector(`input[name='${e.target.id}']`).disabled = false;
             } else {
-              console.log('RAYOS! NO ERES EL MISMO USUARIO :C');
               document.querySelector(`input[name='${e.target.id}']`).disabled = true;
             }
           });
@@ -164,10 +152,8 @@ export const TIMELINE = () => {
         getPostsUserId(e.target.id)
           .then((postInfo) => {
             if (postInfo.data().id === localStorage.getItem('userId')) {
-              console.log('BIEN, ERES LA MISMA PERSONA');
               updatePost(e.target.id, postSave.value);
             } else {
-              console.log('RAYOS! NO ERES EL MISMO USUARIO :C');
               document.querySelector(`input[name='${e.target.id}']`).disabled = true;
             }
           });
@@ -180,10 +166,7 @@ export const TIMELINE = () => {
       getPostsUserId(e.target.id)
         .then((postInfo) => {
           if (postInfo.data().id === localStorage.getItem('userId')) {
-            console.log('BIEN, ERES LA MISMA PERSONA');
             deletePost(e.target.id);
-          } else {
-            console.log('RAYOS! NO ERES EL MISMO USUARIO :C');
           }
         });
     }
@@ -192,7 +175,7 @@ export const TIMELINE = () => {
   linkAboutLogOut.addEventListener('click', (e) => {
     e.preventDefault();
     logOutUser().then(() => {
-      console.log('cierre de sesion exitoso');
+      // console.log('cierre de sesion exitoso');
       window.location.hash = '#/';
       localStorage.clear();
     });

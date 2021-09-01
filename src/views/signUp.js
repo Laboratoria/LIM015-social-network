@@ -8,7 +8,7 @@ export const SIGNUP = () => {
     <p class='welcome'>Bienvenid@ viajer@!</p>
     <span id='errorMessage' class='errorMessage'></span>
     <input type='text' id='userName' placeholder='  Nombre' class='input' required />
-    <input type='text' id='email' placeholder='  Correo Electrónico' class='input'  />
+    <input type='email' id='email' pattern: [a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5} placeholder='  Correo Electrónico' class='input' required />
     <input type='password' id='password1' placeholder='  Constraseña' class='input' minlength='6' required />
     <input type='password' id='password2' placeholder='  Confirmar Constraseña' class='input' minlength='6' required />
     <div class='buttons'>
@@ -28,31 +28,20 @@ export const SIGNUP = () => {
   const password = divElement.querySelector('#password1');
   const confirmPass = divElement.querySelector('#password2');
   // ------------------------- ESCONDER RESTO DE LINKS -------------------------
+  document.querySelector('.home a').style.display = 'block';
+  document.querySelector('.login a').style.display = 'block';
+  document.querySelector('.signUp a').style.display = 'block';
   document.querySelector('.profile a').style.display = 'none';
   document.querySelector('.timeline a').style.display = 'none';
   document.querySelector('.logOut a').style.display = 'none';
   // ------------------------- Boton Registrarse -------------------------
   btnSignUp.addEventListener('click', () => {
-    const expReg = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
     if (password.value !== confirmPass.value) {
       errorMessageElement.textContent = 'Por favor, confirma tu contraseña 🙊';
     } else if (
       userNameInput.value === '' && emailUser.value === '' && password.value === '' && confirmPass.value === ''
     ) {
       errorMessageElement.textContent = '⚡ Por favor complete todos los campos ⚡';
-    } else if (!expReg.test(emailUser.value)) {
-      /*
-      literatura: https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test
-      Las expresiones regulares se validan comunmente con match y test, test devuelve
-      un booleano que calza perfectamente en condicionales.
-      
-      Esta validación se requiere cuando la validacion de tipo input type="email" y required
-      no satisface la validación.
-      Esta validación se usa cuando input es de type="text" y que ofrece mayor 
-      dinamismo.
-      */
-      alert('mala clave')
-      errorMessageElement.textContent = 'Ups 🙉, ingresa un correo válido por favor';
     } else {
       errorMessageElement.textContent = '';
       /* AQUI TODO PASA OK */

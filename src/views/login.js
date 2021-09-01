@@ -1,19 +1,21 @@
-import { login, loginWithFacebook, loginWithGoogle, firebaseWatcher } from '../firebase/firebase-auth.js';
+import { login, loginWithFacebook, loginWithGoogle } from '../firebase/firebase-auth.js';
 // Constante a exportar
 export const LOGIN = () => {
   const view = `
   <section class='contenedorFormulario'>
     <form >
-      <img src='images/laRuta-02.png' alt='La ruta logo' class='logo'/>
+      <img src='../images/laRuta-02.png' alt='La ruta logo' class='logo'/>
       <p class='welcome'>Bienvenid@ viajer@!</p>
       <span id='errorMessage' class='errorMessage'></span>
       <input type='email' id='email' placeholder='  Correo electrónico' class='input' />
       <input type='password' id='password1' placeholder='  Contraseña' class='input' minlength='6'/>
-      <div class='buttons'>
-        <button id='login' type='submit' class='btnStart'>Iniciar Sesión</button>
-      </div>
-      <div  class='buttons'>
-        <button id='signUp' type='button'class='btnStart'>Registrarse</button>
+      <div class='contentButtons'>
+        <div class='buttons'>
+          <button id='login' type='submit' class='btnStart'>Iniciar Sesión</button>
+        </div>
+        <div  class='buttons'>
+          <button id='signUp' type='button'class='btnStart'>Registrarse</button>
+        </div>
       </div>
       <p>O ingresa con...</p>
       <div class='contentbtn'>
@@ -34,7 +36,13 @@ export const LOGIN = () => {
   const errorMessageElement = divElement.querySelector('#errorMessage');
   const emailUser = divElement.querySelector('#email');
   const password = divElement.querySelector('#password1');
-
+  // ------------------------- ESCONDER RESTO DE LINKS -------------------------
+  document.querySelector('.home a').style.display = 'block';
+  document.querySelector('.login a').style.display = 'block';
+  document.querySelector('.signUp a').style.display = 'block';
+  document.querySelector('.profile a').style.display = 'none';
+  document.querySelector('.timeline a').style.display = 'none';
+  document.querySelector('.logOut a').style.display = 'none';
   // ------------------------- Boton Inicio sesion -------------------------
   btnLogin.addEventListener('click', (e) => {
     e.preventDefault();
@@ -57,7 +65,7 @@ export const LOGIN = () => {
           localStorage.setItem('userEmail', userCredential.user.email);
           localStorage.setItem('userPhoto', userCredential.user.photoURL);
           localStorage.setItem('userId', userCredential.user.uid);
-          firebaseWatcher();
+          window.location.hash = '#/timeLine';
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -94,14 +102,14 @@ export const LOGIN = () => {
     loginWithFacebook()
       .then((result) => {
         /** @type {firebase.auth.OAuthCredential} */
-        const credential = result.credential;
-        console.log(credential);
+        // const credential = result.credential;
+        // console.log(credential);
         // The signed-in user info.
-        const user = result.user;
-        console.log(credential);
+        // const user = result.user;
+        // console.log(credential);
         // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-        const accessToken = credential.accessToken;
-        console.log(accessToken);
+        // const accessToken = credential.accessToken;
+        // console.log(accessToken);
         // AQUI DEBE ESTAR LA OBTENCION DEL PEDIDO
         if (result.user.displayName === null) {
           localStorage.setItem('userName', 'nuevo usuario');
@@ -113,16 +121,6 @@ export const LOGIN = () => {
         localStorage.setItem('userId', result.user.uid);
         // cambio de hash
         window.location.hash = '#/timeLine';
-      })
-      .catch((error) => {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // The email of the user's account used.
-        const email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        const credential = error.credential;
-        console.log(errorCode, errorMessage, email, credential);
       });
   });
 
@@ -141,9 +139,6 @@ export const LOGIN = () => {
         localStorage.setItem('userId', result.user.uid);
         // cambio del hash
         window.location.hash = '#/timeLine';
-      })
-      .catch((error) => {
-        console.log(error);
       });
   });
   // AQUI TERMINA DE INSERTARSE EL TEMPLATE STRING
