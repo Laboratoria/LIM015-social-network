@@ -32,38 +32,33 @@ export default () => {
           Animes populares
          </h2>
 
-         <!--contendedor de posters de anime-->
+      <!--contendedor de posters de anime-->
          <div class="container-posters">
-         <figure>
-         <a href="https://www.crunchyroll.com/es/attack-on-titan
-         " target="_blank"><img src="./images/port1.png" alt="Poster de Shingeki no Kyojin"></a>
+       <figure>
+          <img src="./images/port1.png" alt="Poster de Shingeki no Kyojin">
          <figcaption>
-           <h3>Attack on Titan<br>Final Season</h3>
-           <h5></h5>
+         <a href="https://www.crunchyroll.com/es/attack-on-titan" target="_blank"><h3>Attack on Titan<br>Final Season</h3></a>
          </figcaption>
        </figure>
        
        <figure>
-         <a href="https://www.crunchyroll.com/es/tokyo-revengers
-         " target="_blank"><img src="./images/port2.png" alt="Poster de Tokyo Revengers"></a>
+         <img src="./images/port2.png" alt="Poster de Tokyo Revengers">
          <figcaption>
-           <h3>Tokio Revengers<br>Episode 19</h3>
+         <a href="https://www.crunchyroll.com/es/tokyo-revengers" target="_blank"><h3>Tokio Revengers<br>Episode 19</h3></a>
          </figcaption>
        </figure>
 
        <figure>
-         <a href="https://www.crunchyroll.com/es/jojos-bizarre-adventure
-         " target="_blank"><img src="./images/port3.jpg" alt="Poster de Jojo's"></a>
+         <img src="./images/port3.jpg" alt="Poster de Jojo's">
          <figcaption>
-           <h3>JOJO'S<br>5th Season</h3>
+         <a href="https://www.crunchyroll.com/es/jojos-bizarre-adventure" target="_blank"><h3>JOJO'S<br>5th Season</h3></a>
          </figcaption>
        </figure>
   
        <figure>
-         <a href="https://www.crunchyroll.com/es/anime-news/2021/06/16/demon-slayer-kimetsu-no-yaiba-the-movie-mugen-train-hace-explotar-el-mercado-japons-con-su-lanzamiento-en-bddvd
-         " target="_blank"><img src="./images/port4.png" alt="Poster de Demon Slayer"></a>
+         <img src="./images/port4.png" alt="Poster de Demon Slayer">
          <figcaption>
-           <h3>Demon Slayer<br>Movie</h3>
+         <a href="https://www.crunchyroll.com/es/anime-news/2021/06/16/demon-slayer-kimetsu-no-yaiba-the-movie-mugen-train-hace-explotar-el-mercado-japons-con-su-lanzamiento-en-bddvd" target="_blank"><h3>Demon Slayer<br>Movie</h3></a>
          </figcaption>
        </figure>
         </div>
