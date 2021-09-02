@@ -91,7 +91,7 @@ export const TIMELINE = () => {
             <button id='${idPost}' class='btnDelete'>&#10062;</button>
           </div>
           <div class='sectionAboutPost'>
-            <input name='${idPost}' disabled class='postContent' value='${postInfo.post}'>
+            <textarea name='${idPost}' disabled class='postContent'>${postInfo.post}</textarea>
             <div>
               <button id='${idPost}' class='btnEdit'>&#9997;</button>
               <button id='${idPost}' class='btnSave'>&#9989;</button>
@@ -113,8 +113,8 @@ export const TIMELINE = () => {
               <p>¿Estás seguro que deseas eliminar la publicación?</p>
 
               <div class="clearfix">
-                <button  type="button" class="cancelbtn">Cancel</button>
-                <button id="deletebtn"  type="button" class="deletebtn">Eliminar post</button>
+                <button  type="button" class="cancelbtn confirm">Cancel</button>
+                <button id="deletebtn"  type="button" class="deletebtn confirm">Eliminar post</button>
               </div>
             </div>
           </form>
@@ -156,9 +156,9 @@ export const TIMELINE = () => {
         getPostsUserId(e.target.id)
           .then((postInfo) => {
             if (postInfo.data().id === localStorage.getItem('userId')) {
-              document.querySelector(`input[name='${e.target.id}']`).disabled = false;
+              document.querySelector(`textarea[name='${e.target.id}']`).disabled = false;
             } else {
-              document.querySelector(`input[name='${e.target.id}']`).disabled = true;
+              document.querySelector(`textarea[name='${e.target.id}']`).disabled = true;
             }
           });
       }
@@ -166,13 +166,13 @@ export const TIMELINE = () => {
     // ------------------------- Boton Save  -------------------------
     divElement.addEventListener('click', async (e) => {
       if (e.target.className === 'btnSave') {
-        const postSave = document.querySelector(`input[name='${e.target.id}']`);
+        const postSave = document.querySelector(`textarea[name='${e.target.id}']`);
         getPostsUserId(e.target.id)
           .then((postInfo) => {
             if (postInfo.data().id === localStorage.getItem('userId')) {
               updatePost(e.target.id, postSave.value);
             } else {
-              document.querySelector(`input[name='${e.target.id}']`).disabled = true;
+              document.querySelector(`textarea[name='${e.target.id}']`).disabled = true;
             }
           });
       }
@@ -181,21 +181,20 @@ export const TIMELINE = () => {
   // ------------------------- Boton Delete -------------------------
   divElement.addEventListener('click', async (e) => {
     if (e.target.className === 'btnDelete') {
-      document.querySelector('#deletebtn').setAttribute('name', e.target.id);
-      document.querySelector('#id01').style.display = 'block';
-      /*getPostsUserId(e.target.id)
+      getPostsUserId(e.target.id)
         .then((postInfo) => {
           if (postInfo.data().id === localStorage.getItem('userId')) {
             // mostrar modal
-            deletePost(e.target.id);
+            document.querySelector('#deletebtn').setAttribute('name', e.target.id);
+            document.querySelector('#id01').style.display = 'block';
           }
-        });*/
+        });
     }
   });
 
-  /* funciones modal*/
+  // ------------------------- FUNCIONES DEL MODAL -------------------------
   divElement.addEventListener('click', async (e) => {
-    if (e.target.className === 'deletebtn') {
+    if (e.target.className === 'deletebtn confirm') {
       const postId = e.target.getAttribute('name');
       getPostsUserId(postId)
         .then((postInfo) => {
@@ -207,12 +206,12 @@ export const TIMELINE = () => {
   });
 
   divElement.addEventListener('click', async (e) => {
-    if (e.target.className === 'cancelbtn') {
+    if (e.target.className === 'cancelbtn confirm') {
       document.querySelector('#id01').style.display = 'none';
     }
   });
 
-/* fin de funciones modal */
+  /* fin de funciones modal */
 
   // ------------------------- Ancla salir -------------------------
   linkAboutLogOut.addEventListener('click', (e) => {

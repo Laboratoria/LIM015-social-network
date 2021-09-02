@@ -2,7 +2,6 @@
 export const uploadImg = async (file) => {
   // 1. Referencia al espacio en el bucket donde estara el archivo
   const storageRef = firebase.storage().ref().child(`images/${file.name}`);
-  // localStorage.setItem('newPhoto', storageRef);
   // 2. subir el archivo
   await storageRef.put(file);
   // 3. retornar la referencia
