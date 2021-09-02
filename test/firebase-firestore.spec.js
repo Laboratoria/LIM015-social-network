@@ -7,8 +7,11 @@ import MockFirebase from 'mock-cloud-firestore';
 import {
   addPostCollection,
   getPosts,
+  onGetPosts,
   deletePost,
   updatePost,
+  updateLoves,
+  getPostsUserId,
 } from '../src/firebase/firebase-firestore.js';
 
 const fixtureData = {
@@ -45,6 +48,9 @@ const fixtureData = {
           }, {
             userEmail: 'rm@gmail.com',
             userID: 'user2',
+          }, {
+            userEmail: 'lupita@gmail.com',
+            userID: 'user3',
           }],
           mail: 'lupita@gmail.com',
           post: 'Quiero compartir algo',
@@ -81,6 +87,17 @@ describe('addPostCollection', () => {
   it('Debería ser una función', () => {
     expect(typeof addPostCollection).toBe('function');
   });
+  it('Debería poder agregar una nota', () => {
+    addPostCollection('Andrea', 'estefi@gmail.com', 'arigato', 'abc321')
+      .then(() => {
+        getPosts().then((docRef) => {
+          docRef.forEach((docAboutCollection) => {
+            const result = docAboutCollection.data().find((note) => note.post === 'arigato');
+            expect(result).toBe('arigato');
+          });
+        });
+      });
+  });
 });
 
 describe('getPosts', () => {
@@ -92,6 +109,23 @@ describe('getPosts', () => {
       docRef.forEach((docAboutCollection) => {
         const postInfo = docAboutCollection.data();
         expect(typeof postInfo).toBe('object');
+      });
+    });
+  });
+});
+
+describe('onGetPosts', () => {
+  it('Debería ser una función', () => {
+    expect(typeof onGetPosts).toBe('function');
+  });
+  it('Debería retornar los post actualizados', () => {
+    onGetPosts(() => {
+      getPosts().then((docRef) => {
+        docRef.forEach((docAboutCollection) => {
+          if (docAboutCollection.data().id === 'abc321') {
+            expect(docAboutCollection.data().post).toBe('arigato');
+          }
+        });
       });
     });
   });
@@ -113,5 +147,66 @@ describe('deletePost', () => {
 describe('updatePost', () => {
   it('updatePost deberia ser una función', () => {
     expect(typeof updatePost).toBe('function');
+  });
+  it('Debería poder actualizar un post', () => {
+    updatePost('a3b2c3', 'No quiero compartir nada');
+    getPosts().then((docRef) => {
+      docRef.forEach((docAboutCollection) => {
+        if (docAboutCollection.data().id === 'user3') {
+          expect(docAboutCollection.data().post).toBe('No quiero compartir nada');
+        }
+      });
+    });
+  });
+});
+
+describe('updateLoves', () => {
+  it('Debería ser una función', () => {
+    expect(typeof updateLoves).toBe('function');
+  });
+  it('Debería poder sumar un likes', () => {
+    const user6 = {
+      userEmail: 'pepito@hotmail.com',
+      userID: 'user6',
+    };
+    getPosts().then((docRef) => {
+      docRef.forEach((docAboutCollection) => {
+        if (docAboutCollection.data().id === 'user3') {
+          const userLikes = docAboutCollection.data().likes;
+          const filterLikeByIdUser = userLikes.filter((like) => like.userID === 'user3');
+          const filterLikeByIdOtherUser = userLikes.filter((like) => like.userID !== 'user3');
+          if (filterLikeByIdUser.length !== 0) {
+            updateLoves('user3', filterLikeByIdOtherUser);
+            expect(filterLikeByIdUser).toBeUndefined();
+            expect(filterLikeByIdUser).toBeNull();
+            expect(filterLikeByIdUser).toBeFalsy();
+          } else {
+            userLikes.push(user6);
+            updateLoves('user3', userLikes);
+            expect(filterLikeByIdUser).not.toBeFalsy();
+            expect(filterLikeByIdUser).not.toBeUndefined();
+            expect(filterLikeByIdUser).not.toBeNull();
+          }
+        }
+      });
+    });
+  });
+});
+
+describe('getPostsUserId', () => {
+  it('Debería ser una función', () => {
+    expect(typeof getPostsUserId).toBe('function');
+  });
+  it('Debería retornar el post según Id', () => {
+    getPostsUserId('a1b2c3')
+      .then((postInfo) => {
+        expect(postInfo.data().post).toBe('hello!');
+      });
+  });
+  it('Debería retornar los likes según Id', () => {
+    getPostsUserId('a1b2c3')
+      .then((postInfo) => {
+        expect(postInfo.data().likes).toBeFalsy();
+      });
   });
 });

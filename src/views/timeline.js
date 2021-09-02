@@ -166,6 +166,7 @@ export const TIMELINE = () => {
       getPostsUserId(e.target.id)
         .then((postInfo) => {
           if (postInfo.data().id === localStorage.getItem('userId')) {
+            // mostrar modal
             deletePost(e.target.id);
           }
         });
