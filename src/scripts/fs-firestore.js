@@ -9,7 +9,10 @@ export const savePost = (post, name, email, photo) => db.collection('posts').doc
 });
 
 // Función para traer los posts de firebase
-export const getPost = () => db.collection('posts');
+export const getAllPosts = () => db.collection('posts');
 
 // Función para borrar los posts de firebase
 export const deletePost = (id) => db.collection('posts').doc(id).delete();
+
+// Función para traer un post
+export const getPost = (id) => db.collection('posts').doc(id).get();

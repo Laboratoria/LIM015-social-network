@@ -1,4 +1,6 @@
-import { savePost, getPost, deletePost } from '../scripts/fs-firestore.js';
+import {
+  savePost, getAllPosts, deletePost, getPost,
+} from '../scripts/fs-firestore.js';
 
 export default () => {
   const main = document.querySelector('.views'); // este main es para las vistas
@@ -102,6 +104,7 @@ export default () => {
 
   // Ejecuta savePost enviando el contenido del textarea
   const shareBtn = document.querySelector('.post_btn');
+  let editStatus = false;
   shareBtn.addEventListener('click', () => {
     const post = document.querySelector('.posts');
     if (googleUser === null) {
@@ -113,13 +116,17 @@ export default () => {
         console.log('se mandó');
       });
     }
+
+    if (!editStatus) {
+      savePost(post);
+    }
     post.value = '';
     contenedor.innerHTML = '';
   });
 
-  // Función que ejecuta getPost y muestra los posts en un template
+  // Función que ejecuta getAllPosts y muestra los posts en un template
   const publications = () => {
-    getPost().onSnapshot((doc) => {
+    getAllPosts().onSnapshot((doc) => {
       doc.forEach((docs) => {
         const infoPosts = docs.data();
         contenedor.innerHTML += ` 
@@ -129,7 +136,7 @@ export default () => {
              <img src="${infoPosts.photo}" alt="Foto de perfil" />
              <p class="user-name">${infoPosts.name}</p>
            </div>
-           <div class="icons-post"><i class="fas fa-trash-alt" id=${docs.id}></i><i class="fas fa-edit"></i></div>
+           <div class="icons-post"><i class="fas fa-trash-alt" id=${docs.id}></i><i class="fas fa-edit" id=${docs.id}></i></div>
          </div>
           <div><p class="text-print-post">${infoPosts.post}</p></div>
          
@@ -170,7 +177,23 @@ export default () => {
           });
         });
       });
+
+      // Función para editar posts
+      const editBtns = document.querySelectorAll('.fa-edit');
+      const post = document.querySelector('.posts');
+      editBtns.forEach((btnE) => {
+        btnE.addEventListener('click', async (e) => {
+          // console.log(e.target.id);
+          const document = await getPost(e.target.id);
+          console.log(document.data());
+          post.value = document.data().post;
+          editStatus = true;
+          shareBtn.innerText = 'Editar';
+        });
+      });
     });
   };
   publications();
 };
+
+// ${((docs.data().email === emailUserEmail) || (docs.data().email === googleUser.email)) ? 'show' : 'hide'}
