@@ -269,6 +269,15 @@ a:hover {
   cursor: pointer;
   color: var(--color-main);
 }
+/*footer mobile*/
+.footerMobile{
+  background: var(--color-main);
+  max-height: 72px;
+  width: 100%;
+  position: absolute;
+  bottom:0;
+}
+
 @keyframes animatetop {
   from {top: -300px; opacity: 0}
   to {top: 0; opacity: 1}
