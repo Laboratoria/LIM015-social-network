@@ -103,7 +103,25 @@ export const TIMELINE = () => {
             <button id='${idPost}' class='btnComments'>&#128172;</button>
             <span>0</span>
           </div>
-        </section>`;
+        </section>
+        <!-- MODAL -->
+        <div id="id01" class="modal">
+          <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+          <form class="modal-content">
+            <div class="container">
+              <h1>Eliminar publicación</h1>
+              <p>¿Estás seguro que deseas eliminar la publicación?</p>
+
+              <div class="clearfix">
+                <button  type="button" class="cancelbtn">Cancel</button>
+                <button id="deletebtn"  type="button" class="deletebtn">Eliminar post</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- fin de modal -->
+                
+        `;
       });
     });
     // .catch((error) => {
@@ -163,14 +181,38 @@ export const TIMELINE = () => {
   // ------------------------- Boton Delete -------------------------
   divElement.addEventListener('click', async (e) => {
     if (e.target.className === 'btnDelete') {
-      getPostsUserId(e.target.id)
+      document.querySelector('#deletebtn').setAttribute('name', e.target.id);
+      document.querySelector('#id01').style.display = 'block';
+      /*getPostsUserId(e.target.id)
         .then((postInfo) => {
           if (postInfo.data().id === localStorage.getItem('userId')) {
             deletePost(e.target.id);
           }
+        });*/
+    }
+  });
+
+  /* funciones modal*/
+  divElement.addEventListener('click', async (e) => {
+    if (e.target.className === 'deletebtn') {
+      const postId = e.target.getAttribute('name');
+      getPostsUserId(postId)
+        .then((postInfo) => {
+          if (postInfo.data().id === localStorage.getItem('userId')) {
+            deletePost(postId);
+          }
         });
     }
   });
+
+  divElement.addEventListener('click', async (e) => {
+    if (e.target.className === 'cancelbtn') {
+      document.querySelector('#id01').style.display = 'none';
+    }
+  });
+
+/* fin de funciones modal */
+
   // ------------------------- Ancla salir -------------------------
   linkAboutLogOut.addEventListener('click', (e) => {
     e.preventDefault();
