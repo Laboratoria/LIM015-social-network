@@ -106,21 +106,21 @@ export const TIMELINE = () => {
         </section>
         <!-- MODAL -->
         <div id="id01" class="modal">
-          <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-          <form class="modal-content">
-            <div class="container">
-              <h1>Eliminar publicación</h1>
-              <p>¿Estás seguro que deseas eliminar la publicación?</p>
-
-              <div class="clearfix">
-                <button  type="button" class="cancelbtn confirm">Cancel</button>
-                <button id="deletebtn"  type="button" class="deletebtn confirm">Eliminar post</button>
+          <div class='contentModal'>
+            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <form class="modal-content">
+              <div class="container">
+                <h1>Eliminar publicación</h1>
+                <p>¿Estás seguro que deseas eliminar la publicación?</p>
+                <div class="clearfix">
+                  <button  type="button" class="cancelbtn confirm">Cancel</button>
+                  <button id="deletebtn"  type="button" class="deletebtn confirm">Eliminar post</button>
+                </div>
               </div>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
         <!-- fin de modal -->
-                
         `;
       });
     });

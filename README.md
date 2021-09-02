@@ -14,15 +14,15 @@
 ******
 ## La Ruta
 
-Sabemos que la pandemia ha dejado estragos en todos y nos ha privado de una de las cosas que mas nos gusta hacer que es viajar, y que mejor que una red social para compartir experiencias ¿no? es aquí donde nace LA RUTA, para volvernos a conectar con nuestros paisajes compartiendo las mejores experiencias con otros usuarios y la clave es el ahorro!
+Sabemos que la pandemia ha dejado estragos en todos y nos ha privado de una de las cosas que mas nos gusta hacer que es viajar, y que mejor que una red social para compartir experiencias ¿no? es aquí donde nace LA RUTA, para volvernos a conectar con nuestros paisajes compartiendo las mejores experiencias con otros usuarios y la clave es el ahorro.
 
 ### Challenge
 
-Este challenge es proporcionado por el equipo de [Laboratoria](https://github.com/Laboratoria/LIM015-social-network), el cual consiste en realizar una red social básica implementando SPA, router, firebase y sus servicios con vanilla js
+Este challenge es proporcionado por el equipo de [Laboratoria](https://github.com/Laboratoria/LIM015-social-network), el cual consiste en realizar una red social básica implementando SPA, router, firebase y sus servicios con vanilla js.
 
 ### Resumen del proyecto
 
-Pensando en el usuario y la situación actual que nos acontece, traemos una propuesta acerca de lo que nos hemos privado por muchos meses durante la pandemia, que es viajar, tenemos en cuenta que la economía esta desgastada también y mucha gente que no viajaba lo empezará a realizar cuando las cosas se regulen, es por eso que esta red social es para los amantes de los viajes y tienen la oportunidad de compartir sus experiencias, gastos de viajes, mejores hoteles a un precio accesible para quellas personas que viajan por primera vez o quieren escaparse de la ciudad sin tener que invertir tanto. Confiamos en que esta red sea amigable, sencilla pero muy útil para que el usuario (Viajero empedernido o no jaja) pueda encontrar una variedad de recomendaciones y opte por la que mejor le parezca.
+Pensando en el usuario y la situación actual que nos acontece, traemos una propuesta acerca de lo que nos hemos privado por muchos meses durante la pandemia, que es viajar, tenemos en cuenta que la economía esta desgastada también y mucha gente que no viajaba lo empezará a realizar cuando las cosas se regulen, es por eso que esta red social es para los amantes de los viajes y tienen la oportunidad de compartir sus experiencias, gastos de viajes, mejores hoteles a un precio accesible para aquellas personas que viajan por primera vez o quieren escaparse de la ciudad sin tener que invertir tanto. Confiamos en que esta red sea amigable, sencilla pero muy útil para que el usuario (Viajero empedernido o no jaja) pueda encontrar una variedad de recomendaciones y opte por la que mejor le parezca.
 
 ### Objetivos de aprendizaje
 

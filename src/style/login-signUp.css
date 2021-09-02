@@ -258,7 +258,7 @@ footer {
 /*********************************** Timeline************************************/
 
 /********MODAL********/
-* {box-sizing: border-box}
+/* * {box-sizing: border-box} */
 
 /* Set a style for all buttons */
 button .confirm  {
@@ -752,6 +752,11 @@ figure{
 
     .publicationContainer{
     width: 50%;
+    }
+
+    .modal-content {
+      width: 50%;
+      /* Could be more or less, depending on screen size */
     }
 
 /*********************************** Fin de Timeline ************************************/
