@@ -138,6 +138,7 @@ export default () => {
   const publications = () => {
     getAllPosts().onSnapshot((doc) => {
       doc.forEach((docs) => {
+        const loggedEmail = emailUserEmail !== null ? emailUserEmail : googleUser.email;
         const infoPosts = docs.data();
         contenedor.innerHTML += ` 
         <section class="section-post">
@@ -146,11 +147,14 @@ export default () => {
              <img src="${infoPosts.photo}" alt="Foto de perfil" />
              <p class="user-name">${infoPosts.name}</p>
            </div>
-           <div class="icons-post ">
+           <div class="icons-post ${(docs.data().email === loggedEmail) ? 'show' : 'hide'}">
            <i class="fas fa-trash-alt" id=${docs.id}></i><i class="fas fa-edit" id=${docs.id}></i></div>
          </div>
           <div><p class="text-print-post">${infoPosts.post}</p></div>
-         
+          <div class="heart-container"><i class="far fa-heart heart"></i></div>
+          <div class="heart-container"><i class="fas fa-heart heart-before"></i></div>
+          </section>
+
           <!--Modal-->
           <div class="modal-fondo">
             <div class="modal-contenedor">
@@ -163,8 +167,8 @@ export default () => {
                <button class="si">Si ( ಥ‿ಥ )</button> 
               </div>
            </div>
-         </div> 
-        </section>`;
+         </div>
+        `;
       });
 
       // Función para borrar los posts
@@ -210,5 +214,3 @@ export default () => {
   };
   publications();
 };
-
-// ${((docs.data().email === emailUserEmail) || (docs.data().email === googleUser.email)) ? 'show' : 'hide'}
