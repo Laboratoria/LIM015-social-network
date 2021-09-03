@@ -270,7 +270,7 @@ a:hover {
   color: var(--color-main);
 }
 /*footer mobile*/
-.footerMobile{
+.mobileFooter{
   background: var(--color-main);
   max-height: 72px;
   width: 100%;
