@@ -12,7 +12,6 @@ export default () => {
       <li>
         <a href="#/google">Acceder con Google</a>
       </li>
-  
       <li>
         <a href="#/registrate">Crear cuenta</a>
       </li>
