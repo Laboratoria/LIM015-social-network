@@ -2,7 +2,7 @@ const db = firebase.firestore();
 
 // Función para enviar los posts a firebase
 export const savePost = (post, name, email, photo) => db.collection('posts').doc().set({
-  post: post.value,
+  post,
   name, // es la abreviación de "name: name"
   email,
   photo,
@@ -16,3 +16,8 @@ export const deletePost = (id) => db.collection('posts').doc(id).delete();
 
 // Función para traer un post
 export const getPost = (id) => db.collection('posts').doc(id).get();
+
+// Función para actualizar un post
+export const updatePost = (id, updatedPost) => db.collection('posts').doc(id).update({
+  post: updatedPost,
+});
