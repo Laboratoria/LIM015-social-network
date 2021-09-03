@@ -197,12 +197,12 @@ export default () => {
         btnE.addEventListener('click', async (e) => {
           // console.log(e.target.id);
           const document = await getPost(e.target.id);
-          console.log(e.target.id);
-          console.log(document.data());
+          // console.log(e.target.id);
+          // console.log(document.data());
           post.value = document.data().post;
           editStatus = true;
           id = document.id;
-          console.log(id);
+          // console.log(id);
           shareBtn.innerText = 'Editar';
         });
       });
