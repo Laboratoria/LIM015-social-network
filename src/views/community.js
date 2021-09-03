@@ -1,5 +1,6 @@
+/* eslint-disable max-len */
 import {
-  savePost, getAllPosts, deletePost, getPost,
+  savePost, getAllPosts, deletePost, getPost, updatePost,
 } from '../scripts/fs-firestore.js';
 
 export default () => {
@@ -105,20 +106,29 @@ export default () => {
   // Ejecuta savePost enviando el contenido del textarea
   const shareBtn = document.querySelector('.post_btn');
   let editStatus = false;
-  shareBtn.addEventListener('click', () => {
+  let id = '';
+  shareBtn.addEventListener('click', async () => {
     const post = document.querySelector('.posts');
     if (googleUser === null) {
-      savePost(post, emailUserName, emailUserEmail, defaultImg).then(() => {
+      savePost(post.value, emailUserName, emailUserEmail, defaultImg).then(() => {
         console.log('se mandó');
       });
     } else {
-      savePost(post, googleUser.name, googleUser.email, googleUser.photo).then(() => {
+      savePost(post.value, googleUser.name, googleUser.email, googleUser.photo).then(() => {
         console.log('se mandó');
       });
     }
 
     if (!editStatus) {
-      savePost(post);
+      // savePost(post);
+      console.log('ke?');
+    } else {
+      contenedor.innerHTML = '';
+      await updatePost(id, post.value);
+      deletePost(id);
+      post.value = '';
+      editStatus = false;
+      shareBtn.innerText = 'Compartir';
     }
     post.value = '';
     contenedor.innerHTML = '';
@@ -136,7 +146,8 @@ export default () => {
              <img src="${infoPosts.photo}" alt="Foto de perfil" />
              <p class="user-name">${infoPosts.name}</p>
            </div>
-           <div class="icons-post"><i class="fas fa-trash-alt" id=${docs.id}></i><i class="fas fa-edit" id=${docs.id}></i></div>
+           <div class="icons-post ">
+           <i class="fas fa-trash-alt" id=${docs.id}></i><i class="fas fa-edit" id=${docs.id}></i></div>
          </div>
           <div><p class="text-print-post">${infoPosts.post}</p></div>
          
@@ -166,6 +177,7 @@ export default () => {
         btn.addEventListener('click', (e) => {
           console.log(e.target.id);
           modal.classList.add('show-modal');
+          // SI
           si.addEventListener('click', () => {
             contenedor.innerHTML = '';
             deletePost(e.target.id);
@@ -185,9 +197,12 @@ export default () => {
         btnE.addEventListener('click', async (e) => {
           // console.log(e.target.id);
           const document = await getPost(e.target.id);
+          console.log(e.target.id);
           console.log(document.data());
           post.value = document.data().post;
           editStatus = true;
+          id = document.id;
+          console.log(id);
           shareBtn.innerText = 'Editar';
         });
       });
