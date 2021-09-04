@@ -1,0 +1,465 @@
+@import url(https://allfont.es/allfont.css?fonts=ubuntu-medium);
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;800&family=Roboto:wght@300;900&display=swap');
+@import url(https://www.dafontfree.net/embed/dWJ1bnR1LXJlZ3VsYXImZGF0YS8xNi91Lzc5MzY2L1VidW50dS1SLnR0Zg);
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: content-box;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+}
+
+input {
+    display: block;
+    width: 89%;
+    margin-top: 0.4rem;
+}
+
+.h1, h1 {
+    font-size: 2rem;
+}
+
+.h2, h2 {
+    font-size: 1.714rem;
+}
+
+.h3, h3 {
+    font-size: 1.5rem;
+}
+
+.h4, h4 {
+    font-size: 1.286rem;
+}
+
+.h5, h5 {
+    font-size: 1.07rem;
+}
+
+.h6, h6 {
+    font-size: 1rem;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-family: 'Ubuntu Medium', arial;
+    font-weight: 500;
+    line-height: 1.2;
+    color: #253241;
+}
+
+.text-dark {
+    color: #3e4b5b;
+}
+
+.text-muted {
+    color: #76869e;;
+}
+
+.text-white {
+    color: #ffffff;
+}
+
+.text-sucess {
+    color: #1bcfb4;
+}
+
+.text-danger {
+    color: #fe7c96;
+}
+
+.text-warning {
+    color: #fed713;
+}
+
+.text-info {
+    color: #198ae3;
+}
+
+.bold-text {
+    font-weight: 700;
+}
+
+/****** Buttons ******/
+.btn {
+    margin: 21px 21px 0 0;
+    padding: 16px 21px;
+    font-size: .990rem;
+    text-align: center;
+    line-height: 1;
+    font-family: 'Ubuntu Medium', arial !important;
+    color: #ffffff;
+    border-radius: 8px;
+    border: none; }
+    .btn:hover {
+        cursor: pointer;
+        opacity: 0.85;
+    }
+
+.btn-primary {
+    background:#FA5672;
+}
+
+.btn-secondary {
+    background: linear-gradient(to right, #da8cff, #9a55ff);
+}
+
+.btn-danger {
+    background:#EA5455;
+}
+
+.btn-success {
+    background:#28C76F;
+
+}
+.btn-info {
+    background:#00CFE8;
+}
+
+.btn-warning {
+    background:#FF9F43;
+}
+
+.btn-default {
+    background:#c4c4c5;
+    color: #292929;
+}
+
+.btn-outline-danger {
+    background-color: transparent;
+    border: solid 1.5px #EA5455;
+    color: #EA5455; } 
+    .btn-outline-danger:hover {
+        background-color: #EA5455;
+        color: #ffffff;
+    }
+
+.btn-outline-primary { /***/
+    background-color: #ffffff;
+    border: solid 1.5px #FA5672;
+    color: #FA5672; } 
+    .btn-outline-primary:hover {
+        background-color: #FA5672;
+        color: #ffffff;
+    }
+
+.btn-outline-success {
+    background-color: transparent;
+    border: solid 1.5px #28C76F;
+    color: #28C76F; }
+    .btn-outline-success {
+        background-color: #28C76F;
+        color: #ffffff;
+    }
+
+.btn-outline-warning {
+    background-color: transparent;
+    border: solid 1.5px #FF9F43;
+    color: #FF9F43; }
+    .btn-outline-warning {
+        background-color: #FF9F43;
+        color: #ffffff;
+    }
+
+.btn-outline-info {
+    background-color: transparent;
+    border: solid 1.5px #00CFE8;
+    color: #00CFE8; }
+    .btn-outline-info:hover {
+        background-color: #00CFE8;
+        color: #ffffff;
+    }
+
+.btn-outline-default {
+    padding: 7px 15px !important;
+    background-color: transparent;
+    border: solid 1.5px #c4c4c5;
+    color: #253241; }
+    .btn-outline-info:hover {
+        background-color: #00CFE8;
+        color: #ffffff;
+    }
+
+.btn-outline-default img {
+    width: 28px;
+    height: 28px;
+}
+
+.btn-outline-default label {
+    margin-left: 8px;
+}
+
+.link-primary {
+    background-color: transparent;
+    color: #FA5672;
+    text-decoration: none; }
+    .link-primary:hover {
+        color: #fa3858;
+    }
+
+.link-secondary {
+    background-color: transparent;
+    color: #7367f0;
+    text-decoration: none; }
+    .link-secondary:hover {
+        color: #4435f1;
+    }
+
+.btn-notlike {
+    background-color: #FFD9F1;
+    color: #FC2C5E;
+    /* border-radius: .358rem; */
+    padding: .3rem .5rem !important;}
+    .btn-notlike:hover {
+        transform: scale(1.3, 1.3);
+    }
+
+.btn-notcomment {
+    background-color: #E4EFFA;
+    padding: .3rem .5rem !important;
+    color: #1D95FA; }
+    .btn-notcomment:hover {
+        transform: scale(1.3, 1.3);
+    }
+
+.btn-notsave {
+    background-color: #E4E4FF;
+    padding: .3rem .5rem !important;
+    color: #7A7EF4; }
+    .btn-notsave:hover {
+        transform: scale(1.3, 1.3);
+    }
+
+.btn-save {
+    border: solid 1.5px #7A7EF4;
+}
+
+.btn-comment {
+    border: solid 1.5px #1D95FA;
+}
+
+.btn-like {
+    border: solid 1.5px #FC2C5E;
+}
+
+.btn-circle {
+    border-radius: 50% !important;
+    padding: .600rem .720rem;
+    font-size: 20px;
+}
+
+/****** Badges ******/
+.badge {
+    padding: .3rem .5rem;
+    text-align: center;
+    border-radius: .358rem;
+    font-size: 12px;
+}
+.badge-primary {
+    border: solid 1.5px #FA5672;
+    color:#FA5672;
+}
+
+.badge-secondary {
+    border: solid 1.5px #007BFF;
+    color:#007BFF; 
+}
+
+/* .badge-circle {
+    border-radius: 50%;
+    padding: .300rem .420rem;
+    font-size: 15px;
+    background-color: blue;
+    color: #ffffff;
+} */
+/****** Avatar ******/
+.avatar img {
+    max-height: auto;
+    -o-object-fit: cover;
+    object-fit: cover;
+    border-radius: 50% !important;
+}
+.avatar-sm img {
+    width: 35px;
+    height: 35px;
+}
+.avatar-md img {
+    width: 49px;
+    height: 49px;
+}
+.avatar-lg img {
+    width: 70px;
+    height: 70px;
+}
+
+/****** Input ******/
+.form-control {
+    border: 1px solid #ebedf2;
+    font-family: "ubuntu-regular", sans-serif;
+    font-size: 0.8125rem; 
+    padding: .810rem 1rem;
+    background-color: #ffffff; 
+    border-radius: .357rem; 
+    color: #6e6b7b;}
+    .form-control:focus {
+        outline: none; 
+        border-color: #7367f0;
+    }
+
+.input-invalid {
+    border-color: #fa3858 !important;
+}
+
+.input-valid {
+    border-color: #28c76f!important;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #9e9e9e;
+    opacity: 1; /* Firefox */
+}
+
+.input-container {
+    position: relative;
+}
+
+.input-container > i {
+    position: absolute;
+    top: 12px;
+    left: 15px;
+    color: #b9b8b8;
+}
+
+.eye  {
+    margin-left: 29rem;
+}
+  
+.input-container > input {
+padding-left: 40px;
+}
+
+.message-invalid {
+    /* display: none; */
+    width: 100%;
+    font-size: .730rem;
+    color: #fa3858;
+}
+
+.message-valid {
+    /* display: none; */
+    width: 100%;
+    font-size: .730rem;
+    color: #28c76f;
+}
+/***Input checkbox**/
+.container-checkbox {
+    display: flex;
+    align-items: center;
+}
+
+input[type=checkbox] {
+    appearance: none;
+    -webkit-appearance: none;
+    height: 15px;
+    width: 15px;
+    background-color: white;
+    border: solid 1px #BBBBBB;
+    border-radius: 2PX;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+input[type=checkbox]:checked {
+    background-color: #FA5672;
+    border: none;
+}
+
+.container-checkbox label {
+    color: #76869e;
+    margin-left: 8px;
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+}
+
+input[type=checkbox]::after {
+    font-family: "Font Awesome 5 Free";
+    content: '\f00c';
+    font-weight: 600;
+    font-size: 0.8125rem; 
+    color: #ffffff;
+    display: none;
+}
+
+input[type=checkbox]:checked::after {
+    display: block;
+}
+
+
+img { 
+    vertical-align: middle; /*Alinea la imagen con texto hacia el costado*/
+}
+
+/****** Card ******/
+.container {
+    display: grid;
+    /* gap: 1rem; */
+    grid-template-columns: repeat(auto-fit, minmax(1fr, 2fr));
+    grid-template-rows: 100vh;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 1.5rem;
+}
+
+.column {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.column1 {
+    background-color: #EDEDED;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 100vh;
+}
+
+.container-column1 img {
+    width: 95%;
+    height: auto;
+}
+
+.column2 {
+    justify-items: center;
+    align-items: center;
+    padding: 5rem !important;
+}
+
+.column2 > label {
+    display: block;
+    text-align: start;
+}
+
+#login {
+    margin-left: 2px;
+    width: 92%;
+}
+
+.logo {
+    width: 55%;
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
