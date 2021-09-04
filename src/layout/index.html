@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../css/styles.css">
   <title>Document</title>
 </head>
 <body>
@@ -11,12 +12,52 @@
     <nav>
       <ul>
         <li><a href="#/">home</a></li>
-        <li></li>
+        <li> <i class="fas fa-volume-down"></i> </li>
         <li></li>
       </ul>
     </nav>
   </header>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia alias laborum sequi nemo reprehenderit culpa aliquam et sit neque.</p>
+
+  <button id="facebook" class="btn btn-outline-default"> <img src="../images/svg/facebook.png" alt="logo-facebook">   <label for="facebook">Regístrate con Facebook</label> </button>
+
+
+
+  <div class="container-checkbox">
+    <input type="checkbox" class="checkbox" id="checkbox"/>
+    <label for="checkbox">Recuerdame</label>
+  </div>
+
+  <div class="input-container">
+    <i class="fas fa-volume-down"></i>
+    <input id="email" type="text" class="form-control" placeholder="Ingrese un email">
+    <i class="far fa-eye eye"></i>
+  </div> </br>
+
+  <div class="input-container">
+    <i class="fas fa-volume-down"></i>
+    <input id="email-invalid" type="text" class="form-control input-invalid" placeholder="Ingrese un email"> </br>
+    <label for="email-invalid" class="message-invalid">Ingrese email correcto</label>
+  </div>
+
+  <div class="input-container">
+    <i class="fas fa-volume-down"></i>
+    <input id="email-valid" type="text" class="form-control input-valid" placeholder="Ingrese un email"> </br>
+    <label for="email-valid" class="message-valid">OK</label>
+  </div>
+
+  <a class="link-secondary" href="http://www.google.com"> link a google </a>
+  <span class="avatar avatar-sm"> <img src="https://s.france24.com/media/display/8c13820c-5b0e-11e9-bf90-005056a964fe/w:980/p:16x9/gato.webp" alt="avatar"> </span>
+  <span class="avatar avatar-md"> <img src="https://s.france24.com/media/display/8c13820c-5b0e-11e9-bf90-005056a964fe/w:980/p:16x9/gato.webp" alt="avatar"> </span>
+  <span class="avatar avatar-lg"> <img src="https://s.france24.com/media/display/8c13820c-5b0e-11e9-bf90-005056a964fe/w:980/p:16x9/gato.webp" alt="avatar"> </span>
+
+  <button class="btn btn-primary btn-circle"> <i class="fas fa-volume-down"></i> </button>
+  <button class="btn btn-outline-danger"> Hola <i class="fas fa-volume-down"></i> </button>
+  <button class="btn btn-notlike"> <i class="fas fa-volume-down"></i> 5 </button>
+  <button class="btn btn-notsave btn-save"> <i class="fas fa-volume-down"></i> 5 </button>  
+  <button class="btn btn-notcomment btn-comment"> <i class="fas fa-volume-down"></i> 5 </button>
+  <p class="text-info ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia alias laborum sequi nemo reprehenderit culpa aliquam et sit neque.</p>
+  <span class="badge badge-primary ">Programación</span>
+  <script src="https://kit.fontawesome.com/99e095b5b2.js" crossorigin="anonymous"></script> 
   <script type="module" src="main.js"></script>
 </body>
 </html>
