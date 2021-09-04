@@ -284,8 +284,8 @@ El proyecto Tomodachi es denominado una red social inspirado por la **expresión
 ### 5.4 Diseño de la Interfaz de Usuario (prototipo de baja fidelidad)
 
 ![Prototipo de baja fidelidad](./src/images/PrototipoBJ.jpg)
-![Prototipo de baja fidelidad](./src/images/PrototipoBF_DESK.PNG)
-![desktop](/src/images/profileBJ.png)   
+![Prototipo de baja fidelidad](./src/images/PrototipoBF_DESK.png)
+![desktop](./src/images/profileBJ.png)   
 
 ### 5.5 Responsive
 
