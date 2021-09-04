@@ -1,9 +1,22 @@
 @import url(https://allfont.es/allfont.css?fonts=ubuntu-medium);
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;800&family=Roboto:wght@300;900&display=swap');
 @import url(https://www.dafontfree.net/embed/dWJ1bnR1LXJlZ3VsYXImZGF0YS8xNi91Lzc5MzY2L1VidW50dS1SLnR0Zg);
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: content-box;
+}
+
 body {
     font-family: 'Nunito', sans-serif;
 }
+
+input {
+    display: block;
+    width: 89%;
+    margin-top: 0.4rem;
+}
+
 .h1, h1 {
     font-size: 2rem;
 }
@@ -40,7 +53,7 @@ body {
 }
 
 .text-muted {
-    color: #9c9fa6;
+    color: #76869e;;
 }
 
 .text-white {
@@ -70,8 +83,8 @@ body {
 /****** Buttons ******/
 .btn {
     margin: 21px 21px 0 0;
-    padding: 11.004px 21px;
-    font-size: 0.875rem;
+    padding: 16px 21px;
+    font-size: .990rem;
     text-align: center;
     line-height: 1;
     font-family: 'Ubuntu Medium', arial !important;
@@ -118,6 +131,15 @@ body {
     color: #EA5455; } 
     .btn-outline-danger:hover {
         background-color: #EA5455;
+        color: #ffffff;
+    }
+
+.btn-outline-primary { /***/
+    background-color: #ffffff;
+    border: solid 1.5px #FA5672;
+    color: #FA5672; } 
+    .btn-outline-primary:hover {
+        background-color: #FA5672;
         color: #ffffff;
     }
 
@@ -275,7 +297,7 @@ body {
     border: 1px solid #ebedf2;
     font-family: "ubuntu-regular", sans-serif;
     font-size: 0.8125rem; 
-    padding: .438rem 1rem;
+    padding: .810rem 1rem;
     background-color: #ffffff; 
     border-radius: .357rem; 
     color: #6e6b7b;}
@@ -303,13 +325,13 @@ body {
 
 .input-container > i {
     position: absolute;
-    top: 8px;
+    top: 12px;
     left: 15px;
-    color: #919090;
+    color: #b9b8b8;
 }
 
 .eye  {
-    margin-left: 11.2rem;
+    margin-left: 29rem;
 }
   
 .input-container > input {
@@ -346,6 +368,7 @@ input[type=checkbox] {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 6px;
 }
 
 input[type=checkbox]:checked {
@@ -354,10 +377,10 @@ input[type=checkbox]:checked {
 }
 
 .container-checkbox label {
-    color: #253241;
+    color: #76869e;
+    margin-left: 8px;
     cursor: pointer;
-    font-family: "ubuntu-regular", sans-serif;
-    font-size: 0.8125rem; 
+    font-family: 'Nunito', sans-serif;
 }
 
 input[type=checkbox]::after {
@@ -379,9 +402,62 @@ img {
 }
 
 /****** Card ******/
-/* .card {
+.container {
+    display: grid;
+    /* gap: 1rem; */
+    grid-template-columns: repeat(auto-fit, minmax(1fr, 2fr));
+    grid-template-rows: 100vh;
+}
 
-} */
+.card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 1.5rem;
+}
+
+.column {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.column1 {
+    background-color: #EDEDED;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 100vh;
+}
+
+.container-column1 img {
+    width: 95%;
+    height: auto;
+}
+
+.column2 {
+    justify-items: center;
+    align-items: center;
+    padding: 5rem !important;
+}
+
+.column2 > label {
+    display: block;
+    text-align: start;
+}
+
+#login {
+    margin-left: 2px;
+    width: 92%;
+}
+
+.logo {
+    width: 55%;
+    display: block;
+}
+
+
+
+
+
+
 
 
 
