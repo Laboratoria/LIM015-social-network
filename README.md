@@ -1,16 +1,5 @@
 # ✨ Tomodachi ✨
 
-## Índice
-
-* [1. Preámbulo](#1-preámbulo)
-* [2. Resumen del proyecto](#2-resumen-del-proyecto)
-* [3. Objetivos de aprendizaje](#3-objetivos-de-aprendizaje)
-* [4. Consideraciones generales](#4-consideraciones-generales)
-* [5. Criterios de aceptación mínimos del proyecto](#5-criterios-de-aceptación-mínimos-del-proyecto)
-* [6. Hacker edition](#6-hacker-edition)
-* [7. Entrega](#7-entrega)
-* [8. Pistas, tips y lecturas complementarias](#8-pistas-tips-y-lecturas-complementarias)
-
 ## 1. Preámbulo
 
 Instagram, Snapchat, Twitter, Facebook, Twitch, Linkedin, etc. Las redes
@@ -280,10 +269,6 @@ El proyecto Tomodachi es denominado una red social inspirado por la **expresión
 
 ### 4.1 Definición del producto
 
-En el  cuéntanos brevemente cómo descubriste las necesidades de los
-usuarios y cómo llegaste a la definición final de tu producto. Es importante
-que detalles:
-
 **¿Quiénes son los principales usuarios de producto?**
 * Nuestro principales usuarios son seguidores de anime/manga, también denominados `"Otakus"`.
 
@@ -299,7 +284,8 @@ que detalles:
 ### 5.4 Diseño de la Interfaz de Usuario (prototipo de baja fidelidad)
 
 ![Prototipo de baja fidelidad](./src/images/PrototipoBJ.jpg)
-
+![Prototipo de baja fidelidad](./src/images/PrototipoBF_DESK.PNG)
+![desktop](/src/images/profileBJ.png)   
 
 ### 5.5 Responsive
 
@@ -311,7 +297,7 @@ que detalles:
 * Vista Desktop
     ![desktop](./src/images/PrototipoAF_registro.jpg)
     ![desktop](./src/images/PrototipoAF_ingreso.jpg)
-    
+  
     
 ### 5.6 Consideraciones del comportamiento de la interfaz de usuario (UI)
 
@@ -351,29 +337,3 @@ tus H.U.:
   - Al guardar los cambios debe cambiar de vuelta a un texto normal pero con la
     información editada.
   - Al recargar la página debo de poder ver los textos editados.
-
-### 5.7 Consideraciones técnicas Front-end
-
-* Separar la manipulación del DOM de la lógica (Separación de responsabilidades).
-* Contar con múltiples vistas. Para esto, tu aplicación debe ser una
- [Single Page Application (SPA)](https://es.wikipedia.org/wiki/Single-page_application)
-* Alterar y persistir datos. Los datos que agregues o modifiques deberán
-  persistir a lo largo de la aplicación. Te recomendamos que uses
-  [Firebase](https://firebase.google.com/) para eso también.
-
-#### Pruebas unitarias (unit tests)
-
-* Recuerda que no hay un _setup_ de **tests** definido, dependerá de
-  la estructura de tu proyecto. Algo que no debes de olvidar es pensar en éstas
-  pruebas, te pueden ayudar a definir la estructura y nomenclatura de tu lógica.
-
-* Los tests unitarios deben cubrir un mínimo del 70% de _statements_, _functions_,
-  _lines_, y _branches_.
-
-### 5.8 Consideraciones técnicas UX
-
-* Hacer al menos 2 entrevistas con usuarios.
-* Hacer un prototipo de baja fidelidad.
-* Asegurarte de que la implementación en código siga los lineamientos del
-  diseño.
-* Hacer sesiones de _testing de usabilidad_ con el producto en HTML.
