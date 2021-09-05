@@ -1,7 +1,7 @@
-// import {
-//   signIn, loginGoogle,
-// } from '../scripts/auth.js';
-// import { userData, getUserData } from '../scripts/firestore.js';
+import {
+  signIn, loginGoogle,
+} from '../scripts/auth.js';
+import { userData, getUserData } from '../scripts/firestore.js';
 
 export default () => {
   const viewLogin = document.createElement('section');
