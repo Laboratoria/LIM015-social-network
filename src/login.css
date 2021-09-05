@@ -49,10 +49,15 @@ body {
  align-items: baseline;
  
 }
-
+.input-field >i{
+ color:#251e36be;
+ margin: 0.5rem;
+}
 #userName,
 #userEmail,
-#userPassword, .btn {
+#userPassword,
+#userPassword-confirm,
+.btn {
     width: 100%;
     height: 2.125rem;
     font-size: 0.95em;
@@ -63,7 +68,8 @@ body {
 
 #userName,
 #userEmail,
-#userPassword {
+#userPassword,
+#userPassword-confirm {
     padding-left: 20px;
     border: none;
     border-radius: 11px;
