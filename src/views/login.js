@@ -9,7 +9,7 @@ export default () => {
       <p>this is a login form </p>
 
 
-      <section class="forms-container">
+      <section class="login-container">
       <section class="signin-signup signin" id="signup" >
         <form action="#" class="sign-in-form" id="loginForm">
           <h1 class="title-main"> Skyy 🌜</h1>
@@ -35,9 +35,8 @@ export default () => {
           </section>
         </form>
       </section>
-    </section>
-  
-        <section class="content">
+
+      <section class="content">
           <h3 class="h3">New here?</h3>
           <p class="pa">
             Join today our community across the skies... !
@@ -46,7 +45,8 @@ export default () => {
             Register
           </button>
         </section>  
-
+    </section>
+  
       `;
 
   // Login
