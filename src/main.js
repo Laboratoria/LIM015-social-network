@@ -10,6 +10,7 @@ import { changeView } from './view-controler/indexControler.js';
 
 
 const init = () => {
+    changeView(window.location.hash);
 window.addEventListener('hashchange', (e) => {
     e.preventDefault();
     changeView(window.location.hash)
