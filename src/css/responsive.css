@@ -1,0 +1,35 @@
+@media (max-width: 48rem) {
+    .imgBx {
+        display: none;
+    }
+    .formBx {
+        margin-top: 4rem;
+        grid-column: 3/ 11;
+    }
+    .formBx img {
+        width: 190px;
+    }
+}
+
+@media (max-width: 20rem) {
+    .imgBx {
+        display: none;
+    }
+    .formBx {
+        margin-top: 0 !important;
+        grid-column: 1/ 13;
+        padding: 1rem;
+    }
+    .formBx img {
+        width: 190px;
+    }
+}
+
+@media (max-width: 960px) {
+    .formBx {
+        padding: 2.5rem;
+    }
+    .formBx img {
+        width: 210px;
+    }
+}
