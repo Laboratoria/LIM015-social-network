@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import {
-  loginGoogle, signIn,
+  loginGoogle, signIn, signUp,
 } from '../scripts/auth.js';
 // import { validateEmail } from '../scripts/validation.js';
 import { userData, getUserData } from '../scripts/firestore.js';
@@ -116,21 +116,17 @@ export default () => {
     const error = viewLogin.querySelector('#error-message');
     signIn(email, password)
       .then((data) => {
-        if (data.user.emailVerified) {
-          getUserData(data.user.uid)
-            .then((doc) => {
-              if (doc.exists) {
-                window.location.hash = '#/community';
-              } else {
-                userData(data.user)
-                  .then(() => {
-                    window.location.hash = '#/community';
-                  });
-              }
-            });
-        } else {
-          error.textContent = 'Sign in to your email to verify your account';
-        }
+        getUserData(data.user.uid)
+          .then((doc) => {
+            if (doc.exists) {
+              window.location.hash = '#/community';
+            } else {
+              userData(data.user)
+                .then(() => {
+                  window.location.hash = '#/community';
+                });
+            }
+          });
       })
       .catch((err) => {
         error.textContent = err.message;
@@ -140,20 +136,13 @@ export default () => {
       });
   });
 
-  return viewLogin;
-};
-
-// ========  R E G I S T E R ============
-
-/*
-// ========  R E G I S T E R ============
+  // ========  R E G I S T E R ============
   const signUpForm = viewLogin.querySelector('.sign-up-email-btn');
   signUpForm.addEventListener('click', (e) => {
     e.preventDefault();
     const newUserName = viewLogin.querySelector('#newUserName').value;
     const newUserEmail = viewLogin.querySelector('#newUserEmail').value;
     const newUserPassword = viewLogin.querySelector('#newUserPassword').value;
-    const error = viewLogin.querySelector('#error-message');
     signUp(newUserEmail, newUserPassword)
       .then((data) => {
         const dataUser = {
@@ -162,26 +151,10 @@ export default () => {
           name: newUserName,
         };
         userData(dataUser)
-        .then((result) => {
-          emailVerification(result);
-          window.location.hash = '#/';
-
-        });
-        .catch((error) =>{
-          console.log(error);
-        });
-
-      .catch(() => {
-        document.getElementById('newUserName').value = '';
-        document.getElementById('newUserEmail').value = '';
-        document.getElementById('newUserPassword').value = '';
-        document.getElementById('newUserPassword-confirm').value = '';
-        error.textContent = err.message;
-        setTimeout(() => {
-          error.textContent = '';
-        }, 5000);
+          .then(() => {
+            window.location.hash = '#/';
+          });
       });
   });
-
   return viewLogin;
-}; */
+};
