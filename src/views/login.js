@@ -1,6 +1,5 @@
-import {
-  signIn, loginGoogle,
-} from '../scripts/auth.js';
+/* eslint-disable no-console */
+import { loginGoogle } from '../scripts/auth.js';
 import { userData, getUserData } from '../scripts/firestore.js';
 
 export default () => {
@@ -50,5 +49,24 @@ export default () => {
 
       `;
 
+  // Login
+  const btnGoogle = viewLogin.querySelector('#btnGmail');
+  btnGoogle.addEventListener('click', () => {
+    console.log('You press the Google option c:');
+    loginGoogle()
+      .then((data) => {
+        getUserData(data.user.uid)
+          .then((doc) => {
+            if (doc.exists) {
+              window.location.hash = '#/community';
+            } else {
+              userData(data.user)
+                .then(() => {
+                  window.location.hash = '#/community';
+                });
+            }
+          });
+      });
+  });
   return viewLogin;
 };
