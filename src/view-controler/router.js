@@ -1,18 +1,19 @@
 import { components } from '../view/index.js';
 
-// eslint-disable-next-line consistent-return
 const changeView = (route) => {
   const container = document.getElementById('container');
   container.innerHTML = '';
   switch (route) {
     case '':
-    case '#/': { return container.appendChild(components.Home()); }
-    case '#/registrate':
-    { return container.appendChild(components.Sign()); }
-    default:
+    case '#/': container.appendChild(components.Home());
       break;
+    case '#/SignIn': container.appendChild(components.SignIn());
+      break;
+    case '#/SignUp': container.appendChild(components.SignUp());
+      break;
+    default: container.appendChild(components.Error());
   }
-  console.log(route);
+  return container;
 };
 
 export { changeView };

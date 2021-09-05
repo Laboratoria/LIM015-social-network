@@ -5,13 +5,11 @@ export const home = () => {
     Comparte experiencias, fotos y más. Únete</p>
   <nav>
     <ul>
-  
       <li>
-        <a href="#/registrate">Regístrate</a>
+        <a href="#/SignIn">Iniciar Sesión</a>
       </li>
-  
       <li>
-        <a href="#/iniciasesion">Iniciar Sesión</a>
+        <a href="#/SignUp">Registrate</a>
       </li>
     </ul>
   </nav>

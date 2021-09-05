@@ -1,10 +1,10 @@
 export const error = () => {
-  const sectionError = document.createElement('section');
-  const errorTemplate = `
+  const viewError = `
   <div>
   <h1> Ups . . . </h1>
   </div>
   `;
-  sectionError.innerHTML = errorTemplate;
-  return sectionError;
+  const divElement = document.createElement('div');
+  divElement.innerHTML = viewError;
+  return divElement;
 };
