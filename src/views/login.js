@@ -13,7 +13,7 @@ export default () => {
       <section class="forms-container">
       <section class="signin-signup signin" id="signup" >
         <form action="#" class="sign-in-form" id="loginForm">
-          <h1 class="title-main">Skyy 🌜</h1>
+          <h1 class="title-main"> Skyy 🌜</h1>
           <h2 class="title"> Welcome Back!</h2>
           <section class="input-field">
             <i class="fas fa-envelope"></i>
