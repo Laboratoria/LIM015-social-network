@@ -7,7 +7,7 @@ const changeView=(route) => {
     const container =document.getElementById("container");
     container.innerHTML='';
   switch (route){
-      
+      case '#/': {return container.appendChild(components.inicio())}
       case '#/inicio':{return container.appendChild(components.inicio()) }
       case '#/perfil':{return container.appendChild(components.perfil())    }
 
