@@ -273,6 +273,9 @@ a:hover {
 .profile{
   background: var(--color-main);
 }
+#mainImgProfile{
+  height: 10%;
+}
 /*footer*/
 .mobileFooter{
   background: var(--color-main);
