@@ -1,6 +1,7 @@
 /* eslint-disable indent */
 /* eslint-disable semi */
-export default () => {
+export const signIn = () => {
+  const divElement = document.createElement('div');
     const viewSignIn = `<section>
     <figure></figure>
     <form>
@@ -17,4 +18,6 @@ export default () => {
       </li>
     </ul>
   </section>`
+  divElement.innerHTML = viewSignIn;
+  return divElement
 }
