@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
+
 :root {
     --login-bg:#f8f3ff;
     --title-bg: #9089cc;
@@ -10,19 +11,23 @@ body {
     height: 100vh;
     font-family: 'Poppins', sans-serif;
     background-image: linear-gradient(to top, #484983 0%, #b9f5f5 100%);
+    
 }
 
 .login-container {
     height: 43.75em;
     width: 60em;
-    margin: 6em auto;
-    border-radius: 10px;
+    margin: 4em auto;
+    border-radius: 15px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    align-items: baseline;
     overflow: hidden;
+    background-color: rgba(240, 248, 255, 0.151);
 }
 
 .title-main {
+    text-align: center;
     text-transform: capitalize;
     font-size: 2.25rem;
     font-weight: 600;
@@ -53,7 +58,7 @@ body {
 }
 
 .btn {
-background-image: linear-gradient(to right, #462f80  0%, #9089cc 100%);
+background-image: linear-gradient(to right, #493677da  0%, #9089cc 100%);
 }
 
 
@@ -61,10 +66,11 @@ background-image: linear-gradient(to right, #462f80  0%, #9089cc 100%);
 #userPassword {
     padding-left: 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 11px;
     font-weight: 600;
     letter-spacing: 1px;
     box-sizing: border-box;
+    background-color: #f9f9fa9a;
 }
 #userEmail,
 #userPassword:hover {
@@ -77,8 +83,33 @@ background-image: linear-gradient(to right, #462f80  0%, #9089cc 100%);
     text-transform: uppercase;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
     background-color: var(--button-bg);
     cursor: pointer;
 }
 
+.btn:hover {
+    background-image: linear-gradient(to right, #90ccccab 0%, #9089cc 100%);
+    cursor: pointer;
+} 
+ 
+
+/* ----media queries------ */
+@media screen and (max-width: 1000px) {
+    .login-container {
+        width: 70%;
+        margin-top: 3rem;
+    } 
+}
+
+@media screen and (max-width: 650px) {
+    .login-container {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .login-container {
+        height: 90%;
+    }
+}
