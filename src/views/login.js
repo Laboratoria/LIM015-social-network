@@ -14,6 +14,8 @@ export default () => {
         <form action="#" class="sign-in-form" id="loginForm">
           <h1 class="title-main"> Skyy 🌜</h1>
           <h2 class="title"> Welcome Back!</h2>
+
+        <section  class="inputs-container ">
           <section class="input-field">
             <i class="fas fa-envelope"></i>
             <input id="userEmail" type="text" placeholder="Email" />
@@ -33,6 +35,7 @@ export default () => {
               <i class="fab fa-google"></i>
             </a>
           </section>
+        </section>
         </form>
       </section>
 
