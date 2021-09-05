@@ -1,14 +1,9 @@
-/* eslint-disable no-console */
-// Este es el punto de entrada de tu aplicacion
-
-// import { myFunction } from './lib/index.js';
-
-// myFunction();
+// eslint-disable-next-line import/no-unresolved
+import { changeView } from './controller/router.js';
 
 const init = () => {
-  window.addEventListener('hashchange', () =>
-    // eslint-disable-next-line implicit-arrow-linebreak
-    console.log(window.location.hash));
+  changeView(window.location.hash);
+  window.addEventListener('hashchange', () => changeView(window.location.hash));
 };
 
 window.addEventListener('load', init);
