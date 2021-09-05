@@ -26,28 +26,54 @@ export default () => {
           </section>
           <input type="submit" value="Login" class="btn solid" />
           <p id="error-message"></p>
-          <p class="social-text"> ...Or enter with </p>
+          <p class="social-text"> ...or enter with </p>
           <section class="social-media">
-            <a id="btnFacebook" href="#" class="social-icon">
-              <i class="fab fa-facebook-f"></i>
-            </a>
             <a id="btnGmail" href="#" class="social-icon">
               <i class="fab fa-google"></i>
             </a>
+            <a id="btnFacebook" href="#" class="social-icon">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            
           </section>
         </section>
         </form>
       </section>
 
       <section class="content">
-          <h3 class="h3">New here?</h3>
+
+      <form action="#" class="sign-in-form" id="loginForm">
+          <!--<h1 class="title-main"> Skyy 🌜</h1>
+          <h2 class="title"> Welcome Back!</h2>-->
+        <h2 class="tittle">New here?</h2>
+        <section  class="inputs-container ">
+        
           <p class="pa">
-            Join today our community across the skies... !
+            Join today our community <br>across the skies... !
           </p>
+          <section class="input-field">
+            <i class="fas fa-user"></i>
+            <input id="userName" type="text" placeholder="Username" />
+          </section>
+          <section class="input-field">
+            <i class="fas fa-envelope"></i>
+            <input id="userEmail" type="text" placeholder="Email" />
+          </section>
+          <section class="input-field">
+            <i class="fas fa-lock"></i>
+            <input id="userPassword" type="password" placeholder="Password" />
+          </section>
+          <!--<input type="submit" value="Login" class="btn solid" />-->
+          <p id="error-message"></p>
+        
           <button class="btn transparent" id="signUpBtn">
             Register
           </button>
-        </section>  
+          </section>
+        </section>
+        </form>
+
+
     </section>
   
       `;
