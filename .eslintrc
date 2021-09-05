@@ -5,7 +5,7 @@
     "jest/globals": true
   },
   "extends": [
-    "airbnb-base"
+    "eslint:recommended"
   ],
   "globals": {
     "Atomics": "readonly",
