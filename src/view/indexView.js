@@ -1,14 +1,18 @@
 
-
-import { viewInicio } from './inicio.js'
-import { viewPerfil } from './perfil.js'
-
+import { viewLogin } from './login.js'
+import { viewRegister } from './register.js'
+import { viewHome } from './home.js'
+import { viewProfile } from './profile.js'
+import { view404 } from './Err404.js'
 
 
 
 const components={
-    inicio: viewInicio,
-    perfil: viewPerfil
+    login: viewLogin,
+    register: viewRegister,
+    home: viewHome,
+    profile: viewProfile,
+    Err404: view404
 }
 
 
