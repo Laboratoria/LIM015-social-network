@@ -11,7 +11,6 @@ const header = `
 
     <span class="btn-menu">
       <i class=" "> </i>
-
     </span>
 
     <ul class="navHome">
@@ -29,7 +28,6 @@ const header = `
   </nav>
 
 </header>
-
 
   
 `
