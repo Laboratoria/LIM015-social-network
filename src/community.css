@@ -127,6 +127,9 @@ nav .contenedor {
   text-align: center;
   -ms-overflow-style: none; 
 }
+figure img{
+  border-radius: 25px;
+}
 
 .user-img img{
   height: 130px;
@@ -186,10 +189,6 @@ figure {
   border-radius: 26px;
 }
 
-figure img{
-  border-radius: 25px;
-}
-
 /*propiedades fig caption*/
 figcaption {
   position: absolute; 
@@ -199,13 +198,10 @@ figcaption {
   padding: 0; 
   width:100%;
   border-radius: 26px;
-}
-
-/*animación del fig caption*/
-figcaption { 
   top: -100%;
   transition: all 0.6s ease;
-  }
+}
+
 
 figcaption h3, h5{
   font-family: var(--secondary-font);

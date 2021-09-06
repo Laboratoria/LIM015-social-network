@@ -10,11 +10,6 @@
   margin-bottom: 2rem;
 }
 
-.info-user .title {
-  margin-bottom:2rem;
-  font-size: 1.8rem;
-}
-
 /*****************INFO DEL USUARIO*********************/
 
 .profile-banner {
@@ -22,7 +17,7 @@
   background-image: linear-gradient(to right, #f4fad6 0%, #ffafbd 0%, #c9ffbf 100%);
   height: 250px;
   width: 100%;
-  background-size:100%;
+  background-size: 100%;
   object-fit: cover; 
   background-attachment: fixed;
   position: relative;
