@@ -1,5 +1,4 @@
 import { changeView } from './router.js';
-// import { auth } from './scripts/fs-config.js';
 
 export const vistas = () => {
   document.querySelector('.container').style.display = 'none'; // oculto el main que contiene el login
