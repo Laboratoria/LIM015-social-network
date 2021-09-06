@@ -1,5 +1,7 @@
 import { auth } from './fs-config.js';
 
+// const auth = firebase.auth();
+
 // SIGN UP
 export const signUp = (email, password) => auth.createUserWithEmailAndPassword(email, password);
 
@@ -13,13 +15,4 @@ export const googleLogin = () => {
 };
 
 // LOG OUT
-export const logout = () => {
-  auth.signOut().then(() => {
-    console.log('signed out');
-    localStorage.removeItem('user');
-    localStorage.removeItem('email');
-    window.location.reload();
-  }).catch((error) => {
-    console.log(error);
-  });
-};
+export const logout = () => auth.signOut();
