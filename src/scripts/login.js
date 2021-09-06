@@ -201,5 +201,12 @@ googleBtn.addEventListener('click', () => {
 // LOG OUT
 const Logout = document.querySelector('.fa-sign-out-alt');
 Logout.addEventListener('click', () => {
-  logout();
+  logout().then(() => {
+    console.log('signed out');
+    localStorage.removeItem('user');
+    localStorage.removeItem('email');
+    window.location.reload();
+  }).catch((error) => {
+    console.log(error);
+  });
 });
