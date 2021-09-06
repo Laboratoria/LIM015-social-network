@@ -4,11 +4,12 @@ const changeView=(route)=>{
     // const sectionView= document.getElementById("container");
     // console.log(sectionView);
     const container= document.getElementById("container");
+    container.innerHTML=" ";
     switch(route){
         
         case'#/login': {return  container.appendChild((components.login())) }
         ///sectionView.innerHTML= components.login();
-       //case'#/register': {return components.register()}
+       case'#/register': {return container.appendChild((components.register()))}
         //case'#/home': {return components.home()}
 
         default:  return components.login()
