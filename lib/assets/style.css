@@ -1,5 +1,5 @@
 :root{
-  --color-main: rgba(242, 167, 27, 1);
+  --color-main: rgb(80, 52, 0); /* rgba(242, 167, 27, 1); */
   --color-secondary: rgba(191, 134, 63, 1);
   --color-light-brown: rgba(217, 199, 184, 1);
   --color-transparent-brown: rgba(217, 199, 184, 0.4);
