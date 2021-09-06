@@ -1,23 +1,11 @@
 // Este es el punto de entrada de tu aplicacion
+import{changeView} from './view-controller/index.js';
 
-import { myFunction } from "./lib/index.js";
+const init =()=>{
+    //console.log('init')
+    window.addEventListener('hashchange', ()=> changeView(window.location.hash))
+}
 
-myFunction();
+//window.onload= init();
 
-const containerd = document.querySelector("#container");
-
-let home = document.createElement("figure");
-home.classList.add("home");
-containerd.appendChild(home);
-
-let name = document.createElement("input");
-name.type = "text";
-name.placeholder = "Email";
-name.classList.add("name");
-home.appendChild(name);
-
-let password = document.createElement("input");
-password.type = "text";
-password.placeholder = "Password";
-password.classList.add("password");
-home.appendChild(password);
+window.addEventListener('load',init)
