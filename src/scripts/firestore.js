@@ -8,7 +8,7 @@ export const userData = (user) => {
     Name = user.displayName;
   } else {
     Photo = './images/default-avatar.jpg';
-    Name = 'null';
+    Name = user.name;
   }
   return db.collection('Skyy_Users').doc(user.uid).set({
     username: Name,
