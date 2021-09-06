@@ -145,7 +145,11 @@ signinForm.addEventListener('submit', (e) => {
 
   // Promesa - Permite que se acceda con un email y una contraseña
   signIn(siginEmail, signinPassword).then((result) => {
+    // Envío la información del usuario al LocalStorage
+    const uid = result.user.uid;
     const Email = result.user.email;
+
+    localStorage.setItem('uid', uid);
     localStorage.setItem('email', Email);
     console.log('signed in');
     vistas();
@@ -162,19 +166,21 @@ signinForm.addEventListener('submit', (e) => {
 const googleBtn = document.querySelector('.google');
 googleBtn.addEventListener('click', () => {
   googleLogin().then((result) => {
-    const credential = result.credential;
+    // const credential = result.credential;
     // Esto le da el token de acceso a Google. Puedes utilizarlo para acceder a la API de Google.
-    console.log(credential.accessToken);
+    // console.log(credential.accessToken);
 
     // Envío la información del usuario al LocalStorage
     const Name = result.user.displayName;
+    const uid = result.user.uid;
     const Email = result.user.email;
     const Photo = result.user.photoURL;
     const User = {
       name: Name,
-      email: Email,
       photo: Photo,
     };
+    localStorage.setItem('email', Email);
+    localStorage.setItem('uid', uid);
     localStorage.setItem('user', JSON.stringify(User));
     console.log('signed in with Google');
     vistas();
@@ -189,6 +195,8 @@ googleBtn.addEventListener('click', () => {
       console.log(error.credential);
     });
 });
+
+//
 
 // LOG OUT
 const Logout = document.querySelector('.fa-sign-out-alt');

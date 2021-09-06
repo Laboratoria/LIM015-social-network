@@ -301,6 +301,7 @@ figure:hover figcaption {
 .section-post {
   display: flex;
   flex-direction: column;
+  margin: 1.5rem 0;
 }
 
 .user-post {
@@ -323,22 +324,32 @@ figure:hover figcaption {
 }
 
 .icons-post {
-  display: flex;
   width: 18%;
   justify-content: space-evenly;
 }
 
-.icons-post i{
-  font-size: 1.1rem;
-  cursor: pointer;
-}
-
 .fa-trash-alt, .fa-edit {
+  font-size: 1.1rem;
+}
+.heart{
+  font-size: 1.3rem;
+}
+.fa-trash-alt, .fa-edit, .heart {
   color: var(--dark-one);
   transition: 0.5s;
+  cursor: pointer;
 }
-.fa-trash-alt:hover, .fa-edit:hover {
+.fa-trash-alt:hover, .fa-edit:hover, .heart:hover {
   color: var(--main-color);
+}
+
+.heart-before{
+  font-size: 1.3rem;
+  color: var(--main-color);
+  display: none;
+}
+.heart-container {
+  margin: 0 .5rem;
 }
 
 .text-print-post {
@@ -351,7 +362,6 @@ figure:hover figcaption {
   background: #dce4eec5;
   border-radius: 3.5rem;
   font-size: 1rem;
-  margin-bottom: 2rem;
 }
 
 /****************MODAL********************/

@@ -1,11 +1,13 @@
 const db = firebase.firestore();
 
 // Función para enviar los posts a firebase
-export const savePost = (post, name, email, photo) => db.collection('posts').doc().set({
+export const savePost = (post, name, email, photo, uid) => db.collection('posts').doc().set({
   post,
   name, // es la abreviación de "name: name"
   email,
   photo,
+  uid,
+  likes: [],
 });
 
 // Función para traer los posts de firebase
