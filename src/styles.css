@@ -1,4 +1,37 @@
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
+h1,h2,p {
+    text-align:center;
+}
+
+.fondoAnimal{
+
+width: 600px;
+height: 600px;
+display: block; 
+margin: auto;
+}
+
+.logoFace{
+    display: block; 
+    margin: auto;
+
+    
+}
+.logoGmail{
+display: block; 
+margin: auto;
+}
+
+.container .text name{
+    border-radius: 5px;
+    padding:15px 5px 5px 20px;
+
+  /* text-align: center;    */
+}
+
+ /* .text {
+align-items:center ;
+} */
