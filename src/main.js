@@ -4,8 +4,6 @@
 
 import { changeView } from './view-controler/router.js';
 
-
-
 //myFunction();
 
 const init = () => {
@@ -16,6 +14,4 @@ const init = () => {
     })
 };
 window.addEventListener('load', init);
-
-
 

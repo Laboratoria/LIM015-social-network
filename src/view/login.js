@@ -1,11 +1,13 @@
+import { auth } from '../firebase/fb-config.js'
+
 const viewLogin =()=>{
 
     const htmlLogin=
     `    <div class="loginArea">
     <div class="formContainer">
       <div class= "formContainer-Logo">
-      <a href="/#" class="logoLink" title="makipura">
-      <img src="https://www.figma.com/file/Wycpr38HvsrNongiQVud7U/Emprendedoras?node-id=15%3A620" alt="Makipura">
+      <!--<a href="/#" class="logoLink" title="makipura">-->
+      <img src="../img/woman.png" alt="Makipura">
       </a>
       </div>
       <div class="formContainer-welcomeSubtitle"> 
@@ -14,15 +16,15 @@ const viewLogin =()=>{
       <div class="loginForm-title">
         <h1>INICIA SESIÓN</h1>
       </div>
-      <form class="loginForm-login" action="">
+      <form class="loginForm-login" id="loginForm-login" action="">
         <div class="login-inputList">
           <div class="inputList-item">
-            <label type="" for="email" class="">Email</label>
-            <input type="text" id="email" value placeholder="Ingrese su correo electrónico">
+            <label type="" for="emailLogin" class="">Email</label>
+            <input type="text" id="emailLogin" value placeholder="Ingrese su correo electrónico">
           </div>
           <div class="inputList-item">
-            <label type="" for="password" class="">Contraseña</label>
-            <input type="" id="password" value placeholder="Ingrese su contraseña" autocomplete="off">
+            <label type="" for="passwordLogin" class="">Contraseña</label>
+            <input type="password" id="passwordLogin" value placeholder="Ingrese su contraseña" autocomplete="off">
           </div>
         </div>
         <div class="login-button">
@@ -43,8 +45,26 @@ const viewLogin =()=>{
     const divLogin=document.createElement('div');
     divLogin.innerHTML=htmlLogin;
 
-    return divLogin;
+    const loginForm = divLogin.querySelector('#loginForm-login');
 
+    loginForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const emailLogin = document.querySelector('#emailLogin').value;
+      const passwordLogin = document.querySelector('#passwordLogin').value;
+      console.log(emailLogin, passwordLogin);
+      auth.signInWithEmailAndPassword(emailLogin, passwordLogin)
+      .then(userCredential => {
+        //clear form
+        loginForm.reset();
+        // changeLogin();
+        console.log('ya estas dentro');
+        window.open('#/home','_self')
+      })
+    });
+     
+
+
+    return divLogin;
 }
 
 
