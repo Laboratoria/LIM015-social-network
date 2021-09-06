@@ -4,8 +4,8 @@ const viewProfile =()=>{
 
     const htmlProfile=
     ` <div>  
-    <nav>${header}</nav>
-       
+    <nav>${header}</nav> 
+    
     Este es perfil</div>`;
     
     
