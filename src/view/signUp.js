@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 export const signUp = () => {
   const sectionElement = document.createElement('section');
   const viewSignUp = `
@@ -16,7 +17,7 @@ export const signUp = () => {
           <input id="signup-password" type="password" placeholder="Contraseña" required>
           <span id="error-password"></span>
         </div>
-        <button id="btn_create-account" type="submit" class="start-button"> Crear cuenta </button>
+        <button type="submit" id="create-account" class="start-button"> Crear cuenta </button>
       </form>
       <ul class="home-list">
         <li>
@@ -28,13 +29,19 @@ export const signUp = () => {
   sectionElement.classList.add('container-box');
   sectionElement.innerHTML = viewSignUp;
 
-  // const signupForm = document.querySelector('#signup-form');
-  // const btnCreateAcc = document.getElementById('btn_create-account');
 
-  // btnCreateAcc.addEventListener('submit', (e) => {
-  //   e.preventDefault();
-  //   console.log('Envia datos');
-  // });
-
+  const signupForm = sectionElement.querySelector('#signup-form');
+  signupForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    /*  const signupUsername = sectionElement.querySelector('#signup-username').value; */
+    const signupEmail = sectionElement.querySelector('#signup-email').value;
+    const signupPassword = sectionElement.querySelector('#signup-password').value;
+    firebase.auth()
+      .createUserWithEmailAndPassword(signupEmail, signupPassword)
+      .then((userCredential) => {
+        console.log(userCredential);
+        console.log('registrado');
+      });
+  });
   return sectionElement;
 };
