@@ -1,14 +1,4 @@
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.1/firebase-app.js";
-
-    // Import the functions you need from the SDKs you need
-  // import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.1/firebase-auth.js";
-
-
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
+    // Your web app's Firebase configuration
   const firebaseConfig = {
     apiKey: "AIzaSyDZZ2SUKZwGxxSRp7R-Wmbld97F9bO_m4M",
     authDomain: "fb-makipura.firebaseapp.com",
@@ -19,4 +9,7 @@
   };
 
   // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+
+  export { auth };
