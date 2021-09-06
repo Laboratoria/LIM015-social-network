@@ -72,8 +72,9 @@
     width: 100%;
     border: 1px solid #d7d8dd;
     font-family: 'proxima-nova', sans-serif;
-    font-size: 0.8125rem;
-    padding: 10px 1rem;
+    font-size: 12px;
+    padding: 0.5rem;
+    line-height: 1.5;
     background-color: #ffffff;
     border-radius: .357rem;
     color: #6e6b7b;
@@ -118,5 +119,10 @@
     background: purple;
     display: flex;
     flex-direction: column;
+    flex-wrap: nowrap;
     justify-content: center;
+}
+
+.formBx form input {
+    width: 96%;
 }
