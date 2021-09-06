@@ -8,7 +8,8 @@ export default () => {
   const article = document.createElement('article');
   const googleUser = JSON.parse(localStorage.getItem('user'));
   const emailUserName = localStorage.getItem('name');
-  const emailUserEmail = localStorage.getItem('email');
+  const userEmail = localStorage.getItem('email');
+  const userId = localStorage.getItem('uid');
   article.className = 'home';
   article.innerHTML = `
   <section class="muro" id="muro">
@@ -23,7 +24,7 @@ export default () => {
            <div class="user-img">
            ${googleUser !== null ? `<img src="${googleUser.photo}" alt="Foto de perfil" />` : '<img src="images/profileDefault.jpeg" alt="Foto de perfil por defecto" />'}
            </div>
-           ${googleUser !== null ? `<p class="user-name">${googleUser.name}<br>${googleUser.email}</p>` : `<p class="user-name">${emailUserName}<br>${emailUserEmail}</p>`}
+           ${googleUser !== null ? `<p class="user-name">${googleUser.name}<br>${userEmail}</p>` : `<p class="user-name">${emailUserName}<br>${userEmail}</p>`}
          </div>
          <hr>
          <!--Div de Banner-->
@@ -110,18 +111,18 @@ export default () => {
   shareBtn.addEventListener('click', async () => {
     const post = document.querySelector('.posts');
     if (googleUser === null) {
-      savePost(post.value, emailUserName, emailUserEmail, defaultImg).then(() => {
+      savePost(post.value, emailUserName, userEmail, defaultImg, userId).then(() => {
         console.log('se mandó');
       });
     } else {
-      savePost(post.value, googleUser.name, googleUser.email, googleUser.photo).then(() => {
+      savePost(post.value, googleUser.name, userEmail, googleUser.photo, userId).then(() => {
         console.log('se mandó');
       });
     }
 
     if (!editStatus) {
       // savePost(post);
-      console.log('ke?');
+      console.log('posting...');
     } else {
       contenedor.innerHTML = '';
       await updatePost(id, post.value);
@@ -138,7 +139,6 @@ export default () => {
   const publications = () => {
     getAllPosts().onSnapshot((doc) => {
       doc.forEach((docs) => {
-        const loggedEmail = emailUserEmail !== null ? emailUserEmail : googleUser.email;
         const infoPosts = docs.data();
         contenedor.innerHTML += ` 
         <section class="section-post">
@@ -147,12 +147,12 @@ export default () => {
              <img src="${infoPosts.photo}" alt="Foto de perfil" />
              <p class="user-name">${infoPosts.name}</p>
            </div>
-           <div class="icons-post ${(docs.data().email === loggedEmail) ? 'show' : 'hide'}">
+           <div class="icons-post ${(docs.data().email === userEmail) ? 'show' : 'hide'}">
            <i class="fas fa-trash-alt" id=${docs.id}></i><i class="fas fa-edit" id=${docs.id}></i></div>
          </div>
           <div><p class="text-print-post">${infoPosts.post}</p></div>
-          <div class="heart-container"><i class="far fa-heart heart"></i></div>
-          <div class="heart-container"><i class="fas fa-heart heart-before"></i></div>
+          <div class="heart-container"><i class="far fa-heart heart" id=${docs.id}></i></div>
+          <div class="heart-container"><i class="fas fa-heart heart-before" id=${docs.id}></i></div>
           </section>
 
           <!--Modal-->
@@ -208,6 +208,23 @@ export default () => {
           id = document.id;
           // console.log(id);
           shareBtn.innerText = 'Editar';
+        });
+      });
+
+      // Likes
+      const hearts = document.querySelectorAll('.heart');
+      hearts.forEach((heart) => {
+        heart.addEventListener('click', async (e) => {
+          console.log(e.target.id);
+          /* const newLikes = {
+            userEmail,
+            userId,
+          }; */
+          const document = await getPost(e.target.id);
+          const userLikes = document.data().likes;
+          console.log(userLikes);
+          const solidHeart = heart.closest(document.id);
+          console.log(solidHeart);
         });
       });
     });
