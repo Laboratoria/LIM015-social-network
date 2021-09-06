@@ -5,7 +5,56 @@ const viewHome =()=>{
     const htmlHome=
     `<div>
     <nav>${header}</nav> 
-    Este es inicio</div>`;
+    Este es inicio</div>
+    
+    
+<section id="home" class="home">
+
+   <section id="home-profile" class="home-profile">
+      <div id="home-imgUser" class="homeProfile-imgUser">
+        
+      </div>
+  
+      <div  id="name" class="homeProfile-name" > ver perfil </div>
+    </section>
+  
+  
+    </section id="HomeShare">
+      <div id="imputshare">
+      <input type="text" placeholder="¿ Que desea compartir ?">
+      </div>
+      
+      <button> compartir</button>
+    <section>
+  
+  
+    </section id="HomeShareEver">
+      <div id="people" class="imgUserHome"></div>
+  
+      <div   id="name" > compartio </div>
+      <div id="dateshare"> 3 septiembre </div>
+  
+      <div id="imputshare">
+      <input type="text" placeholder="¿ Que desea compartir ?">
+      </div>
+  
+      <div id="likeShareIcon"> me gusta</div>
+      <div id="editShare"> editar</div>
+      <div id="removeShare"> eliminar</div>
+      <div id="saveShare"> guardar</div>
+  
+  
+    <section>
+        
+   </section>
+  
+  </section>
+    
+    
+    `
+    
+    
+    ;
     
 
     const divHome=document.createElement('div');
