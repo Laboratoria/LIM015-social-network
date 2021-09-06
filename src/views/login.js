@@ -2,7 +2,7 @@
 import {
   loginGoogle, signIn, signUp,
 } from '../scripts/auth.js';
-// import { validateEmail } from '../scripts/validation.js';
+import { validateEmail } from '../scripts/validation.js';
 import { userData, getUserData } from '../scripts/firestore.js';
 
 export default () => {
@@ -56,29 +56,33 @@ export default () => {
           </p>
           <section class="input-field">
             <i class="fas fa-user"></i>
-            <input id="newUserName" type="text" placeholder="Username" />
+            <input id="newUserName" type="text" placeholder="Username" required /> 
+            <p id="error-name"></p>
           </section>
           <section class="input-field">
             <i class="fas fa-envelope"></i>
-            <input id="newUserEmail" type="text" placeholder="Email" />
+            <input id="newUserEmail" type="text" placeholder="Email" required />
+            <p id="error-email"></p>
           </section>
+          <label class="tooltiptext">password must have <br> at least 4 characters</label>
           <section class="input-field">
             <i class="fas fa-lock"></i>
-            <input id="newUserPassword" type="password" placeholder="Password" />
+            <input id="newUserPassword" type="password" placeholder="Password" required />
           </section>
           
-          <!--<section class="input-field">
+         <section class="input-field">
             <i class="fas fa-lock"></i>
-            <input id="newUserPassword-confirm" type="password" placeholder="Confirm Password" />
-            <p id="error-pass"></p>
-          </section>-->
-         
+            <input id="newUserPassword-confirm" type="password" placeholder="Confirm Password" required />
+            <p id="error-password"></p>
+          </section>
+          <br>
           <p id="error-message"></p>
         
           <button class="btn transparent sign-up-email-btn " id="sign-up-email-btn">
             Register
           </button> <!--<input type="submit" value="Login" class="btn solid" />-->
-          </section>
+          </section> <br>
+          <p id="error-sign-up"></p>
         </section>
         </form>
 
@@ -143,18 +147,75 @@ export default () => {
     const newUserName = viewLogin.querySelector('#newUserName').value;
     const newUserEmail = viewLogin.querySelector('#newUserEmail').value;
     const newUserPassword = viewLogin.querySelector('#newUserPassword').value;
-    signUp(newUserEmail, newUserPassword)
-      .then((data) => {
-        const dataUser = {
-          uid: data.user.uid,
-          email: newUserEmail,
-          name: newUserName,
-        };
-        userData(dataUser)
-          .then(() => {
-            window.location.hash = '#/';
-          });
-      });
+    const newUserPasswordConfirm = viewLogin.querySelector('#newUserPassword-confirm').value;
+
+    // V A L I D A T I O N S !... ¬u¬
+    // password = password-confirm?
+    let validationOk = true;
+    if (newUserPassword !== newUserPasswordConfirm) {
+      document.getElementById('error-password').style.display = 'block';
+      document.getElementById('error-password').innerHTML = "Passwords don't match :/";
+      document.getElementById('newUserPassword').value = '';
+      document.getElementById('newUserPassword-confirm').value = '';
+      validationOk = false;
+    } else {
+      document.getElementById('error-password').style.display = 'none';
+    }
+    // is password >= 4 ?
+    if (newUserPassword === '' || newUserPassword.length < 4) {
+      document.getElementById('error-password').style.display = 'block';
+      document.getElementById('error-password').innerHTML = '= or > 4 characters !';
+      validationOk = false;
+    } else {
+      document.getElementById('error-password').style.display = 'none';
+    }
+    // is a valid email?
+    if (newUserEmail === '' || !validateEmail(newUserEmail)) {
+      document.getElementById('error-email').style.display = 'block';
+      document.getElementById('error-email').innerHTML = 'email is not valid :c';
+      document.getElementById('error-email').value = '';
+      validationOk = false;
+    } else {
+      document.getElementById('error-email').style.display = 'none';
+    }
+    // is name field empty?
+    if (newUserName === '') {
+      document.getElementById('error-name').style.display = 'block';
+      document.getElementById('error-name').innerHTML = 'pls provide a name u_u';
+      document.getElementById('error-name').value = '';
+
+      validationOk = false;
+    } else {
+      document.getElementById('error-name').style.display = 'none';
+    }
+
+    if (validationOk) {
+      signUp(newUserEmail, newUserPassword)
+        .then((data) => {
+          const dataUser = {
+            uid: data.user.uid,
+            email: newUserEmail,
+            name: newUserName,
+          };
+          userData(dataUser)
+            .then(() => {
+              window.location.hash = '#/';
+            });
+        });
+      // .catch(() => {
+      // });
+    }
+    // document.getElementById('error-sign-up').style.display = 'block';
+    // document.getElementById('error-sign-up').innerHTML = 'Pls try again :/';
+    // setTimeout(() => {
+    //   document.getElementById('error-sign-up').style.display = 'none';
+    // }, 5000);
   });
   return viewLogin;
 };
+
+// else {
+//   setTimeout(() => {
+//     document.getElementById('error-sign-up').value = '';
+//   }, 5000);
+// }
