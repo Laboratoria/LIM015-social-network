@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 export const signUp = () => {
   const viewSignUp = `
     <div  class="home-container">
@@ -12,7 +13,8 @@ export const signUp = () => {
         <div>
           <input id="signup-password" type="password" placeholder="Contraseña">
         </div>
-        <button id="create-account" type="submit" class="start-button"> Crear cuenta </button>
+
+        <button type="submit" id="create-account" class="start-button"> Crear cuenta </button>
       </form>
       <ul class="home-list">
         <li>
@@ -24,11 +26,18 @@ export const signUp = () => {
   sectionElement.classList.add('container-box');
   sectionElement.innerHTML = viewSignUp;
 
-  // const signupForm = document.querySelector('#signup-form');
-  // signupForm.addEventListener('submit', (e) => {
-  //   e.preventDefault();
-  //   console.log('Envia datos');
-  // });
-
+  const signupForm = sectionElement.querySelector('#signup-form');
+  signupForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    /*  const signupUsername = sectionElement.querySelector('#signup-username').value; */
+    const signupEmail = sectionElement.querySelector('#signup-email').value;
+    const signupPassword = sectionElement.querySelector('#signup-password').value;
+    firebase.auth()
+      .createUserWithEmailAndPassword(signupEmail, signupPassword)
+      .then((userCredential) => {
+        console.log(userCredential);
+        console.log('registrado');
+      });
+  });
   return sectionElement;
 };
