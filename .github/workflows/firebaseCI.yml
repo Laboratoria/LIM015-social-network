@@ -22,12 +22,6 @@ jobs:
         node-version: '14'
     - run: npm install
     - run: npm test
-    - name: Deploy
-      uses: w9jds/firebase-action@master
-      with:
-        args: deploy --only hosting --project lab-petstagram
-      env: 
-        FIREBASE_TOKEN: '${{ secrets.FIREBASE_TOKEN }}'
     - uses: FirebaseExtended/action-hosting-deploy@v0
       with:
         repoToken: '${{ secrets.GITHUB_TOKEN }}'
