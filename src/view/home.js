@@ -8,55 +8,50 @@ const viewHome =()=>{
     Este es inicio</div>
     
     
-    
-<section id="home">
+<section id="home" class="home">
 
-<section id="homeProfile">
-  <div id="people">
-  </div>
-
-  <div  id="name" > ver perfil </div>
-</section>
-
-
-</section id="HomeShare">
-  <div id="imputshare">
-  <input type="text" placeholder="¿ Que desea compartir ?">
-  </div>
+   <section id="home-profile" class="home-profile">
+      <div id="home-imgUser" class="homeProfile-imgUser">
+        
+      </div>
   
-  <button> compartir</button>
-
-<section>
-
-
-</section id="HomeShareEver">
-  <div id="people" ></div>
-
-  <div   id="name" > compartio </div>
-  <div id="dateshare"> </div>
-
-  <div id="imputshare">
-  <input type="text" placeholder="¿ Que desea compartir ?">
-
-  </div>
-
-
-  <div id="likeShare"> guardar</div>
-  <div id="editShare"> editar</div>
-  <div id="removeShare"> eliminar</div>
-
-<section>
-    
-</section>
-    
-    
-    
+      <div  id="name" class="homeProfile-name" > ver perfil </div>
+    </section>
+  
+  
+    </section id="HomeShare">
+      <div id="imputshare">
+      <input type="text" placeholder="¿ Que desea compartir ?">
+      </div>
+      
+      <button> compartir</button>
+    <section>
+  
+  
+    </section id="HomeShareEver">
+      <div id="people" class="imgUserHome"></div>
+  
+      <div   id="name" > compartio </div>
+      <div id="dateshare"> 3 septiembre </div>
+  
+      <div id="imputshare">
+      <input type="text" placeholder="¿ Que desea compartir ?">
+      </div>
+  
+      <div id="likeShareIcon"> me gusta</div>
+      <div id="editShare"> editar</div>
+      <div id="removeShare"> eliminar</div>
+      <div id="saveShare"> guardar</div>
+  
+  
+    <section>
+        
+   </section>
+  
+  </section>
     
     
     `
-    
-    
-    
     
     
     ;
