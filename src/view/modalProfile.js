@@ -15,17 +15,17 @@ const modalProfile = () => {
              <input type="text=" class= "inputs" name="starUpName" id="starUpName" placeholder="Ingrese el nombre de su emprendimiento">
              <div class="inputContacto">
                 <label for=""> Contacto</label>
-                <label for="phoneOfUser"> Celular:</label>
+                <label for="phoneUser"> Celular:</label>
                 <input type="number" class="inputs" name="phoneOfUser" id="phoneOfUser" placeholder="123456789">
-                <label for="emailOfUser">Correo:</label>
+                <label for="emailUser">Correo:</label>
                 <input type="text" class="inputs" name="emailOfUser" id="emailOfUser" placeholder="ejemplo@gmail.com">
-                <label for="addressOfUser">Ubicación</label>
+                <label for="addressUser">Ubicación</label>
                 <input type="text" class="inputs" name="addressOfUser" id="addressOfUser" placeholder="Lince, Lima">
                 <label for="informationStarUp">Información</label>
                 <textarea name="informationStarUp" id="informationStarUp" cols="30" rows="5"></textarea>
              </div>
              <button class="secondButton" id="closeModalProfile">Cancelar</button>
-             <button class="mainButton" id="saveModalProfile"> Guardar</button>
+             <button class="mainButton" id="saveModalProfile">Guardar</button>
             </form>
          </div>
     </section>`
