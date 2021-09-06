@@ -375,7 +375,7 @@ figure:hover figcaption {
   position: fixed;
   top: 0;
   left: 0;
-  background: rgba(131, 131, 131, 0.212);
+  background: rgba(44, 44, 44, 0.521);
   transition: all 500ms ease;
   opacity: 0;
   visibility: hidden;
