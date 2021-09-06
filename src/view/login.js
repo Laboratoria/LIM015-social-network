@@ -1,10 +1,10 @@
 export default () => {
  
   const viewLogin = `
-    <h1>Pets-Lover</h1>
-    <h2>Welcome to Pet-Lover</h2>
+    <h1>Pets-Lovers</h1>
+    <h2>Welcome to Pet-Lovers</h2>
     <div class="login">
-          <img src="img/animalesFondo.jpg" id="fondo" class="fondoAnimal">
+          <img src="img/pet.png" id="fondoPet" class="fondoAnimalPet">
       <textarea id="name" placeholder="Email" id="email" class="name"></textarea>
       <textarea id="password" placeholder="Password" class="password" id="passwords"></textarea>
   <input type="button" class="btn">Longin</button>
