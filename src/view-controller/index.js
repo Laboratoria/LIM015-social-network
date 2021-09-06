@@ -10,7 +10,7 @@ const changeView=(route)=>{
         case'#/login': {return  container.appendChild((components.login())) }
         ///sectionView.innerHTML= components.login();
        case'#/register': {return container.appendChild((components.register()))}
-        //case'#/home': {return components.home()}
+       case'#/home': {return container.appendChild((components.home()))}
 
         default:  return components.login()
 //        sectionView.innerHTML= components.login();

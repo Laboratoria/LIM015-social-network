@@ -1,8 +1,8 @@
 export default () => {
  
     const viewRegister = `
-      <h1>Pets-Lover</h1>
-      <h2>Welcome to Pet-Lover</h2>
+      <h1>Pets-Lovers</h1>
+      <h2>Welcome to Pet-Lovers</h2>
       <div class="register">
             <img src="img/animalesFondo.jpg" id="fondo" class="fondoAnimal">
         <textarea id="name" placeholder="Name"  class="name"></textarea>
