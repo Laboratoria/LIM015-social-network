@@ -104,7 +104,7 @@ export default () => {
   shareBtn.addEventListener('click', async () => {
     const post = document.querySelector('.posts');
 
-    if (!editStatus) {
+    if (editStatus === false) {
       // Ejecuta savePost enviando el contenido del textarea
       await savePost(post.value, userName, userEmail, userPhoto).then(() => {
         console.log('se mandó');
