@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Proxima+Nova');
-@import url('https://allfont.es/allfont.css?fonts=ubuntu-medium');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;800&family=Roboto:wght@300;900&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -41,7 +41,7 @@
     padding: 9px 9px;
     font-size: 14px;
     text-align: center;
-    font-family: 'Ubuntu Medium', arial !important;
+    font-family: 'Nunito', sans-serif;
     color: #ffffff;
     border-radius: 5px;
     border: none;
