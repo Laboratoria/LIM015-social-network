@@ -1,4 +1,5 @@
-import  {header} from '../View/header.js'
+import  {viewHeader} from '../View/header.js'
+const header = viewHeader()
 
 const viewProfile =()=>{
   

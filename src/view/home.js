@@ -1,10 +1,10 @@
-import  {header} from '../View/header.js'
-
+// import  {viewHeader} from '../View/header.js'
+// const header = viewHeader();
 const viewHome =()=>{
 
     const htmlHome=
     `<div>
-    <nav>${header}</nav> 
+    <nav></nav> 
     Este es inicio</div>
     
     

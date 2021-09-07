@@ -4,7 +4,7 @@ import { viewRegister } from './register.js'
 import { viewHome } from './home.js'
 import { viewProfile } from './profile.js'
 import { view404 } from './Err404.js'
-
+import  {viewHeader} from '../View/header.js'
 
 
 const components={
@@ -12,7 +12,8 @@ const components={
     register: viewRegister,
     home: viewHome,
     profile: viewProfile,
-    Err404: view404
+    Err404: view404,
+    header: viewHeader
 }
 
 

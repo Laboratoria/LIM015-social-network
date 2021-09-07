@@ -9,12 +9,16 @@ const changeView=(route) => {
     switch (route){
       case '': 
       case '#':
-      case '#/': {return container.appendChild(components.login())}
-      case '#/register':{return container.appendChild(components.register())}
-      case '#/home':{return container.appendChild(components.home()) }
-      case '#/profile':{return container.appendChild(components.profile()) }
+      case '#/': { container.appendChild(components.login())}
+      break;
+      case '#/register':{container.appendChild(components.register())}
+      break;
+      case '#/home':{ container.appendChild(components.header()); container.appendChild(components.home()) }
+      break;
+      case '#/profile':{ container.appendChild(components.header()); container.appendChild(components.profile()) }
+      break;
       default: 
-      return container.appendChild(components.Err404())
+       container.appendChild(components.Err404())
   }
 }
 
