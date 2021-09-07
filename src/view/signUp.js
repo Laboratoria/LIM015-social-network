@@ -10,14 +10,14 @@ export const signUp = () => {
           <span id="error-username"></span>
         </div>
         <div>
-          <input id="signup-email" type="text" placeholder="Correo electrónico" required>
+          <input id="signup-email" type="email" placeholder="Correo electrónico" required>
           <span id="error-email"></span>
         </div>
         <div>
           <input id="signup-password" type="password" placeholder="Contraseña" required>
           <span id="error-password"></span>
         </div>
-        <button type="submit" id="create-account" class="start-button"> Crear cuenta </button>
+        <button type="submit" id="create-account" class="start-button"><a href="#/OnlyCats"> Crear cuenta </a></button>
       </form>
       <ul class="home-list">
         <li>

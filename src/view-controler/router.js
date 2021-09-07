@@ -11,6 +11,8 @@ const changeView = (route) => {
       break;
     case '#/SignUp': container.appendChild(components.SignUp());
       break;
+    case '#/OnlyCats': container.appendChild(components.OnlyCats());
+      break;
     default: container.appendChild(components.Error());
   }
   return container;
