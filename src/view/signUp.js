@@ -38,8 +38,14 @@ export const signUp = () => {
     firebase.auth()
       .createUserWithEmailAndPassword(signupEmail, signupPassword)
       .then((userCredential) => {
-        console.log(userCredential);
+        const user = userCredential.user;
+        console.log(userCredential, user);
         console.log('registrado');
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
       });
   });
   return sectionElement;
