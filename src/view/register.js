@@ -36,12 +36,12 @@ const viewRegister =()=>{
         </div>
         <div class="signup-button">
            <button class="mainButton" id="mainbuttonSignup"type="submit">Crear cuenta</button>
-        </div>
-        <div class="signup-separator">ó</div>
-        <div class="signup-social">
+        </div>              
+      </form>
+      <div class="signup-separator">ó</div>
+      <div class="signup-social" id="signup-social">
            <button class="secondButton" id="buttonGoogleSignup" type="submit">Registrate con Google</button>
         </div>
-      </form>
       <div class="backArrow" id="backArrowLogin">
         <a href="/#"><i>regresar(icono flecha)</i></a> 
       </div>
@@ -61,6 +61,8 @@ const viewRegister =()=>{
       const password = document.querySelector('#passwordRegister').value;
       const passwordConfirm = document.querySelector('#passwordConfirmRegister').value
       console.log(email, password, nameUser, passwordConfirm);
+
+
       auth.createUserWithEmailAndPassword(email, password)
       .then(userCredential => {
         //clear form
@@ -69,7 +71,25 @@ const viewRegister =()=>{
         window.open('#','_self')
         
       })
+      
+
     });
+    
+      //google login
+      const buttonGoogleSignup = divRegister.querySelector('#buttonGoogleSignup');
+      buttonGoogleSignup.addEventListener('click' , () => {
+        const provider = new firebase.auth.GoogleAuthProvider();
+        console.log(provider)
+        auth.signInWithPopup(provider)
+        .then(result => {
+          console.log('signin with google');
+          window.open('#/home','_self')
+        })
+        .catch(error => {
+          console.log(error)
+        })
+        console.log('click google')
+      });
 
   
   

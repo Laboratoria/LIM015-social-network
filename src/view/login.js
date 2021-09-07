@@ -29,12 +29,12 @@ const viewLogin =()=>{
         </div>
         <div class="login-button">
            <button class="mainButton"type="submit">Ingresar</button>
-        </div>
-        <div class="login-separator">ó</div>
-        <div class="login-social">
-           <button class="secondButton"type="submit">Ingresar con Google</button>
-        </div>
+        </div>        
       </form>
+      <div class="login-separator">ó</div>
+        <div class="login-social">
+           <button id="buttonGoogleLogin"  class="secondButton"type="submit">Ingresar con Google</button>
+        </div>        
       <div class="loginForm-registrationLink">
       No tienes cuenta</br>Registrate <a href="#/register">aquí</a> 
       </div>
@@ -61,8 +61,22 @@ const viewLogin =()=>{
         window.open('#/home','_self')
       })
     });
-     
-
+    const buttonGoogleLogin= divLogin.querySelector('#buttonGoogleLogin');
+    buttonGoogleLogin.addEventListener('click' , () => {
+        const provider = new firebase.auth.GoogleAuthProvider();
+        console.log(provider)
+        auth.signInWithPopup(provider)
+        .then(result => {
+          console.log('signin with google');
+          window.open('#/home','_self')
+        })
+        .catch(error => {
+          console.log(error)
+        })
+        console.log('click google')
+      });
+      
+    
 
     return divLogin;
 }
