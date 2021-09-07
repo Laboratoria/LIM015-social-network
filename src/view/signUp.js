@@ -7,7 +7,7 @@ export const signUp = () => {
       <form id="signup-form">
         <div>
           <input id="signup-username" type="text" placeholder="Nombre de usuario" required>
-          <span id="error-username"></span>
+          <span class="error-username"></span>
         </div>
         <div>
           <input id="signup-email" type="email" placeholder="Correo electrónico" required>
@@ -17,7 +17,9 @@ export const signUp = () => {
           <input id="signup-password" type="password" placeholder="Contraseña" required>
           <span id="error-password"></span>
         </div>
-        <button type="submit" id="create-account" class="start-button"><a href="#/OnlyCats"> Crear cuenta </a></button>
+        <button type="submit" id="create-account">
+          <a href="#/OnlyCats"> Crear cuenta </a>
+        </button>
       </form>
       <ul class="home-list">
         <li>
