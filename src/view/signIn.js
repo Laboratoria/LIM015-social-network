@@ -7,14 +7,14 @@ export const signIn = () => {
       <form id="signin-form">
         <div>
           <input type="email" placeholder="Correo electrónico" id="signin-email">
-          <span id="signin_error-email"></span>
+          <span class="error-email"></span>
         </div>
         <div>
           <input type="password" placeholder="Contraseña" id="signin-password">
-          <span id="error-password"><span>
+          <span class="error-password"><span>
         </div>
-        <button type="submit" class="start-button">Iniciar</button>
-        </form>
+        <button type="submit" id="start-button">Iniciar</button>
+      </form>
       <ul class="home-list">
         <li class="access-items">
           <a href="#/google" class="access-items">Acceder con Google</a>
@@ -29,27 +29,29 @@ export const signIn = () => {
   sectionElement.classList.add('container-box');
   sectionElement.innerHTML = viewSignIn;
 
-  const signinForm = sectionElement.querySelector('#signin-form');
-  signinForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const signinEmail = sectionElement.querySelector('#signin-email').value;
-    const signInPassword = sectionElement.querySelector('#signin-password').value;
+  const signinEmail = sectionElement.querySelector('#signin-email').value;
+  const signInPassword = sectionElement.querySelector('#signin-password').value;
 
-    if (signinEmail.length === 0) {
-      const errorEmail = sectionElement.querySelector('#signin_error-email');
+  const signinBtm = sectionElement.querySelector('#start-button');
+  signinBtm.addEventListener('click', (e) => {
+    e.preventDefault();
+    /* if (signinEmail === '' || signInPassword === '') {
+      const errorEmail = sectionElement.querySelector('.error-email');
+      const errorPassword = sectionElement.querySelector('.error-password');
       errorEmail.innerHTML = 'Inserte email';
-    } else {
-      firebase.auth().signInWithEmailAndPassword(signinEmail, signInPassword)
-        .then((userCredential) => {
-          const user = userCredential.value;
-          console.log(`${user}inscrito`);
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          console.log(errorCode, errorMessage);
-        });
-    }
+      errorPassword.innerHTML = 'Inserte contraseña';
+    } else { */
+    firebase.auth().signInWithEmailAndPassword(signinEmail, signInPassword)
+      .then((userCredential) => {
+        const user = userCredential.value;
+        console.log(`${user}inscrito`);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+      });
+    /*  } */
   });
   return sectionElement;
 };
