@@ -14,7 +14,7 @@ export const home = () => {
             <a href="#/SignIn" class="links-items">Iniciar Sesión</a>
           </li>
           <li class="home-items">
-            <a href="#/SignUp" class="links-items">Registrate</a>
+            <a href="#/SignUp" class="links-items">Regístrate</a>
           </li>
         </ul>
       </nav>
