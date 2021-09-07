@@ -121,21 +121,21 @@ export default () => {
     const error = viewLogin.querySelector('#error-message');
     signIn(email, password)
       .then((data) => {
-        // if (data.user.emailVerified) {
-        getUserData(data.user.uid)
-          .then((doc) => {
-            if (doc.exists) {
-              window.location.hash = '#/community';
-            } else {
-              userData(data.user)
-                .then(() => {
-                  window.location.hash = '#/community';
-                });
-            }
-          });
-        // } else {
-        //   error.textContent = 'Please Check your inbox to verify account';
-        // }
+        if (data.user.emailVerified) {
+          getUserData(data.user.uid)
+            .then((doc) => {
+              if (doc.exists) {
+                window.location.hash = '#/community';
+              } else {
+                userData(data.user)
+                  .then(() => {
+                    window.location.hash = '#/';
+                  });
+              }
+            });
+        } else {
+          error.textContent = 'Please Check your inbox to verify account';
+        }
       })
       .catch((err) => {
         error.textContent = err.message;
@@ -205,7 +205,6 @@ export default () => {
           userData(dataUser)
             .then((user) => {
               emailVerification(user);
-              viewLogin.getElementById('email-sent-msg').innerHTML = 'Email sent to your inbox To verify !';
               window.location.hash = '#/';
             });
         })
