@@ -7,8 +7,8 @@ const viewLogin =()=>{
     <div class="formContainer">
       <div class= "formContainer-Logo">
       <!--<a href="/#" class="logoLink" title="makipura">-->
-      <img src="../img/woman.png" alt="Makipura">
-      </a>
+      <img src="./img/logoMobilPrueba.jpg" alt="Makipura" width="150>
+      
       </div>
       <div class="formContainer-welcomeSubtitle"> 
         <h2>¡Bienvenida Emprendedora!</h2>
