@@ -1,18 +1,16 @@
-import { auth } from './fs-config.js';
-
-// const auth = firebase.auth();
+/* eslint-disable max-len */
 
 // SIGN UP
-export const signUp = (email, password) => auth.createUserWithEmailAndPassword(email, password);
+export const signUp = (email, password) => firebase.auth().createUserWithEmailAndPassword(email, password);
 
 // SIGN IN
-export const signIn = (email, password) => auth.signInWithEmailAndPassword(email, password);
+export const signIn = (email, password) => firebase.auth().signInWithEmailAndPassword(email, password);
 
 // GOOGLE LOGIN
 export const googleLogin = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
-  return auth.signInWithPopup(provider);
+  return firebase.auth().signInWithPopup(provider);
 };
 
 // LOG OUT
-export const logout = () => auth.signOut();
+export const logout = () => firebase.auth().signOut();
