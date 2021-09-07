@@ -29,29 +29,20 @@ export const signIn = () => {
   sectionElement.classList.add('container-box');
   sectionElement.innerHTML = viewSignIn;
 
-  const signinEmail = sectionElement.querySelector('#signin-email').value;
-  const signInPassword = sectionElement.querySelector('#signin-password').value;
-
   const signinBtm = sectionElement.querySelector('#start-button');
   signinBtm.addEventListener('click', (e) => {
     e.preventDefault();
-    /* if (signinEmail === '' || signInPassword === '') {
-      const errorEmail = sectionElement.querySelector('.error-email');
-      const errorPassword = sectionElement.querySelector('.error-password');
-      errorEmail.innerHTML = 'Inserte email';
-      errorPassword.innerHTML = 'Inserte contraseña';
-    } else { */
+    const signinEmail = sectionElement.querySelector('#signin-email').value;
+    const signInPassword = sectionElement.querySelector('#signin-password').value;
     firebase.auth().signInWithEmailAndPassword(signinEmail, signInPassword)
-      .then((userCredential) => {
-        const user = userCredential.value;
-        console.log(`${user}inscrito`);
+      .then(() => {
+        console.log('inscrito');
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
       });
-    /*  } */
   });
   return sectionElement;
 };
