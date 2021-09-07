@@ -1,8 +1,8 @@
-export default () =>{
+export default () => {
     const viewLogin = document.createElement('div');
     viewLogin.className = 'container';
     viewLogin.innerHTML = `
-    <div class="column1 imgBx">
+    <div class="column1 imgBx imgLogin">
     <div class="form-group-registro">
         <label for="">Eres Nuevo Aqui? Empecemos</label> <br>
         <a href="#/signup"> <button type="button" class="btn btn-outline-primary">REGISTRATE</button> </a> 
@@ -12,7 +12,7 @@ export default () =>{
     <div class="container-logo">
         <img class="logo" src="../images/svg/logo.svg" alt="logo"><br>
     </div>
-
+    <br>
     <form action="#" class="form">
         <div class="form-group">
             <i class="fas fa-envelope"></i>
@@ -66,5 +66,5 @@ export default () =>{
         </div>
     </form>
 </div>`;
-return viewLogin;
+    return viewLogin;
 }
