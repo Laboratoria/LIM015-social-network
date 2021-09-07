@@ -29,7 +29,6 @@ export const signUp = () => {
   sectionElement.classList.add('container-box');
   sectionElement.innerHTML = viewSignUp;
 
-
   const signupForm = sectionElement.querySelector('#signup-form');
   signupForm.addEventListener('submit', (e) => {
     e.preventDefault();
