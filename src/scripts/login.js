@@ -166,10 +166,6 @@ signinForm.addEventListener('submit', (e) => {
 const googleBtn = document.querySelector('.google');
 googleBtn.addEventListener('click', () => {
   googleLogin().then((result) => {
-    // const credential = result.credential;
-    // Esto le da el token de acceso a Google. Puedes utilizarlo para acceder a la API de Google.
-    // console.log(credential.accessToken);
-
     // Envío la información del usuario al LocalStorage
     const Name = result.user.displayName;
     const uid = result.user.uid;
@@ -190,7 +186,7 @@ googleBtn.addEventListener('click', () => {
       console.log(error.code);
       console.log(error.message);
       // The email of the user's account used.
-      console.log(error.email);
+      // console.log(error.email);
       // The firebase.auth.AuthCredential type that was used.
       console.log(error.credential);
     });
