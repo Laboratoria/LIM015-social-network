@@ -1,4 +1,6 @@
-import { signUp, signIn, googleLogin, logout } from '../src/scripts/fs-login.js';
+import {
+  signUp, signIn, googleLogin, logout,
+} from '../src/scripts/fs-login.js';
 
 /*
 jest.mock('../src/scripts/fs-config.js', () => {
@@ -35,10 +37,27 @@ describe('signUp', () => {
     }));
 });
 
+describe('signIn', () => {
+  it('`signIn` es una función', () => {
+    expect(typeof signIn).toBe('function');
+  });
+  it('se inició sesión con email y contraseña', () => signIn('hola@gmail.com', '123456')
+    .then((user) => {
+      expect(user.email).toBe('hola@gmail.com');
+    }));
+});
+
 describe('googleLogin', () => {
   it('se inició sesión con google', () => googleLogin()
     .then((result) => {
       expect(result.providerData[0].providerId).toBe('google.com');
+    }));
+});
+
+describe('logout', () => {
+  it('se cierra sesión', () => logout()
+    .then((user) => {
+      expect(user).toBe(undefined);
     }));
 });
 
