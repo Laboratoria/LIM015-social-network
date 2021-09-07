@@ -1,4 +1,4 @@
-export default () =>{
+export default () => {
     const viewSignUp = document.createElement('div');
     viewSignUp.className = 'container';
     viewSignUp.innerHTML = `
@@ -6,7 +6,7 @@ export default () =>{
                 <div class="container-logo">
                     <img class="logo" src="../images/svg/logo.svg" alt="logo"><br>
                 </div>
-
+                <br>
                 <form action="#" class="form">
                     <div class="form-group">
                         <i class="fas fa-user"></i>
@@ -30,7 +30,7 @@ export default () =>{
                     <div class="form-group">
                         <i class="fas fa-key"></i>
                         <label class="form-label">Confirmar Contraseña</label>
-                        <input id="password" type="password" class="form-input" placeholder="Repita su contraseña">
+                        <input id="confirm-password" type="password" class="form-input" placeholder="Repita su contraseña">
                         <i class="far fa-eye-slash eye"></i>
                     </div>
 
@@ -63,12 +63,12 @@ export default () =>{
 
                 </form>
             </div>
-            <div class="column2 imgBx">
+            <div class="column2 imgBx imgRegistro">
                 <div class="form-group-registro">
                     <label for="">¿Ya tienes una cuenta? Ingresemos...</label> <br>
                     <a href=""> <button type="button" class="btn btn-outline-primary"> INICIA SESION </button> </a> 
                 </div>
             </div>
     `;
-return viewSignUp;
+    return viewSignUp;
 }
