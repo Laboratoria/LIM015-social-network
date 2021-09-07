@@ -9,7 +9,6 @@ export default () => {
   const googleUser = JSON.parse(localStorage.getItem('user'));
   const emailUserName = localStorage.getItem('name');
   const userEmail = localStorage.getItem('email');
-  const userId = localStorage.getItem('uid');
   article.className = 'home';
   article.innerHTML = `
   <section class="muro" id="muro">
@@ -89,50 +88,36 @@ export default () => {
  </section>
   `;
   main.appendChild(article);
-  /*
-  // esta es otra forma de hacer lo de abajo
-  main.addEventListener('click', (e) => {
-    if (e.target.className === 'post_btn') {
-      const post = document.querySelector('.posts');
-      savePost(post).then(() => {
-        console.log('se mandó');
-      });
-      post.value = '';
-    }
-  });
-  */
+
   const contenedor = document.querySelector('.container-posts');
   const defaultImg = 'https://cdn.myanimelist.net/images/userimages/3950429.jpg?t=1505773800';
 
-  // Ejecuta savePost enviando el contenido del textarea
-  const shareBtn = document.querySelector('.post_btn');
+  // Esto verifica si el usuario se loggeó con google o con un correo y dependiendo a eso sale su "userName" y su "userPhoto"
+  const userName = googleUser !== null ? googleUser.name : emailUserName;
+  const userPhoto = googleUser !== null ? googleUser.photo : defaultImg;
+
+  // Está en "false" porque está en MODO COMPARTIR
   let editStatus = false;
   let id = '';
+
+  const shareBtn = document.querySelector('.post_btn');
   shareBtn.addEventListener('click', async () => {
     const post = document.querySelector('.posts');
-    if (googleUser === null) {
-      savePost(post.value, emailUserName, userEmail, defaultImg, userId).then(() => {
-        console.log('se mandó');
-      });
-    } else {
-      savePost(post.value, googleUser.name, userEmail, googleUser.photo, userId).then(() => {
-        console.log('se mandó');
-      });
-    }
 
     if (!editStatus) {
-      // savePost(post);
-      console.log('posting...');
+      // Ejecuta savePost enviando el contenido del textarea
+      await savePost(post.value, userName, userEmail, userPhoto).then(() => {
+        console.log('se mandó');
+        contenedor.innerHTML = '';
+      });
     } else {
       contenedor.innerHTML = '';
       await updatePost(id, post.value);
-      deletePost(id);
-      post.value = '';
+      // Lo vuelve "false" otra vez
       editStatus = false;
       shareBtn.innerText = 'Compartir';
     }
     post.value = '';
-    contenedor.innerHTML = '';
   });
 
   // Función que ejecuta getAllPosts y muestra los posts en un template
@@ -175,7 +160,7 @@ export default () => {
       const deleteBtns = document.querySelectorAll('.fa-trash-alt');
       const si = document.querySelector('.si');
       const no = document.querySelector('.no');
-      // console.log(deleteBtns);
+
       const modal = document.querySelector('.modal-fondo');
       deleteBtns.forEach((btn) => {
         btn.addEventListener('click', (e) => {
@@ -199,32 +184,12 @@ export default () => {
       const post = document.querySelector('.posts');
       editBtns.forEach((btnE) => {
         btnE.addEventListener('click', async (e) => {
-          // console.log(e.target.id);
           const document = await getPost(e.target.id);
-          // console.log(e.target.id);
-          // console.log(document.data());
           post.value = document.data().post;
+          // Está en "false" porque está en MODO EDICIÓN
           editStatus = true;
           id = document.id;
-          // console.log(id);
           shareBtn.innerText = 'Editar';
-        });
-      });
-
-      // Likes
-      const hearts = document.querySelectorAll('.heart');
-      hearts.forEach((heart) => {
-        heart.addEventListener('click', async (e) => {
-          console.log(e.target.id);
-          /* const newLikes = {
-            userEmail,
-            userId,
-          }; */
-          const document = await getPost(e.target.id);
-          const userLikes = document.data().likes;
-          console.log(userLikes);
-          const solidHeart = heart.closest(document.id);
-          console.log(solidHeart);
         });
       });
     });
