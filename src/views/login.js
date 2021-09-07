@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import {
-  loginGoogle, signIn, signUp,
+  loginGoogle, signIn, signUp, emailVerification,
 } from '../scripts/auth.js';
 import { validateEmail } from '../scripts/validation.js';
 import { userData, getUserData } from '../scripts/firestore.js';
@@ -13,7 +13,7 @@ export default () => {
 
 
       <section class="login-container">
-      <section class="signin-signup signin" id="signup" >
+      <section class="signin-signup signin" id="signInForm" >
         <form action="#" class="sign-in-form" id="loginForm">
           <h1 class="title-main"> Skyy 🌜</h1>
           <h2 class="title"> Welcome Back!</h2>
@@ -77,12 +77,13 @@ export default () => {
           </section>
           <br>
           <p id="error-message"></p>
-        
+       
           <button class="btn transparent sign-up-email-btn " id="sign-up-email-btn">
             Register
           </button> <!--<input type="submit" value="Login" class="btn solid" />-->
           </section> <br>
           <p id="error-sign-up"></p>
+           <p id="email-sent-msg"></p>
         </section>
         </form>
 
@@ -120,6 +121,7 @@ export default () => {
     const error = viewLogin.querySelector('#error-message');
     signIn(email, password)
       .then((data) => {
+        // if (data.user.emailVerified) {
         getUserData(data.user.uid)
           .then((doc) => {
             if (doc.exists) {
@@ -131,6 +133,9 @@ export default () => {
                 });
             }
           });
+        // } else {
+        //   error.textContent = 'Please Check your inbox to verify account';
+        // }
       })
       .catch((err) => {
         error.textContent = err.message;
@@ -198,12 +203,15 @@ export default () => {
             name: newUserName,
           };
           userData(dataUser)
-            .then(() => {
+            .then((user) => {
+              emailVerification(user);
+              viewLogin.getElementById('email-sent-msg').innerHTML = 'Email sent to your inbox To verify !';
               window.location.hash = '#/';
             });
+        })
+        .catch((error) => {
+          console.log(error);
         });
-      // .catch(() => {
-      // });
     }
     // document.getElementById('error-sign-up').style.display = 'block';
     // document.getElementById('error-sign-up').innerHTML = 'Pls try again :/';

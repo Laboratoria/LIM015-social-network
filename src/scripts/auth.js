@@ -31,13 +31,13 @@ export const signOut = () => {
 };
 
 // onAuthStateChanged (admin. users in firebase)
-// export const currentUser = (callback) => {
-//   const auth = firebase.auth();
-//   auth.onAuthStateChanged((user) => callback(user));
-// };
+export const currentUser = (callback) => {
+  const auth = firebase.auth();
+  auth.onAuthStateChanged((user) => callback(user));
+};
 
 // send email verification email to new user
-// export const emailVerification = () => {
-//   const user = firebase.auth().currentUser;
-//   return user.sendVerificationEmail();
-// };
+export const emailVerification = () => {
+  const user = firebase.auth().currentUser;
+  return user.sendVerificationEmail();
+};
