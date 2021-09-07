@@ -6,7 +6,7 @@ const viewRegister =()=>{
     <div class="formContainer">
       <div class= "formContainer-logo">
       <a href="/#" class="logoLink" title="makipura">
-      <img src="../img/logosf.png" alt="Makipura">
+      <img src="./img/logoMobilPrueba.jpg"  width="150" alt="Makipura">
       </a>
       </div>
       <div class="formContainer-speech"> 
