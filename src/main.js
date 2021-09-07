@@ -8,13 +8,3 @@ export const vistas = () => {
     changeView(window.location.hash);
   });
 };
-/*
-auth.onAuthStateChanged((user) => {
-  if (user) {
-    console.log('auth-signin');
-    vistas();
-  } else {
-    console.log('auth-signout');
-  }
-});
-*/
