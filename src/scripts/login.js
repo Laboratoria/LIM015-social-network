@@ -137,7 +137,6 @@ signinForm.addEventListener('submit', (e) => {
   const signinPassword = document.getElementById('signin-password').value;
 
   // Mensaje de Error
-  // const errorMsgEmail = document.getElementById('si-error-email');
   const errorMsgPassword = document.getElementById('si-error-password');
   if (siginEmail === '' || signinPassword === '') {
     errorMsgPassword.innerHTML = 'Debes ingresar tu email y contraseña <br> (╯ರ ~ ರ)╯︵ ┻━┻';
@@ -167,14 +166,15 @@ const googleBtn = document.querySelector('.google');
 googleBtn.addEventListener('click', () => {
   googleLogin().then((result) => {
     // Envío la información del usuario al LocalStorage
-    const Name = result.user.displayName;
     const uid = result.user.uid;
     const Email = result.user.email;
+    const Name = result.user.displayName;
     const Photo = result.user.photoURL;
     const User = {
       name: Name,
       photo: Photo,
     };
+
     localStorage.setItem('email', Email);
     localStorage.setItem('uid', uid);
     localStorage.setItem('user', JSON.stringify(User));
@@ -192,8 +192,6 @@ googleBtn.addEventListener('click', () => {
     });
 });
 
-//
-
 // LOG OUT
 const Logout = document.querySelector('.fa-sign-out-alt');
 Logout.addEventListener('click', () => {
@@ -201,6 +199,7 @@ Logout.addEventListener('click', () => {
     console.log('signed out');
     localStorage.removeItem('user');
     localStorage.removeItem('email');
+    // el método reload, da lugar a la recarga de la url actual (login)
     window.location.reload();
   }).catch((error) => {
     console.log(error);
