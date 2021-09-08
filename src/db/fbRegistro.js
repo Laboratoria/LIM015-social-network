@@ -1,52 +1,65 @@
+import { validInput, limpiar } from '../validations/validRegistro.js'
 const addEventRegisterUser = (formRegistro) => {
+    const inputName = formRegistro.querySelector('#nameUser');
     const inputEmail = formRegistro.querySelector('#email');
     const inputPassword = formRegistro.querySelector('#password');
     const inputConfirmPassword = formRegistro.querySelector('#confirmPassword');
 
     formRegistro.addEventListener('submit', (e) => {
+        /** limpiamos los mensajes y mostrar un spiner de carga de proceso**/
         e.preventDefault();
+        limpiar(formRegistro, ['nameUser', 'email', 'password', 'confirmPassword']);
         const email = inputEmail.value;
         const password = inputPassword.value;
-
         // eslint-disable-next-line no-undef
         firebase.auth().createUserWithEmailAndPassword(email, password)
             .then((userCredential) => {
                 alert('Registrado')
-                console.log(userCredential); //redirige a inicio
+                console.log(userCredential); //redirige a inicio antes limpiamos 
             }).catch((error) => {
-                console.log(error.message); //llamara otra funcion de afterregistro y no redirigir
+                const errorCode = error.code;
+                if (errorCode == 'auth/email-already-in-use') {
+                    validInput(formRegistro, 'email', 'El correo electrónico ya está registrado', 'error');
+                } else {
+                    alert('Error: ' + error.message)
+                }
             })
 
     });
 
-    inputConfirmPassword.addEventListener('change', () => {
-        if (inputConfirmPassword.value == inputPassword.value) {
-            validInput('confirmPassword', 'Ok', 'success');
+    inputName.addEventListener('change', () => {
+        if (inputName.value.length < 3 || inputName.value == null) {
+            validInput(formRegistro, 'nameUser', 'El nombre debe tener minimo 4 caracteres', 'error');
         } else {
-            validInput('confirmPassword', 'Las contraseñas no coinciden', 'error');
+            validInput(formRegistro, 'nameUser', 'Ok', 'success');
         }
     });
 
-
-    function validInput(idInput, message, type) {
-        const inputValid = formRegistro.querySelector('#' + idInput);
-        const spanValid = formRegistro.querySelector('#msg-' + idInput);
-        if (type == 'error') {
-            inputValid.classList.remove('input-valid');
-            inputValid.classList.add('input-invalid');
-            spanValid.style.color = '#fa3858';
-            spanValid.innerText = message;
-        } else if (type == 'success') {
-            inputValid.classList.remove('input-invalid');
-            inputValid.classList.add('input-valid');
-            spanValid.style.color = '#28c76f';
-            spanValid.innerText = message;
+    inputEmail.addEventListener('change', () => {
+        const regex = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
+        if (regex.test(inputEmail.value)) {
+            validInput(formRegistro, 'email', 'Ok', 'success');
         } else {
-            inputValid.classList.remove('input-invalid');
-            inputValid.classList.remove('input-valid');
-            spanValid.innerText = '';
+            validInput(formRegistro, 'email', 'El correo ingresado no es valido', 'error');
         }
-    }
+    });
+
+    inputPassword.addEventListener('change', () => {
+        if (inputPassword.value.length < 6 || inputPassword.value == null) {
+            validInput(formRegistro, 'password', 'La contraseña es muy corta (Mínimo 6 caracteres)', 'error');
+        } else {
+            validInput(formRegistro, 'password', 'Ok', 'success');
+        }
+    });
+
+    inputConfirmPassword.addEventListener('change', () => {
+        if (inputConfirmPassword.value == inputPassword.value) {
+            validInput(formRegistro, 'confirmPassword', 'Ok', 'success');
+        } else {
+            validInput(formRegistro, 'confirmPassword', 'Las contraseñas no coinciden', 'error');
+        }
+    });
+
 
 }
 

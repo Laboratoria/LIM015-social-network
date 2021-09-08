@@ -13,6 +13,7 @@ export default () => {
                         <i class="fas fa-user"></i>
                         <label for="nameUser" class="form-label">Nombre Completo</label>
                         <input id="nameUser" type="text" class="form-input" placeholder="Escribe tu nombre completo" required>
+                        <span id="msg-nameUser" class="msg"></span>
                     </div>
 
                     <div class="form-group">
