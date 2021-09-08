@@ -79,7 +79,7 @@
     overflow: hidden;
     border-radius: 50%;
     background: rgb(227, 205, 255)
-} 
+}
 .cat-gif {
     width: 220px;
     position:absolute;
@@ -88,6 +88,137 @@
     top: -100%;
     bottom: -100%;
     margin: auto;
+}
+
+/* /* VISTA SIGNIN/* */
+.signin-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+.form-div {
+    margin:10px;
+
+}
+.input{
+    border:0;
+    width: 200px;
+    border-radius: 5px;
+    background: linear-gradient(
+        to right bottom,
+        rgba(255,255,255,0.7),
+        rgba(255,255,255,0.3)
+    );
+    box-shadow: inset 4px 4px 5px rgba(0, 0, 0, 0.15);
+    font-size: 14px;
+    padding: 10px;
+}
+
+.error-email,
+.error-password{
+    color: rgb(228, 68, 68);
+    font-size: 14px;
+}
+
+.signup-register{
+    color: #433CA7;
+    font-weight:700;
+    font-family: 'Sofia';
+    font-size: 50px;
+}
+.start-button{
+    text-decoration: none;
+    font-weight:700;
+    font-size: 17px;
+    color: #433CA7;
+    padding: 15px 60px;
+    width: 200px;
+    border:0;
+    border-radius:10px;
+    background: linear-gradient(
+        to right bottom,
+        rgba(255,255,255,0.7),
+        rgba(255,255,255,0.3)
+    );
+}
+.start-button:hover{
+    box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.25);
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.google-button{
+    font-weight:700;
+    font-size: 17px;
+    color: #433CA7;
+    padding: 15px 10px;
+    width: 200px;
+    border:0;
+    border-radius:10px;
+    background: linear-gradient(
+        to right bottom,
+        rgba(255,255,255,0.7),
+        rgba(255,255,255,0.3)
+    );
+}
+.google-button:hover{
+    box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.25);
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.create-button{
+    text-decoration: none;
+    font-weight:700;
+    font-size: 17px;
+    color: #433CA7;
+    padding: 15px 0px;
+    width: 200px;
+    border:0;
+    border-radius:10px;
+    background: linear-gradient(
+        to right bottom,
+        rgba(255,255,255,0.7),
+        rgba(255,255,255,0.3)
+    );
+}
+.create-button:hover{
+    box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+.signin-access-items{
+    text-align: center;
+    text-decoration: none;
+    color: #433CA7;
+    margin:20px;
+}
+.sgn{
+    text-decoration: none;
+    color: #433CA7;
+    font-weight:700;
+}
+
+.container-error{
+    position: relative;
+    width: 280px;
+    height: 280px;
+    overflow: hidden;
+    border-radius: 50%;
+    background: rgb(227, 205, 255);
+}
+.cat-error{
+    width: 320px;
+    position: absolute;
+    left: -100%;
+    right: -100%;
+    top: -100%;
+    bottom: -100%;
+    margin: auto;
+}
+.message-error{
+    color: #433CA7;
+
 }
 /* .elipse{
     position: absolute;
