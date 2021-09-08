@@ -75,12 +75,8 @@ const viewLogin =()=>{
         window.open('#/home','_self') 
       })
     });
-<<<<<<< HEAD
-    const buttonGoogleLogin= divLogin.querySelector('#buttonGoogleLogin');
-=======
 
     const buttonGoogleLogin= sectionLogin.querySelector('#buttonGoogleLogin');
->>>>>>> 664cc8584e8e725ceddae5de7408d18ce9acca94
     buttonGoogleLogin.addEventListener('click' , () => {
         const provider = new firebase.auth.GoogleAuthProvider();
         console.log(provider)

@@ -94,27 +94,8 @@ const viewRegister =()=>{
         console.log('click google')
       });
 
-    const buttonGoogleSignup = divRegister.querySelector('#buttonGoogleSignup');
-    buttonGoogleSignup.addEventListener('click' , () => {
-      const provider = new firebase.auth.GoogleAuthProvider();
-      console.log(provider)
-      auth.signInWithPopup(provider)
-      .then(result => {
-        console.log('signin with google');
-        window.open('#/home','_self')
-      })
-      .catch(error => {
-        console.log(error)
-      })
-      console.log('click google')
-    });
-  
-
-  
-  
-
-  
-    return divRegister;
+    
+     return divRegister;
 };
 
 
