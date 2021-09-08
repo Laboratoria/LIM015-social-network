@@ -1,6 +1,9 @@
 /* eslint-disable no-undef */
 import { components } from '../views/components.js';
-import { addEventRegisterUser } from '../db/fbRegistro.js'
+import { addEventRegisterUser  } from '../db/fbRegistro.js'
+import { addEventRegisterUserGoogle } from '../db/signup-google.js';
+import { addEventRegisterUserFacebook } from '../db/signup-facebook.js';
+
 const changeView = (route) => {
     const containerMain = document.querySelector('#container-main');
     containerMain.innerHTML = '';
@@ -16,6 +19,8 @@ const changeView = (route) => {
                 const viewRegistro = containerMain.appendChild(components.signUp());
                 const formRegistro = containerMain.querySelector('#form-registro');
                 addEventRegisterUser(formRegistro);
+                addEventRegisterUserGoogle(formRegistro);
+                addEventRegisterUserFacebook(formRegistro);
                 return viewRegistro;
             }
 
