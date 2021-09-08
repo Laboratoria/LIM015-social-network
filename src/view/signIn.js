@@ -36,6 +36,7 @@ export const signIn = () => {
     const signInPassword = sectionElement.querySelector('#signin-password').value;
     firebase.auth().signInWithEmailAndPassword(signinEmail, signInPassword)
       .then(() => {
+        window.location.hash = '#/OnlyCats';
         console.log('inscrito');
       })
       .catch((error) => {

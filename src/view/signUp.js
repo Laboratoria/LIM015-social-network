@@ -18,10 +18,13 @@ export const signUp = () => {
           <span class="error-password"></span>
         </div>
         <button type="submit" id="create-account">
-          Crear cuenta 
+          Crear cuenta
         </button>
       </form>
       <ul class="home-list">
+        <li class="access-items">
+           <a id="signup-google" href="#/google" class="access-items">Registrarse con Google</a>
+       </li>
         <li>
           <span>¿Tiene cuenta?</span><a href="#/SignIn"> Inicia con ella</a>
         </li>
@@ -40,10 +43,15 @@ export const signUp = () => {
     const errorEmail = sectionElement.querySelector('.error-email');
     const errorPassword = sectionElement.querySelector('.error-password');
 
-    if (signupEmail === '') {
+    errorEmail.innerHTML = '';
+    errorPassword.innerHTML = '';
+    if (signupPassword === '' && signupEmail === '') {
+      errorPassword.innerHTML = 'Inserte contraseña';
       errorEmail.innerHTML = 'Inserte email';
     } else if (signupPassword === '') {
       errorPassword.innerHTML = 'Inserte contraseña';
+    } else if (signupEmail === '') {
+      errorEmail.innerHTML = 'Inserte email';
     } else {
       firebase.auth()
         .createUserWithEmailAndPassword(signupEmail, signupPassword)
@@ -61,6 +69,21 @@ export const signUp = () => {
           }
         });
     }
+  });
+
+  const signUpGoogle = sectionElement.querySelector('#signup-google');
+  signUpGoogle.addEventListener('click', (e) => {
+    e.preventDefault();
+    const auth = firebase.auth();
+    const googleProvider = new firebase.auth.GoogleAuthProvider();
+    auth.signInWithPopup(googleProvider)
+      .then(() => {
+        window.location.hash = '#/OnlyCats';
+        console.log('You\'re now signed in !');
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   });
   return sectionElement;
 };
