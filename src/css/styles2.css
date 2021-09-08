@@ -396,3 +396,20 @@ img {
 .section-registro {
     display: none;
 }
+
+
+/**Inputs Valid e Invalid y message **/
+
+.input-invalid {
+    border-color: #fa3858 !important;
+}
+
+.input-valid {
+    border-color: #28c76f!important;
+}
+
+.error-msg {
+    color: #fa3858;
+    font-size: 12px;
+    margin-top: 4px;
+}

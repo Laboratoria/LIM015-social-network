@@ -1,3 +1,4 @@
+/* import{authSignUp}from'../db/auth.js'; */
 export default () => {
     const viewSignUp = document.createElement('div');
     viewSignUp.className = 'container';
@@ -17,7 +18,8 @@ export default () => {
                     <div class="form-group">
                         <i class="fas fa-envelope"></i>
                         <label class="form-label">Correo Electrónico</label>
-                        <input id="email" type="email" class="form-input" placeholder="example@example.com" required>
+                        <input id="email" type="email" class="form-input input-invalid" placeholder="example@example.com" required>
+                        <span id="error-email" class="error-msg">El correo no es válido</label>
                     </div>
 
                     <div class="form-group">
@@ -62,6 +64,7 @@ export default () => {
                     </div>
 
                 </form>
+
             </div>
             <div class="column2 imgBx imgRegistro">
                 <div class="form-group-registro">
@@ -70,5 +73,10 @@ export default () => {
                 </div>
             </div>
     `;
+
+
+/*     const formSignUp = viewSignUp.querySelector("#form-signUp"); */
+ /*    authSignUp(formSignUp) */
+    
     return viewSignUp;
 }
