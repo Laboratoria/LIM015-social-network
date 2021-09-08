@@ -7,30 +7,30 @@ export default () => {
                     <img class="logo" src="../images/svg/logo.svg" alt="logo"><br>
                 </div>
                 <br>
-                <form action="#" class="form">
+                <form action="#" class="form" id="form-registro">
                     <div class="form-group">
                         <i class="fas fa-user"></i>
-                        <label for="name" class="form-label">Nombre Completo</label>
-                        <input id="name" type="text" class="form-input" placeholder="Escribe tu nombre completo">
+                        <label for="nameUser" class="form-label">Nombre Completo</label>
+                        <input id="nameUser" type="text" class="form-input" placeholder="Escribe tu nombre completo" required>
                     </div>
 
                     <div class="form-group">
                         <i class="fas fa-envelope"></i>
                         <label class="form-label">Correo Electrónico</label>
-                        <input id="email" type="email" class="form-input" placeholder="example@example.com">
+                        <input id="email" type="email" class="form-input" placeholder="example@example.com" required>
                     </div>
 
                     <div class="form-group">
                         <i class="fas fa-key"></i>
                         <label class="form-label">Contraseña</label>
-                        <input id="password" type="password" class="form-input" placeholder="Ingrese su contraseña">
+                        <input id="password" type="password" class="form-input" placeholder="Ingrese su contraseña" required>
                         <i class="far fa-eye-slash eye"></i>
                     </div>
 
                     <div class="form-group">
                         <i class="fas fa-key"></i>
                         <label class="form-label">Confirmar Contraseña</label>
-                        <input id="confirm-password" type="password" class="form-input" placeholder="Repita su contraseña">
+                        <input id="confirm-password" type="password" class="form-input" placeholder="Repita su contraseña" required>
                         <i class="far fa-eye-slash eye"></i>
                     </div>
 
