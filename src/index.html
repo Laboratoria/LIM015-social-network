@@ -4,9 +4,56 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <script
+      src="https://kit.fontawesome.com/64d58efce2.js"crossorigin="anonymous"></script>  
+  <link rel="shortcut icon" href="./images/star.png" type="image/x-icon">
+  <link rel="stylesheet" href="login.css"/>
+  <link rel="stylesheet" href="community.css"/>
+  <link rel="stylesheet" href="profile.css"/>
+  <title>Tomodachi</title>
 </head>
 <body>
-  <script type="module" src="main.js"></script>
+  <header id="header">
+    <nav>
+    <div class="contenedor">
+      <div class="logo">
+        <img src="images/logo.png" alt="Tomodachi Logo" />
+      </div> 
+      <div class="links">
+        <ul>
+          <li>
+            <a href="#/community"><i class="fas fa-home" title="Comunidad"></i></a>
+          </li>
+          <li>
+            <a href="#/profile"><i class="fas fa-user" title="Perfil"></i></a>
+          </li>
+          <li>
+            <i class="fas fa-sign-out-alt" title="Salir"></i>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main class="container"></main> 
+  <main class="views"></main> 
+ 
+  <!--FIREBASE-->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+
+    <!--agregar la autenticación "auth.js"--> 
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+
+    <!--para usar la base de datos de firebase, agrego firestore-->
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries 
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-analytics.js"></script> -->
+
+     <!--Custom Code-->
+     <script type="module" src="./scripts/login.js"></script>
+     <script type="module" src="./scripts/fs-config.js"></script>
+     <script type="module" src="main.js"></script>
 </body>
 </html>

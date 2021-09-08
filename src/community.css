@@ -1,0 +1,546 @@
+
+/************ Estilos generales **************/
+
+:root {
+  --dark-one: rgb(92, 92, 92);
+  --main-color: #9a54b6;
+  --light-one: #fff;
+  --secondary-font: "Poppins", sans-serif;
+}
+
+html{
+  background-image: linear-gradient(to right, #bebcdb 0%, #b3eccd 100%);
+}
+
+button,
+input,
+textarea {
+  font-family: var(--secondary-font);
+}
+
+body::-webkit-scrollbar {
+  width: 18px;
+  background: var(--light-one);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #bd97e0d5;
+  border-radius: 12px;
+}
+
+body::-webkit-scrollbar-thumb:active {
+  background-color: #bebebe;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+}
+
+.contenedor {
+  position: relative;
+  max-width: 92rem;
+  padding: 0 3rem;
+  margin: 0 auto;
+}
+
+.show {
+  display: flex;
+}
+.hide{
+  display: none;
+}
+/************* Nav *************/
+
+nav {
+  width: 100%;
+  position: relative;
+}
+
+nav .contenedor {
+  display: flex;
+  justify-content: space-between;
+  height: 7rem;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+}
+
+.links ul {
+  display: flex;
+}
+
+.links i {
+  font-size: 1.7rem;
+  padding: 0.65rem 2.2rem;
+  color: var(--dark-one);
+  transition: 0.5s;
+}
+
+.links i:hover {
+  color: var(--main-color);
+}
+
+/***********************MURO estilos********************/
+.muro {
+  position: relative;
+  width: 100%;
+  padding: 0 0 6.5rem 0;
+  
+}
+
+.muro_user-posters {
+  background-color: var(--light-one);
+  width: 100%;
+  border-radius: 45px;
+  padding: 5.5rem 4.5rem;
+  display: grid;
+  grid-template-columns: 35% 65%;
+  box-shadow: 0 0 10px 0 rgba(73, 73, 73, 0.63);
+}
+
+.muro-info {
+  padding-right: 1rem;
+}
+
+.muro-info .title{
+  margin-bottom:1.5rem;
+  font-size: 1.8rem;
+}
+
+
+/*****************INFO DEL USUARIO*********************/
+.information-user {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  -ms-overflow-style: none; 
+}
+figure img{
+  border-radius: 25px;
+}
+
+.user-img img{
+  height: 130px;
+  width: 130px;
+  border-radius: 50%;
+  border: 7px solid #c6bcf094;
+  position: relative;
+  
+}
+
+.user-name {
+  font-size: 1.2rem;
+  font-family: var(--secondary-font);
+  font-weight: 700;
+  margin-bottom: 0.7rem;
+}
+
+/*****************PUBLICIDAD********************/
+
+.Crunchyroll {
+  display: flex;
+  text-align: center;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  cursor: pointer;
+}
+
+.Crunchyroll img {
+  width: 87%;
+  border-radius: 20px;
+}
+
+/****************IMÁGENES DE ANIME***************/
+.title-anime {
+  text-align: center;
+  color: #6b6b6b;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.container-posters {
+  display: flex;
+  flex-wrap: wrap;
+  grid-gap: 40px;
+  justify-content: space-around;
+  width: 100%;
+}
+
+figure {
+  display: block; 
+  position: relative;
+  float:left;
+  overflow: hidden; 
+  width:200px;
+  padding:0;
+  margin: 1%;
+  border-radius: 26px;
+}
+
+/*propiedades fig caption*/
+figcaption {
+  position: absolute; 
+  left:0;
+  height:98%;
+  background: rgba(164, 78, 214, 0.582); 
+  padding: 0; 
+  width:100%;
+  border-radius: 26px;
+  top: -100%;
+  transition: all 0.6s ease;
+}
+
+
+figcaption h3, h5{
+  font-family: var(--secondary-font);
+  font-weight: 500;
+  text-align:center;
+  font-size: 1.2rem;
+  margin:0 auto;
+  color: var( --light-one);
+  padding:72% 5%;
+  text-decoration: none;
+}
+
+
+figure:hover figcaption {
+  opacity: 1;
+  top: 0%;
+}
+
+/********************COLUMNA DE POSTS*********************/
+
+.muro-posts {
+  padding-left: 2rem;
+}
+
+.muro-posts .title {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.muro-posts .txt-post {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto-fit, minmax(130px, 1fr);
+  grid-column-gap: 0.6rem;
+}
+
+.posts {
+  padding: 1.2rem 2.1rem;
+  margin: 0.6rem 0;
+  border: none;
+  outline: none;
+  background: #e7e7e7;
+  border-radius: 4rem;
+  font-weight: 600;
+  font-size: 1.25rem;
+  transition: 0.5s;
+}
+
+.posts::placeholder {
+  font-weight: 400;
+}
+
+.posts.textarea {
+  resize: none;
+  min-height: 150px;
+  border-radius: 2rem; 
+}
+
+.posts:hover {
+  background-color: #cccccc;
+}
+
+.posts:focus {
+  background-image: linear-gradient(-20deg, #e9defa 0%, #fcdbf4 100%); 
+}
+
+.btn-share {
+  text-align: center;
+}
+
+.post_btn {
+  margin-top: 0.6rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+  padding: 0.70rem 1.5rem;
+  background-color: var(--main-color);
+  color: var(--light-one);
+  border-radius: 2rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: 0.3s;
+  border: none;
+  cursor: pointer;  
+}
+
+.post_btn:hover {
+  background-color: #f175f5;
+}
+
+/*******************SECCIÓN POSTS**********************/
+
+.section-post {
+  display: flex;
+  flex-direction: column;
+  margin: 1.5rem 0;
+}
+
+.user-post {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user-img-post {
+  display: flex;
+  align-items: flex-end;
+}
+
+.user-img-post img{
+  border-radius: 50%;
+  width: 53px;
+  height: 53px;
+  /*display: inline-block;*/
+  margin-right: 0.8rem;
+}
+
+.icons-post {
+  width: 18%;
+  justify-content: space-evenly;
+}
+
+.fa-trash-alt, .fa-edit {
+  font-size: 1.1rem;
+}
+.heart{
+  font-size: 1.3rem;
+}
+.fa-trash-alt, .fa-edit, .heart {
+  color: var(--dark-one);
+  transition: 0.5s;
+  cursor: pointer;
+}
+.fa-trash-alt:hover, .fa-edit:hover, .heart:hover {
+  color: var(--main-color);
+}
+
+.heart-before{
+  font-size: 1.3rem;
+  color: var(--main-color);
+  display: none;
+}
+.heart-container {
+  margin: 0 .5rem;
+}
+
+.text-print-post {
+  padding: 1.2rem 2.1rem;
+  font-family: var(--secondary-font);
+  color: #3a3841;
+  margin: 0.6rem 0;
+  border: none;
+  outline: none;
+  background: #dce4eec5;
+  border-radius: 3.5rem;
+  font-size: 1rem;
+}
+
+/****************MODAL********************/
+.modal-fondo {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(44, 44, 44, 0.521);
+  transition: all 500ms ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.show-modal {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-contenedor {
+  width: 380px;
+  height: 280px;
+  margin: auto;
+  background: #fff;
+  box-shadow: 1px 7px 25px rgba(0, 0, 0, 0.199);
+  transition: all 500ms ease;
+  position: relative;
+  border-radius: 20px;
+  /*transform: translateY(-30%);*/
+  }
+
+  .titulo {
+  padding: 10px;
+  background: rgb(218, 196, 238);
+  border-radius: 20px;
+  font-size: 1.8rem;
+  }
+
+  .mensaje-modal {
+  font-family: var(--secondary-font);
+  font-size: 1.2rem;
+  color: rgb(70, 67, 71);
+  text-align: center;
+  /*margin-top: 2.8rem;*/
+  margin: 2.5rem 20px;
+  }
+
+  .modal-botones {
+  display: flex;
+  justify-content: space-evenly;  
+  margin-top: rem;
+  }
+
+  .no, .si {
+  display: inline-block;
+  color: var(--light-one);
+  background: #846ab3ce;
+  font-size: 1.1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 19px;
+  min-height: 40px;
+  width: 120px;
+  margin: 17px;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  }
+
+ .si:hover {
+   background: #ff8ed0e0;
+  }
+
+  .no:hover {
+    background: #ff8ed0e0; 
+  }
+
+/********* Responsive ************/
+
+@media (max-width: 850px) {
+ 
+
+  .links i {
+    font-size: 1.5rem;
+    padding: 0.65rem 1rem;
+  } 
+
+  .information-user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .user-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  .muro_user-posters {
+    grid-template-columns: 1fr;
+    padding: 3.2rem 2.7rem;
+  }
+
+  .muro-info {
+    padding-right: 0;
+    padding-bottom: 0.5rem;
+  }
+
+  .muro-posts {
+    padding-left: 0;
+    padding-top: 0.5rem;
+  }
+
+  .muro-posts h3 {
+   font-size: 1.8rem;
+  }
+
+  .container-posters {
+    display: none;
+  }
+
+  .posts.textarea {
+    min-height: 100px;
+    font-size: 1rem;
+  }
+
+  .title-anime{
+    display: none;
+  }
+
+  .txt-post .post_btn{
+    font-size: 1rem;
+  }
+
+  .Crunchyroll {
+    display: none;
+  }
+}
+
+@media (max-width: 470px) {
+ 
+  .contenedor {
+    padding: 0 2rem;
+  }
+
+  .user-name {
+    font-size: 1rem;
+    font-family: var(--secondary-font);
+    font-weight: 700;
+  }
+
+  .text {
+    font-size: 0.92rem;
+  }
+
+  .title-anime{
+    display: none;
+  }
+
+  .container-posters {
+    display: none;
+  }
+
+  .Crunchyroll {
+    display: none;
+  }
+
+  .txt-post .posts {
+    font-size: 0.9rem;
+    padding: 0.5rem 1.2rem;
+    margin: 0.25rem 0;
+  }
+
+  .btn-share .post_btn{
+    font-size: 0.8rem;
+  }
+
+  .text-print-post {
+    font-size: 0.9rem;
+  }
+}
+
+/* Fin Responsive */

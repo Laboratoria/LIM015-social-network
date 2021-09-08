@@ -1,5 +1,10 @@
-// Este es el punto de entrada de tu aplicacion
+import { changeView } from './router.js';
 
-import { myFunction } from './lib/index.js';
-
-myFunction();
+export const vistas = () => {
+  document.querySelector('.container').style.display = 'none'; // oculto el main que contiene el login
+  document.getElementById('header').style.display = 'flex'; // acá muestro el header con el navbar
+  changeView(window.location.hash);
+  window.addEventListener('hashchange', () => {
+    changeView(window.location.hash);
+  });
+};

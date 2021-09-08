@@ -1,0 +1,234 @@
+/***********************Estilos********************/
+.section-profile {
+  background-color: var(--light-one);
+  width: 100%;
+  border-radius: 45px;
+  padding: 2rem 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  box-shadow: 0 0 10px 0 rgba(73, 73, 73, 0.63);
+  margin-bottom: 2rem;
+}
+
+/*****************INFO DEL USUARIO*********************/
+
+.profile-banner {
+  display: flex;
+  background-image: linear-gradient(to right, #f4fad6 0%, #ffafbd 0%, #c9ffbf 100%);
+  height: 250px;
+  width: 100%;
+  background-size: 100%;
+  object-fit: cover; 
+  background-attachment: fixed;
+  position: relative;
+  border-radius: 50px;
+}
+
+.Section-user {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  -ms-overflow-style: none; 
+}
+
+.pic-user {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  border: 10px solid #c6bcf0;
+  transition: all 0.4s ease;
+  position: relative;
+  margin-top: -100px;
+  margin-bottom: 10px;
+}
+
+.pic-user:hover {
+  border-radius: 50%;
+  box-shadow: 0 0 15px 0 rgb(41, 41, 41);  
+}
+
+.nameUser {
+  font-size: 1.2rem;
+  font-family: var(--secondary-font);
+  font-weight: 500;
+  align-items: center;
+  text-align: center;
+  margin: 0.5rem;
+}
+
+.follow {
+  color: var(--light-one);
+  background: #846ab3ce;
+  font-size: 1.3rem;
+  font-weight: 500;
+  letter-spacing: 0.030em;
+  border: none;
+  border-radius: 25px;
+  min-height: 40px;
+  width: 100px;
+  margin: 17px;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+.follow:hover {
+  width: 115px;
+  background: #943ddbe0;
+}
+
+/********************COLUMNA "EDITAR PERFIL" *********************/
+
+
+.info-user {
+  padding-left: 2rem;
+}
+
+.info-user .title {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.info-user .txt-info {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto-fit, minmax(130px, 1fr);
+  grid-column-gap: 0.6rem;
+}
+
+.edit {
+  padding: 1.2rem 2.1rem;
+  margin: 0.6rem 0;
+  border: none;
+  outline: none;
+  background: #e7e7e7;
+  border-radius: 4rem;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: 0.5s;
+}
+
+.edit::placeholder {
+  font-weight: 400;
+}
+
+.edit.textarea {
+  resize: none;
+  min-height: 150px;
+  border-radius: 2rem; 
+}
+
+.edit:hover {
+  background-color: #cccccc;
+}
+
+.edit:focus {
+  background-image: linear-gradient(-20deg, #e9defa 0%, #fcdbf4 100%); 
+}
+
+.btn-edit {
+  text-align: center;
+}
+
+.edit_button {
+  margin-top: 0.6rem;
+  margin-bottom: 0.6rem ;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: var(--main-color);
+  color: var(--light-one);
+  border-radius: 1.25rem;
+  font-size: 1.02rem;
+  font-weight: 500;
+  transition: 0.3s;
+  border: none;  
+}
+
+.btn:hover {
+  background-color: #5d5f5e;
+}
+
+.text-print {
+  padding: 1.2rem 2.1rem;
+  font-family: var(--secondary-font);
+  margin: 0.6rem 0;
+  border: none;
+  outline: none;
+  background: #f0f0f0b6;
+  border-radius: 3.5rem;
+  font-size: 0.9rem;
+  transition: 0.5s;
+}
+
+/********* Responsive ************/
+
+@media (max-width: 850px) {
+ 
+  .pic-user{ 
+    height: 155px;
+    width: 155px;
+  }
+
+  .nameUser {
+    font-size: 1rem;
+  }
+
+  .info-user {
+    padding-left: 0;
+    padding-top: 0.5rem;
+  }
+
+  .info-user h3 {
+   font-size: 1.8rem;
+  }
+
+  .edit .textarea {
+    min-height: 220px;
+    font-size: 1rem;
+  }
+
+  .txt-info .edit_button{
+    font-size: 1rem;
+  }
+
+}
+
+@media (max-width: 470px) {
+  
+  .profile-banner {
+    height: 200px;
+    width: 100%;
+  }
+
+  .pic-user {
+    height: 140px;
+    width: 140px;
+  }
+
+  .nameUser {
+    font-size: 0.8rem;
+    font-family: var(--secondary-font);
+  }
+
+  .follow {
+    font-size: 1.1rem;
+    min-height: 40px;
+    width: 90px;
+    margin: 17px;
+    transition: all 0.4s ease;
+    cursor: pointer;
+  }
+  
+  .follow:hover {
+    width: 105px;
+    background: #943ddbe0;
+  }
+  
+  .edit .textarea {
+    min-height: 220px;
+    font-size: 1rem;
+  }
+}
+
+/* Fin Responsive */
