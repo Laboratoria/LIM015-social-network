@@ -408,8 +408,7 @@ img {
     border-color: #28c76f!important;
 }
 
-.error-msg {
-    color: #fa3858;
+.msg {
     font-size: 12px;
     margin-top: 4px;
 }
