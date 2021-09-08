@@ -100,6 +100,7 @@ export default () => {
   let editStatus = false;
   let id = '';
 
+  // Ejecuta savePost enviando el contenido del textarea
   const shareBtn = document.querySelector('.post_btn');
   shareBtn.addEventListener('click', async () => {
     const post = document.querySelector('.posts');
