@@ -26,7 +26,7 @@ export const signUp = () => {
           <button class="google-button"><a id="signup-google" class="sgn" href="#/google" class="access-items">Registrarse con Google</a></button>
        </li>
         <li class="signin-access-items">
-          <span>¿Tiene cuenta?</span><a class="sgn" href="#/SignIn"> Inicia con ella</a>
+          <span>¿Tiene cuenta?</span><a class="sgn" href="#/signin"> Inicia con ella</a>
         </li>
       </ul>
     </div>`;
@@ -56,7 +56,7 @@ export const signUp = () => {
       firebase.auth()
         .createUserWithEmailAndPassword(signupEmail, signupPassword)
         .then(() => {
-          window.location.hash = '#/OnlyCats';
+          window.location.hash = '#/onlycats';
           console.log('registrado');
         })
         .catch((error) => {
@@ -78,7 +78,7 @@ export const signUp = () => {
     const googleProvider = new firebase.auth.GoogleAuthProvider();
     auth.signInWithPopup(googleProvider)
       .then(() => {
-        window.location.hash = '#/OnlyCats';
+        window.location.hash = '#/onlycats';
         console.log('You\'re now signed in !');
       })
       .catch((error) => {

@@ -11,10 +11,10 @@ export const home = () => {
       <nav>
         <ul class="home-list">
           <li class="home-items">
-            <a href="#/SignIn" class="links-items">Iniciar Sesión</a>
+            <a href="#/signin" class="links-items">Iniciar Sesión</a>
           </li>
           <li class="home-items">
-            <a href="#/SignUp" class="links-items">Regístrate</a>
+            <a href="#/signup" class="links-items">Regístrate</a>
           </li>
         </ul>
       </nav>
