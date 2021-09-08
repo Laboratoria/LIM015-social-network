@@ -17,7 +17,7 @@ export const signIn = () => {
       </form>
       <ul class="home-list">
         <li class="access-items">
-          <a href="#/google" class="access-items">Acceder con Google</a>
+          <a id="signin-google" href="#/google" class="access-items">Acceder con Google</a>
         </li>
         <li>
           <span>¿No tienes cuenta?</span><a href="#/SignUp"> Create una.</a>
@@ -32,17 +32,51 @@ export const signIn = () => {
   const signinBtm = sectionElement.querySelector('#start-button');
   signinBtm.addEventListener('click', (e) => {
     e.preventDefault();
-    const signinEmail = sectionElement.querySelector('#signin-email').value;
+    const signInEmail = sectionElement.querySelector('#signin-email').value;
     const signInPassword = sectionElement.querySelector('#signin-password').value;
-    firebase.auth().signInWithEmailAndPassword(signinEmail, signInPassword)
+    const errorEmail = sectionElement.querySelector('.error-email');
+    const errorPassword = sectionElement.querySelector('.error-password');
+
+    errorEmail.innerHTML = '';
+    errorPassword.innerHTML = '';
+    if (signInPassword === '' && signInEmail === '') {
+      errorPassword.innerHTML = 'Inserte contraseña';
+      errorEmail.innerHTML = 'Inserte email';
+    } else if (signInPassword === '') {
+      errorPassword.innerHTML = 'Inserte contraseña';
+    } else if (signInEmail === '') {
+      errorEmail.innerHTML = 'Inserte email';
+    } else {
+      firebase.auth().signInWithEmailAndPassword(signInEmail, signInPassword)
+        .then(() => {
+          window.location.hash = '#/OnlyCats';
+          console.log('inscrito');
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          /* const errorMessage = error.message; */
+          if (errorCode === 'auth/user-not-found') {
+            errorEmail.innerHTML = 'El usuario no existe';
+          } else if (errorCode === 'auth/wrong-password') {
+            errorPassword.innerHTML = 'La contraseña es inválida o el usuario no tiene contraseña';
+          }
+          const errorMessage = error.message;
+          console.log(errorCode, errorMessage);
+        });
+    }
+  });
+  const signInGoogle = sectionElement.querySelector('#signin-google');
+  signInGoogle.addEventListener('click', (e) => {
+    e.preventDefault();
+    const auth = firebase.auth();
+    const googleProvider = new firebase.auth.GoogleAuthProvider();
+    auth.signInWithPopup(googleProvider)
       .then(() => {
         window.location.hash = '#/OnlyCats';
-        console.log('inscrito');
+        console.log('You\'re now signed in !');
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
+        console.error(error);
       });
   });
   return sectionElement;
