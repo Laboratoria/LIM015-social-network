@@ -1,49 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/styles2.css">
-    <link rel="stylesheet" href="../css/responsive.css">
-    <link rel="icon" href="../images/svg/favicon.svg">
-    <title>CourseShare</title>
-</head>
-
-<body>
-    <section>
-        <div class="container">
-
-            <!-- <div class="column1 form-container">
+export default () => {
+    const viewSignUp = document.createElement('div');
+    viewSignUp.className = 'container';
+    viewSignUp.innerHTML = `
+    <div class="column1 form-container">
                 <div class="container-logo">
                     <img class="logo" src="../images/svg/logo.svg" alt="logo"><br>
                 </div>
-
-                <form action="#" class="form">
+                <br>
+                <form action="#" class="form" id="form-registro">
                     <div class="form-group">
                         <i class="fas fa-user"></i>
-                        <label for="name" class="form-label">Nombre Completo</label>
-                        <input id="name" type="text" class="form-input" placeholder="Escribe tu nombre completo">
+                        <label for="nameUser" class="form-label">Nombre Completo</label>
+                        <input id="nameUser" type="text" class="form-input" placeholder="Escribe tu nombre completo" required>
                     </div>
 
                     <div class="form-group">
                         <i class="fas fa-envelope"></i>
                         <label class="form-label">Correo Electrónico</label>
-                        <input id="email" type="email" class="form-input" placeholder="example@example.com">
+                        <input id="email" type="email" class="form-input" placeholder="example@example.com" required>
                     </div>
 
                     <div class="form-group">
                         <i class="fas fa-key"></i>
                         <label class="form-label">Contraseña</label>
-                        <input id="password" type="password" class="form-input" placeholder="Ingrese su contraseña">
+                        <input id="password" type="password" class="form-input" placeholder="Ingrese su contraseña" required>
                         <i class="far fa-eye-slash eye"></i>
                     </div>
 
                     <div class="form-group">
                         <i class="fas fa-key"></i>
                         <label class="form-label">Confirmar Contraseña</label>
-                        <input id="password" type="password" class="form-input" placeholder="Repita su contraseña">
+                        <input id="confirm-password" type="password" class="form-input" placeholder="Repita su contraseña" required>
                         <i class="far fa-eye-slash eye"></i>
                     </div>
 
@@ -76,17 +63,12 @@
 
                 </form>
             </div>
-            <div class="column2 imgBx">
+            <div class="column2 imgBx imgRegistro">
                 <div class="form-group-registro">
                     <label for="">¿Ya tienes una cuenta? Ingresemos...</label> <br>
-                    <a href="#/"> <button type="button" class="btn btn-outline-primary"> INICIA SESION </button> </a> 
+                    <a href=""> <button type="button" class="btn btn-outline-primary"> INICIA SESION </button> </a> 
                 </div>
-            </div> -->
-        </div>
-    </section>
-
-    <script src="https://kit.fontawesome.com/99e095b5b2.js" crossorigin="anonymous"></script>
-    <script type="module" src="main.js"></script>
-</body>
-
-</html>
+            </div>
+    `;
+    return viewSignUp;
+}

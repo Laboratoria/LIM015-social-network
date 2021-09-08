@@ -1,5 +1,12 @@
-// Este es el punto de entrada de tu aplicacion
+/* eslint-disable no-undef */
 
-// import { myFunction } from './lib/index.js';
+import { changeView } from './view-controler/route.js'
 
-// myFunction();
+const init = () => {
+
+    changeView(window.location.hash);
+    window.addEventListener('hashchange', () =>
+        changeView(window.location.hash));
+}
+
+window.addEventListener('load', init);

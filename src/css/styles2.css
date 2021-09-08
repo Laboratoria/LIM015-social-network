@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Proxima+Nova');
-@import url('https://allfont.es/allfont.css?fonts=ubuntu-medium');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;800&family=Roboto:wght@300;900&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -36,20 +36,23 @@
     color: #198ae3;
 }
 
+
 /****** Buttons ******/
+
 .btn {
     padding: 9px 9px;
     font-size: 14px;
     text-align: center;
-    font-family: 'Ubuntu Medium', arial !important;
+    font-family: 'Nunito', sans-serif;
     color: #ffffff;
     border-radius: 5px;
     border: none;
+    font-weight: 550;
 }
 
 .btn:hover {
     cursor: pointer;
-    opacity: 0.85;
+    opacity: 0.90;
 }
 
 .btn-primary {
@@ -84,6 +87,7 @@
 
 
 /**** butons outline ***/
+
 .btn-outline-danger {
     background-color: transparent;
     border: solid 1.5px #EA5455;
@@ -151,11 +155,14 @@
     background-color: #00CFE8;
     color: #ffffff;
 }
+
 .btn-outline-default label {
     margin-left: 8px;
 }
 
+
 /** Logo redes sociales **/
+
 .fb {
     color: #3b5998;
     font-size: 20px;
@@ -167,7 +174,9 @@
     font-size: 18px;
 }
 
+
 /** Grid **/
+
 .container {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -183,30 +192,36 @@
 }
 
 
-
-
 /******logo********/
+
 .logo {
     width: 100%;
     max-width: 200px;
 }
 
 .formBx img {
-    width: 260px;
+    width: 280px;
     height: auto;
     margin-left: 0;
+}
+
+.imgLogin {
+    background-image: url(../images/svg/login_image.svg);
+}
+
+.imgRegistro {
+    background-image: url(../images/svg/registro_img_final.svg);
 }
 
 .imgBx {
     background-color: #ededed;
     text-align: center;
-    background-image: url(../images/svg/login_image.svg);
     background-repeat: no-repeat;
     /*centra la imagen como background*/
     background-position: center;
     display: flex;
     flex-direction: column;
-    padding-bottom: 80px;
+    padding-bottom: 14%;
     justify-content: flex-end;
     /* justify-content: start;
     align-items: center;*/
@@ -224,7 +239,7 @@
 }*/
 
 .form-label {
-    margin-bottom: 2px;
+    margin-bottom: 8px;
     font-size: 13px;
     color: #76869e;
 }
@@ -238,7 +253,7 @@
 
 .form-group>i {
     position: absolute;
-    top: 29px;
+    top: 35px;
     left: 15px;
     color: #bebcbc;
 }
@@ -375,7 +390,6 @@ img {
 
 .form-group-registro button {
     margin-top: 2%;
-    font-size: 13px;
     padding: 9px 18px;
 }
 
