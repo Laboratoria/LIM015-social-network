@@ -1,4 +1,6 @@
 /* eslint-disable no-console */
+import { createUser, registerGoogle, emailVerification } from '../firebase/firebase-functions.js';
+
 export const signUp = () => {
   const sectionElement = document.createElement('section');
   const viewSignUp = `
@@ -53,9 +55,9 @@ export const signUp = () => {
     } else if (signupEmail === '') {
       errorEmail.innerHTML = 'Inserte email';
     } else {
-      firebase.auth()
-        .createUserWithEmailAndPassword(signupEmail, signupPassword)
+      createUser(signupEmail, signupPassword)
         .then(() => {
+          emailVerification();
           window.location.hash = '#/onlycats';
           console.log('registrado');
         })
@@ -74,9 +76,7 @@ export const signUp = () => {
   const signUpGoogle = sectionElement.querySelector('#signup-google');
   signUpGoogle.addEventListener('click', (e) => {
     e.preventDefault();
-    const auth = firebase.auth();
-    const googleProvider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(googleProvider)
+    registerGoogle()
       .then(() => {
         window.location.hash = '#/onlycats';
         console.log('You\'re now signed in !');

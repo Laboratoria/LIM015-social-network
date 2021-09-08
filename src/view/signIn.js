@@ -1,3 +1,5 @@
+import { signInUser, registerGoogle } from '../firebase/firebase-functions.js';
+
 export const signIn = () => {
   const viewSignIn = `
     <div class="home-container">
@@ -49,7 +51,7 @@ export const signIn = () => {
     } else if (signInEmail === '') {
       errorEmail.innerHTML = 'Inserte email';
     } else {
-      firebase.auth().signInWithEmailAndPassword(signInEmail, signInPassword)
+      signInUser(signInEmail, signInPassword)
         .then(() => {
           window.location.hash = '#/onlycats';
           console.log('inscrito');
@@ -70,9 +72,8 @@ export const signIn = () => {
   const signInGoogle = sectionElement.querySelector('#signin-google');
   signInGoogle.addEventListener('click', (e) => {
     e.preventDefault();
-    const auth = firebase.auth();
-    const googleProvider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(googleProvider)
+
+    registerGoogle
       .then(() => {
         window.location.hash = '#/onlycats';
         console.log('You\'re now signed in !');
