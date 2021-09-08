@@ -11,9 +11,9 @@ const viewLogin =()=>{
 
      <div class="login">
 
-      <div class= "login__logo">
-        <img class="login__img"  src="./img/logoMobilPrueba.jpg" alt="Makipura" width="150">
-      </div>
+     <div class= "logo">
+        <img class="logo__img"src="./img/logoMobilPrueba.jpg"  width="150" alt="Makipura">
+    </div>
       
 
       <div class="login__Subtitle"> 
@@ -90,14 +90,9 @@ const viewLogin =()=>{
         })
         console.log('click google')
       });
-<<<<<<< HEAD
-      
-    
-=======
 
      
 
->>>>>>> 664cc8584e8e725ceddae5de7408d18ce9acca94
 
     return sectionLogin;
 }
