@@ -109,3 +109,8 @@ const viewRegister =()=>{
 
 
 export  {viewRegister}
+
+
+//const entrar=addEventListene
+
+

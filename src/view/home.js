@@ -10,8 +10,8 @@ const viewHome =()=>{
     
 <section id="home" class="home">
 
-   <section id="home-profile" class="home-profile">
-      <div id="home-imgUser" class="homeProfile-imgUser">
+   <section id="homeProfile" class="home__profile">
+      <div id="home-imgUser" class="home__Profile--imgUser">
         
       </div>
   

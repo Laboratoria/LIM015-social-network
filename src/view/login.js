@@ -3,43 +3,49 @@ import { auth } from '../firebase/fb-config.js'
 const viewLogin =()=>{
 
     const htmlLogin=
-    `    <div class="loginArea">
-    <div class="formContainer">
-      <div class= "formContainer-Logo">
-      <!--<a href="/#" class="logoLink" title="makipura">-->
-      <img src="./img/logoMobilPrueba.jpg" alt="Makipura" width="150>
-      
+    ` 
+  <section class="login">
+    <div class="login__formContainer">
+
+      <div class= "login__logo">
+        <img class="login__img"  src="./img/logoMobilPrueba.jpg" alt="Makipura" width="150>
       </div>
-      <div class="formContainer-welcomeSubtitle"> 
-        <h2>¡Bienvenida Emprendedora!</h2>
+
+      <div class="login__Subtitle"> 
+        <h2 class="login__h2">¡Bienvenida Emprendedora!</h2>
       </div>
-      <div class="loginForm-title">
-        <h1>INICIA SESIÓN</h1>
+      <div class="login__title">
+        <h1 class="login__h1">INICIA SESIÓN</h1>
       </div>
-      <form class="loginForm-login" id="loginForm-login" action="">
-        <div class="login-inputList">
-          <div class="inputList-item">
-            <label type="" for="emailLogin" class="">Email</label>
-            <input type="text" id="emailLogin" value placeholder="Ingrese su correo electrónico">
+
+      <form class="form form--login" id="loginForm-login" action="">
+        <div class="form--login__inputList">
+          <div class="form--login__item">
+            <label type="" for="emailLogin" class="form--login__label">Email</label>
+            <input type="text" class="form--login__email"  id="emailLogin" value placeholder="Ingrese su correo electrónico">
           </div>
-          <div class="inputList-item">
-            <label type="" for="passwordLogin" class="">Contraseña</label>
-            <input type="password" id="passwordLogin" value placeholder="Ingrese su contraseña" autocomplete="off">
+          <div class="form--login__item">
+            <label type="" for="passwordLogin" class="form--login__label">Contraseña</label>
+            <input type="password"  class="form--login__password" id="passwordLogin" value placeholder="Ingrese su contraseña" autocomplete="off">
           </div>
         </div>
-        <div class="login-button">
-           <button class="mainButton"type="submit">Ingresar</button>
-        </div>        
+
+        <div class="form--login__button">
+          <button class="button button--main" type="submit">Ingresar</button>
+        </div>
+
+        <div class="form--login__separator">ó</div>
+
+        <div class="form--login__social">
+        <button id="buttonGoogleLogin" class="button button--second"type="submit">Ingresar con Google</button>
+        </div>
       </form>
-      <div class="login-separator">ó</div>
-        <div class="login-social">
-           <button id="buttonGoogleLogin"  class="secondButton"type="submit">Ingresar con Google</button>
-        </div>        
-      <div class="loginForm-registrationLink">
-      No tienes cuenta</br>Registrate <a href="#/register">aquí</a> 
+
+      <div class="login__registerLink">
+      No tienes cuenta</br>Registrate <a class="link" href="#/register">aquí</a> 
       </div>
     </div>
-  </div>`;
+  </section >`;
     
     
     const divLogin=document.createElement('div');
@@ -58,7 +64,7 @@ const viewLogin =()=>{
         loginForm.reset();
         // changeLogin();
         console.log('ya estas dentro');
-        window.open('#/home','_self')
+        window.open('#/home','_self') 
       })
     });
     const buttonGoogleLogin= divLogin.querySelector('#buttonGoogleLogin');
