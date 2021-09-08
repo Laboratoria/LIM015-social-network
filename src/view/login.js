@@ -11,8 +11,8 @@ const viewLogin =()=>{
 
      <div class="login">
 
-      <div class= "login__logo">
-        <img class="login__img"  src="./img/logoMobilPrueba.jpg" alt="Makipura" width="150">
+      <div class= "logo">
+        <img class="logo__img"  src="./img/logoMobilPrueba.jpg" alt="Makipura" width="150">
       </div>
       
 
@@ -28,11 +28,11 @@ const viewLogin =()=>{
         <div class="form--login__inputList">
           <div class="form--login__item">
             <label type="" for="emailLogin" class="form--login__label">Email</label>
-            <input type="text" class="form--login__email"  id="emailLogin" value placeholder="Ingrese su correo electrónico">
+            <input type="text" class="form__input"  id="emailLogin" value placeholder="Ingrese su correo electrónico">
           </div>
           <div class="form--login__item">
             <label type="" for="passwordLogin" class="form--login__label" >Contraseña</label>
-            <input type="password"  class="form--login__password" id="passwordLogin" value placeholder="Ingrese su contraseña" autocomplete="off">
+            <input type="password"  class="form__input" id="passwordLogin" value placeholder="Ingrese su contraseña" autocomplete="off">
           </div>
         </div>
 

@@ -3,28 +3,27 @@
     margin:0;
     font-family: 'Roboto', sans-serif;
     padding: 0;
-    box-sizing: border-box;
-       
-    
+    box-sizing: border-box; 
 }
 
 /*main{
     background-color: blue;
 }*/
 
+/*CSSS DE LOGIN*/
 
 .viewDesktop{
     display: none;
 }
 
-.login{
+.login,.register{
     background-color:white;
     display:flex;
     flex-direction: column;
     align-items: center;
 }
 
-.login__logo, .login__title , .form--login,  .login__registerLink {
+.logo, .login__title , .form--login,.form--register,.login__registerLink ,.register__title{
     width: 100%;
     display: flex;
     justify-content: center;
@@ -33,18 +32,26 @@
 }
 
 
-.login__h2, .login__h1{
+.login__h2, .login__h1,.register__h1{
     font-size: 1.2rem;
     padding:0.40em ;
     margin:0.25em 0.20em ;
 }
 
-.form--login__label{
+
+.register__h2{
+    font-size:0.90rem;
+    padding:0.40em ;
+    margin:0.25em 0.20em ;
+}
+
+.form--login__label,.form--register__label{
     display:none;
 }
 
-.form--login__email,
-.form--login__password{
+
+
+.form__input{
     width: 100%;
     height: 6vh;
     margin: 0.5em;
@@ -71,22 +78,34 @@
     padding:0.40em 1.2em;
     margin:0.25em 0.20em ;
     border-style: none;
+    
 
 }
 
+.button:hover{
+    cursor: pointer;
+}
+
 .button--main {
- background-color:#742284;
- color:white;
- box-shadow: 0px 6px 16px 0px rgba(104, 36, 127, 0.5);
- padding:0.5em 1.6em;
- font-weight: bold;
- 
+    background-color:#742284;
+    color:white;
+    box-shadow: 0px 6px 16px 0px rgba(104, 36, 127, 0.5);
+    padding:0.5em 1.6em;
+    font-weight: bold;
+}
+
+.button--main:hover{
+    background-color: #2f0059;
 }
 
 .button--second{
     background-color: white;
     border: 0.1rem solid black;
     font-size: 0.80rem;
+}
+
+.button--second:hover{
+    background-color: #F2F3F5;
 }
 
 .form--login__separator{
@@ -100,6 +119,14 @@
     font-size:0.80rem ;
     margin: 0.5em;
 }
+
+
+
+
+
+
+
+
 
 
 @media (min-width:600px){
@@ -122,16 +149,15 @@
     height: 30%;
 }
 
-.login {
+.login,.register {
     font-size: 2rem;
     height: 100%;
     align-items: center;
     justify-content: center;
+}
 
- }
 
-
- .loginSection{
+ .loginSection ,.registerSection{
     align-items: center;
     display: grid;
     /*flex-direction: row;*/
@@ -141,7 +167,7 @@
     
 }
 
-.login__logo{
+.logo{
     display: none;
     
 }
@@ -151,6 +177,19 @@
     font-size: 1.5rem;
     
 }
+
+
     
 
 }
+
+
+
+/*CSS DE REGISTER*/
+
+
+
+
+
+
+
