@@ -18,8 +18,8 @@ export default () => {
                     <div class="form-group">
                         <i class="fas fa-envelope"></i>
                         <label class="form-label">Correo Electrónico</label>
-                        <input id="email" type="email" class="form-input input-invalid" placeholder="example@example.com" required>
-                        <span id="error-email" class="error-msg">El correo no es válido</label>
+                        <input id="email" type="email" class="form-input" placeholder="example@example.com" required>
+                        <span id="msg-email" class="msg"></span>
                     </div>
 
                     <div class="form-group">
@@ -27,17 +27,19 @@ export default () => {
                         <label class="form-label">Contraseña</label>
                         <input id="password" type="password" class="form-input" placeholder="Ingrese su contraseña" required>
                         <i class="far fa-eye-slash eye"></i>
+                        <span id="msg-password" class="msg"></span>
                     </div>
 
                     <div class="form-group">
                         <i class="fas fa-key"></i>
                         <label class="form-label">Confirmar Contraseña</label>
-                        <input id="confirm-password" type="password" class="form-input" placeholder="Repita su contraseña" required>
+                        <input id="confirmPassword" type="password" class="form-input" placeholder="Repita su contraseña" required>
                         <i class="far fa-eye-slash eye"></i>
+                        <span id="msg-confirmPassword" class="msg"></span>
                     </div>
 
                     <div class="form-group">
-                        <button type="submit" id="btn-login" class="form-submit btn btn-primary"> REGISTRARSE </button>
+                        <button type="submit" id="btn-registro" class="form-submit btn btn-primary"> REGISTRARSE </button>
                     </div>
 
                     <div class="form-group">
@@ -75,8 +77,8 @@ export default () => {
     `;
 
 
-/*     const formSignUp = viewSignUp.querySelector("#form-signUp"); */
- /*    authSignUp(formSignUp) */
-    
+    /*     const formSignUp = viewSignUp.querySelector("#form-signUp"); */
+    /*    authSignUp(formSignUp) */
+
     return viewSignUp;
 }
