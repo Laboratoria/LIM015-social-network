@@ -1,26 +1,30 @@
+import { signInUser, registerGoogle } from '../firebase/firebase-functions.js';
+
 export const signIn = () => {
   const viewSignIn = `
     <div class="home-container">
       <figure class="container-img">
         <img class="cat-gif" src='https://i.pinimg.com/originals/35/ce/9f/35ce9f85da291b4c1c504d8cbd37e8ee.gif'>
       </figure>
-      <form id="signin-form">
-        <div>
-          <input type="email" placeholder="Correo electrónico" id="signin-email">
+      <form id="signin-form" class="signin-form">
+        <div class="form-div">
+          <input class="input" type="email" placeholder="Correo electrónico" id="signin-email" required><br>
           <span class="error-email"></span>
+          </div>
+        <div class="form-div">
+        <input class="input" type="password" placeholder="Contraseña" id="signin-password"><br>
+        <span class="error-password"></span>
         </div>
-        <div>
-          <input type="password" placeholder="Contraseña" id="signin-password">
-          <span class="error-password"><span>
+        <div class="form-div">
+        <button type="submit" id="start-button" class="start-button">Iniciar</button>
         </div>
-        <button type="submit" id="start-button">Iniciar</button>
       </form>
       <ul class="home-list">
-        <li class="access-items">
-          <a id="signin-google" href="#/google" class="access-items">Acceder con Google</a>
+        <li class="signin-access-items">
+         <button class="google-button"> <a id="signin-google" href="#/google" class="sgn">Acceder con Google</a></button>
         </li>
-        <li>
-          <span>¿No tienes cuenta?</span><a href="#/SignUp"> Create una.</a>
+        <li class="signin-access-items">
+          <span>¿No tienes cuenta?</span><a class="sgn" href="#/signup">Create una</a>
         </li>
       </ul>
     </div>`;
@@ -47,9 +51,9 @@ export const signIn = () => {
     } else if (signInEmail === '') {
       errorEmail.innerHTML = 'Inserte email';
     } else {
-      firebase.auth().signInWithEmailAndPassword(signInEmail, signInPassword)
+      signInUser(signInEmail, signInPassword)
         .then(() => {
-          window.location.hash = '#/OnlyCats';
+          window.location.hash = '#/onlycats';
           console.log('inscrito');
         })
         .catch((error) => {
@@ -68,11 +72,10 @@ export const signIn = () => {
   const signInGoogle = sectionElement.querySelector('#signin-google');
   signInGoogle.addEventListener('click', (e) => {
     e.preventDefault();
-    const auth = firebase.auth();
-    const googleProvider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(googleProvider)
+
+    registerGoogle
       .then(() => {
-        window.location.hash = '#/OnlyCats';
+        window.location.hash = '#/onlycats';
         console.log('You\'re now signed in !');
       })
       .catch((error) => {
