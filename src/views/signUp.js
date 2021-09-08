@@ -18,7 +18,8 @@ export default () => {
                     <div class="form-group">
                         <i class="fas fa-envelope"></i>
                         <label class="form-label">Correo Electrónico</label>
-                        <input id="email" type="email" class="form-input" placeholder="example@example.com" required>
+                        <input id="email" type="email" class="form-input input-invalid" placeholder="example@example.com" required>
+                        <span id="error-email" class="error-msg">El correo no es válido</label>
                     </div>
 
                     <div class="form-group">
