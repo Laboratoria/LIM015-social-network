@@ -6,16 +6,9 @@ Instagram, Snapchat, Twitter, Facebook, Twitch, Linkedin, etc. Las redes
 sociales han invadido nuestras vidas. Las amamos u odiamos, y muchos no podemos
 vivir sin ellas.
 
-Hay redes sociales de todo tipo y para todo tipo de intereses. Por ejemplo,
-en una ronda de financiamiento con inversionistas, se presentó una red social
-para químicos en la que los usuarios podían publicar artículos sobre sus
-investigaciones, comentar en los artículos de sus colegas, y filtrar artículos
-de acuerdo a determinadas etiquetas o su popularidad, lo más reciente, o lo
-más comentado.
-
 ## 2. Resumen del proyecto
 
-El proyecto Tomodachi es denominado una red social inspirado por la **expresión cultural del anime** para todos sus seguidores, en el cual puedan desarrollar un espacio de amena interacción entre sus miembros, a través de la creación de una cuenta por medio de la plataforma web y/o google, y en las cuales se invita a la creación, edición, dar likes y eliminar publicaciones, inclusive de poder editar y/o agregar intereses en su perfil.
+El proyecto Tomodachi es denominado una red social inspirado por la **expresión cultural del anime** para todos sus seguidores, en el cual puedan desarrollar un espacio de amena interacción entre sus miembros, a través de la creación de una cuenta por medio de la plataforma web y/o google, y en las cuales se invita a la creación, edición y eliminar publicaciones.
 
 ## 3. Objetivos de aprendizaje
 
@@ -33,8 +26,8 @@ El proyecto Tomodachi es denominado una red social inspirado por la **expresión
 ### Web APIs
 
 - [x] **Uso de selectores del DOM**
-- [ ] **Manejo de eventos del DOM (listeners, propagación, delegación)**
-- [ ] **Manipulación dinámica del DOM**
+- [x] **Manejo de eventos del DOM (listeners, propagación, delegación)**
+- [x] **Manipulación dinámica del DOM**
 - [x] **Ruteado (History API, evento hashchange, window.location)**
 
 ### JavaScript
@@ -46,38 +39,20 @@ El proyecto Tomodachi es denominado una red social inspirado por la **expresión
 - [x] **Uso de condicionales (if-else, switch, operador ternario, lógica booleana)**
 - [x] **Uso de bucles/ciclos (while, for, for..of)**
 - [x] **Funciones (params, args, return)**
-- [ ] **Pruebas unitarias (unit tests)**
-
-  <details><summary>Links</summary><p>
-
-  * [Empezando con Jest - Documentación oficial](https://jestjs.io/docs/es-ES/getting-started)
-</p></details>
-
+- [x] **Pruebas unitarias (unit tests)**
 - [ ] **Pruebas asíncronas**
-
-  <details><summary>Links</summary><p>
-
-  * [Tests de código asincrónico con Jest - Documentación oficial](https://jestjs.io/docs/es-ES/asynchronous)
-</p></details>
-
-- [ ] **Uso de mocks y espías**
-
+- [x] **Uso de mocks**
 - [x] **Módulos de ECMAScript (ES Modules)**
-
 - [x] **Uso de linter (ESLINT)**
-
 - [x] **Uso de identificadores descriptivos (Nomenclatura y Semántica)**
-
 - [x] **Diferenciar entre expresiones (expressions) y sentencias (statements)**
-
 - [x] **Promesas**
-
 
 ### Control de Versiones (Git y GitHub)
 
 - [x] **Git: Instalación y configuración**
 - [x] **Git: Control de versiones con git (init, clone, add, commit, status, push, pull, remote)**
-- [ ] **Git: Integración de cambios entre ramas (branch, checkout, fetch, merge, reset, rebase, tag)**
+- [x] **Git: Integración de cambios entre ramas (branch, checkout, merge, reset)**
 - [x] **GitHub: Creación de cuenta y repos, configuración de llaves SSH**
 - [x] **GitHub: Despliegue con GitHub Pages**
 - [x] **GitHub: Colaboración en Github (branches | forks | pull requests | code review | tags)**
@@ -88,7 +63,7 @@ El proyecto Tomodachi es denominado una red social inspirado por la **expresión
 - [x] **Diseñar la aplicación pensando en y entendiendo al usuario**
 - [x] **Crear prototipos para obtener feedback e iterar**
 - [x] **Aplicar los principios de diseño visual (contraste, alineación, jerarquía)**
-- [ ] **Planear y ejecutar tests de usabilidad**
+- [x] **Planear y ejecutar tests de usabilidad**
 
 ### Firebase
 
@@ -112,13 +87,13 @@ El proyecto Tomodachi es denominado una red social inspirado por la **expresión
 ![Historia de usuario 2](./src/images/HistoriaU2.jpg)
 ![Historia de usuario 3](./src/images/HistoriaU3.jpg)
 
-### 5.4 Diseño de la Interfaz de Usuario (prototipo de baja fidelidad)
+### 5. Diseño de la Interfaz de Usuario (prototipo de baja fidelidad)
 
 ![Prototipo de baja fidelidad](./src/images/PrototipoBJ.jpg)
 ![Prototipo de baja fidelidad](./src/images/PrototipoBF_DESK.png)
 ![desktop](./src/images/profileBJ.png)   
 
-### 5.5 Responsive
+### 6. Responsive
 
 * Vista mobile
 
@@ -128,4 +103,5 @@ El proyecto Tomodachi es denominado una red social inspirado por la **expresión
 * Vista Desktop
     ![desktop](./src/images/PrototipoAF_registro.jpg)
     ![desktop](./src/images/PrototipoAF_ingreso.jpg)
+    ![desktop](./src/images/web_pic.jpg)
   
