@@ -1,3 +1,4 @@
+/* import{authSignUp}from'../db/auth.js'; */
 export default () => {
     const viewSignUp = document.createElement('div');
     viewSignUp.className = 'container';
@@ -7,7 +8,7 @@ export default () => {
                     <img class="logo" src="../images/svg/logo.svg" alt="logo"><br>
                 </div>
                 <br>
-                <form action="#" class="form">
+                <form action="" class="form" id="form-signUp">
                     <div class="form-group">
                         <i class="fas fa-user"></i>
                         <label for="name" class="form-label">Nombre Completo</label>
@@ -62,6 +63,7 @@ export default () => {
                     </div>
 
                 </form>
+
             </div>
             <div class="column2 imgBx imgRegistro">
                 <div class="form-group-registro">
@@ -70,5 +72,10 @@ export default () => {
                 </div>
             </div>
     `;
+
+
+/*     const formSignUp = viewSignUp.querySelector("#form-signUp"); */
+ /*    authSignUp(formSignUp) */
+    
     return viewSignUp;
 }
