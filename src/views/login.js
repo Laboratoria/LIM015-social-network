@@ -129,7 +129,7 @@ export default () => {
               } else {
                 userData(data.user)
                   .then(() => {
-                    window.location.hash = '#/';
+                    window.location.hash = '#/community';
                   });
               }
             });
@@ -153,7 +153,7 @@ export default () => {
     const newUserEmail = viewLogin.querySelector('#newUserEmail').value;
     const newUserPassword = viewLogin.querySelector('#newUserPassword').value;
     const newUserPasswordConfirm = viewLogin.querySelector('#newUserPassword-confirm').value;
-
+    const msg = viewLogin.querySelector('#email-sent-msg');
     // V A L I D A T I O N S !... ¬u¬
     // password = password-confirm?
     let validationOk = true;
@@ -205,6 +205,7 @@ export default () => {
           userData(dataUser)
             .then((user) => {
               emailVerification(user);
+              msg.textContent = 'Please Check your inbox to verify account';
               window.location.hash = '#/';
             });
         })
