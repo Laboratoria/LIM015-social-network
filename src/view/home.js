@@ -48,8 +48,6 @@ const viewHome =()=>{
    </section>
   
   </section>
-    
-    
     `
     
     

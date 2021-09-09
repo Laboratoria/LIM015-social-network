@@ -1,4 +1,4 @@
-import { auth } from '../firebase/fb-config.js'
+import { loginEmail, loginGoogle } from '../firebase/fb-functions.js'
 
 const viewLogin = () => {
   const htmlLogin =
@@ -55,22 +55,20 @@ const viewLogin = () => {
     const emailLogin = document.querySelector('#emailLogin').value;
     const passwordLogin = document.querySelector('#passwordLogin').value;
     console.log(emailLogin, passwordLogin);
-    auth.signInWithEmailAndPassword(emailLogin, passwordLogin)
-      .then(userCredential => {
-        //clear form
-        loginForm.reset();
-        // changeLogin();
-        console.log('ya estas dentro');
-        window.open('#/home', '_self')
-      })
+  // // SignIn With Email and Password Function 
+    loginEmail(emailLogin, passwordLogin)
+    .then(userCredential => {
+      //clear form
+      loginForm.reset();
+      // changeLogin();
+      console.log('ya estas dentro');
+      window.open('#/home', '_self')
+    });
   });
 
   const buttonGoogleLogin = sectionLogin.querySelector('#buttonGoogleLogin');
   buttonGoogleLogin.addEventListener('click', () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    console.log(provider)
-    auth.signInWithPopup(provider)
-      .then(result => {
+    loginGoogle().then(result => {
         console.log('signin with google');
         window.open('#/home', '_self')
       })
