@@ -25,6 +25,12 @@ const changeView = (route) => {
                 return viewRegistro;
             }
 
+        case '#/forgetPassword':
+            {
+                const viewForgetPassword = containerMain.appendChild(components.forgetPassword());
+                return viewForgetPassword;
+            }
+
         default:
             { return containerMain.appendChild(components.error()); }
     }

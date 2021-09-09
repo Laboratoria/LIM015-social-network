@@ -1,9 +1,11 @@
 import Login from './login.js';
 import SignUp from './signUp.js';
 import error404 from './404.js';
+import ForgetPassword from './forgetPassword.js';
 const components = {
     login: Login,
     signUp: SignUp,
-    error: error404
+    error: error404,
+    forgetPassword: ForgetPassword
 }
 export { components };
