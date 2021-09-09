@@ -1,3 +1,5 @@
+import { signInUser, registerGoogle } from '../firebase/firebase-functions.js';
+
 export const signIn = () => {
   const viewSignIn = `
     <div class="home-container">
@@ -49,10 +51,10 @@ export const signIn = () => {
     } else if (signInEmail === '') {
       errorEmail.innerHTML = 'Inserte email';
     } else {
-      firebase.auth().signInWithEmailAndPassword(signInEmail, signInPassword)
+      signInUser(signInEmail, signInPassword)
         .then(() => {
           window.location.hash = '#/onlycats';
-          console.log('inscrito');
+          // console.log('inscrito');
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -62,23 +64,24 @@ export const signIn = () => {
           } else if (errorCode === 'auth/wrong-password') {
             errorPassword.innerHTML = 'La contraseña es inválida o el usuario no tiene contraseña';
           }
-          const errorMessage = error.message;
-          console.log(errorCode, errorMessage);
+          // const errorMessage = error.message;
+          // console.log(errorCode, errorMessage);
         });
     }
   });
   const signInGoogle = sectionElement.querySelector('#signin-google');
   signInGoogle.addEventListener('click', (e) => {
     e.preventDefault();
-    const auth = firebase.auth();
-    const googleProvider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(googleProvider)
+
+    registerGoogle
       .then(() => {
         window.location.hash = '#/onlycats';
-        console.log('You\'re now signed in !');
+        // console.log('You\'re now signed in !');
       })
+      // eslint-disable-next-line arrow-body-style
       .catch((error) => {
-        console.error(error);
+        // console.error(error);
+        return error;
       });
   });
   return sectionElement;
