@@ -1,5 +1,5 @@
-// import { signOutNav } from './signOutn.js'
-import { auth } from '../firebase/fb-config.js'
+import {signOut} from '../firebase/fb-functions.js'
+
 const  viewHeader = () => {
   const header = `
 
@@ -36,10 +36,9 @@ const  viewHeader = () => {
   const sectionNav =document.createElement('section');
   sectionNav.innerHTML=header;
   const navClose = sectionNav.querySelector('#navClose');
-  // console.log(navClose)
   navClose.addEventListener('click', (event) => {
     event.preventDefault();
-    auth.signOut().then(() => {
+    signOut().then(() => {
         console.log('sign Out');
         window.open('#','_self')
     })

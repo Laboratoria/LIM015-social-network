@@ -1,4 +1,4 @@
-import { auth } from '../firebase/fb-config.js'
+import { registerEmail, loginGoogle } from '../firebase/fb-functions.js'
 const viewRegister =()=>{
 
     const htmlRegister=
@@ -66,14 +66,11 @@ const viewRegister =()=>{
     signupForm.addEventListener('submit', (e)=>{
       e.preventDefault();
       
-      const nameUser = document.querySelector('#nameRegister').value;
+      // const nameUser = document.querySelector('#nameRegister').value;
       const email = document.querySelector('#emailRegister').value;
       const password = document.querySelector('#passwordRegister').value;
-      const passwordConfirm = document.querySelector('#passwordConfirmRegister').value
-      console.log(email, password, nameUser, passwordConfirm);
-
-
-      auth.createUserWithEmailAndPassword(email, password)
+      // const passwordConfirm = document.querySelector('#passwordConfirmRegister').value
+      registerEmail(email,password)
       .then(userCredential => {
         //clear form
         signupForm.reset();
@@ -85,9 +82,7 @@ const viewRegister =()=>{
     
     const buttonGoogleSignup = sectionRegister.querySelector('#buttonGoogleSignup');
     buttonGoogleSignup.addEventListener('click' , () => {
-      const provider = new firebase.auth.GoogleAuthProvider();
-      console.log(provider)
-      auth.signInWithPopup(provider)
+      loginGoogle()
       .then(result => {
         console.log('signin with google');
         window.open('#/home','_self')
