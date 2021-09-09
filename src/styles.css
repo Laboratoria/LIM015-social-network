@@ -32,6 +32,55 @@ margin: auto;
   /* text-align: center;    */
 }
 
+#imgLogin{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+ 
+ 
+ #imgLogin>img{
+    max-width: 30%;
+    border: 2px solid blue;
+ }
  /* .text {
 align-items:center ;
 } */
+#email{
+  text-align: center;
+}
+
+#imgRegister{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#imgRegister>img{
+  max-width: 25%;
+  max-height: 20%;
+  width: 260px;
+  height: 290px;
+  border:2px solid red;
+}
+#info{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#infoRegister{
+  display: flex;
+  align-items:center;
+  justify-content: center;
+}
+footer{
+  display: table; 
+  text-align: center; 
+  margin-left: auto; 
+  margin-right: auto;
+  font-family: Arial;
+}
+input{
+  padding:30px;
+}
