@@ -33,7 +33,7 @@ export default () => {
                     <input type="checkbox" class="checkbox" id="checkbox" />
                     <label for="checkbox">Recuérdame</label>
                 </div>
-                <a href="#" class="link-primary">¿Olvidó su Contraseña?</a>
+                <a href="#/forgetPassword" class="link-primary">¿Olvidó su Contraseña?</a>
             </div>
         </div>
 
