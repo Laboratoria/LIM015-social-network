@@ -54,7 +54,7 @@ export const signIn = () => {
       signInUser(signInEmail, signInPassword)
         .then(() => {
           window.location.hash = '#/onlycats';
-          console.log('inscrito');
+          // console.log('inscrito');
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -64,8 +64,8 @@ export const signIn = () => {
           } else if (errorCode === 'auth/wrong-password') {
             errorPassword.innerHTML = 'La contraseña es inválida o el usuario no tiene contraseña';
           }
-          const errorMessage = error.message;
-          console.log(errorCode, errorMessage);
+          // const errorMessage = error.message;
+          // console.log(errorCode, errorMessage);
         });
     }
   });
@@ -76,10 +76,12 @@ export const signIn = () => {
     registerGoogle
       .then(() => {
         window.location.hash = '#/onlycats';
-        console.log('You\'re now signed in !');
+        // console.log('You\'re now signed in !');
       })
+      // eslint-disable-next-line arrow-body-style
       .catch((error) => {
-        console.error(error);
+        // console.error(error);
+        return error;
       });
   });
   return sectionElement;

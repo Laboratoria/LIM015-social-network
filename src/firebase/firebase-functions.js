@@ -5,9 +5,9 @@ export const createUser = (email, password) => firebase.auth()
 
 // Sign up with Google:
 export const registerGoogle = () => {
-  const auth = firebase.auth();
+  // const auth = firebase.auth();
   const googleProvider = new firebase.auth.GoogleAuthProvider();
-  return auth.signInWithPopup(googleProvider);
+  return firebase.auth().signInWithPopup(googleProvider);
 };
 
 // Sign in:
