@@ -6,8 +6,7 @@ const viewHome =()=>{
     `<div>
     <nav></nav> 
     Este es inicio</div>
-    
-    
+
 <section id="home" class="home">
 
    <section id="homeProfile" class="home__profile">
@@ -49,8 +48,6 @@ const viewHome =()=>{
    </section>
   
   </section>
-    
-    
     `
     
     

@@ -6,11 +6,7 @@
     box-sizing: border-box; 
 }
 
-/*main{
-    background-color: blue;
-}*/
-
-/*CSSS DE LOGIN*/
+/* ESTILOS DE LOGIN Y REGISTRO*/
 
 .viewDesktop{
     display: none;
@@ -35,8 +31,6 @@
     width: 80%;
 }
 
-
-
 .login__h2, .login__h1,.register__h1{
     font-size: 1.2rem;
     padding:0.40em ;
@@ -44,19 +38,17 @@
     text-align:center ;
 }
 
-
 .register__h2{
     font-size:0.90rem;
     padding:0.40em ;
     margin:0.25em 0.20em ;
-    text-align:center ;
+    text-align:center;
+    font-style: italic;
 }
 
 .form--login__label,.form--register__label{
     display:none;
 }
-
-
 
 .form__input{
     width: 100%;
@@ -67,12 +59,9 @@
     color:#616161;
     background-color: #F3EFF6;
     border-style: none;
-    
     }
 
-
-.form--login__email:focus,
-.form--login__password:focus {
+.form__input:focus {
     outline: none;
     border-radius: 10px;
     border-style:solid;
@@ -82,11 +71,9 @@
 .button{
     border-radius:60px;
     font-size: 1rem;
-    padding:0.40em 1.2em;
+    padding:0.3em 0.2em;
     margin:0.25em 0.20em ;
     border-style: none;
-    
-
 }
 
 .button:hover{
@@ -109,35 +96,51 @@
     background-color: white;
     border: 0.1rem solid black;
     font-size: 0.80rem;
-    
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .button--second:hover{
     background-color: #F2F3F5;
 }
 
-.form--login__separator{
+.button--second__img {
+    width: 20%;
+    
+}
+.googleIcon {
+    width:70%;
+    float: left;
+}
+
+.form--separator{
     font-size:0.8rem ;
     font-weight: bold;
     margin:0.5em;
 }
-
 
 .login__registerLink{
     font-size:0.80rem ;
     margin: 0.5em;
 }
 
+.backArrow {
+    align-self: flex-end;
+    margin: 1em;
+}
 
-
-
-
-
-
-
-
+.backArrow > a > i {
+    color: black;
+    font-size: 2rem;
+}
 
 @media (min-width:600px){
+
+.form--login__inputList,.form--register__inputList{
+  width: 60%;
+}
 
 .viewDesktop{
     display: flex;
@@ -149,30 +152,36 @@
     
 } 
 
+.register__h2 {
+    padding: 0em 1em ;
+}
+
+
+.register__h1, .register__h2 {
+    font-size: 1.5rem;
+}
+
 .viewDesktop__woman {
-    height: 60%;
+    width:80%;
 }
 
 .viewDesktop__logo{
-    height: 30%;
+    width: 20%;
 }
 
 .login,.register {
     font-size: 2rem;
-    height: 100%;
+    height: 100vh;
     align-items: center;
     justify-content: center;
 }
-
 
  .loginSection ,.registerSection{
     align-items: center;
     display: grid;
     /*flex-direction: row;*/
     grid-template-columns: 1fr 1fr;
-    justify-content: center;
-    
-    
+    justify-content: center;  
 }
 
 .logo{
@@ -180,22 +189,16 @@
     
 }
 
-
 .login__h2{
-    font-size: 1.5rem;
-    
+    font-size: 1.5rem;  
 }
 
-
-    
-
+.backArrow {
+    align-self: flex-end;
+    margin: 0.5em;
 }
-
-
-
-/*CSS DE REGISTER*/
-
-
+    
+}
 
 
 
