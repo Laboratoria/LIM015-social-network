@@ -31,11 +31,17 @@
     align-items: center;
 }
 
+.form--login__inputList,.form--register__inputList{
+    width: 80%;
+}
+
+
 
 .login__h2, .login__h1,.register__h1{
     font-size: 1.2rem;
     padding:0.40em ;
     margin:0.25em 0.20em ;
+    text-align:center ;
 }
 
 
@@ -43,6 +49,7 @@
     font-size:0.90rem;
     padding:0.40em ;
     margin:0.25em 0.20em ;
+    text-align:center ;
 }
 
 .form--login__label,.form--register__label{

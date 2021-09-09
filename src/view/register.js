@@ -82,7 +82,7 @@ const viewRegister =()=>{
         
       })
     });
-
+    
     const buttonGoogleSignup = sectionRegister.querySelector('#buttonGoogleSignup');
     buttonGoogleSignup.addEventListener('click' , () => {
       const provider = new firebase.auth.GoogleAuthProvider();
