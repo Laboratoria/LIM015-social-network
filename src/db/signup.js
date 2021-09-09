@@ -1,4 +1,6 @@
-import { validInput, limpiar } from '../validations/validRegistro.js'
+import { validInput, limpiar } from '../validations/validInputs.js'
+import { alerts, alertProcess } from '../alerts/alerts.js';
+
 const addEventRegisterUser = (formRegistro) => {
     const inputName = formRegistro.querySelector('#nameUser');
     const inputEmail = formRegistro.querySelector('#email');
@@ -6,30 +8,34 @@ const addEventRegisterUser = (formRegistro) => {
     const inputConfirmPassword = formRegistro.querySelector('#confirmPassword');
 
     formRegistro.addEventListener('submit', (e) => {
-        /** limpiamos los mensajes y mostrar un spiner de carga de proceso**/
         e.preventDefault();
-        limpiar(formRegistro, ['nameUser', 'email', 'password', 'confirmPassword']);
+        alertProcess(true); //mostramos alerta con gif
+        limpiar(formRegistro, ['nameUser', 'email', 'password', 'confirmPassword']); //limpiamos mensajes span 
         const email = inputEmail.value;
         const password = inputPassword.value;
         // eslint-disable-next-line no-undef
         firebase.auth().createUserWithEmailAndPassword(email, password)
             .then((userCredential) => {
-                alert('Registrado')
-                console.log(userCredential); //redirige a inicio antes limpiamos 
+                alertProcess(false); //ocultamos alerta con gif
+                alerts('success', 'registro exitoso') //mostramos alerta de exito
+                console.log(userCredential); // tiene redirige a inicio
             }).catch((error) => {
+                alertProcess(false);
                 const errorCode = error.code;
                 if (errorCode == 'auth/email-already-in-use') {
                     validInput(formRegistro, 'email', 'El correo electrónico ya está registrado', 'error');
                 } else {
-                    alert('Error: ' + error.message)
+                    alerts('error', error.code) //mostramos alerta de error
                 }
-            })
+            });
 
     });
 
+    /** Reglas de Validacion **/
+
     inputName.addEventListener('change', () => {
         if (inputName.value.length < 3 || inputName.value == null) {
-            validInput(formRegistro, 'nameUser', 'El nombre debe tener minimo 4 caracteres', 'error');
+            validInput(formRegistro, 'nameUser', 'El nombre debe tener minimo 3 caracteres', 'error');
         } else {
             validInput(formRegistro, 'nameUser', 'Ok', 'success');
         }
@@ -59,7 +65,6 @@ const addEventRegisterUser = (formRegistro) => {
             validInput(formRegistro, 'confirmPassword', 'Las contraseñas no coinciden', 'error');
         }
     });
-
 
 }
 
