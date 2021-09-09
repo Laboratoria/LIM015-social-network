@@ -1,8 +1,9 @@
 /* eslint-disable no-undef */
 import { components } from '../views/components.js';
-import { addEventRegisterUser  } from '../db/fbRegistro.js'
+import { addEventRegisterUser } from '../db/signup.js'
 import { addEventRegisterUserGoogle } from '../db/signup-google.js';
 import { addEventRegisterUserFacebook } from '../db/signup-facebook.js';
+
 
 const changeView = (route) => {
     const containerMain = document.querySelector('#container-main');

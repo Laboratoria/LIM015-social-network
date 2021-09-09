@@ -12,6 +12,9 @@
     .section-registro {
         display: block;
     }
+    #container-alert {
+        margin-left: 70%;
+    }
 }
 
 @media (max-width: 30rem) {
@@ -29,6 +32,9 @@
     .section-registro {
         display: block;
     }
+    #container-alert {
+        margin-left: 70%;
+    }
 }
 
 
@@ -43,5 +49,8 @@
     }
     .section-registro {
         display: block;
+    }
+    #container-alert {
+        margin-left: 70%;
     }
 }
