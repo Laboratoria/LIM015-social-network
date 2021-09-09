@@ -3,58 +3,57 @@ const viewRegister =()=>{
 
     const htmlRegister=
     `
-    <div class="viewDesktop">
-    <img class="viewDesktop__logo"  src="./img/logoMobilPrueba.jpg" alt="Makipura">
-    <img class="viewDesktop__woman"  src="./img/woman.png" alt="Makipura">
+  <div class="viewDesktop">
+    <img class="viewDesktop__logo" src="./img/logoMobilPrueba.jpg" alt="Makipura">
+    <img class="viewDesktop__woman" src="./img/woman.png" alt="Makipura">
+  </div>
+  <div class="register">
+    <div class="logo">
+      <img class="logo__img" src="./img/logoMobilPrueba.jpg" width="150" alt="Makipura">
     </div>
-
-    <div class="register">
-
-      <div class= "logo">
-        <img class="logo__img"src="./img/logoMobilPrueba.jpg"  width="150" alt="Makipura">
-      </div>
-
-      <div class="login__Subtitle"> 
-        <h2  class="register__h2">¡Estas a un paso de unirte a la red de emprendedoras más grande del Perú! </h2>
-      </div>
-
-      <div class="register__title">
-        <h1 class="register__h1">REGISTRATE</h1>
-      </div>
-
-      <form class="form form--register" id="loginForm-signup" action="">
-        <div class="form--register__inputList">
-          <div class="form--register__item">
-            <label type="" for="nameRegister" class="form--register__label">Nombre</label>
-            <input type="text" class="form__input" id="nameRegister" value placeholder="Nombre">
-          </div>
-          <div class="inputList-item">
-            <label type="" for="emailRegister" class="form--register__label">Email</label>
-            <input type="text"  class="form__input" id="emailRegister" value placeholder="Ingrese su correo electrónico">
-          </div>           
-          <div class="inputList-item">
-            <label for="passwordRegister" class="form--register__label">Contraseña</label>
-            <input type="password"  class="form__input" id="passwordRegister" value placeholder="Contraseña de más de 8 caracteres" autocomplete="off">
-          </div>
-          <div class="inputList-item">
-            <label type="" for="passwordConfirmRegister" class="form--register__label">Confirmar contraseña</label>
-            <input type="password"  class="form__input" id="passwordConfirmRegister" value placeholder="Confirmar contraseña" autocomplete="off">
-          </div>
+    <div class="register__Subtitle">
+      <h2 class="register__h2">¡Estas a un paso de unirte a la red de emprendedoras más grande del Perú! </h2>
+    </div>
+    <div class="register__title">
+      <h1 class="register__h1">REGISTRATE</h1>
+    </div>
+    <form class="form form--register" id="loginForm-signup" action="">
+      <div class="form--register__inputList">
+        <div class="form--register__item">
+          <label type="" for="nameRegister" class="form--register__label">Nombre</label>
+          <input type="text" class="form__input" id="nameRegister" value placeholder="Nombre">
         </div>
-        <div class="signup-button">
-           <button class="button button--main" id="mainbuttonSignup"type="submit">Crear cuenta</button>
+        <div class="inputList-item">
+          <label type="" for="emailRegister" class="form--register__label">Email</label>
+          <input type="text" class="form__input" id="emailRegister" value placeholder="Ingrese su correo electrónico">
         </div>
-        <div class="signup-separator">ó</div>
-        <div class="signup-social">
-           <button class="button button--second" id="buttonGoogleSignup" type="submit">Registrate con Google</button>
+        <div class="inputList-item">
+          <label for="passwordRegister" class="form--register__label">Contraseña</label>
+          <input type="password" class="form__input" id="passwordRegister" value
+            placeholder="Contraseña de más de 8 caracteres" autocomplete="off">
         </div>
-      </form>
-
-      <div class="backArrow" id="backArrowLogin">
-        <a href="/#"><i><i class="far fa-arrow-alt-circle-left"></i>
-        </a> 
+        <div class="inputList-item">
+          <label type="" for="passwordConfirmRegister" class="form--register__label">Confirmar contraseña</label>
+          <input type="password" class="form__input" id="passwordConfirmRegister" value
+            placeholder="Confirmar contraseña" autocomplete="off">
+        </div>
       </div>
-    </div>`;
+      <div class="signup-button">
+        <button class="button button--main" id="mainbuttonSignup" type="submit">Crear cuenta</button>
+      </div>
+      <div class="form--separator signup-separator">ó</div>
+      <div class="signup-social">
+        <button class="button button--second" id="buttonGoogleSignup" type="submit">
+          <div class="buttton button--second__img"><img class="googleIcon" src="./img/iconoGoogle.png" alt="icono_Google"></div>
+          <div class="buttton button--second__text">Ingresar con Google</div> 
+        </button>
+      </div>
+    </form>
+    <div class="backArrow" id="backArrowLogin">
+      <a href="/#"><i class="far fa-arrow-alt-circle-left"></i></a>
+    </div>
+  </div>
+    `;
 
  
     
