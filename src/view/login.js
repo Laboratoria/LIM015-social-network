@@ -14,28 +14,23 @@ const viewLogin =()=>{
      <div class= "logo">
         <img class="logo__img"src="./img/logoMobilPrueba.jpg"  width="150" alt="Makipura">
     </div>
-      
-
       <div class="login__Subtitle"> 
         <h2 class="login__h2">¡Bienvenida Emprendedora!</h2>
       </div>
-
       <div class="login__title">
         <h1 class="login__h1">INICIA SESIÓN</h1>
       </div>
-
       <form class="form form--login" id="loginForm-login" action="">
         <div class="form--login__inputList">
           <div class="form--login__item">
             <label type="" for="emailLogin" class="form--login__label">Email</label>
-            <input type="text" class="form--login__email"  id="emailLogin" value placeholder="Ingrese su correo electrónico">
+            <input type="text" class="form__input"  id="emailLogin" value placeholder="Ingrese su correo electrónico">
           </div>
           <div class="form--login__item">
             <label type="" for="passwordLogin" class="form--login__label" >Contraseña</label>
-            <input type="password"  class="form--login__password" id="passwordLogin" value placeholder="Ingrese su contraseña" autocomplete="off">
+            <input type="password"  class="form__input" id="passwordLogin" value placeholder="Ingrese su contraseña" autocomplete="off">
           </div>
         </div>
-
         <div class="form--login__button">
           <button  class="button button--main" type="submit">Ingresar</button>
         </div>
