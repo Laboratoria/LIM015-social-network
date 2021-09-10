@@ -149,48 +149,35 @@
   font-size: 0.8rem;
   margin: 0.5em;
 }
-.invalidEmail::before {
-  content: "";
-  position: absolute;
-  background-image: url("../img/iconoX.png");
-  background-size: cover;
-  width: 15px;
-  height: 15px;
-  right: 10%;
-  top: 40%;
-}
 
 .validateEmail {
   color: #02bb02;
-  /* background-image: url("./img/checkverde.png"); */
-  background-repeat: no-repeat;
+
   font-size: 0.8rem;
   margin: 0.5em;
 }
 
-.validateEmail::before {
-  content: "";
-  position: absolute;
-  background-image: url("../img/checkverde.png");
-  background-size: cover;
-  width: 24px;
-  height: 24px;
-  right: 10%;
-  top: 39%;
+/*icono dentro del input password*/
+.form--login__item {
+  position: relative;
 }
-/*vistas mas pequeñas*/
-@media (max-width: 260px) {
-  .validateEmail::before {
-    right: 10%;
-    top: 42%;
-  }
-  .invalidEmail::before {
-    right: 10%;
-    top: 43%;
-  }
-  .form__input::placeholder {
-    font-size: 0.7rem;
-  }
+.icon {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 1.3rem;
+  transition: 0.4s ease all;
+}
+.icon--eye:hover {
+  color: #742284;
+}
+.fa-check {
+  color: #02bb02;
+}
+.fa-times {
+  color: #f11c40e8;
 }
 
 @media (min-width: 600px) {
@@ -253,17 +240,5 @@
   .backArrow {
     align-self: flex-end;
     margin: 0.5em;
-  }
-  .validateEmail::before {
-    width: 26px;
-    height: 26px;
-    right: 7%;
-    top: 38%;
-  }
-  .invalidEmail::before {
-    width: 15px;
-    height: 15px;
-    right: 7%;
-    top: 39%;
   }
 }

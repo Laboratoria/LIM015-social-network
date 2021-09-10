@@ -61,8 +61,21 @@ const viewRegister =()=>{
 
   sectionRegister.innerHTML=htmlRegister;
   // signup register
-    const signupForm = sectionRegister.querySelector('#loginForm-signup');
+  const signupForm = sectionRegister.querySelector('#loginForm-signup');
+  const passwordLogin = sectionRegister.querySelector('#passwordRegister');
     // console.log(signupForm);
+    passwordLogin.addEventListener('keyup' , ()=>{
+      const noSpaceWhite = /\s/ ;
+      if(noSpaceWhite.test(passwordLogin.value)){
+        console.log('hay especio blanco')
+        // spanEmail.classList.remove('validateEmail');
+        // spanEmail.classList.add('invalidEmail');
+        // spanEmail.innerHTML = "¡Contraseña incorrecto!";
+        // divForm.style.borderColor = "red";
+      }console.log('auchhh')
+      
+    });
+
     signupForm.addEventListener('submit', (e)=>{
       e.preventDefault();
       
