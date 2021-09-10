@@ -1,4 +1,4 @@
-import { events } from "../firebase/function.js";
+//import { events } from "../firebase/function.js";
 
 export default () => {
   const viewLogin = `
@@ -23,7 +23,7 @@ export default () => {
     <img src="img/face.png" width="40" height="40" class="logoFace">
     <img src="img/gmail.png" width="40px" height="40" class="logoGmail">
     <p>¿You do not have an account?<a href="#/register">register</a></p>
-    </div>
+    //</div>
     </form>`;
   const divElem = document.createElement("div");
   divElem.innerHTML = viewLogin;

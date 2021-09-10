@@ -54,8 +54,8 @@ margin: auto;
 #imgRegister>img{
   max-width: 25%;
   max-height: 20%;
-  width: 220px;
-  height: 230px;
+  width: 200px;
+  height: 210px;
   border:2px solid red;
   display:flex;
 }
@@ -68,25 +68,35 @@ margin: auto;
   margin-left: 5px;
   margin-right: 5px;
   margin-bottom: 10px;
-
+}
+#registerInformation1, #registerInformation2, #registerInformation3, #registerInformation4, #regbtn {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 10px;
 }
 
+/* 
 #registerInformation{
    width: 100%;
   height: 100%;
 display: flex;
-}
+} */
 
 
- #infoRegister{
+/*  #infoRegister{
   display:block;
   align-items:center;
   justify-content: center; 
   margin-left: 5px;
   margin-right: 5px;
   margin-bottom: 10px
-  
-} 
+} */ 
+
 footer{
   text-align: center; 
   margin-left: auto; 

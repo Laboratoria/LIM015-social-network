@@ -7,23 +7,23 @@ export default () => {
       <div id="imgRegister">
             <img src="img/animalesFondo.jpg" id="fondo" class="fondoAnimal">
       </div>
-      <div id="infoRegister">
-      <div class="registerInformation">
+     // <div id="infoRegister">
+      <div id="registerInformation1">
         <input type= "text" id="name1" placeholder="Name"  class="name">
       </div>
-      <div class="registerInformation">
+      <div id="registerInformation2">
         <input type= "text" id="email1" placeholder="Email" class="email">
       </div>
-      <div class="registerInformation">
+      <div id="registerInformation3">
         <input class="password" type="password" name="password1" id="password1" placeholder="Password">
       </div>
-      <div class="registerInformation">
+      <div id="registerInformation4">
         <input class="password" type="password" name="password2" id="password2" placeholder="Password">
       </div>
-      <div class="regbtn">
+      <div id="regbtn">
         <button id="btnRegister"type="button" class="btn">Register</button>
       </div>
-      </div> 
+     // </div> 
     </form> `;
   const divElem = document.createElement("div");
   divElem.innerHTML = viewRegister;
