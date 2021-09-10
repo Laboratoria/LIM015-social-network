@@ -1,4 +1,7 @@
+/* eslint-disable no-console */
 import { components } from './views/components.js';
+import { currentUser } from './scripts/auth.js';
+import { getUserData } from './scripts/firestore.js';
 
 const changeView = (route) => {
   const container = document.querySelector('#container');
@@ -12,21 +15,34 @@ const changeView = (route) => {
       container.appendChild(components.login());
       break;
     }
-    case '#/register': {
-      container.appendChild(components.register());
-      break;
-    }
     case '#/community': {
-      container.appendChild(components.community());
+      currentUser((user) => {
+        getUserData(user.uid)
+          .then((doc) => {
+            container.appendChild(components.community(doc.data()));
+          }).catch((error) => {
+            console.log(error);
+          });
+      });
       break;
     }
     case '#/profile': {
-      container.appendChild(components.profile());
+      currentUser((user) => {
+        getUserData(user.uid)
+          .then((doc) => {
+            container.appendChild(components.profile(doc.data()));
+          }).catch((error) => {
+            console.log(error);
+          });
+      });
       break;
     }
     default:
+      container.appendChild(components.viewDifferent());
       break;
   }
+  return 0; // the code has been run successfully and
+  // we terminate our main function with this return statement.
 };
 
 export { changeView };
