@@ -19,18 +19,20 @@ const viewLogin = () => {
     </div>
     <form class="form form--login" id="loginForm-login" action="">
       <div class="form--login__inputList">
-        <div class="form--login__item">
+        <div class="form--login__email form--login__item">
           <label type="" for="emailLogin" class="form--login__label">Email</label>
-          <input type="text" class="form__input" id="emailLogin" value placeholder="Ingrese su correo electrónico">
+          <input type="text" class="form__input" id="emailLogin" placeholder="Ingrese su correo electrónico" required>
+          
         </div>
+        <span id="statusEmailMessage"></span>
         <div class="form--login__item">
           <label type="" for="passwordLogin" class="form--login__label">Contraseña</label>
           <input type="password" class="form__input" id="passwordLogin" value placeholder="Ingrese su contraseña"
-            autocomplete="off">
+            autocomplete="off" required>
         </div>
       </div>
       <div class="form--login__button">
-        <button class="button button--main" type="submit">Ingresar</button>
+        <input class="button button--main" type="submit" value="Ingresar">
       </div>
       <div class="form--separator form--login__separator">ó</div>
       <div class="form--login__social">
@@ -50,21 +52,54 @@ const viewLogin = () => {
   sectionLogin.classList.add("loginSection");
   sectionLogin.innerHTML = htmlLogin;
   const loginForm = sectionLogin.querySelector('#loginForm-login');
+  //const errMessage =sectionLogin.querySelector('#errorEmailLogin');
+  const emailLogin = sectionLogin.querySelector('#emailLogin');
+  const spanEmail = sectionLogin.querySelector('#statusEmailMessage');
+  const divForm = sectionLogin.querySelector('.form__input');
+
+  emailLogin.addEventListener('keyup', ()=> {
+    console.log('auchhh')
+    const regEx = /^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/gim;
+    if (regEx.test(emailLogin.value)){
+      spanEmail.classList.add('validateEmail');
+      spanEmail.classList.remove('invalidEmail');
+      spanEmail.innerHTML = "¡Correo correcto!" ;
+      divForm.style.borderColor = "green";
+    }else {
+      spanEmail.classList.remove('validateEmail');
+      spanEmail.classList.add('invalidEmail');
+      spanEmail.innerHTML = "¡Correo incorrecto!";
+      divForm.style.borderColor = "red";
+    }
+    if (emailLogin.value == ""){
+      spanEmail.classList.remove('validateEmail');
+      spanEmail.classList.remove('invalidEmail');
+    spanEmail.innerHTML = "" ;
+    divForm.style.borderColor = "#5c1331e8";
+    }});
+  /*emailLogin.addEventListener('keyup', function(){
+    console.log('auch')
+  });
+
+  */
+
+
   loginForm.addEventListener('submit', (event) => {
     event.preventDefault();
+    const email = document.querySelector('#emailLogin');
     const emailLogin = document.querySelector('#emailLogin').value;
     const passwordLogin = document.querySelector('#passwordLogin').value;
-    console.log(emailLogin, passwordLogin);
-  // // SignIn With Email and Password Function 
-    loginEmail(emailLogin, passwordLogin)
-    .then(userCredential => {
-      //clear form
-      loginForm.reset();
-      // changeLogin();
-      console.log('ya estas dentro');
-      window.open('#/home', '_self')
-    });
-  });
+      //SignIn With Email and Password Function 
+      loginEmail(emailLogin, passwordLogin)
+      .then(userCredential => {
+        //clear form
+        loginForm.reset();
+        // changeLogin();
+        console.log('ya estas dentro');
+        window.open('#/home', '_self')
+      });
+    }
+  );
 
   const buttonGoogleLogin = sectionLogin.querySelector('#buttonGoogleLogin');
   buttonGoogleLogin.addEventListener('click', () => {
@@ -77,7 +112,6 @@ const viewLogin = () => {
       })
     console.log('click google')
   });
-
   return sectionLogin;
 }
 
