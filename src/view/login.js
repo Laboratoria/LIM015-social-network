@@ -17,17 +17,18 @@ const viewLogin = () => {
     <div class="login__title">
       <h1 class="login__h1">INICIA SESIÓN</h1>
     </div>
+    <span id="errorLogin" ></span>
     <form class="form form--login" id="loginForm-login" action="">
       <div class="form--login__inputList">
-        <div class="form--login__email form--login__item">
+        <div class="form--login__email inputList-item">
           <label type="" for="emailLogin" class="form--login__label">Email</label>
           <span class="icon icon--check"><i id="checkIcon" class="fas" ></i></span>
           <input type="text" class="form__input" id="emailLogin" placeholder="Ingrese su correo electrónico" required>          
         </div>
         <span id="statusEmailMessage"></span>
-        <div class="form--login__item form--input__passwordLogin">
+        <div class="inputList-item form--input__passwordLogin">
           <label type="" for="passwordLogin" class="form--login__label">Contraseña</label>
-          <span class="icon icon--eye"><i id="checkEye"class="fas fa-eye-slash"></i></span>
+          <span class="icon icon--eye"><i id="checkEye" class="fas fa-eye-slash"></i></span>
           <input type="password" class="form__input" id="passwordLogin" value placeholder="Ingrese su contraseña" autocomplete="off" required>          
         </div>
         
@@ -57,6 +58,7 @@ const viewLogin = () => {
   //const errMessage =sectionLogin.querySelector('#errorEmailLogin');
   const emailLogin = sectionLogin.querySelector('#emailLogin');
   const spanEmail = sectionLogin.querySelector('#statusEmailMessage');
+  const spanErrorLogin = sectionLogin.querySelector('#errorLogin');
   const divForm = sectionLogin.querySelector('.form__input');
   const iconEyeBox = sectionLogin.querySelector('.icon--eye');
   const iconEye = sectionLogin.querySelector('#checkEye');
@@ -70,7 +72,7 @@ const viewLogin = () => {
     if (regEx.test(emailLogin.value)){
       spanEmail.classList.add('validateEmail');
       spanEmail.classList.remove('invalidEmail');
-      spanEmail.innerHTML = "¡Correo correcto!" ;
+      spanEmail.innerHTML = "Correo correcto" ;
       divForm.style.borderColor = "green";
       iconCheck.classList.add('fa-check')
       iconCheck.classList.remove('fa-times')
@@ -78,7 +80,7 @@ const viewLogin = () => {
     }else {
       spanEmail.classList.remove('validateEmail');
       spanEmail.classList.add('invalidEmail');
-      spanEmail.innerHTML = "¡Correo incorrecto!";
+      spanEmail.innerHTML = "Correo incorrecto";
       divForm.style.borderColor = "red";
       iconCheck.classList.remove('fa-check')
       iconCheck.classList.add('fa-times')
@@ -107,12 +109,6 @@ const viewLogin = () => {
       }
   });
 
-  /*emailLogin.addEventListener('keyup', function(){
-    console.log('auch')
-  });*/
- 
- 
-
   loginForm.addEventListener('submit', (event) => {
     event.preventDefault();
     const emailLogin = document.querySelector('#emailLogin').value;
@@ -125,7 +121,17 @@ const viewLogin = () => {
         // changeLogin();
         console.log('ya estas dentro');
         window.open('#/home', '_self')
-      });
+      }).catch(()=> {
+        spanErrorLogin.classList.add('errorLogin');
+        spanErrorLogin.classList.add('invalidEmail');
+        spanErrorLogin.innerHTML = "Usuario y/o contraseña no existen, vuelta a intentarlo nuevamente"}); 
+        setTimeout(function(){ 
+        spanErrorLogin.classList.remove('errorLogin');
+        spanErrorLogin.classList.remove('invalidEmail');
+        spanErrorLogin.innerHTML = "";
+        }, 2000);
+
+        
     }
   );
 
