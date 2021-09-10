@@ -207,6 +207,7 @@ export default () => {
               emailVerification(user);
               msg.textContent = 'Please Check your inbox to verify account';
               window.location.hash = '#/';
+              console.log(user);
             });
         })
         .catch((error) => {
