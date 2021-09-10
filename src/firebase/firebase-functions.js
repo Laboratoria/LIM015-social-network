@@ -18,9 +18,11 @@ export const signInUser = (email, password) => firebase.auth()
 // Email Verification:
 
 export const emailVerification = () => firebase.auth()
-  .currentUser.sendEmailVerification;
+  .currentUser.sendEmailVerification();
 
-// Verificar usuario activo:
+// Sign out
+
+export const signOutUser = () => firebase.auth().signOut();
 
 // const user = firebase.auth().currentUser;
 

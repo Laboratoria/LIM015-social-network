@@ -12,11 +12,11 @@ export const signIn = () => {
           <span class="error-email"></span>
           </div>
         <div class="form-div">
-        <input class="input" type="password" placeholder="Contraseña" id="signin-password"><br>
-        <span class="error-password"></span>
+          <input class="input" type="password" placeholder="Contraseña" id="signin-password"><br>
+          <span class="error-password"></span>
         </div>
         <div class="form-div">
-        <button type="submit" id="start-button" class="start-button">Iniciar</button>
+          <button type="submit" id="start-button" class="start-button">Iniciar</button>
         </div>
       </form>
       <ul class="home-list">
@@ -73,7 +73,7 @@ export const signIn = () => {
   signInGoogle.addEventListener('click', (e) => {
     e.preventDefault();
 
-    registerGoogle
+    registerGoogle()
       .then(() => {
         window.location.hash = '#/onlycats';
         // console.log('You\'re now signed in !');

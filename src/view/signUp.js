@@ -25,7 +25,9 @@ export const signUp = () => {
       </form>
       <ul class="home-list">
         <li class="signin-access-items">
-          <button class="google-button"><a id="signup-google" class="sgn" href="#/google" class="access-items">Registrarse con Google</a></button>
+          <button class="google-button">
+            <a id="signup-google" class="sgn" href="#/google" class="access-items">Registrarse con Google</a>
+          </button>
        </li>
         <li class="signin-access-items">
           <span>¿Tiene cuenta?</span><a class="sgn" href="#/signin"> Inicia con ella</a>
