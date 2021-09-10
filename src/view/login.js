@@ -22,6 +22,7 @@ const viewLogin = () => {
         <div class="form--login__item">
           <label type="" for="emailLogin" class="form--login__label">Email</label>
           <input type="text" class="form__input" id="emailLogin" value placeholder="Ingrese su correo electrónico">
+
         </div>
         <div class="form--login__item">
           <label type="" for="passwordLogin" class="form--login__label">Contraseña</label>
@@ -49,11 +50,17 @@ const viewLogin = () => {
   const sectionLogin = document.createElement('section')
   sectionLogin.classList.add("loginSection");
   sectionLogin.innerHTML = htmlLogin;
+
   const loginForm = sectionLogin.querySelector('#loginForm-login');
+  const emailLogin = sectionLogin.querySelector('#emailLogin').value;
+  const passwordLogin = sectionLogin.querySelector('#passwordLogin').value;
+
+ 
+
+
   loginForm.addEventListener('submit', (event) => {
     event.preventDefault();
-    const emailLogin = document.querySelector('#emailLogin').value;
-    const passwordLogin = document.querySelector('#passwordLogin').value;
+    
     console.log(emailLogin, passwordLogin);
   // // SignIn With Email and Password Function 
     loginEmail(emailLogin, passwordLogin)
