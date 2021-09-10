@@ -22,7 +22,6 @@ const viewLogin = () => {
         <div class="form--login__email form--login__item">
           <label type="" for="emailLogin" class="form--login__label">Email</label>
           <input type="text" class="form__input" id="emailLogin" placeholder="Ingrese su correo electrónico" required>
-          
         </div>
         <span id="statusEmailMessage"></span>
         <div class="form--login__item">
@@ -30,6 +29,7 @@ const viewLogin = () => {
           <input type="password" class="form__input" id="passwordLogin" value placeholder="Ingrese su contraseña"
             autocomplete="off" required>
         </div>
+        
       </div>
       <div class="form--login__button">
         <input class="button button--main" type="submit" value="Ingresar">
@@ -51,12 +51,13 @@ const viewLogin = () => {
   const sectionLogin = document.createElement('section')
   sectionLogin.classList.add("loginSection");
   sectionLogin.innerHTML = htmlLogin;
+
   const loginForm = sectionLogin.querySelector('#loginForm-login');
   //const errMessage =sectionLogin.querySelector('#errorEmailLogin');
   const emailLogin = sectionLogin.querySelector('#emailLogin');
   const spanEmail = sectionLogin.querySelector('#statusEmailMessage');
   const divForm = sectionLogin.querySelector('.form__input');
-
+  // const passwordLogin = sectionLogin.querySelector('#passwordLogin');
   emailLogin.addEventListener('keyup', ()=> {
     console.log('auchhh')
     const regEx = /^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/gim;
@@ -80,13 +81,20 @@ const viewLogin = () => {
   /*emailLogin.addEventListener('keyup', function(){
     console.log('auch')
   });
-
-  */
-
+ 
+  passwordLogin.addEventListener('keyup' , ()=>{
+    console.log('auchhh')
+    const noSpaceWhite = /\s/ ;
+    if(noSpaceWhite.test(passwordLogin.value)){
+      spanEmail.classList.remove('validateEmail');
+      spanEmail.classList.add('invalidEmail');
+      spanEmail.innerHTML = "¡Contraseña incorrecto!";
+      divForm.style.borderColor = "red";
+    }
+  });*/
 
   loginForm.addEventListener('submit', (event) => {
     event.preventDefault();
-    const email = document.querySelector('#emailLogin');
     const emailLogin = document.querySelector('#emailLogin').value;
     const passwordLogin = document.querySelector('#passwordLogin').value;
       //SignIn With Email and Password Function 

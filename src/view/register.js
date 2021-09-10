@@ -56,7 +56,6 @@ const viewRegister =()=>{
     `;
 
  
-    
   const sectionRegister=document.createElement('section');
   sectionRegister.classList.add("registerSection");
 
@@ -67,10 +66,10 @@ const viewRegister =()=>{
     signupForm.addEventListener('submit', (e)=>{
       e.preventDefault();
       
-      //const nameUser = document.querySelector('#nameRegister').value;
+      // const nameUser = document.querySelector('#nameRegister').value;
       const email = document.querySelector('#emailRegister').value;
       const password = document.querySelector('#passwordRegister').value;
-      //const passwordConfirm = document.querySelector('#passwordConfirmRegister').value
+      // const passwordConfirm = document.querySelector('#passwordConfirmRegister').value
       registerEmail(email,password)
       .then(userCredential => {
         //clear form
@@ -96,21 +95,10 @@ const viewRegister =()=>{
   
   
     return sectionRegister;
-};
-
-
-
-
-
-
-
-
+  
+}
 
 
 
 export  {viewRegister}
-
-
-//const entrar=addEventListene
-
 
