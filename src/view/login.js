@@ -27,7 +27,7 @@ const viewLogin = () => {
         <span id="statusEmailMessage"></span>
         <div class="form--login__item form--input__passwordLogin">
           <label type="" for="passwordLogin" class="form--login__label">Contraseña</label>
-          <span class="icon icon--eye"><i class="fas fa-eye-slash"></i></span>
+          <span class="icon icon--eye"><i id="checkEye"class="fas fa-eye-slash"></i></span>
           <input type="password" class="form__input" id="passwordLogin" value placeholder="Ingrese su contraseña" autocomplete="off" required>          
         </div>
         
@@ -59,7 +59,7 @@ const viewLogin = () => {
   const spanEmail = sectionLogin.querySelector('#statusEmailMessage');
   const divForm = sectionLogin.querySelector('.form__input');
   const iconEyeBox = sectionLogin.querySelector('.icon--eye');
-  const iconEye = sectionLogin.querySelector('.fas');
+  const iconEye = sectionLogin.querySelector('#checkEye');
   const iconCheck = sectionLogin.querySelector('#checkIcon')
   const passwordLogin = sectionLogin.querySelector('#passwordLogin');
 
@@ -94,7 +94,7 @@ const viewLogin = () => {
     }});
   
 
-    iconEyeBox.addEventListener('click' , () => {
+  iconEyeBox.addEventListener('click' , () => {
       
       if (passwordLogin.type === "password") {
         passwordLogin.type = "text";
