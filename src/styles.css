@@ -28,8 +28,6 @@ margin: auto;
 .container .text name{
     border-radius: 5px;
     padding:15px 5px 5px 20px;
-
-  /* text-align: center;    */
 }
 
 #imgLogin{
@@ -38,14 +36,11 @@ margin: auto;
     justify-content: center;
  }
  
- 
  #imgLogin>img{
     max-width: 30%;
     border: 2px solid blue;
  }
- /* .text {
-align-items:center ;
-} */
+
 #email{
   text-align: center;
 }
@@ -59,28 +54,42 @@ align-items:center ;
 #imgRegister>img{
   max-width: 25%;
   max-height: 20%;
-  width: 260px;
-  height: 290px;
+  width: 220px;
+  height: 230px;
   border:2px solid red;
+  display:flex;
 }
-#info{
+#info, #information, #btnlogin {
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+
 }
 
-#infoRegister{
-  display: flex;
-  align-items:center;
-  justify-content: center;
+#registerInformation{
+   width: 100%;
+  height: 100%;
+display: flex;
 }
+
+
+ #infoRegister{
+  display:block;
+  align-items:center;
+  justify-content: center; 
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 10px
+  
+} 
 footer{
-  display: table; 
   text-align: center; 
   margin-left: auto; 
   margin-right: auto;
   font-family: Arial;
-}
-input{
-  padding:30px;
-}
+} 
