@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-console */
 
 // email login
@@ -20,15 +21,17 @@ export const loginGoogle = () => {
 };
 
 // logout
-export const signOut = () => {
-  const auth = firebase.auth();
-  auth.signOut().then(() => {
-    // console.log('signed-out');
-    window.location.reload();
-  }).catch((err) => {
-    console.log(err);
-  });
-};
+
+export const signOut = () => firebase.auth().signOut();
+// export const signOut = () => {
+//   const auth = firebase.auth();
+//   auth.signOut().then(() => {
+//     // console.log('signed-out');
+//     window.location.reload();
+//   }).catch((err) => {
+//     console.log(err);
+//   });
+// };
 
 // send email verification email to new user
 export const emailVerification = () => {
@@ -36,7 +39,4 @@ export const emailVerification = () => {
   return user.sendEmailVerification();
 };
 // onAuthStateChanged (admin. users in firebase)
-export const currentUser = (callback) => {
-  const auth = firebase.auth();
-  auth.onAuthStateChanged((user) => callback(user));
-};
+export const currentUser = (callback) => firebase.auth().onAuthStateChanged((user) => callback(user));
