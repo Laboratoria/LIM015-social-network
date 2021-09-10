@@ -1,15 +1,17 @@
 import { components } from "../view/index.js";
-import { events } from "../firebase/function.js";
+import { events, showLogin } from "../firebase/function.js";
+//import { google} from "../firebase/function.js";
 // import {components} from '../view/index.js';
 const changeView = (route) => {
   // const sectionView= document.getElementById("container");
   // console.log(sectionView);
   const container = document.getElementById("container");
-  container.innerHTML = " ";
+  container.innerHTML = "";
   switch (route) {
     case "#/login": {
       container.appendChild(components.login());
-      events();
+      //events();
+      showLogin();
       break;
     }
     ///sectionView.innerHTML= components.login();
