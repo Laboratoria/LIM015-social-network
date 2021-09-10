@@ -136,6 +136,31 @@
     font-size: 2rem;
 }
 
+.invalidEmail {
+  color: #f11c40e8;
+  font-size:0.80rem ;
+  margin: 0.5em;
+}
+
+.validateEmail{
+    color: #02bb02;
+    background-image: url('./img/checkverde.png');
+    background-repeat: no-repeat;
+    font-size:0.80rem;
+    margin: 0.5em;
+  }
+
+.form--login__email::before{
+    content: "";
+    background-image: url('./img/checkverde.png');
+    background-size: cover;
+    width: 15px;
+    height: 15px;    
+}
+
+
+
+
 @media (min-width:600px){
 
 .form--login__inputList,.form--register__inputList{

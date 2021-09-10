@@ -20,26 +20,26 @@ const viewRegister =()=>{
     <form class="form form--register" id="loginForm-signup" action="">
       <div class="form--register__inputList">
         <div class="form--register__item">
-          <label type="" for="nameRegister" class="form--register__label">Nombre</label>
-          <input type="text" class="form__input" id="nameRegister" value placeholder="Nombre">
+          <label for="nameRegister" class="form--register__label">Nombre</label>
+          <input type="text" class="form__input" id="nameRegister"  placeholder="Nombre" required>
         </div>
         <div class="inputList-item">
-          <label type="" for="emailRegister" class="form--register__label">Email</label>
-          <input type="text" class="form__input" id="emailRegister" value placeholder="Ingrese su correo electrónico">
+          <label for="emailRegister" class="form--register__label">Email</label>
+          <input type="text" class="form__input" id="emailRegister" placeholder="Ingrese su correo electrónico" required>
         </div>
         <div class="inputList-item">
           <label for="passwordRegister" class="form--register__label">Contraseña</label>
-          <input type="password" class="form__input" id="passwordRegister" value
-            placeholder="Contraseña de más de 8 caracteres" autocomplete="off">
+          <input type="password" class="form__input" id="passwordRegister"
+            placeholder="Contraseña de más de 8 caracteres" autocomplete="off" required>
         </div>
         <div class="inputList-item">
-          <label type="" for="passwordConfirmRegister" class="form--register__label">Confirmar contraseña</label>
-          <input type="password" class="form__input" id="passwordConfirmRegister" value
-            placeholder="Confirmar contraseña" autocomplete="off">
+          <label for="passwordConfirmRegister" class="form--register__label">Confirmar contraseña</label>
+          <input type="password" class="form__input" id="passwordConfirmRegister"
+            placeholder="Confirmar contraseña" autocomplete="off" required>
         </div>
       </div>
       <div class="signup-button">
-        <button class="button button--main" id="mainbuttonSignup" type="submit">Crear cuenta</button>
+        <input class="button button--main" id="mainbuttonSignup" type="submit" value="Crear cuenta">
       </div>
       <div class="form--separator signup-separator">ó</div>
       <div class="signup-social">
