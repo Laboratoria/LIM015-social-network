@@ -21,13 +21,14 @@ const viewLogin = () => {
       <div class="form--login__inputList">
         <div class="form--login__email form--login__item">
           <label type="" for="emailLogin" class="form--login__label">Email</label>
-          <input type="text" class="form__input" id="emailLogin" placeholder="Ingrese su correo electrónico" required>
+          <span class="icon icon--check"><i id="checkIcon" class="fas" ></i></span>
+          <input type="text" class="form__input" id="emailLogin" placeholder="Ingrese su correo electrónico" required>          
         </div>
         <span id="statusEmailMessage"></span>
-        <div class="form--login__item">
+        <div class="form--login__item form--input__passwordLogin">
           <label type="" for="passwordLogin" class="form--login__label">Contraseña</label>
-          <input type="password" class="form__input" id="passwordLogin" value placeholder="Ingrese su contraseña"
-            autocomplete="off" required>
+          <span class="icon icon--eye"><i class="fas fa-eye-slash"></i></span>
+          <input type="password" class="form__input" id="passwordLogin" value placeholder="Ingrese su contraseña" autocomplete="off" required>          
         </div>
         
       </div>
@@ -57,41 +58,60 @@ const viewLogin = () => {
   const emailLogin = sectionLogin.querySelector('#emailLogin');
   const spanEmail = sectionLogin.querySelector('#statusEmailMessage');
   const divForm = sectionLogin.querySelector('.form__input');
-  // const passwordLogin = sectionLogin.querySelector('#passwordLogin');
+  const iconEyeBox = sectionLogin.querySelector('.icon--eye');
+  const iconEye = sectionLogin.querySelector('.fas');
+  const iconCheck = sectionLogin.querySelector('#checkIcon')
+  const passwordLogin = sectionLogin.querySelector('#passwordLogin');
+
   emailLogin.addEventListener('keyup', ()=> {
     console.log('auchhh')
+    
     const regEx = /^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/gim;
     if (regEx.test(emailLogin.value)){
       spanEmail.classList.add('validateEmail');
       spanEmail.classList.remove('invalidEmail');
       spanEmail.innerHTML = "¡Correo correcto!" ;
       divForm.style.borderColor = "green";
+      iconCheck.classList.add('fa-check')
+      iconCheck.classList.remove('fa-times')
+
     }else {
       spanEmail.classList.remove('validateEmail');
       spanEmail.classList.add('invalidEmail');
       spanEmail.innerHTML = "¡Correo incorrecto!";
       divForm.style.borderColor = "red";
+      iconCheck.classList.remove('fa-check')
+      iconCheck.classList.add('fa-times')
+      
     }
     if (emailLogin.value == ""){
       spanEmail.classList.remove('validateEmail');
       spanEmail.classList.remove('invalidEmail');
-    spanEmail.innerHTML = "" ;
-    divForm.style.borderColor = "#5c1331e8";
+      spanEmail.innerHTML = "" ;
+      divForm.style.borderColor = "#5c1331e8";
+      iconCheck.classList.remove('fa-check')
+      iconCheck.classList.remove('fa-times')
     }});
+  
+
+    iconEyeBox.addEventListener('click' , () => {
+      
+      if (passwordLogin.type === "password") {
+        passwordLogin.type = "text";
+        iconEye.classList.remove('fa-eye-slash')
+        iconEye.classList.add('fa-eye')
+      } else {
+        passwordLogin.type = "password";
+        iconEye.classList.add('fa-eye-slash')
+        iconEye.classList.remove('fa-eye')
+      }
+  });
+
   /*emailLogin.addEventListener('keyup', function(){
     console.log('auch')
-  });
- 
-  passwordLogin.addEventListener('keyup' , ()=>{
-    console.log('auchhh')
-    const noSpaceWhite = /\s/ ;
-    if(noSpaceWhite.test(passwordLogin.value)){
-      spanEmail.classList.remove('validateEmail');
-      spanEmail.classList.add('invalidEmail');
-      spanEmail.innerHTML = "¡Contraseña incorrecto!";
-      divForm.style.borderColor = "red";
-    }
   });*/
+ 
+ 
 
   loginForm.addEventListener('submit', (event) => {
     event.preventDefault();
