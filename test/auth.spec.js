@@ -1,5 +1,5 @@
 import {
-  signIn, signUp, loginGoogle, signOut,
+  signIn, signUp, loginGoogle, signOut, emailVerification, currentUser,
 } from '../src/scripts/auth.js';
 
 const firebasemock = require('firebase-mock');
@@ -34,6 +34,19 @@ describe('function signUp', () => {
     .then((user) => {
       expect(user.email).toBe('elmo666@gmail.com');
     }));
+  //  emailVerification
+  describe('function emailVerification', () => {
+    it('should be a function', () => {
+      expect(typeof emailVerification).toBe('function');
+    });
+    it('should send an email verification to user inbox', () => {
+      const verificationMock = jest.fn();
+      firebase.auth().currentUser.sendEmailVerification = verificationMock;
+      emailVerification();
+      expect(verificationMock).toHaveBeenCalled();
+      expect(verificationMock.mock.calls).toHaveLength(1);
+    });
+  });
 });
 
 // Google login
@@ -48,6 +61,24 @@ describe('function loginGoogle', () => {
       });
   });
 });
+
+// currentUser
+describe('function for mananaging Users in Firebase', () => {
+  it('should be a function', () => {
+    expect(typeof currentUser).toBe('function');
+  });
+  it('should receive the logged user', () => {
+    const userMock = {
+      currentUser: { id: '6OMv8jR7lCh5YHYNjCgP2oF02wd2' },
+    };
+    firebase.auth().onAuthStateChanged().currentUser = userMock.currentUser;
+    const isUser = (user) => {
+      expect(user.id).toEqual('6OMv8jR7lCh5YHYNjCgP2oF02wd2');
+    };
+    currentUser(isUser);
+  });
+});
+
 // signOut
 describe('function signOut', () => {
   it('should be a function', () => {
