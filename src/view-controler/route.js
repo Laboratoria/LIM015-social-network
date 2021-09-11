@@ -36,6 +36,8 @@ const changeView = (route) => {
             firebase.auth().onAuthStateChanged((user) => {
                 if (user) {
                     const viewTimeLine = containerMain.appendChild(components.timeLine());
+                    const firstChild = viewTimeLine.firstChild;
+                    viewTimeLine.insertBefore(components.header(), firstChild);
                     addEventsTimeLine();
                     return viewTimeLine;
                 } else {
