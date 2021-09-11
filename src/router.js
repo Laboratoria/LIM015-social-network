@@ -41,8 +41,6 @@ const changeView = (route) => {
       container.appendChild(components.viewDifferent());
       break;
   }
-  return 0; // the code has been run successfully and
-  // we terminate our main function with this return statement.
 };
 
 export { changeView };
