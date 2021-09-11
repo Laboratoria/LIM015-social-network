@@ -443,3 +443,283 @@ img {
 .process-msg {
     background-color: #414141;
 }
+/* ------------Style of Forgot password -----DIANITA------- */
+.main-box{
+    grid-column: 5 / 9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.h2, .description{
+    text-align: center;
+}
+.box-img{
+    display: flex;
+    justify-content: center;
+}
+.imgPassword{
+    width: 10vw;
+    padding-bottom: 15px;
+}
+.img-left{
+    width: 50%;
+}
+.box-brand{
+    display: flex;
+    justify-content: center;
+}
+.brand{
+    width: 100%;
+    max-width: 200px;
+}
+
+.introduction{
+    padding: 5px;
+    font-size: 13px;
+}
+.inputs-btn{
+    padding: 12px 243px;
+    display: flex;
+    flex-direction: column;
+}
+.logoPassword{
+    width: 100%;
+    max-width: 200px;
+    padding-left: 40px;
+}
+.volver{
+    text-align: center;
+    padding-top: 15px;
+}
+.msg-password{
+    color: #28c76f;
+    font-size: 12px;
+    margin-top: 7px;
+}
+.msg-password-error{
+    color: #fa3858;
+    font-size: 12px;
+    margin-top: 7px;
+}
+
+
+/** Grid Muro**/
+.container-home {
+    display: grid;
+    grid-template-columns: 
+        3% minmax(max-content, 22%) 3% 67% 5%;
+    grid-template-areas: 
+        'header header          header      header      header'
+        '...... ......          ......      ......      ......'
+        '...... cont-categories ......      cont-posts  ......';
+    grid-template-rows: 10vh 5vh 85vh;
+    background-color: #F5F5F5;
+    /* border: solid 1px red; */
+}
+
+/** Navegación **/
+.header {
+    grid-area: header;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #ffffff;
+    border: solid 1px springgreen;
+}
+
+.header > .logo {
+    margin-top: 10px;
+    flex-basis: 10%;
+    max-width: 20%;
+}
+
+/** Input de búsqueda **/
+.input-search {
+    position: relative;
+}
+
+.input-search input {
+    border-radius: 20px;
+    border: none;
+    padding: .5rem 0;
+    border: 1px solid #dee0e4;
+    color: #6e6b7b;
+    background-color: #f5f5f5;
+    outline: none;
+    width: 100%;
+    height: auto;
+}
+
+.fa-search {
+    position: absolute;
+    top: 20%;
+    right: 0%;
+    color: #ffffff;
+    font-size: 80%;
+}
+.container-icon-search {
+    width: 1rem;
+    position: absolute;
+    top: 0%;
+    right: -1%;
+    background-color: #FA5672;
+    border-radius: 0 20px 20px 0px;
+    text-align: center;
+}
+
+/**Sección lateral de navegación**/
+.side-navigation {
+    flex-basis: 35%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.title-posts, 
+.title-turn-off,
+.user-information {
+    display: flex;
+    gap: 5%;
+}
+
+.title-turn-off,
+.user-information {
+    color: #9FA0A1;
+}
+
+.title-posts {
+    color: #FA5672;
+}
+
+.title-posts h2 {
+    font-size: 1rem;
+}
+
+/****** Avatar ******/
+.user-information {
+    display: flex;
+    align-items: center;
+}
+
+.avatar {
+    max-height: auto;
+    -o-object-fit: cover;
+    object-fit: cover;
+    border-radius: 50% !important;
+    border: solid 1px gray;
+}
+
+.avatar-sm {
+    width: 35px;
+    height: 35px;
+}
+
+.avatar-md {
+    width: 49px;
+    height: 49px;
+}
+
+.avatar-lg {
+    width: 70px;
+    height: 70px;
+}
+
+/** Categorías **/
+.container-section-categories {
+    grid-area: cont-categories;
+    display: grid;
+    grid-template-columns: 98%;
+    grid-template-areas: 
+                    'titles-categories'
+                    'categories';
+    grid-template-rows: 4% 95%;
+    padding: 0.4rem 0.5rem;
+    border-radius: 5%;
+}
+
+.titles-categories {
+    display: flex;
+    justify-content: space-between;
+    font-size: 65%;
+}
+
+.titles-categories h3:last-child,
+.content-category h4, 
+.container-popular-posts span {
+    color: #F93878;
+    font-weight: lighter;
+}
+
+.categories {
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding-top: .5rem;
+}
+
+.category {
+    width: 95%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.category img {
+    width: 60px;
+    height: 60px;
+    border-radius: 30%;
+    border: solid 1px gray;
+}
+
+.content-category {
+    line-height: 1.5;
+}
+
+/** Posts **/
+.container-section-post {
+    grid-area: cont-posts;
+    display: flex;
+    flex-direction: column;
+    padding: .9rem 0 0 1rem;
+    /* border: solid 1px blue; */
+}
+
+/** Popular posts**/
+.container-popular-posts {
+    width: 100%;
+}
+.container-popular-posts h2 {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+.popular-posts {
+    padding: 1rem;
+    display: flex;
+    gap: 1.5rem;
+    border: solid 1px gray;
+    border-radius: 5px;
+}
+
+.card-post {
+    width: 250px;
+    height: 130px;
+    border-radius: 3%;
+    border: solid 1px #EEEEEE;
+    background-color: #FFFFFF;
+}
+
+/** Boton para crear publicación **/
+.create-publication button {
+    margin: 1rem 0 1rem 0;
+    padding: 1rem 0;
+    width: 100%;
+    font-size: 0.9rem;
+    background: linear-gradient(90.22deg, #FA5672 23.46%, #FE8996 64.13%);
+}
+
+.container-posts {
+    background-color: white;
+}
