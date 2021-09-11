@@ -14,7 +14,7 @@
     
   }
 .container-community{
-    background-color: aliceblue;
+    background-color: rgba(240, 248, 255, 0.288);
 
 }
 
@@ -124,6 +124,18 @@
   }
 
 
+  /* content */
+  #main-content{
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: 35% 45%;
+  grid-gap: 20px;
+}
+
+  /* avatar-left */
+.container-user-details-left{
+    text-align: center;
+}
   .avatar {
     width: 150px;
     height: 150px;
@@ -139,3 +151,99 @@
     box-shadow: 0 0 10px 0 rgba(41, 41, 41, 0.295);  
     cursor: pointer;transform: scale(1.04);
    }
+
+
+/* posts  */
+.user,
+.user-post {
+  display: flex;
+  margin-bottom: 0.8rem;
+  
+}
+.avatar-post {
+  width: 40px;
+  height: 40px;
+  border-radius: 49px;
+  object-fit: cover;
+}
+.content-newpost textarea {
+  height: 70px;
+  justify-content:center;
+  text-align: justify;
+  width: 100%;
+  margin: auto;
+  resize: none;
+  padding: 0.4rem;
+  outline: none;
+  background-color:aliceblue;
+  /* background-color: rgba(240, 240, 240); */
+  border-color: rgba(240, 240, 240);
+  border-radius: 15px;
+}
+.content-newpost textarea:focus{
+  border-color: #c4c4c4;
+  background: white;
+}
+.content-newpost textarea::placeholder {
+  color: rgba(77, 167, 198, 0, 2);
+}
+.content-newpost textarea:focus::placeholder {
+  color: #c4c4c4;
+}
+
+/* buttons */
+.buttons-bar {
+    position: relative;
+    
+  }
+.buttons-bar, 
+.fa-file-image {
+    font-size: 1.35rem;
+    cursor: pointer;
+    margin-right: 1rem;
+    
+  }
+.upload-img {
+    display: none;
+  }
+.fa-file-image 
+.tooltiptext
+  {
+    font-size: 12px;
+    visibility: hidden;
+    background-color: #444;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 0.5rem;
+    position: absolute;
+    z-index: 1;
+    bottom: 130%;
+    margin-left: -60px;
+    transition: 1s;
+  }
+  .fa-file-image:hover {
+  visibility: block;
+  transform: scale(1.1)
+}
+
+/* responsive */
+@keyframes popup {
+    0% {
+      width: 0rem;
+      height: 0rem;
+    }
+    50% {
+      width: 8rem;
+      height: 8rem;
+    }
+    100% {
+      width: 6.6rem;
+      height: 6.6rem;
+    }
+  }
+  @media (min-width: 320px) and (max-width: 425px) {
+    .container-community {
+      display: contents;
+    }
+}
