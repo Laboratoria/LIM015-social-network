@@ -1,4 +1,4 @@
-import { currentUser } from '../scripts/auth.js';
+import { currentUser, signOut } from '../scripts/auth.js';
 
 export default (userX) => {
   const viewCommunity = document.createElement('section');
@@ -6,7 +6,7 @@ export default (userX) => {
     if (user || user !== null) {
       viewCommunity.classList.add('container-community');
       viewCommunity.innerHTML = `
-
+     
 
       <section class="main-header">
       <nav>
@@ -22,13 +22,58 @@ export default (userX) => {
       <i id="hamburger-menu" class="fas fa-bars hide"></i>
        </section>
 
-
-          <section>
-            <p> main page works ok... 😉</p>
+<section id="main-content">
+          <section class="container-user-details-left">
+            <p> Welcome back... 😉</p>
             <h2 id="name"> ${userX.username}</h2>
             <img class="avatar" src="${userX.photo}"/>
           </section>
+
+ 
+          <main class="home-section">
+          <!-- Post -->
+          <div class="create-post">
+            <div class="user">
+              <img class="avatar-post" src="${userX.photo}"/>
+              <p class="name">${userX.username}</p>
+            </div>
+            <div class="content-newpost">
+              <form id = "form-post">
+                <textarea class="text-newpost" placeholder="¿What do you want to share today?" spellcheck="false" required></textarea>
+                <img id="post-img" class="post-img" src=""/>
+                <div class="buttons-bar">
+                  <label for="upload-img">
+                    <input type="file" accept="image/jpeg, image/png, image/gif" id="upload-img" class="upload-img">
+                    <i class="far fa-file-image"><span class="tooltiptext">Upload an image</span></i>
+                  </label>
+                  <button type="submit" id="btn-post" class="btn-post" ><i class="fas fa-paper-plane"></i> Share</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <section id="container-post"></section>
+         
+         </main>
+
+        </section>
+
           `;
+      const hamburgerBotton = viewCommunity.querySelector('#hamburger-menu');
+      const homeNav = viewCommunity.querySelector('#left-menu-header');
+      const singOut = viewCommunity.querySelector('#log-out-header');
+      hamburgerBotton.addEventListener('click', () => {
+        homeNav.classList.toggle('active');
+        singOut.classList.toggle('active');
+      });
+
+      // Función para cerrar sesión
+      const btnSignOut = viewCommunity.querySelector('#btn-singOut');
+      btnSignOut.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.location.hash = '';
+        signOut();
+      });
     } else {
       window.location.hash = '#/';
     }
