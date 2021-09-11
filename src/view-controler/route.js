@@ -7,8 +7,6 @@ import { addEventResetPassword } from '../db/reset-password.js';
 import { addEventsTimeLine } from '../db/muro.js';
 import { addEventLogin } from '../db/login.js'
 
-
-
 const changeView = (route) => {
     const containerMain = document.querySelector('#container-main');
     containerMain.innerHTML = '';
@@ -19,7 +17,6 @@ const changeView = (route) => {
                 addEventLogin();
                 return viewLogin;
             }
-
         case '#/signup':
             {
                 const viewRegistro = containerMain.appendChild(components.signUp());
@@ -28,24 +25,25 @@ const changeView = (route) => {
                 addEventRegisterUserFacebook();
                 return viewRegistro;
             }
-        case '#/timeline':
-            {
-                const viewForgetPassword = containerMain.appendChild(components.forgetPassword());
-                const testReset = containerMain.querySelector('.main-box');
-                addEventResetPassword(testReset);
-                return viewForgetPassword;
-
-                firebase.auth().onAuthStateChanged((user) => {
-                    if (user) {
-                        const viewTimeLine = containerMain.appendChild(components.timeLine());
-                        addEventsTimeLine();
-                        return viewTimeLine;
-                    } else {
-                        window.location.href = "";
-                    }
-                });
-            }
-            break;
+            case '#/forgetPassword':
+                {
+                    const viewForgetPassword = containerMain.appendChild(components.forgetPassword());
+                    const testReset = containerMain.querySelector('.main-box');
+                    addEventResetPassword(testReset);
+                    return viewForgetPassword;
+                }
+        case '#/timeline': {
+            firebase.auth().onAuthStateChanged((user) => {
+                if (user) {
+                    const viewTimeLine = containerMain.appendChild(components.timeLine());
+                    addEventsTimeLine();
+                    return viewTimeLine;
+                } else {
+                    window.location.href = "";
+                }
+            });
+        }
+        break;
         default:
             { return containerMain.appendChild(components.error()); }
     }
