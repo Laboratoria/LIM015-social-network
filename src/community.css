@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  :root {
+    --login-bg:#f8f3ff;
+    --title-bg: #9089cc;
+    --button-bg: #462f80;
+    
+  }
+.container-community{
+    background-color: aliceblue;
+
+}
+
+.main-header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    display: flex;
+    background-color: white;
+    /* background-image: linear-gradient(to right, #f4fad683 0%, #6b6dc277 0%, #72efdc4f 100%); */
+    /* background-image: linear-gradient(to right, #f4fad6 0%, #5e60ce 0%, #72efdd 100%); */
+    color: #04021a;
+    z-index: 2;
+    border: none;
+  }
+  .main-header nav {
+    width: 100%;
+    display: flex;
+  }
+
+
+  .menu-header {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    list-style: none;
+    font-size: 1.5rem;
+  }
+  .menu-header a {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    color: #9089cc;
+    transition: 0.5s;
+    padding: 0.6rem;
+    text-decoration: none;
+  }
+
+  .menu-header a:hover {
+    color: #45117aa4;
+}
+.logOut {
+    margin-right: 4px;
+  }
+  .home-header i {
+    margin-left: 1rem;
+  }
+  #left-menu-header {
+    width: 33%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+  }
+  #left-menu-header i {
+    font-size: 20px;
+    margin-right: 0.4rem;
+  }
+  
+  .fa-sign-out-alt,
+  .fa-user-circle,
+  .fa-home {
+    color: #9e86da;
+    transition: 0.5s;
+  }
+  
+  .fa-sign-out-alt:hover,
+  .fa-user-circle:hover,
+  .fa-home:hover {
+    color: #45117aa4;
+    transform: scale(1.5);
+  }
+
+
+  .title-header {
+    width: 34%;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    transition: 0.5s;
+    color:#9089cc;
+  }
+
+  .title-header:hover {
+    color: #45117aa4;
+    transform: scale(1.1);
+      
+  }
+
+  #log-out-header {
+    cursor: pointer;
+    width: 33%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 2rem 0 0;
+  }
+  #hamburger-menu {
+    display: none;
+    position: absolute;
+    top: 1.7rem;
+    font-size: 1.8rem;
+    left: 2rem;
+    cursor: pointer;
+  }
+
+
+  .avatar {
+    width: 150px;
+    height: 150px;
+    margin: 0.5rem auto;
+
+  
+    border-radius: 50%;
+    object-fit: cover;
+   transition: all 0.4s ease;
+  }
+   .avatar:hover{
+    border-radius: 50%;
+    box-shadow: 0 0 10px 0 rgba(41, 41, 41, 0.295);  
+    cursor: pointer;transform: scale(1.04);
+   }
