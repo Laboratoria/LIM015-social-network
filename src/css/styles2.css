@@ -260,6 +260,7 @@
 
 .eye {
     margin-left: 89%;
+    cursor: pointer;
     /*pendiente responsive*/
 }
 

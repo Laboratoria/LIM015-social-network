@@ -27,7 +27,7 @@ export default () => {
                         <i class="fas fa-key"></i>
                         <label class="form-label">Contraseña</label>
                         <input id="password" type="password" class="form-input" placeholder="Ingrese su contraseña" required>
-                        <i class="far fa-eye-slash eye"></i>
+                        <i class="fas fa-eye-slash eye" id="show-password"></i>
                         <span id="msg-password" class="msg"></span>
                     </div>
 
@@ -35,7 +35,6 @@ export default () => {
                         <i class="fas fa-key"></i>
                         <label class="form-label">Confirmar Contraseña</label>
                         <input id="confirmPassword" type="password" class="form-input" placeholder="Repita su contraseña" required>
-                        <i class="far fa-eye-slash eye"></i>
                         <span id="msg-confirmPassword" class="msg"></span>
                     </div>
 
