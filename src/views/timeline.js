@@ -1,31 +1,7 @@
 export default () => {
     const viewTimeLine = document.createElement('div');
     viewTimeLine.className = 'container-home';
-    viewTimeLine.innerHTML = `        
-    <section class="header">
-        <img class="logo" src="../images/svg/logo.svg" alt="logo">
-        <img class="icon-logo" src="../images/svg/favicon.svg" alt="logo">
-        <section class="input-search">
-            <input type="text" name="" id="">
-            <div class="container-icon-search"> </div>
-            <i class="fas fa-search"></i>
-        </section>
-        <div class="side-navigation">
-            <section class="title-posts">
-                <i class="fas fa-house-user"></i>
-                <h2>Posts</h2>
-            </section>
-            <section class="title-turn-off">
-                <i class="fas fa-sign-out-alt"></i>
-                <p>Salir</p>
-            </section>
-            <section class="user-information">
-                <p>Nombre</p>
-                <img class="avatar avatar-sm" src="" alt="img-user">
-            </section>
-        </div>
-    </section>
-
+    viewTimeLine.innerHTML = `
     <section class="container-section-categories">
         <section class="titles-categories">
             <h3>Categorías</h3>
@@ -59,6 +35,41 @@ export default () => {
                     <h4>Programación</h4>
                     <p class="text-muted">30 post</p>
                 </div>
+            </figure>
+            <figure class="category">
+            <img src="./images/svg/logo-programming" alt="logo-programming">
+            <div class="content-category">
+                <h4>Programación</h4>
+                <p class="text-muted">30 post</p>
+            </div>
+            </figure>  
+            <figure class="category">
+            <img src="./images/svg/logo-programming" alt="logo-programming">
+            <div class="content-category">
+                <h4>Programación</h4>
+                <p class="text-muted">30 post</p>
+            </div>
+            </figure>
+            <figure class="category">
+            <img src="./images/svg/logo-programming" alt="logo-programming">
+            <div class="content-category">
+                <h4>Programación</h4>
+                <p class="text-muted">30 post</p>
+            </div>
+            </figure>    
+            <figure class="category">
+            <img src="./images/svg/logo-programming" alt="logo-programming">
+            <div class="content-category">
+                <h4>Programación</h4>
+                <p class="text-muted">30 post</p>
+            </div>
+            </figure>  
+            <figure class="category">
+            <img src="./images/svg/logo-programming" alt="logo-programming">
+            <div class="content-category">
+                <h4>Programación</h4>
+                <p class="text-muted">30 post</p>
+            </div>
             </figure>  
         </section>             
     </section>
