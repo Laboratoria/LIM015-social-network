@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { createUser, registerGoogle, emailVerification } from '../firebase/firebase-functions.js';
+import { createUser, emailVerification } from '../firebase/firebase-functions.js';
 
 export const signUp = () => {
   const sectionElement = document.createElement('section');
@@ -24,11 +24,6 @@ export const signUp = () => {
         </button>
       </form>
       <ul class="home-list">
-        <li class="signin-access-items">
-          <button class="google-button">
-            <a id="signup-google" class="sgn" href="#/google" class="access-items">Registrarse con Google</a>
-          </button>
-       </li>
         <li class="signin-access-items">
           <span>¿Tiene cuenta?</span><a class="sgn" href="#/signin"> Inicia con ella</a>
         </li>
@@ -60,7 +55,7 @@ export const signUp = () => {
       createUser(signupEmail, signupPassword)
         .then(() => {
           emailVerification();
-          window.location.hash = '#/onlycats';
+          window.location.hash = '#/signin';
           console.log('registrado');
         })
         .catch((error) => {
@@ -75,17 +70,5 @@ export const signUp = () => {
     }
   });
 
-  const signUpGoogle = sectionElement.querySelector('#signup-google');
-  signUpGoogle.addEventListener('click', (e) => {
-    e.preventDefault();
-    registerGoogle()
-      .then(() => {
-        window.location.hash = '#/onlycats';
-        console.log('You\'re now signed in !');
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  });
   return sectionElement;
 };

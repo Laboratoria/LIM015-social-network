@@ -2,31 +2,37 @@ import { signInUser, registerGoogle } from '../firebase/firebase-functions.js';
 
 export const signIn = () => {
   const viewSignIn = `
-    <div class="home-container">
-      <figure class="container-img">
-        <img class="cat-gif" src='https://i.pinimg.com/originals/35/ce/9f/35ce9f85da291b4c1c504d8cbd37e8ee.gif'>
+    <div class='home-container'>
+      <figure class='container-img'>
+        <img class='cat-gif' src='https://i.pinimg.com/originals/35/ce/9f/35ce9f85da291b4c1c504d8cbd37e8ee.gif'>
       </figure>
-      <form id="signin-form" class="signin-form">
-        <div class="form-div">
-          <input class="input" type="email" placeholder="Correo electrónico" id="signin-email" required><br>
-          <span class="error-email"></span>
-          </div>
-        <div class="form-div">
-          <input class="input" type="password" placeholder="Contraseña" id="signin-password"><br>
-          <span class="error-password"></span>
+    <div class='container-form'>
+      <form id='signin-form' action='' class='form'>
+        <div class='form-div'>
+          <input class='form-input' type='email' id='signin-email' placeholder=" "  autocomplete=off required>
+          <label class='form-label'>Email</label>
+          <span class='error-email'></span>
         </div>
-        <div class="form-div">
-          <button type="submit" id="start-button" class="start-button">Iniciar</button>
+
+        <div class='form-div'>
+          <input class='form-input' type="password"  id="signin-password" placeholder=" " autocomplete=off required>
+          <label class='form-label'>Clave</label>
+          <span class='error-password'></span>
+        </div>
+        <div class='form-div'>
+          <input type="submit" id="start-button" class="form-button" value="Iniciar sesión">
         </div>
       </form>
+    </div>
       <ul class="home-list">
         <li class="signin-access-items">
-         <button class="google-button"> <a id="signin-google" href="#/google" class="sgn">Acceder con Google</a></button>
+         <button class="google-button"> <a id="signin-google" href="#/google">Acceder con Google</a></button>
         </li>
         <li class="signin-access-items">
           <span>¿No tienes cuenta?</span><a class="sgn" href="#/signup">Create una</a>
         </li>
       </ul>
+
     </div>`;
 
   const sectionElement = document.createElement('div');
@@ -78,7 +84,7 @@ export const signIn = () => {
         window.location.hash = '#/onlycats';
         // console.log('You\'re now signed in !');
       })
-      // eslint-disable-next-line arrow-body-style
+    // eslint-disable-next-line arrow-body-style
       .catch((error) => {
         // console.error(error);
         return error;
