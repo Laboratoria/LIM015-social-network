@@ -3,6 +3,7 @@ import { components } from '../views/components.js';
 import { addEventRegisterUser } from '../db/signup.js'
 import { addEventRegisterUserGoogle } from '../db/signup-google.js';
 import { addEventRegisterUserFacebook } from '../db/signup-facebook.js';
+import { addEventResetPassword } from '../db/reset-password.js';
 
 
 const changeView = (route) => {
@@ -28,6 +29,8 @@ const changeView = (route) => {
         case '#/forgetPassword':
             {
                 const viewForgetPassword = containerMain.appendChild(components.forgetPassword());
+                const testReset = containerMain.querySelector('.main-box');
+                addEventResetPassword(testReset);
                 return viewForgetPassword;
             }
 
