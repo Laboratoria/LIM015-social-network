@@ -443,3 +443,62 @@ img {
 .process-msg {
     background-color: #414141;
 }
+/* ------------Style of Forgot password -----DIANITA------- */
+.main-box{
+    grid-column: 5 / 9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.h2, .description{
+    text-align: center;
+}
+.box-img{
+    display: flex;
+    justify-content: center;
+}
+.imgPassword{
+    width: 10vw;
+    padding-bottom: 15px;
+}
+.img-left{
+    width: 50%;
+}
+.box-brand{
+    display: flex;
+    justify-content: center;
+}
+.brand{
+    width: 100%;
+    max-width: 200px;
+}
+
+.introduction{
+    padding: 5px;
+    font-size: 13px;
+}
+.inputs-btn{
+    padding: 12px 243px;
+    display: flex;
+    flex-direction: column;
+}
+.logoPassword{
+    width: 100%;
+    max-width: 200px;
+    padding-left: 40px;
+}
+.volver{
+    text-align: center;
+    padding-top: 15px;
+}
+.msg-password{
+    color: #28c76f;
+    font-size: 12px;
+    margin-top: 7px;
+}
+.msg-password-error{
+    color: #fa3858;
+    font-size: 12px;
+    margin-top: 7px;
+}
