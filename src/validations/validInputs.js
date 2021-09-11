@@ -1,6 +1,6 @@
-const validInput = (form, idInput, message, type) => {
-    const inputValid = form.querySelector('#' + idInput);
-    const spanValid = form.querySelector('#msg-' + idInput);
+const validInput = (idInput, message, type) => {
+    const inputValid = document.querySelector('#' + idInput);
+    const spanValid = document.querySelector('#msg-' + idInput);
     if (type == 'error') {
         inputValid.classList.remove('input-valid');
         inputValid.classList.add('input-invalid');
@@ -14,12 +14,12 @@ const validInput = (form, idInput, message, type) => {
     }
 }
 
-const limpiar = (form, arrayInputs) => {
+const limpiar = (arrayInputs) => {
     let inputValid;
     let spanValid;
     for (let key in arrayInputs) {
-        inputValid = form.querySelector('#' + arrayInputs[key]);
-        spanValid = form.querySelector('#msg-' + arrayInputs[key]);
+        inputValid = document.querySelector('#' + arrayInputs[key]);
+        spanValid = document.querySelector('#msg-' + arrayInputs[key]);
         inputValid.classList.remove('input-invalid');
         inputValid.classList.remove('input-valid');
         spanValid.innerText = '';

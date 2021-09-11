@@ -13,18 +13,19 @@ export default () => {
         <img class="logo" src="../images/svg/logo.svg" alt="logo"><br>
     </div>
     <br>
-    <form action="#" class="form">
+    <form action="#" class="form" id="form-login">
         <div class="form-group">
             <i class="fas fa-envelope"></i>
             <label class="form-label">Correo Electrónico</label>
             <input id="email" type="email" class="form-input" placeholder="example@example.com" required>
+            <span id="msg-email" class="msg"></span>
         </div>
 
         <div class="form-group">
             <i class="fas fa-key"></i>
             <label class="form-label">Contraseña</label>
             <input id="password" type="password" class="form-input" placeholder="Ingrese su contraseña"  autocomplete="off" required>
-            <i class="far fa-eye-slash eye"></i>
+            <i class="far fa-eye-slash eye" id="show-password"></i>
         </div>
 
         <div class="form-group">
