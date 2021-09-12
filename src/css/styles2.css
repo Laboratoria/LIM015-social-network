@@ -7,6 +7,24 @@
     font-family: 'proxima-nova', sans-serif;
 }
 
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 515;
+    line-height: 1.2;
+    color: #253241;
+}
+
 .text-dark {
     color: #3e4b5b;
 }
@@ -443,61 +461,76 @@ img {
 .process-msg {
     background-color: #414141;
 }
+
+
 /* ------------Style of Forgot password -----DIANITA------- */
-.main-box{
+
+.main-box {
     grid-column: 5 / 9;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.h2, .description{
+
+.h2,
+.description {
     text-align: center;
 }
-.box-img{
+
+.box-img {
     display: flex;
     justify-content: center;
 }
-.imgPassword{
+
+.imgPassword {
     width: 10vw;
     padding-bottom: 15px;
 }
-.img-left{
+
+.img-left {
     width: 50%;
 }
-.box-brand{
+
+.box-brand {
     display: flex;
     justify-content: center;
 }
-.brand{
+
+.brand {
     width: 100%;
     max-width: 200px;
 }
 
-.introduction{
+.introduction {
     padding: 5px;
     font-size: 13px;
+    font-weight: 300;
 }
-.inputs-btn{
+
+.inputs-btn {
     padding: 12px 243px;
     display: flex;
     flex-direction: column;
 }
-.logoPassword{
-    width: 100%;
-    max-width: 200px;
-    padding-left: 40px;
+
+.logoPassword {
+    width: 230px;
+    padding-left: 30px;
 }
-.volver{
+
+.volver {
     text-align: center;
     padding-top: 15px;
 }
-.msg-password{
+
+.msg-password {
     color: #28c76f;
     font-size: 12px;
     margin-top: 7px;
 }
-.msg-password-error{
+
+.msg-password-error {
     color: #fa3858;
     font-size: 12px;
     margin-top: 7px;
@@ -505,6 +538,7 @@ img {
 
 
 /** Grid Muro**/
+
 .container-home {
     display: grid;
     grid-template-columns: 
@@ -518,7 +552,9 @@ img {
     /* border: solid 1px red; */
 }
 
+
 /** Navegación **/
+
 .header {
     grid-area: header;
     display: flex;
@@ -527,13 +563,15 @@ img {
     background-color: #ffffff;
 }
 
-.header > .logo {
+.header>.logo {
     margin-top: 10px;
     flex-basis: 10%;
     max-width: 16%;
 }
 
+
 /** Input de búsqueda **/
+
 .input-search {
     display: table;
     border-collapse: collapse;
@@ -570,6 +608,7 @@ img {
 }
 
 /**Sección lateral de navegación**/
+
 .side-navigation {
     flex-basis: 35%;
     display: flex;
@@ -577,7 +616,7 @@ img {
     align-items: center;
 }
 
-.title-posts, 
+.title-posts,
 .title-turn-off,
 .user-information {
     display: flex;
@@ -595,7 +634,9 @@ img {
     text-decoration: none;
 }
 
+
 /****** Avatar ******/
+
 .user-information {
     display: flex;
     align-items: center;
@@ -624,14 +665,14 @@ img {
     height: 70px;
 }
 
+
 /** Categorías **/
+
 .container-section-categories {
     grid-area: cont-categories;
     display: grid;
     grid-template-columns: 98%;
-    grid-template-areas: 
-                    'titles-categories'
-                    'categories';
+    grid-template-areas: 'titles-categories' 'categories';
     grid-template-rows: 4% 95%;
     padding: 1.5rem 0rem;
     background-color: #ffffff;
@@ -646,7 +687,7 @@ img {
 }
 
 .titles-categories h3:last-child,
-.content-category h4, 
+.content-category h4,
 .container-popular-posts span {
     color: #F93878;
     font-weight: lighter;
@@ -692,7 +733,9 @@ img {
     line-height: 1.5;
 }
 
+
 /** Posts **/
+
 .container-section-post {
     grid-area: cont-posts;
     display: flex;
@@ -701,14 +744,18 @@ img {
     /* border: solid 1px blue; */
 }
 
+
 /** Popular posts**/
+
 .container-popular-posts {
     width: 100%;
 }
+
 .container-popular-posts h2 {
     font-size: 0.9rem;
     margin-bottom: 1rem;
 }
+
 .popular-posts {
     padding: 1rem;
     display: flex;
@@ -725,7 +772,9 @@ img {
     background-color: #FFFFFF;
 }
 
+
 /** Boton para crear publicación **/
+
 .create-publication button {
     margin: 1rem 0 1rem 0;
     padding: 1rem 0;

@@ -15,6 +15,7 @@ const addEventRegisterUserFacebook = () => {
                 const user = result.user;
                 const avatar = result.user.photoURL;
                 console.log(token, user, avatar)
+                alerts('success', 'Bienvenido') //mostramos alerta de exito
                 window.location.href = "#/timeline";
                 // ...
             }).catch((error) => {

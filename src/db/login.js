@@ -54,4 +54,22 @@ const addEventLogin = () => {
     });
 }
 
-export { addEventLogin }
+const addEventLoginWithGoogle = () => {
+    // eslint-disable-next-line no-undef
+    const provider = new firebase.auth.GoogleAuthProvider();
+    const btnGoogle = document.querySelector('#google');
+    btnGoogle.addEventListener('click', (e) => {
+        e.preventDefault();
+        // eslint-disable-next-line no-undef
+        firebase.auth().signInWithPopup(provider).then(function(result) {
+            var token = result.credential.accessToken;
+            var user = result.user;
+            console.log(token, user);
+            window.location.href = "#/timeline";
+        }).catch(function(error) {
+            alerts('error', error.code) //mostramos alerta de error
+        });
+    });
+}
+
+export { addEventLogin, addEventLoginWithGoogle }
