@@ -128,7 +128,7 @@ const viewRegister =()=>{
          const email = document.querySelector('#emailRegister').value;
         const password = document.querySelector('#passwordRegister').value;
         registerEmail(email,password)
-        .then(userCredential => {
+        .then( ()=> {
         //clear form
          signupForm.reset();
          console.log('guardando signup')
@@ -152,7 +152,7 @@ const viewRegister =()=>{
     const buttonGoogleSignup = sectionRegister.querySelector('#buttonGoogleSignup');
     buttonGoogleSignup.addEventListener('click' , () => {
       loginGoogle()
-      .then(result => {
+      .then(() => {
         console.log('signin with google');
         window.open('#/home','_self')
       })

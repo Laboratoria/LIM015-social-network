@@ -68,7 +68,8 @@ const viewLogin = () => {
   emailLogin.addEventListener('keyup', ()=> {
     console.log('auchhh')
     
-    const regEx = /^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/gim;
+    const regEx = /^([\da-z_.-]+)@([\da-z]+)\.([a-z]{2,6})$/gim;
+
     if (regEx.test(emailLogin.value)){
       spanEmail.classList.add('validateEmail');
       spanEmail.classList.remove('invalidEmail');
@@ -115,7 +116,7 @@ const viewLogin = () => {
     const passwordLogin = document.querySelector('#passwordLogin').value;
       //SignIn With Email and Password Function 
       loginEmail(emailLogin, passwordLogin)
-      .then(userCredential => {
+      .then(() => {
         //clear form
         loginForm.reset();
         // changeLogin();
@@ -137,7 +138,7 @@ const viewLogin = () => {
 
   const buttonGoogleLogin = sectionLogin.querySelector('#buttonGoogleLogin');
   buttonGoogleLogin.addEventListener('click', () => {
-    loginGoogle().then(result => {
+    loginGoogle().then(() => {
         console.log('signin with google');
         window.open('#/home', '_self')
       })
