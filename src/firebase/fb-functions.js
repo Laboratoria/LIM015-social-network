@@ -1,19 +1,19 @@
-import { auth } from '../firebase/fb-config.js'
+//import { auth } from '../firebase/fb-config.js'
 
 // SignIn With Email and Password Function 
-const loginEmail = (email, password) => auth.signInWithEmailAndPassword(email, password);
+const loginEmail = (email, password) => firebase.auth().signInWithEmailAndPassword(email, password);
 
 // Register With Email and Password Function 
-const registerEmail = (email, password) => auth.createUserWithEmailAndPassword(email, password);
+const registerEmail = (email, password) => firebase.auth().createUserWithEmailAndPassword(email, password);
 
 // SignIn With Google 
 const loginGoogle =  () => {
     const provider = new firebase.auth.GoogleAuthProvider();
-    return  auth.signInWithPopup(provider)
+    return  firebase.auth().signInWithPopup(provider)
 }
 
 // SignOut
-const signOut = () => auth.signOut();
+const signOut = () => firebase.auth().signOut();
 
 export {
     loginEmail,
