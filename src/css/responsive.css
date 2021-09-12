@@ -1,145 +1,152 @@
-@media (max-width: 30rem) {  /**480px**/
+@media (max-width: 30rem) {
+    /**480px**/
     /*celular 384px*/
     .imgBx {
-      display: none;
+        display: none;
     }
     .form-container {
-      grid-column: 1/ 13;
-      padding: 2rem 5rem;
+        grid-column: 1/ 13;
+        padding: 2rem 5rem;
     }
     .form-container img {
-      width: 190px;
+        width: 190px;
     }
     .section-registro {
-      display: block;
+        display: block;
     }
     .side-navigation p,
     .side-navigation h2 {
-      display: none;
+        display: none;
     }
     .container-home {
-      display: flex;
-      flex-direction: column;
+        display: flex;
+        flex-direction: column;
     }
     .container-section-categories {
-      display: flex;
-      flex-direction: column;
-      border: solid 1px yellow;
+        display: flex;
+        flex-direction: column;
+        border: solid 1px yellow;
     }
     .titles-categories {
-      justify-content: flex-start;
-      gap: 1.5rem;
+        justify-content: flex-start;
+        gap: 1.5rem;
     }
     .categories {
-      flex-direction: row;
-      padding: 1rem;
+        flex-direction: row;
+        padding: 1rem;
     }
     .content-category {
-      display: none;
+        display: none;
     }
     .container-section-post {
-      padding: .5rem;
+        padding: .5rem;
     }
-  }
-  
-  @media (max-width: 40rem) { /**640**/
+}
+
+@media (max-width: 40rem) {
+    /**640**/
     .input-search input {
-      padding: 0rem;
+        padding: 0rem;
     }
     .container-icon-search {
-      padding: .5rem 0 !important;
+        padding: .5rem 0 !important;
     }
     .logo {
-      display: none;
+        display: none;
     }
     .icon-logo {
-      width: 5%;
-      margin: 0 .5rem 0 0;
+        width: 5%;
+        margin: 0 .5rem 0 0;
     }
     .input-search {
-      width: 8rem;
-      margin: 0 .5rem;
+        width: 8rem;
+        margin: 0 .5rem;
     }
     .side-navigation {
-      margin: 0 .5rem;
+        margin: 0 .5rem;
     }
-  }
-  
-  /*tablet 384px*/
-  @media (max-width: 64rem) {   /**1024px**/
+}
+
+
+/*tablet 384px*/
+
+@media (max-width: 64rem) {
+    /**1024px**/
     .form-container {
-      padding: 2rem;
+        padding: 2rem;
     }
     .form-container img {
-      width: 210px;
+        width: 210px;
     }
     .section-registro {
-      display: block;
+        display: block;
     }
     .side-navigation {
-      justify-content: center;
-      gap: 1.5rem;
+        justify-content: center;
+        gap: 1.5rem;
     }
     .container-icon-search {
-      padding: .6rem .5rem;
+        padding: .6rem .5rem;
     }
-  }
-  
-  @media (max-width: 70rem) {  /**1120**/
+}
+
+@media (max-width: 70rem) {
+    /**1120**/
     .imgBx {
-      display: none;
+        display: none;
     }
     .form-container {
-      margin-top: 1rem;
-      grid-column: 3/ 11;
+        margin-top: 1rem;
+        grid-column: 3/ 11;
     }
     .form-container img {
-      width: 190px;
+        width: 190px;
     }
     .section-registro {
-      display: block;
+        display: block;
     }
     .container-icon-search {
-      padding: 1rem .5rem;
+        padding: 1rem .5rem;
     }
     .titles-categories {
-      padding: 0.5rem;
-      gap: .5rem;
+        padding: 0.5rem;
+        gap: .5rem;
     }
     .categories,
     .categories p {
-      font-size: 11px;
+        font-size: 11px;
     }
-  }
-  
-  @media (min-width: 768px) and (max-width: 1024px) {
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
     .input-search {
-      width: 12rem;
+        width: 12rem;
     }
     .icon-logo {
-      display: none;
+        display: none;
     }
     .fa-search {
-      font-size: 100%;
-      right: 4%;
+        font-size: 100%;
+        right: 4%;
     }
-  }
-  
-  @media (min-width: 80rem) { /** 1280px **/
+}
+
+@media (min-width: 80rem) {
+    /** 1280px **/
     .side-navigation {
-      justify-content: space-around;
+        justify-content: space-around;
     }
     .input-search {
-      width: 16rem;
+        width: 16rem;
     }
     .container-icon-search {
-      padding: 1rem 1rem;
-      /* width: 5%; */
+        padding: 1rem 1rem;
+        /* width: 5%; */
     }
     .categories {
-      font-size: 12px;
+        font-size: 12px;
     }
     .icon-logo {
-      display: none;
+        display: none;
     }
-  }
+}

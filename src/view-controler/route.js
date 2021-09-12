@@ -5,7 +5,7 @@ import { addEventRegisterUserGoogle } from '../db/signup-google.js';
 import { addEventRegisterUserFacebook } from '../db/signup-facebook.js';
 import { addEventResetPassword } from '../db/reset-password.js';
 import { addEventsTimeLine } from '../db/muro.js';
-import { addEventLogin } from '../db/login.js'
+import { addEventLogin, addEventLoginWithGoogle } from '../db/login.js'
 
 const changeView = (route) => {
     const containerMain = document.querySelector('#container-main');
@@ -15,6 +15,7 @@ const changeView = (route) => {
             {
                 const viewLogin = containerMain.appendChild(components.login());
                 addEventLogin();
+                addEventLoginWithGoogle();
                 return viewLogin;
             }
         case '#/signup':
@@ -25,25 +26,25 @@ const changeView = (route) => {
                 addEventRegisterUserFacebook();
                 return viewRegistro;
             }
-            case '#/forgetPassword':
-                {
-                    const viewForgetPassword = containerMain.appendChild(components.forgetPassword());
-                    const testReset = containerMain.querySelector('.main-box');
-                    addEventResetPassword(testReset);
-                    return viewForgetPassword;
-                }
-        case '#/timeline': {
-            firebase.auth().onAuthStateChanged((user) => {
-                if (user) {
-                    const viewTimeLine = containerMain.appendChild(components.timeLine());
-                    addEventsTimeLine();
-                    return viewTimeLine;
-                } else {
-                    window.location.href = "";
-                }
-            });
-        }
-        break;
+        case '#/forgetPassword':
+            {
+                const viewForgetPassword = containerMain.appendChild(components.forgetPassword());
+                addEventResetPassword();
+                return viewForgetPassword;
+            }
+        case '#/timeline':
+            {
+                firebase.auth().onAuthStateChanged((user) => {
+                    if (user) {
+                        const viewTimeLine = containerMain.appendChild(components.timeLine());
+                        addEventsTimeLine();
+                        return viewTimeLine;
+                    } else {
+                        window.location.href = '';
+                    }
+                });
+            }
+            break;
         default:
             { return containerMain.appendChild(components.error()); }
     }

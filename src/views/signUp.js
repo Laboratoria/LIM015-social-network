@@ -61,7 +61,7 @@ export default () => {
                     <div class="form-group section-registro">
                         <div class="container-group-checkbox">
                             <label class="text-muted">¿Ya te registraste?</label>
-                            <a href="#/" class="link-primary">Inicia Sesión</a>
+                            <a href="" class="link-primary">Inicia Sesión</a>
                         </div>
                     </div>
 

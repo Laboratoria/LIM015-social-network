@@ -31,7 +31,7 @@ const alerts = (type, message) => {
     setTimeout(function() {
         containerAlert.style.display = "none";
         containerAlert.classList.remove(type + '-msg');
-    }, 4000);
+    }, 4500);
 
 }
 

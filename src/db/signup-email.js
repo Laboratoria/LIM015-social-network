@@ -19,8 +19,8 @@ const addEventRegisterUser = () => {
         firebase.auth().createUserWithEmailAndPassword(email, password)
             .then((userCredential) => {
                 alertProcess(false); //ocultamos alerta con gif
-                alerts('success', 'registro exitoso') //mostramos alerta de exito
-                console.log(userCredential); // tiene redirige a inicio
+                alerts('success', 'Bienvenido') //mostramos alerta de exito
+                console.log(userCredential);
                 window.location.href = "#/timeline";
             }).catch((error) => {
                 alertProcess(false);

@@ -17,7 +17,7 @@ export default () => {
             </section>
             <section class="title-turn-off">
                 <i class="fas fa-sign-out-alt"></i>
-                <p>Salir</p>
+                <p id="logout">Salir</p>
             </section>
             <section class="user-information">
                 <p>Nombre</p>

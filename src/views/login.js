@@ -37,8 +37,7 @@ export default () => {
                 <a href="#/forgetPassword" class="link-primary">¿Olvidó su Contraseña?</a>
             </div>
         </div>
-
-
+        
         <div class="form-group">
             <button type="submit" id="btn-login" class="form-submit btn btn-primary"> INICIAR SESION </button>
         </div>
