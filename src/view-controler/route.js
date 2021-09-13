@@ -28,25 +28,31 @@ const changeView = (route) => {
                 addEventRegisterUserFacebook();
                 return viewRegistro;
             }
-        case '#/forgetPassword':
-            {
-                const viewForgetPassword = containerMain.appendChild(components.forgetPassword());
-                addEventResetPassword();
-                return viewForgetPassword;
-            }
-        case '#/timeline':
-            {
+
+            case '#/forgetPassword':
+                {
+                    const viewForgetPassword = containerMain.appendChild(components.forgetPassword());
+                    addEventResetPassword();
+                    return viewForgetPassword;
+                }
+            case '#/timeline': {
                 firebase.auth().onAuthStateChanged((user) => {
                     if (user) {
                         const viewTimeLine = containerMain.appendChild(components.timeLine());
+                        const firstChild = viewTimeLine.firstChild;
+                        viewTimeLine.insertBefore(components.header(), firstChild);
                         addEventsTimeLine();
                         return viewTimeLine;
                     } else {
+<<<<<<< HEAD
                         window.location.href = '/';
+=======
+                        window.location.href = "";
+>>>>>>> 738e0eb2faffc57710248f6a2e46790ba1e7c94d
                     }
                 });
             }
-            break;
+        break;
         default:
             { return containerMain.appendChild(components.error()); }
     }
