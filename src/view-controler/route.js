@@ -5,17 +5,19 @@ import { addEventRegisterUserGoogle } from '../db/signup-google.js';
 import { addEventRegisterUserFacebook } from '../db/signup-facebook.js';
 import { addEventResetPassword } from '../db/reset-password.js';
 import { addEventsTimeLine } from '../db/muro.js';
-import { addEventLogin, addEventLoginWithGoogle } from '../db/login.js'
+import { addEventLogin } from '../db/login.js'
 
 const changeView = (route) => {
     const containerMain = document.querySelector('#container-main');
     containerMain.innerHTML = '';
     switch (route) {
+        case '/':
         case '':
             {
                 const viewLogin = containerMain.appendChild(components.login());
                 addEventLogin();
-                addEventLoginWithGoogle();
+                addEventRegisterUserGoogle();
+                addEventRegisterUserFacebook();
                 return viewLogin;
             }
         case '#/signup':
@@ -27,14 +29,15 @@ const changeView = (route) => {
                 return viewRegistro;
             }
 
-            case '#/forgetPassword':
-                {
-                    const viewForgetPassword = containerMain.appendChild(components.forgetPassword());
-                    addEventResetPassword();
-                    return viewForgetPassword;
-                }
-            case '#/timeline': {
-                firebase.auth().onAuthStateChanged((user) => {
+        case '#/forgetPassword':
+            {
+                const viewForgetPassword = containerMain.appendChild(components.forgetPassword());
+                addEventResetPassword();
+                return viewForgetPassword;
+            }
+        case '#/timeline':
+            {
+                firebase.auth().onAuthStateChanged((user) => { //funcion para verificar si esta logueado
                     if (user) {
                         const viewTimeLine = containerMain.appendChild(components.timeLine());
                         const firstChild = viewTimeLine.firstChild;
@@ -42,11 +45,11 @@ const changeView = (route) => {
                         addEventsTimeLine();
                         return viewTimeLine;
                     } else {
-                        window.location.href = "";
+                        window.location.href = '/';
                     }
                 });
             }
-        break;
+            break;
         default:
             { return containerMain.appendChild(components.error()); }
     }

@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 import { alerts } from '../alerts/alerts.js';
+import { saveUser } from './collections/register-user.js';
 
 const addEventRegisterUserGoogle = () => {
     const btnGoogle = document.querySelector('#google');
@@ -7,16 +8,13 @@ const addEventRegisterUserGoogle = () => {
         e.preventDefault();
 
         const provider = new firebase.auth.GoogleAuthProvider();
+        const email = provider.addScope('email');
+        console.log('this', email);
         firebase.auth().signInWithPopup(provider)
             .then((result) => {
                 /** @type {firebase.auth.OAuthCredential} */
-                const credential = result.credential;
-                const token = credential.accessToken;
-                // The signed-in user info.
-                const user = result.user;
-                const avatar = result.user.photoURL; //almacenar en la BD
-                console.log(token, user, avatar)
                 alerts('success', 'Bienvenido') //mostramos alerta de exito
+                saveUser([email, result.displayName, result.user.photoURL]);
                 window.location.href = "#/timeline";
                 // ...
             }).catch((error) => {

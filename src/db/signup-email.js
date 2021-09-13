@@ -1,5 +1,6 @@
 import { validInput, limpiar } from '../validations/validInputs.js'
 import { alerts, alertProcess } from '../alerts/alerts.js';
+import { saveUser } from './collections/register-user.js';
 
 const addEventRegisterUser = () => {
     const formRegister = document.querySelector('#form-registro');
@@ -15,12 +16,14 @@ const addEventRegisterUser = () => {
         limpiar(['nameUser', 'email', 'password', 'confirmPassword']); //limpiamos mensajes span 
         const email = inputEmail.value;
         const password = inputPassword.value;
+        const nameuser = inputName.value;
         // eslint-disable-next-line no-undef
         firebase.auth().createUserWithEmailAndPassword(email, password)
             .then((userCredential) => {
                 alertProcess(false); //ocultamos alerta con gif
-                alerts('success', 'Bienvenido') //mostramos alerta de exito
                 console.log(userCredential);
+                saveUser([email, nameuser, 'user.jpg']); //almacenar en firestore los datos del usuario
+                alerts('success', 'Bienvenido') //mostramos alerta de exito
                 window.location.href = "#/timeline";
             }).catch((error) => {
                 alertProcess(false);
