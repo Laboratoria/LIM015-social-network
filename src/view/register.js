@@ -59,7 +59,7 @@ const viewRegister =()=>{
     `;
 
  
-  const sectionRegister=document.createElement('section');
+  const sectionRegister = document.createElement('section');
   sectionRegister.classList.add("registerSection");
 
   sectionRegister.innerHTML=htmlRegister;

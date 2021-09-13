@@ -1,5 +1,4 @@
-
-import { components } from '../View/indexView.js'
+import { components } from '../view/indexView.js'
 
 
 const changeView=(route) => {

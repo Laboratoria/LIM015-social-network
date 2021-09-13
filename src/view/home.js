@@ -1,4 +1,4 @@
-// import  {viewHeader} from '../View/header.js'
+// import  {viewHeader} from '../view/header.js'
 // const header = viewHeader();
 const viewHome =()=>{
 
