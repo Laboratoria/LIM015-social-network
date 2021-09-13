@@ -4,7 +4,7 @@ import { viewRegister } from './register.js'
 import { viewHome } from './home.js'
 import { viewProfile } from './profile.js'
 import { view404 } from './Err404.js'
-import { viewHeader } from '../view/header.js'
+import  {viewHeader} from '../view/header.js'
 
 
 const components={
