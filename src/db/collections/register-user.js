@@ -1,12 +1,12 @@
-const saveUser = (email, nameuser) => {
+const saveUser = (infoUser) => {
     // eslint-disable-next-line no-undef
     var db = firebase.firestore();
     db.collection("users").add({
-            email,
-            nameuser,
-            "cover": "default.png",
-            "description": "Cuéntanos un poco sobre ti. ¡Nos encantaría conocerte más!",
-            "profile": "default.jpg"
+            "email": infoUser[0],
+            "nameuser": infoUser[1],
+            "photouser": infoUser[2],
+            "photocover": "default.png", //portada
+            "description": "Cuéntanos un poco sobre ti",
         }).then(() => {
             console.log("Document successfully written!");
         })

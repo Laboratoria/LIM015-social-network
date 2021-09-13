@@ -22,7 +22,7 @@ const addEventRegisterUser = () => {
             .then((userCredential) => {
                 alertProcess(false); //ocultamos alerta con gif
                 console.log(userCredential);
-                saveUser(email, nameuser);
+                saveUser([email, nameuser, 'user.jpg']); //almacenar en firestore los datos del usuario
                 alerts('success', 'Bienvenido') //mostramos alerta de exito
                 window.location.href = "#/timeline";
             }).catch((error) => {
