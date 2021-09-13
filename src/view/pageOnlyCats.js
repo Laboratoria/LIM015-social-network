@@ -5,30 +5,55 @@ export const pageOnlyCats = () => {
   const pageOcView = `
   <div class="page-container">
     <header class = "header-container">
-      <img src="./img/only-cats.png" "alt='only-cats' class="home-title">
+      <img src="./img/only-cats.png" "alt='only-cats' class="page-title">
     </header>
     <aside class="labels-container">
-      <div>Meme</div>
-      <div>Meme</div>
-      <div>Meme</div>
+      <section>
+        <div class="container-img-label">
+          <img src="./img/gato-comida.jpg" "alt='picture' class="label-page">
+        </div>
+      </section>
+      <section>
+        <div class="container-img-label">
+          <img src="./img/meme-gato.jpg" "alt='picture' class="label-page">
+        </div>
+      </section>
+      <section>
+        <div class="container-img-label">
+          <img src="./img/vet-gato.jpg" "alt='picture' class="label-page">
+        </div>
+      </section>
     </aside>
-    <main class="posts-container">
-      <article>
-        <div>image</div>
-        <div>Nombre de la imagen</div>
-        <textarea class="text-input"></textarea>
-        <div class="published-text"></div>
-        <button class="post-button">Publicar</button>
+    <main class="background-posts">
+      <article class="profile-post">
+        <section class="container-photo">
+            <img src="./img/michael.jpg" "alt='picture' class="profile-photo">
+        </section>
+        <section class="section-post">
+          <p class="name-input"> Michael Scott </p>
+          <textarea class="text-input"></textarea>
+          <div>
+            <button class="post-button">Publicar</button>
+          </div>
+        </section>
       </article>
-      <article>bla bla bla</article>
+      
+      <article class="other-post">
+        <section class="container-photo">
+          <img src="./img/michael.jpg" "alt='picture' class="profile-photo">
+        </section>
+        <section class="section-post">
+          <p class="name-input"> Michael Scott </p>
+          <div class="text-output">Loakkamdlasm dlsamdiawoas dasdasd sadada asdasdfu</div>
+          <div>
+            <button class="post-button">like</button>
+          </div>
+        </section>
+      <article>
     </main>
     <aside >
-     
         <button class="sign-out"> salir</button>
-     
     </aside>
-    <h2> Bienvenidx a OnlyCats </h2> <br>
-   
   </div>`;
   const sectionElement = document.createElement('section');
   sectionElement.classList.add('container-box');
