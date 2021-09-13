@@ -20,14 +20,12 @@ global.firebase = firebasemock.MockFirebaseSdk(
   //() => mockfirestore,
 );
 
-const users = {
-  email: "ben@example.com",
-  password: "examplePass",
-};
+const users = {isAnonymous: false, providerData: [{providerId: "google.com"}]}
+  
 
 describe("registerEmail", () => {
   it('craer una cuenta con  correo:elopezvalerin@gmail.com y email:elopezvalerin@gmail.com y contraseña"Nino-124"', () => {
-    registerEmail("elopezvalerin@gmail.com", "Nino-124").then((user) => {
+    return registerEmail("elopezvalerin@gmail.com", "Nino-124").then((user) => {
       expect(user.email).toBe("elopezvalerin@gmail.com");
       expect(user.password).toBe("Nino-124");
     });
@@ -36,24 +34,26 @@ describe("registerEmail", () => {
 
 describe("loginEmail", () => {
   it('ingresar a la cuenta con un  correo:.com y email:elopezninos@gmail.com y contraseña"vaca-124"', () => {
-    loginEmail("elopezninos@gmail.com", "vaca-124").then((user) => {
+   return  loginEmail("elopezninos@gmail.com", "vaca-124").then((user) => {
+     // console.log({user});
       expect(user.email).toBe("elopezninos@gmail.com");
     });
   });
 });
 
 describe("loginGoogle", () => {
-  it("ingresar a la cuenta con una cuenta existente en google de correo:ben@example.com", () => {
-    loginGoogle(users.email, users.password).then((user) => {
-      expect(user).toEqual(users);
+  it("ingresar a la cuenta con una cuenta existente en google de correo:ninoska133333@gmail.com", () => {
+   return loginGoogle().then((data) => {
+    console.log({data});
+    expect(data).toEqual(users);//contenga
     });
   });
 });
 
 describe("signOut", () => {
   it("permite cerrar sesion de una cuenta abierta", () => {
-    signOut().then((user) => {
-      expect(user).toEqual("llore a mares ");
+    return signOut().then((user) => {
+      expect(user).toEqual(undefined);
     });
   });
 });
