@@ -6,24 +6,36 @@ export const signIn = () => {
       <figure class='container-img'>
         <img class='cat-gif' src='https://i.pinimg.com/originals/35/ce/9f/35ce9f85da291b4c1c504d8cbd37e8ee.gif'>
       </figure>
-    <div class='container-form'>
-      <form id='signin-form' action='' class='form'>
-        <div class='form-div'>
-          <input class='form-input' type='email' id='signin-email' placeholder=" "  autocomplete=off required>
-          <label class='form-label'>Email</label>
-          <span class='error-email'></span>
-        </div>
 
-        <div class='form-div'>
-          <input class='form-input' type="password"  id="signin-password" placeholder=" " autocomplete=off required>
-          <label class='form-label'>Clave</label>
-          <span class='error-password'></span>
-        </div>
-        <div class='form-div'>
-          <input type="submit" id="start-button" class="form-button" value="Iniciar sesión">
-        </div>
-      </form>
-    </div>
+        <form id='signin-form' action=''>
+          <div class="input-div one">
+            <div class="i">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class='div'>
+              <input class='form-input' type='email' id='signin-email' placeholder=" "  autocomplete=off required>
+              <label class='form-label'>Email</label>
+            </div>
+          </div>
+          <span class="error-email"></span>
+
+          <div class="input-div one">
+            <div class="i">
+              <i class="fas fa-lock"></i>
+            </div>
+            <div class='div'>
+              <input class='form-input' type="password"  id="signin-password" placeholder=" " autocomplete=off required>
+              <label class='form-label'>Contraseña</label>
+            </div>
+          </div>
+          <p class="error-password"></p>
+
+          <div class='form-div'>
+            <input type="submit" id="start-button" class="form-button" value="Iniciar sesión">
+          </div>
+        </form>
+
+
       <ul class="home-list">
         <li class="signin-access-items">
          <button class="google-button"> <a id="signin-google" href="#/google">Acceder con Google</a></button>
@@ -32,7 +44,6 @@ export const signIn = () => {
           <span>¿No tienes cuenta?</span><a class="sgn" href="#/signup">Create una</a>
         </li>
       </ul>
-
     </div>`;
 
   const sectionElement = document.createElement('div');

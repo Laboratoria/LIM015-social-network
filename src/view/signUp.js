@@ -7,25 +7,47 @@ export const signUp = () => {
     <div  class="home-container">
       <h2 class="signup-register">Regístrate</h2>
       <form id="signup-form" class="signin-form">
-        <div class="form-div">
-          <input class="input" id="signup-username" type="text" placeholder="Nombre de usuario"><br>
+        <div class="input-div one">
+            <div class="i">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class='div'>
+              <input class='form-input' type='text' id="signup-username" placeholder=" "  autocomplete=off required>
+              <label class='form-label'>Usuario</label>
+            </div>
+        </div>
           <span class="error-username"></span>
+
+        <div class="input-div one">
+          <div class="i">
+            <i class="fas fa-user"></i>
+          </div>
+          <div class='div'>
+            <input class='form-input' type='email' id="signup-email" placeholder=" "  autocomplete=off required>
+            <label class='form-label'>Correo electronico</label>
+          </div>
         </div>
-        <div class="form-div">
-          <input class="input" id="signup-email" type="email" placeholder="Correo electrónico" required><br>
-          <span class="error-email"></span>
+        <span class="error-email"></span>
+
+        <div class="input-div one">
+          <div class="i">
+            <i class="fas fa-lock"></i>
+          </div>
+          <div class='div'>
+            <input class='form-input' type='password' id="signup-password" placeholder=" "  autocomplete=off required>
+            <label class='form-label'>Contraseña</label>
+          </div>
         </div>
-        <div class="form-div">
-          <input class="input" id="signup-password" type="password" placeholder="Contraseña"><br>
-          <span class="error-password"></span>
+        <span class="error-password"></span>
+
+        <div class='form-div'>
+        <input type="submit" id="create-account"" class="form-button" value="Crear cuenta">
         </div>
-        <button class="create-button" type="submit" id="create-account">
-          Crear cuenta
-        </button>
       </form>
+
       <ul class="home-list">
         <li class="signin-access-items">
-          <span>¿Tiene cuenta?</span><a class="sgn" href="#/signin"> Inicia con ella</a>
+          <span>¿Tienes cuenta?</span><a class="sgn" href="#/signin"> Inicia con ella</a>
         </li>
       </ul>
     </div>`;
