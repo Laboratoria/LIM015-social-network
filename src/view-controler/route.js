@@ -5,17 +5,19 @@ import { addEventRegisterUserGoogle } from '../db/signup-google.js';
 import { addEventRegisterUserFacebook } from '../db/signup-facebook.js';
 import { addEventResetPassword } from '../db/reset-password.js';
 import { addEventsTimeLine } from '../db/muro.js';
-import { addEventLogin, addEventLoginWithGoogle } from '../db/login.js'
+import { addEventLogin } from '../db/login.js'
 
 const changeView = (route) => {
     const containerMain = document.querySelector('#container-main');
     containerMain.innerHTML = '';
     switch (route) {
+        case '/':
         case '':
             {
                 const viewLogin = containerMain.appendChild(components.login());
                 addEventLogin();
-                addEventLoginWithGoogle();
+                addEventRegisterUserGoogle();
+                addEventRegisterUserFacebook();
                 return viewLogin;
             }
         case '#/signup':
@@ -40,7 +42,7 @@ const changeView = (route) => {
                         addEventsTimeLine();
                         return viewTimeLine;
                     } else {
-                        window.location.href = '';
+                        window.location.href = '/';
                     }
                 });
             }

@@ -51,11 +51,11 @@ export default () => {
                     </div>
 
                     <div class="form-group">
-                        <button id="facebook" class="btn btn-outline-default"> <i class="fab fa-facebook fb"></i><label for="facebook">Ingresar con Facebook</label> </button>
+                        <button id="facebook" class="btn btn-outline-default"> <i class="fab fa-facebook fb"></i><label for="facebook">Registrase con Facebook</label> </button>
                     </div>
 
                     <div class="form-group">
-                        <button id="google" class="btn btn-outline-default"> <i class="fab fa-google go"></i> <label for="google">Ingresar con Google</label> </button>
+                        <button id="google" class="btn btn-outline-default"> <i class="fab fa-google go"></i> <label for="google">Registrarse con Google</label> </button>
                     </div>
 
                     <div class="form-group section-registro">

@@ -21,12 +21,13 @@
     <script src="https://kit.fontawesome.com/99e095b5b2.js" crossorigin="anonymous"></script>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
 
-    <!-- TODO: Add SDKs for Firebase - Auth -->
-    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+    <!-- TODO: Add SDKs for Firebase - Auth and FireStore-->
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
     <script>
-        /* const firebaseConfig = {
+        const firebaseConfig = {
             apiKey: "AIzaSyAc4XUC_W1RUcMO7cLEcIPg8hdGrLLg2cA",
             authDomain: "courseshare-d9226.firebaseapp.com",
             projectId: "courseshare-d9226",
@@ -34,8 +35,8 @@
             messagingSenderId: "273350510592",
             appId: "1:273350510592:web:102138eb1d3211e08770e5"
 
-        }; */
-        /* ----- Diana modified----- */
+        };
+        /* ----- Diana modified----- 
         const firebaseConfig = {
             apiKey: "AIzaSyBOj1gmsDHJuxqpdDzFDnsnm9XGk0xWBbM",
             authDomain: "test-resetpassword.firebaseapp.com",
@@ -43,7 +44,7 @@
             storageBucket: "test-resetpassword.appspot.com",
             messagingSenderId: "716386061586",
             appId: "1:716386061586:web:a25d47054e86c872acb7cb"
-        };
+        };*/
         // Initialize Firebase and auth
         firebase.initializeApp(firebaseConfig);
     </script>
