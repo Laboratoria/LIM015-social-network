@@ -7,21 +7,31 @@
     font-family: 'Roboto Condensed', sans-serif;
 }
 body{
-    background: radial-gradient(65.04% 80.82% at 26.98% 33.73%, #FBFBFC 14.88%, #FBF6CC 36.78%, #FFCCDE 74.89%, #B9AEEB 97.92%);
+    background: radial-gradient(
+        65.04% 80.82% at 26.98% 33.73%,
+        #FBFBFC 14.88%, 
+        #e1dcb1 36.78%, 
+        #df9bb4 74.89%, 
+        #a398d6 97.92%
+    );
 }
 .container-box{
     margin: 30px 25px;
-    background: rgba(254, 252, 252, 0.36);
-    border-radius:30px;
+    background: linear-gradient(
+        to right bottom,
+        rgba(255,255,255,0.9),
+        rgba(255,255,255,0.2)
+    );
+    border-radius:14px;
 }
+
 .home-container{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 5px solid #ffffff;
     box-shadow: 20px 20px 25px rgba(0, 0, 0, 0.25);
-    border-radius:30px;
+    border-radius: 14px;
     height: 100vh;
     height:  calc(100vh - 60px);
 }
@@ -134,25 +144,7 @@ body{
     transform: scale(1.1);
     cursor: pointer;
 }
-.create-button{
-    text-decoration: none;
-    font-weight:700;
-    font-size: 17px;
-    color: #433CA7;
-    padding: 15px 0px;
-    width: 200px;
-    border:0;
-    border-radius:10px;
-    background: linear-gradient(
-        to right bottom,
-        rgba(255,255,255,0.7),
-        rgba(255,255,255,0.3)
-    );
-}
-.create-button:hover{
-    box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.25);
-    cursor: pointer;
-}
+
 .signin-access-items{
     text-align: center;
     text-decoration: none;
@@ -179,7 +171,6 @@ body{
 }
 .message-error{
     color: #433CA7;
-
 }
 
 /* Form */
@@ -301,39 +292,102 @@ a{
 span{
     color: rgb(75, 73, 73);
 }
-/* .elipse{
-    position: absolute;
-    z-index: -10;
-    width: 180px;
-    height: 150px;
-    border-radius: 50%;
-    left: 70px;
-    top: 90px;
-    background: radial-gradient(148.89% 74.77% at 7.79% 86.89%, #F0DD32 13.02%, rgba(161, 247, 153, 0.61) 77.08%);
-    filter: blur(30px);
-    transform: rotate(-20deg);
+.page-container{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 55px 60px auto;
+    border-radius: 14px;
+    box-shadow: 20px 20px 25px rgba(0, 0, 0, 0.25);
+    gap:10px;
+    height: 100vh;
+    height:  calc(100vh - 60px);
 }
-.elipse2{
-    position: absolute;
-    z-index: -10;
-    width: 635px;
-    height: 400px;
-    right: -450px;
-    border-radius: 50%;
-    top: 100px;
-    background: radial-gradient(75.41% 72.02% at 56.32% 49.94%, #F7F9B3 4.81%, #F8D5CE 41.79%, #A274EE 95.31%);
-    filter: blur(40px);
-    transform: rotate(-55deg);
+.header-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.elipse3{
-    position: absolute;
-    z-index: -10;
-    width: 410px;
-    height: 250px;
-    left: -20vh;
-    top: 70vh;
+.page-title{
+    padding-top:5px ;
+    padding-left: 10px;
+    width: 12vw;
+    min-width: 130px;   
+}
+
+.labels-container{
+    display: flex;
+    flex-direction: row ; 
+    align-items: center;
+    justify-content: space-evenly;
+}
+aside>section{
+    background-color:#3c43a7;
+    border-radius: 14px;
+    width: 26vw;
+    height: 60px;
+}
+.label-page{
+    width: 30px;
+}
+.background-posts{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.other-post,
+.profile-post{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 50vw;
+    min-width: 290px;
+    padding: 8px;
+    gap:10px;
+    background-color:#ffffff;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 14px;
+}
+.container-photo{
+    position: relative;
+    align-self: center;
+    width: 70px;
+    height:70px;
+    overflow: hidden;
     border-radius: 50%;
-    background: linear-gradient(0deg, #e48888, #F76A6A);
-    filter: blur(70px);
-    transform: rotate(-140.9deg);
-} */
+    background: rgb(227, 205, 255)
+} 
+.container-photo >.profile-photo {
+    width: 70px;
+    position:absolute;
+    left: -100%;
+    right: -100%;
+    top: -100%;
+    bottom: -100%;
+    margin: auto;
+}
+.section-post{
+    display:grid;
+    grid-template-columns: 1fr;
+}
+.name-input{
+
+    padding-bottom: 5px;
+}
+.text-output,
+.text-input{
+    width: 30vw;
+    min-width: 180px;
+    height: 60px;
+    border-radius: 10px;
+    resize: none;
+    outline: none;
+}
+.post-button{
+    background: #3c43a7;
+    border: none;
+    margin-top: 5px;
+    color:white;
+    height: 25px;
+}
+
