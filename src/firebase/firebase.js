@@ -14,35 +14,3 @@ export const initialization = () => {
 initialization();
 
 export const auth = firebase.auth();
-/* import { GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
-
-const googleProvider = new GoogleAuthProvider();
-const facebookProvider = new FacebookAuthProvider(); */
-
-//ojo
-/* import { getAuth, linkWithRedirect, GoogleAuthProvider } from "firebase/auth";
-const provider = new GoogleAuthProvider();
-
-export function registerUserNew(){
-  const auth = getAuth();
-  linkWithRedirect(auth.currentUser, provider)
-    .then (resolve => {
-      console.log("fue registrado")
-    })
-    .catch(function(err) {
-      console.log("error"+ err)
-    })
-  }
- */
-
-// const googleImg = document.querySelector('#fondo')
-// googleImg.addEventListener('click',  e => {
-//   e.preventDefault();
-//   const provider = new firebase.auth.GoogleAuthProvider();
-//   auth.singnInWithPopup(provider)
-//   .then (resolve => {
-//     console.log('registrado');
-//   })
-//   .catch(function(err) {
-//     console.log("error"+ err);
-// })

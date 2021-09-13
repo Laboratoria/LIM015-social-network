@@ -1,10 +1,12 @@
 import { components } from "../view/index.js";
 import { events, showLogin } from "../firebase/function.js";
-//import { google} from "../firebase/function.js";
-// import {components} from '../view/index.js';
+import { auth } from "../firebase/firebase.js";
+
+
+
+
 const changeView = (route) => {
-  // const sectionView= document.getElementById("container");
-  // console.log(sectionView);
+
   const container = document.getElementById("container");
   container.innerHTML = "";
   switch (route) {

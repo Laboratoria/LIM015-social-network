@@ -1,21 +1,4 @@
-// import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-//import { registerUserNew}from "../firebase/farebase.js";
-// export function resgisterUsuario{
-//     const auth = getAuth();
-//     createUserWithEmailAndPassword(auth, email, password1)
-//       .then((userCredential) => {
-//         if (userCredential==email){
-//             au
-//         }
-//         const user = userCredential.user;
-//         // ...
-//       })
-//       .catch((error) => {
-//         const errorCode = error.code;
-//         const errorMessage = error.message;
-//         // ..
-//       });
-// }
+
 import { auth } from "./firebase.js";
 
 //funcion que solo sirve para pintar los valores de emai y pasword
@@ -30,6 +13,23 @@ export function events() {
   });
 }
 
+export function registerValidation (email, password) {
+
+  auth.createUserWithEmailAndPassword(email, password)
+  .then((userCredential) => {
+    console.log(userCredential);
+    const user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.error("error"+ errorCode );
+  });
+}
+registerValidation("juanapinto@gmail.com","123456");
+
+
 export function showLogin() {
   const buttonLogin = document.querySelector("#btnGoogle");
   buttonLogin.addEventListener("click", async (e) => {
@@ -41,13 +41,6 @@ export function showLogin() {
   });
 }
 
-// export function google() {
-//     const googleLogin= document.querySelector("#logoGmail");
-//     googleLogin.addEventListener("click", (e) => {
-//         console.log('inicio google');
-
-//     })
-// }
 const provider = new firebase.auth.GoogleAuthProvider();
 
 export async function login() {
