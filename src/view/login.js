@@ -18,32 +18,16 @@ export default () => {
       <button type="submit" id="btnsignin" class="btn">signin</button>  
       </div>
       </div>
-    <a href="#/home">Login</a>
     <p>You can also enter with</p>
     <img src="img/face.png" width="40" height="40" class="logoFace">
+    <div id="btnGoogleLogin">
     <button id="btnGoogle">Google</button>
+    </div>
     <input type="image" src="img/gmail.png" style= "width:40px; height:40px"; class="logoGmail" id="logoGmail">
     <p>¿You do not have an account?<a href="#/register">register</a></p>
-    //</div>
+    </div>
     </form>`;
   const divElem = document.createElement("div");
   divElem.innerHTML = viewLogin;
   return divElem;
 };
-
-// const buttonLogin=document.querySelector('#btnGoogle');
-// buttonLogin.addEventListener('click', async (e) =>{
-//     try{
-//         await login();
-//     }catch (error){
-//         console.log(error);
-//     }
-// });
-//const email= document.querySelector("#email").value;
-//console.log(email);
-//const password= document.querySelector("#password");
-//console.log(password);
-// const buttonSingnin= btnsignin.addEventListener("submit", (e)=>{
-//     e.preventDefault();
-//      console.log(buttonSingnin);
-//  })

@@ -18,14 +18,17 @@ export default () => {
         <input class="password" type="password" name="password1" id="password1" placeholder="Password">
       </div>
       <div id="registerInformation4">
-        <input class="password" type="password" name="password2" id="password2" placeholder="Password">
+        <input class="password" type="password" name="password2" id="password2" placeholder="Confir Password">
       </div>
       <div id="regbtn">
         <button id="btnRegister"type="button" class="btn">Register</button>
       </div>
-     // </div> 
+      </div> 
+      <a href="#/login">Login</a>
     </form> `;
   const divElem = document.createElement("div");
   divElem.innerHTML = viewRegister;
   return divElem;
 };
+
+//const registerButton = document.addEventListener("#btnRegister");
