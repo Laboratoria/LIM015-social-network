@@ -1,6 +1,6 @@
 import { validInput, limpiar } from '../validations/validInputs.js'
 import { alerts, alertProcess } from '../alerts/alerts.js';
-import { saveUser } from './collections/register-user.js';
+import { saveUser } from './CRUD/CREATE/register-user.js';
 
 const addEventRegisterUser = () => {
     const formRegister = document.querySelector('#form-registro');
