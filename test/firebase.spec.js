@@ -1,5 +1,5 @@
 // eslint-disable-next-line object-curly-newline
-import { createUser, registerGoogle, emailVerification, signInUser } from '../src/firebase/firebase-functions.js';
+import { createUser, registerGoogle, emailVerification, signInUser, signOutUser } from '../src/firebase/firebase-functions.js';
 
 const firebasemock = require('firebase-mock');
 
@@ -42,6 +42,13 @@ describe('emailVerification', () => {
   it('debería ser una función', () => {
     expect(typeof emailVerification).toBe('function');
   });
+  it('Debería enviar un email de verificación', () => {
+    const verificationMock = jest.fn();
+    firebase.auth().currentUser.sendEmailVerification = verificationMock;
+    emailVerification();
+    expect(verificationMock).toHaveBeenCalled();
+    expect(verificationMock.mock.calls).toHaveLength(1);
+  });
 });
 
 describe('signInUser', () => {
@@ -51,5 +58,15 @@ describe('signInUser', () => {
   it('Debería ingresar el email miau@gmail.com', () => signInUser('miau@gmail.com', '123456')
     .then((user) => {
       expect(user.email).toBe('miau@gmail.com');
+    }));
+});
+
+describe('signOutUser', () => {
+  it('debería ser una función', () => {
+    expect(typeof signOutUser).toBe('function');
+  });
+  it('Debería poder salir de la sesion', () => signOutUser()
+    .then((user) => {
+      expect(user).toBe(undefined);
     }));
 });

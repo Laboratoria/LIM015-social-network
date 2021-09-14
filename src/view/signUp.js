@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable no-console */
 import { createUser, emailVerification } from '../firebase/firebase-functions.js';
 
@@ -76,9 +77,13 @@ export const signUp = () => {
     } else {
       createUser(signupEmail, signupPassword)
         .then(() => {
-          emailVerification();
-          window.location.hash = '#/signin';
-          console.log('registrado');
+          emailVerification().then(() => {
+            window.alert('Verification send');
+            window.location.hash = '#/signin';
+            console.log('registrado');
+          }).catch((error) => {
+            console.log(error);
+          });
         })
         .catch((error) => {
           const errorCode = error.code;
