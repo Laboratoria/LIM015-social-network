@@ -15,8 +15,8 @@ export default () => {
         <section class="title-turn-off">
             <a href="" id="logout" class="title-turn-off">  <i class="fas fa-sign-out-alt"></i> <span>Salir</span> </a>
         </section>
-        <section class="user-information">
-            <a href="#/profile" id="logout" class="user-information">  <span> Nombre </span> <img class="avatar avatar-sm" src="" alt="img-user"> </a>
+        <section class="user-information" id="user-info">
+           
         </section>
     </div>
     `;
