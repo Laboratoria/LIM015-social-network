@@ -6,7 +6,8 @@ import { addEventRegisterUserFacebook } from '../db/signup-facebook.js';
 import { addEventResetPassword } from '../db/reset-password.js';
 import { addEventsTimeLine } from '../db/muro.js';
 import { addEventLogin } from '../db/login.js'
-import { readInfoUser } from '../db/CRUD/readInfoUser.js'
+import { readInfoUser } from '../db/crud/readInfoUser.js'
+
 
 const changeView = (route) => {
     const containerMain = document.querySelector('#container-main');
