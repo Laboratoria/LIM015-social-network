@@ -2,6 +2,7 @@ import { validInput, limpiar } from '../validations/validInputs.js'
 import { alerts, alertProcess } from '../alerts/alerts.js';
 import { saveUser } from './crud/createUser.js';
 
+
 const addEventRegisterUser = () => {
     const formRegister = document.querySelector('#form-registro');
     const inputName = document.querySelector('#nameUser');

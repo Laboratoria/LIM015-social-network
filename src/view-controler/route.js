@@ -6,6 +6,7 @@ import { addEventRegisterUserFacebook } from '../db/signup-facebook.js';
 import { addEventResetPassword } from '../db/reset-password.js';
 import { addEventsTimeLine } from '../db/muro.js';
 import { addEventLogin } from '../db/login.js'
+import { readInfoUser } from '../db/CRUD/READ/infoUser.js'
 
 const changeView = (route) => {
     const containerMain = document.querySelector('#container-main');
@@ -42,6 +43,7 @@ const changeView = (route) => {
                         const viewTimeLine = containerMain.appendChild(components.timeLine());
                         const firstChild = viewTimeLine.firstChild;
                         viewTimeLine.insertBefore(components.header(), firstChild);
+                        readInfoUser();
                         addEventsTimeLine();
                         return viewTimeLine;
                     } else {

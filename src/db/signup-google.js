@@ -2,6 +2,7 @@
 import { alerts } from '../alerts/alerts.js';
 import { saveUser } from './crud/createUser.js';
 
+
 const addEventRegisterUserGoogle = () => {
     const btnGoogle = document.querySelector('#google');
     btnGoogle.addEventListener('click', (e) => {
