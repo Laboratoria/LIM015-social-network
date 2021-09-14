@@ -7,6 +7,24 @@
     font-family: 'proxima-nova', sans-serif;
 }
 
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 515;
+    line-height: 1.2;
+    color: #253241;
+}
+
 .text-dark {
     color: #3e4b5b;
 }
@@ -260,6 +278,7 @@
 
 .eye {
     margin-left: 89%;
+    cursor: pointer;
     /*pendiente responsive*/
 }
 
@@ -304,7 +323,7 @@ input[type=checkbox] {
 
 input[type=checkbox]:checked {
     background-color: #FA5672;
-    border: none;
+    border: solid 1px #FA5672;
 }
 
 .container-checkbox label {
@@ -408,8 +427,408 @@ img {
     border-color: #28c76f!important;
 }
 
-.error-msg {
-    color: #fa3858;
+.msg {
     font-size: 12px;
     margin-top: 4px;
+}
+
+
+/**Alerts para notificaciones*/
+
+#container-alert {
+    position: absolute;
+    margin-top: 2%;
+    padding: 15px;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0px 3px 3px 0px rgb(202, 202, 202);
+    margin-left: 87%;
+    display: none;
+    color: #fff;
+}
+
+.error-msg {
+    background-color: #e74b3c;
+}
+
+.info-msg {
+    background-color: #3598dc;
+}
+
+.success-msg {
+    background-color: #01ba8e;
+}
+
+.process-msg {
+    background-color: #414141;
+}
+
+
+/* ------------Style of Forgot password -----DIANITA------- */
+
+.main-box {
+    grid-column: 5 / 9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.h2,
+.description {
+    text-align: center;
+}
+
+.box-img {
+    display: flex;
+    justify-content: center;
+}
+
+.imgPassword {
+    width: 10vw;
+    padding-bottom: 15px;
+}
+
+.img-left {
+    width: 50%;
+}
+
+.box-brand {
+    display: flex;
+    justify-content: center;
+}
+
+.brand {
+    width: 100%;
+    max-width: 200px;
+}
+
+.introduction {
+    padding: 5px;
+    font-size: 13px;
+    font-weight: 300;
+}
+
+.inputs-btn {
+    padding: 12px 243px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logoPassword {
+    width: 230px;
+    padding-left: 30px;
+}
+
+.volver {
+    text-align: center;
+    padding-top: 15px;
+}
+
+.msg-password {
+    color: #28c76f;
+    font-size: 12px;
+    margin-top: 7px;
+}
+
+.msg-password-error {
+    color: #fa3858;
+    font-size: 12px;
+    margin-top: 7px;
+}
+
+
+/** Grid Muro**/
+
+.container-home {
+    display: grid;
+    grid-template-columns: 
+        3% 22% 3% 67% 5%;
+    grid-template-areas: 
+        'header header          header      header      header'
+        '...... ......          ......      ......      ......'
+        '...... cont-categories ......      cont-posts  ......';
+    grid-template-rows: 10vh 5vh 85vh;
+    background-color: #fafafa;
+    /* border: solid 1px red; */
+}
+
+
+/** Navegación **/
+
+.header {
+    grid-area: header;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #ffffff;
+}
+
+.header>.logo {
+    margin-top: 10px;
+    flex-basis: 10%;
+    max-width: 16%;
+}
+
+
+/** Input de búsqueda **/
+
+.input-search {
+    display: table;
+    border-collapse: collapse;
+    width:25%;
+}
+
+.input-search > div {
+    display: table-cell;
+    vertical-align: middle;  /* needed for Safari */
+}
+
+.input-search input {
+    border-radius: 20px 0 0 20px;
+    border: none;
+    outline: none;
+    color: #6e6b7b;
+    background-color: #f5f5f5;
+    padding: .45rem 0 .45rem .8rem;
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.container-icon-search {
+    background-color: #FA5672;
+    border-radius: 0 20px 20px 0px;
+    padding: .2rem;
+    width: 10%;
+    text-align: center;
+}
+
+.fa-search {
+    color: #ffffff;
+}
+
+/**Sección lateral de navegación**/
+
+.side-navigation {
+    flex-basis: 35%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.title-posts,
+.title-turn-off,
+.user-information {
+    display: flex;
+    gap: 5%;
+}
+
+.title-turn-off,
+.user-information {
+    color: #9FA0A1;
+    text-decoration: none;
+}
+
+.title-posts {
+    color: #FA5672;
+    text-decoration: none;
+}
+
+
+/****** Avatar ******/
+
+.user-information {
+    display: flex;
+    align-items: center;
+}
+
+.avatar {
+    max-height: auto;
+    -o-object-fit: cover;
+    object-fit: cover;
+    border-radius: 50% !important;
+    border: solid 1px gray;
+}
+
+.avatar-sm {
+    width: 35px;
+    height: 35px;
+}
+
+.avatar-md {
+    width: 49px;
+    height: 49px;
+}
+
+.avatar-lg {
+    width: 70px;
+    height: 70px;
+}
+
+
+/** Categorías **/
+
+.container-section-categories {
+    grid-area: cont-categories;
+    display: grid;
+    grid-template-columns: 98%;
+    grid-template-areas: 'titles-categories' 'categories';
+    grid-template-rows: 4% 95%;
+    padding: 1.5rem 0rem;
+    background-color: #ffffff;
+    border-radius: 20px;
+}
+
+.titles-categories {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+    font-size: 65%;
+}
+
+.titles-categories h3:last-child,
+.content-category h4,
+.container-popular-posts span {
+    color: #F93878;
+    font-weight: lighter;
+}
+
+.categories {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 1rem;
+    overflow: auto;
+    margin-right: -5px;
+}
+
+/** Scroll Bar**/
+.categories::-webkit-scrollbar {
+    width: 5px;
+}
+
+.categories::-webkit-scrollbar:horizontal {
+    height: 0;
+}
+
+.categories::-webkit-scrollbar-thumb {
+    background: #FA5672;
+    border-radius: 30px;
+}
+
+.category {
+    width: 95%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.category img {
+    width: 60px;
+    height: 60px;
+    border-radius: 30%;
+    border: solid 1px gray;
+}
+
+.content-category {
+    line-height: 1.5;
+}
+
+
+/** Posts **/
+
+.container-section-post {
+    grid-area: cont-posts;
+    display: flex;
+    flex-direction: column;
+    padding: .9rem 0 0 1rem;
+    /* border: solid 1px blue; */
+}
+
+
+/** Popular posts**/
+
+.container-popular-posts {
+    width: 100%;
+}
+
+.container-popular-posts h2 {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.popular-posts {
+    padding: 1rem;
+    display: flex;
+    gap: 1.5rem;
+    border: solid 1px gray;
+    border-radius: 5px;
+}
+
+.card-post {
+    width: 250px;
+    height: 130px;
+    border-radius: 3%;
+    border: solid 1px #EEEEEE;
+    background-color: #FFFFFF;
+}
+
+
+/** Boton para crear publicación **/
+
+.create-publication button {
+    margin: 1rem 0 1rem 0;
+    padding: 1rem 0;
+    font-family: 'Nunito', sans-serif;
+    width: 100%;
+    font-size: 0.9rem;
+    background: linear-gradient(90.22deg, #FA5672 23.46%, #FE8996 64.13%);
+}
+
+.container-posts {
+    background-color: white;
+}
+
+
+/** Modal **/
+.backdrop {
+    background: rgba(0, 0, 0, 0.9);
+    height: 100%; /* 100vw */
+    width: 100%; /* */
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+.modal {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.content-modal {
+    position: fixed;
+    z-index: 2;
+    background-color: #ffffff;
+    width: 60%;
+    height: 50%;
+    left: 5vw;
+    top: 10vh;
+}
+
+.head-modal {
+    display: flex;
+}
+
+.head-modal > button {
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+}
+
+.modal:not(.revelar) {
+    display: none;
+}
+
+.modal.revelar {
+    display: block;
 }
