@@ -71,6 +71,5 @@ export const pageOnlyCats = () => {
         .catch((error) => (error));
     }
   });
-
   return sectionElement;
 };
