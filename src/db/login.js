@@ -14,9 +14,9 @@ const addEventLogin = () => {
         const password = inputPassword.value;
         // eslint-disable-next-line no-undef
         firebase.auth().signInWithEmailAndPassword(email, password)
-            .then((userCredential) => {
+            .then((result) => {
                 alertProcess(false); //ocultamos alerta con gif
-                console.log(userCredential.credential);
+                localStorage.setItem('iduser', result.user.uid); //almacenar el id en local
                 window.location.href = "#/timeline";
             })
             .catch((error) => {

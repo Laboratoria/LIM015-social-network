@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import { alerts } from '../alerts/alerts.js';
-import { saveUser } from './collections/register-user.js';
+import { saveUser } from './crud/createUser.js';
 
 const addEventRegisterUserGoogle = () => {
     const btnGoogle = document.querySelector('#google');
@@ -8,17 +8,14 @@ const addEventRegisterUserGoogle = () => {
         e.preventDefault();
 
         const provider = new firebase.auth.GoogleAuthProvider();
-        const email = provider.addScope('email');
-        console.log('this', email);
         firebase.auth().signInWithPopup(provider)
             .then((result) => {
-                /** @type {firebase.auth.OAuthCredential} */
+                localStorage.setItem('iduser', result.user.uid);
+                saveUser([result.user.uid, result.user.email, result.user.displayName, result.user.photoURL]);
                 alerts('success', 'Bienvenido') //mostramos alerta de exito
-                saveUser([email, result.displayName, result.user.photoURL]);
                 window.location.href = "#/timeline";
-                // ...
             }).catch((error) => {
-                const errorMessage = error.message;
+                const errorMessage = error.code;
                 alerts('error', errorMessage) //mostramos alerta de error 
             });
     })

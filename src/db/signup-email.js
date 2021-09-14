@@ -1,6 +1,6 @@
 import { validInput, limpiar } from '../validations/validInputs.js'
 import { alerts, alertProcess } from '../alerts/alerts.js';
-import { saveUser } from './collections/register-user.js';
+import { saveUser } from './crud/createUser.js';
 
 const addEventRegisterUser = () => {
     const formRegister = document.querySelector('#form-registro');
@@ -19,10 +19,10 @@ const addEventRegisterUser = () => {
         const nameuser = inputName.value;
         // eslint-disable-next-line no-undef
         firebase.auth().createUserWithEmailAndPassword(email, password)
-            .then((userCredential) => {
+            .then((result) => {
                 alertProcess(false); //ocultamos alerta con gif
-                console.log(userCredential);
-                saveUser([email, nameuser, 'user.jpg']); //almacenar en firestore los datos del usuario
+                saveUser([result.user.uid, email, nameuser, 'user.jpg']); //almacenar en firestore los datos del usuario
+                localStorage.setItem('iduser', result.user.uid); //almacenar el id en local
                 alerts('success', 'Bienvenido') //mostramos alerta de exito
                 window.location.href = "#/timeline";
             }).catch((error) => {

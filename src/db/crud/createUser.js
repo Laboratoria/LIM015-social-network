@@ -1,10 +1,10 @@
 const saveUser = (infoUser) => {
     // eslint-disable-next-line no-undef
-    var db = firebase.firestore();
-    db.collection("users").add({
-            "email": infoUser[0],
-            "nameuser": infoUser[1],
-            "photouser": infoUser[2],
+    const db = firebase.firestore();
+    db.collection("users").doc(infoUser[0]).set({
+            "email": infoUser[1],
+            "nameuser": infoUser[2],
+            "photouser": infoUser[3],
             "photocover": "default.png", //portada
             "description": "Cuéntanos un poco sobre ti",
         }).then(() => {
