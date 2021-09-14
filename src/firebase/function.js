@@ -9,25 +9,25 @@ export function events() {
     e.preventDefault();
     const signinEmail = document.querySelector(".email").value;
     const singnPassword = document.querySelector(".password").value;
-    console.log(signinEmail, singnPassword);
+    //console.log(signinEmail, singnPassword);
   });
 }
 
 export function registerValidation (email, password) {
-
   auth.createUserWithEmailAndPassword(email, password)
   .then((userCredential) => {
     console.log(userCredential);
     const user = userCredential.user;
     // ...
   })
+  
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
-    console.error("error"+ errorCode );
   });
+ 
 }
-registerValidation("juanapinto@gmail.com","123456");
+registerValidation( );
 
 
 export function showLogin() {
@@ -56,3 +56,8 @@ export async function login() {
 export function logout() {
   auth.signOut();
 }
+
+
+
+// export const registerWithEmail = (email, password) => firebase.auth()
+//   .createUserWithEmailAndPassword(email, password);

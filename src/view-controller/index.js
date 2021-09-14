@@ -2,11 +2,7 @@ import { components } from "../view/index.js";
 import { events, showLogin } from "../firebase/function.js";
 import { auth } from "../firebase/firebase.js";
 
-
-
-
 const changeView = (route) => {
-
   const container = document.getElementById("container");
   container.innerHTML = "";
   switch (route) {
@@ -33,4 +29,6 @@ const changeView = (route) => {
   }
   //console.log(route);
 };
+
+
 export { changeView };
