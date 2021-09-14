@@ -1,3 +1,5 @@
+/* eslint-disable no-restricted-globals */
+/* eslint-disable no-console */
 /* eslint-disable no-alert */
 import { signOutUser } from '../firebase/firebase-functions.js';
 
@@ -10,17 +12,14 @@ export const pageOnlyCats = () => {
     <aside class="labels-container">
       <section>
         <div class="container-img-label">
-          <img src="./img/gato-comida.jpg" "alt='picture' class="label-page">
         </div>
       </section>
       <section>
         <div class="container-img-label">
-          <img src="./img/meme-gato.jpg" "alt='picture' class="label-page">
         </div>
       </section>
       <section>
         <div class="container-img-label">
-          <img src="./img/vet-gato.jpg" "alt='picture' class="label-page">
         </div>
       </section>
     </aside>
@@ -44,9 +43,8 @@ export const pageOnlyCats = () => {
         </section>
         <section class="section-post">
           <p class="name-input"> Michael Scott </p>
-          <div class="text-output">Loakkamdlasm dlsamdiawoas dasdasd sadada asdasdfu</div>
+          <div class="text-output"></div>
           <div>
-            <button class="post-button">like</button>
           </div>
         </section>
       <article>
@@ -58,15 +56,20 @@ export const pageOnlyCats = () => {
   const sectionElement = document.createElement('section');
   sectionElement.classList.add('container-box');
   sectionElement.innerHTML = pageOcView;
+
   const signOut = sectionElement.querySelector('.sign-out');
   signOut.addEventListener('click', (e) => {
     e.preventDefault();
-    signOutUser()
-      .then(() => {
-        // eslint-disable-next-line no-restricted-globals
-        confirm('¿En serio quieres salir?');
-        window.location.hash = '#/';
-      }).catch((error) => (error));
+    const result = confirm('¿En serio quieres salir?');
+    if (result === true) {
+      signOutUser()
+        .then(() => {
+          window.location.hash = '#/';
+        });
+    } else {
+      signOutUser()
+        .catch((error) => (error));
+    }
   });
   return sectionElement;
 };
