@@ -3,7 +3,7 @@ import { auth } from "./firebase.js";
 
 //funcion que solo sirve para pintar los valores de emai y pasword
 //en la consola
-export function events() {
+export function eventsRegister() {
   const signin = document.querySelector(".btn");
   signin.addEventListener("click", (e) => {
     e.preventDefault();
