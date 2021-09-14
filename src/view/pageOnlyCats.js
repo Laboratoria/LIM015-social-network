@@ -72,41 +72,5 @@ export const pageOnlyCats = () => {
     }
   });
 
-  /*  const firestore = firebase.firestore();
-  const docRef = firestore.collection('tasks').doc();
-
-  const textInput = sectionElement.querySelector('.text-input');
-  const postButton = sectionElement.querySelector('.post-button');
-  const textOutput = sectionElement.querySelector('.text-output');
-
-  const saveTask = (description) => {
-    docRef.set({
-      description,
-    }).then(() => {
-      console.log('Publicado');
-    }).catch((error) => {
-      console.log('Tienes un error', error);
-    });
-  };
-  postButton.addEventListener('click', (e) => {
-    e.preventDefault();
-    const description = textInput.value;
-    saveTask(description);
-  });
-
-  const getRealTimeUpdates = () => {
-    docRef.get()
-      .then((doc) => {
-        if (doc && doc.exists) {
-          const myData = doc.data();
-          textOutput.innerText = myData.description;
-        }
-      }).catch((error) => {
-        console.log('Got an error', error);
-      });
-  };
-
-  getRealTimeUpdates();
- */
   return sectionElement;
 };
