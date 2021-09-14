@@ -1,6 +1,6 @@
 import { components } from "../view/index.js";
-import { events, showLogin } from "../firebase/function.js";
-import { auth } from "../firebase/firebase.js";
+import { eventsRegister, showLogin } from "../firebase/function.js";
+//import { auth } from "../firebase/firebase.js";
 
 const changeView = (route) => {
   const container = document.getElementById("container");
@@ -15,17 +15,18 @@ const changeView = (route) => {
     ///sectionView.innerHTML= components.login();
     case "#/register": {
       container.appendChild(components.register());
-      events();
+      eventsRegister();
       break;
     }
     case "#/home": {
-      return container.appendChild(components.home());
+     container.appendChild(components.home());
+      break;
     }
 
     default:
       return components.login();
       //        sectionView.innerHTML= components.login();
-      break;
+     
   }
   //console.log(route);
 };
