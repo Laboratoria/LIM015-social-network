@@ -63,10 +63,16 @@ const viewHome =()=>{
 
    const getPosts = () => firebase.firestore().collection('posts').get();
    
-   console.log(getPosts);
-   document.addEventListener('DOMContentLoaded', (e)=> {
-     console.log(e)
-     });
+  
+   buttonPost.addEventListener('click', async (e)=> {
+     
+    const hola = await getPosts();
+    hola.forEach((doc)=>{
+      console.log(doc.data());
+    })
+    
+    
+    });
 
 
    homePost.addEventListener("submit", async (e) => {
