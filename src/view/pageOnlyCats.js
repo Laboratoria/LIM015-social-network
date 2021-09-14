@@ -2,6 +2,7 @@
 /* eslint-disable no-console */
 /* eslint-disable no-alert */
 import { signOutUser } from '../firebase/firebase-functions.js';
+import { postCollection, getCollection } from '../firebase/firebase-firestore.js';
 
 export const pageOnlyCats = () => {
   const pageOcView = `
@@ -28,25 +29,16 @@ export const pageOnlyCats = () => {
         <section class="container-photo">
             <img src="./img/michael.jpg" "alt='picture' class="profile-photo">
         </section>
-        <section class="section-post">
+        <section class="section-post" >
           <p class="name-input"> Michael Scott </p>
-          <textarea class="text-input"></textarea>
+          <textarea class="text-input" id="text-input"></textarea>
           <div>
-            <button class="post-button">Publicar</button>
+            <button class="post-button" id="post-button">Publicar</button>
           </div>
         </section>
       </article>
       
-      <article class="other-post">
-        <section class="container-photo">
-          <img src="./img/michael.jpg" "alt='picture' class="profile-photo">
-        </section>
-        <section class="section-post">
-          <p class="name-input"> Michael Scott </p>
-          <div class="text-output"></div>
-          <div>
-          </div>
-        </section>
+      <article class="other-post" id="other-post">
       <article>
     </main>
     <aside >
@@ -56,6 +48,56 @@ export const pageOnlyCats = () => {
   const sectionElement = document.createElement('section');
   sectionElement.classList.add('container-box');
   sectionElement.innerHTML = pageOcView;
+
+  const btnPublish = sectionElement.querySelector('#post-button');
+  const textInput = sectionElement.querySelector('#text-input');
+  // -------- Crear Posts --------
+  const writePost = (e) => {
+    e.preventDefault();
+    textInput.innerHTML = ' ';
+    const post = textInput.value;
+    postCollection(post)
+      .then((docRef) => {
+        console.log('Document written with ID: ', docRef.id);
+        sectionElement.querySelector('#text-input').value = ' ';
+      })
+      .catch((error) => {
+        console.error('Error adding document: ', error);
+      });
+  };
+  btnPublish.addEventListener('click', (writePost));
+
+  // const mostrarPosts = () => {
+  //   getCollection().onSnapshot((collection) => {
+  //     collection.forEach((doc) => {
+  //       const dataContent = doc.data();
+  //       console.log(dataContent);
+  //     });
+  //   });
+  // };
+  // mostrarPosts();
+// -------- Publicar Posts --------
+  const publishPosts = () => {
+    getCollection().get().then((querySnapshot) => {
+      const newPost = sectionElement.querySelector('#other-post');
+      querySnapshot.forEach((doc) => {
+        newPost.innerHTML = ' ';
+        console.log(`${doc.id} => ${doc.data().text}`);
+        newPost.innerHTML += `
+        <section class="container-photo">
+        <img src="./img/michael.jpg" "alt='picture' class="profile-photo">
+      </section>
+      <section class="section-post">
+        <p class="name-input"> Michael Scott</p>
+        <div class="text-output">${doc.data().text}</div>
+        <div>
+        </div>
+      </section>
+      `;
+      });
+    });
+  };
+  publishPosts();
 
   const signOut = sectionElement.querySelector('.sign-out');
   signOut.addEventListener('click', (e) => {
@@ -71,5 +113,6 @@ export const pageOnlyCats = () => {
         .catch((error) => (error));
     }
   });
+
   return sectionElement;
 };
