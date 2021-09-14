@@ -85,7 +85,7 @@ export default () => {
         </section>
 
         <section class="create-publication">
-            <button class="btn">Crear Publicación <i class="fas fa-plus-circle"></i> </button>
+            <button class="btn-create-post">Crear Publicación <i class="fas fa-plus-circle"></i> </button>
         </section>
 
         <section class="container-posts">
@@ -110,6 +110,34 @@ export default () => {
             </section>
         </section>
     </section>
+
+    <section class="modal hide">
+        <section class="backdrop"> 
+        <section class="content-modal"> 
+            <section class="head-modal">
+                <span> Crear publicación </span>
+                <button class="btn-cerrar-modal"> X </button>
+            </section>
+            <section class="body-modal">
+                <img class="avatar avatar-sm" src="" alt="img-user">
+                <span> Nombre </span> 
+                <textarea id="post-user" placeholder="¿Qué estás pensando, Nombre?"></textarea>
+            </section>
+        </section>
+        </section>
+    </section>
     `;
+    const modal = viewTimeLine.querySelector('.modal');
+    const btnCreatePost = viewTimeLine.querySelector('.btn-create-post');
+    const btnCerrarModal = viewTimeLine.querySelector('.btn-cerrar-modal');
+
+    btnCreatePost.addEventListener('click', openModal);
+    btnCerrarModal.addEventListener('click', cerrarModal);
+    function openModal() {
+        modal.classList.add('revelar')
+    }
+    function cerrarModal() {
+        modal.classList.remove('revelar')
+    }
     return viewTimeLine;
 }
