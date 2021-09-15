@@ -32,70 +32,96 @@ export default () => {
 
     <section class="modal hide">
         <section class="backdrop"> 
-            <section class="content-modal"> 
+            <section class="content-modal">
+
                 <section class="head-modal">
                     <span> </span>
                     <span> Crear publicación </span>
                     <button class="btn btn-cerrar-modal"> X </button> 
                 </section>
+
                 <section class="body-modal">
-                    <img class="avatar avatar-sm" src="" alt="img-user">
-                    <span> Nombre </span> 
+
+                    <section class="select-group">
+                        <section class="user-info-textarea">
+
+                        </section>
+                        
+                        <select name="select" class="select" id="select-categories">
+                            <option value="" id="" disabled="true" selected> Seleccione categoría... </option>
+                            <option value="programacion" id="1"> Programación </option>
+                            <option value="idiomas" id="2"> Idiomas </option>
+                            <option value="manualidades" id="3"> Manualidades </option>
+                            <option value="disenografico" id="4"> Diseño Gráfico </option>
+                            <option value="educacion" id="5"> Educación </option>
+                            <option value="ventas" id="6"> Ventas </option>
+                            <option value="animacion" id="7"> Animación </option>
+                            <option value="skill" id="8"> Soft Skills </option>
+                            <option value="otros" id="9"> Otros </option>
+                        </select>
+                    </section>
                     
                     <section class="textarea-group">
-                        <textarea class="textarea-post" id="post-user" row="4" placeholder="¿Qué estás pensando, Nombre?"></textarea>
-                        <i class="far fa-smile"></i>
+                        <textarea class="textarea-post" id="post-user" row="4"></textarea>
                     </section>
 
                     <section class="emoji-group">
-                        <span id="emoji1"> &#128512; </span> 
-                        <span id="emoji2"> &#128513; </span> 
-                        <span id="emoji3"> &#128514; </span> 
-                        <span id="emoji4"> &#128515; </span> 
-                        <span id="emoji5"> &#128516; </span> 
-                        <span id="emoji6"> &#128517; </span> 
-                        <span id="emoji7"> &#128518; </span> 
-                        <span id="emoji8"> &#128519; </span> 
-                        <span id="emoji9"> &#128520; </span> 
-                        <span id="emoji10"> &#128521; </span> 
-                        <span id="emoji11"> &#128522; </span> 
-                        <span id="emoji12"> &#128523; </span> 
-                        <span id="emoji13"> &#128524; </span> 
-                        <span id="emoji14"> &#128525; </span> 
-                        <span id="emoji15"> &#128526; </span> 
-                        <span id="emoji16"> &#128527; </span> 
-                        <span id="emoji17"> &#128528; </span> 
-                        <span id="emoji18"> &#128529; </span> 
-                        <span id="emoji19"> &#128530; </span> 
-                        <span id="emoji20"> &#128531; </span> 
-                        <span id="emoji21"> &#128532; </span> 
-                        <span id="emoji22"> &#128533; </span> 
-                        <span id="emoji23"> &#128534; </span> 
-                        <span id="emoji24"> &#128535; </span> 
-                        <span id="emoji25"> &#128536; </span> 
-                        <span id="emoji26"> &#128537; </span> 
-                        <span id="emoji27"> &#128538; </span> 
-                        <span id="emoji28"> &#128539; </span> 
-                        <span id="emoji29"> &#128540; </span> 
-                        <span id="emoji30"> &#128541; </span> 
-                        <span id="emoji31"> &#128542; </span> 
-                        <span id="emoji31"> &#128543; </span> 
-                        <span id="emoji31"> &#128544; </span> 
-                        <span id="emoji31"> &#128545; </span> 
-                        <span id="emoji31"> &#128546; </span> 
-                        <span id="emoji31"> &#128547; </span> 
-                        <span id="emoji31"> &#128548; </span> 
-                        <span id="emoji31"> &#128549; </span> 
-                        <span id="emoji31"> &#128550; </span>                     
+                        <span class="emoji" id="emoji1"> &#128512; </span> 
+                        <span class="emoji" id="emoji2"> &#128513; </span> 
+                        <span class="emoji" id="emoji3"> &#128514; </span> 
+                        <span class="emoji" id="emoji4"> &#128515; </span> 
+                        <span class="emoji" id="emoji5"> &#128516; </span> 
+                        <span class="emoji" id="emoji6"> &#128517; </span> 
+                        <span class="emoji" id="emoji7"> &#128518; </span> 
+                        <span class="emoji" id="emoji8"> &#128519; </span> 
+                        <span class="emoji" id="emoji9"> &#128520; </span> 
+                        <span class="emoji" id="emoji10"> &#128521; </span> 
+                        <span class="emoji" id="emoji11"> &#128522; </span> 
+                        <span class="emoji" id="emoji12"> &#128523; </span> 
+                        <span class="emoji" id="emoji13"> &#128524; </span> 
+                        <span class="emoji" id="emoji14"> &#128525; </span> 
+                        <span class="emoji" id="emoji15"> &#128526; </span> 
+                        <span class="emoji" id="emoji16"> &#128527; </span> 
+                        <span class="emoji" id="emoji17"> &#128528; </span> 
+                        <span class="emoji" id="emoji18"> &#128529; </span> 
+                        <span class="emoji" id="emoji19"> &#128530; </span> 
+                        <span class="emoji" id="emoji20"> &#128531; </span> 
+                        <span class="emoji" id="emoji21"> &#128532; </span> 
+                        <span class="emoji" id="emoji22"> &#128533; </span> 
+                        <span class="emoji" id="emoji23"> &#128534; </span> 
+                        <span class="emoji" id="emoji24"> &#128535; </span> 
+                        <span class="emoji" id="emoji25"> &#128536; </span> 
+                        <span class="emoji" id="emoji26"> &#128537; </span> 
+                        <span class="emoji" id="emoji27"> &#128538; </span> 
+                        <span class="emoji" id="emoji28"> &#128539; </span> 
+                        <span class="emoji" id="emoji29"> &#128540; </span> 
+                        <span class="emoji" id="emoji30"> &#128541; </span> 
+                        <span class="emoji" id="emoji31"> &#128542; </span> 
+                        <span class="emoji" id="emoji31"> &#128543; </span> 
+                        <span class="emoji" id="emoji31"> &#128544; </span> 
+                        <span class="emoji" id="emoji31"> &#128545; </span> 
+                        <span class="emoji" id="emoji31"> &#128546; </span> 
+                        <span class="emoji" id="emoji31"> &#128547; </span> 
+                        <span class="emoji" id="emoji31"> &#128548; </span> 
+                        <span class="emoji" id="emoji31"> &#128549; </span> 
+                        <span class="emoji" id="emoji31"> &#128550; </span>                     
+                        <span class="emoji" id="emoji31"> &#128551; </span>                     
+                    
                     </section>
 
-                    <section class="reaction-post">
-                        <button class="btn-like" id="share-post"> <i class="far fa-heart"></i> </button>
-                        <button class="btn-comment" id="share-post"> <i class="far fa-comment-dots"></i> </button>
-                        <button class="btn-save" id="share-post"> <i class="far fa-bookmark"></i> </button>
+                    <section class="reaction-post-group">
+                        <section class="reaction-post">
+                            <button class="btn btn-notlike" id="share-post"> <i class="far fa-heart"></i> </button>
+                            <button class="btn btn-notcomment" id="share-post"> <i class="far fa-comment-dots"></i> </button>
+                            <button class="btn btn-notsave" id="share-post"> <i class="far fa-bookmark"></i> </button>
+                        </section>
+                        <img src="../images/svg/carita.png" class="smile" alt="icon-face" width="20" height="20">
                     </section>
+
                 </section>
+
             <button class="btn btn-create-post" id="share-post"> Publicar </button>
+
             </section>
         </section>
     </section>
@@ -103,8 +129,15 @@ export default () => {
     const modal = viewTimeLine.querySelector('.modal');
     const btnCreatePost = viewTimeLine.querySelector('.btn-create-post');
     const btnCerrarModal = viewTimeLine.querySelector('.btn-cerrar-modal');
+    const btnEmoji = viewTimeLine.querySelector('.smile');
+    const emojiGroup = viewTimeLine.querySelector('.emoji-group');
+    const emojiList = viewTimeLine.getElementsByClassName('emoji');
+    const textarea = viewTimeLine.querySelector('#post-user')
+
     btnCreatePost.addEventListener('click', openModal);
     btnCerrarModal.addEventListener('click', cerrarModal);
+    btnEmoji.addEventListener('click', openEmojiGroup);
+    textarea.addEventListener('click', cerrarEmojiGroup);
 
     function openModal() {
         modal.classList.add('revelar')
@@ -113,13 +146,26 @@ export default () => {
     function cerrarModal() {
         modal.classList.remove('revelar')
     }
-    // //Inserta emoji en textarea
-    const textarea = viewTimeLine.querySelector('.textarea-post');
-    console.log(textarea)
 
-    // textarea.addEventListener('click', () => {
-    //     
-    // })
+    function openEmojiGroup() {
+        emojiGroup.classList.add('show-emojis')
+    }
+
+    for (let index = 0; index < emojiList.length; index++) {
+        const element = emojiList[index];
+        element.addEventListener('click', () => {
+            insertEmoji(element.id);
+        })
+    }
+ 
+    function insertEmoji (idEmoji) {
+        const emojiSelected = viewTimeLine.querySelector(`#${idEmoji}`);
+        textarea.value += emojiSelected.innerHTML;
+    }
+
+    function cerrarEmojiGroup () {
+        emojiGroup.classList.remove('show-emojis');
+    }
 
     return viewTimeLine;
 }
