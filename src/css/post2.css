@@ -1,0 +1,368 @@
+:root {
+    --white: #fff;
+    --hover-shadow: #f2f2f2;
+    --hover-shadow-2: #e4e6e9;
+    --border: #ccc;
+    --green: #2ed573;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/***************
+   * POST HEADER * 
+   ***************/
+
+.post {
+    background: var(--white);
+    width: 100%;
+    max-width: 60rem;
+    border-radius: 1rem;
+    box-shadow: 0 1px 15px 1px rgba(69, 65, 78, .08);
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.2rem 1.6rem 0 1.6rem;
+}
+
+
+/* Header left */
+
+.header-left {
+    flex: 1;
+}
+
+.author-name:hover,
+.post-date:hover {
+    text-decoration: underline;
+}
+
+.author-name {
+    margin-right: 0.2rem;
+    color: #253241;
+}
+
+.post-author-pic {
+    vertical-align: middle;
+    float: left;
+    width: 40px;
+    height: 40px;
+    margin-right: 0.8rem;
+    border-radius: 50%;
+    box-shadow: 0 0.1rem 0.2rem var(--box-shadow);
+}
+
+.post-author-pic:hover {
+    filter: brightness(0.95);
+}
+
+.post-author {
+    font-size: 14px;
+    font-weight: 550;
+    color: #29292D;
+}
+
+.post-date {
+    margin-top: 4px;
+    display: block;
+    float: left;
+    font-size: 12PX;
+    color: #878787;
+}
+
+
+/* Dot between post author and post date */
+
+.post-date-privacy-separator {
+    position: relative;
+    bottom: 0.1rem;
+}
+
+
+/* Header right */
+
+.post-category {
+    padding: 0.9rem;
+    border-radius: 50%;
+    line-height: 50%;
+}
+
+.options-icon {
+    height: 2rem;
+    width: 2rem;
+    position: relative;
+    background-size: 7.4rem 43rem;
+    background-position: -2.2rem -24rem;
+    opacity: 0.6;
+}
+
+.badge {
+    display: inline-block;
+    padding: .4rem .5rem;
+    text-align: center;
+    border-radius: .358rem;
+    font-size: 11px;
+}
+
+.badge-secondary {
+    border: solid 1.5px #007BFF;
+    color: #007BFF;
+}
+
+
+/****************
+   * POST CONTENT * 
+   ****************/
+
+.content-paragraph {
+    font-size: 14px;
+    padding: 1rem 3rem;
+    color: #717171;
+    text-align: justify;
+}
+
+.content-image {
+    width: 90%;
+    height: 342px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+
+/***************
+   * POST FOOTER * 
+   ***************/
+
+.footer {
+    padding: 1rem 1.2rem;
+}
+
+
+/* REACTIONS */
+
+.footer-reactions {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 1.6rem;
+    color: var(--reactions-links);
+    font-size: 1.5rem;
+}
+
+
+/* BUTTONS (LIKE, COMMENT, SHARE) */
+
+.footer-buttons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0 1.2rem;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+
+/* POST COMMENTS */
+
+.footer-comments {
+    padding: 0.8rem 1.2rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: right;
+    color: var(--reactions-links);
+}
+
+
+/* Write a comment.. box */
+
+.comments-box {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.box-profile {
+    margin-right: 1.2rem;
+    position: relative;
+}
+
+.box-profile::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0.5rem;
+    height: 0.5rem;
+    bottom: 0.2rem;
+    left: 2rem;
+    background: var(--green);
+    border: 0.3rem solid var(--white);
+    border-radius: 50%;
+}
+
+.box-profile:hover {
+    cursor: pointer;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.box-bar {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.bar-input {
+    width: 100%;
+    background: #f9f3ff;
+    border: none;
+    padding: 0.8rem;
+    font-size: 13px;
+    color: rgba(5, 5, 5, 0.8);
+    border-top-left-radius: 14px;
+    border-bottom-left-radius: 14px;
+    outline: none;
+    flex: 1;
+}
+
+.bar-input::placeholder {
+    opacity: 0.8;
+}
+
+.bar-input:focus::-webkit-input-placeholder {
+    opacity: 0.6;
+}
+
+.public-comment {
+    display: flex;
+    align-items: center;
+    height: 2.55rem;
+    background: linear-gradient(to right, #da8cff, #9a55ff);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.public-comment a {
+    color: #fff;
+    font-size: 12px;
+}
+
+
+/* Friends comments */
+
+.comments-friend-comment {
+    display: flex;
+    text-align: start;
+}
+
+.friend-comment-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 1rem;
+    cursor: pointer;
+    transition: filter 0.2s ease;
+}
+
+.friend-comment-pic:hover {
+    filter: brightness(0.95);
+}
+
+.friend-comment-comment {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-right: 0.5rem;
+    padding: 1rem 1.5rem;
+    border-radius: 16px;
+    border: 1px solid #e7edf2
+}
+
+.comment-author {
+    align-self: flex-start;
+    color: #253241;
+    font-size: 13px;
+}
+
+.comment-author:hover {
+    text-decoration: underline;
+}
+
+.comment-content {
+    margin-top: 0.5rem;
+    font-size: 13px;
+    font-weight: 400;
+    color: #717171;
+    text-align: justify;
+}
+
+
+/**btn para publicaciones**/
+
+.btn-post {
+    font-size: 13px;
+    text-align: center;
+    color: #ffffff;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    padding: .4rem .5rem !important;
+    justify-content: space-between;
+}
+
+.btn-notlike {
+    background-color: #FFD9F1;
+    color: #FC2C5E;
+}
+
+.btn-notlike:hover {
+    transform: scale(1.2, 1.2);
+}
+
+.btn-notcomment {
+    background-color: #E4EFFA;
+    color: #1D95FA;
+    margin-left: 10px;
+}
+
+.btn-notcomment:hover {
+    transform: scale(1.2, 1.2);
+}
+
+.btn-notsave {
+    background-color: #E4E4FF;
+    color: #7A7EF4;
+    margin-left: 10px;
+}
+
+.btn-notsave:hover {
+    transform: scale(1.2, 1.2);
+}
+
+.btn-save {
+    border: solid 2px #7A7EF4;
+}
+
+.btn-comment {
+    border: solid 2px #1D95FA;
+}
+
+.btn-like {
+    border: solid 2px #FC2C5E;
+}
+
+.count-reaction {
+    margin-left: 4px;
+}
