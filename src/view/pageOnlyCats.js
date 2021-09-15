@@ -52,8 +52,7 @@ export const pageOnlyCats = () => {
   const btnPublish = sectionElement.querySelector('#post-button');
   const textInput = sectionElement.querySelector('#text-input');
   // -------- Crear Posts --------
-  const writePost = (e) => {
-    e.preventDefault();
+  const writePost = () => {
     textInput.innerHTML = ' ';
     const post = textInput.value;
     postCollection(post)
@@ -65,19 +64,33 @@ export const pageOnlyCats = () => {
         console.error('Error adding document: ', error);
       });
   };
-  btnPublish.addEventListener('click', (writePost));
 
-  // const mostrarPosts = () => {
-  //   getCollection().onSnapshot((collection) => {
-  //     collection.forEach((doc) => {
-  //       const dataContent = doc.data();
-  //       console.log(dataContent);
-  //     });
-  //   });
-  // };
-  // mostrarPosts();
-// -------- Publicar Posts --------
-  const publishPosts = () => {
+  const mostrarPosts = () => getCollection().onSnapshot((collection) => {
+    const newPost = sectionElement.querySelector('#other-post');
+    collection.forEach((doc) => {
+      const dataContent = doc.data().text;
+      newPost.innerHTML = ' ';
+      newPost.innerHTML += `
+        <section class="container-photo">
+        <img src="./img/michael.jpg" "alt='picture' class="profile-photo">
+      </section>
+      <section class="section-post">
+        <p class="name-input"> Michael Scott</p>
+        <div class="text-output">${dataContent}</div>
+        <div>
+        </div>
+      </section>
+      `;
+      console.log(dataContent);
+    });
+  });
+  btnPublish.addEventListener('click', () => {
+    writePost();
+    mostrarPosts();
+  });
+
+  // -------- Publicar Posts --------
+  /*   const publishPosts = () => {
     getCollection().get().then((querySnapshot) => {
       const newPost = sectionElement.querySelector('#other-post');
       querySnapshot.forEach((doc) => {
@@ -98,7 +111,7 @@ export const pageOnlyCats = () => {
     });
   };
   publishPosts();
-
+ */
   const signOut = sectionElement.querySelector('.sign-out');
   signOut.addEventListener('click', (e) => {
     e.preventDefault();
