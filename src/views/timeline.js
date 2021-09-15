@@ -15,7 +15,10 @@ export default () => {
         <section class="container-popular-posts">
             <h2>Popular <span>Posts</span> </h2>
             
-            <span class="spanArrow"><i class="fas fa-chevron-circle-left designIcon-left"></i></i></span>
+            <span class="spanArrow">
+                <i class="fas fa-chevron-circle-left designIcon-left"></i></i>
+            </span>
+
             <section class="popular-posts">
         
                 <section class="card-post">
@@ -139,7 +142,9 @@ export default () => {
                     </div>
                 </section>
             </section>   
-            <span class="spanArrow"><i class="fas fa-chevron-circle-right designIcon-right"></i></i></span>
+            <span class="spanArrow">
+                <i class="fas fa-chevron-circle-right designIcon-right"></i></i>
+            </span>
         </section>
 
         <section class="create-publication">

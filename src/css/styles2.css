@@ -859,13 +859,14 @@ img {
     font-size: 40px;
     color: #FB5773;
     line-height: 30px;
-    top: calc(50% - 35px);
 }
 .designIcon-left{
     left: -30px;
+    top: 70px;
 }
 .designIcon-right{
-    left: -30px;
+    left: 895px;
+    bottom: 75px;
 }
 
 
