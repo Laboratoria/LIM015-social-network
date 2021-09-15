@@ -8,6 +8,7 @@ import { addEventsTimeLine } from '../db/muro.js';
 import { addEventLogin } from '../db/login.js'
 import { readInfoUser } from '../db/crud/readInfoUser.js'
 
+
 const changeView = (route) => {
     const containerMain = document.querySelector('#container-main');
     containerMain.innerHTML = '';
