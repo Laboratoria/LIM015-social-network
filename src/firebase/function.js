@@ -24,7 +24,7 @@ export function registerValidation (email, password) {
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
-    console.error("error"+ errorCode );
+    console.log("error"+ errorCode );
   });
 }
 registerValidation("juanapinto@gmail.com","123456");
