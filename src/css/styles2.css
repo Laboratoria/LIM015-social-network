@@ -825,7 +825,7 @@ img {
     background-size: 100%;
     padding: 1rem;
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
     border-radius: 5px;
     overflow-x: auto; /* ----- */
     overflow: hidden;
@@ -843,7 +843,7 @@ img {
 
     padding: 10px;
 
-    min-width: 24%;
+    min-width: 28%;
     transition: 0.5s;
     position: relative;
 }
@@ -902,6 +902,7 @@ img {
 .heart-number{
     display: flex;
     padding-top: 10px;
+    padding-left: 34px;
 }
 .p-posts{
     font-size: 14px;
