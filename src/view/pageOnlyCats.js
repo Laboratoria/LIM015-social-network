@@ -10,37 +10,29 @@ export const pageOnlyCats = () => {
     <header class = "header-container">
       <img src="./img/only-cats.png" "alt='only-cats' class="page-title">
     </header>
-    <aside class="labels-container">
-      <section>
-        <div class="container-img-label">
-        </div>
-      </section>
-      <section>
-        <div class="container-img-label">
-        </div>
-      </section>
-      <section>
-        <div class="container-img-label">
-        </div>
-      </section>
-    </aside>
-    <main class="background-posts">
-      <article class="profile-post">
-        <section class="container-photo">
-            <img src="./img/michael.jpg" "alt='picture' class="profile-photo">
-        </section>
-        <section class="section-post" >
-          <p class="name-input"> Michael Scott </p>
-          <textarea class="text-input" id="text-input"></textarea>
-          <div>
-            <button class="post-button" id="post-button" type="submit">Publicar</button>
+
+    <main class ="background-posts">
+
+        <section class="profile-post">
+          <div class="container-photo">
+              <img src="./img/michael.jpg" "alt='picture' class="profile-photo">
           </div>
+          <section class="section-profile" >
+            <p class="name-input"> Michael Scott </p>
+            <textarea class="text-input" id="text-input"></textarea>
+            <div>
+              <button class="post-button" id="post-button" type="submit">Publicar</button>
+            </div>
+          </section>
         </section>
-      </article>
-      
-      <article class="other-post" id="other-post">
+
+
+      <article class ="white-container" >
+        <section class="scroll-container" id="other-post"></section>
       <article>
+
     </main>
+
     <aside >
         <button class="sign-out"> salir</button>
     </aside>
@@ -51,13 +43,13 @@ export const pageOnlyCats = () => {
 
   const btnPublish = sectionElement.querySelector('#post-button');
   const textInput = sectionElement.querySelector('#text-input');
+
   // -------- Crear Posts --------
   const writePost = () => {
-    textInput.innerHTML = ' ';
+  /*    textInput.innerHTML = ' '; */
     const post = textInput.value;
     postCollection(post)
-      .then((docRef) => {
-        console.log('Document written with ID: ', docRef.id);
+      .then(() => {
         textInput.value = ' ';
       })
       .catch((error) => {
@@ -78,25 +70,21 @@ export const pageOnlyCats = () => {
         // const dataContent = doc.data().text;
         const dataContent = doc.data();
         newPost.innerHTML += `
-        <section class="container-photo">
-        <img src="./img/michael.jpg" "alt='picture' class="profile-photo">
-      </section>
-      <section class="section-post">
-        <p class="name-input"> Michael Scott</p>
-        <div class="text-output">${dataContent.text}</div>
-        <div>
-        </div>
-      </section>
-      `;
-        console.log(dataContent.text);
+        <section class="container-post">
+          <div class="container-photo">
+            <img src="./img/michael.jpg" "alt='picture' class="profile-photo">
+          </div>
+          <section class="section-post">
+            <p class="name-input"> Michael Scott</p>
+            <textarea readonly class="text-output">${dataContent.text}</textarea>
+          </section>
+        </section> `;
       });
     });
   };
-  btnPublish.addEventListener('click', () => {
-    writePost();
-    mostrarPosts();
-  });
 
+  btnPublish.addEventListener('click', writePost);
+  mostrarPosts();
   // -------- Publicar Posts --------
   /*   const publishPosts = () => {
     getCollection().get().then((querySnapshot) => {
@@ -107,7 +95,7 @@ export const pageOnlyCats = () => {
         newPost.innerHTML += `
         <section class="container-photo">
         <img src="./img/michael.jpg" "alt='picture' class="profile-photo">
-      </section>
+      </div>
       <section class="section-post">
         <p class="name-input"> Michael Scott</p>
         <div class="text-output">${doc.data().text}</div>
