@@ -1,3 +1,4 @@
+import {animationPopularPost} from './animation.js';
 export default () => {
     const viewTimeLine = document.createElement('div');
     viewTimeLine.className = 'container-home';
@@ -77,11 +78,132 @@ export default () => {
     <section class="container-section-post">
         <section class="container-popular-posts">
             <h2>Popular <span>Posts</span> </h2>
+            
+            <span class="spanArrow"><i class="fas fa-chevron-circle-left designIcon-left"></i></i></span>
             <section class="popular-posts">
-                <section class="card-post"></section>
-                <section class="card-post"></section>               
-                <section class="card-post"></section>
-            </section>
+        
+                <section class="card-post">
+                    <div class="head-popularPosts">
+                            <div class="imgUser">
+                                <img src="images/imgPopularPosts/Ellipse 1.png" alt="">
+                            </div>
+                            <div class="name-hours">
+                                <h5>Brax Mendez</h5>
+                                <p class="horas-Posts">10 horas</p>
+                            </div>
+                           <div class="heart-number">
+                                <i class="fab fa-gratipay heart"></i>
+                                <p>45</p>
+                            </div>
+                    </div>
+                        <p class="p-posts">90% de descuento Udemy en Curso de Laravel y MySql...</p>
+                    <div class="box-plus">
+                        <img src="images/imgPopularPosts/plus.png" alt="" class="plus">
+                    </div>
+                </section>
+
+
+                <section class="card-post">
+                    <div class="head-popularPosts">
+                            <div class="imgUser">
+                                <img src="images/imgPopularPosts/popular2.png" alt="">
+                            </div>
+                            <div class="name-hours">
+                                <h5>Elohin Fuentes</h5>
+                                <p class="horas-Posts">7 horas</p>
+                            </div>
+                           <div class="heart-number">
+                                <i class="fab fa-gratipay heart"></i>
+                                <p>42</p>
+                            </div>
+                    </div>
+                        <p class="p-posts">Curso Gratis de Vue.js en Platzi disponible por 24h...</p>
+                    <div class="box-plus">
+                        <img src="images/imgPopularPosts/plus.png" alt="" class="plus">
+                    </div>
+                </section>
+
+                <section class="card-post">
+                    <div class="head-popularPosts">
+                            <div class="imgUser">
+                                <img src="images/imgPopularPosts/popular3.png" alt="">
+                            </div>
+                            <div class="name-hours">
+                                <h5>Anderson H.</h5>
+                                <p class="horas-Posts">5 horas</p>
+                            </div>
+                           <div class="heart-number">
+                                <i class="fab fa-gratipay heart"></i>
+                                <p>45</p>
+                            </div>
+                    </div>
+                        <p class="p-posts">Curso Taller de Facturación Electronica con PHP y ....</p>
+                    <div class="box-plus">
+                        <img src="images/imgPopularPosts/plus.png" alt="" class="plus">
+                    </div>
+                </section>
+
+                <section class="card-post">
+                    <div class="head-popularPosts">
+                            <div class="imgUser">
+                                <img src="images/imgPopularPosts/popular4.png" alt="">
+                            </div>
+                            <div class="name-hours">
+                                <h5>Marta Vega</h5>
+                                <p class="horas-Posts">2 horas</p>
+                            </div>
+                           <div class="heart-number">
+                                <i class="fab fa-gratipay heart"></i>
+                                <p>32</p>
+                            </div>
+                    </div>
+                        <p class="p-posts">Alguien ha tomado el curso de...</p>
+                    <div class="box-plus">
+                        <img src="images/imgPopularPosts/plus.png" alt="" class="plus">
+                    </div>
+                </section>
+
+                <section class="card-post">
+                    <div class="head-popularPosts">
+                            <div class="imgUser">
+                                <img src="images/imgPopularPosts/Ellipse 1.png" alt="">
+                            </div>
+                            <div class="name-hours">
+                                <h5>Brax Mendez</h5>
+                                <p class="horas-Posts">10 horas</p>
+                            </div>
+                           <div class="heart-number">
+                                <i class="fab fa-gratipay heart"></i>
+                                <p>45</p>
+                            </div>
+                    </div>
+                        <p class="p-posts">90% de descuento Udemy en Curso de Laravel y MySql...</p>
+                    <div class="box-plus">
+                        <img src="images/imgPopularPosts/plus.png" alt="" class="plus">
+                    </div>
+                </section>
+
+                <section class="card-post">
+                    <div class="head-popularPosts">
+                            <div class="imgUser">
+                                <img src="images/imgPopularPosts/popular2.png" alt="">
+                            </div>
+                            <div class="name-hours">
+                                <h5>Elohin Fuentes</h5>
+                                <p class="horas-Posts">7 horas</p>
+                            </div>
+                           <div class="heart-number">
+                                <i class="fab fa-gratipay heart"></i>
+                                <p>42</p>
+                            </div>
+                    </div>
+                        <p class="p-posts">Curso Gratis de Vue.js en Platzi disponible por 24h...</p>
+                    <div class="box-plus">
+                        <img src="images/imgPopularPosts/plus.png" alt="" class="plus">
+                    </div>
+                </section>
+            </section>   
+            <span class="spanArrow"><i class="fas fa-chevron-circle-right designIcon-right"></i></i></span>
         </section>
 
         <section class="create-publication">
@@ -139,5 +261,10 @@ export default () => {
     function cerrarModal() {
         modal.classList.remove('revelar')
     }
+    /* CARRUSEL DEL POPULAR POSTS */
+    let span = viewTimeLine.getElementsByClassName('spanArrow');
+    let product = viewTimeLine.getElementsByClassName('card-post');
+    animationPopularPost(span, product)
+
     return viewTimeLine;
 }
