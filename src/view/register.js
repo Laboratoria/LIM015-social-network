@@ -42,11 +42,11 @@ const viewRegister =()=>{
         <span id="statusConfirmPassword"></span>
       </div>
       <div class="signup-button">
-        <input class="button button--main" id="mainbuttonSignup" type="submit" value="Crear cuenta">
+        <input class="button button--main button--login" id="mainbuttonSignup" type="submit" value="Crear cuenta">
       </div>
       <div class="form--separator signup-separator">ó</div>
       <div class="signup-social">
-        <button class="button button--second" id="buttonGoogleSignup" type="submit">
+        <button class="button button--second button--login" id="buttonGoogleSignup" type="submit">
           <div class="buttton button--second__img"><img class="googleIcon" src="./img/iconoGoogle.png" alt="icono_Google"></div>
           <div class="buttton button--second__text">Ingresar con Google</div> 
         </button>

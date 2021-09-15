@@ -97,9 +97,20 @@
   font-weight: bold;
 }
 
+.form--login__button,.form--login__social,.signup-button,.signup-social{
+  width: 30%;
+}
+
+
+.button--login{
+  width:100%;
+}
+
 .button--main:hover {
   background-color: #2f0059;
 }
+
+
 
 .button--second {
   background-color: white;
