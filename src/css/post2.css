@@ -1,45 +1,14 @@
-/***************
- * BASE STYLES * 
- ***************/
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
- :root {
+:root {
     --white: #fff;
     --hover-shadow: #f2f2f2;
     --hover-shadow-2: #e4e6e9;
     --border: #ccc;
-    --box-shadow: rgba(0, 0, 0, 0.2);
     --green: #2ed573;
-    --background: #f0f2f5;
-}
-
-html {
-    height: 100%;
-    font-size: 62.5%;
-}
-
-body {
-    background: var(--background);
-    min-height: 100%;
-    font-size: 1.6rem;
-    font-family: "Segoe UI", Helvetica, Arial, Helvetica, sans-serif;
 }
 
 a {
     text-decoration: none;
     color: inherit;
-}
-
-.container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
 }
 
 
@@ -52,7 +21,7 @@ a {
     width: 100%;
     max-width: 60rem;
     border-radius: 1rem;
-    box-shadow: 0 0.1rem 0.2rem var(--box-shadow);
+    box-shadow: 0 1px 15px 1px rgba(69, 65, 78, .08);
 }
 
 .post-header {
@@ -73,32 +42,19 @@ a {
     text-decoration: underline;
 }
 
-.badge {
-    display: inline-block;
-    padding: .4rem .5rem;
-    text-align: center;
-    border-radius: .358rem;
-    font-size: 12px;
-}
-
-.badge-secondary {
-    border: solid 1.5px #007BFF;
-    color: #007BFF;
-}
-
 .author-name {
     margin-right: 0.2rem;
     color: #253241;
 }
 
 .post-author-pic {
+    vertical-align: middle;
     float: left;
-    width: 4rem;
-    height: 4rem;
+    width: 40px;
+    height: 40px;
     margin-right: 0.8rem;
     border-radius: 50%;
     box-shadow: 0 0.1rem 0.2rem var(--box-shadow);
-    transition: filter 0.2s ease;
 }
 
 .post-author-pic:hover {
@@ -106,15 +62,16 @@ a {
 }
 
 .post-author {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #050505;
+    font-size: 14px;
+    font-weight: 550;
+    color: #29292D;
 }
 
 .post-date {
+    margin-top: 4px;
     display: block;
     float: left;
-    font-size: 1.3rem;
+    font-size: 12PX;
     color: #878787;
 }
 
@@ -130,7 +87,7 @@ a {
 /* Header right */
 
 .post-category {
-    padding: 1rem;
+    padding: 0.9rem;
     border-radius: 50%;
     line-height: 50%;
 }
@@ -144,23 +101,38 @@ a {
     opacity: 0.6;
 }
 
+.badge {
+    display: inline-block;
+    padding: .4rem .5rem;
+    text-align: center;
+    border-radius: .358rem;
+    font-size: 11px;
+}
+
+.badge-secondary {
+    border: solid 1.5px #007BFF;
+    color: #007BFF;
+}
+
 
 /****************
    * POST CONTENT * 
    ****************/
 
 .content-paragraph {
-    font-size: 1.42rem;
+    font-size: 14px;
     padding: 1rem 3rem;
     color: #717171;
     text-align: justify;
 }
 
 .content-image {
-    width: 100%;
-    height: 33rem;
+    width: 90%;
+    height: 342px;
     object-fit: cover;
     display: block;
+    margin: 0 auto;
+    border-radius: 10px;
 }
 
 
@@ -216,7 +188,7 @@ a {
 }
 
 .box-profile {
-    margin-right: 1rem;
+    margin-right: 1.2rem;
     position: relative;
 }
 
@@ -224,10 +196,10 @@ a {
     content: "";
     display: block;
     position: absolute;
-    width: 0.7rem;
-    height: 0.7rem;
-    bottom: 0.3rem;
-    left: 2.3rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    bottom: 0.2rem;
+    left: 2rem;
     background: var(--green);
     border: 0.3rem solid var(--white);
     border-radius: 50%;
@@ -238,8 +210,8 @@ a {
 }
 
 .profile-pic {
-    width: 3.2rem;
-    height: 3.2rem;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
 }
 
@@ -253,11 +225,11 @@ a {
     width: 100%;
     background: #f9f3ff;
     border: none;
-    padding: 1.2rem;
-    font-size: 1.5rem;
+    padding: 0.8rem;
+    font-size: 13px;
     color: rgba(5, 5, 5, 0.8);
-    border-top-left-radius: 2rem;
-    border-bottom-left-radius: 2rem;
+    border-top-left-radius: 14px;
+    border-bottom-left-radius: 14px;
     outline: none;
     flex: 1;
 }
@@ -273,17 +245,17 @@ a {
 .public-comment {
     display: flex;
     align-items: center;
-    height: 4.16rem;
+    height: 2.55rem;
     background: linear-gradient(to right, #da8cff, #9a55ff);
-    padding-right: 1.2rem;
-    padding-left: 1.2rem;
-    border-top-right-radius: 2rem;
-    border-bottom-right-radius: 2rem;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
 .public-comment a {
     color: #fff;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 
@@ -295,8 +267,8 @@ a {
 }
 
 .friend-comment-pic {
-    width: 3.2rem;
-    height: 3.2rem;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     margin-right: 1rem;
     cursor: pointer;
@@ -313,14 +285,14 @@ a {
     position: relative;
     margin-right: 0.5rem;
     padding: 1rem 1.5rem;
-    border-radius: 1.5rem;
+    border-radius: 16px;
     border: 1px solid #e7edf2
 }
 
 .comment-author {
     align-self: flex-start;
     color: #253241;
-    font-size: 1.35rem;
+    font-size: 13px;
 }
 
 .comment-author:hover {
@@ -328,7 +300,8 @@ a {
 }
 
 .comment-content {
-    font-size: 1.42rem;
+    margin-top: 0.5rem;
+    font-size: 13px;
     font-weight: 400;
     color: #717171;
     text-align: justify;
@@ -338,14 +311,14 @@ a {
 /**btn para publicaciones**/
 
 .btn-post {
-    font-size: 17px;
+    font-size: 13px;
     text-align: center;
     color: #ffffff;
     border-radius: 8px;
     border: none;
     cursor: pointer;
     display: flex;
-    padding: .6rem .7rem !important;
+    padding: .4rem .5rem !important;
     justify-content: space-between;
 }
 
@@ -365,7 +338,7 @@ a {
 }
 
 .btn-notcomment:hover {
-    transform: scale(1.3, 1.3);
+    transform: scale(1.2, 1.2);
 }
 
 .btn-notsave {
@@ -375,7 +348,7 @@ a {
 }
 
 .btn-notsave:hover {
-    transform: scale(1.3, 1.3);
+    transform: scale(1.2, 1.2);
 }
 
 .btn-save {

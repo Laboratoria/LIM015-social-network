@@ -1,21 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/post.css">
-    <script src="https://kit.fontawesome.com/99e095b5b2.js" crossorigin="anonymous"></script>
-    <title>Post</title>
-</head>
-
-<body>
-    <div class="container">
-        <div class="post">
-            <!-- POST HEADER -->
+const readPost = () => {
+    const containerPost = document.querySelector('#container-posts');
+    document.querySelector('body').style = 'backgorund:#f7f7f7;'
+    const post = document.createElement('div');
+    post.classList.add('post');
+    post.innerHTML = ` 
             <div class="post-header header">
-                <!-- header left -->
                 <div class="header-left">
                     <a href="#">
                         <img src="../images/post/author-pic.jpg" class="post-author-pic">
@@ -23,34 +12,32 @@
                     <div class="post-author author">
                         <span class="author-name"><a href="#">Mark Zuckerberg</a></span>
                     </div>
-                    <span class="post-date"><a href="#">10 Agosto, 2021</a></span>
-
+                    <span class="post-date">10 Agosto, 2021</span>
                 </div>
-                <!-- Header right ch-->
+
                 <div class="header-right">
                     <div class="post-category">
                         <span class="badge badge-secondary">Programacion</span>
                     </div>
                 </div>
             </div>
-            <!-- POST CONTENT -->
+
             <div class="post-content">
                 <p class="content-paragraph">
                     Alguien ha tomado el curso de MongoDB de cero a experto de Edteam? Cual fue su experiencia, ya que estoy en duda si compralo o no ?
                 </p>
                 <img src="../images/post/mongo-db.png" class="content-image">
             </div>
-            <!-- POST FOOTER -->
+
             <div class="post-footer footer">
-                <!-- Reactions -->
+
                 <div class="footer-reactions reactions">
                     <button type="button" class="btn-post btn-notlike"><i class="far fa-heart"></i> <span class="count-reaction">3</span></button>
                     <button type="button" class="btn-post btn-notcomment btn-comment"><i class="far fa-comment-dots"></i> <span class="count-reaction"></span>3</span></button>
                     <button type="button" class="btn-post btn-notsave"><i class="far fa-bookmark"></i> <span class="count-reaction"></span>3</span></button>
                 </div>
-                <!-- Comments -->
-                <div class="footer-comments comments" hidden>
-                    <!-- Comments box -->
+
+                <div class="footer-comments comments">
                     <div class="comments-box box">
                         <div class="box-profile profile">
                             <img src="../images/post/profile-pic.jpg" class="profile-pic">
@@ -62,7 +49,6 @@
                             <a href="#" type="submit">Publicar</a>
                         </div>
                     </div>
-                    <!-- Friend comment -->
                     <div class="comments-friend-comment friend-comment">
                         <img src="../images/post/friend-pic.jpg" class="friend-comment-pic">
                         <div class="friend-comment-comment comment">
@@ -73,9 +59,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
-    </div>
-</body>
+            `
+    containerPost.appendChild(post);
+}
 
-</html>
+export { readPost }

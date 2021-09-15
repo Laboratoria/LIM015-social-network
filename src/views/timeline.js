@@ -24,27 +24,10 @@ export default () => {
             <button class="btn btn-create-post">Crear Publicación <i class="fas fa-plus-circle"></i> </button>
         </section>
 
-        <section class="container-posts">
-            <section class="personal-information">
-                <img src="" alt="">
-                <p>Nombre</p>
-                <p>Fecha</p>
-                <h4>Programación</h4>
-            </section>
-            <section class="content-post">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, minima quis velit, possimus tempora quos optio minus libero facilis totam, corporis praesentium!</p>
-            </section>
-            <section class="reactions">
-                <section class="react-heart"></section>
-                <section class="react-comment"></section>
-                <section class="react-save"></section>
-            </section>
-            <section class="container-comment-response">
-                <img src="" alt="">
-                <p>Nombre</p>
-                <p>Autem quae ullam quam ipsam. Nam at consectetur quam, maxime necessitatibus fugiat aut est excepturi dolorem ipsum explicabo vero omnis enim error.</p>
-            </section>
+        <section class="container-post" id="container-posts">
         </section>
+        </br>
+        
     </section>
 
     <section class="modal hide">
