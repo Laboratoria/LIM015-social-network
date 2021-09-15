@@ -818,7 +818,7 @@ img {
     font-size: 0.9rem;
     margin-bottom: 1rem;
 }
-
+/* CONTAINER POPULAR */
 .popular-posts {
     background-image: url(../images/svg/back-popular-posts.svg);
     background-repeat: no-repeat;
@@ -827,7 +827,12 @@ img {
     display: flex;
     gap: 1rem;
     border-radius: 5px;
+    overflow-x: auto; /* ----- */
+    overflow: hidden;
+    position: relative;
+
 }
+/* ---AGREGE CAMBIO DIANA :3--- */
 
 .card-post {
     width: 250px;
@@ -835,8 +840,87 @@ img {
     border-radius: 3%;
     border: solid 1px #EEEEEE;
     background-color: #FFFFFF;
+
+    padding: 10px;
+
+    min-width: 24%;
+    transition: 0.5s;
+    position: relative;
 }
 
+.imgPosts{
+    width: 100%;
+    height: 100%;
+}
+.designIcon-left, 
+.designIcon-right{
+    position: absolute;
+    display: block;
+    font-size: 40px;
+    color: #FB5773;
+    line-height: 30px;
+    top: 50px;
+}
+.designIcon-left{
+    left: -30px;
+}
+.designIcon-right{
+    left: 845px;
+}
+
+
+/* .designIcon{
+    font-size: 40px;
+    color: #FB5773;
+} */
+.box-arrow-left{
+    position: absolute;
+    left: 372.09px;
+    top: 208.09px;
+}
+.box-arrow-right{
+    position: absolute;
+    left: 1265px;
+    top: 208.09px;
+
+}
+.spanArrow{
+    cursor: pointer;
+    position: absolute;
+    /* position: absolute; */
+    user-select: none;
+
+}
+/* box */
+.head-popularPosts{
+    display: flex;
+}
+.name-hours{
+    padding: 10px;
+}
+.heart-number{
+    display: flex;
+    padding-top: 10px;
+}
+.p-posts{
+    font-size: 14px;
+    padding: 10px;
+}
+.horas-Posts{
+    font-size: 10px;
+    color: #878787;
+}
+.box-plus{
+    display: flex;
+    justify-content: flex-end;
+}
+.plus{
+    border-radius: 5px;
+}
+.heart{
+    color: #FA5672;
+    padding-right: 4px;
+}
 
 /** Boton para crear publicación **/
 
