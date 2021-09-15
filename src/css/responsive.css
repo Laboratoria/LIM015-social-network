@@ -1,4 +1,3 @@
-
 @media (max-width: 30rem) {  /**480px**/
   /*celular 384px*/
   .imgBx {
@@ -14,34 +13,10 @@
   .section-registro {
     display: block;
   }
-  /** Cambia grid de Muro en movil**/
-  .container-home {
-    display: flex;
-    flex-direction: column;
-  }
   /** Navegacion **/
   .side-navigation p,
   .side-navigation h2 {
     display: none;
-  }
-  /** Seccion de categorías **/
-  .container-section-categories {
-    display: flex;
-    flex-direction: column;
-  }
-  .titles-categories {
-    justify-content: flex-start;
-    gap: 1.5rem;
-  }
-  .categories {
-    flex-direction: row;
-    padding: 1rem;
-  }
-  .content-category {
-    display: none;
-  }
-  .container-section-post {
-    padding: .5rem;
   }
 }
   
@@ -51,6 +26,8 @@
     display: none;
   }
   .icon-logo {
+    min-width: 17px;
+    max-width: 22px;
     width: 5%;
     margin: 0 .5rem 0 0;
   }
@@ -81,6 +58,10 @@
   .categories {
     background-color: #FFFFFF;
   }
+  /** Dejamos el mismo ancho que los demás iconos**/
+  .user-information {
+    width: auto;
+}
 }
   
   /*tablet 384px*/
@@ -127,9 +108,6 @@
 }
   
 @media (min-width: 768px) and (max-width: 1024px) {
-  .icon-logo {
-    display: none;
-  }
   /** Input de búsqueda **/
   .input-search {
     width: 32% !important;
@@ -138,6 +116,39 @@
     padding: 0;
     width: 20%;
   }
+}
+
+@media (min-width: 627px) {
+  .icon-logo {
+    display: none;
+  }
+}
+
+@media (max-width: 800px ) {
+  /** Cambia grid de Muro en movil**/
+  .container-home {
+    display: flex;
+    flex-direction: column;
+  }
+    /** Seccion de categorías **/
+    .container-section-categories {
+      display: flex;
+      flex-direction: column;
+    }
+    .titles-categories {
+      justify-content: flex-start;
+      gap: 1.5rem;
+    }
+    .categories {
+      flex-direction: row;
+      padding: 1rem;
+    }
+    .content-category {
+      display: none;
+    }
+    .container-section-post {
+      padding: .5rem;
+    }
 }
   
 @media (min-width: 80rem) { /** 1280px **/
@@ -148,8 +159,5 @@
   /** Categorías **/
   .categories {
     font-size: 12px;
-  }
-  .icon-logo {
-    display: none;
   }
 }
