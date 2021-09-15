@@ -1,6 +1,6 @@
-//import { events } from "../firebase/function.js";
+import { login } from "../security/security.function.js";
 
-export default () => {
+export function viewLogin() {
   const viewLogin = `
   <form class="contenedorLogin">
     <h1>Pets-Lovers</h1>
@@ -31,3 +31,16 @@ export default () => {
   divElem.innerHTML = viewLogin;
   return divElem;
 };
+
+export function initLogin(){
+  const buttonLogin=document.querySelector('#btnGoogle');
+  buttonLogin.addEventListener("click", showLogin);
+}
+
+async function showLogin(){
+  try{
+    await login();
+  }catch(error){
+    console.log(error);
+  }
+}
