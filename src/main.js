@@ -1,5 +1,5 @@
 // Este es el punto de entrada de tu aplicacion
-import { changeView } from "./view-controller/index.js";
+import { changeView } from "./view-controller/routerController.js";
 
 const init = () => {
   changeView(window.location.hash);
