@@ -33,7 +33,7 @@ export const pageOnlyCats = () => {
           <p class="name-input"> Michael Scott </p>
           <textarea class="text-input" id="text-input"></textarea>
           <div>
-            <button class="post-button" id="post-button">Publicar</button>
+            <button class="post-button" id="post-button" type="submit">Publicar</button>
           </div>
         </section>
       </article>
@@ -58,32 +58,40 @@ export const pageOnlyCats = () => {
     postCollection(post)
       .then((docRef) => {
         console.log('Document written with ID: ', docRef.id);
-        sectionElement.querySelector('#text-input').value = ' ';
+        textInput.value = ' ';
       })
       .catch((error) => {
         console.error('Error adding document: ', error);
       });
   };
 
-  const mostrarPosts = () => getCollection().onSnapshot((collection) => {
-    const newPost = sectionElement.querySelector('#other-post');
-    collection.forEach((doc) => {
-      const dataContent = doc.data().text;
+  // -------- Leer Posts --------
+
+  // const mostrarPosts = () => getCollection().onSnapshot((collection) => {
+  // const newPost = sectionElement.querySelector('#other-post');
+  // collection.forEach((doc) => {
+  const mostrarPosts = () => {
+    getCollection().onSnapshot((querySnapshot) => {
+      const newPost = sectionElement.querySelector('#other-post');
       newPost.innerHTML = ' ';
-      newPost.innerHTML += `
+      querySnapshot.forEach((doc) => {
+        // const dataContent = doc.data().text;
+        const dataContent = doc.data();
+        newPost.innerHTML += `
         <section class="container-photo">
         <img src="./img/michael.jpg" "alt='picture' class="profile-photo">
       </section>
       <section class="section-post">
         <p class="name-input"> Michael Scott</p>
-        <div class="text-output">${dataContent}</div>
+        <div class="text-output">${dataContent.text}</div>
         <div>
         </div>
       </section>
       `;
-      console.log(dataContent);
+        console.log(dataContent.text);
+      });
     });
-  });
+  };
   btnPublish.addEventListener('click', () => {
     writePost();
     mostrarPosts();
