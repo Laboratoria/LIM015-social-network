@@ -24,7 +24,8 @@ export const emailVerification = () => firebase.auth()
 
 export const signOutUser = () => firebase.auth().signOut();
 
-// const user = firebase.auth().currentUser;
+// Current user:
+export const currentUser = () => firebase.auth().currentUser;
 
 // if (user) {
 //   // User is signed in, see docs for a list of available properties
