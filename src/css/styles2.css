@@ -23,6 +23,11 @@ h6 {
     color: #131920;
 }
 
+.bodyBackground {
+    background-color: #f7f7f7;
+}
+
+
 /* h2, 
 h3 {
     font-family: 'Nunito', sans-serif;
@@ -184,7 +189,9 @@ h3 {
     margin-left: 8px;
 }
 
+
 /** Botón reacciones **/
+
 .btn-notlike {
     background-color: #FFD9F1;
     color: #FC2C5E;
@@ -227,6 +234,7 @@ h3 {
 .btn-like {
     border: solid 1.5px #FC2C5E;
 }
+
 
 /** Logo redes sociales **/
 
@@ -590,14 +598,10 @@ img {
 
 .container-home {
     display: grid;
-    grid-template-columns: 
-        3% 22% 3% 67% 5%;
-    grid-template-areas: 
-        'header header          header      header      header'
-        '...... ......          ......      ......      ......'
-        '...... cont-categories ......      cont-posts  ......';
+    grid-template-columns: 3% 22% 3% 67% 5%;
+    grid-template-areas: 'header header          header      header      header' '...... ......          ......      ......      ......' '...... cont-categories ......      cont-posts  ......';
     grid-template-rows: 10vh 5vh 85vh;
-    background-color: #fafafa;
+    background-color: #f7f7f7;
     /* border: solid 1px red; */
 }
 
@@ -624,12 +628,13 @@ img {
 .input-search {
     display: table;
     border-collapse: collapse;
-    width:25%;
+    width: 25%;
 }
 
-.input-search > div {
+.input-search>div {
     display: table-cell;
-    vertical-align: middle;  /* needed for Safari */
+    vertical-align: middle;
+    /* needed for Safari */
 }
 
 .input-search input {
@@ -655,6 +660,7 @@ img {
 .fa-search {
     color: #ffffff;
 }
+
 
 /**Sección lateral de navegación**/
 
@@ -683,6 +689,7 @@ img {
     text-decoration: none;
 }
 
+
 /****** Avatar ******/
 
 .user-information {
@@ -690,11 +697,10 @@ img {
     align-items: center;
     width: 200px;
 }
+
 .user-information span {
     width: auto;
 }
-
-
 
 .avatar {
     max-height: auto;
@@ -757,7 +763,9 @@ img {
     margin-right: -5px;
 }
 
+
 /** Scroll Bar**/
+
 .categories::-webkit-scrollbar {
     width: 5px;
 }
@@ -832,7 +840,7 @@ img {
 
 /** Boton para crear publicación **/
 
-.btn-create-post{
+.btn-create-post {
     margin: 1rem 0 1rem 0;
     padding: 1rem 0;
     font-family: 'Nunito', sans-serif;
@@ -841,16 +849,19 @@ img {
     background: linear-gradient(90.22deg, #FA5672 23.46%, #FE8996 64.13%);
 }
 
-.container-posts {
+.container-post {
     background-color: white;
 }
 
 
 /** Modal **/
+
 .backdrop {
     background: rgba(0, 0, 0, 0.5);
-    height: 100%; /* 100vw */
-    width: 100%; /* */
+    height: 100%;
+    /* 100vw */
+    width: 100%;
+    /* */
     position: fixed;
     z-index: 1;
     top: 0;
@@ -878,7 +889,7 @@ img {
     border-bottom: solid 1px rgb(228, 226, 226);
 }
 
-.head-modal > button {
+.head-modal>button {
     text-align: center;
     width: 30px;
     height: 30px;
@@ -886,12 +897,13 @@ img {
     border-radius: 50%;
     background-color: rgb(148, 141, 141);
 }
+
 .body-modal {
     padding-top: 1rem;
     /* border: solid 1px blue; */
 }
 
-.head-modal > button:hover {
+.head-modal>button:hover {
     filter: brightness(85%);
 }
 
