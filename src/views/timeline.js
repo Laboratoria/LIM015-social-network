@@ -133,9 +133,11 @@ export default () => {
 
     btnCreatePost.addEventListener('click', openModal);
     btnCerrarModal.addEventListener('click', cerrarModal);
+
     function openModal() {
         modal.classList.add('revelar')
     }
+
     function cerrarModal() {
         modal.classList.remove('revelar')
     }
