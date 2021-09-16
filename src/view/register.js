@@ -42,11 +42,11 @@ const viewRegister =()=>{
         <span id="statusConfirmPassword"></span>
       </div>
       <div class="signup-button">
-        <input class="button button--main" id="mainbuttonSignup" type="submit" value="Crear cuenta">
+        <input class="button button--main button--login" id="mainbuttonSignup" type="submit" value="Crear cuenta">
       </div>
       <div class="form--separator signup-separator">ó</div>
       <div class="signup-social">
-        <button class="button button--second" id="buttonGoogleSignup" type="submit">
+        <button class="button button--second button--login" id="buttonGoogleSignup" type="submit">
           <div class="buttton button--second__img"><img class="googleIcon" src="./img/iconoGoogle.png" alt="icono_Google"></div>
           <div class="buttton button--second__text">Ingresar con Google</div> 
         </button>
@@ -126,14 +126,22 @@ const viewRegister =()=>{
       if(passwordRegister.value === passwordConfirmRegister.value){
         console.log('contraseñas iguales')
          const email = document.querySelector('#emailRegister').value;
+         const name = document.querySelector('#nameRegister').value;
         const password = document.querySelector('#passwordRegister').value;
+        
         registerEmail(email,password)
-        .then( ()=> {
-        //clear form
-         signupForm.reset();
-         console.log('guardando signup')
-         window.open('#','_self')  
-        }).catch(()=> {
+        .then( (cred)=> {
+          //base de datos de usuario
+          return   firebase.firestore().collection("users").doc(cred.user.uid).set({
+            Name:name,
+            Email:email,
+            Password:password   
+        }).then(()=>{
+          signupForm.reset();
+          window.open('#','_self')  
+        }).catch(err=>console.log(err))
+      }) 
+        .catch(()=> {
           spanErrorEmail.classList.add('invalidEmail');
           spanErrorEmail.innerHTML = "Ingrese un correo válido"})
       }else{
@@ -161,7 +169,8 @@ const viewRegister =()=>{
       })
       console.log('click google')
     });
-  
+
+
   
     return sectionRegister;
   
