@@ -131,7 +131,7 @@ const viewRegister =()=>{
         
         registerEmail(email,password)
         .then( (cred)=> {
-
+          //base de datos de usuario
           return   firebase.firestore().collection("users").doc(cred.user.uid).set({
             Name:name,
             Email:email,

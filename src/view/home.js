@@ -41,19 +41,6 @@ const viewHome = () => {
   const postsContainer = divHome.querySelector("#postsHomeContainer");
   // const getPosts = () => firebase.firestore().collection('posts').get();
 
-  /*
-  const posts=postArea.value;
-  let idUser=counter +=1;
-  firebase.auth().onAuthStateChanged((user)=>{
-    if(user){
-      firebase.firestore().collection(user.uid).doc(user.uid+"_"+idUser).set({
-        id:user.uid+"_"+ idUser,
-        posts
-      }).then(() => {
-        console.log("añadiste id de post al data base");
-    }).catch(err=>console.log(err))
-    }});*/
-
   const showAllPosts = async (section) => {
       onGetPosts((snapshot) => {
       postsContainer.innerHTML = "";
@@ -117,8 +104,6 @@ const viewHome = () => {
   });
 
   // Recuperando datos de usuario
-
-
   const username = divHome.querySelector("#home__userName");
   console.log(username);
   firebase.auth().onAuthStateChanged((user) => {
@@ -133,9 +118,7 @@ const viewHome = () => {
     }
   });
 
-
   //añadiendo id de post a cada usuario 
-
 
   showAllPosts(postsContainer);
 
@@ -153,10 +136,6 @@ const viewHome = () => {
     homePost.reset();
     postArea.focus();
   });
-
-
-
-
 
 
   return divHome;
