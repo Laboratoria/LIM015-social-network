@@ -40,11 +40,11 @@ const viewRegister = () => {
         <span id="statusConfirmPassword"></span>
       </div>
       <div class="signup-button">
-        <input class="button button--main" id="mainbuttonSignup" type="submit" value="Crear cuenta">
+        <input class="button button--main button--login" id="mainbuttonSignup" type="submit" value="Crear cuenta">
       </div>
       <div class="form--separator signup-separator">ó</div>
       <div class="signup-social">
-        <button class="button button--second" id="buttonGoogleSignup" type="submit">
+        <button class="button button--second button--login" id="buttonGoogleSignup" type="submit">
           <div class="buttton button--second__img"><img class="googleIcon" src="./img/iconoGoogle.png" alt="icono_Google"></div>
           <div class="buttton button--second__text">Ingresar con Google</div> 
         </button>
@@ -145,10 +145,39 @@ const viewRegister = () => {
     }
   });
 
-  passwordConfirmRegister.addEventListener("keyup", () => {
-    if (passwordConfirmRegister.value == "") {
-      spanConfirmPassword.classList.remove("invalidEmail");
-      spanConfirmPassword.innerHTML = "";
+  signupForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (passwordRegister.value === passwordConfirmRegister.value) {
+      console.log("contraseñas iguales");
+      const email = document.querySelector("#emailRegister").value;
+      const name = document.querySelector("#nameRegister").value;
+      const password = document.querySelector("#passwordRegister").value;
+
+      registerEmail(email, password)
+        .then((cred) => {
+          //base de datos de usuario
+          return firebase
+            .firestore()
+            .collection("users")
+            .doc(cred.user.uid)
+            .set({
+              Name: name,
+              Email: email,
+              Password: password,
+            })
+            .then(() => {
+              signupForm.reset();
+              window.open("#", "_self");
+            })
+            .catch((err) => console.log(err));
+        })
+        .catch(() => {
+          spanErrorEmail.classList.add("invalidEmail");
+          spanErrorEmail.innerHTML = "Ingrese un correo válido";
+        });
+    } else {
+      spanConfirmPassword.classList.add("invalidEmail");
+      spanConfirmPassword.innerHTML = "Las contraseñas deben coincidir";
     }
   });
 
@@ -156,14 +185,10 @@ const viewRegister = () => {
     "#buttonGoogleSignup"
   );
   buttonGoogleSignup.addEventListener("click", () => {
-    loginGoogle()
-      .then(() => {
-        console.log("signin with google");
-        window.open("#/home", "_self");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    loginGoogle().then(() => {
+      console.log("signin with google");
+      window.open("#/home", "_self");
+    });
     console.log("click google");
   });
 

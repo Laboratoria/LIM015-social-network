@@ -33,12 +33,12 @@ const viewLogin = () => {
         
       </div>
       <div class="form--login__button">
-        <input class="button button--main" type="submit" value="Ingresar">
+        <input class="button button--main button--login" type="submit" value="Ingresar">
       </div>
       <div class="form--separator form--login__separator">ó</div>
       <div class="form--login__social">
-        <button id="buttonGoogleLogin" class="button button--second" type="submit"> 
-          <div class="buttton button--second__img"><img class="googleIcon" src="./img/iconoGoogle.png" alt="icono_Google"></div>
+        <button id="buttonGoogleLogin" class="button button--second button--login" type="submit"> 
+          <div class="buttton button--second__img "><img class="googleIcon" src="./img/iconoGoogle.png" alt="icono_Google"></div>
           <div class="buttton button--second__text">Ingresar con Google</div> 
         </button>
       </div>
@@ -144,6 +144,7 @@ const viewLogin = () => {
       });
     console.log("click google");
   });
+
   return sectionLogin;
 };
 
