@@ -18,7 +18,6 @@ export const pageOnlyCats = () => {
               <img src="./img/michael.jpg" "alt='picture' class="profile-photo">
           </div>
           <section class="section-profile" >
-            <p class="name-input"> Michael Scott </p>
             <textarea class="text-input" id="text-input"></textarea>
             <div>
               <button class="post-button" id="post-button" type="submit">Publicar</button>
@@ -26,16 +25,15 @@ export const pageOnlyCats = () => {
           </section>
         </section>
 
-
       <article class ="white-container" >
         <section class="scroll-container" id="other-post"></section>
       <article>
 
     </main>
-
-    <aside >
-        <button class="sign-out"> salir</button>
+    <aside>
+      <button class="sign-out"> salir</button>
     </aside>
+  
   </div>`;
   const sectionElement = document.createElement('section');
   sectionElement.classList.add('container-box');
@@ -46,7 +44,6 @@ export const pageOnlyCats = () => {
 
   // -------- Crear Posts --------
   const writePost = () => {
-  /*    textInput.innerHTML = ' '; */
     const post = textInput.value;
     postCollection(post)
       .then(() => {
@@ -67,7 +64,6 @@ export const pageOnlyCats = () => {
       const newPost = sectionElement.querySelector('#other-post');
       newPost.innerHTML = ' ';
       querySnapshot.forEach((doc) => {
-        // const dataContent = doc.data().text;
         const dataContent = doc.data();
         newPost.innerHTML += `
         <section class="container-post">
