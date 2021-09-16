@@ -10,6 +10,7 @@ const viewHome = () => {
       <section id="home" class="home">
 
         <section id="homeProfile" class="home__profile">
+         <div id="home__userName" >Aca irá nombre del usuario</div>
           <div id="home-imgUser" class="home__imgUser">Aca irá imgUser</div>
           <div id="name" class="home__nameuser"> ver perfil </div>
         </section>
@@ -40,16 +41,30 @@ const viewHome = () => {
   const postsContainer = divHome.querySelector("#postsHomeContainer");
   // const getPosts = () => firebase.firestore().collection('posts').get();
 
+  /*
+  const posts=postArea.value;
+  let idUser=counter +=1;
+  firebase.auth().onAuthStateChanged((user)=>{
+    if(user){
+      firebase.firestore().collection(user.uid).doc(user.uid+"_"+idUser).set({
+        id:user.uid+"_"+ idUser,
+        posts
+      }).then(() => {
+        console.log("añadiste id de post al data base");
+    }).catch(err=>console.log(err))
+    }});*/
+
   const showAllPosts = async (section) => {
-    onGetPosts((snapshot) => {
+      onGetPosts((snapshot) => {
       postsContainer.innerHTML = "";
       const newSection = document.createElement("section");
       snapshot.forEach((doc) => {
+       
         const postText = doc.data();
         postText.id = doc.id;
 
         newSection.innerHTML += `
-        <div class="home__imgUser">ImgUser</div>
+        <div class="home__imgUser" id="userImg" >ImgUser </div>
         <div class="home__nameuser"> compartió </div>
         <div> 3 septiembre </div>
       
@@ -70,6 +85,7 @@ const viewHome = () => {
             await deletePosts(e.target.dataset.id);
           });
         });
+
         const btnsEdit = postsContainer.querySelectorAll(".btn-edit");
         btnsEdit.forEach((btn) => {
           btn.addEventListener("click", async (e) => {
@@ -85,13 +101,50 @@ const viewHome = () => {
             btn.innerText = "Guardar";
           });
         });
+
       });
+
     });
   };
+
+  // capturando valor con google  de firestore
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      console.log("usuario esta logeado");
+    } else {
+      console.log("no estas ");
+    }
+  });
+
+  // Recuperando datos de usuario
+
+
+  const username = divHome.querySelector("#home__userName");
+  console.log(username);
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      console.log(user);
+      firebase.firestore().collection("users").doc(user.uid).get().then((docUser) => {
+          username.innerText = docUser.data().Name;
+          
+        });
+    } else {
+      console.log("no estas ");
+    }
+  });
+
+
+  //añadiendo id de post a cada usuario 
+
+  let date=new Date();
+  let time=date.getTime();
+  let counter=time;
 
   showAllPosts(postsContainer);
 
   homePost.addEventListener("submit", async () => {
+
+   
     showAllPosts(postsContainer);
   });
 
@@ -103,6 +156,11 @@ const viewHome = () => {
     homePost.reset();
     postArea.focus();
   });
+
+
+
+
+
 
   return divHome;
 };

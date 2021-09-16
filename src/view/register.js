@@ -126,14 +126,22 @@ const viewRegister =()=>{
       if(passwordRegister.value === passwordConfirmRegister.value){
         console.log('contraseñas iguales')
          const email = document.querySelector('#emailRegister').value;
+         const name = document.querySelector('#nameRegister').value;
         const password = document.querySelector('#passwordRegister').value;
+        
         registerEmail(email,password)
-        .then( ()=> {
-        //clear form
-         signupForm.reset();
-         console.log('guardando signup')
-         window.open('#','_self')  
-        }).catch(()=> {
+        .then( (cred)=> {
+
+          return   firebase.firestore().collection("users").doc(cred.user.uid).set({
+            Name:name,
+            Email:email,
+            Password:password   
+        }).then(()=>{
+          signupForm.reset();
+          window.open('#','_self')  
+        }).catch(err=>console.log(err))
+      }) 
+        .catch(()=> {
           spanErrorEmail.classList.add('invalidEmail');
           spanErrorEmail.innerHTML = "Ingrese un correo válido"})
       }else{
@@ -161,7 +169,8 @@ const viewRegister =()=>{
       })
       console.log('click google')
     });
-  
+
+
   
     return sectionRegister;
   

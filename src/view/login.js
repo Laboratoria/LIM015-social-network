@@ -1,4 +1,6 @@
-import { loginEmail, loginGoogle } from '../firebase/fb-functions.js'
+import { loginEmail, loginGoogle } from '../firebase/fb-functions.js';
+
+
 
 const viewLogin = () => {
   const htmlLogin =
@@ -147,6 +149,11 @@ const viewLogin = () => {
       })
     console.log('click google')
   });
+
+
+
+
+
   return sectionLogin;
 }
 
