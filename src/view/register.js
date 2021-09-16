@@ -1,8 +1,6 @@
-import { registerEmail, loginGoogle } from '../firebase/fb-functions.js'
-const viewRegister =()=>{
-
-    const htmlRegister=
-    `
+import { registerEmail, loginGoogle } from "../firebase/fb-functions.js";
+const viewRegister = () => {
+  const htmlRegister = `
   <div class="viewDesktop">
     <img class="viewDesktop__logo" src="./img/logoMobilPrueba.jpg" alt="Makipura">
     <img class="viewDesktop__woman" src="./img/woman.png" alt="Makipura">
@@ -58,68 +56,95 @@ const viewRegister =()=>{
   </div>
     `;
 
- 
-  const sectionRegister = document.createElement('section');
+  const sectionRegister = document.createElement("section");
   sectionRegister.classList.add("registerSection");
 
-  sectionRegister.innerHTML=htmlRegister;
+  sectionRegister.innerHTML = htmlRegister;
   // signup register
-  const signupForm = sectionRegister.querySelector('#loginForm-signup');
-  const passwordRegister = sectionRegister.querySelector('#passwordRegister');
-  const passwordConfirmRegister = sectionRegister.querySelector('#passwordConfirmRegister');
-  const spanPassword = sectionRegister.querySelector('#statusPasswordMessage');
-  const spanErrorEmail = sectionRegister.querySelector('#errorEmail');
-  const spanConfirmPassword = sectionRegister.querySelector('#statusConfirmPassword')
-  const iconEyeR = sectionRegister.querySelector('#checkEyeR');
-  const iconRepeatEyeR = sectionRegister.querySelector('#checkRepeatEye')
-  const iconEyeBoxR = sectionRegister.querySelector('.icon--eyeR');
-  const iconRepeatEyeBoxR = sectionRegister.querySelector('.icon--repeatEyeR')
+
+  const signupForm = sectionRegister.querySelector("#loginForm-signup");
+  const passwordRegister = sectionRegister.querySelector("#passwordRegister");
+  const passwordConfirmRegister = sectionRegister.querySelector(
+    "#passwordConfirmRegister"
+  );
+  const spanPassword = sectionRegister.querySelector("#statusPasswordMessage");
+  const spanErrorEmail = sectionRegister.querySelector("#errorEmail");
+  const spanConfirmPassword = sectionRegister.querySelector(
+    "#statusConfirmPassword"
+  );
+  const iconEyeR = sectionRegister.querySelector("#checkEyeR");
+  const iconRepeatEyeR = sectionRegister.querySelector("#checkRepeatEye");
+  const iconEyeBoxR = sectionRegister.querySelector(".icon--eyeR");
+  const iconRepeatEyeBoxR = sectionRegister.querySelector(".icon--repeatEyeR");
   // console.log(signupForm);
-  passwordRegister.addEventListener('keyup' , ()=>{
-      const requiredPassword =  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z\d]).{6,}$/gm ;
-      console.log(passwordRegister.value)
-      if(requiredPassword.test(passwordRegister.value)){
-        spanPassword.classList.add('validateEmail');
-        spanPassword.classList.remove('invalidEmail');
-        spanPassword.innerHTML = "Contraseña segura";
-      }else{
-        spanPassword.classList.remove('validateEmail');
-        spanPassword.classList.add('invalidEmail');
-        spanPassword.innerHTML = "La contraseña debe contener mínimo 6 caracteres, una letra mayúscula y un número";
-      }
-      if (passwordRegister.value == ""){
-        spanPassword.classList.remove('validateEmail');
-        spanPassword.classList.remove('invalidEmail');
-        spanPassword.innerHTML = "" ;
-       }
-    });
-
-    iconEyeBoxR.addEventListener('click' , () => {
-      
-      if (passwordRegister.type === "password") {
-        passwordRegister.type = "text";
-        iconEyeR.classList.remove('fa-eye-slash')
-        iconEyeR.classList.add('fa-eye')
-      } else {
-        passwordRegister.type = "password";
-        iconEyeR.classList.add('fa-eye-slash')
-        iconEyeR.classList.remove('fa-eye')
-      }
-
+  passwordRegister.addEventListener("keyup", () => {
+    const requiredPassword =
+      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z\d]).{6,}$/gm;
+    console.log(passwordRegister.value);
+    if (requiredPassword.test(passwordRegister.value)) {
+      spanPassword.classList.add("validateEmail");
+      spanPassword.classList.remove("invalidEmail");
+      spanPassword.innerHTML = "Contraseña segura";
+    } else {
+      spanPassword.classList.remove("validateEmail");
+      spanPassword.classList.add("invalidEmail");
+      spanPassword.innerHTML =
+        "La contraseña debe contener mínimo 6 caracteres, una letra mayúscula y un número";
+    }
+    if (passwordRegister.value == "") {
+      spanPassword.classList.remove("validateEmail");
+      spanPassword.classList.remove("invalidEmail");
+      spanPassword.innerHTML = "";
+    }
   });
 
-  iconRepeatEyeBoxR.addEventListener('click' , () => {
-      
+  iconEyeBoxR.addEventListener("click", () => {
+    if (passwordRegister.type === "password") {
+      passwordRegister.type = "text";
+      iconEyeR.classList.remove("fa-eye-slash");
+      iconEyeR.classList.add("fa-eye");
+    } else {
+      passwordRegister.type = "password";
+      iconEyeR.classList.add("fa-eye-slash");
+      iconEyeR.classList.remove("fa-eye");
+    }
+  });
+
+  iconRepeatEyeBoxR.addEventListener("click", () => {
     if (passwordConfirmRegister.type === "password") {
       passwordConfirmRegister.type = "text";
-      iconRepeatEyeR.classList.remove('fa-eye-slash')
-      iconRepeatEyeR.classList.add('fa-eye')
+      iconRepeatEyeR.classList.remove("fa-eye-slash");
+      iconRepeatEyeR.classList.add("fa-eye");
     } else {
       passwordConfirmRegister.type = "password";
-      iconRepeatEyeR.classList.add('fa-eye-slash')
-      iconRepeatEyeR.classList.remove('fa-eye')
+      iconRepeatEyeR.classList.add("fa-eye-slash");
+      iconRepeatEyeR.classList.remove("fa-eye");
     }
-});
+  });
+
+  signupForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (passwordRegister.value === passwordConfirmRegister.value) {
+      console.log("contraseñas iguales");
+      const email = document.querySelector("#emailRegister").value;
+      const password = document.querySelector("#passwordRegister").value;
+      registerEmail(email, password)
+        .then(() => {
+          //clear form
+          signupForm.reset();
+          console.log("guardando signup");
+          window.open("#", "_self");
+        })
+        .catch(() => {
+          spanErrorEmail.classList.add("invalidEmail");
+          spanErrorEmail.innerHTML = "Ingrese un correo válido";
+        });
+    } else {
+      spanConfirmPassword.classList.add("invalidEmail");
+      spanConfirmPassword.innerHTML = "Las contraseñas deben coincidir";
+    }
+  });
+
 
     signupForm.addEventListener('submit', (e)=>{
       e.preventDefault();
@@ -150,33 +175,23 @@ const viewRegister =()=>{
       }      
     });
 
-    passwordConfirmRegister.addEventListener('keyup', () => {
-      if(passwordConfirmRegister.value == ""){
-        spanConfirmPassword.classList.remove('invalidEmail');
-        spanConfirmPassword.innerHTML = "" ;
-      }
-    })
-    
-    const buttonGoogleSignup = sectionRegister.querySelector('#buttonGoogleSignup');
-    buttonGoogleSignup.addEventListener('click' , () => {
-      loginGoogle()
+  const buttonGoogleSignup = sectionRegister.querySelector(
+    "#buttonGoogleSignup"
+  );
+  buttonGoogleSignup.addEventListener("click", () => {
+    loginGoogle()
       .then(() => {
-        console.log('signin with google');
-        window.open('#/home','_self')
+        console.log("signin with google");
+        window.open("#/home", "_self");
       })
-      .catch(error => {
-        console.log(error)
-      })
-      console.log('click google')
-    });
+      .catch((error) => {
+        console.log(error);
+      });
+    console.log("click google");
+  });
 
 
-  
-    return sectionRegister;
-  
-}
+  return sectionRegister;
+};
 
-
-
-export  {viewRegister}
-
+export { viewRegister };
