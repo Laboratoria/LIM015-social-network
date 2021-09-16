@@ -825,7 +825,7 @@ img {
     background-size: 100%;
     padding: 1rem;
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
     border-radius: 5px;
     overflow-x: auto; /* ----- */
     overflow: hidden;
@@ -843,7 +843,7 @@ img {
 
     padding: 10px;
 
-    min-width: 24%;
+    min-width: 28%;
     transition: 0.5s;
     position: relative;
 }
@@ -859,13 +859,14 @@ img {
     font-size: 40px;
     color: #FB5773;
     line-height: 30px;
-    top: 50px;
 }
 .designIcon-left{
     left: -30px;
+    top: 70px;
 }
 .designIcon-right{
-    left: 845px;
+    left: 895px;
+    bottom: 75px;
 }
 
 
@@ -901,6 +902,7 @@ img {
 .heart-number{
     display: flex;
     padding-top: 10px;
+    padding-left: 34px;
 }
 .p-posts{
     font-size: 14px;
