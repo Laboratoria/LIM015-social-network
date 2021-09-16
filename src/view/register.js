@@ -185,10 +185,14 @@ const viewRegister = () => {
     "#buttonGoogleSignup"
   );
   buttonGoogleSignup.addEventListener("click", () => {
-    loginGoogle().then(() => {
-      console.log("signin with google");
-      window.open("#/home", "_self");
-    });
+    loginGoogle()
+      .then(() => {
+        console.log("signin with google");
+        window.open("#/home", "_self");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
     console.log("click google");
   });
 
