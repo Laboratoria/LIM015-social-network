@@ -136,9 +136,6 @@ const viewHome = () => {
 
   //añadiendo id de post a cada usuario 
 
-  let date=new Date();
-  let time=date.getTime();
-  let counter=time;
 
   showAllPosts(postsContainer);
 
