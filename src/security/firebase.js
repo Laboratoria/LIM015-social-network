@@ -14,3 +14,4 @@ export const initialization = () => {
 initialization();
 
 export const auth = firebase.auth();
+

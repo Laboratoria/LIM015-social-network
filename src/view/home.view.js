@@ -1,4 +1,4 @@
-export function viewHome() {
+export function viewHome ()  {
   const viewHome = `
       <h2>Pets-Lovers</h2>
       <div class="home">
@@ -12,6 +12,6 @@ export function viewHome() {
   return divElem;
 };
 
-export function initHome(){
+export function initHome() {
   
 }
