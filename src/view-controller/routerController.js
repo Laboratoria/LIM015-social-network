@@ -11,6 +11,7 @@ const changeView = (route) => {
       initLogin();
       break;
     }
+    ///sectionView.innerHTML= components.login();
     case "#/register": {
       container.appendChild(viewRegister());
       initRegister();
@@ -21,13 +22,10 @@ const changeView = (route) => {
       initHome();
       break;
     }
-
     default:
       container.appendChild(viewLogin());
       initLogin();
-     
   }
-  
 };
 
 export { changeView };
