@@ -30,17 +30,23 @@ export function viewLogin() {
   const divElem = document.createElement("div");
   divElem.innerHTML = viewLogin;
   return divElem;
-};
-
-export function initLogin(){
-  const buttonLogin=document.querySelector('#btnGoogle');
-  buttonLogin.addEventListener("click", showLogin);
 }
 
-async function showLogin(){
-  try{
+export function initLogin() {
+  const buttonLogin = document.querySelector("#btnGoogle");
+
+  buttonLogin.addEventListener("click", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    showLogin();
+  });
+  //buttonLogin.addEventListener("click", showLogin);
+}
+
+async function showLogin() {
+  try {
     await login();
-  }catch(error){
+  } catch (error) {
     console.log(error);
   }
 }
