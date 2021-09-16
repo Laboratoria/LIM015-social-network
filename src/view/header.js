@@ -6,26 +6,26 @@ const  viewHeader = () => {
   <header class="header">
   
     <nav class="nav">
-      <figure class="logoNav">
+      <figure class="nav__logo">
         <a href=" ">
-          <img src=" ../img/logosf.png" >
+          <img  class="header__img" src=" ../img/logosf.png" >
         </a>
       </figure>
   
-      <span class="btn-menu">
-        <i class=" "> </i>
+      <span class="nav__button">
+        <i class="nav__i "> </i>
   
       </span>
   
-      <ul class="navHome">
+      <ul class="nav__lista">
         <li >
-          <a id="navHome" href="#/home" class="navlink">INICIO</a>
+          <a id="navHome" href="#/home" class="nav__link">INICIO</a>
         </li>
         <li >
-          <a id="navProfile" href="#/profile" class="navlink">PERFIL</a>
+          <a id="navProfile" href="#/profile" class="nav__link">PERFIL</a>
         </li>
         <li >
-          <a href="#/profile" id="navClose" class="navlink"> CERRAR SESION</a>
+          <a href="#/profile" id="navClose" class="nav__link"> CERRAR SESION</a>
         </li>
       </ul>
   

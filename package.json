@@ -40,7 +40,6 @@
   },
   "dependencies": {
     "deploy": "^1.0.3",
-    "firebase": "^8.10.0",
     "gh-pages": "^3.2.3"
   }
 }

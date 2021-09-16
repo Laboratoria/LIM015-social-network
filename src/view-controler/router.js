@@ -1,4 +1,3 @@
-
 import { components } from '../view/indexView.js'
 
 
