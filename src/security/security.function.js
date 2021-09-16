@@ -52,6 +52,16 @@ export function logout() {
   auth.signOut();
 }
 
+export const logInWithEmail = (email, password) => {
+  const login = firebase.auth().signInWithEmailAndPassword(email, password);
+  return login;
+};
+
+export const logInWithGoogle = () => {
+  const provider = new firebase.auth.GoogleAuthProvider();
+  return firebase.auth().signInWithPopup(provider);
+};
+
 
 
 // export const registerWithEmail = (email, password) => firebase.auth()
