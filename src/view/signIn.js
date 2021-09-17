@@ -86,7 +86,7 @@ export const signIn = () => {
               window.location.hash = '#/onlycats';
               localStorage.setItem('user', JSON.stringify(user));
             } else {
-              console.log('email no verificado');
+              alert('Email no verificado. Revisa tu correo :D');
             }
           }
         });

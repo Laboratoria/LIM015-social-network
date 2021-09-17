@@ -33,7 +33,7 @@ export const pageOnlyCats = () => {
     <aside>
       <button class="sign-out"> salir</button>
     </aside>
-  
+
   </div>`;
   const sectionElement = document.createElement('section');
   sectionElement.classList.add('container-box');
@@ -42,8 +42,8 @@ export const pageOnlyCats = () => {
   const btnPublish = sectionElement.querySelector('#post-button');
   const textInput = sectionElement.querySelector('#text-input');
 
-  // -------- Crear Posts --------
-  const writePost = () => {
+  // -------- Crear Posts (C) --------
+  const createPost = () => {
     const post = textInput.value;
     postCollection(post)
       .then(() => {
@@ -54,9 +54,8 @@ export const pageOnlyCats = () => {
       });
   };
 
-  // -------- Leer Posts --------
-
-  const mostrarPosts = () => {
+  // -------- Leer Posts (R) --------
+  const readPosts = () => {
     getCollection().onSnapshot((querySnapshot) => {
       const newPost = sectionElement.querySelector('#other-post');
       newPost.innerHTML = ' ';
@@ -76,31 +75,10 @@ export const pageOnlyCats = () => {
     });
   };
 
-  btnPublish.addEventListener('click', writePost);
-  mostrarPosts();
-  // -------- Publicar Posts --------
-  /*   const publishPosts = () => {
-    getCollection().get().then((querySnapshot) => {
-      const newPost = sectionElement.querySelector('#other-post');
-      querySnapshot.forEach((doc) => {
-        newPost.innerHTML = ' ';
-        console.log(`${doc.id} => ${doc.data().text}`);
-        newPost.innerHTML += `
-        <section class="container-photo">
-        <img src="./img/michael.jpg" "alt='picture' class="profile-photo">
-      </div>
-      <section class="section-post">
-        <p class="name-input"> Michael Scott</p>
-        <div class="text-output">${doc.data().text}</div>
-        <div>
-        </div>
-      </section>
-      `;
-      });
-    });
-  };
-  publishPosts();
- */
+  btnPublish.addEventListener('click', createPost);
+  readPosts();
+
+  // ------------------ Salir de la página --------------------
   const signOut = sectionElement.querySelector('.sign-out');
   signOut.addEventListener('click', (e) => {
     e.preventDefault();
