@@ -163,7 +163,7 @@ export default () => {
 
                 <section class="head-modal">
                     <span> </span>
-                    <span> Crear publicación </span>
+                    <h3> Crear publicación </h3>
                     <button class="btn btn-cerrar-modal"> X </button> 
                 </section>
 
@@ -195,7 +195,12 @@ export default () => {
                     <section class="emoji-group" id="emoji-group"></section>
 
                     <section class="reaction-post-group">
-                        <i class="fas fa-images"></i>
+                        <section class="image-upload">
+                            <label for="file-input">
+                                <i class="fas fa-images"></i>
+                            </label>
+                            <input type="file" id="file-input" name="file-input" accept="image/*">
+                        </section>
                         <img src="../images/svg/carita.png" class="smile" alt="icon-face" width="20" height="20">
                     </section>
 
