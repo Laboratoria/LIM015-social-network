@@ -1,14 +1,7 @@
 import {
   onAuthStateChanged, registerGoogle, signInUser,
 } from '../firebase/firebase-functions.js';
-
-const userState = () => {
-  onAuthStateChanged((user) => {
-    if (user !== null && user.emailVerified) {
-      window.location.hash = '#/onlycats';
-    }
-  });
-};
+import { userState } from './home.js';
 
 export const signIn = () => {
   userState();

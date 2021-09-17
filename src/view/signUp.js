@@ -1,8 +1,10 @@
 /* eslint-disable no-alert */
 /* eslint-disable no-console */
 import { createUser, emailVerification } from '../firebase/firebase-functions.js';
+import { userState } from './home.js';
 
 export const signUp = () => {
+  userState();
   const sectionElement = document.createElement('section');
   const viewSignUp = `
     <div  class="home-container">

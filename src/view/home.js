@@ -1,4 +1,14 @@
+import { onAuthStateChanged } from '../firebase/firebase-functions.js';
+
+export const userState = () => {
+  onAuthStateChanged((user) => {
+    if (user !== null && user.emailVerified) {
+      window.location.hash = '#/onlycats';
+    }
+  });
+};
 export const home = () => {
+  userState();
   const viewHome = `
     <section class="home-container">
       <figure>
