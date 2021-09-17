@@ -56,9 +56,6 @@ export const pageOnlyCats = () => {
 
   // -------- Leer Posts --------
 
-  // const mostrarPosts = () => getCollection().onSnapshot((collection) => {
-  // const newPost = sectionElement.querySelector('#other-post');
-  // collection.forEach((doc) => {
   const mostrarPosts = () => {
     getCollection().onSnapshot((querySnapshot) => {
       const newPost = sectionElement.querySelector('#other-post');
@@ -112,6 +109,7 @@ export const pageOnlyCats = () => {
       signOutUser()
         .then(() => {
           window.location.hash = '#/';
+          window.localStorage.clear();
         });
     } else {
       signOutUser()
