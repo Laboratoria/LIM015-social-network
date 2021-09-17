@@ -1,10 +1,21 @@
 /* eslint-disable no-restricted-globals */
 /* eslint-disable no-console */
 /* eslint-disable no-alert */
-import { signOutUser } from '../firebase/firebase-functions.js';
+import { signOutUser, onAuthStateChanged } from '../firebase/firebase-functions.js';
 import { postCollection, getCollection } from '../firebase/firebase-firestore.js';
 
+const userStateCheck = () => {
+  onAuthStateChanged((user) => {
+    if (user !== null && user.emailVerified) {
+      window.location.hash = '#/onlycats';
+    } else if (user === null) {
+      window.location.hash = '';
+      alert('No iniciaste sesión');
+    }
+  });
+};
 export const pageOnlyCats = () => {
+  userStateCheck();
   const pageOcView = `
   <div class="page-container">
     <header class = "header-container">
@@ -86,7 +97,7 @@ export const pageOnlyCats = () => {
     if (result) {
       signOutUser()
         .then(() => {
-          window.location.hash = '#/';
+          window.location.hash = '';
           window.localStorage.clear();
         });
     } else {
