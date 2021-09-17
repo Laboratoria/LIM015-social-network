@@ -1,6 +1,8 @@
   import { readInfoUser } from "./crud/readInfoUser.js"
   import { readCategory } from './crud/readCategory.js'
   import { readPost } from './crud/readPost.js'
+  import { createEmoji } from "../views/emoji.js"
+
   const addEventsTimeLine = () => {
       document.querySelector('#div-body').className = "bodyBackground";
       const btnSalir = document.querySelector('#logout');
@@ -16,6 +18,7 @@
       readInfoUser();
       readCategory();
       readPost();
+      createEmoji();
   }
 
   export { addEventsTimeLine }

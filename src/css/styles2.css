@@ -1035,10 +1035,10 @@ img {
     overflow: hidden;
     background-color:  #f3f3f3;
     font-family: 'Nunito', sans-serif;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 400;
-    line-height: 1.2;
-    color: #131920;
+    line-height: 1.5;
+    color: #6e6b7b;
     border: none;
     border-radius: 10px;
 }
@@ -1053,6 +1053,7 @@ img {
 .smile {
     cursor: pointer;
     opacity: .3;
+    margin-left: 95%;
 }
 
 .emoji-group {
@@ -1093,4 +1094,28 @@ img {
 
 .show-emojis {
     display: block;
+}
+
+/** Estilos al icono de subir imagen en el post **/
+.image-upload {
+    position: absolute;
+    width: 50px;
+    height:40px;
+}
+
+.image-upload > input {
+    vertical-align: middle;
+    height:40px;
+	width:100%;
+	opacity:0;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
+}
+
+.image-upload i {
+    cursor: pointer;
+    color: rgb(173, 173, 173);
+    position: relative;
+    left: 10px;
+    top: 12px;
 }
