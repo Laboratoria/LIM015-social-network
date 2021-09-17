@@ -68,34 +68,31 @@ export const signIn = () => {
     } else if (signInEmail === '') {
       errorEmail.innerHTML = 'Inserte email';
     } else {
-      firebase.auth().onAuthStateChanged(
-        (user) => {
-          if (user) {
-            const emailVerified = user.emailVerified;
-            if (emailVerified === true) {
-              signInUser(signInEmail, signInPassword)
-                .then(() => {
-                  window.location.hash = '#/onlycats';
-                  // console.log('inscrito');
-                });
-            } else {
-              window.alert('Revisa el correo de verificación');
-              signInUser(signInEmail, signInPassword)
-                .catch((error) => {
-                  const errorCode = error.code;
-                  /* const errorMessage = error.message; */
-                  if (errorCode === 'auth/user-not-found') {
-                    errorEmail.innerHTML = 'El usuario no existe';
-                  } else if (errorCode === 'auth/wrong-password') {
-                    errorPassword.innerHTML = 'La contraseña es inválida o el usuario no tiene contraseña';
-                  }
-                  // const errorMessage = error.message;
-                  // console.log(errorCode, errorMessage);
-                });
-            }
+      firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          const emailVerified = user.emailVerified;
+          if (emailVerified === true) {
+            signInUser(signInEmail, signInPassword)
+              .then(() => {
+                window.location.hash = '#/onlycats';
+                // console.log('inscrito');
+              })
+              .catch((error) => {
+                const errorCode = error.code;
+                /* const errorMessage = error.message; */
+                if (errorCode === 'auth/user-not-found') {
+                  errorEmail.innerHTML = 'El usuario no existe';
+                } else if (errorCode === 'auth/wrong-password') {
+                  errorPassword.innerHTML = 'La contraseña es inválida o el usuario no tiene contraseña';
+                }
+                const errorMessage = error.message;
+                console.log(errorCode, errorMessage);
+              });
+          } else {
+            window.alert('Revisa el correo de verificación');
           }
-        },
-      );
+        }
+      });
     }
   });
 

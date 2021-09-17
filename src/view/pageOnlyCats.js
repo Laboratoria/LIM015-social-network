@@ -108,7 +108,7 @@ export const pageOnlyCats = () => {
   signOut.addEventListener('click', (e) => {
     e.preventDefault();
     const result = confirm('¿En serio quieres salir?');
-    if (result === true) {
+    if (result) {
       signOutUser()
         .then(() => {
           window.location.hash = '#/';
