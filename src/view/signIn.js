@@ -1,6 +1,17 @@
-import { signInUser, registerGoogle } from '../firebase/firebase-functions.js';
+import {
+  onAuthStateChanged, registerGoogle, signInUser,
+} from '../firebase/firebase-functions.js';
+
+const userState = () => {
+  onAuthStateChanged((user) => {
+    if (user !== null && user.emailVerified) {
+      window.location.hash = '#/onlycats';
+    }
+  });
+};
 
 export const signIn = () => {
+  userState();
   const viewSignIn = `
     <div class='home-container'>
       <figure class='container-img'>
@@ -38,7 +49,7 @@ export const signIn = () => {
 
       <ul class="home-list">
         <li class="signin-access-items">
-         <button class="google-button"> <a id="signin-google" href="#/google">Acceder con Google</a></button>
+          <button class="google-button"> <a id="signin-google" href="#/google">Acceder con Google</a></button>
         </li>
         <li class="signin-access-items">
           <span>¿No tienes cuenta?</span><a class="sgn" href="#/signup">Create una</a>
@@ -68,31 +79,30 @@ export const signIn = () => {
     } else if (signInEmail === '') {
       errorEmail.innerHTML = 'Inserte email';
     } else {
-      firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-          const emailVerified = user.emailVerified;
-          if (emailVerified === true) {
-            signInUser(signInEmail, signInPassword)
-              .then(() => {
-                window.location.hash = '#/onlycats';
-                // console.log('inscrito');
-              })
-              .catch((error) => {
-                const errorCode = error.code;
-                /* const errorMessage = error.message; */
-                if (errorCode === 'auth/user-not-found') {
-                  errorEmail.innerHTML = 'El usuario no existe';
-                } else if (errorCode === 'auth/wrong-password') {
-                  errorPassword.innerHTML = 'La contraseña es inválida o el usuario no tiene contraseña';
-                }
-                const errorMessage = error.message;
-                console.log(errorCode, errorMessage);
-              });
-          } else {
-            window.alert('Revisa el correo de verificación');
+      const checkEmailVerified = () => {
+        onAuthStateChanged((user) => {
+          if (user) {
+            if (user.emailVerified) { // This will return true or false
+              window.location.hash = '#/onlycats';
+              localStorage.setItem('user', JSON.stringify(user));
+            } else {
+              console.log('email no verificado');
+            }
           }
-        }
-      });
+        });
+      };
+      signInUser(signInEmail, signInPassword)
+        .then(() => checkEmailVerified())
+        .catch((error) => {
+          const errorCode = error.code;
+          if (errorCode === 'auth/user-not-found') {
+            errorEmail.innerHTML = 'El usuario no existe';
+          } else if (errorCode === 'auth/wrong-password') {
+            errorPassword.innerHTML = 'La contraseña es inválida o el usuario no tiene contraseña';
+          }
+          const errorMessage = error.message;
+          console.log(errorCode, errorMessage);
+        });
     }
   });
 
@@ -100,15 +110,11 @@ export const signIn = () => {
   signInGoogle.addEventListener('click', (e) => {
     e.preventDefault();
     registerGoogle()
-      .then(() => {
+      .then((userAccount) => {
         window.location.hash = '#/onlycats';
-        // console.log('You\'re now signed in !');
+        localStorage.setItem('user', JSON.stringify(userAccount.user));
       })
-    // eslint-disable-next-line arrow-body-style
-      .catch((error) => {
-        // console.error(error);
-        return error;
-      });
+      .catch((error) => error);
   });
   return sectionElement;
 };
