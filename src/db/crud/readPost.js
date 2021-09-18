@@ -1,9 +1,9 @@
-const readPost = () => {
+const readPost = () => { //retorna la promesa de la linea 6 - informacion de cada usurio
     // eslint-disable-next-line no-undef
     const db = firebase.firestore();
     const usersfb = () => {
-        const objectUser = [];
-        db.collection("users")
+        const objectUser = []; //array de objetos cada obj es un usuario
+        return db.collection("users")
             .get()
             .then(response => {
                 response.forEach(doc => {
@@ -16,18 +16,21 @@ const readPost = () => {
                         description: doc.data().description
                     });
                 })
+                return objectUser;
             })
-        return objectUser;
     }
 
-    const posts = () => {
+    const posts = async () => {
         const objectPosts = [];
-        const allUsers = usersfb();
+        const allUsers = await usersfb().then(response => response);
         const allCategoriesCourses = localStorage.getItem('allCategories');
+    
+        // eslint-disable-next-line no-undef
+        const db = firebase.firestore();
         db.collection("posts")
             .get()
             .then(response => {
-                response.forEach(doc => {
+                return response.forEach(doc => {
                     const userprueba = allUsers.find(element => element.idUser === doc.data().idUser)
                     const categoryprueba = allCategoriesCourses.find(element => element.idCategory === doc.data().category)
                     objectPosts.push({
@@ -44,11 +47,15 @@ const readPost = () => {
                         idCategory: doc.data().idCategory,
                         nameCategory: categoryprueba.nameCategory,
                     })
+                    return objectPosts;
                 });
             });
-        return objectPosts;
+
+        
     }
-    console.log(posts())
+    
+    return  posts().then(response => response)
+    
 }
 
 export { readPost }
