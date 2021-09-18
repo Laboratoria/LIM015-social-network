@@ -1,27 +1,39 @@
+ const allCategories = () => {
+     // eslint-disable-next-line no-undef
+     const db = firebase.firestore();
+     const objectCategories = [];
+     return db.collection("categories")
+         .get()
+         .then(response => {
+             response.forEach(doc => {
+                 objectCategories.push({
+                     idCategory: doc.id,
+                     nameCategory: doc.data().category,
+                     imagen: doc.data().imagen,
+                     totalPosts: doc.data().totalPosts
+                 })
+             });
+            //  localStorage.setItem('allCategories', objectCategories)
+             window.localStorage.setItem('allCategories', JSON.stringify(objectCategories));
+             return objectCategories;
+         });
+ }
 
-const readCategory = () => {
-    const categories = document.querySelector('#categories');
-    // eslint-disable-next-line no-undef
-    const db = firebase.firestore();
-    db.collection("categories")
-    .get()
-    .then( response => {
-    response.forEach( doc => {
-      // doc.data() is never undefined for query doc snapshots
-      //   console.log(doc.id, " => ", doc.data());
-      const figureCategory = document.createElement('figure');
-      figureCategory.classList.add('category');
-      figureCategory.innerHTML = `
-        <img src="../../images/svg/categorias/${ doc.data().imagen }" alt="logo-categories">
+ const readCategory = async() => {
+     const categories = document.querySelector('#categories');
+     const allCategoriesCourse = await allCategories().then(response => response);
+     allCategoriesCourse.forEach(element => {
+         const figureCategory = document.createElement('figure');
+         figureCategory.classList.add('category');
+         figureCategory.innerHTML = `
+        <img src="../../images/svg/categorias/${ element.imagen }" alt="logo-categories">
         <div class="content-category">
-            <h4> ${ doc.data().category } </h4>
-            <p class="text-muted">  ${ doc.data().totalPosts } post</p>
+            <h4> ${ element.nameCategory } </h4>
+            <p class="text-muted">  ${ element.totalPosts } post</p>
         </div>
       `
-      categories.appendChild(figureCategory);
-    });
-});
- 
-}
+         categories.appendChild(figureCategory);
+     })
+ }
 
-export { readCategory }
+ export { readCategory, allCategories }
