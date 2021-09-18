@@ -23,5 +23,3 @@
   }
 
   export { addEventsTimeLine }
-
-  /* tests */
