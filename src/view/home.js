@@ -83,57 +83,120 @@ const viewHome = () => {
       const postText = doc.data();
       postText.id = doc.id;
       newSection.innerHTML += /*html*/ `
+
       <section class="postAreaUser">
-      <div class="home__imgUser" id="userImg" >
-        <img class="postUserImage" width="150" src="${postText.userPhoto}"> 
-      </div>
-        <div>${postText.username}</div>
-        <div>${postText.date}</div>
-        <p>compartió</p>
-      </div>
-      <section>
-      
-      <div class="post__inputtext">
-        <textarea class="post__input" rows="4" cols="50" id="text-${
-          postText.id
-        }" data-id="${postText.userId}"
-          readonly>${postText.userPost}</textarea>
-        <button hidden class="cancelEdit">Descartar</button>  
-      </div>
-      
-      <div class="home__like"> me gusta</div>  
-      ${
-        postText.userId === user.uid
-          ? `<div class="btns-edit-delete" name="${postText.userId}" data-id-post="${postText.userId}">
-          <button class="btn-edit" data-id="${postText.id}"> editar</button>
-          <button class="btn-delete" data-id="${postText.id}"> eliminar</button>  
-        </div>`
-          : ""
-      }
-      `;
+        <div class="home__imgUser" id="userImg" >
+          <img class="postUserImage" width="150" src="${postText.userPhoto}"> 
+        </div>
+        <div>
+          <div>${postText.username}</div>
+          <div>${postText.date}</div>
+          <p>compartió</p>
+        </div>
+         
+        <div class="post__inputtext">
+          <textarea class="post__input" rows="4" cols="50" id="text-${
+            postText.id
+          }" data-id="${postText.userId}"readonly>${
+        postText.userPost
+      }</textarea>         
+        </div>
+        
+        <div class="home__like"> me gusta</div>
+        ${
+          postText.userId === user.uid
+            ? `<div class="btns-edit-delete" name="${postText.userId}" data-id-post="${postText.userId}">
+            <button class="btn-edit" data-id="${postText.id}"> editar</button>
+            <button class="btn-delete" id='delete-${postText.id}' data-id="${postText.id}"> eliminar</button>
+            </div>`
+            : ""}           
+    </section> `;
       postListContainer.appendChild(newSection);
     });
     // Función que elimina el post
-    const btnDelete = document.querySelectorAll(".btn-delete");
-    btnDelete.forEach((btn) =>
+    const btnDelete = postListContainer.querySelectorAll(".btn-delete");
+    const btnEdit = document.querySelectorAll(".btn-edit");
+
+    btnDelete.forEach((btn) =>{
+      console.log(btn);
       btn.addEventListener("click", async (e) => {
-        await deletePosts(e.target.dataset.id);
+        try {
+          await deletePosts(e.target.dataset.id);
+        }catch (error){
+          console.log(error)
+        }
+        
       })
+    }
+    
     );
 
-    // Función que edita el post
-    const btnEdit = postListContainer.querySelectorAll(".btn-edit");
-    btnEdit.forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        const idTextPost = e.target.dataset.id;
-        const contentTextPost = document.getElementById(`text-${idTextPost}`);
+    // Función que edita el post    
+    
+
+const prueba = (btnEdit) =>{
+  btnEdit.forEach((btn) => {
+    btn.addEventListener("click", async (e) => {
+      console.log(e.target.innerText );
+      try{
+        e.preventDefault();
+        const idDocPost = e.target.dataset.id;
+        const contentTextPost = document.getElementById(`text-${idDocPost}`);
+        const btnDeletePost = document.getElementById(`delete-${idDocPost}`);
         contentTextPost.removeAttribute("readonly");
-        btn.innerText = "Guardar";
-        console.log(contentTextPost.value);
-        updatePost(idTextPost, { post: contentTextPost.value });
+        btn.innerText = 'guardar cambios';
+        btnDeletePost.innerText = 'cancelar cambios';
+        console.log(e.target.innerText );
+
+        if(e.target.innerText == 'guardar cambios'){
+          btn.classList.remove('btn-edit');
+          btnDeletePost.removeAttribute('data-id')
+          console.log(btn)
+          btn.addEventListener('click',async (e) => {
+           try{
+            e.preventDefault()
+            contentTextPost.setAttribute("readonly", true);
+            console.log('aqui selecciona guardar cambios')
+            btn.innerText = 'editar';
+            await updatePost(idDocPost, { userPost: contentTextPost.value});
+            if(e.target.innerText == 'editar'){
+              contentTextPost.setAttribute("readonly", false);
+              btn.classList.add('btn-edit');
+              prueba(btnEdit)
+            }
+           }catch(error){
+             console.log(error)
+           }
+          })
+          
+        }
+        
+        // else if (e.target.innerText == 'cancelar cambios'){
+        //   const btnCancelPost = document.querySelectorAll('.btn-delete')
+        //   console.log('cancelar cambioss')
+        //   // firebase.firestore().collection("newPosts").orderBy('date', 'desc').onSnapshot(callback);
+        //   // var docRef = db.collection("hola").doc("SIKIV2KVfZKMGC9ZT81u");
+        //   btnCancelPost.addEventListener('click' , ()=> {
+        //     console.log('soy el boton')
+        //     const docRef = firebase.firestore().collection("newPosts").doc(idDocPost);
+        //     docRef.get().then((doc)=>{
+        //       console.log("userposts:", doc.data().userPost);
+        //   })
+        // }) 
+
+        // } 
+       
         contentTextPost.focus();
-      });
+      }catch(error){
+        console.log(error)
+      }
     });
+  });
+}
+ prueba(btnEdit)
+
+
+
   };
 
   return divHome;
