@@ -1,4 +1,5 @@
-import {animationPopularPost} from './animation.js';
+import { animationPopularPost } from './animation.js';
+import { modal } from './content-modal.js';
 export default () => {
     const viewTimeLine = document.createElement('div');
     viewTimeLine.className = 'container-home';
@@ -170,9 +171,7 @@ export default () => {
                 <section class="body-modal">
 
                     <section class="select-group">
-                        <section class="user-info-textarea">
-
-                        </section>
+                        <section class="user-info-textarea"> </section>
                         
                         <select name="select" class="select" id="select-categories">
                             <option value="" id="" disabled="true" selected> Seleccione categoría... </option>
@@ -187,51 +186,47 @@ export default () => {
                             <option value="otros" id="9"> Otros </option>
                         </select>
                     </section>
-                    
-                    <section class="textarea-group">
-                        <textarea class="textarea-post" id="post-user" row="4"></textarea>
-                    </section>
 
-                    <section class="emoji-group" id="emoji-group"></section>
-
-                    <section class="reaction-post-group">
-                        <section class="image-upload">
-                            <label for="file-input">
-                                <i class="fas fa-images"></i>
-                            </label>
-                            <input type="file" id="file-input" name="file-input" accept="image/*">
+                    <form action="#" class="form" id="form-create-post">
+                        <section class="textarea-group">
+                            <textarea class="textarea-post" id="post-user" row="4"></textarea>
                         </section>
-                        <img src="../images/svg/carita.png" class="smile" alt="icon-face" width="20" height="20">
-                    </section>
+
+                        <section class="emoji-group" id="emoji-group"> </section>
+
+                        <section class="reaction-post-group">
+                            <section class="image-upload">
+                                <label for="file-input">
+                                    <i class="fas fa-images"></i>
+                                </label>
+                                <input type="file" id="file-input" name="file-input" accept="image/*">
+                            </section>
+                            <img src="../images/svg/carita.png" class="smile" alt="icon-face" width="20" height="20">
+                        </section>
+                        
+                        <button type="submit" class="btn btn-create-post" id="share-post"> Publicar </button>
+                    </form>
 
                 </section>
-
-            <button class="btn btn-create-post" id="share-post"> Publicar </button>
-
             </section>
         </section>
     </section>
     `;
-    const modal = viewTimeLine.querySelector('.modal');
-    const btnCreatePost = viewTimeLine.querySelector('.btn-create-post');
-    const btnCerrarModal = viewTimeLine.querySelector('.btn-cerrar-modal');
-
-  
-    btnCreatePost.addEventListener('click', openModal);
-    btnCerrarModal.addEventListener('click', cerrarModal);
-
-    function openModal() {
-        modal.classList.add('revelar')
-    }
-
-    function cerrarModal() {
-        modal.classList.remove('revelar')
-    }
+    /** Modal para crear nuevo post **/
+    modal(viewTimeLine)
+    /** Leer el archivo subido en input file **/
+    const inputFile = viewTimeLine.querySelector('#file-input');
+    inputFile.addEventListener('change', () => {
+        let uploadImage;
+        if (inputFile.files && inputFile.files[0]) {
+            uploadImage = inputFile.files[0].name;
+            console.log(uploadImage)
+        }
+    
+    })
 
     /* CARRUSEL DEL POPULAR POSTS */
-    let span = viewTimeLine.getElementsByClassName('spanArrow');
-    let product = viewTimeLine.getElementsByClassName('card-post');
-    animationPopularPost(span, product)
+    animationPopularPost(viewTimeLine)
 
     return viewTimeLine;
 }
