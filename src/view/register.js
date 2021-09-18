@@ -1,8 +1,8 @@
-import { registerEmail, loginGoogle } from '../firebase/fb-functions.js'
-const viewRegister =()=>{
+import { registerEmail, loginGoogle, updateProfile} from '../firebase/fb-functions.js'
+const viewRegister = () => {
 
-    const htmlRegister=
-    `
+  const htmlRegister =
+     /*html*/`
   <div class="viewDesktop">
     <img class="viewDesktop__logo" src="./img/logoMobilPrueba.jpg" alt="Makipura">
     <img class="viewDesktop__woman" src="./img/woman.png" alt="Makipura">
@@ -42,11 +42,11 @@ const viewRegister =()=>{
         <span id="statusConfirmPassword"></span>
       </div>
       <div class="signup-button">
-        <input class="button button--main" id="mainbuttonSignup" type="submit" value="Crear cuenta">
+        <input class="button button--main button--login" id="mainbuttonSignup" type="submit" value="Crear cuenta">
       </div>
       <div class="form--separator signup-separator">ó</div>
       <div class="signup-social">
-        <button class="button button--second" id="buttonGoogleSignup" type="submit">
+        <button class="button button--second button--login" id="buttonGoogleSignup" type="submit">
           <div class="buttton button--second__img"><img class="googleIcon" src="./img/iconoGoogle.png" alt="icono_Google"></div>
           <div class="buttton button--second__text">Ingresar con Google</div> 
         </button>
@@ -58,11 +58,11 @@ const viewRegister =()=>{
   </div>
     `;
 
- 
-  const sectionRegister=document.createElement('section');
+
+  const sectionRegister = document.createElement('section');
   sectionRegister.classList.add("registerSection");
 
-  sectionRegister.innerHTML=htmlRegister;
+  sectionRegister.innerHTML = htmlRegister;
   // signup register
   const signupForm = sectionRegister.querySelector('#loginForm-signup');
   const passwordRegister = sectionRegister.querySelector('#passwordRegister');
@@ -75,41 +75,41 @@ const viewRegister =()=>{
   const iconEyeBoxR = sectionRegister.querySelector('.icon--eyeR');
   const iconRepeatEyeBoxR = sectionRegister.querySelector('.icon--repeatEyeR')
   // console.log(signupForm);
-  passwordRegister.addEventListener('keyup' , ()=>{
-      const requiredPassword =  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z\d]).{6,}$/gm ;
-      console.log(passwordRegister.value)
-      if(requiredPassword.test(passwordRegister.value)){
-        spanPassword.classList.add('validateEmail');
-        spanPassword.classList.remove('invalidEmail');
-        spanPassword.innerHTML = "Contraseña segura";
-      }else{
-        spanPassword.classList.remove('validateEmail');
-        spanPassword.classList.add('invalidEmail');
-        spanPassword.innerHTML = "La contraseña debe contener mínimo 6 caracteres, una letra mayúscula y un número";
-      }
-      if (passwordRegister.value == ""){
-        spanPassword.classList.remove('validateEmail');
-        spanPassword.classList.remove('invalidEmail');
-        spanPassword.innerHTML = "" ;
-       }
-    });
+  passwordRegister.addEventListener('keyup', () => {
+    const requiredPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z\d]).{6,}$/gm;
+    console.log(passwordRegister.value)
+    if (requiredPassword.test(passwordRegister.value)) {
+      spanPassword.classList.add('validateEmail');
+      spanPassword.classList.remove('invalidEmail');
+      spanPassword.innerHTML = "Contraseña segura";
+    } else {
+      spanPassword.classList.remove('validateEmail');
+      spanPassword.classList.add('invalidEmail');
+      spanPassword.innerHTML = "La contraseña debe contener mínimo 6 caracteres, una letra mayúscula y un número";
+    }
+    if (passwordRegister.value == "") {
+      spanPassword.classList.remove('validateEmail');
+      spanPassword.classList.remove('invalidEmail');
+      spanPassword.innerHTML = "";
+    }
+  });
 
-    iconEyeBoxR.addEventListener('click' , () => {
-      
-      if (passwordRegister.type === "password") {
-        passwordRegister.type = "text";
-        iconEyeR.classList.remove('fa-eye-slash')
-        iconEyeR.classList.add('fa-eye')
-      } else {
-        passwordRegister.type = "password";
-        iconEyeR.classList.add('fa-eye-slash')
-        iconEyeR.classList.remove('fa-eye')
-      }
+  iconEyeBoxR.addEventListener('click', () => {
+
+    if (passwordRegister.type === "password") {
+      passwordRegister.type = "text";
+      iconEyeR.classList.remove('fa-eye-slash')
+      iconEyeR.classList.add('fa-eye')
+    } else {
+      passwordRegister.type = "password";
+      iconEyeR.classList.add('fa-eye-slash')
+      iconEyeR.classList.remove('fa-eye')
+    }
 
   });
 
-  iconRepeatEyeBoxR.addEventListener('click' , () => {
-      
+  iconRepeatEyeBoxR.addEventListener('click', () => {
+
     if (passwordConfirmRegister.type === "password") {
       passwordConfirmRegister.type = "text";
       iconRepeatEyeR.classList.remove('fa-eye-slash')
@@ -119,55 +119,62 @@ const viewRegister =()=>{
       iconRepeatEyeR.classList.add('fa-eye-slash')
       iconRepeatEyeR.classList.remove('fa-eye')
     }
-});
+  });
 
-    signupForm.addEventListener('submit', (e)=>{
-      e.preventDefault();
-      if(passwordRegister.value === passwordConfirmRegister.value){
-        console.log('contraseñas iguales')
-         const email = document.querySelector('#emailRegister').value;
-        const password = document.querySelector('#passwordRegister').value;
-        registerEmail(email,password)
-        .then( ()=> {
-        //clear form
-         signupForm.reset();
-         console.log('guardando signup')
-         window.open('#','_self')  
-        }).catch(()=> {
+  signupForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (passwordRegister.value === passwordConfirmRegister.value) {
+      //console.log('contraseñas iguales')
+      const email = document.querySelector('#emailRegister').value;
+      const name = document.querySelector('#nameRegister').value;
+      const password = document.querySelector('#passwordRegister').value;
+      registerEmail(email, password)
+      .then((cred) => {
+          //base de datos de usuario
+          if (email && name && password) {
+            updateProfile(name);
+              }
+            console.log(cred.user)
+            signupForm.reset();
+            window.open('#', '_self')  // otros usan el hash
+          })
+          .catch(() => {
           spanErrorEmail.classList.add('invalidEmail');
-          spanErrorEmail.innerHTML = "Ingrese un correo válido"})
-      }else{
-        spanConfirmPassword.classList.add('invalidEmail');
-        spanConfirmPassword.innerHTML = "Las contraseñas deben coincidir";
-      }      
-    });
+          spanErrorEmail.innerHTML = "Ingrese un correo válido"
+        })
+    } else {
+      spanConfirmPassword.classList.add('invalidEmail');
+      spanConfirmPassword.innerHTML = "Las contraseñas deben coincidir";
+    }
+  });
 
-    passwordConfirmRegister.addEventListener('keyup', () => {
-      if(passwordConfirmRegister.value == ""){
-        spanConfirmPassword.classList.remove('invalidEmail');
-        spanConfirmPassword.innerHTML = "" ;
-      }
-    })
-    
-    const buttonGoogleSignup = sectionRegister.querySelector('#buttonGoogleSignup');
-    buttonGoogleSignup.addEventListener('click' , () => {
-      loginGoogle()
+  passwordConfirmRegister.addEventListener('keyup', () => {
+    if (passwordConfirmRegister.value == "") {
+      spanConfirmPassword.classList.remove('invalidEmail');
+      spanConfirmPassword.innerHTML = "";
+    }
+  })
+
+  const buttonGoogleSignup = sectionRegister.querySelector('#buttonGoogleSignup');
+  buttonGoogleSignup.addEventListener('click', () => {
+    loginGoogle()
       .then(() => {
         console.log('signin with google');
-        window.open('#/home','_self')
+        window.open('#/home', '_self')
       })
       .catch(error => {
         console.log(error)
       })
-      console.log('click google')
-    });
-  
-  
-    return sectionRegister;
-  
+    console.log('click google')
+  });
+
+
+
+  return sectionRegister;
+
 }
 
 
 
-export  {viewRegister}
+export { viewRegister }
 
