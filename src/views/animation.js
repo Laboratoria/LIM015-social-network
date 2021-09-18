@@ -1,4 +1,6 @@
-export const animationPopularPost = (span, product) =>{
+export const animationPopularPost = ( viewTimeLine ) =>{
+	let span = viewTimeLine.getElementsByClassName('spanArrow');
+    let product = viewTimeLine.getElementsByClassName('card-post');
     let product_page = Math.ceil(product.length/4);
 	let l = 0;
 	let movePer = 25.34;

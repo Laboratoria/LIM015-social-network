@@ -13,7 +13,11 @@ const readInfoUser = () => {
             const photo = doc.data().photouser;
             const valid = /^(http|https):\/\/[^ "]+$/.test(photo);
             const srcPhotouser = (valid) ? doc.data().photouser : '../../images/profile/' + doc.data().photouser;
-            userInfo.innerHTML = `<a href="#/profile" id="logout" class="user-information">  <span> ${doc.data().nameuser} </span> <img class="avatar avatar-sm" src="${srcPhotouser}" alt="img-user"> </a>`
+            userInfo.innerHTML = `
+            <a href="#/profile" id="logout" class="user-information">  
+                <span> ${doc.data().nameuser} </span> 
+                <img class="avatar avatar-sm" src="${srcPhotouser}" alt="img-user"> 
+            </a>`
             userPost.innerHTML = `
             <a href="#/profile" class="user-information">  
                 <img class="avatar avatar-sm" src="${srcPhotouser}" alt="img-user"> 
