@@ -39,11 +39,6 @@ a {
     flex: 1;
 }
 
-.author-name:hover,
-.post-date:hover {
-    text-decoration: underline;
-}
-
 .author-name {
     margin-right: 0.2rem;
     color: #253241;
@@ -76,6 +71,12 @@ a {
     font-size: 12PX;
     color: #878787;
 }
+
+.author-name:hover,
+.post-date:hover {
+    text-decoration: underline;
+}
+
 
 
 /* Dot between post author and post date */
