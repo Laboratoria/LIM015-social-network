@@ -1,4 +1,5 @@
 /* eslint-disable no-undef */
+import { resetPassword } from "../firebase.js";
 const addEventResetPassword = () => {
 
     const btnResetPassword = document.querySelector('#btn-resetPassword');
@@ -7,9 +8,6 @@ const addEventResetPassword = () => {
 
     btnResetPassword.addEventListener('click', () => {
         //function de firebase para que envie el email
-        const resetPassword = (emailLogin) => firebase.auth()
-            .sendPasswordResetEmail(emailLogin); //CALLBACK
-
         const emailReset = document.querySelector('#emailReset').value; //input EMAIL
         if (emailReset !== "") { //valor adentro
             resetPassword(emailReset).then(() => { //reutilizar PROMESA
