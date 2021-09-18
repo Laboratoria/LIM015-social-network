@@ -1,8 +1,10 @@
-const readPost = () => {
+const readPost = () => { //retorna la promesa de la linea 6 - informacion de cada usurio
     // eslint-disable-next-line no-undef
     const db = firebase.firestore();
     const usersfb = () => {
-        const objectUser = [];
+
+        const objectUser = []; //array de objetos cada obj es un usuario
+
         return db.collection("users")
             .get()
             .then(response => {
@@ -20,15 +22,17 @@ const readPost = () => {
             })
     }
 
+
     const posts = async() => {
         const objectPosts = [];
         const allUsers = await usersfb().then(response => response);
         // const allCategoriesCourses = localStorage.getItem('allCategories');
         const allCategoriesCourses = JSON.parse(window.localStorage.getItem('allCategories'));
         return db.collection("posts")
+
             .get()
             .then(response => {
-                response.forEach(doc => {
+                return response.forEach(doc => {
                     const userprueba = allUsers.find(element => element.idUser === doc.data().idUser)
                     // console.log(userprueba)
                     const categoryprueba = allCategoriesCourses.find(element => element.idCategory == doc.data().idCategory)
@@ -46,9 +50,11 @@ const readPost = () => {
                         idCategory: doc.data().idCategory,
                         nameCategory: categoryprueba.nameCategory,
                     })
+                    return objectPosts;
                 });
                 return objectPosts;
             });
+
 
     }
 
@@ -98,6 +104,7 @@ const readPost = () => {
         
     }
     renderPost()
+
     
 }
 

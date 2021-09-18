@@ -17,7 +17,8 @@
       });
       readInfoUser();
       readCategory();
-      readPost();
+      /* readPost(); */
+      console.log(readPost())
       createEmoji();
   }
 
