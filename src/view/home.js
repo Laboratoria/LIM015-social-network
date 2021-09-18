@@ -8,13 +8,11 @@ import {
 const viewHome = () => {
   const htmlHome = `
       <section id="home" class="home">
-
         <section id="homeProfile" class="home__profile">
          <div id="home__userName" >Aca irá nombre del usuario</div>
           <div id="home-imgUser" class="home__imgUser">Aca irá imgUser</div>
           <div id="name" class="home__nameuser"> ver perfil </div>
         </section>
-
         <section id="postHomeContainer">
           <form id="postHome-form">
             <div id="boxInputPost">
@@ -26,10 +24,8 @@ const viewHome = () => {
             </div>
           </form>
         </section>
-
         <section id="postsHomeContainer">
         </section>
-
       </section>
       `;
   const divHome = document.createElement("div");
@@ -42,15 +38,14 @@ const viewHome = () => {
   // const getPosts = () => firebase.firestore().collection('posts').get();
 
   const showAllPosts = async (section) => {
-      onGetPosts((snapshot) => {
+    onGetPosts((snapshot) => {
       postsContainer.innerHTML = "";
       const newSection = document.createElement("section");
       snapshot.forEach((doc) => {
-       
         const postText = doc.data();
         postText.id = doc.id;
 
-        newSection.innerHTML += `
+        newSection.innerHTML += /*html*/ `
         <div class="home__imgUser" id="userImg" >ImgUser </div>
         <div class="home__nameuser"> compartió </div>
         <div> 3 septiembre </div>
@@ -62,7 +57,9 @@ const viewHome = () => {
       
         <div class="home__like"> me gusta</div>
         <button class="btn-edit" data-id="${postText.id}"> editar</button>
-        <button class="btn-delete" data-id="${postText.id}"> eliminar</button>  
+        <button class="btn-delete" data-id="${postText.id}"> eliminar</button>
+        <button class="btn-saveEditPost" data-id="${postText.id}" hidden> guardar edición</button>
+        <button class="btn-cancelEditPost" data-id="${postText.id}" hidden> cancelar edición</button>  
         `;
         section.appendChild(newSection);
 
@@ -85,12 +82,10 @@ const viewHome = () => {
             console.log(contentTextPost.value);
             await updatePost(idTextPost, { post: contentTextPost.value });
             contentTextPost.focus();
-            btn.innerText = "Guardar";
+            btnsDelete.style.display = "none";
           });
         });
-
       });
-
     });
   };
 
@@ -109,22 +104,24 @@ const viewHome = () => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       console.log(user);
-      firebase.firestore().collection("users").doc(user.uid).get().then((docUser) => {
+      firebase
+        .firestore()
+        .collection("users")
+        .doc(user.uid)
+        .get()
+        .then((docUser) => {
           username.innerText = docUser.data().Name;
-          
         });
     } else {
       console.log("no estas ");
     }
   });
 
-  //añadiendo id de post a cada usuario 
+  //añadiendo id de post a cada usuario
 
   showAllPosts(postsContainer);
 
   homePost.addEventListener("submit", async () => {
-
-   
     showAllPosts(postsContainer);
   });
 
@@ -136,7 +133,6 @@ const viewHome = () => {
     homePost.reset();
     postArea.focus();
   });
-
 
   return divHome;
 };

@@ -105,7 +105,7 @@ const viewLogin = () => {
       iconEye.classList.remove("fa-eye");
     }
   });
-
+  //SignIn With Email and Password Function
   loginForm.addEventListener("submit", (event) => {
     event.preventDefault();
     const emailLogin = document.querySelector("#emailLogin").value;

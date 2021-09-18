@@ -61,7 +61,6 @@ const viewRegister = () => {
 
   sectionRegister.innerHTML = htmlRegister;
   // signup register
-
   const signupForm = sectionRegister.querySelector("#loginForm-signup");
   const passwordRegister = sectionRegister.querySelector("#passwordRegister");
   const passwordConfirmRegister = sectionRegister.querySelector(
@@ -127,29 +126,6 @@ const viewRegister = () => {
     if (passwordRegister.value === passwordConfirmRegister.value) {
       console.log("contraseñas iguales");
       const email = document.querySelector("#emailRegister").value;
-      const password = document.querySelector("#passwordRegister").value;
-      registerEmail(email, password)
-        .then(() => {
-          //clear form
-          signupForm.reset();
-          console.log("guardando signup");
-          window.open("#", "_self");
-        })
-        .catch(() => {
-          spanErrorEmail.classList.add("invalidEmail");
-          spanErrorEmail.innerHTML = "Ingrese un correo válido";
-        });
-    } else {
-      spanConfirmPassword.classList.add("invalidEmail");
-      spanConfirmPassword.innerHTML = "Las contraseñas deben coincidir";
-    }
-  });
-
-  signupForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    if (passwordRegister.value === passwordConfirmRegister.value) {
-      console.log("contraseñas iguales");
-      const email = document.querySelector("#emailRegister").value;
       const name = document.querySelector("#nameRegister").value;
       const password = document.querySelector("#passwordRegister").value;
 
@@ -178,6 +154,13 @@ const viewRegister = () => {
     } else {
       spanConfirmPassword.classList.add("invalidEmail");
       spanConfirmPassword.innerHTML = "Las contraseñas deben coincidir";
+    }
+  });
+
+  passwordConfirmRegister.addEventListener("keyup", () => {
+    if (passwordConfirmRegister.value == "") {
+      spanConfirmPassword.classList.remove("invalidEmail");
+      spanConfirmPassword.innerHTML = "";
     }
   });
 
