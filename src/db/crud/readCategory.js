@@ -13,7 +13,8 @@
                      totalPosts: doc.data().totalPosts
                  })
              });
-             localStorage.setItem('allCategories', objectCategories)
+            //  localStorage.setItem('allCategories', objectCategories)
+             window.localStorage.setItem('allCategories', JSON.stringify(objectCategories));
              return objectCategories;
          });
  }
