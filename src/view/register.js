@@ -1,6 +1,14 @@
+<<<<<<< HEAD
 import { registerEmail, loginGoogle } from "../firebase/fb-functions.js";
 const viewRegister = () => {
   const htmlRegister = `
+=======
+import { registerEmail, loginGoogle, updateProfile} from '../firebase/fb-functions.js'
+const viewRegister = () => {
+
+  const htmlRegister =
+     /*html*/`
+>>>>>>> 4843117056c811d2a206c309516e9bc45482bb34
   <div class="viewDesktop">
     <img class="viewDesktop__logo" src="./img/logoMobilPrueba.jpg" alt="Makipura">
     <img class="viewDesktop__woman" src="./img/woman.png" alt="Makipura">
@@ -56,7 +64,12 @@ const viewRegister = () => {
   </div>
     `;
 
+<<<<<<< HEAD
   const sectionRegister = document.createElement("section");
+=======
+
+  const sectionRegister = document.createElement('section');
+>>>>>>> 4843117056c811d2a206c309516e9bc45482bb34
   sectionRegister.classList.add("registerSection");
 
   sectionRegister.innerHTML = htmlRegister;
@@ -76,6 +89,7 @@ const viewRegister = () => {
   const iconEyeBoxR = sectionRegister.querySelector(".icon--eyeR");
   const iconRepeatEyeBoxR = sectionRegister.querySelector(".icon--repeatEyeR");
   // console.log(signupForm);
+<<<<<<< HEAD
   passwordRegister.addEventListener("keyup", () => {
     const requiredPassword =
       /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z\d]).{6,}$/gm;
@@ -96,6 +110,38 @@ const viewRegister = () => {
       spanPassword.innerHTML = "";
     }
   });
+=======
+  passwordRegister.addEventListener('keyup', () => {
+    const requiredPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z\d]).{6,}$/gm;
+    console.log(passwordRegister.value)
+    if (requiredPassword.test(passwordRegister.value)) {
+      spanPassword.classList.add('validateEmail');
+      spanPassword.classList.remove('invalidEmail');
+      spanPassword.innerHTML = "Contraseña segura";
+    } else {
+      spanPassword.classList.remove('validateEmail');
+      spanPassword.classList.add('invalidEmail');
+      spanPassword.innerHTML = "La contraseña debe contener mínimo 6 caracteres, una letra mayúscula y un número";
+    }
+    if (passwordRegister.value == "") {
+      spanPassword.classList.remove('validateEmail');
+      spanPassword.classList.remove('invalidEmail');
+      spanPassword.innerHTML = "";
+    }
+  });
+
+  iconEyeBoxR.addEventListener('click', () => {
+
+    if (passwordRegister.type === "password") {
+      passwordRegister.type = "text";
+      iconEyeR.classList.remove('fa-eye-slash')
+      iconEyeR.classList.add('fa-eye')
+    } else {
+      passwordRegister.type = "password";
+      iconEyeR.classList.add('fa-eye-slash')
+      iconEyeR.classList.remove('fa-eye')
+    }
+>>>>>>> 4843117056c811d2a206c309516e9bc45482bb34
 
   iconEyeBoxR.addEventListener("click", () => {
     if (passwordRegister.type === "password") {
@@ -109,7 +155,12 @@ const viewRegister = () => {
     }
   });
 
+<<<<<<< HEAD
   iconRepeatEyeBoxR.addEventListener("click", () => {
+=======
+  iconRepeatEyeBoxR.addEventListener('click', () => {
+
+>>>>>>> 4843117056c811d2a206c309516e9bc45482bb34
     if (passwordConfirmRegister.type === "password") {
       passwordConfirmRegister.type = "text";
       iconRepeatEyeR.classList.remove("fa-eye-slash");
@@ -121,6 +172,7 @@ const viewRegister = () => {
     }
   });
 
+<<<<<<< HEAD
   signupForm.addEventListener("submit", (e) => {
     e.preventDefault();
     if (passwordRegister.value === passwordConfirmRegister.value) {
@@ -153,10 +205,36 @@ const viewRegister = () => {
         });
     } else {
       spanConfirmPassword.classList.add("invalidEmail");
+=======
+  signupForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (passwordRegister.value === passwordConfirmRegister.value) {
+      //console.log('contraseñas iguales')
+      const email = document.querySelector('#emailRegister').value;
+      const name = document.querySelector('#nameRegister').value;
+      const password = document.querySelector('#passwordRegister').value;
+      registerEmail(email, password)
+      .then((cred) => {
+          //base de datos de usuario
+          if (email && name && password) {
+            updateProfile(name);
+              }
+            console.log(cred.user)
+            signupForm.reset();
+            window.open('#', '_self')  // otros usan el hash
+          })
+          .catch(() => {
+          spanErrorEmail.classList.add('invalidEmail');
+          spanErrorEmail.innerHTML = "Ingrese un correo válido"
+        })
+    } else {
+      spanConfirmPassword.classList.add('invalidEmail');
+>>>>>>> 4843117056c811d2a206c309516e9bc45482bb34
       spanConfirmPassword.innerHTML = "Las contraseñas deben coincidir";
     }
   });
 
+<<<<<<< HEAD
   passwordConfirmRegister.addEventListener("keyup", () => {
     if (passwordConfirmRegister.value == "") {
       spanConfirmPassword.classList.remove("invalidEmail");
@@ -181,5 +259,36 @@ const viewRegister = () => {
 
   return sectionRegister;
 };
+=======
+  passwordConfirmRegister.addEventListener('keyup', () => {
+    if (passwordConfirmRegister.value == "") {
+      spanConfirmPassword.classList.remove('invalidEmail');
+      spanConfirmPassword.innerHTML = "";
+    }
+  })
+
+  const buttonGoogleSignup = sectionRegister.querySelector('#buttonGoogleSignup');
+  buttonGoogleSignup.addEventListener('click', () => {
+    loginGoogle()
+      .then(() => {
+        console.log('signin with google');
+        window.open('#/home', '_self')
+      })
+      .catch(error => {
+        console.log(error)
+      })
+    console.log('click google')
+  });
+
+
+
+  return sectionRegister;
+
+}
+
+
+
+export { viewRegister }
+>>>>>>> 4843117056c811d2a206c309516e9bc45482bb34
 
 export { viewRegister };
