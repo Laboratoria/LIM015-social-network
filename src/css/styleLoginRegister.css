@@ -207,6 +207,11 @@
   margin: 50px;
 }
 
+/* ocultar boton guardar cambios */
+/* .btn-cancelEdit{
+  display: none;
+} */
+
 @media (min-width: 600px) {
   .form--login__inputList,
   .form--register__inputList {

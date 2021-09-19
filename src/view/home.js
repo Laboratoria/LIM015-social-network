@@ -3,6 +3,7 @@ import {
   onGetPosts,
   deletePosts,
   updatePost,
+  getPost,
 } from "../firebase/fb-firestore.js";
 /*import {
   currentUser
@@ -40,8 +41,7 @@ const viewHome = () => {
   const postNameUser = divHome.querySelector("#home__userName");
   const postPhotoUser = divHome.querySelector(".imgUser");
   const postListContainer = divHome.querySelector("#postsHomeContainer");
-  // const getPosts = () => firebase.firestore().collection('posts').get();
-
+  
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       savePostCurrentUser(user);
@@ -95,10 +95,7 @@ const viewHome = () => {
         </div>
          
         <div class="post__inputtext">
-          <textarea class="post__input" rows="4" cols="50" id="text-${
-            postText.id
-          }" data-id="${postText.userId}"readonly>${
-        postText.userPost
+          <textarea class="post__input" rows="4" cols="50" id="text-${postText.id}" data-id="${postText.userId}"readonly>${postText.userPost
       }</textarea>         
         </div>
         
@@ -108,6 +105,7 @@ const viewHome = () => {
             ? `<div class="btns-edit-delete" name="${postText.userId}" data-id-post="${postText.userId}">
             <button class="btn-edit" data-id="${postText.id}"> editar</button>
             <button class="btn-delete" id='delete-${postText.id}' data-id="${postText.id}"> eliminar</button>
+            <button class="btn-cancelEdit" id='cancel-${postText.id}' data-id="${postText.id}" hidden>descartar Cambios</button>
             </div>`
             : ""}           
     </section> `;
@@ -117,8 +115,7 @@ const viewHome = () => {
     const btnDelete = postListContainer.querySelectorAll(".btn-delete");
     const btnEdit = document.querySelectorAll(".btn-edit");
 
-    btnDelete.forEach((btn) =>{
-      console.log(btn);
+    btnDelete.forEach((btn) =>{     
       btn.addEventListener("click", async (e) => {
         try {
           await deletePosts(e.target.dataset.id);
@@ -137,30 +134,30 @@ const viewHome = () => {
 const prueba = (btnEdit) =>{
   btnEdit.forEach((btn) => {
     btn.addEventListener("click", async (e) => {
-      console.log(e.target.innerText );
       try{
         e.preventDefault();
         const idDocPost = e.target.dataset.id;
         const contentTextPost = document.getElementById(`text-${idDocPost}`);
         const btnDeletePost = document.getElementById(`delete-${idDocPost}`);
+        const btnCancelPost = document.getElementById(`cancel-${idDocPost}`);
+        btnDeletePost.setAttribute('hidden',true);
+        btnCancelPost.removeAttribute('hidden');
+        // btnCancelPost.style.display='flex';
         contentTextPost.removeAttribute("readonly");
         btn.innerText = 'guardar cambios';
-        btnDeletePost.innerText = 'cancelar cambios';
-        console.log(e.target.innerText );
-
+       
         if(e.target.innerText == 'guardar cambios'){
           btn.classList.remove('btn-edit');
-          btnDeletePost.removeAttribute('data-id')
-          console.log(btn)
+          // btnDeletePost.removeAttribute('data-id')
           btn.addEventListener('click',async (e) => {
            try{
             e.preventDefault()
             contentTextPost.setAttribute("readonly", true);
-            console.log('aqui selecciona guardar cambios')
             btn.innerText = 'editar';
             await updatePost(idDocPost, { userPost: contentTextPost.value});
             if(e.target.innerText == 'editar'){
               contentTextPost.setAttribute("readonly", false);
+              btnDeletePost.setAttribute('hidden', false);
               btn.classList.add('btn-edit');
               prueba(btnEdit)
             }
@@ -170,22 +167,23 @@ const prueba = (btnEdit) =>{
           })
           
         }
-        
-        // else if (e.target.innerText == 'cancelar cambios'){
-        //   const btnCancelPost = document.querySelectorAll('.btn-delete')
-        //   console.log('cancelar cambioss')
-        //   // firebase.firestore().collection("newPosts").orderBy('date', 'desc').onSnapshot(callback);
-        //   // var docRef = db.collection("hola").doc("SIKIV2KVfZKMGC9ZT81u");
-        //   btnCancelPost.addEventListener('click' , ()=> {
-        //     console.log('soy el boton')
-        //     const docRef = firebase.firestore().collection("newPosts").doc(idDocPost);
-        //     docRef.get().then((doc)=>{
-        //       console.log("userposts:", doc.data().userPost);
-        //   })
-        // }) 
 
-        // } 
-       
+        btnCancelPost.addEventListener('click', async () => {
+          try{
+            const idDocPost = e.target.dataset.id;
+            await getPost(idDocPost).then((doc)=>{
+            contentTextPost.value = doc.data().userPost;
+            btnDeletePost.removeAttribute('hidden');
+            btnCancelPost.setAttribute('hidden', true);
+            btn.classList.add('btn-edit');
+            btn.innerText = 'editar';
+            prueba(btnEdit)
+          })
+          }
+          catch(error){
+            console.log(error)
+          }
+        })
         contentTextPost.focus();
       }catch(error){
         console.log(error)
@@ -194,10 +192,7 @@ const prueba = (btnEdit) =>{
   });
 }
  prueba(btnEdit)
-
-
-
-  };
+};
 
   return divHome;
 };
