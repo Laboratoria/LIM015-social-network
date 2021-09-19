@@ -131,7 +131,7 @@ const viewHome = () => {
     
     );
 
-    // Función que edita el post    
+    // Función que editar el post    
     
 
 const prueba = (btnEdit) =>{
