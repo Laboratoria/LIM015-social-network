@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+p {
+    text-align:center;
+}
+
+body{
+background-image:url(../img/diseño1.png);
+/* background-repeat:no-repeat; */
+
+}
+/* body{
+    background-image: linear-gradient(to top, #067DA3 0%, #000000 100%);
+    
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  } */
+#container {
+  background-position: center;
+  background-color: #fafafa6e;
+}
+.fondoAnimal {
+  width: 600px;
+  height: 600px;
+  display: block;
+  margin: auto;
+  border: radius 15px;
+}
+
+#imgLogin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#imgLogin > img {
+  max-width: 30%;
+  border-radius: 50%;
+}
+#email {
+  text-align: center;
+}
+.logoGmail {
+  display: block;
+  margin: auto;
+}
+
+.container .text name {
+  border-radius: 5px;
+  padding: 15px 5px 5px 20px;
+}
+#info, #information, #btnlogin, #btnGoogleLogin {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+  }
+  
+a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  footer{
+    text-align: center; 
+    margin-left: auto; 
+    margin-right: auto;
+    font-family: Arial;
+  } 
