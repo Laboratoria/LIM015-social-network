@@ -6,6 +6,7 @@ import { userState } from './home.js';
 export const signIn = () => {
   userState();
   const viewSignIn = `
+  <section class='web-container'>
     <div class='home-container'>
       <figure class='container-img'>
         <img class='cat-gif' src='https://i.pinimg.com/originals/35/ce/9f/35ce9f85da291b4c1c504d8cbd37e8ee.gif'>
@@ -13,7 +14,7 @@ export const signIn = () => {
 
         <form id='signin-form' action=''>
           <div class="input-div one">
-            <div class="i">
+            <div class="icon-input">
               <i class="fas fa-user"></i>
             </div>
             <div class='div'>
@@ -24,7 +25,7 @@ export const signIn = () => {
           <span class="error-email"></span>
 
           <div class="input-div one">
-            <div class="i">
+            <div class="icon-input">
               <i class="fas fa-lock"></i>
             </div>
             <div class='div'>
@@ -39,7 +40,6 @@ export const signIn = () => {
           </div>
         </form>
 
-
       <ul class="home-list">
         <li class="signin-access-items">
           <button class="google-button"> <a id="signin-google" href="#/google">Acceder con Google</a></button>
@@ -48,7 +48,11 @@ export const signIn = () => {
           <span>¿No tienes cuenta?</span><a class="sgn" href="#/signup">Create una</a>
         </li>
       </ul>
-    </div>`;
+    </div>
+    <div>
+      <img class="img-web" src="./img/imghome.png">
+    </div>
+  </section>  `;
 
   const sectionElement = document.createElement('div');
   sectionElement.classList.add('container-box');
