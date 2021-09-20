@@ -7,11 +7,12 @@ export const signUp = () => {
   userState();
   const sectionElement = document.createElement('section');
   const viewSignUp = `
+  <section class='web-container'>
     <div  class="home-container">
       <h2 class="signup-register">Regístrate</h2>
       <form id="signup-form" class="signin-form">
         <div class="input-div one">
-            <div class="i">
+            <div class="icon-input">
               <i class="fas fa-user"></i>
             </div>
             <div class='div'>
@@ -22,7 +23,7 @@ export const signUp = () => {
           <span class="error-username"></span>
 
         <div class="input-div one">
-          <div class="i">
+          <div class="icon-input">
             <i class="fas fa-user"></i>
           </div>
           <div class='div'>
@@ -33,7 +34,7 @@ export const signUp = () => {
         <span class="error-email"></span>
 
         <div class="input-div one">
-          <div class="i">
+          <div class="icon-input">
             <i class="fas fa-lock"></i>
           </div>
           <div class='div'>
@@ -53,7 +54,11 @@ export const signUp = () => {
           <span>¿Tienes cuenta?</span><a class="sgn" href="#/signin"> Inicia con ella</a>
         </li>
       </ul>
-    </div>`;
+    </div>
+    <div>
+      <img class="img-web" src="./img/imghome.png">
+    </div>
+  </section>`;
 
   sectionElement.classList.add('container-box');
   sectionElement.innerHTML = viewSignUp;
