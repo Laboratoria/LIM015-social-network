@@ -9,19 +9,20 @@
 body{
     background: radial-gradient(
         65.04% 80.82% at 26.98% 33.73%,
-        #FBFBFC 14.88%, 
-        #e1dcb1 36.78%, 
-        #df9bb4 74.89%, 
-        #a398d6 97.92%
+        #f3efef 14.88%, 
+        #ede9b0 36.78%, 
+        #dc8eaa 74.89%, 
+        #9885f7 97.92%
     );
 }
 .container-box{
-    margin: 20px 35px;
+    margin: 20px 80px;
     background: linear-gradient(
         to right bottom,
-        rgba(255,255,255,0.9),
+        rgba(255,255,255,0.7),
         rgba(255,255,255,0.2)
     );
+    border: 2px solid white;
     border-radius:14px;
     box-shadow: 20px 20px 25px rgba(0, 0, 0, 0.25);
 }
@@ -306,7 +307,7 @@ span{
     display:flex;
     flex-direction: row;
     justify-content: space-evenly;
-    width: 50vw;
+    width: 40vw;
     min-width: 310px;
     padding: 12px;
     padding-bottom:10px ;
@@ -314,19 +315,16 @@ span{
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
 }
-.white-container{
+/* .white-container{
+   
+} */
+.scroll-container{
     display:flex;
     flex-direction: column;
-    width: 50vw;
+    width: 40vw;
     min-width: 310px;
-    background-color:#ffffff;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
-    border-radius: 10px 10px 0px 0px;
-    height:  calc(100vh - 206px);
-}
-.scroll-container{
     overflow-y: scroll;
-    margin: 8px;
+    height:  calc(100vh - 206px);
 }
 .scroll-container::-webkit-scrollbar-track{
     /*  box-shadow: inset 0 0 6px rgba(0,0,0,0.3); */
@@ -343,16 +341,17 @@ background-color: #ffffff;
 .container-post{
     display:flex;
     flex-direction: row;
-    justify-content: center;
-    gap:2vw;
-    margin: 7px 15px 8px ;
-    border: 1px solid rgba(90, 84, 178, 0.81);
+    justify-content: space-evenly;
+    margin-right:20px;
+    margin-bottom:20px;
+
+    background-color: white;
     border-radius: 10px;
-    padding: 8px;
+    padding: 12px;
 }
 .container-photo{
     position: relative;
-    align-self: center;
+    align-self: flex-start;
     width: 60px;
     height: 60px;
     overflow: hidden;
@@ -368,26 +367,21 @@ background-color: #ffffff;
     bottom: -100%;
     margin: auto;
 }
-.section-post{
-    display:grid;
-    grid-template-columns: 1fr;
-}
 .name-input{
     padding-bottom: 5px;
 }
 .text-output,
 .text-input{
-    width: 30vw;
+    width: 22vw;
     min-width: 180px;
     height: 40px;
     border-radius: 10px;
     resize: none;
-    outline: none;
 }
 .text-output{
-    width: 30vw;
+    width: 20vw;
     min-width: 150px;
-    border:none;
+    height: auto;
 }
 .post-button{
     background: #3c43a7;

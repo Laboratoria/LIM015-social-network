@@ -14,6 +14,7 @@ const userStateCheck = () => {
     }
   });
 };
+
 export const pageOnlyCats = () => {
   userStateCheck();
   const pageOcView = `
@@ -52,11 +53,12 @@ export const pageOnlyCats = () => {
 
   const btnPublish = sectionElement.querySelector('#post-button');
   const textInput = sectionElement.querySelector('#text-input');
-
+  const googleUser = JSON.parse(localStorage.getItem('user'));
   // -------- Crear Posts (C) --------
   const createPost = () => {
+    const userName = googleUser.displayName;
     const post = textInput.value;
-    postCollection(post)
+    postCollection(post, userName)
       .then(() => {
         textInput.value = ' ';
       })
@@ -78,8 +80,8 @@ export const pageOnlyCats = () => {
             <img src="./img/michael.jpg" "alt='picture' class="profile-photo">
           </div>
           <section class="section-post">
-            <p class="name-input"> Michael Scott</p>
-            <textarea readonly class="text-output">${dataContent.text}</textarea>
+            <p class="name-input"> ${googleUser.displayName} </p>
+            <p readonly class="text-output">${dataContent.text}</p>
           </section>
         </section> `;
       });
