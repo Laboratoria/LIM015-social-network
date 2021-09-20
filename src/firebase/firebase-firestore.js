@@ -1,6 +1,7 @@
-export const postCollection = (post, userName) => firebase.firestore().collection('posts').add({
+export const postCollection = (post, userName, photo) => firebase.firestore().collection('posts').add({
   user: userName,
   text: post,
+  photo,
 });
 
 export const getCollection = () => firebase.firestore().collection('posts');

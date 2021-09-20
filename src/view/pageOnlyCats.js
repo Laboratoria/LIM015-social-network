@@ -58,7 +58,8 @@ export const pageOnlyCats = () => {
   const createPost = () => {
     const userName = googleUser.displayName;
     const post = textInput.value;
-    postCollection(post, userName)
+    const photo = googleUser.photoURL;
+    postCollection(post, userName, photo)
       .then(() => {
         textInput.value = ' ';
       })
@@ -77,10 +78,10 @@ export const pageOnlyCats = () => {
         newPost.innerHTML += `
         <section class="container-post">
           <div class="container-photo">
-            <img src="./img/michael.jpg" "alt='picture' class="profile-photo">
+            <img src="${dataContent.photo}" "alt='picture' class="profile-photo">
           </div>
           <section class="section-post">
-            <p class="name-input"> ${googleUser.displayName} </p>
+            <p class="name-input"> ${dataContent.user} </p>
             <p readonly class="text-output">${dataContent.text}</p>
           </section>
         </section> `;
