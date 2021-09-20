@@ -42,6 +42,7 @@ export function initRegister() {
     e.preventDefault();
     e.stopPropagation();
     registrar();
+
   });
 }
 
@@ -60,9 +61,9 @@ function registrar() {
     return;
   }
 }
-
+//validacion register
 function validate() {
-  let valid = false;
+ 
   const email = document.querySelector(".email").value;
   const password = document.querySelector(".password").value;
   const confirmPassword = document.querySelector("#password2").value;
