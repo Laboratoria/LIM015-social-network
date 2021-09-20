@@ -99,7 +99,10 @@ const viewHome = () => {
       }</textarea>         
         </div>
         
-        <div class="home__like"> me gusta</div>
+        <div class="home__like"> 
+          <i class="${postText.likes.includes(user.uid) ? 'fas' : 'far'} fa-heart" data-id="${postText.id}"></i>
+          <p>${postText.likes.length ? postText.likes.length : ''} </p>
+        </div>
         ${
           postText.userId === user.uid
             ? `<div class="btns-edit-delete" name="${postText.userId}" data-id-post="${postText.userId}">
@@ -109,7 +112,12 @@ const viewHome = () => {
             </div>`
             : ""}           
     </section> `;
+
+
       postListContainer.appendChild(newSection);
+
+   
+
     });
     // Función que elimina el post
     const btnDelete = postListContainer.querySelectorAll(".btn-delete");
@@ -127,74 +135,97 @@ const viewHome = () => {
     }
     
     );
+    //funcion dar likes
+    const iconLikes = postListContainer.querySelectorAll('.fa-heart');
+    console.log(iconLikes)
+    iconLikes.forEach((icon)=>{
 
-    // Función que editar el post    
+      icon.addEventListener('click' , async (e)=>{
+        const idDocPost = e.target.dataset.id;
+        const likesArray = await getPost(idDocPost).then((doc)=>{
+          return  doc.data().username 
+        })
+        
+          if(!likesArray.includes(user.uid)){
+            
+            console.log('si le diste likee')
+          }else{
+            console.log('todavia no le has dado like')
+          }
+       
+        
+      })
+    })
+     
+     
     
 
-const prueba = (btnEdit) =>{
-  btnEdit.forEach((btn) => {
-    btn.addEventListener("click", async (e) => {
-      try{
-        e.preventDefault();
-        const idDocPost = e.target.dataset.id;
-        const contentTextPost = document.getElementById(`text-${idDocPost}`);
-        const btnDeletePost = document.getElementById(`delete-${idDocPost}`);
-        const btnCancelPost = document.getElementById(`cancel-${idDocPost}`);
-        btnDeletePost.setAttribute('hidden',true);
-        btnCancelPost.removeAttribute('hidden');
-        // btnCancelPost.style.display='flex';
-        contentTextPost.removeAttribute("readonly");
-        btn.innerText = 'guardar cambios';
-       
-        if(e.target.innerText == 'guardar cambios'){
-          btn.classList.remove('btn-edit');
-          // btnDeletePost.removeAttribute('data-id')
-          btn.addEventListener('click',async (e) => {
-           try{
-            e.preventDefault()
-            contentTextPost.setAttribute("readonly", true);
-            btn.innerText = 'editar';
-            await updatePost(idDocPost, { userPost: contentTextPost.value});
-            if(e.target.innerText == 'editar'){
-              contentTextPost.setAttribute("readonly", false);
-              btnDeletePost.setAttribute('hidden', false);
-              btn.classList.add('btn-edit');
-              prueba(btnEdit)
-            }
-           }catch(error){
-             console.log(error)
-           }
-          })
-          
-        }
 
-        btnCancelPost.addEventListener('click', async () => {
+    // Función que editar el post    
+    const prueba = (btnEdit) =>{
+      btnEdit.forEach((btn) => {
+        btn.addEventListener("click", async (e) => {
           try{
+            e.preventDefault();
             const idDocPost = e.target.dataset.id;
-            await getPost(idDocPost).then((doc)=>{
-            contentTextPost.value = doc.data().userPost;
-            btnDeletePost.removeAttribute('hidden');
-            btnCancelPost.setAttribute('hidden', true);
-            btn.classList.add('btn-edit');
-            btn.innerText = 'editar';
-            prueba(btnEdit)
-          })
-          }
-          catch(error){
+            const contentTextPost = document.getElementById(`text-${idDocPost}`);
+            const btnDeletePost = document.getElementById(`delete-${idDocPost}`);
+            const btnCancelPost = document.getElementById(`cancel-${idDocPost}`);
+            btnDeletePost.setAttribute('hidden',true);
+            btnCancelPost.removeAttribute('hidden');
+            // btnCancelPost.style.display='flex';
+            contentTextPost.removeAttribute("readonly");
+            btn.innerText = 'guardar cambios';
+          
+            if(e.target.innerText == 'guardar cambios'){
+              btn.classList.remove('btn-edit');
+              // btnDeletePost.removeAttribute('data-id')
+              btn.addEventListener('click',async (e) => {
+              try{
+                e.preventDefault()
+                contentTextPost.setAttribute("readonly", true);
+                btn.innerText = 'editar';
+                await updatePost(idDocPost, { userPost: contentTextPost.value});
+                if(e.target.innerText == 'editar'){
+                  contentTextPost.setAttribute("readonly", false);
+                  btnDeletePost.setAttribute('hidden', false);
+                  btn.classList.add('btn-edit');
+                  prueba(btnEdit)
+                }
+              }catch(error){
+                console.log(error)
+              }
+              })
+            }
+
+            btnCancelPost.addEventListener('click', async () => {
+              try{
+                const idDocPost = e.target.dataset.id;
+                await getPost(idDocPost).then((doc)=>{
+                contentTextPost.value = doc.data().userPost;
+                btnDeletePost.removeAttribute('hidden');
+                btnCancelPost.setAttribute('hidden', true);
+                btn.classList.add('btn-edit');
+                btn.innerText = 'editar';
+                contentTextPost.setAttribute("readonly" , true);
+                prueba(btnEdit)
+              })
+              }
+              catch(error){
+                console.log(error)
+              }
+            })
+            contentTextPost.focus();
+          }catch(error){
             console.log(error)
           }
-        })
-        contentTextPost.focus();
-      }catch(error){
-        console.log(error)
-      }
-    });
-  });
-}
- prueba(btnEdit)
-};
+        });
+      });
+    }
+    prueba(btnEdit)
+  };
 
-  return divHome;
+      return divHome;
 };
 
 export { viewHome };
