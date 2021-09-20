@@ -2,8 +2,8 @@ export default () => {
     const header = document.createElement('header');
     header.className = 'header';
     header.innerHTML = `        
-    <img class="logo" src="../images/svg/logo.svg" alt="logo">
-    <img class="icon-logo" src="../images/svg/favicon.svg" alt="logo">
+    <img class="logo" src="../../images/svg/logo.svg" alt="logo">
+    <img class="icon-logo" src="../../images/svg/favicon.svg" alt="logo">
     <section class="input-search">
         <input type="text" name="" id="">
         <div class="container-icon-search"> <i class="fas fa-search"></i> </div>
