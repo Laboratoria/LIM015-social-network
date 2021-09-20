@@ -1,3 +1,4 @@
+import { } from '../security/security.function.js';
 export function viewHome ()  {
   const viewHome = `
       <h2>Pets-Lovers</h2>
@@ -13,5 +14,8 @@ export function viewHome ()  {
 };
 
 export function initHome() {
-  
+  const btnLogout = document.getElementById("btnExit");
+btnExit.addEventListener("click",function(e) {
+
+});
 }

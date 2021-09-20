@@ -1,4 +1,3 @@
-
 import { auth } from "./firebase.js";
 
 const googleProvider = new firebase.auth.GoogleAuthProvider();
@@ -15,28 +14,25 @@ export function eventsRegister() {
   });
 }
 
-export const emailVerication = () => (
-  firebase.auth().currentUser.sendEmailVerification()
-);
+export const emailVerication = () =>
+  firebase.auth().currentUser.sendEmailVerification();
 
-export const registerWithEmail = (email, password) => firebase.auth()
-  .createUserWithEmailAndPassword(email, password);
+export const registerWithEmail = (email, password) =>
+  firebase.auth().createUserWithEmailAndPassword(email, password);
 
+export function registerValidation(email, password) {
+  auth
+    .createUserWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      console.log(userCredential);
+      const user = userCredential.user;
+      // ...
+    })
 
-
-export function registerValidation (email, password) {
-  auth.createUserWithEmailAndPassword(email, password)
-  .then((userCredential) => {
-    console.log(userCredential);
-    const user = userCredential.user;
-    // ...
-  })
-  
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-  });
- 
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    });
 }
 export async function login() {
   try {
@@ -47,6 +43,7 @@ export async function login() {
     throw new Error(error);
   }
 }
+
 
 export function logout() {
   auth.signOut();
@@ -62,7 +59,9 @@ export const logInWithGoogle = () => {
   return firebase.auth().signInWithPopup(provider);
 };
 
-
-
 // export const registerWithEmail = (email, password) => firebase.auth()
 //   .createUserWithEmailAndPassword(email, password);
+
+//-------
+
+
