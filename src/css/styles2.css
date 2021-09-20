@@ -818,7 +818,10 @@ img {
     font-size: 0.9rem;
     margin-bottom: 1rem;
 }
+
+
 /* CONTAINER POPULAR */
+
 .popular-posts {
     background-image: url(../images/svg/back-popular-posts.svg);
     background-repeat: no-repeat;
@@ -827,11 +830,13 @@ img {
     display: flex;
     gap: 2rem;
     border-radius: 5px;
-    overflow-x: auto; /* ----- */
+    overflow-x: auto;
+    /* ----- */
     overflow: hidden;
     position: relative;
-
 }
+
+
 /* ---AGREGE CAMBIO DIANA :3--- */
 
 .card-post {
@@ -840,31 +845,32 @@ img {
     border-radius: 3%;
     border: solid 1px #EEEEEE;
     background-color: #FFFFFF;
-
     padding: 10px;
-
     min-width: 28%;
     transition: 0.5s;
     position: relative;
 }
 
-.imgPosts{
+.imgPosts {
     width: 100%;
     height: 100%;
 }
-.designIcon-left, 
-.designIcon-right{
+
+.designIcon-left,
+.designIcon-right {
     position: absolute;
     display: block;
     font-size: 40px;
     color: #FB5773;
     line-height: 30px;
 }
-.designIcon-left{
+
+.designIcon-left {
     left: -30px;
     top: 70px;
 }
-.designIcon-right{
+
+.designIcon-right {
     left: 895px;
     bottom: 75px;
 }
@@ -874,55 +880,67 @@ img {
     font-size: 40px;
     color: #FB5773;
 } */
-.box-arrow-left{
+
+.box-arrow-left {
     position: absolute;
     left: 372.09px;
     top: 208.09px;
 }
-.box-arrow-right{
+
+.box-arrow-right {
     position: absolute;
     left: 1265px;
     top: 208.09px;
-
 }
-.spanArrow{
+
+.spanArrow {
     cursor: pointer;
     position: absolute;
     /* position: absolute; */
     user-select: none;
-
 }
+
+
 /* box */
-.head-popularPosts{
+
+.head-popularPosts {
     display: flex;
 }
-.name-hours{
+
+.name-hours {
     padding: 10px;
 }
-.heart-number{
+
+.heart-number {
     display: flex;
     padding-top: 10px;
     padding-left: 34px;
 }
-.p-posts{
+
+.p-posts {
     font-size: 14px;
     padding: 10px;
 }
-.horas-Posts{
+
+.horas-Posts {
     font-size: 10px;
     color: #878787;
 }
-.box-plus{
+
+.box-plus {
     display: flex;
     justify-content: flex-end;
 }
-.plus{
+
+.plus {
     border-radius: 5px;
 }
-.heart{
+
+.heart {
     color: #FA5672;
     padding-right: 4px;
 }
+
 
 /** Boton para crear publicación **/
 
@@ -1001,7 +1019,9 @@ img {
     display: block;
 }
 
+
 /** Crear nuevo post**/
+
 .select {
     background: transparent;
     border: none;
@@ -1031,7 +1051,7 @@ img {
     outline: none;
     resize: none;
     overflow: hidden;
-    background-color:  #f3f3f3;
+    background-color: #f3f3f3;
     font-family: 'Nunito', sans-serif;
     font-size: 12px;
     font-weight: 400;
@@ -1040,6 +1060,10 @@ img {
     border: none;
     border-radius: 10px;
 }
+
+
+/**Emojis**/
+
 
 /* .smile {
     position: relative;
