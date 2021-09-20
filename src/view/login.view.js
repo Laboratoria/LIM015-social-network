@@ -7,10 +7,9 @@ import {
 export function viewLogin() {
   const viewLogin = `
   <form class="contenedorLogin">
-    <h1>Pets-Lovers</h1>
     <div class="login">
     <div id="imgLogin">
-          <img src="img/pet.png" id="fondoPet" class="fondoAnimalPet">
+          <img src="img/pet.jpg" id="fondoPet" class="fondoAnimalPet">
           </div>
           <div id="info">
       <input id="email" placeholder="Email" class="email">
