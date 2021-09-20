@@ -139,21 +139,24 @@ const viewHome = () => {
     const iconLikes = postListContainer.querySelectorAll('.fa-heart');
     console.log(iconLikes)
     iconLikes.forEach((icon)=>{
-
       icon.addEventListener('click' , async (e)=>{
         const idDocPost = e.target.dataset.id;
-        const likesArray = await getPost(idDocPost).then((doc)=>{
-          return  doc.data().username 
+        let likesArray = await getPost(idDocPost).then((doc)=>{
+          console.log(doc.data().likes)
+          return  doc.data().likes
         })
-        
-          if(!likesArray.includes(user.uid)){
-            
+           if(!likesArray.includes(user.uid)){
+            likesArray.push(user.uid);
+             await updatePost(idDocPost,{ likes: likesArray});    
             console.log('si le diste likee')
+
           }else{
+            
+            likesArray=likesArray.filter(lik=>lik!==user.uid);
+            await updatePost(idDocPost,{ likes: likesArray});
             console.log('todavia no le has dado like')
           }
-       
-        
+               
       })
     })
      
