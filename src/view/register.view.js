@@ -6,8 +6,6 @@ import {
 export function viewRegister() {
   const viewRegister = `
   <form class="registerInfo">
-      <h1>Pets-Lovers</h1>
-      <h2>Welcome to Pet-Lovers</h2>
       <div class="register">
       <div id="imgRegister">
             <img src="img/animalesFondo.jpg" id="fondo" class="fondoAnimal">
