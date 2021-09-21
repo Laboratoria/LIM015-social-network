@@ -69,6 +69,7 @@ export const signUp = () => {
     /*  const signupUsername = sectionElement.querySelector('#signup-username').value; */
     const signupEmail = sectionElement.querySelector('#signup-email').value;
     const signupPassword = sectionElement.querySelector('#signup-password').value;
+    const signupUser = sectionElement.querySelector('#signup-username').value;
     const errorEmail = sectionElement.querySelector('.error-email');
     const errorPassword = sectionElement.querySelector('.error-password');
 

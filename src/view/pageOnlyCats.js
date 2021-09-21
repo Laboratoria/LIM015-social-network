@@ -28,9 +28,9 @@ export const pageOnlyCats = () => {
 
     <main class="scroll-container">
       <div class="label-container">
-        <button class="label-btn one">Memes</button>
-        <button class="label-btn two">Vet Cat</button>
-        <button class="label-btn three">Foodie Cat</button>
+        <button class="label-btn meme">Memes</button>
+        <button class="label-btn vet">Vet Cat</button>
+        <button class="label-btn foodie">Foodie Cat</button>
       </div>
       <div>
         <section class="profile-post publish" >
@@ -57,6 +57,7 @@ export const pageOnlyCats = () => {
   const btnPublish = sectionElement.querySelector('#post-button');
   const textInput = sectionElement.querySelector('#text-input');
   const googleUser = JSON.parse(localStorage.getItem('user'));
+
   // -------- Crear Posts (C) --------
   const createPost = () => {
     const userName = googleUser.displayName;

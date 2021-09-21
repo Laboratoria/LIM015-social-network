@@ -286,7 +286,7 @@ span{
 .header-container{
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
 }
 .page-title{
     padding-top:5px ;
@@ -311,13 +311,13 @@ span{
     font-size: 15px;
     font-weight: 550;
 }
-.one{
+.meme{
     background: linear-gradient(89.82deg, #BDE991 0.13%, #A6E5F3 99.82%);
 }
-.two{
+.vet{
     background: linear-gradient(89.82deg, #9E86FF 0.13%, #FF9595 99.82%);
 }
-.three{
+.foodie{
     background: linear-gradient(89.19deg, #FFFC95 2.65%, #F4A172 94.74%);
 }
 /*---------------------------Muro:Scroll--------------------------*/
