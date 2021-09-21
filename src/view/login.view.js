@@ -40,6 +40,7 @@ export function viewLogin() {
   divElem.innerHTML = viewLogin;
   return divElem;
 }
+//inicio de sesion con email
 document.addEventListener("click", (e) => {
   if (e.target.id === "btnsignin") {
     const email = document.querySelector("#email").value;
@@ -64,10 +65,8 @@ document.addEventListener("click", (e) => {
   }
 );
 
+//inicio de sesion con google
 export function initLogin() {
-  //btnsign
-  //const btnsignin=document.getElementById("btnsignin");
-
   const buttonLogin = document.querySelector("#btnGoogle");
 
   buttonLogin.addEventListener("click", function (e) {
@@ -76,7 +75,6 @@ export function initLogin() {
     showLogin();
     logInWithGoogleClick();
   });
-  //buttonLogin.addEventListener("click", showLogin);
 }
 
 async function showLogin() {
@@ -84,79 +82,6 @@ async function showLogin() {
     await login();
   } catch (error) {
     console.log(error);
-  }
-}
-
-// document.addEventListener('click', (e) => {
-//   if (e.target.id === 'btnsignin') {
-//    const email = document.querySelector('#email').value;
-//    const password = document.querySelector('#password').value;
-//    e.preventDefault();
-//    e.stopPropagation();
-//    console.log(btnsignin);
-//    logInWithEmail(email, password)
-//    .then((usuario) => {
-//      const hash= '#/home';
-//      //si el correo esta verificado ingresa a la pagina home
-//        if (email == "" || password == "")
-//        {
-//            message.innerHTML = "Por favor llene todos los campos";
-//          }
-//          else
-//          {
-//              if (usuario.user.emailVerified)
-//              {
-//                  window.location.hash = hash;
-//              }
-//          }
-//      }
-//    )}
-// });
-
-// export function initLoginBtn() {
-//   const btnSignin = document.querySelector("#btnsignin");
-//   btnSignin.addEventListener("click", function (e) {
-//     e.preventDefault();
-//     e.stopPropagation();
-//     console.log(btnSignin);
-//     //validatelogin();
-//     loginEmail();
-//   });
-//   //buttonLogin.addEventListener("click", showLogin);
-// }
-//aqui D
-// function validatelogin(){
-//   if(!loginEmail()) {
-//     return;
-//   }
-// }
-//validacion login
-function loginEmail() {
-  const email = document.querySelector(".email").value;
-  const password = document.querySelector(".password").value;
-  const message = document.querySelector(".message");
-  message.innerHTML = "";
-
-  if (email == "" || password == "") {
-    message.innerHTML = "Por favor llene todos los campos";
-  } else {
-    logInWithEmail(email, password)
-      .then((userCredential) => {
-        if (userCredential.user.displayName === null) {
-          sessionStorage.setItem("userName");
-          window.localtion.hashas = "#/home";
-        } else {
-          sessionStorage.setItem("userName", userCredential.user.displayName);
-          sessionStorage.setItem("userEmail", userCredential.user.email);
-          sessionStorage.setItem("userId", userCredential.user.id);
-        }
-        const user = userCredential.user;
-        // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-      });
   }
 }
 

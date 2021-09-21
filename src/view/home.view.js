@@ -1,4 +1,4 @@
-import { } from '../security/security.function.js';
+import { logout} from '../security/security.function.js';
 export function viewHome ()  {
   const viewHome = `
       <h2>Pets-Lovers</h2>
@@ -15,7 +15,8 @@ export function viewHome ()  {
 
 export function initHome() {
   const btnLogout = document.getElementById("btnExit");
-btnExit.addEventListener("click",function(e) {
-
+  btnLogout.addEventListener("click",function(e) {
+  logout() 
+  window.location.hash ="#/login";
 });
 }
