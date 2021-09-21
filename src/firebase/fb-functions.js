@@ -12,17 +12,16 @@ const loginGoogle = () => {
   return firebase.auth().signInWithPopup(provider);
 };
 
+
 //Actualizar profile 
 const updateProfile = (nombre) => {
   const user = firebase.auth().currentUser;
-  user.updateProfile({
+  return user.updateProfile({
     displayName: `${nombre}`,
     photoURL: './img/usuario.png',
   });
 };
 
-// Obtener el usuario de la sesion actual
-const currentUser = () => firebase.auth().currentUser;
 
 //Actualizar foto
 //const UserPhoto = (photoURL) => firebase.auth().currentUser
@@ -31,4 +30,4 @@ const currentUser = () => firebase.auth().currentUser;
 // SignOut
 const signOut = () => firebase.auth().signOut();
 
-export { loginEmail, registerEmail, loginGoogle, signOut, updateProfile, currentUser};
+export { loginEmail, registerEmail, loginGoogle, signOut, updateProfile};
