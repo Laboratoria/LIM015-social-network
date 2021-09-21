@@ -23,9 +23,11 @@ export function viewLogin() {
       </div>
     <p>You can also enter with</p>
     <div id="btnGoogleLogin">
-    <button id="btnGoogle">Google</button>
+     <button id="btnGoogle">
+     <img src="img/gmail.png" alt="iGoogle" class="logoGmail" id="logoGmail">
+     </button> 
     </div>
-    <input type="image" src="img/gmail.png" style= "width:40px; height:40px"; class="logoGmail" id="logoGmail">
+    
     <span class="message"></span>
     <p>¿You do not have an account?<a href="#/register">register</a></p>
     </div>
