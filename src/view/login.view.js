@@ -17,6 +17,7 @@ export function viewLogin() {
       <div id="information">
       <input class="password" type="password" name="password" id="password" placeholder="Password">
       </div>
+      <img src="./img/fondoLogin.png" id:"fondoLogin1" width="55%" height="55%">
       <div id="btnlogin">
       <button id="btnsignin" class="btn">signin</button>  
       </div>
@@ -27,9 +28,12 @@ export function viewLogin() {
      <img src="img/gmail.png" alt="iGoogle" class="logoGmail" id="logoGmail">
      </button> 
     </div>
-    
+
     <span class="message"></span>
-    <p>¿You do not have an account?<a href="#/register">register</a></p>
+    <p>¿You do not have an account?</p>
+    <div id="regis">
+   <button id="registro" ><a href="#/register">register</a></button>
+   </div>
     </div>
     </form>`;
   const divElem = document.createElement("div");

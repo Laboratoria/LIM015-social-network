@@ -3,22 +3,21 @@
   padding: 0;
 }
 p {
-    text-align:right;
+  text-align: right;
 }
 
-body{
-background-image:url(../img/diseño1.png);
-min-height:100%;
-background-attachment: fixed;
-background-repeat: no-repeat;
-background-size: cover;
--moz-background-size: cover;
-
+body {
+  background-image: url(../img/diseño1.png);
+  min-height: 100%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -moz-background-size: cover;
 }
-#logoGmail{
-    height:40px;
-    width:40px;
-    cursor:pointer;
+#logoGmail {
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
 }
 
 /* body{
@@ -31,7 +30,9 @@ background-size: cover;
 #container {
   background-position: center;
   background-color: #fafafa6e;
+  margin-right: 60px;
 }
+
 .fondoAnimal {
   width: 600px;
   height: 600px;
@@ -44,6 +45,7 @@ background-size: cover;
   display: flex;
   align-items: right;
   justify-content: right;
+  margin-right: 60px;
 }
 
 #imgLogin > img {
@@ -62,25 +64,60 @@ background-size: cover;
   border-radius: 5px;
   padding: 15px 5px 5px 20px;
 }
-#info, #information, #btnlogin, #btnGoogleLogin {
-    width: 100%;
-    height: 100%;
+
+#fondoLogin1 {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  background-size: 50% 50%;
+}
+
+#info,
+#information,
+#btnlogin,
+#btnGoogleLogin
+{
+  width: 100%;
+  height: 30%;
+  display: flex;
+  align-items: right;
+  justify-content: right;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+}
+
+#btnsignin,
+#registro {
+  border-radius: 5px 5px 5px 5px;
+  background-color: #fab33f;
+  width: 8%;
+  height: 50%;
+}
+
+#regis {
     display: flex;
     align-items: right;
     justify-content: right;
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-bottom: 10px;
-  }
-  
+}
+
+#email,
+#password {
+  border-radius: 15px 15px 15px 15px;
+  background-color: rgb(206, 191, 191);
+  width: 250px;
+  height: 30px;
+}
+
 a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  footer{
-    text-align: center; 
-    margin-left: auto; 
-    margin-right: auto;
-    font-family: Arial;
-  } 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+footer {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: Arial;
+  background-color: #fab33f;
+}
