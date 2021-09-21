@@ -7,7 +7,7 @@ const  viewHeader = () => {
   
     <nav class="nav">
       <figure class="nav__logo">
-        <a href=" ">
+        <a>
           <img  class="header__img" src=" ../img/logosf.png" >
         </a>
       </figure>

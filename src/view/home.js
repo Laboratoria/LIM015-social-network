@@ -12,24 +12,26 @@ const viewHome = () => {
   const htmlHome = /*html*/ `
       <section id="home" class="home">
         <section id="homeProfile" class="home__profile">
-         <div id="home__userName" >Aca irá nombre del usuario</div>
           <div id="home-imgUser" class="home__imgUser">
-          <img class="imgUser" src="" width="150" alt="usuario">
+            <img class="imgUser homeImgUser" src=""  alt="usuario">
           </div>
-          <div id="name" class="home__nameuser"> ver perfil </div>
+         <div class="home__profileBox">
+           <h3 id="home__userName" ></h3>
+           <p id="name" class="home__userProfile"> ver perfil </p>
+         </div>
         </section>
-        <section id="postHomeContainer">
+        <section id="postHomeContainer" class="home__postContainer">
           <form id="postHome-form">
-            <div id="boxInputPost">
-              <textarea id="postArea" class="HomeShare__input" placeholder="¿ Que desea compartir?" rows="4" cols="50"
+            <div id="boxInputPost" class="home__postImput">
+              <textarea id="postArea" class="HomeShare__input" placeholder="¿ Que desea compartir?"
                 autofocus></textarea>
             </div>
-            <div>
+            <div class="home__buttonPost" >
               <input type="submit" id="buttonPostHome" class="button button--main" value="Compartir"> 
             </div>
           </form>
         </section>
-        <section id="postsHomeContainer">
+        <section id="postsHomeContainer" class="home__PostsContainer">
         </section>
       </section>
       `;
@@ -78,24 +80,22 @@ const viewHome = () => {
 
   const setTemplateListPosts = (data, user) => {
     postListContainer.innerHTML = "";
-    const newSection = document.createElement("section");
     data.forEach((doc) => {
       const postText = doc.data();
       postText.id = doc.id;
-      newSection.innerHTML += /*html*/ `
-
+      postListContainer.innerHTML += /*html*/ `
       <section class="postAreaUser">
-        <div class="home__imgUser" id="userImg" >
-          <img class="postUserImage" width="150" src="${postText.userPhoto}"> 
+        <div class="home_postHeader">
+          <div class="home__imgUser" id="userImg" >
+            <img class="imgUser postImgUser" src="${postText.userPhoto}"> 
+          </div>
+          <div class="home__nameDate">
+            <div><b>${postText.username}</b><span class="textSecundary"> compartió</span></div>
+            <div class="textSecundary">${postText.date}</div>
+          </div>
         </div>
-        <div>
-          <div>${postText.username}</div>
-          <div>${postText.date}</div>
-          <p>compartió</p>
-        </div>
-         
         <div class="post__inputtext">
-          <textarea class="post__input" rows="4" cols="50" id="text-${postText.id}" data-id="${postText.userId}"readonly>${postText.userPost
+          <textarea class="post__input" id="text-${postText.id}" data-id="${postText.userId}"readonly>${postText.userPost
       }</textarea>         
         </div>
         
@@ -112,11 +112,6 @@ const viewHome = () => {
             </div>`
             : ""}           
     </section> `;
-
-
-      postListContainer.appendChild(newSection);
-
-   
 
     });
     // Función que elimina el post
@@ -157,9 +152,6 @@ const viewHome = () => {
       })
     })
      
-     
-    
-
 
     // Función que editar el post    
     const prueba = (btnEdit) =>{
