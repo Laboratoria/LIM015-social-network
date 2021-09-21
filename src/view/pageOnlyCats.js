@@ -25,7 +25,6 @@ export const pageOnlyCats = () => {
       <i class="fas fa-sign-out-alt" id="sign-out"></i>
       </aside>
     </header>
-
     <main class="scroll-container">
       <div class="label-container">
         <button class="label-btn meme">Memes</button>
@@ -48,7 +47,6 @@ export const pageOnlyCats = () => {
         <section  id="other-post">
         </section>
     </main>
-
   </div>`;
   const sectionElement = document.createElement('section');
   sectionElement.classList.add('container-box');
@@ -60,7 +58,8 @@ export const pageOnlyCats = () => {
 
   // -------- Crear Posts (C) --------
   const createPost = () => {
-    const userName = googleUser.displayName;
+    const userName = (googleUser.displayName === null) ? localStorage.getItem('name') : googleUser.displayName;
+    console.log(userName);
     const post = textInput.value;
     const photo = googleUser.photoURL;
     postCollection(post, userName, photo)

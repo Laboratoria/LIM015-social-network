@@ -66,7 +66,7 @@ export const signUp = () => {
   const signupForm = sectionElement.querySelector('#create-account');
   signupForm.addEventListener('click', (e) => {
     e.preventDefault();
-    /*  const signupUsername = sectionElement.querySelector('#signup-username').value; */
+    const signupUsername = sectionElement.querySelector('#signup-username').value;
     const signupEmail = sectionElement.querySelector('#signup-email').value;
     const signupPassword = sectionElement.querySelector('#signup-password').value;
     const errorEmail = sectionElement.querySelector('.error-email');
@@ -87,6 +87,7 @@ export const signUp = () => {
           emailVerification().then(() => {
             window.alert('Verification send');
             window.location.hash = '#/signin';
+            localStorage.setItem('name', signupUsername);
             console.log('registrado');
           }).catch((error) => {
             console.log(error);
