@@ -17,37 +17,36 @@ const userStateCheck = () => {
 
 export const pageOnlyCats = () => {
   userStateCheck();
-  const googleUser = JSON.parse(localStorage.getItem('user'));
-  /* const photo = googleUser.photoURL; */
   const pageOcView = `
   <div class="page-container">
     <header class = "header-container">
       <img src="./img/only-cats.png" "alt='only-cats' class="page-title">
+      <aside>
+      <i class="fas fa-sign-out-alt" id="sign-out"></i>
+      </aside>
     </header>
-
-    <main class ="background-posts">
-
-        <section class="profile-post">
+    <main class="scroll-container">
+      <div class="label-container">
+        <button class="label-btn meme">Memes</button>
+        <button class="label-btn vet">Vet Cat</button>
+        <button class="label-btn foodie">Foodie Cat</button>
+      </div>
+      <div>
+        <section class="profile-post publish" >
           <div class="container-photo">
-              <img src="" "alt='picture' class="profile-photo">
+              <img src="./img/michael.jpg" "alt='picture' class="profile-photo">
           </div>
           <section class="section-profile" >
-            <textarea class="text-input" id="text-input"></textarea>
-            <div>
-              <button class="post-button" id="post-button" type="submit">Publicar</button>
+            <textarea class="text-input" id="text-input" placeholder="¿Miau esta pasando?"></textarea>
+            <div class="post-icon">
+              <i class="fas fa-image"></i>
+              <button class="post-button" id="post-button" type="submit">Meow</button>
             </div>
           </section>
         </section>
-
-      <article class ="white-container" >
-        <section class="scroll-container" id="other-post"></section>
-      <article>
-
+        <section  id="other-post">
+        </section>
     </main>
-    <aside>
-      <button class="sign-out"> salir</button>
-    </aside>
-
   </div>`;
   const sectionElement = document.createElement('section');
   sectionElement.classList.add('container-box');
@@ -55,12 +54,15 @@ export const pageOnlyCats = () => {
 
   const btnPublish = sectionElement.querySelector('#post-button');
   const textInput = sectionElement.querySelector('#text-input');
+  const googleUser = JSON.parse(localStorage.getItem('user'));
+
   // -------- Crear Posts (C) --------
-
-    const userName = googleUser.displayName;
+  const createPost = () => {
+    const userName = (googleUser.displayName === null) ? localStorage.getItem('name') : googleUser.displayName;
+    console.log(userName);
     const post = textInput.value;
-
-    postCollection(post, userName)
+    const photo = googleUser.photoURL;
+    postCollection(post, userName, photo)
       .then(() => {
         textInput.value = ' ';
       })
@@ -77,7 +79,7 @@ export const pageOnlyCats = () => {
       querySnapshot.forEach((doc) => {
         const dataContent = doc.data();
         newPost.innerHTML += `
-        <section class="container-post">
+        <section class="profile-post">
           <div class="container-photo">
             <img src="${dataContent.photo}" "alt='picture' class="profile-photo">
           </div>
@@ -94,7 +96,7 @@ export const pageOnlyCats = () => {
   readPosts();
 
   // ------------------ Salir de la página --------------------
-  const signOut = sectionElement.querySelector('.sign-out');
+  const signOut = sectionElement.querySelector('#sign-out');
   signOut.addEventListener('click', (e) => {
     e.preventDefault();
     const result = confirm('¿En serio quieres salir?');
@@ -107,8 +109,8 @@ export const pageOnlyCats = () => {
     } else {
       signOutUser()
         .catch((error) => (error));
-    }  
-    return sectionElement;
+    }
   });
 
+  return sectionElement;
 };
