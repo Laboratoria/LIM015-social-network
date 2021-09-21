@@ -20,12 +20,14 @@ a {
     background: var(--white);
     width: 100%;
     max-width: 60rem;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     box-shadow: 0 1px 15px 1px rgba(69, 65, 78, .08);
+    margin-bottom: 1rem;
 }
 
 .post-header {
     display: flex;
+    border-radius: 0.5rem;
     justify-content: space-between;
     padding: 1.2rem 1.6rem 0 1.6rem;
 }

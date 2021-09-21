@@ -6,8 +6,8 @@ import { saveUser } from '../../db/firestore.js';
 const addEventsRegister = () => {
     const formRegister = document.querySelector('#form-registro');
     const inputName = document.querySelector('#nameUser');
-    const inputEmail = document.querySelector('#email');
-    const inputPassword = document.querySelector('#password');
+    const inputEmail = document.querySelector('#email-registro');
+    const inputPassword = document.querySelector('#password-registro');
     const inputConfirmPassword = document.querySelector('#confirmPassword');
     const showPassword = document.querySelector('#show-password');
     const btnGoogle = document.querySelector('#google');
