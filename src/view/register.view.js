@@ -5,10 +5,11 @@ import {
 
 export function viewRegister() {
   const viewRegister = `
-  <form class="registerInfo">
+  <header class="head"></header>
+<form class="registerInfo">
       <div class="register">
       <div id="imgRegister">
-            <img src="img/animalesFondo.jpg" id="fondo" class="fondoAnimal">
+            <img src="img/pet.jpg" id="fondo" class="fondoAnimal1">
       </div>
       <div id="infoRegister"> 
       <div id="registerInformation2">
@@ -21,12 +22,15 @@ export function viewRegister() {
       <div id="registerInformation4">
         <input class="password" type="password" name="password2" id="password2" placeholder="Confir Password">
       </div>
+      <img src="./img/parque.png" id:"fondoLogin1" width="55%" height="55%">
       <div id="regbtn">
         <button id="btnRegister"type="button" class="btn">Register</button>
       </div>
       </div> 
       <span class="message"></span>
-      <a href="#/login">Login</a>
+      <div id="btnLo">
+     <button id="login"> <a href="#/login">Login</a></button>
+     </div>
     </form> `;
 
   const divElem = document.createElement("div");
@@ -40,7 +44,6 @@ export function initRegister() {
     e.preventDefault();
     e.stopPropagation();
     registrar();
-
   });
 }
 
@@ -61,7 +64,6 @@ function registrar() {
 }
 //validacion register
 function validate() {
- 
   const email = document.querySelector(".email").value;
   const password = document.querySelector(".password").value;
   const confirmPassword = document.querySelector("#password2").value;
