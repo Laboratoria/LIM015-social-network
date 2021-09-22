@@ -5,33 +5,22 @@ import {
 
 export function viewRegister() {
   const viewRegister = `
-  <header class="head"></header>
-<form class="registerInfo">
-      <div class="register">
-      <div id="imgRegister">
-            <img src="img/pet.jpg" id="fondo" class="fondoAnimal1">
-      </div>
-      <div id="infoRegister"> 
-      <div id="registerInformation2">
-        <input type= "text" id="email1" placeholder="Email" class="email">
-        <span id="errorEmail" class="errorMessage"></span>
-      </div>
-      <div id="registerInformation3">
-        <input class="password" type="password" name="password1" id="password1" placeholder="Password">
-      </div>
-      <div id="registerInformation4">
-        <input class="password" type="password" name="password2" id="password2" placeholder="Confir Password">
-      </div>
-      <img src="./img/parque.png" id:"fondoLogin1" width="55%" height="55%">
-      <div id="regbtn">
+  <form class="container-Register">
+    <figure>
+      <img src="./img/parque.png" id="fondoRegister1" class="fondoAnimal1"width="55%" height="55%">
+    </figure>
+    <section class="frmregister">
+        <img src="img/pet.jpg" id="fondoPet" class="fondoAnimalPet">
+        <input  id="email1" placeholder="Email" class="btn-texto">
+      <span id="errorEmail" class="errorMessage"></span>
+        <input class="btn-texto" type="password" name="password1" id="password1" placeholder="Password">
+        <input class="btn-texto" type="password" name="password2" id="password2" placeholder="Confir Password">   
         <button id="btnRegister"type="button" class="btn">Register</button>
-      </div>
-      </div> 
-      <span class="message"></span>
-      <div id="btnLo">
-     <button id="login"> <a href="#/login">Login</a></button>
-     </div>
-    </form> `;
+      <span class="message"></span>  
+        <button id="login"class="btn"> <a href="#/login">Login</a></button>
+    </section>
+  </form>
+ `;
 
   const divElem = document.createElement("div");
   divElem.innerHTML = viewRegister;
@@ -76,7 +65,8 @@ function validate() {
     message.innerHTML = "Las contraseñas deben coincidir";
   } else {
     registerWithEmail(email, password)
-      .then(() => {
+      .then((response) => {
+        console.log(response);
         clean();
         emailVerication();
         sessionStorage.setItem("nameRegister", email);
@@ -84,6 +74,7 @@ function validate() {
         window.alert("mensaje de verificacion enviado");
       })
       .catch((err) => {
+        console.log(err);
         clean();
         const errorCode = err.code;
         if (errorCode === "auth/email-already-in-use") {

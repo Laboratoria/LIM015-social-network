@@ -87,6 +87,5 @@ export const logInWithGoogleClick = () => {
       // Manejar errores aquí.
       console.log("error" + error);
       // El correo electrónico de la cuenta del usuario utilizada.
-      message = error.email;
     });
 };
