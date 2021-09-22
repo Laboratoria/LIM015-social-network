@@ -16,7 +16,7 @@ const saveUser = (infoUser) => {
 //extrae todos los usuarios, categorias y Post
 const getAllUsers = () => db.collection("users").get();
 const getAllCategories = () => db.collection("categories").get();
-const getAllPosts = () => db.collection("posts").get();
+const getAllPosts = () => db.collection("posts").orderBy('datePost', 'desc').get();
 
 
-export { saveUser, getAllUsers, getAllCategories, getAllPosts }
+export { saveUser, getAllUsers, getAllCategories, getAllPosts, db }
