@@ -25,7 +25,12 @@ export const emailVerification = () => firebase.auth()
 export const signOutUser = () => firebase.auth().signOut();
 
 // Current user:
-export const currentUser = () => firebase.auth().currentUser;
+export const getUserInfo = () => {
+  const currentUser = firebase.auth().currentUser;
+  const uid = currentUser.uid;
+  localStorage.setItem('uid', uid);
+  console.log(uid);
+};
 
 // OnAuthStateChanged
 export const onAuthStateChanged = (callback) => firebase.auth().onAuthStateChanged(callback);

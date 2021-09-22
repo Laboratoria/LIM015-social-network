@@ -1,4 +1,6 @@
-import { onAuthStateChanged, registerGoogle, signInUser } from '../firebase/firebase-functions.js';
+import {
+  onAuthStateChanged, registerGoogle, signInUser, getUserInfo,
+} from '../firebase/firebase-functions.js';
 import { userState } from './home.js';
 
 export const signIn = () => {
@@ -80,6 +82,8 @@ export const signIn = () => {
             if (user.emailVerified) { // This will return true or false
               window.location.hash = '#/onlycats';
               localStorage.setItem('user', JSON.stringify(user));
+              console.log(user);
+              getUserInfo();
             } else {
               alert('Email no verificado. Revisa tu correo :D');
             }

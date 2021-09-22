@@ -4,11 +4,26 @@
 import { signOutUser, onAuthStateChanged } from '../firebase/firebase-functions.js';
 import { postCollection, getCollection } from '../firebase/firebase-firestore.js';
 
+// const userStateCheck = () => {
+//   onAuthStateChanged((user) => {
+//     if (firebase.auth().currentUser !== null && user.emailVerified)
+//         console.log("user id: " + firebase.auth().currentUser.uid)
+//         window.location.hash = '#/onlycats';
+//     // if (user !== null && user.emailVerified) {
+//     //   window.location.hash = '#/onlycats';
+//     // }else{
+//     //   window.location.hash = '',
+//     // }
+//   )};
+// };
+
 const userStateCheck = () => {
   onAuthStateChanged((user) => {
-    if (user !== null && user.emailVerified) {
+    if (firebase.auth().currentUser !== null && user.emailVerified) {
+      const uidUser = `user id: ${firebase.auth().currentUser.uid}`;
+      console.log(uidUser);
       window.location.hash = '#/onlycats';
-    } else if (user === null) {
+    } else if (firebase.auth().currentUser === null) {
       window.location.hash = '';
     }
   });
@@ -58,7 +73,6 @@ export const pageOnlyCats = () => {
 
   // -------- Crear Posts (C) --------
   const createPost = () => {
-    // const userName = (googleUser.displayName === null) ? console.log('no tiene display name') : googleUser.displayName;
     const userName = (googleUser.displayName === null) ? localStorage.getItem('name') : googleUser.displayName;
     const post = textInput.value;
     postCollection(post, userName, photo)
@@ -76,14 +90,18 @@ export const pageOnlyCats = () => {
       const newPost = sectionElement.querySelector('#other-post');
       newPost.innerHTML = ' ';
       querySnapshot.forEach((doc) => {
+        const uidUser = localStorage.getItem('uid');
         const dataContent = doc.data();
+        const dataUser = doc.data().user;
+        console.log(dataUser);
+        console.log(uidUser);
         newPost.innerHTML += `
         <section class="profile-post">
           <div class="container-photo">
             <img src="${dataContent.photo}" "alt='picture' class="profile-photo">
           </div>
           <section class="section-post">
-            <p class="name-input"> ${dataContent.user} </p>
+            <p class="name-input"> ${dataUser} </p>
             <p readonly class="text-output">${dataContent.text}</p>
           </section>
         </section> `;
