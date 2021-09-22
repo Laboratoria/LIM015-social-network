@@ -2,6 +2,7 @@
 /* eslint-disable no-console */
 import { createUser, emailVerification } from '../firebase/firebase-functions.js';
 import { userState } from './home.js';
+import { postUserCollection } from '../firebase/firebase-firestore.js';
 
 export const signUp = () => {
   userState();
@@ -71,6 +72,14 @@ export const signUp = () => {
     const signupPassword = sectionElement.querySelector('#signup-password').value;
     const errorEmail = sectionElement.querySelector('.error-email');
     const errorPassword = sectionElement.querySelector('.error-password');
+
+    postUserCollection(signupUsername, signupEmail)
+      .then(() => {
+        console.log('El usuario se guardó');
+      })
+      .catch((error) => {
+        console.error('Error adding document: ', error);
+      });
 
     errorEmail.innerHTML = '';
     errorPassword.innerHTML = '';

@@ -100,15 +100,12 @@ export const pageOnlyCats = () => {
   signOut.addEventListener('click', (e) => {
     e.preventDefault();
     const result = confirm('¿En serio quieres salir?');
-    if (result) {
+    if (result === true) {
       signOutUser()
         .then(() => {
           window.location.hash = '';
           window.localStorage.clear();
         });
-    } else {
-      signOutUser()
-        .catch((error) => (error));
     }
   });
 

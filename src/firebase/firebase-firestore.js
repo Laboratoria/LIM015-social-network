@@ -7,4 +7,9 @@ export const postCollection = (post, userName, photo) => firebase.firestore().co
 
 // Falta agregar el tiempo descendente
 export const getCollection = () => firebase.firestore().collection('posts').orderBy('timePost', 'desc');
-// export const getUserCollection = () => firebase.firestore().collection('users');
+
+export const postUserCollection = (usuario, email) => firebase.firestore().collection('user').add({
+  usuario,
+  email,
+});
+export const getUserCollection = () => firebase.firestore().collection('user');
