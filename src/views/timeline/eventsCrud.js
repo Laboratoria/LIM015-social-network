@@ -61,7 +61,7 @@ export const createPost = () => {
                     nameCategory: textSelect,
                 }];
                 loadViewPost(objectNewPost)
-                deletePost();
+                deletePost();//vuelvo a llamar a la funcionn delete
             })
             .catch((error) => {
                 console.log(error)
@@ -78,7 +78,7 @@ export const deletePost = () => {
         modalDelete.classList.remove('revelar')
     });
     btnsDelete.forEach((btn) => {
-        console.log(btn)
+        /* console.log(btn) */
         btn.addEventListener('click', (e) => {
             console.log('click');
             modalDelete.classList.add('revelar')
