@@ -2,7 +2,7 @@
 /* eslint-disable no-console */
 import { createUser, emailVerification } from '../firebase/firebase-functions.js';
 import { userState } from './home.js';
-import { postUserCollection } from '../firebase/firebase-firestore.js';
+// import { postUserCollection } from '../firebase/firebase-firestore.js';
 
 export const signUp = () => {
   userState();
