@@ -5,37 +5,24 @@ import {
 } from "../security/security.function.js";
 
 export function viewLogin() {
-  const viewLogin = `
-  <form class="contenedorLogin">
-    <div class="login">
-    <div id="imgLogin">
-          <img src="img/pet.jpg" id="fondoPet" class="fondoAnimalPet">
-          </div>
-          <div id="info">
-      <input id="email" placeholder="Email" class="email">
-      </div>
-      <div id="information">
-      <input class="password" type="password" name="password" id="password" placeholder="Password">
-      </div>
-      <img src="./img/fondoLogin.png" id:"fondoLogin1" width="55%" height="55%">
-      <div id="btnlogin">
+  const viewLogin = 
+  `<form class="contenedorLogin">
+  <figure>
+      <img src="./img/fondoLogin.png" id="fondoLogin1" class="fondo-Login1" width="55%" height="55%">
+    </figure>
+  
+  <section class="frmLogin">
+      <img src="img/pet.jpg" id="fondoPet" class="fondoAnimalPet">
+      <input id="email" placeholder="Email" class="btn-texto">
+      <input class="btn-texto" type="password" name="password" id="password" placeholder="Password">
       <button id="btnsignin" class="btn">signin</button>  
-      </div>
-      </div>
-    <p>You can also enter with</p>
-    <div id="btnGoogleLogin">
-     <button id="btnGoogle">
-     <img src="img/gmail.png" alt="iGoogle" class="logoGmail" id="logoGmail">
-     </button> 
-    </div>
-
+    <span class="txt">You can also enter with</span>
+        <img src="img/gmail.png" alt="iGoogle" class="logoGmail" id="btnGoogle">
     <span class="message"></span>
-    <p>¿You do not have an account?</p>
-    <div id="regis">
-   <button id="registro" ><a href="#/register">register</a></button>
-   </div>
-    </div>
-    </form>`;
+    <span class="txt">¿You do not have an account?</span>
+      <button id="registro" class="btn" ><a href="#/register">register</a></button>
+  </section>
+</form>`;
   const divElem = document.createElement("div");
   divElem.innerHTML = viewLogin;
   return divElem;
