@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
 }
-p {
+/* p {
   text-align: right;
 }
 
@@ -20,13 +20,6 @@ body {
   cursor: pointer;
 }
 
-/* body{
-    background-image: linear-gradient(to top, #067DA3 0%, #000000 100%);
-    
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-  } */
 #container {
   background-position: center;
   background-color: #fafafa6e;
@@ -55,10 +48,6 @@ body {
 #email {
   text-align: center;
 }
-/* .logoGmail {
-  display: block;
-  margin: auto;
-} */
 
 .container .text name {
   border-radius: 5px;
@@ -120,4 +109,66 @@ footer {
   margin-right: auto;
   font-family: Arial;
   background-color: #fab33f;
+} */
+.contenedorLogin{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
 }
+.fondo-Login1{
+  display:none;
+}
+
+.fondoAnimalPet{
+width:200px;
+height:200px;
+border-radius:50%;
+}
+
+.frmLogin{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logoGmail{
+  width:30px;
+  height:30px;
+}
+
+body{
+  background-image: url(../img/diseño1.png);
+  min-height: 100%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -moz-background-size: cover;
+}
+
+.btn-texto {
+  display: flex;
+  padding-bottom: 20px;
+  margin-bottom: 10px;
+  border-radius: 15px;
+  background-color: rgb(206, 191, 191);
+  width: 250px;
+  height: 30px;
+}
+
+.btn{
+  border-radius: 15px;
+  background-color: #fab33f;
+  width: 250px;
+  height: 30px;
+}
+
+footer {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: Arial;
+  background-color: #fab33f;
+} 
