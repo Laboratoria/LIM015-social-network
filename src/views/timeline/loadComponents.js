@@ -10,7 +10,7 @@ const loadComponents = async () => {
     await loadViewHeaderUser(); //agregamos la info del user en el header
     await loadViewCategory(); //agregamos las categorias a la vista
     await getObjectAllPosts(); //agregamos todos los post a la vista
-    await loadViewPopularPost(); //agregamos los popularPost
+    loadViewPopularPost(); //agregamos los popularPost
     loadViewModal();
     addEventsTimeline(); //agregamos los eventos basicos al timeline
     createPost();

@@ -9,14 +9,12 @@ const addEventsLogin = () => {
     const inputPassword = document.querySelector('#password');
     const showPassword = document.querySelector('#show-password');
     const btnGoogle = document.querySelector('#google');
-
-    const email = inputEmail.value;
-    const password = inputPassword.value;
-
     //Auth with email and password
 
     formLogin.addEventListener('submit', (e) => {
         e.preventDefault();
+        const email = inputEmail.value;
+        const password = inputPassword.value;
         alertProcess(true); //mostramos alerta con gif
         limpiar(['email']); //limpiamos los input de borde rojo
         loginEmail(email, password) //loginEmail retorna el firebase.auth().with....

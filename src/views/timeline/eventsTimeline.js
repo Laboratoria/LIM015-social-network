@@ -1,5 +1,5 @@
 import { signOut } from '../../db/firebase-auth.js';
-import { sliderPopularPost } from '../../lib/slider.js';
+import { sliderPopularPost } from '../../lib/animation.js';
 
 const addEventsTimeline = () => {
     document.querySelector('#div-body').className = "bodyBackground"; //cambiamos el background del body
