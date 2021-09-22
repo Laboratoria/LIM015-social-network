@@ -74,6 +74,23 @@ h6 {
     opacity: 0.90;
 }
 
+.btn-edit {
+    color: #D07DFF;
+    background: #fff;
+    font-size: 16px;
+}
+
+.btn-delete {
+    color: #FE74A2;
+    background: #fff;
+    font-size: 16px;
+}
+
+.btn-delete-post {
+    background: #d9534f;
+    margin-left: 25.2rem;
+}
+
 .btn-primary {
     background: #FA5672;
     border: solid 1px #FA5672;
@@ -481,7 +498,8 @@ img {
 /**Alerts para notificaciones*/
 
 #container-alert {
-    position: absolute;
+    position: fixed;
+    top: 0;
     margin-top: 2%;
     padding: 15px;
     border-radius: 3px 3px 3px 3px;
@@ -838,9 +856,61 @@ img {
     position: relative;
 }
 
+.btn-carousel {
+    position: absolute;
+    top: calc(50% - 30px);
+    height: 30px;
+    width: 30px;
+    border-left: 8px solid pink;
+    border-top: 8px solid pink;
+    cursor: pointer;
+}
+
+.fa-chevron-circle-right,
+.fa-chevron-circle-left {
+    font-size: 40px;
+}
+
+
+/* .btn-carousel:hover.inactive {
+    border-color: rgb(153, 121, 126)
+} */
+
+.btn-carousel:first-of-type {
+    transform: rotate(-45deg);
+    left: 5px
+}
+
+.btn-carousel:last-of-type {
+    transform: rotate(135deg);
+    right: 5px;
+}
+
+.popular-posts .slider {
+    display: flex;
+    width: 1000%;
+    height: 100%;
+    transition: all .5s;
+    /* margin-left: 0% !important; */
+}
+
+.card-post {
+    width: 260px;
+    height: 130px;
+    /*height: 90%;*/
+    margin: auto 10px;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 3%;
+    /* display: grid;
+    place-items: center; */
+}
+
 
 /* ---AGREGE CAMBIO DIANA :3--- */
 
+
+/* 
 .card-post {
     width: 250px;
     height: 130px;
@@ -884,6 +954,8 @@ img {
     color: #FB5773;
 } */
 
+
+/*
 .box-arrow-left {
     position: absolute;
     left: 372.09px;
@@ -900,9 +972,12 @@ img {
 .spanArrow {
     cursor: pointer;
     position: absolute;
-    /* position: absolute; */
+    position: absolute;
     user-select: none;
-}
+} */
+
+
+/*------ fin diana -----*/
 
 
 /* box */
@@ -924,6 +999,15 @@ img {
 .p-posts {
     font-size: 14px;
     padding: 10px;
+}
+
+.text-content {
+    text-align: justify;
+}
+
+.text-content::after {
+    display: inline-block;
+    width: 100%;
 }
 
 .horas-Posts {
@@ -981,6 +1065,19 @@ img {
     width: 500px;
     height: 420px;
     padding: 1rem;
+    border-radius: 10px;
+}
+
+
+/* content-modal-delete */
+
+.content-modal-delete {
+    position: fixed;
+    z-index: 2;
+    background-color: #ffffff;
+    width: 500px;
+    height: auto;
+    padding: 0.3rem;
     border-radius: 10px;
 }
 
@@ -1140,4 +1237,24 @@ img {
     position: relative;
     left: 10px;
     top: 12px;
+}
+
+.name-image-upload {
+    margin: 10px 0 0 14px;
+    color: rgb(37, 37, 37);
+}
+
+
+/* MODAL DELETE */
+
+.section-body-delete {
+    padding: 1rem;
+}
+
+.section-body-delete div {
+    background: #f2dede;
+    color: #d9534f;
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0.5rem;
 }

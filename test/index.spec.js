@@ -1,6 +1,7 @@
 // importamos la funcion que vamos a testear
 /* eslint-disable no-undef */
-import { resetPassword, loginGoogle } from '../src/db/firebase-auth';
+import { resetPassword, loginGoogle } from '../src/db/firebase-auth.js';
+/* eslint-disable no-undef */
 const firebasemock = require('firebase-mock');
 const mockauth = new firebasemock.MockFirebase();
 mockauth.autoFlush();

@@ -38,7 +38,6 @@ a:hover {
     border-radius: 0.5rem;
     justify-content: space-between;
     padding: 1.2rem 1.6rem 0 1.6rem;
-    border-radius: 1rem;
 }
 
 
@@ -46,6 +45,11 @@ a:hover {
 
 .header-left {
     flex: 1;
+}
+
+.author-name:hover,
+.post-date:hover {
+    text-decoration: underline;
 }
 
 .author-name {
@@ -140,9 +144,8 @@ a:hover {
 .content-image {
     width: 90%;
     height: 342px;
-    /* object-fit: cover; */
+    object-fit: cover;
     display: block;
-    background-size: cover;
     margin: 0 auto;
     border-radius: 10px;
 }
@@ -153,7 +156,7 @@ a:hover {
    ***************/
 
 .footer {
-    padding: .3rem 1rem;
+    padding: 1rem 1.2rem;
 }
 
 
@@ -162,7 +165,7 @@ a:hover {
 .footer-reactions {
     display: flex;
     align-items: center;
-    padding: 0.5rem 1.6rem;
+    padding: 0.8rem 1.6rem;
     color: var(--reactions-links);
     font-size: 1.5rem;
 }
