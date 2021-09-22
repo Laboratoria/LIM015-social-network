@@ -73,14 +73,6 @@ export const signUp = () => {
     const errorEmail = sectionElement.querySelector('.error-email');
     const errorPassword = sectionElement.querySelector('.error-password');
 
-    postUserCollection(signupUsername, signupEmail)
-      .then(() => {
-        console.log('El usuario se guardó');
-      })
-      .catch((error) => {
-        console.error('Error adding document: ', error);
-      });
-
     errorEmail.innerHTML = '';
     errorPassword.innerHTML = '';
     if (signupPassword === '' && signupEmail === '') {
@@ -93,6 +85,13 @@ export const signUp = () => {
     } else {
       createUser(signupEmail, signupPassword)
         .then(() => {
+          postUserCollection(signupUsername, signupEmail)
+            .then(() => {
+              console.log('El usuario se guardó');
+            })
+            .catch((error) => {
+              console.error('Error adding document: ', error);
+            });
           emailVerification().then(() => {
             window.alert('Verification send');
             window.location.hash = '#/signin';
