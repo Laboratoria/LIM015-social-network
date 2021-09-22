@@ -1,6 +1,6 @@
-import { db } from "../../db/firestore.js";
-import {deletePostFs} from '../../db/firestore.js'
+import { db, datePost, deletePostFs } from "../../db/firestore.js";
 import { alerts } from "../../lib/alerts.js";
+import { loadViewPost } from "./viewPosts.js"; 
 
 export const createPost = () => {
     const infouser = JSON.parse(window.localStorage.getItem('infouser'));
@@ -11,6 +11,7 @@ export const createPost = () => {
     const modal = document.querySelector('.modal');
     const sectionNameImgUpload = document.querySelector('.name-image-upload');
 
+    
     imageUpload.addEventListener('change', () => {
         if (imageUpload.files && imageUpload.files[0]) {
             sectionNameImgUpload.innerHTML = `<span> ${ imageUpload.files[0].name } </span>`;
@@ -19,12 +20,12 @@ export const createPost = () => {
     
     formCreatePost.addEventListener('submit', (e) => {
         e.preventDefault();
-        const idCategory = selectCategory.value;
+        const textSelect = selectCategory.options[selectCategory.selectedIndex].text;
+
         const newPost = {
             contentPost: inputTextarea.value,
-            // eslint-disable-next-line no-undef
-            datePost: firebase.firestore.FieldValue.serverTimestamp(),
-            idCategory: idCategory,
+            datePost: datePost(),
+            idCategory: selectCategory.value,
             idUser: infouser.idUser,
             totalLikes: 0,
             totalComents: 0
@@ -36,16 +37,30 @@ export const createPost = () => {
             newPost.nameImage = "";
             newPost.image = false;
         }
-        createNewPost(newPost)
+        createNewPost(newPost, textSelect)
         modal.classList.remove('revelar') //Cierra el modal?
         formCreatePost.reset();
     });
 
-    const createNewPost = (object) => {
+    const createNewPost = (object, textSelect) => {
         db.collection('posts')
         .add(object)
-        .then((result) => {
-            console.log(result)
+        .then((res) => {
+            const objectNewPost = [{
+                idPost: res.id,
+                idUser: infouser.idUser,
+                nameUser: infouser.nameUser,
+                photoUser: infouser.photoUser,
+                contentPost: object.contentPost,
+                datePost: object.datePost,
+                nameImage: "",
+                totalComments: 0,
+                totalLikes: 0,
+                image: false,
+                idCategory: object.idCategory,
+                nameCategory: textSelect,
+            }];
+            loadViewPost(objectNewPost)
         })
         .catch((error) => {
             console.log(error)

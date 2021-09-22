@@ -74,9 +74,9 @@ const loadViewPost = (objectDataPosts) => {
             <div class="footer-comments comments"> </div>
         </div>
         `
-    containerPost.appendChild(post);
-    console.log(element.idPost)
-      
+        const theFirstChild = containerPost.firstChild;
+        containerPost.insertBefore(post, theFirstChild) //renderiza en el hijo anterior del primero 
+        console.log(element.idPost)
     });
 }
 
