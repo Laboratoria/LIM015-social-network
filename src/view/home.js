@@ -5,9 +5,7 @@ import {
   updatePost,
   getPost,
 } from "../firebase/fb-firestore.js";
-/*import {
-  currentUser
-} from "../firebase/fb-functions.js";*/
+
 const viewHome = () => {
   const htmlHome = /*html*/ `
       <section id="home" class="home">
@@ -45,12 +43,14 @@ const viewHome = () => {
   const postListContainer = divHome.querySelector("#postsHomeContainer");
   
   firebase.auth().onAuthStateChanged((user) => {
+
     if (user) {
       savePostCurrentUser(user);
       postNameUser.innerHTML = user.displayName;
       postPhotoUser.src = user.photoURL;
 
       onGetPosts((data) => {
+        
         setTemplateListPosts(data, user);
       });
     } else {
@@ -150,6 +150,7 @@ const viewHome = () => {
            if(!likesArray.includes(user.uid)){
             likesArray.push(user.uid);
              await updatePost(idDocPost,{ likes: likesArray});    
+
             console.log('si le diste likee')
 
           }else{

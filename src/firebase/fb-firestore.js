@@ -1,7 +1,7 @@
 // Send post to firestore
 
 const savePost = (username, userPost, date, userId, userPhoto, likes) =>
-  firebase.firestore().collection("newPosts").doc().set({ 
+  firebase.firestore().collection("newPosts").add({ 
     username,
     userPost,
     date,

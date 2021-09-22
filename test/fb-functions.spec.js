@@ -4,13 +4,15 @@ import {
   loginEmail,
   registerEmail,
   loginGoogle,
-  signOut,
+  signOut,/*updateProfile*/
 } from "../src/firebase/fb-functions.js";
 
 // configurando firebase mock
 import firebasemock from "firebase-mock";
+//import MockFirebase from 'mock-cloud-firestore';
 
 const mockauth = new firebasemock.MockAuthentication();
+
 mockauth.autoFlush();
 
 global.firebase = firebasemock.MockFirebaseSdk(
@@ -22,6 +24,8 @@ global.firebase = firebasemock.MockFirebaseSdk(
 
 const users = {isAnonymous: false, providerData: [{providerId: "google.com"}]}
   
+
+
 
 describe("registerEmail", () => {
   it('craer una cuenta con  correo:elopezvalerin@gmail.com y email:elopezvalerin@gmail.com y contraseña"Nino-124"', () => {
@@ -44,7 +48,7 @@ describe("loginEmail", () => {
 describe("loginGoogle", () => {
   it("ingresar a la cuenta con una cuenta existente en google de correo:ninoska133333@gmail.com", () => {
    return loginGoogle().then((data) => {
-    console.log({data});
+    //console.log({data});
     expect(data).toEqual(users);//contenga
     });
   });
@@ -58,4 +62,14 @@ describe("signOut", () => {
   });
 });
 
+
+/*
+describe("updateProfile", () => {
+  it("Permite actualizar la data en el firebase recibiendo como parámetro  el nombre del usuario:Ninoska ", () => {
+    return updateProfile("Ninoska").then((data) => {
+      console.log(data);
+      expect(data.data().displayName).toEqual("Ninoska");
+    });
+  });
+}); */
 
