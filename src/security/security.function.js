@@ -20,20 +20,6 @@ export const emailVerication = () =>
 export const registerWithEmail = (email, password) =>
   firebase.auth().createUserWithEmailAndPassword(email, password);
 
-export function registerValidation(email, password) {
-  auth
-    .createUserWithEmailAndPassword(email, password)
-    .then((userCredential) => {
-      console.log(userCredential);
-      const user = userCredential.user;
-      // ...
-    })
-
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-    });
-}
 export async function login() {
   try {
     const response = await auth.signInWithPopup(googleProvider);
