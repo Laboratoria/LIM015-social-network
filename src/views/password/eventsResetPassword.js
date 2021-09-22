@@ -1,17 +1,13 @@
-/* eslint-disable no-undef */
+import { resetPassword } from '../../db/firebase-auth.js'
 const addEventResetPassword = () => {
 
     const btnResetPassword = document.querySelector('#btn-resetPassword');
     const msgSendEmail = document.querySelector('#msgSendEmail');
     const errorReset = document.querySelector('#errorReset');
+    const emailReset = document.querySelector('#emailReset'); //input EMAIL
 
     btnResetPassword.addEventListener('click', () => {
-        //function de firebase para que envie el email
-        const resetPassword = (emailLogin) => firebase.auth()
-            .sendPasswordResetEmail(emailLogin); //CALLBACK
-
-        const emailReset = document.querySelector('#emailReset').value; //input EMAIL
-        if (emailReset !== "") { //valor adentro
+        if (emailReset.value !== "") { //valor adentro
             resetPassword(emailReset).then(() => { //reutilizar PROMESA
                 msgSendEmail.innerHTML = 'Se envió el correo satisfactoriamente, favor de verificar :)';
             }).catch((err) => {
@@ -20,10 +16,10 @@ const addEventResetPassword = () => {
                     errorReset.innerHTML = 'Email no registrado';
                 }
             });
-            document.querySelector('#emailReset').value = ""; //limpia
-            errorReset.innerHTML = ""; //limpia
+            emailReset.value = ""; //limpia
+            errorReset.innerHTML = "";
         } else {
-            errorReset.innerHTML = "No ha escrito ningún correo"; //no hay nada sale un error --FALTA ALERTAS
+            errorReset.innerHTML = "No ha escrito ningún correo"; //no hay nada sale un error
         }
     })
 }

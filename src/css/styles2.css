@@ -146,10 +146,10 @@ h3 {
     color: #28C76F;
 }
 
-.btn-outline-success {
+/* .btn-outline-success {
     background-color: #28C76F;
     color: #ffffff;
-}
+} */
 
 .btn-outline-warning {
     background-color: transparent;
@@ -157,10 +157,10 @@ h3 {
     color: #FF9F43;
 }
 
-.btn-outline-warning {
+/* .btn-outline-warning {
     background-color: #FF9F43;
     color: #ffffff;
-}
+} */
 
 .btn-outline-info {
     background-color: transparent;
@@ -178,11 +178,6 @@ h3 {
     background-color: transparent;
     border: solid 1.5px #c4c4c5;
     color: #5b6470;
-}
-
-.btn-outline-info:hover {
-    background-color: #00CFE8;
-    color: #ffffff;
 }
 
 .btn-outline-default label {
@@ -274,11 +269,11 @@ h3 {
     max-width: 200px;
 }
 
-.formBx img {
+/* .formBx img {
     width: 280px;
     height: auto;
     margin-left: 0;
-}
+} */
 
 .imgLogin {
     background-image: url(../images/svg/login_image.svg);
@@ -341,7 +336,7 @@ h3 {
 
 .form-input {
     border-radius: 5px;
-    border: none;
+    /* border: none; */
     padding: 0.7rem 2.4rem;
     border: 1px solid #dee0e4;
     color: #6e6b7b;
@@ -392,7 +387,7 @@ input[type=checkbox]:checked {
 
 input[type=checkbox]::after {
     /*agarra el icono de check*/
-    font-family: "Font Awesome 5 Free";
+    /* font-family: "Font Awesome 5 Free"; */
     content: '\f00c';
     font-weight: 600;
     font-size: 0.8125rem;
@@ -599,7 +594,10 @@ img {
 .container-home {
     display: grid;
     grid-template-columns: 3% 22% 3% 67% 5%;
-    grid-template-areas: 'header header          header      header      header' '...... ......          ......      ......      ......' '...... cont-categories ......      cont-posts  ......';
+    grid-template-areas: 
+            'header header header header header' 
+            '.      .      .      .      .' 
+            '.      cont-categories .    cont-posts  .';
     grid-template-rows: 10vh 5vh 85vh;
     background-color: #f7f7f7;
     /* border: solid 1px red; */
@@ -770,13 +768,13 @@ img {
     width: 5px;
 }
 
-.categories::-webkit-scrollbar:horizontal {
-    height: 0;
-}
-
 .categories::-webkit-scrollbar-thumb {
     background: #FA5672;
     border-radius: 30px;
+}
+
+.categories::-webkit-scrollbar:horizontal {
+    height: 0;
 }
 
 .category {
@@ -818,7 +816,10 @@ img {
     font-size: 0.9rem;
     margin-bottom: 1rem;
 }
+
+
 /* CONTAINER POPULAR */
+
 .popular-posts {
     background-image: url(../images/svg/back-popular-posts.svg);
     background-repeat: no-repeat;
@@ -827,44 +828,95 @@ img {
     display: flex;
     gap: 2rem;
     border-radius: 5px;
-    overflow-x: auto; /* ----- */
+    overflow-x: auto;
+    /* ----- */
     overflow: hidden;
     position: relative;
-
 }
-/* ---AGREGE CAMBIO DIANA :3--- */
 
+.btn-carousel {
+    position: absolute;
+    top: calc(50% - 30px);
+    height: 30px;
+    width: 30px;
+    border-left: 8px solid pink;
+    border-top: 8px solid pink;
+    cursor: pointer;
+}
+
+.fa-chevron-circle-right,
+.fa-chevron-circle-left {
+    font-size: 40px;
+}
+
+/* .btn-carousel:hover.inactive {
+    border-color: rgb(153, 121, 126)
+} */
+
+.btn-carousel:first-of-type {
+    transform: rotate(-45deg);
+    left: 5px
+}
+
+.btn-carousel:last-of-type {
+    transform: rotate(135deg);
+    right: 5px;
+}
+
+.popular-posts .slider {
+    display: flex;
+    width: 1000%;
+    height: 100%; 
+    transition: all .5s;
+    /* margin-left: 0% !important; */
+}
+
+.card-post {
+    width: 260px;
+    height: 130px; /*height: 90%;*/
+    margin: auto 10px;
+    background-color: #ffffff;
+    padding: 10px;
+     border-radius: 3%;
+    /* display: grid;
+    place-items: center; */
+}
+
+/* ---AGREGE CAMBIO DIANA :3--- */
+/* 
 .card-post {
     width: 250px;
     height: 130px;
     border-radius: 3%;
     border: solid 1px #EEEEEE;
     background-color: #FFFFFF;
-
     padding: 10px;
-
     min-width: 28%;
     transition: 0.5s;
     position: relative;
 }
 
-.imgPosts{
+.imgPosts {
     width: 100%;
     height: 100%;
 }
-.designIcon-left, 
-.designIcon-right{
+
+.designIcon-left,
+.designIcon-right {
     position: absolute;
     display: block;
     font-size: 40px;
     color: #FB5773;
     line-height: 30px;
+    z-index: 1;
 }
-.designIcon-left{
+
+.designIcon-left {
     left: -30px;
     top: 70px;
 }
-.designIcon-right{
+
+.designIcon-right {
     left: 895px;
     bottom: 75px;
 }
@@ -874,55 +926,76 @@ img {
     font-size: 40px;
     color: #FB5773;
 } */
-.box-arrow-left{
+/*
+.box-arrow-left {
     position: absolute;
     left: 372.09px;
     top: 208.09px;
+    z-index: 1;
 }
-.box-arrow-right{
+
+.box-arrow-right {
     position: absolute;
     left: 1265px;
     top: 208.09px;
-
 }
-.spanArrow{
+
+.spanArrow {
     cursor: pointer;
     position: absolute;
-    /* position: absolute; */
+    position: absolute;
     user-select: none;
+} */
+/*------ fin diana -----*/
 
-}
 /* box */
-.head-popularPosts{
+
+.head-popularPosts {
     display: flex;
 }
-.name-hours{
+
+.name-hours {
     padding: 10px;
 }
-.heart-number{
+
+.heart-number {
     display: flex;
     padding-top: 10px;
     padding-left: 34px;
 }
-.p-posts{
+
+.p-posts {
     font-size: 14px;
     padding: 10px;
 }
-.horas-Posts{
+.text-content {
+    text-align: justify;
+}
+
+.text-content::after {
+    display: inline-block;
+    width: 100%;
+}
+
+.horas-Posts {
     font-size: 10px;
     color: #878787;
 }
-.box-plus{
+
+.box-plus {
     display: flex;
     justify-content: flex-end;
 }
-.plus{
+
+.plus {
     border-radius: 5px;
 }
-.heart{
+
+.heart {
     color: #FA5672;
     padding-right: 4px;
 }
+
 
 /** Boton para crear publicación **/
 
@@ -943,7 +1016,6 @@ img {
     height: 100%;
     /* 100vw */
     width: 100%;
-    /* */
     position: fixed;
     z-index: 1;
     top: 0;
@@ -997,7 +1069,9 @@ img {
     display: block;
 }
 
+
 /** Crear nuevo post**/
+
 .select {
     background: transparent;
     border: none;
@@ -1027,7 +1101,7 @@ img {
     outline: none;
     resize: none;
     overflow: hidden;
-    background-color:  #f3f3f3;
+    background-color: #f3f3f3;
     font-family: 'Nunito', sans-serif;
     font-size: 14px;
     font-weight: 400;
@@ -1036,6 +1110,10 @@ img {
     border: none;
     border-radius: 10px;
 }
+
+
+/**Emojis**/
+
 
 /* .smile {
     position: relative;
@@ -1095,6 +1173,7 @@ img {
     position: absolute;
     width: 50px;
     height:40px;
+    display: flex;
 }
 
 .image-upload > input {
@@ -1112,4 +1191,9 @@ img {
     position: relative;
     left: 10px;
     top: 12px;
+}
+
+.name-image-upload {
+    margin: 10px 0 0 14px;
+    color: rgb(37, 37, 37);
 }

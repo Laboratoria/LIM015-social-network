@@ -1,15 +1,18 @@
-import { validInput, limpiar } from '../validations/validInputs.js'
-import { alerts, alertProcess } from '../alerts/alerts.js';
-import { saveUser } from './crud/createUser.js';
+import { validInput, limpiar } from '../../lib/validInputs.js'
+import { alerts, alertProcess } from '../../lib/alerts.js';
+import { loginGoogle, registerEmail } from '../../db/firebase-auth.js';
+import { saveUser } from '../../db/firestore.js';
 
-
-const addEventRegisterUser = () => {
+const addEventsRegister = () => {
     const formRegister = document.querySelector('#form-registro');
     const inputName = document.querySelector('#nameUser');
-    const inputEmail = document.querySelector('#email');
-    const inputPassword = document.querySelector('#password');
+    const inputEmail = document.querySelector('#email-registro');
+    const inputPassword = document.querySelector('#password-registro');
     const inputConfirmPassword = document.querySelector('#confirmPassword');
     const showPassword = document.querySelector('#show-password');
+    const btnGoogle = document.querySelector('#google');
+
+    //Register con email and password
 
     formRegister.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -18,27 +21,29 @@ const addEventRegisterUser = () => {
         const email = inputEmail.value;
         const password = inputPassword.value;
         const nameuser = inputName.value;
-        // eslint-disable-next-line no-undef
-        firebase.auth().createUserWithEmailAndPassword(email, password)
-            .then((result) => {
-                alertProcess(false); //ocultamos alerta con gif
-                saveUser([result.user.uid, email, nameuser, 'user.jpg']); //almacenar en firestore los datos del usuario
-                localStorage.setItem('iduser', result.user.uid); //almacenar el id en local
-                alerts('success', 'Bienvenido') //mostramos alerta de exito
-                window.location.href = "#/timeline";
-            }).catch((error) => {
-                alertProcess(false);
-                const errorCode = error.code;
-                if (errorCode == 'auth/email-already-in-use') {
-                    validInput('email', 'El correo electrónico ya está registrado', 'error');
-                } else {
-                    alerts('error', error.code) //mostramos alerta de error
-                }
-            });
 
+        registerEmail(email, password)
+            .then((result) => {
+                responseOk(result, nameuser, false);
+            }).catch((error) => {
+                responseError(error);
+            });
     });
 
-    /** Para mostrar password, dando click en el icon eye**/
+    //Auth o Register with Google
+
+    btnGoogle.addEventListener('click', (e) => {
+        e.preventDefault();
+        loginGoogle()
+            .then((result) => {
+                responseOk(result, '', '', true);
+            }).catch((error) => {
+                responseError(error);
+            });
+    })
+
+    // Para mostrar password, dando click en el icon eye
+
     showPassword.addEventListener('click', () => {
         if (inputPassword.type === "text") {
             showPassword.classList.remove('fa-eye');
@@ -54,7 +59,7 @@ const addEventRegisterUser = () => {
     });
 
 
-    /** Reglas de Validacion **/
+    // Reglas de Validacion para los Inputs
 
     inputName.addEventListener('change', () => {
         if (inputName.value.length < 3 || inputName.value == null) {
@@ -89,6 +94,28 @@ const addEventRegisterUser = () => {
         }
     });
 
+
 }
 
-export { addEventRegisterUser }
+function responseOk(result, nameuser, google) {
+    alertProcess(false); //ocultamos alerta con gif
+    localStorage.setItem('iduser', result.user.uid); //almacenar el id en local
+    if (google) { //es decir que se esta autenticando con google y puede ser nuevo, para asi almacenar sus datos
+        saveUser([result.user.uid, result.user.email, result.user.displayName, result.user.photoURL]);
+    } else {
+        saveUser([result.user.uid, result.user.email, nameuser, 'user.jpg']);
+    }
+    alerts('success', 'Bienvenido'); //mostramos alerta de exito
+    window.location.href = "#/timeline";
+}
+
+function responseError(error) {
+    const errorCode = error.code;
+    if (errorCode == 'auth/email-already-in-use') {
+        validInput('email', 'El correo electrónico ya está registrado', 'error');
+    } else {
+        alerts('error', error.code) //mostramos alerta de error
+    }
+}
+
+export { addEventsRegister }

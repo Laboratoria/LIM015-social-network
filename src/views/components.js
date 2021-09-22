@@ -1,9 +1,9 @@
-import Login from './login.js';
-import SignUp from './signUp.js';
-import error404 from './404.js';
-import timeLine from './timeline.js';
-import ForgetPassword from './forgetPassword.js';
-import header from './header.js';
+import Login from './login/viewLogin.js';
+import SignUp from './register/viewSignUp.js';
+import error404 from './404/view404.js';
+import timeLine from './timeline/viewTimeline.js';
+import ForgetPassword from './password/viewResetPassword.js';
+import header from './header/viewHeader.js';
 const components = {
     login: Login,
     signUp: SignUp,
