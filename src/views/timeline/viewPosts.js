@@ -1,45 +1,45 @@
 import { getAllPosts } from '../../db/firestore.js';
 const allPosts = () => {
-    const objectPosts = [];
-    const allUsers = JSON.parse(window.localStorage.getItem('allUsers')); //extraemos de local viewHeaderUser Linea 21
-    const allCategoriesCourses = JSON.parse(window.localStorage.getItem('allCategories'));
-    return getAllPosts()
-        .then(response => {
-            response.forEach(doc => {
-                const userprueba = allUsers.find(element => element.idUser === doc.data().idUser);
-                const categoryprueba = allCategoriesCourses.find(element => element.idCategory == doc.data().idCategory);
-                objectPosts.push({
-                    idPost: doc.id,
-                    idUser: doc.data().idUser,
-                    nameUser: userprueba.nameUser,
-                    photoUser: userprueba.photoUser,
-                    contentPost: doc.data().contentPost,
-                    datePost: doc.data().datePost.toDate().toDateString(),
-                    nameImage: doc.data().nameImage,
-                    totalComments: doc.data().totalComents,
-                    totalLikes: doc.data().totalLikes,
-                    image: doc.data().image,
-                    idCategory: doc.data().idCategory,
-                    nameCategory: categoryprueba.nameCategory,
-                })
+        const objectPosts = [];
+        const allUsers = JSON.parse(window.localStorage.getItem('allUsers')); //extraemos de local viewHeaderUser Linea 21
+        const allCategoriesCourses = JSON.parse(window.localStorage.getItem('allCategories'));
+        return getAllPosts()
+            .then(response => {
+                response.forEach(doc => {
+                    const userprueba = allUsers.find(element => element.idUser === doc.data().idUser);
+                    const categoryprueba = allCategoriesCourses.find(element => element.idCategory == doc.data().idCategory);
+                    objectPosts.push({
+                        idPost: doc.id,
+                        idUser: doc.data().idUser,
+                        nameUser: userprueba.nameUser,
+                        photoUser: userprueba.photoUser,
+                        contentPost: doc.data().contentPost,
+                        datePost: doc.data().datePost.toDate().toDateString(),
+                        nameImage: doc.data().nameImage,
+                        totalComments: doc.data().totalComents,
+                        totalLikes: doc.data().totalLikes,
+                        image: doc.data().image,
+                        idCategory: doc.data().idCategory,
+                        nameCategory: categoryprueba.nameCategory,
+                    })
+                });
+                window.localStorage.setItem('allPosts', JSON.stringify(objectPosts));
+                return objectPosts;
             });
-            window.localStorage.setItem('allPosts', JSON.stringify(objectPosts));
-            return objectPosts;
-        });
-}
-//Función inicial conectada en loadComponents
-const getObjectAllPosts = async () => {
+    }
+    //Función inicial conectada en loadComponents
+const getObjectAllPosts = async() => {
     const objectDataPosts = await allPosts().then(response => response)
     loadViewPost(objectDataPosts)
 }
 
 const loadViewPost = (objectDataPosts) => {
-    const containerPost = document.querySelector('#container-posts');
-    objectDataPosts.forEach(element => {
-        const post = document.createElement('div');
-        post.classList.add('post');
-        post.id=`post-${element.idPost}`;
-        post.innerHTML = ` 
+        const containerPost = document.querySelector('#container-posts');
+        objectDataPosts.forEach(element => {
+                    const post = document.createElement('div');
+                    post.classList.add('post');
+                    post.id = `post-${element.idPost}`;
+                    post.innerHTML = ` 
         <div class="post-header header">
             <div class="header-left">
                 <a href="#">
@@ -77,6 +77,7 @@ const loadViewPost = (objectDataPosts) => {
         const theFirstChild = containerPost.firstChild;
         containerPost.insertBefore(post, theFirstChild) //renderiza en el hijo anterior del primero 
         console.log(element.idPost)
+
     });
 }
 
