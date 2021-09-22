@@ -85,18 +85,18 @@ export const signUp = () => {
     } else {
       createUser(signupEmail, signupPassword)
         .then(() => {
-          // // postUserCollection(signupUsername, signupEmail)
-          //   .then(() => {
-          //     console.log('El usuario se guardó');
-          //   })
-          //   .catch((error) => {
-          //     console.error('Error adding document: ', error);
-          //   });
           emailVerification().then(() => {
             window.alert('Verification send');
             window.location.hash = '#/signin';
             localStorage.setItem('name', signupUsername);
             console.log('registrado');
+            postUserCollection(signupUsername, signupEmail)
+              .then(() => {
+                console.log('El usuario se guardó');
+              })
+              .catch((error) => {
+                console.error('Error adding document: ', error);
+              });
           }).catch((error) => {
             console.log(error);
           });
