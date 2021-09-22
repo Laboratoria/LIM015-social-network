@@ -99,18 +99,21 @@ const viewHome = () => {
       }</textarea>         
         </div>
         
-        <div class="home__like"> 
-          <i class="${postText.likes.includes(user.uid) ? 'fas' : 'far'} fa-heart" data-id="${postText.id}"></i>
-          <p>${postText.likes.length ? postText.likes.length : ''} </p>
+        <div class="home_likeButtonSection">
+          <div class="home__like"> 
+            <i class="${postText.likes.includes(user.uid) ? 'fas' : 'far'} fa-heart" data-id="${postText.id}"></i>
+            <span>${postText.likes.length ? postText.likes.length : ''} </span>
+          </div>
+          ${
+            postText.userId === user.uid
+              ? `<div class=" btns-edit-delete" name="${postText.userId}" data-id-post="${postText.userId}">
+              <button class="btn-post btn-edit" data-id="${postText.id}"> editar</button>
+              <button class="btn-post btn-delete" id='delete-${postText.id}' data-id="${postText.id}"> eliminar</button>
+              <button class="btn-post btn-cancelEdit" id='cancel-${postText.id}' data-id="${postText.id}" hidden>descartar</button>
+              </div>`
+              : ""}
         </div>
-        ${
-          postText.userId === user.uid
-            ? `<div class="btns-edit-delete" name="${postText.userId}" data-id-post="${postText.userId}">
-            <button class="btn-edit" data-id="${postText.id}"> editar</button>
-            <button class="btn-delete" id='delete-${postText.id}' data-id="${postText.id}"> eliminar</button>
-            <button class="btn-cancelEdit" id='cancel-${postText.id}' data-id="${postText.id}" hidden>descartar Cambios</button>
-            </div>`
-            : ""}           
+                   
     </section> `;
 
     });
@@ -170,9 +173,9 @@ const viewHome = () => {
             btnCancelPost.removeAttribute('hidden');
             // btnCancelPost.style.display='flex';
             contentTextPost.removeAttribute("readonly");
-            btn.innerText = 'guardar cambios';
+            btn.innerText = 'guardar';
           
-            if(e.target.innerText == 'guardar cambios'){
+            if(e.target.innerText == 'GUARDAR'){
               btn.classList.remove('btn-edit');
               // btnDeletePost.removeAttribute('data-id')
               btn.addEventListener('click',async (e) => {
@@ -181,7 +184,7 @@ const viewHome = () => {
                 contentTextPost.setAttribute("readonly", true);
                 btn.innerText = 'editar';
                 await updatePost(idDocPost, { userPost: contentTextPost.value});
-                if(e.target.innerText == 'editar'){
+                if(e.target.innerText == 'EDITAR'){
                   contentTextPost.setAttribute("readonly", false);
                   btnDeletePost.setAttribute('hidden', false);
                   btn.classList.add('btn-edit');

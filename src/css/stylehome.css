@@ -6,12 +6,12 @@
   }
 
 .home {
-  background-color: rgb(228, 227, 227);
+  /* background-color: rgb(228, 227, 227); */
   padding: 1em;
 }
 
 .home__profile {
-  background-color: rgb(161, 130, 190);
+  /* background-color: rgb(161, 130, 190); */
   display: grid;
   grid-template-columns: 2fr 3fr;
 
@@ -19,10 +19,11 @@
 
 .home__postImput > textarea {
   width:100%;
+  resize:none;
 }
 
 .home__profile> div {
- background-color:orange;
+ /* background-color:orange; */
  margin:0.5em;
 }
 
@@ -64,9 +65,6 @@ color: #78752C;
     align-content: center;
 }
 
-.home__postContainer {
-  /* background-color: rgb(84, 10, 153); */
-}
 
 
 #postHome-form{
@@ -81,6 +79,7 @@ color: #78752C;
   border-style: none;
   padding: 0.5em;
   height: 4.6em;
+  resize:none;
 }
 
 .home__buttonPost {
@@ -101,7 +100,7 @@ color: #78752C;
 }
 
 .home__PostsContainer{
-  background-color: darkgray;
+  /* background-color: darkgray; */
   padding: 0.5em;
 }
 
@@ -111,15 +110,12 @@ color: #78752C;
   height:55px;
 }
 
-.home_postHeader > div{
- background-color: darkseagreen;
-}
 
 .home__nameDate{
   display:flex;
   flex-direction: column;
   justify-content:center;
-  font-size: 0.9rem; 
+  font-size: 0.8rem; 
 }
 
 .textSecundary {
@@ -128,11 +124,46 @@ color: #78752C;
 }
 
 .post__inputtext {
-  padding: 0.5rem;
+  padding: 0.2rem 0.5rem;
 }
 
 .post__input {
   width: 100%;
   height: 4.6em;
   border-style: none;
+  resize:none;
+}
+
+.home_likeButtonSection {
+  display:flex;
+  justify-content: space-between;
+  /* background-color: deeppink; */
+  padding:0 0.5em;
+}
+
+.postAreaUser{
+  padding-bottom:0.5em;
+}
+
+.btn-post{
+  background-color:none;
+  border-style: none;
+  /* padding: 0.5em; */
+  color: black;
+  font-size:0.8rem;
+  font-weight:300px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.btn-post:hover{
+ color: #742284; 
+}
+
+.fa-heart {
+color: #F5000A;
+}
+
+.btn-delete, .btn-cancelEdit {
+  margin-left:1em;
 }
