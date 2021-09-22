@@ -35,6 +35,7 @@ const getObjectAllPosts = async() => {
 
 const loadViewPost = (objectDataPosts) => {
         const containerPost = document.querySelector('#container-posts');
+        const idUserAuth = localStorage.getItem('iduser');//Esto vien de la linea 58 del archivo eventLogin
         objectDataPosts.forEach(element => {
                     const post = document.createElement('div');
                     post.classList.add('post');
@@ -54,10 +55,10 @@ const loadViewPost = (objectDataPosts) => {
             </div>
             <div class="header-right">
                 <div class="post-category">
-                    <button class="btn btn-edit" id="btnEdit-${element.idPost}" type="button"> <i class="fas fa-pen"></i> </button> 
-                    <img class="btn btn-delete" data-id="${element.idPost}" src="https://user-images.githubusercontent.com/77282012/120018025-389c9c80-bfac-11eb-9d7d-0a68441eca20.png">
+                    ${idUserAuth == element.idUser ? `<button class="btn btn-edit" id="btnEdit-${element.idPost}" type="button"> <i class="fas fa-pen"></i> </button> <img class="btn btn-delete" data-id="${element.idPost}" src="https://user-images.githubusercontent.com/77282012/120018025-389c9c80-bfac-11eb-9d7d-0a68441eca20.png">`:``}
                     <span class="badge badge-secondary">${element.nameCategory}</span>
                 </div>
+                
             </div>
         </div>
         <div class="post-content">
@@ -67,9 +68,9 @@ const loadViewPost = (objectDataPosts) => {
         </div>
         <div class="post-footer footer">
             <div class="footer-reactions reactions">
-                <button type="button" class="btn-post btn-notlike"><i class="far fa-heart"></i> <span class="count-reaction"> 3 </span></button>
-                <button type="button" class="btn-post btn-notcomment btn-comment"><i class="far fa-comment-dots"></i> <span class="count-reaction"></span> 3 </span></button>
-                <button type="button" class="btn-post btn-notsave"><i class="far fa-bookmark"></i> <span class="count-reaction"></span> 3 </span></button>
+                <button type="button" class="btn-post btn-notlike"><i class="far fa-heart"></i> <span class="count-reaction"> ${element.totalLikes} </span></button>
+                <button type="button" class="btn-post btn-notcomment"><i class="far fa-comment-dots"></i> <span class="count-reaction"></span> ${element.totalComments} </span></button>
+                <button type="button" class="btn-post btn-notsave"><i class="far fa-bookmark"></i> <span class="count-reaction"></span>  </span></button>
             </div>
             <div class="footer-comments comments"> </div>
         </div>
