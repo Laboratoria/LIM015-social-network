@@ -286,6 +286,7 @@ span{
 .header-container{
     display: flex;
     align-items: center;
+    position: relative;
     justify-content: center;
 }
 .page-title{
@@ -408,6 +409,7 @@ background-color: transparent;
     border-radius: 10px;
     resize: none;
     border:none;
+    outline: none;
 }
 .text-output{
     width: 20vw;
@@ -418,18 +420,26 @@ background-color: transparent;
     display:flex;
     justify-content: space-between;
 }
-.fa-image:before{
+.fa-image{
     color: #F25A51;
+    font-size: 23px;
+}
+.fa-sign-out-alt{
+    color: #4f46c8;
+    font-size: 18px;
+    position:absolute;
+    right: 25px;
+}
+.fa-cat{
+    color: #4f46c8;
+    font-size: 18px;
 }
 .post-button{
     background: #F25A51;
     border: none;
     color: white;
-    height: 30px;
     border-radius: 8px;
-    padding: 8px;
     font-size: 13px;
-    font-weight: 550;
 }
 .post-button:hover{
     cursor: pointer;

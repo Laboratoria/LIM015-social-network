@@ -17,13 +17,15 @@ const userStateCheck = () => {
 
 export const pageOnlyCats = () => {
   userStateCheck();
+  const googleUser = JSON.parse(localStorage.getItem('user'));
+  const imgDefault = 'https://pbs.twimg.com/profile_images/1101458340318568448/PpkA2kQh_400x400.jpg';
+  const photo = (googleUser.photoURL === null) ? imgDefault : googleUser.photoURL;
   const pageOcView = `
   <div class="page-container">
     <header class = "header-container">
       <img src="./img/only-cats.png" "alt='only-cats' class="page-title">
-      <aside>
       <i class="fas fa-sign-out-alt" id="sign-out"></i>
-      </aside>
+      <i class="fas fa-cat" style="display:none"></i>
     </header>
     <main class="scroll-container">
       <div class="label-container">
@@ -34,7 +36,7 @@ export const pageOnlyCats = () => {
       <div>
         <section class="profile-post publish" >
           <div class="container-photo">
-              <img src="./img/michael.jpg" "alt='picture' class="profile-photo">
+              <img src=${photo} "alt='picture' class="profile-photo">
           </div>
           <section class="section-profile" >
             <textarea class="text-input" id="text-input" placeholder="¿Miau esta pasando?"></textarea>
@@ -54,14 +56,12 @@ export const pageOnlyCats = () => {
 
   const btnPublish = sectionElement.querySelector('#post-button');
   const textInput = sectionElement.querySelector('#text-input');
-  const googleUser = JSON.parse(localStorage.getItem('user'));
 
   // -------- Crear Posts (C) --------
   const createPost = () => {
     const userName = (googleUser.displayName === null) ? localStorage.getItem('name') : googleUser.displayName;
     console.log(userName);
     const post = textInput.value;
-    const photo = googleUser.photoURL;
     postCollection(post, userName, photo)
       .then(() => {
         textInput.value = ' ';
