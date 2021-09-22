@@ -1,35 +1,78 @@
-export const animationPopularPost = (span, product) =>{
-    let product_page = Math.ceil(product.length/4);
-	let l = 0;
-	let movePer = 25.34;
-	let maxMove = 203;
-	// mobile_view	
-	let mob_view = window.matchMedia("(max-width: 768px)");
-	if (mob_view.matches){
-	movePer = 50.36;
-	maxMove = 504;
-	}
+export const sliderPopularPost = ( ) =>{
+	const container = document.getElementById('popularPost')
+    const slider = document.querySelector('.slider');
+    const cardPost = document.getElementsByClassName('card-post').length;
+    const btnSlider = document.getElementsByClassName('btn-carousel');
 
-	let right_mover = ()=>{
-		l = l + movePer;
-		if (product == 1){l = 0; }
-		for(const i of product)
-		{
-			if (l > maxMove){l = l - movePer;}
-			i.style.left = '-' + l + '%';
-		}
+    let currentPosition = 0;
+    let currentMargin = 0;
+    let slidesPerPage = 0;
+    let slidesCount = cardPost - slidesPerPage;
+    let containerWidth = container.offsetWidth;
 
-	}
-	let left_mover = ()=>{
-		l = l - movePer;
-		if (l<=0){l = 0;}
-		for(const i of product){
-			if (product_page>1){
-				i.style.left = '-' + l + '%';
-			}
-		}
-	}
-	
-	span[0].onclick = ()=>{left_mover();}
-	span[1].onclick = ()=>{right_mover();}
+    window.addEventListener("resize", checkWidth);
+    btnSlider[0].addEventListener('click', slideRight)
+    btnSlider[1].addEventListener('click', slideLeft)
+
+    function checkWidth() {
+        containerWidth = container.offsetWidth;
+        setParams(containerWidth);
+    }
+
+    function setParams(w) {
+        if (w < 551) {
+            slidesPerPage = 1;
+        } else {
+            if (w < 901) {
+                slidesPerPage = 2;
+            } else {
+                slidesPerPage = 3;
+            }
+        }
+        slidesCount = cardPost - slidesPerPage;
+        if (currentPosition > slidesCount) {
+            currentPosition -= slidesPerPage;
+        }
+        currentMargin = - currentPosition * (100 / slidesPerPage);
+        slider.style.marginLeft = currentMargin + '%';
+        if (currentPosition > 0) {
+            btnSlider[0].classList.remove('inactive');
+        }
+        if (currentPosition < slidesCount) {
+            btnSlider[1].classList.remove('inactive');
+        }
+        if (currentPosition >= slidesCount) {
+            btnSlider[1].classList.add('inactive');
+        }
+    }
+
+    setParams();
+
+    function slideRight() {
+        if (currentPosition != 0) {
+            slider.style.marginLeft = currentMargin + (100 / slidesPerPage) + '%';
+            currentMargin += (100 / slidesPerPage);
+            currentPosition--;
+        }
+        if (currentPosition === 0) {
+            btnSlider[0].classList.add('inactive');
+        }
+        if (currentPosition < slidesCount) {
+            btnSlider[1].classList.remove('inactive');
+        }
+    }
+
+    function slideLeft() {
+        if (currentPosition != slidesCount) {
+            slider.style.marginLeft = currentMargin - (100 / slidesPerPage) + '%';
+            currentMargin -= (100 / slidesPerPage);
+            currentPosition++;
+        }
+        if (currentPosition == slidesCount) {
+            btnSlider[1].classList.add('inactive');
+        }
+        if (currentPosition > 0) {
+            btnSlider[0].classList.remove('inactive');
+        }
+    }
 }
