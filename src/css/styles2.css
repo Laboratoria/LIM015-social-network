@@ -834,9 +834,56 @@ img {
     position: relative;
 }
 
+.btn-carousel {
+    position: absolute;
+    top: calc(50% - 30px);
+    height: 30px;
+    width: 30px;
+    border-left: 8px solid pink;
+    border-top: 8px solid pink;
+    cursor: pointer;
+}
+
+.fa-chevron-circle-right,
+.fa-chevron-circle-left {
+    font-size: 40px;
+}
+
+/* .btn-carousel:hover.inactive {
+    border-color: rgb(153, 121, 126)
+} */
+
+.btn-carousel:first-of-type {
+    transform: rotate(-45deg);
+    left: 5px
+}
+
+.btn-carousel:last-of-type {
+    transform: rotate(135deg);
+    right: 5px;
+}
+
+.popular-posts .slider {
+    display: flex;
+    width: 1000%;
+    height: 100%; 
+    transition: all .5s;
+    /* margin-left: 0% !important; */
+}
+
+.card-post {
+    width: 260px;
+    height: 130px; /*height: 90%;*/
+    margin: auto 10px;
+    background-color: #ffffff;
+    padding: 10px;
+     border-radius: 3%;
+    /* display: grid;
+    place-items: center; */
+}
 
 /* ---AGREGE CAMBIO DIANA :3--- */
-
+/* 
 .card-post {
     width: 250px;
     height: 130px;
@@ -879,7 +926,7 @@ img {
     font-size: 40px;
     color: #FB5773;
 } */
-
+/*
 .box-arrow-left {
     position: absolute;
     left: 372.09px;
@@ -896,10 +943,10 @@ img {
 .spanArrow {
     cursor: pointer;
     position: absolute;
-    /* position: absolute; */
+    position: absolute;
     user-select: none;
-}
-
+} */
+/*------ fin diana -----*/
 
 /* box */
 
@@ -920,6 +967,14 @@ img {
 .p-posts {
     font-size: 14px;
     padding: 10px;
+}
+.text-content {
+    text-align: justify;
+}
+
+.text-content::after {
+    display: inline-block;
+    width: 100%;
 }
 
 .horas-Posts {
@@ -1118,6 +1173,7 @@ img {
     position: absolute;
     width: 50px;
     height:40px;
+    display: flex;
 }
 
 .image-upload > input {
@@ -1135,4 +1191,9 @@ img {
     position: relative;
     left: 10px;
     top: 12px;
+}
+
+.name-image-upload {
+    margin: 10px 0 0 14px;
+    color: rgb(37, 37, 37);
 }
