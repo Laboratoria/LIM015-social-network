@@ -17,8 +17,8 @@ const addEventsTimeline = () => {
         /***Eventos para Abrir y Cerrar Modal***/
 
         const modal = document.querySelector('.modal');
-        const btnCreatePost = document.querySelector('.btn-create-post');
-        const btnCerrarModal = document.querySelector('.btn-cerrar-modal');
+        const btnCreatePost = document.querySelector('.btn-create-post');/* abrir */
+        const btnCerrarModal = document.querySelector('.btn-cerrar-modal');/* cerrar */
         btnCreatePost.addEventListener('click', () => { modal.classList.add('revelar') });
         btnCerrarModal.addEventListener('click', () => { modal.classList.remove('revelar') });
 
@@ -27,7 +27,7 @@ const addEventsTimeline = () => {
         const userPost = document.querySelector('.user-info-textarea');
         const placeholderTextarea = document.querySelector('.textarea-post');
         const infouser = JSON.parse(window.localStorage.getItem('infouser')); //extraemos lo que almacenamos en local archivo viewHeaderUser line 29
-        // console.log('aqui', infouser)
+         console.log('aqui', infouser)
         userPost.innerHTML = `
         <a href="#/profile" class="user-information">  
             <img class="avatar avatar-sm" src="${/^(http|https):\/\/[^ "]+$/.test(infouser.photoUser)?infouser.photoUser:`../images/profile/`+infouser.photoUser}" alt="img-user"> 

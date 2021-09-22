@@ -32,8 +32,10 @@ const loadViewPost = async() => {
         const objectAllPosts = await allPosts().then(response => response);
         const containerPost = document.querySelector('#container-posts');
         objectAllPosts.forEach(element => {
+           /*  console.log(element) */
                     const post = document.createElement('div');
                     post.classList.add('post');
+                    post.id=`post-${element.idPost}`;
                     post.innerHTML = ` 
                         <div class="post-header header">
                             <div class="header-left">
@@ -49,7 +51,8 @@ const loadViewPost = async() => {
                             </div>
                             <div class="header-right">
                                 <div class="post-category">
-                                    <button class="btn btn-primary" id="btn-${element.idPost}" type="button"> <i class="fas fa-pen"></i> </button> 
+                                    <button class="btn btn-edit" id="btnEdit-${element.idPost}" type="button"> <i class="fas fa-pen"></i> </button> 
+                                    <img class="btn btn-delete" data-id="${element.idPost}" src="https://user-images.githubusercontent.com/77282012/120018025-389c9c80-bfac-11eb-9d7d-0a68441eca20.png">
                                     <span class="badge badge-secondary">${element.nameCategory}</span>
                                 </div>
                             </div>
@@ -69,6 +72,8 @@ const loadViewPost = async() => {
                         </div>
                         `
         containerPost.appendChild(post);
+        console.log(element.idPost)
+      
     });
 }
 
