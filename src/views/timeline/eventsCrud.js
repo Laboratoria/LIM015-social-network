@@ -1,6 +1,6 @@
 import { db, datePost, deletePostFs } from "../../db/firestore.js";
 import { alerts } from "../../lib/alerts.js";
-import { loadViewPost } from "./viewPosts.js"; 
+import { loadViewPost } from "./viewPosts.js";
 
 export const createPost = () => {
     const infouser = JSON.parse(window.localStorage.getItem('infouser'));
@@ -11,13 +11,13 @@ export const createPost = () => {
     const modal = document.querySelector('.modal');
     const sectionNameImgUpload = document.querySelector('.name-image-upload');
 
-    
+
     imageUpload.addEventListener('change', () => {
         if (imageUpload.files && imageUpload.files[0]) {
             sectionNameImgUpload.innerHTML = `<span> ${ imageUpload.files[0].name } </span>`;
         }
     })
-    
+
     formCreatePost.addEventListener('submit', (e) => {
         e.preventDefault();
         const textSelect = selectCategory.options[selectCategory.selectedIndex].text;
@@ -44,63 +44,65 @@ export const createPost = () => {
 
     const createNewPost = (object, textSelect) => {
         db.collection('posts')
-        .add(object)
-        .then((res) => {
-            const objectNewPost = [{
-                idPost: res.id,
-                idUser: infouser.idUser,
-                nameUser: infouser.nameUser,
-                photoUser: infouser.photoUser,
-                contentPost: object.contentPost,
-                datePost: object.datePost,
-                nameImage: "",
-                totalComments: 0,
-                totalLikes: 0,
-                image: false,
-                idCategory: object.idCategory,
-                nameCategory: textSelect,
-            }];
-            loadViewPost(objectNewPost)
-        })
-        .catch((error) => {
-            console.log(error)
-        });
+            .add(object)
+            .then((res) => {
+                const objectNewPost = [{
+                    idPost: res.id,
+                    idUser: infouser.idUser,
+                    nameUser: infouser.nameUser,
+                    photoUser: infouser.photoUser,
+                    contentPost: object.contentPost,
+                    datePost: object.datePost,
+                    nameImage: "",
+                    totalComments: 0,
+                    totalLikes: 0,
+                    image: false,
+                    idCategory: object.idCategory,
+                    nameCategory: textSelect,
+                }];
+                loadViewPost(objectNewPost)
+                deletePost();
+            })
+            .catch((error) => {
+                console.log(error)
+            });
     }
 }
 
 
-export const deletePost = () =>{
+export const deletePost = () => {
     const btnsDelete = document.querySelectorAll('.btn-delete');
     const modalDelete = document.querySelector('.modal-delete');
-    const btnCerrarModal = document.querySelector('.btn-cerrar-modal-delete');/* cerrar */
-    btnCerrarModal.addEventListener('click', () => { 
-      modalDelete.classList.remove('revelar') 
+    const btnCerrarModal = document.querySelector('.btn-cerrar-modal-delete'); /* cerrar */
+    btnCerrarModal.addEventListener('click', () => {
+        modalDelete.classList.remove('revelar')
     });
     btnsDelete.forEach((btn) => {
-      console.log(btn)
-      btn.addEventListener('click', (e) => {
-          console.log('click');
-          modalDelete.classList.add('revelar')
-          const idPosts = e.target.dataset.id;
-          deletePosts(idPosts);
-      });
+        console.log(btn)
+        btn.addEventListener('click', (e) => {
+            console.log('click');
+            modalDelete.classList.add('revelar')
+            const idPosts = e.target.dataset.id;
+            deletePosts(idPosts);
+        });
 
     });
-    function deletePosts(idPosts){
-      const confirmDelete = document.querySelector('#confirm-delete');
-      confirmDelete.addEventListener('click',() =>{
-      const nodoPadre = document.querySelector('#container-posts');
-      const nodoHijo = document.querySelector('#post-'+idPosts);  
-      deletePostFs(idPosts).then(()=>{
-        nodoPadre.removeChild(nodoHijo);
-        modalDelete.classList.remove('revelar')//oculta el modal
-        alerts('success', 'Eliminado con exito')
-      }).catch((err)=>{
-        modalDelete.classList.remove('revelar')//oculta el modal
-        alerts('error', 'Hubo un error ' + err)
-        console.log(err)
-      })
-     
-      })  
-    } 
+
+    function deletePosts(idPosts) {
+        const confirmDelete = document.querySelector('#confirm-delete');
+        confirmDelete.addEventListener('click', () => {
+            const nodoPadre = document.querySelector('#container-posts');
+            const nodoHijo = document.querySelector('#post-' + idPosts);
+            deletePostFs(idPosts).then(() => {
+                nodoPadre.removeChild(nodoHijo);
+                modalDelete.classList.remove('revelar') //oculta el modal
+                alerts('success', 'Eliminado con exito')
+            }).catch((err) => {
+                modalDelete.classList.remove('revelar') //oculta el modal
+                alerts('error', 'Hubo un error ' + err)
+                console.log(err)
+            })
+
+        })
+    }
 }
