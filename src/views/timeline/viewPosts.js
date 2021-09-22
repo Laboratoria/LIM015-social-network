@@ -35,7 +35,7 @@ const loadViewPost = async() => {
                     const post = document.createElement('div');
                     post.classList.add('post');
                     post.innerHTML = ` 
-                        <div class="post-header header">
+                        <div class="post-header">
                             <div class="header-left">
                                 <a href="#">
                                     ${(/^(http|https):\/\/[^ "]+$/.test(element.photoUser)) ? 

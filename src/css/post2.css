@@ -11,6 +11,14 @@ a {
     color: inherit;
 }
 
+a:active {
+    color: #F93878;
+}
+
+a:hover {
+    color: #F93878;
+}
+
 
 /***************
    * POST HEADER * 
@@ -77,7 +85,6 @@ a {
 .post-date:hover {
     text-decoration: underline;
 }
-
 
 
 /* Dot between post author and post date */

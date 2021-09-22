@@ -17,9 +17,8 @@ h1,
 h4,
 h5,
 h6 {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 400;
-    line-height: 1.2;
+    font-family: 'Segoe UI', Tahoma, Geneva;
+    font-weight: 500;
     color: #131920;
 }
 
@@ -27,21 +26,12 @@ h6 {
     background-color: #f7f7f7;
 }
 
-
-/* h2, 
-h3 {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 500;
-    line-height: 1.2;
-    color: #131920;
-} */
-
 .text-dark {
     color: #3e4b5b;
 }
 
 .text-muted {
-    color: #76869e;
+    color: #717171;
     font-size: 13px;
 }
 
@@ -146,6 +136,7 @@ h3 {
     color: #28C76F;
 }
 
+
 /* .btn-outline-success {
     background-color: #28C76F;
     color: #ffffff;
@@ -156,6 +147,7 @@ h3 {
     border: solid 1.5px #FF9F43;
     color: #FF9F43;
 }
+
 
 /* .btn-outline-warning {
     background-color: #FF9F43;
@@ -268,6 +260,7 @@ h3 {
     width: 100%;
     max-width: 200px;
 }
+
 
 /* .formBx img {
     width: 280px;
@@ -594,10 +587,7 @@ img {
 .container-home {
     display: grid;
     grid-template-columns: 3% 22% 3% 67% 5%;
-    grid-template-areas: 
-            'header header header header header' 
-            '.      .      .      .      .' 
-            '.      cont-categories .    cont-posts  .';
+    grid-template-areas: 'header header header header header' '.      .      .      .      .' '.      cont-categories .    cont-posts  .';
     grid-template-rows: 10vh 5vh 85vh;
     background-color: #f7f7f7;
     /* border: solid 1px red; */
@@ -612,6 +602,7 @@ img {
     justify-content: space-around;
     align-items: center;
     background-color: #ffffff;
+    border-bottom: 1px solid #e4e4e4;
 }
 
 .header>.logo {
@@ -734,6 +725,7 @@ img {
     padding: 1.5rem 0rem;
     background-color: #ffffff;
     border-radius: 20px;
+    box-shadow: 0 1px 15px 1px rgba(69, 65, 78, .08);
 }
 
 .titles-categories {
@@ -745,11 +737,23 @@ img {
     font-weight: 100;
 }
 
+.titles-categories h3 {
+    font-size: 14px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .titles-categories h3:last-child,
 .content-category h4,
 .container-popular-posts span {
     color: #F93878;
-    font-weight: lighter;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.text-category {
+    color: #253241;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .categories {
@@ -989,12 +993,11 @@ img {
 }
 
 .head-modal>button {
-    text-align: center;
     width: 30px;
     height: 30px;
     padding: 0;
-    border-radius: 50%;
-    background-color: rgb(148, 141, 141);
+    color: rgb(104, 104, 104);
+    background: #ffff;
 }
 
 .body-modal {
@@ -1113,20 +1116,22 @@ img {
     display: block;
 }
 
+
 /** Estilos al icono de subir imagen en el post **/
+
 .image-upload {
     position: absolute;
     width: 50px;
-    height:40px;
+    height: 40px;
 }
 
-.image-upload > input {
+.image-upload>input {
     vertical-align: middle;
-    height:40px;
-	width:100%;
-	opacity:0;
-	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-	filter: alpha(opacity=0);
+    height: 40px;
+    width: 100%;
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
 }
 
 .image-upload i {
