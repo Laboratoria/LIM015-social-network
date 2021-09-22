@@ -62,16 +62,20 @@ const viewHome = () => {
   const savePostCurrentUser = (user) => {
     homePost.addEventListener("submit", async (e) => {
       try {
-        e.preventDefault();
-        const usernamePost = user.displayName; //verificar donde pasa el nombre del firebase al div
-        const userPost = postArea.value;
-        const date = new Date().toLocaleString("es-ES");
-        const userId = user.uid;
-        const userPhoto = user.photoURL;
-        const likes = [];
-        await savePost(usernamePost, userPost, date, userId, userPhoto, likes);
-        homePost.reset();
-        postArea.focus();
+        if(postArea.value) {
+          e.preventDefault();
+          const usernamePost = user.displayName; //verificar donde pasa el nombre del firebase al div
+          const userPost = postArea.value;
+          const date = new Date().toLocaleString("es-ES");
+          const userId = user.uid;
+          const userPhoto = user.photoURL;
+          const likes = [];
+          await savePost(usernamePost, userPost, date, userId, userPhoto, likes);
+          homePost.reset();
+          postArea.focus();
+        }else{
+          postArea.focus();
+        }
       } catch (error) {
         console.log(error);
       }
