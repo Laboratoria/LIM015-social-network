@@ -34,45 +34,49 @@ const getObjectAllPosts = async () => {
 }
 
 const loadViewPost = (objectDataPosts) => {
-        const containerPost = document.querySelector('#container-posts');
-        objectDataPosts.forEach(element => {
+    const containerPost = document.querySelector('#container-posts');
+    objectDataPosts.forEach(element => {
         const post = document.createElement('div');
         post.classList.add('post');
+        post.id=`post-${element.idPost}`;
         post.innerHTML = ` 
-            <div class="post-header header">
-                <div class="header-left">
-                    <a href="#">
-                        ${(/^(http|https):\/\/[^ "]+$/.test(element.photoUser)) ? 
-                        `<img src="${element.photoUser}" alt="" class="post-author-pic">` 
-                        : `<img src="../images/profile/${element.photoUser}" class="post-author-pic">`} 
-                    </a>
-                    <div class="post-author author">
-                        <span class="author-name"><a href="#"> ${element.nameUser} </a></span>
-                    </div>
-                    <span class="post-date">${element.datePost}</span>
+        <div class="post-header header">
+            <div class="header-left">
+                <a href="#">
+                    ${(/^(http|https):\/\/[^ "]+$/.test(element.photoUser)) ? 
+                    `<img src="${element.photoUser}" alt="" class="post-author-pic">` 
+                    : `<img src="../images/profile/${element.photoUser}" class="post-author-pic">`} 
+                </a>
+                <div class="post-author author">
+                    <span class="author-name"><a href="#"> ${element.nameUser} </a></span>
                 </div>
-                <div class="header-right">
-                    <div class="post-category">
-                        <button class="btn btn-primary" id="btn-${element.idPost}" type="button"> <i class="fas fa-pen"></i> </button> 
-                        <span class="badge badge-secondary">${element.nameCategory}</span>
-                    </div>
+                <span class="post-date">${element.datePost}</span>
+            </div>
+            <div class="header-right">
+                <div class="post-category">
+                    <button class="btn btn-edit" id="btnEdit-${element.idPost}" type="button"> <i class="fas fa-pen"></i> </button> 
+                    <img class="btn btn-delete" data-id="${element.idPost}" src="https://user-images.githubusercontent.com/77282012/120018025-389c9c80-bfac-11eb-9d7d-0a68441eca20.png">
+                    <span class="badge badge-secondary">${element.nameCategory}</span>
                 </div>
             </div>
-            <div class="post-content">
-                <p class="content-paragraph"> ${element.contentPost} </p>
-                ${(element.image == true ) ? 
-                    `<img src="../images/post/${element.nameImage}" class="content-image"> </img> ` : ``}
+        </div>
+        <div class="post-content">
+            <p class="content-paragraph"> ${element.contentPost} </p>
+            ${(element.image == true ) ? 
+                `<img src="../images/post/${element.nameImage}" class="content-image"> </img> ` : ``}
+        </div>
+        <div class="post-footer footer">
+            <div class="footer-reactions reactions">
+                <button type="button" class="btn-post btn-notlike"><i class="far fa-heart"></i> <span class="count-reaction"> 3 </span></button>
+                <button type="button" class="btn-post btn-notcomment btn-comment"><i class="far fa-comment-dots"></i> <span class="count-reaction"></span> 3 </span></button>
+                <button type="button" class="btn-post btn-notsave"><i class="far fa-bookmark"></i> <span class="count-reaction"></span> 3 </span></button>
             </div>
-            <div class="post-footer footer">
-                <div class="footer-reactions reactions">
-                    <button type="button" class="btn-post btn-notlike"><i class="far fa-heart"></i> <span class="count-reaction"> 3 </span></button>
-                    <button type="button" class="btn-post btn-notcomment btn-comment"><i class="far fa-comment-dots"></i> <span class="count-reaction"></span> 3 </span></button>
-                    <button type="button" class="btn-post btn-notsave"><i class="far fa-bookmark"></i> <span class="count-reaction"></span> 3 </span></button>
-                </div>
-                <div class="footer-comments comments"> </div>
-            </div>
-            `
-        containerPost.appendChild(post);
+            <div class="footer-comments comments"> </div>
+        </div>
+        `
+    containerPost.appendChild(post);
+    console.log(element.idPost)
+      
     });
 }
 

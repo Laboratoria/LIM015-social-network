@@ -17,6 +17,7 @@ const saveUser = (infoUser) => {
 const getAllUsers = () => db.collection("users").get();
 const getAllCategories = () => db.collection("categories").get();
 const getAllPosts = () => db.collection("posts").orderBy('datePost', 'desc').get();
+const deletePostFs = (id) => db.collection('posts').doc(id).delete();
 
 
-export { saveUser, getAllUsers, getAllCategories, getAllPosts, db }
+export { saveUser, getAllUsers, getAllCategories, getAllPosts, db, deletePostFs }
