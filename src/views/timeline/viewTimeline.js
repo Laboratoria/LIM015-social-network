@@ -11,7 +11,14 @@ export default () => {
     </section>
 
     <section class="container-section-post">
-        <section class="container-popular-posts" id="popularPost"></section>
+        <section class="container-popular-posts" id="popularPost">
+            <h2> Popular <span>Posts</span> </h2>
+            <section class="popular-posts">
+                <span class="btn-carousel">  </span>
+                <section class="slider"> </section>
+                <span class="btn-carousel">  </span>
+            </section>
+        </section>
 
         <section class="create-publication">
             <button class="btn btn-create-post">Crear Publicación <i class="fas fa-plus-circle"></i> </button>

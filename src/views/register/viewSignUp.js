@@ -19,14 +19,14 @@ export default () => {
                     <div class="form-group">
                         <i class="fas fa-envelope"></i>
                         <label class="form-label">Correo Electrónico</label>
-                        <input id="email" type="email" class="form-input" placeholder="example@example.com" required>
+                        <input id="email-registro" type="email" class="form-input" placeholder="example@example.com" required>
                         <span id="msg-email" class="msg"></span>
                     </div>
 
                     <div class="form-group">
                         <i class="fas fa-key"></i>
                         <label class="form-label">Contraseña</label>
-                        <input id="password" type="password" class="form-input" placeholder="Ingrese su contraseña" required>
+                        <input id="password-registro" type="password" class="form-input" placeholder="Ingrese su contraseña" required>
                         <i class="fas fa-eye-slash eye" id="show-password"></i>
                         <span id="msg-password" class="msg"></span>
                     </div>

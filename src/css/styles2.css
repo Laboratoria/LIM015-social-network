@@ -17,9 +17,8 @@ h1,
 h4,
 h5,
 h6 {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 400;
-    line-height: 1.2;
+    font-family: 'Segoe UI', Tahoma, Geneva;
+    font-weight: 500;
     color: #131920;
 }
 
@@ -27,21 +26,12 @@ h6 {
     background-color: #f7f7f7;
 }
 
-
-/* h2, 
-h3 {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 500;
-    line-height: 1.2;
-    color: #131920;
-} */
-
 .text-dark {
     color: #3e4b5b;
 }
 
 .text-muted {
-    color: #76869e;
+    color: #717171;
     font-size: 13px;
 }
 
@@ -83,20 +73,24 @@ h3 {
     cursor: pointer;
     opacity: 0.90;
 }
-.btn-edit{
+
+.btn-edit {
     color: #D07DFF;
     background: #fff;
     font-size: 16px;
 }
-.btn-delete{
+
+.btn-delete {
     color: #FE74A2;
     background: #fff;
     font-size: 16px;
 }
-.btn-delete-post{
+
+.btn-delete-post {
     background: #d9534f;
     margin-left: 25.2rem;
 }
+
 .btn-primary {
     background: #FA5672;
     border: solid 1px #FA5672;
@@ -159,6 +153,7 @@ h3 {
     color: #28C76F;
 }
 
+
 /* .btn-outline-success {
     background-color: #28C76F;
     color: #ffffff;
@@ -169,6 +164,7 @@ h3 {
     border: solid 1.5px #FF9F43;
     color: #FF9F43;
 }
+
 
 /* .btn-outline-warning {
     background-color: #FF9F43;
@@ -281,6 +277,7 @@ h3 {
     width: 100%;
     max-width: 200px;
 }
+
 
 /* .formBx img {
     width: 280px;
@@ -501,7 +498,8 @@ img {
 /**Alerts para notificaciones*/
 
 #container-alert {
-    position: absolute;
+    position: fixed;
+    top: 0;
     margin-top: 2%;
     padding: 15px;
     border-radius: 3px 3px 3px 3px;
@@ -607,10 +605,7 @@ img {
 .container-home {
     display: grid;
     grid-template-columns: 3% 22% 3% 67% 5%;
-    grid-template-areas: 
-            'header header header header header' 
-            '.      .      .      .      .' 
-            '.      cont-categories .    cont-posts  .';
+    grid-template-areas: 'header header header header header' '.      .      .      .      .' '.      cont-categories .    cont-posts  .';
     grid-template-rows: 10vh 5vh 85vh;
     background-color: #f7f7f7;
     /* border: solid 1px red; */
@@ -625,6 +620,7 @@ img {
     justify-content: space-around;
     align-items: center;
     background-color: #ffffff;
+    border-bottom: 1px solid #e4e4e4;
 }
 
 .header>.logo {
@@ -747,6 +743,7 @@ img {
     padding: 1.5rem 0rem;
     background-color: #ffffff;
     border-radius: 20px;
+    box-shadow: 0 1px 15px 1px rgba(69, 65, 78, .08);
 }
 
 .titles-categories {
@@ -758,11 +755,23 @@ img {
     font-weight: 100;
 }
 
+.titles-categories h3 {
+    font-size: 14px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .titles-categories h3:last-child,
 .content-category h4,
 .container-popular-posts span {
     color: #F93878;
-    font-weight: lighter;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.text-category {
+    color: #253241;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .categories {
@@ -847,9 +856,61 @@ img {
     position: relative;
 }
 
+.btn-carousel {
+    position: absolute;
+    top: calc(50% - 30px);
+    height: 30px;
+    width: 30px;
+    border-left: 8px solid pink;
+    border-top: 8px solid pink;
+    cursor: pointer;
+}
+
+.fa-chevron-circle-right,
+.fa-chevron-circle-left {
+    font-size: 40px;
+}
+
+
+/* .btn-carousel:hover.inactive {
+    border-color: rgb(153, 121, 126)
+} */
+
+.btn-carousel:first-of-type {
+    transform: rotate(-45deg);
+    left: 5px
+}
+
+.btn-carousel:last-of-type {
+    transform: rotate(135deg);
+    right: 5px;
+}
+
+.popular-posts .slider {
+    display: flex;
+    width: 1000%;
+    height: 100%;
+    transition: all .5s;
+    /* margin-left: 0% !important; */
+}
+
+.card-post {
+    width: 260px;
+    height: 130px;
+    /*height: 90%;*/
+    margin: auto 10px;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 3%;
+    /* display: grid;
+    place-items: center; */
+}
+
 
 /* ---AGREGE CAMBIO DIANA :3--- */
 
+
+/* 
 .card-post {
     width: 250px;
     height: 130px;
@@ -893,6 +954,8 @@ img {
     color: #FB5773;
 } */
 
+
+/*
 .box-arrow-left {
     position: absolute;
     left: 372.09px;
@@ -909,9 +972,12 @@ img {
 .spanArrow {
     cursor: pointer;
     position: absolute;
-    /* position: absolute; */
+    position: absolute;
     user-select: none;
-}
+} */
+
+
+/*------ fin diana -----*/
 
 
 /* box */
@@ -933,6 +999,15 @@ img {
 .p-posts {
     font-size: 14px;
     padding: 10px;
+}
+
+.text-content {
+    text-align: justify;
+}
+
+.text-content::after {
+    display: inline-block;
+    width: 100%;
 }
 
 .horas-Posts {
@@ -992,8 +1067,11 @@ img {
     padding: 1rem;
     border-radius: 10px;
 }
+
+
 /* content-modal-delete */
-.content-modal-delete{
+
+.content-modal-delete {
     position: fixed;
     z-index: 2;
     background-color: #ffffff;
@@ -1012,12 +1090,11 @@ img {
 }
 
 .head-modal>button {
-    text-align: center;
     width: 30px;
     height: 30px;
     padding: 0;
-    border-radius: 50%;
-    background-color: rgb(148, 141, 141);
+    color: rgb(104, 104, 104);
+    background: #ffff;
 }
 
 .body-modal {
@@ -1136,20 +1213,22 @@ img {
     display: block;
 }
 
+
 /** Estilos al icono de subir imagen en el post **/
+
 .image-upload {
     position: absolute;
     width: 50px;
-    height:40px;
+    height: 40px;
 }
 
-.image-upload > input {
+.image-upload>input {
     vertical-align: middle;
-    height:40px;
-	width:100%;
-	opacity:0;
-	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-	filter: alpha(opacity=0);
+    height: 40px;
+    width: 100%;
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
 }
 
 .image-upload i {
@@ -1159,11 +1238,20 @@ img {
     left: 10px;
     top: 12px;
 }
+
+.name-image-upload {
+    margin: 10px 0 0 14px;
+    color: rgb(37, 37, 37);
+}
+
+
 /* MODAL DELETE */
-.section-body-delete{
+
+.section-body-delete {
     padding: 1rem;
 }
-.section-body-delete div{
+
+.section-body-delete div {
     background: #f2dede;
     color: #d9534f;
     font-size: 13px;

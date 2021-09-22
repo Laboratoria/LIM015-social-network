@@ -25,8 +25,8 @@ const loadViewCategory = async() => {
         figureCategory.innerHTML = `
        <img src="../../images/svg/categorias/${ element.imagen }" alt="logo-categories">
        <div class="content-category">
-           <h4> ${ element.nameCategory } </h4>
-           <p class="text-muted">  ${ element.totalPosts } post</p>
+           <a class="text-category" href="#"> ${ element.nameCategory } </a>
+           <p class="text-muted" >  ${ element.totalPosts } post</p>
        </div>
      `
         categories.appendChild(figureCategory);

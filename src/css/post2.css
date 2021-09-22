@@ -11,6 +11,14 @@ a {
     color: inherit;
 }
 
+a:active {
+    color: #F93878;
+}
+
+a:hover {
+    color: #F93878;
+}
+
 
 /***************
    * POST HEADER * 
@@ -20,16 +28,16 @@ a {
     background: var(--white);
     width: 100%;
     max-width: 60rem;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     box-shadow: 0 1px 15px 1px rgba(69, 65, 78, .08);
     margin-bottom: 1rem;
 }
 
 .post-header {
     display: flex;
+    border-radius: 0.5rem;
     justify-content: space-between;
     padding: 1.2rem 1.6rem 0 1.6rem;
-    border-radius: 1rem;
 }
 
 
@@ -37,6 +45,11 @@ a {
 
 .header-left {
     flex: 1;
+}
+
+.author-name:hover,
+.post-date:hover {
+    text-decoration: underline;
 }
 
 .author-name {
@@ -76,7 +89,6 @@ a {
 .post-date:hover {
     text-decoration: underline;
 }
-
 
 
 /* Dot between post author and post date */
@@ -132,9 +144,8 @@ a {
 .content-image {
     width: 90%;
     height: 342px;
-    /* object-fit: cover; */
+    object-fit: cover;
     display: block;
-    background-size: cover;
     margin: 0 auto;
     border-radius: 10px;
 }
@@ -145,7 +156,7 @@ a {
    ***************/
 
 .footer {
-    padding: .3rem 1rem;
+    padding: 1rem 1.2rem;
 }
 
 
@@ -154,7 +165,7 @@ a {
 .footer-reactions {
     display: flex;
     align-items: center;
-    padding: 0.5rem 1.6rem;
+    padding: 0.8rem 1.6rem;
     color: var(--reactions-links);
     font-size: 1.5rem;
 }
