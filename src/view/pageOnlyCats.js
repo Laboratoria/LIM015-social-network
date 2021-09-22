@@ -10,7 +10,6 @@ const userStateCheck = () => {
       window.location.hash = '#/onlycats';
     } else if (user === null) {
       window.location.hash = '';
-      alert('No iniciaste sesión');
     }
   });
 };
@@ -59,8 +58,7 @@ export const pageOnlyCats = () => {
 
   // -------- Crear Posts (C) --------
   const createPost = () => {
-    const userName = (googleUser.displayName === null) ? localStorage.getItem('name') : googleUser.displayName;
-    console.log(userName);
+    const userName = (googleUser.displayName === null) ? console.log('no tiene display name') : googleUser.displayName;
     const post = textInput.value;
     postCollection(post, userName, photo)
       .then(() => {
@@ -100,15 +98,12 @@ export const pageOnlyCats = () => {
   signOut.addEventListener('click', (e) => {
     e.preventDefault();
     const result = confirm('¿En serio quieres salir?');
-    if (result) {
+    if (result === true) {
       signOutUser()
         .then(() => {
           window.location.hash = '';
           window.localStorage.clear();
         });
-    } else {
-      signOutUser()
-        .catch((error) => (error));
     }
   });
 

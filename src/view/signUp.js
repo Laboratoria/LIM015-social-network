@@ -2,6 +2,7 @@
 /* eslint-disable no-console */
 import { createUser, emailVerification } from '../firebase/firebase-functions.js';
 import { userState } from './home.js';
+import { postUserCollection } from '../firebase/firebase-firestore.js';
 
 export const signUp = () => {
   userState();
@@ -84,6 +85,13 @@ export const signUp = () => {
     } else {
       createUser(signupEmail, signupPassword)
         .then(() => {
+          postUserCollection(signupUsername, signupEmail)
+            .then(() => {
+              console.log('El usuario se guardó');
+            })
+            .catch((error) => {
+              console.error('Error adding document: ', error);
+            });
           emailVerification().then(() => {
             window.alert('Verification send');
             window.location.hash = '#/signin';
