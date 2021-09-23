@@ -2,7 +2,7 @@
 /* eslint-disable no-console */
 import { createUser, emailVerification } from '../firebase/firebase-functions.js';
 import { userState } from './home.js';
-// import { postUserCollection } from '../firebase/firebase-firestore.js';
+import { postUserCollection } from '../firebase/firebase-firestore.js';
 
 export const signUp = () => {
   userState();
@@ -22,7 +22,6 @@ export const signUp = () => {
             </div>
         </div>
           <span class="error-username"></span>
-
         <div class="input-div one">
           <div class="icon-input">
             <i class="fas fa-user"></i>
@@ -33,7 +32,6 @@ export const signUp = () => {
           </div>
         </div>
         <span class="error-email"></span>
-
         <div class="input-div one">
           <div class="icon-input">
             <i class="fas fa-lock"></i>
@@ -44,12 +42,10 @@ export const signUp = () => {
           </div>
         </div>
         <span class="error-password"></span>
-
         <div class='form-div'>
         <input type="submit" id="create-account"" class="form-button" value="Crear cuenta">
         </div>
       </form>
-
       <ul class="home-list">
         <li class="signin-access-items">
           <span>¿Tienes cuenta?</span><a class="sgn" href="#/signin"> Inicia con ella</a>

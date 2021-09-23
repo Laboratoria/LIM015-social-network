@@ -2,28 +2,13 @@
 /* eslint-disable no-console */
 /* eslint-disable no-alert */
 import { signOutUser, onAuthStateChanged } from '../firebase/firebase-functions.js';
-import { postCollection, getCollection } from '../firebase/firebase-firestore.js';
-
-// const userStateCheck = () => {
-//   onAuthStateChanged((user) => {
-//     if (firebase.auth().currentUser !== null && user.emailVerified)
-//         console.log("user id: " + firebase.auth().currentUser.uid)
-//         window.location.hash = '#/onlycats';
-//     // if (user !== null && user.emailVerified) {
-//     //   window.location.hash = '#/onlycats';
-//     // }else{
-//     //   window.location.hash = '',
-//     // }
-//   )};
-// };
+import { postCollection, getCollection, deletePost } from '../firebase/firebase-firestore.js';
 
 const userStateCheck = () => {
   onAuthStateChanged((user) => {
-    if (firebase.auth().currentUser !== null && user.emailVerified) {
-      const uidUser = `user id: ${firebase.auth().currentUser.uid}`;
-      console.log(uidUser);
+    if (user !== null && user.emailVerified) {
       window.location.hash = '#/onlycats';
-    } else if (firebase.auth().currentUser === null) {
+    } else if (user === null) {
       window.location.hash = '';
     }
   });
@@ -90,21 +75,32 @@ export const pageOnlyCats = () => {
       const newPost = sectionElement.querySelector('#other-post');
       newPost.innerHTML = ' ';
       querySnapshot.forEach((doc) => {
-        const uidUser = localStorage.getItem('uid');
         const dataContent = doc.data();
-        const dataUser = doc.data().user;
-        console.log(dataUser);
-        console.log(uidUser);
         newPost.innerHTML += `
         <section class="profile-post">
+          <div class="update-post">
+          <button id="btn-deletePost" class="btn-delete" data-id='${doc.id}'>Eliminar</button>
+          <button>Editar</button>
+          </div>
           <div class="container-photo">
             <img src="${dataContent.photo}" "alt='picture' class="profile-photo">
           </div>
           <section class="section-post">
-            <p class="name-input"> ${dataUser} </p>
+            <p class="name-input"> ${dataContent.user} </p>
             <p readonly class="text-output">${dataContent.text}</p>
           </section>
         </section> `;
+      });
+      const btnDelete = sectionElement.querySelectorAll('.btn-delete');
+      btnDelete.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          deletePost(e.target.dataset.id)
+            .then(() => {
+              console.log('Document successfully deleted!');
+            }).catch((error) => {
+              console.error('Error removing document: ', error);
+            });
+        });
       });
     });
   };
