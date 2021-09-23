@@ -12,15 +12,20 @@ export function viewLogin() {
     </figure>
   
   <section class="frmLogin">
-      <img src="img/pet.jpg" id="fondoPet" class="fondoAnimalPet">
+      <figure class="figure-title-login">
+        <img src="img/pet.jpg" id="fondoPet" class="fondoAnimalPet">
+      </figure>  
       <input id="email" placeholder="Email" class="btn-texto">
       <input class="btn-texto" type="password" name="password" id="password" placeholder="Password">
-      <button id="btnsignin" class="btn">signin</button>  
+      <button id="btnsignin" class="btn-signin">signin</button> 
+      <span class="message"></span> 
     <span class="txt">You can also enter with</span>
-        <img src="img/gmail.png" alt="iGoogle" class="logoGmail" id="btnGoogle">
-    <span class="message"></span>
+    <figure class="figure-google">
+      <img src="img/gmail.png" alt="iGoogle" class="logoGmail" id="btnGoogle">
+    </figure>    
+    
     <span class="txt">¿You do not have an account?</span>
-      <button id="registro" class="btn" ><a href="#/register">register</a></button>
+      <button id="registro" class="btn-register" ><a href="#/register">register</a></button>
   </section>
 </form>`;
   const divElem = document.createElement("div");
