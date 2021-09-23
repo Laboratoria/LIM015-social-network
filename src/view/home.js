@@ -1,4 +1,4 @@
-import { onAuthStateChanged } from '../firebase/firebase-functions.js';
+import { onAuthStateChanged } from '../firebase/firebase-auth.js';
 
 export const userState = () => {
   onAuthStateChanged((user) => {

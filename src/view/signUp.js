@@ -1,6 +1,6 @@
 /* eslint-disable no-alert */
 /* eslint-disable no-console */
-import { createUser, emailVerification } from '../firebase/firebase-functions.js';
+import { createUser, emailVerification, currentUser } from '../firebase/firebase-auth.js';
 import { userState } from './home.js';
 import { postUserCollection } from '../firebase/firebase-firestore.js';
 
@@ -22,7 +22,6 @@ export const signUp = () => {
             </div>
         </div>
           <span class="error-username"></span>
-
         <div class="input-div one">
           <div class="icon-input">
             <i class="fas fa-user"></i>
@@ -33,7 +32,6 @@ export const signUp = () => {
           </div>
         </div>
         <span class="error-email"></span>
-
         <div class="input-div one">
           <div class="icon-input">
             <i class="fas fa-lock"></i>
@@ -44,12 +42,10 @@ export const signUp = () => {
           </div>
         </div>
         <span class="error-password"></span>
-
         <div class='form-div'>
         <input type="submit" id="create-account"" class="form-button" value="Crear cuenta">
         </div>
       </form>
-
       <ul class="home-list">
         <li class="signin-access-items">
           <span>¿Tienes cuenta?</span><a class="sgn" href="#/signin"> Inicia con ella</a>
@@ -88,21 +84,26 @@ export const signUp = () => {
           emailVerification().then(() => {
             window.alert('Verification send');
             window.location.hash = '#/signin';
+            const user = currentUser();
+            user.updateProfile({
+              displayName: signupUsername,
+            }).then(() => {
+            }).catch((error) => error);
+
             postUserCollection(signupUsername, signupEmail)
-              .then((user) => {
-                console.log(user.user);
+              .then((element) => {
+                console.log(element.user);
               })
               .catch((error) => {
                 console.error('Error adding document: ', error);
               });
-            localStorage.setItem('name', signupUsername);
-          }).catch((error) => {
-            console.log(error);
-          });
+          })
+            .catch((error) => {
+              console.log(error);
+            });
         })
         .catch((error) => {
           const errorCode = error.code;
-          /* const errorMessage = error.message; */
           if (errorCode === 'auth/email-already-in-use') {
             errorEmail.innerHTML = 'El correo electrónico ya está en uso.';
           } else if (errorCode === 'auth/weak-password') {
