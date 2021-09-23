@@ -5,7 +5,6 @@
 /* p {
   text-align: right;
 }
-
 body {
   background-image: url(../img/diseño1.png);
   min-height: 100%;
@@ -19,13 +18,11 @@ body {
   width: 40px;
   cursor: pointer;
 }
-
 #container {
   background-position: center;
   background-color: #fafafa6e;
   margin-right: 60px;
 }
-
 .fondoAnimal {
   width: 600px;
   height: 600px;
@@ -33,14 +30,12 @@ body {
   margin: auto;
   border: radius 15px;
 }
-
 #imgLogin {
   display: flex;
   align-items: right;
   justify-content: right;
   margin-right: 60px;
 }
-
 #imgLogin > img {
   max-width: 30%;
   border-radius: 50%;
@@ -48,19 +43,16 @@ body {
 #email {
   text-align: center;
 }
-
 .container .text name {
   border-radius: 5px;
   padding: 15px 5px 5px 20px;
 }
-
 #fondoLogin1 {
   width: 45px;
   height: 45px;
   display: flex;
   background-size: 50% 50%;
 }
-
 #info,
 #information,
 #btnlogin,
@@ -75,7 +67,6 @@ body {
   margin-right: 5px;
   margin-bottom: 10px;
 }
-
 #btnsignin,
 #registro {
   border-radius: 5px 5px 5px 5px;
@@ -83,13 +74,11 @@ body {
   width: 8%;
   height: 50%;
 }
-
 #regis {
     display: flex;
     align-items: right;
     justify-content: right;
 }
-
 #email,
 #password {
   border-radius: 15px 15px 15px 15px;
@@ -97,7 +86,6 @@ body {
   width: 250px;
   height: 30px;
 }
-
 a {
   display: flex;
   align-items: center;
@@ -121,6 +109,11 @@ footer {
 .fondo-Login1{
   display:none;
 }
+/* css para title login*/
+.figure-title-login{
+  display: flex;
+  justify-content: center;
+}
 
 .fondoAnimalPet{
 width:200px;
@@ -134,6 +127,11 @@ border-radius:50%;
   justify-content: center;
 }
 
+.figure-google {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
 .logoGmail{
   width:30px;
   height:30px;
@@ -161,7 +159,7 @@ body{
   text-align: center;
 }
 
-.btn{
+.btn-signin, .btn-register{
   border-radius: 15px;
   background-color: #fab33f;
   width: 250px;
@@ -169,7 +167,11 @@ body{
   border:0;
   outline: none;
   margin-bottom: 15px;
+ 
 }
+/* .btn-register{
+  border: none;
+} */
 
 footer {
   text-align: center;
