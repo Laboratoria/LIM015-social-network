@@ -1,4 +1,6 @@
-import { onAuthStateChanged, registerGoogle, signInUser } from '../firebase/firebase-functions.js';
+/* eslint-disable no-console */
+/* eslint-disable no-alert */
+import { onAuthStateChanged, registerGoogle, signInUser } from '../firebase/firebase-auth.js';
 import { userState } from './home.js';
 
 export const signIn = () => {
@@ -9,7 +11,6 @@ export const signIn = () => {
       <figure class='container-img'>
         <img class='cat-gif' src='https://i.pinimg.com/originals/35/ce/9f/35ce9f85da291b4c1c504d8cbd37e8ee.gif'>
       </figure>
-
         <form id='signin-form' action=''>
           <div class="input-div one">
             <div class="icon-input">
@@ -21,7 +22,6 @@ export const signIn = () => {
             </div>
           </div>
           <span class="error-email"></span>
-
           <div class="input-div one">
             <div class="icon-input">
               <i class="fas fa-lock"></i>
@@ -32,12 +32,10 @@ export const signIn = () => {
             </div>
           </div>
           <p class="error-password"></p>
-
           <div class='form-div'>
             <input type="submit" id="start-button" class="form-button" value="Iniciar sesión">
           </div>
         </form>
-
       <ul class="home-list">
         <li class="signin-access-items">
           <button class="google-button"> <a id="signin-google" href="#/google">Acceder con Google</a></button>
