@@ -1,6 +1,6 @@
 /* eslint-disable no-alert */
 /* eslint-disable no-console */
-import { createUser, emailVerification } from '../firebase/firebase-auth.js';
+import { createUser, emailVerification, currentUser } from '../firebase/firebase-auth.js';
 import { userState } from './home.js';
 import { postUserCollection } from '../firebase/firebase-firestore.js';
 
@@ -84,21 +84,26 @@ export const signUp = () => {
           emailVerification().then(() => {
             window.alert('Verification send');
             window.location.hash = '#/signin';
+            const user = currentUser();
+            user.updateProfile({
+              displayName: signupUsername,
+            }).then(() => {
+            }).catch((error) => error);
+
             postUserCollection(signupUsername, signupEmail)
-              .then((user) => {
-                console.log(user.user);
+              .then((element) => {
+                console.log(element.user);
               })
               .catch((error) => {
                 console.error('Error adding document: ', error);
               });
-            localStorage.setItem('name', signupUsername);
-          }).catch((error) => {
-            console.log(error);
-          });
+          })
+            .catch((error) => {
+              console.log(error);
+            });
         })
         .catch((error) => {
           const errorCode = error.code;
-          /* const errorMessage = error.message; */
           if (errorCode === 'auth/email-already-in-use') {
             errorEmail.innerHTML = 'El correo electrónico ya está en uso.';
           } else if (errorCode === 'auth/weak-password') {
