@@ -275,7 +275,7 @@ span{
 /*------------------------------Muro----------------------------- */
 .page-container{
     display: grid;
-    grid-template-columns: auto;
+    grid-template-columns: 1fr;
     grid-template-rows: 55px auto;
     border-radius: 14px;
     box-shadow: 20px 20px 25px rgba(0, 0, 0, 0.25);
@@ -301,25 +301,29 @@ span{
     justify-content:space-around;
     align-items: center;
     margin-bottom: 10px;
+    gap:10px;
 }
 .label-btn{
     border-radius:10px;
     padding: 10px;
     width: 25vw;
-    margin:5px;
     border:none;
     color: white;
+    text-shadow: rgb(140, 139, 138) 1px 0 10px;
     font-size: 15px;
     font-weight: 550;
 }
 .meme{
     background: linear-gradient(89.82deg, #BDE991 0.13%, #A6E5F3 99.82%);
+    text-shadow: rgb(145, 191, 146) 1px 0 10px;
 }
 .vet{
     background: linear-gradient(89.82deg, #9E86FF 0.13%, #FF9595 99.82%);
+    text-shadow: rgb(107, 90, 133) 1px 0 10px;
 }
 .foodie{
-    background: linear-gradient(89.19deg, #FFFC95 2.65%, #F4A172 94.74%);
+    background: linear-gradient(89.19deg, #f2ee89 2.65%, #F4A172 94.74%);
+    text-shadow: rgb(197, 131, 65) 1px 0 10px;
 }
 /*---------------------------Muro:Scroll--------------------------*/
 .scroll-container{
@@ -359,7 +363,11 @@ background-color: transparent;
     min-width: 310px;
     padding: 12px;
     padding-bottom:10px ;
-    background: #FDFDFD75;
+    background: linear-gradient( to right bottom,
+     rgba(255,255,255,0.7), 
+     rgba(255,255,255,0.2) 
+    );
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.25);
     /* box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25); */
     border-radius: 10px;
     margin-bottom: 10px;
@@ -403,7 +411,7 @@ background-color: transparent;
 }
 .text-output,
 .text-input{
-    width: 22vw;
+    width: 21vw;
     min-width: 180px;
     height: 40px;
     border-radius: 10px;
@@ -435,11 +443,12 @@ background-color: transparent;
     font-size: 18px;
 }
 .post-button{
-    background: #F25A51;
+    background: #ed6e67;
     border: none;
     color: white;
-    border-radius: 8px;
+    border-radius: 7px;
     font-size: 13px;
+    padding: 0 12px ;
 }
 .post-button:hover{
     cursor: pointer;

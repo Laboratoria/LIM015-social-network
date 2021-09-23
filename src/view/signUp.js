@@ -91,8 +91,7 @@ export const signUp = () => {
             }).catch((error) => error);
 
             postUserCollection(signupUsername, signupEmail)
-              .then((element) => {
-                console.log(element.user);
+              .then(() => {
               })
               .catch((error) => {
                 console.error('Error adding document: ', error);
