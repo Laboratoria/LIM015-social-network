@@ -46,15 +46,17 @@ a:hover {
 .header-left {
     flex: 1;
 }
-
-.author-name:hover,
-.post-date:hover {
-    text-decoration: underline;
-}
-
 .author-name {
     margin-right: 0.2rem;
     color: #253241;
+}
+
+.post-date {
+    margin-top: 4px;
+    display: block;
+    float: left;
+    font-size: 12PX;
+    color: #878787;
 }
 
 .post-author-pic {
@@ -77,13 +79,6 @@ a:hover {
     color: #29292D;
 }
 
-.post-date {
-    margin-top: 4px;
-    display: block;
-    float: left;
-    font-size: 12PX;
-    color: #878787;
-}
 
 .author-name:hover,
 .post-date:hover {

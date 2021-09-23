@@ -17,7 +17,7 @@ h1,
 h4,
 h5,
 h6 {
-    font-family: 'Segoe UI', Tahoma, Geneva;
+    /* font-family: 'Segoe UI', Tahoma, Geneva; */
     font-weight: 500;
     color: #131920;
 }
