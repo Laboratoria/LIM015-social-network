@@ -1,25 +1,22 @@
 import {signOut} from '../firebase/fb-functions.js'
 
 const  viewHeader = () => {
-  const header = `
+  const header =/*html*/ `
 
   <header class="header">
   
     <nav class="nav">
-      <figure class="nav__logo">
-        <a>
-          <img  class="header__img" src=" ../img/logosf.png" >
-        </a>
-      </figure>
-  
-      <span class="nav__button">
-        <i class="nav__i "> </i>
-  
-      </span>
-  
-      <ul class="nav__lista">
-        <li >
-          <a id="navHome" href="#/home" class="nav__link">INICIO</a>
+        <div class="nav__logo">
+          <img  class="header__logo" src=" ../img/logoHeader.png" >
+        </div>
+        <input type="checkbox" class="checking" id="check">
+        <label for="check" class="bar-btn">
+        <i class="fas fa-bars"></i>
+        </label>
+   
+      <ul class="nav__menu">
+        <li  >
+          <a id="navHome" href="#/home" class="nav__link ">INICIO</a>
         </li>
         <li >
           <a id="navProfile" href="#/profile" class="nav__link">PERFIL</a>

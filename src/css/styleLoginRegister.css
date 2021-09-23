@@ -235,12 +235,21 @@
     font-size: 1.5rem;
   }
 
+  .container__logoDesktop{
+    width:50%;
+
+  }
+  .container__logoDesktopWoman{
+    width:80%;
+
+  }
+
   .viewDesktop__woman {
-    width: 80%;
+    width: 100%;
   }
 
   .viewDesktop__logo {
-    width: 20%;
+    width: 100%;
   }
 
   .login,
