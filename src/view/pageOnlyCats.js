@@ -1,7 +1,7 @@
 /* eslint-disable no-restricted-globals */
 /* eslint-disable no-console */
 /* eslint-disable no-alert */
-import { signOutUser, onAuthStateChanged } from '../firebase/firebase-functions.js';
+import { signOutUser, onAuthStateChanged, currentUser } from '../firebase/firebase-functions.js';
 import {
   postCollection, getCollection, deletePost, getUserCollection,
 } from '../firebase/firebase-firestore.js';
@@ -62,10 +62,13 @@ export const pageOnlyCats = () => {
   const createPost = (e) => {
     e.preventDefault();
     let userName;
+    console.log(currentUser().email);
     if (googleUser.displayName === null) {
       getUserCollection().onSnapshot((querySnapshot) => {
         querySnapshot.forEach((doc) => {
+          console.log({ doc });
           const dataContent = doc.data();
+          console.log({ dataContent });
           const userNameFirebase = dataContent.usuario;
           userName = userNameFirebase;
           const post = textInput.value;
