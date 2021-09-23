@@ -1,6 +1,4 @@
-/* eslint-disable no-console */
-// Sign up for new accounts:
-
+// Sign up with Email and password:
 export const createUser = (email, password) => firebase.auth()
   .createUserWithEmailAndPassword(email, password);
 
@@ -10,18 +8,15 @@ export const registerGoogle = () => {
   return firebase.auth().signInWithPopup(googleProvider);
 };
 
-// Sign in:
-
-export const signInUser = (email, password) => firebase.auth()
-  .signInWithEmailAndPassword(email, password);
-
 // Email Verification:
-
 export const emailVerification = () => firebase.auth()
   .currentUser.sendEmailVerification();
 
-// Sign out
+// Sign in:
+export const signInUser = (email, password) => firebase.auth()
+  .signInWithEmailAndPassword(email, password);
 
+// Sign out
 export const signOutUser = () => firebase.auth().signOut();
 
 // Current user:
