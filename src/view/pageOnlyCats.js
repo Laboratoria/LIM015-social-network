@@ -2,7 +2,9 @@
 /* eslint-disable no-console */
 /* eslint-disable no-alert */
 import { signOutUser, onAuthStateChanged } from '../firebase/firebase-functions.js';
-import { postCollection, getCollection, deletePost } from '../firebase/firebase-firestore.js';
+import {
+  postCollection, getCollection, deletePost, getUserCollection,
+} from '../firebase/firebase-firestore.js';
 
 const userStateCheck = () => {
   onAuthStateChanged((user) => {
@@ -57,16 +59,36 @@ export const pageOnlyCats = () => {
   const textInput = sectionElement.querySelector('#text-input');
 
   // -------- Crear Posts (C) --------
-  const createPost = () => {
-    const userName = (googleUser.displayName === null) ? localStorage.getItem('name') : googleUser.displayName;
-    const post = textInput.value;
-    postCollection(post, userName, photo)
-      .then(() => {
-        textInput.value = ' ';
-      })
-      .catch((error) => {
-        console.error('Error adding document: ', error);
+  const createPost = (e) => {
+    e.preventDefault();
+    let userName;
+    if (googleUser.displayName === null) {
+      getUserCollection().onSnapshot((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          const dataContent = doc.data();
+          const userNameFirebase = dataContent.usuario;
+          userName = userNameFirebase;
+          const post = textInput.value;
+          postCollection(post, userName, photo)
+            .then(() => {
+              textInput.value = ' ';
+            })
+            .catch((error) => {
+              console.error('Error adding document: ', error);
+            });
+        });
       });
+    } else {
+      userName = googleUser.displayName;
+      const post = textInput.value;
+      postCollection(post, userName, photo)
+        .then(() => {
+          textInput.value = ' ';
+        })
+        .catch((error) => {
+          console.error('Error adding document: ', error);
+        });
+    }
   };
 
   // -------- Leer Posts (R) --------
