@@ -156,6 +156,9 @@ body{
   background-color: rgb(206, 191, 191);
   width: 250px;
   height: 20px;
+  border:0;
+  outline: none;
+  text-align: center;
 }
 
 .btn{
@@ -163,6 +166,9 @@ body{
   background-color: #fab33f;
   width: 250px;
   height: 30px;
+  border:0;
+  outline: none;
+  margin-bottom: 15px;
 }
 
 footer {
