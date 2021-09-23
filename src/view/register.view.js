@@ -53,8 +53,8 @@ function registrar() {
 }
 //validacion register
 function validate() {
-  const email = document.querySelector(".email").value;
-  const password = document.querySelector(".password").value;
+  const email = document.querySelector(".btn-texto").value;
+  const password = document.querySelector(".btn-texto").value;
   const confirmPassword = document.querySelector("#password2").value;
   const message = document.querySelector(".message");
   message.innerHTML = "";
