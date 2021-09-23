@@ -10,9 +10,9 @@ export function viewLogin() {
     <div class="login">
     <div id="imgLogin">
           <img src="img/pet.jpg" id="fondoPet" class="fondoAnimalPet">
-          </div>
-          <div id="info">
-      <input id="email" placeholder="Email" class="email">
+      </div>
+      <div id="info">
+        <input id="email" placeholder="Email" class="email">
       </div>
       <div id="information">
       <input class="password" type="password" name="password" id="password" placeholder="Password">
