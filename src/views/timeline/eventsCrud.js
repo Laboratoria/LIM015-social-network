@@ -1,8 +1,8 @@
-import { db, datePost, deletePostFs } from "../../db/firestore.js";
+import { db, datePost, deletePostFs, storage } from "../../db/firestore.js";
 import { alerts } from "../../lib/alerts.js";
 import { loadViewPost } from "./viewPosts.js";
 
-export const createPost = () => {
+export const createPost =  () => {
     const infouser = JSON.parse(window.localStorage.getItem('infouser'));
     const formCreatePost = document.querySelector('#form-create-post');
     const selectCategory = formCreatePost.querySelector('#select-categories');
@@ -33,6 +33,16 @@ export const createPost = () => {
         if (imageUpload.files && imageUpload.files[0]) {
             newPost.nameImage = imageUpload.files[0].name;
             newPost.image = true;
+            // const storageRef = uploadImage(newPost.image);
+            // storageRef.put(imageUpload.files[0])
+            const uploadImage = storage().ref('img/'+ newPost.nameImage);
+            uploadImage.put(imageUpload.files[0]).then(snapshot => {
+                console.log(snapshot)
+                console.log('Uploaded an array!')
+            });
+            var gsReference = storage().refFromURL('img/'+ newPost.nameImage)
+            console.log(gsReference)
+
         } else {
             newPost.nameImage = "";
             newPost.image = false;
@@ -52,7 +62,7 @@ export const createPost = () => {
                     nameUser: infouser.nameUser,
                     photoUser: infouser.photoUser,
                     contentPost: object.contentPost,
-                    datePost: object.datePost,
+                    datePost: object.datePost.toDate().toDateString(),
                     nameImage: "",
                     totalComments: 0,
                     totalLikes: 0,
