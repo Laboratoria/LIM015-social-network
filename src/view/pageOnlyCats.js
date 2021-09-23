@@ -1,7 +1,8 @@
+/* eslint-disable no-alert */
 /* eslint-disable no-restricted-globals */
 /* eslint-disable no-console */
-/* eslint-disable no-alert */
-import { signOutUser, onAuthStateChanged } from '../firebase/firebase-functions.js';
+import { signOutUser, onAuthStateChanged, currentUser } from '../firebase/firebase-auth.js';
+
 import {
   postCollection, getCollection, deletePost, getUserCollection,
 } from '../firebase/firebase-firestore.js';
@@ -59,15 +60,20 @@ export const pageOnlyCats = () => {
   const textInput = sectionElement.querySelector('#text-input');
 
   // -------- Crear Posts (C) --------
+  currentUser();
   const createPost = (e) => {
     e.preventDefault();
     let userName;
+    console.log(currentUser().email);
     if (googleUser.displayName === null) {
       getUserCollection().onSnapshot((querySnapshot) => {
         querySnapshot.forEach((doc) => {
+          console.log({ doc });
           const dataContent = doc.data();
+          console.log({ dataContent });
           const userNameFirebase = dataContent.usuario;
           userName = userNameFirebase;
+          console.log(dataContent.email);
           const post = textInput.value;
           postCollection(post, userName, photo)
             .then(() => {
@@ -78,6 +84,7 @@ export const pageOnlyCats = () => {
             });
         });
       });
+      console.log(googleUser.email);
     } else {
       userName = googleUser.displayName;
       const post = textInput.value;

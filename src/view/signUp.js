@@ -1,6 +1,6 @@
 /* eslint-disable no-alert */
 /* eslint-disable no-console */
-import { createUser, emailVerification } from '../firebase/firebase-functions.js';
+import { createUser, emailVerification } from '../firebase/firebase-auth.js';
 import { userState } from './home.js';
 import { postUserCollection } from '../firebase/firebase-firestore.js';
 
