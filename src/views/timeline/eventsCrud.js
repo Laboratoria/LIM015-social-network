@@ -21,7 +21,10 @@ export const createPost =  () => {
     formCreatePost.addEventListener('submit', (e) => {
         e.preventDefault();
         const textSelect = selectCategory.options[selectCategory.selectedIndex].text;
-
+        /* let time = new Date(datePost()).toDateString(); */
+       /*  let time = (new Date(datePost())).toDateString(); */
+       /* const time = datePost().toDate().toLocaleTimeString('en-US')
+        console.log(time) */
         const newPost = {
             contentPost: inputTextarea.value,
             datePost: datePost(),
