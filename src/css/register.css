@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+/* 
+#email1,
+.password {
+  border-radius: 15px 15px 15px 15px;
+  background-color: rgb(206, 191, 191);
+  width: 250px;
+  height: 30px;
+}
+
+#imgRegister {
+  display: flex;
+  align-items: right;
+  justify-content: right;
+  margin-right: 60px;
+}
+#imgRegister > img {
+  max-width: 30%;
+  border-radius: 50%;
+}
+
+#registerInformation2,
+#registerInformation3,
+#registerInformation4,
+#regbtn,
+#btnLo {
+  display: flex;
+  align-items: right;
+  justify-content: right;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+}
+
+
+#btnRegister, #login{
+  border-radius: 5px 5px 5px 5px;
+  background-color: #fab33f;
+  width: 5%;
+  height: 50%;
+} */
+
+.container-Register{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+#fondoRegister1{
+  display:none;
+}
+
+.fondoAnimalPet{
+  width:200px;
+  height:200px;
+  border-radius:50%;
+  }
+
+/* #fondo{
+  width:200px;
+height:200px;
+border-radius:50%;
+} */
+
+/* .register{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+} */
+
+.frmregister{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+body{
+  background-image: url(../img/diseño1.png);
+  min-height: 100%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -moz-background-size: cover;
+}
+
+.btn-texto {
+  display: flex;
+  padding-bottom: 20px;
+  margin-bottom: 10px;
+  border-radius: 15px;
+  background-color: rgb(206, 191, 191);
+  width: 250px;
+  height: 20px;
+  text-align: center;
+}
+
+.btn{
+  border-radius: 15px;
+  background-color: #fab33f;
+  width: 250px;
+  height: 30px;
+}
+
+footer {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: Arial;
+  background-color: #fab33f;
+} 
+

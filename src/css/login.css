@@ -2,29 +2,26 @@
   margin: 0;
   padding: 0;
 }
-p {
-    text-align:center;
+/* p {
+  text-align: right;
 }
-
-body{
-background-image:url(../img/diseño1.png);
-/* background-repeat:no-repeat; */
-min-height:100%;
-background-attachment: fixed;
-background-repeat: no-repeat;
-background-size: cover;
--moz-background-size: cover;
+body {
+  background-image: url(../img/diseño1.png);
+  min-height: 100%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -moz-background-size: cover;
 }
-/* body{
-    background-image: linear-gradient(to top, #067DA3 0%, #000000 100%);
-    
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-  } */
+#logoGmail {
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+}
 #container {
   background-position: center;
   background-color: #fafafa6e;
+  margin-right: 60px;
 }
 .fondoAnimal {
   width: 600px;
@@ -33,13 +30,12 @@ background-size: cover;
   margin: auto;
   border: radius 15px;
 }
-
 #imgLogin {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: right;
+  justify-content: right;
+  margin-right: 60px;
 }
-
 #imgLogin > img {
   max-width: 30%;
   border-radius: 50%;
@@ -47,34 +43,126 @@ background-size: cover;
 #email {
   text-align: center;
 }
-.logoGmail {
-  display: block;
-  margin: auto;
-}
-
 .container .text name {
   border-radius: 5px;
   padding: 15px 5px 5px 20px;
 }
-#info, #information, #btnlogin, #btnGoogleLogin {
-    width: 100%;
-    height: 100%;
+#fondoLogin1 {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  background-size: 50% 50%;
+}
+#info,
+#information,
+#btnlogin,
+#btnGoogleLogin
+{
+  width: 100%;
+  height: 30%;
+  display: flex;
+  align-items: right;
+  justify-content: right;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+}
+#btnsignin,
+#registro {
+  border-radius: 5px 5px 5px 5px;
+  background-color: #fab33f;
+  width: 8%;
+  height: 50%;
+}
+#regis {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-bottom: 10px;
-  }
-  
+    align-items: right;
+    justify-content: right;
+}
+#email,
+#password {
+  border-radius: 15px 15px 15px 15px;
+  background-color: rgb(206, 191, 191);
+  width: 250px;
+  height: 30px;
+}
 a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  footer{
-    text-align: center; 
-    margin-left: auto; 
-    margin-right: auto;
-    font-family: Arial;
-  } 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+footer {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: Arial;
+  background-color: #fab33f;
+} */
+.contenedorLogin{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+.fondo-Login1{
+  display:none;
+}
+
+.fondoAnimalPet{
+width:200px;
+height:200px;
+border-radius:50%;
+}
+
+.frmLogin{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logoGmail{
+  width:30px;
+  height:30px;
+}
+
+body{
+  background-image: url(../img/diseño1.png);
+  min-height: 100%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -moz-background-size: cover;
+}
+
+.btn-texto {
+  display: flex;
+  padding-bottom: 20px;
+  margin-bottom: 10px;
+  border-radius: 15px;
+  background-color: rgb(206, 191, 191);
+  width: 250px;
+  height: 20px;
+  border:0;
+  outline: none;
+  text-align: center;
+}
+
+.btn{
+  border-radius: 15px;
+  background-color: #fab33f;
+  width: 250px;
+  height: 30px;
+  border:0;
+  outline: none;
+  margin-bottom: 15px;
+}
+
+footer {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: Arial;
+  background-color: #fab33f;
+} 
