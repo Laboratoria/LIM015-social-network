@@ -1,7 +1,7 @@
+/* eslint-disable no-alert */
 /* eslint-disable no-restricted-globals */
 /* eslint-disable no-console */
-/* eslint-disable no-alert */
-import { signOutUser, onAuthStateChanged } from '../firebase/firebase-functions.js';
+import { signOutUser, onAuthStateChanged, currentUser } from '../firebase/firebase-auth.js';
 import { postCollection, getCollection, deletePost } from '../firebase/firebase-firestore.js';
 
 const userStateCheck = () => {
@@ -17,6 +17,7 @@ const userStateCheck = () => {
 export const pageOnlyCats = () => {
   userStateCheck();
   const googleUser = JSON.parse(localStorage.getItem('user'));
+  const user = currentUser();
   const imgDefault = 'https://pbs.twimg.com/profile_images/1101458340318568448/PpkA2kQh_400x400.jpg';
   const photo = (googleUser.photoURL === null) ? imgDefault : googleUser.photoURL;
   const pageOcView = `
@@ -35,7 +36,7 @@ export const pageOnlyCats = () => {
       <div>
         <section class="profile-post publish" >
           <div class="container-photo">
-              <img src=${photo} "alt='picture' class="profile-photo">
+              <img src="${photo}" "alt='picture' class="profile-photo">
           </div>
           <section class="section-profile" >
             <textarea class="text-input" id="text-input" placeholder="¿Miau esta pasando?"></textarea>
@@ -57,16 +58,19 @@ export const pageOnlyCats = () => {
   const textInput = sectionElement.querySelector('#text-input');
 
   // -------- Crear Posts (C) --------
-  const createPost = () => {
-    const userName = (googleUser.displayName === null) ? localStorage.getItem('name') : googleUser.displayName;
+
+  const createPost = (e) => {
+    e.preventDefault();
+    const displayName = user.displayName;
     const post = textInput.value;
-    postCollection(post, userName, photo)
+    postCollection(post, displayName, photo)
       .then(() => {
         textInput.value = ' ';
       })
       .catch((error) => {
         console.error('Error adding document: ', error);
       });
+    console.log(user);
   };
 
   // -------- Leer Posts (R) --------

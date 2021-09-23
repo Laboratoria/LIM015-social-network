@@ -1,4 +1,6 @@
-import { onAuthStateChanged, registerGoogle, signInUser } from '../firebase/firebase-functions.js';
+/* eslint-disable no-console */
+/* eslint-disable no-alert */
+import { onAuthStateChanged, registerGoogle, signInUser } from '../firebase/firebase-auth.js';
 import { userState } from './home.js';
 
 export const signIn = () => {
