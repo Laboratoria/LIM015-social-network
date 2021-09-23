@@ -10,7 +10,7 @@ const viewHome = () => {
   const htmlHome = /*html*/ `
       <section id="home" class="home">
         <section id="homeProfile" class="home__profile">
-          <div id="home-imgUser" class="home__imgUser">
+          <div id="home-imgUser" class="home__imgUser homeImgUserProfile">
             <img class="imgUser homeImgUser" src=""  alt="usuario">
           </div>
          <div class="home__profileBox">
@@ -36,6 +36,7 @@ const viewHome = () => {
   const divHome = document.createElement("div");
   divHome.innerHTML = htmlHome;
 
+  divHome.classList.add('homeContainer')
   const homePost = divHome.querySelector("#postHome-form");
   const postArea = divHome.querySelector("#postArea");
   const postNameUser = divHome.querySelector("#home__userName");
@@ -99,8 +100,10 @@ const viewHome = () => {
           </div>
         </div>
         <div class="post__inputtext">
-          <textarea class="post__input" id="text-${postText.id}" data-id="${postText.userId}"readonly>${postText.userPost
-      }</textarea>         
+        ${
+          postText.userId === user.uid ?`
+          <textarea class="post__input" id="text-${postText.id}" data-id="${postText.userId}"readonly>${postText.userPost}</textarea>`:
+          `<p class="post__paragraph" id="text-${postText.id}" data-id="${postText.userId}"readonly>${postText.userPost}</p>`}         
         </div>
         
         <div class="home_likeButtonSection">

@@ -13,16 +13,16 @@ const  viewHeader = () => {
         <label for="check" class="bar-btn">
         <i class="fas fa-bars"></i>
         </label>
-   
+        <div class="backdrop"></div>
       <ul class="nav__menu">
         <li  >
-          <a id="navHome" href="#/home" class="nav__link ">INICIO</a>
+          <a id="navHome" href="#/home" class="nav__link "><i class="fas fa-home"></i>INICIO  </a>
         </li>
         <li >
-          <a id="navProfile" href="#/profile" class="nav__link">PERFIL</a>
+          <a id="navProfile" href="#/profile" class="nav__link"> <i class="fas fa-user"></i>PERFIL</a>
         </li>
         <li >
-          <a href="#/profile" id="navClose" class="nav__link"> CERRAR SESION</a>
+          <a href="#/profile" id="navClose" class="nav__link"> <i class="fas fa-sign-out-alt"></i>CERRAR SESION </a>
         </li>
       </ul>
   
@@ -32,6 +32,7 @@ const  viewHeader = () => {
   `
   const sectionNav =document.createElement('section');
   sectionNav.innerHTML=header;
+  
   const navClose = sectionNav.querySelector('#navClose');
   navClose.addEventListener('click', (event) => {
     event.preventDefault();
