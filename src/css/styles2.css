@@ -600,8 +600,128 @@ img {
 }
 
 
-/** Grid Muro**/
+/** Grid Profile **/
 
+.container-profile {
+    display: grid;
+    grid-template-columns: 3% 22% 3% 67% 5%;
+    grid-template-areas:'header  header       header      header           header' 
+                        '.       .            .           .                .'
+                        '.       coverUser   coverUser  coverUser       .'
+                        '.       .            .           .      .'
+                        '.       cont-friends .           cont-user-posts  .';
+    grid-template-rows: 10vh 3vh 20vh 5vh 60vh;
+    background-color: #f7f7f7;
+    /* border: solid 1px red; */
+}
+
+.cover-user {
+    grid-area: coverUser;
+    position: relative;
+}
+
+.cover-user .img-cover-user {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.up-information-profile {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    gap: 40rem;
+}
+
+.up-information-profile .avatar {
+    background-color: #ffffff;
+    margin: 0 10px -30px 0;
+}
+
+.user-information-profile {
+    display: flex;
+}
+
+.container-post {
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.container-section-user-post {
+    grid-area: cont-user-posts;
+    display: flex;
+    flex-direction: column;
+}
+
+.header-section-user-post {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.action-user-post {
+    display: flex;
+}
+
+.title-user-post,
+.title-user-savePost {
+    display: flex;
+    align-items: center;
+    gap: .3rem;
+    margin-right: 1rem;
+}
+
+.title-user-post:hover,
+.title-user-savePost:hover {
+    color: #b92929;
+    border-bottom: solid 1px #b92929;
+}
+
+.container-section-user-post .btn-create-post {
+    width: 30%;
+}
+
+.container-section-friends {
+    grid-area: cont-friends;
+    border-radius: 20px;
+    background-color: #ffffff;
+    /* display: flex;
+    flex-direction: column; */
+}
+
+.title-friends {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+    padding-left: 2rem;
+}
+
+.btn-icon-friends {
+    background-color: pink;
+    color: #FA5672;
+}
+
+.info-friends .avatar {
+    background-color: #b92929;
+}
+
+.info-friends {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/** Grid Timeline **/
 .container-home {
     display: grid;
     grid-template-columns: 3% 22% 3% 67% 5%;
