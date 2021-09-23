@@ -85,6 +85,10 @@ export const pageOnlyCats = () => {
             <p class="name-input"> ${dataContent.user} </p>
             <p readonly class="text-output">${dataContent.text}</p>
           </section>
+          <div class="update-post">
+            <button id="btn-deletePost" class="btn-delete" data-id='${doc.id}'><i class="fas fa-trash"></i></button><br>
+            <button class="btn-edit"><i class="fas fa-edit"></i></button>
+          </div>
         </section> `;
       });
     });
