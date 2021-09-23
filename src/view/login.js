@@ -3,12 +3,18 @@ import { loginEmail, loginGoogle } from "../firebase/fb-functions.js";
 const viewLogin = () => {
   const htmlLogin = `
   <div class="viewDesktop">
-    <img class="viewDesktop__logo" src="./img/logoMobilPrueba.jpg" alt="Makipura">
+     <div class="container__logoDesktop">
+    <img class="viewDesktop__logo" src="./img/logoMobilPrueba.png" alt="Makipura">
+    </div>
+
+    <div class="container__logoDesktopWoman">
     <img class="viewDesktop__woman" src="./img/woman.png" alt="Makipura">
+    </div>
+
   </div>
   <div class="login">
     <div class="logo">
-      <img class="logo__img" src="./img/logoMobilPrueba.jpg" alt="Makipura" width="150">
+      <img class="logo__img" src="./img/logoMobilPrueba.png" alt="Makipura" >
     </div>
     <div class="login__Subtitle">
       <h2 class="login__h2">¡Bienvenida Emprendedora!</h2>
