@@ -13,3 +13,5 @@ export const postUserCollection = (usuario, email) => firebase.firestore().colle
   email,
 });
 export const getUserCollection = () => firebase.firestore().collection('user');
+
+export const deletePost = (id) => firebase.firestore().collection('posts').doc(id).delete();
