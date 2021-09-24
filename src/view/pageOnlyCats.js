@@ -32,20 +32,21 @@ export const pageOnlyCats = () => {
         <button class="label-btn vet">Vet Cat</button>
         <button class="label-btn foodie">Foodie Cat</button>
       </div>
-      <form id="post-form" class="profile-post publish">
+      <div>
+        <section class="profile-post publish" >
           <div class="container-photo">
               <img src="${photo}" "alt='picture' class="profile-photo">
           </div>
-            <div class="section-profile" >
-              <textarea class="text-input" id="text-input" placeholder="¿Miau esta pasando?" autofocus></textarea>
-                <div class="post-icon">
-                  <i class="fas fa-image"></i>
-                  <button class="post-button" id="post-button" type="submit">Meow</button>
-                </div>
+          <section class="section-profile" >
+            <textarea class="text-input" id="text-input" placeholder="¿Miau esta pasando?"></textarea>
+            <div class="post-icon">
+              <i class="fas fa-image"></i>
+              <button class="post-button" id="post-button" type="submit">Meow</button>
             </div>
+          </section>
         </section>
         <section  id="other-post">
-      </form>
+        </section>
     </main>
   </div>`;
   const sectionElement = document.createElement('section');
@@ -69,6 +70,7 @@ export const pageOnlyCats = () => {
         console.error('Error adding document: ', error);
       });
   };
+
   // -------- Leer Posts (R) --------
   const readPosts = () => {
     getCollection().onSnapshot((querySnapshot) => {

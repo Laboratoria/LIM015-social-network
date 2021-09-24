@@ -1,13 +1,12 @@
 // Creando la colección de posts
-export const postCollection = (post) => firebase.firestore().collection('posts').add({
-  // user: userName,
+export const postCollection = (post, userName, photo) => firebase.firestore().collection('posts').add({
+  user: userName,
   text: post,
-  // photo,
+  photo,
   timePost: firebase.firestore.FieldValue.serverTimestamp(),
 });
-
 // Obteniendo la colección de posts
-export const getCollection = () => firebase.firestore().collection('posts').orderBy('timePost', 'desc').get();
+export const getCollection = () => firebase.firestore().collection('posts').orderBy('timePost', 'desc');
 
 // Creando la colección de usuarios
 export const postUserCollection = (usuario, email) => firebase.firestore().collection('user').add({
