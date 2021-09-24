@@ -55,7 +55,8 @@ const loadViewPost = (objectDataPosts) => {
             </div>
             <div class="header-right">
                 <div class="post-category">
-                    ${idUserAuth == element.idUser ? `<button class="btn btn-edit" id="btnEdit-${element.idPost}" type="button"> <i class="fas fa-pen"></i> </button> <img class="btn btn-delete" data-id="${element.idPost}" src="https://user-images.githubusercontent.com/77282012/120018025-389c9c80-bfac-11eb-9d7d-0a68441eca20.png">`:``}
+                    ${idUserAuth == element.idUser ? `<img class="btn btn-edit" width="22px" height="22px" data-id="${element.idPost}" src="../images/svg/edit.png">
+                     <img class="btn btn-delete" data-id="${element.idPost}" src="https://user-images.githubusercontent.com/77282012/120018025-389c9c80-bfac-11eb-9d7d-0a68441eca20.png">`:``}
                     <span class="badge badge-secondary">${element.nameCategory}</span>
                 </div>
                 
@@ -63,8 +64,7 @@ const loadViewPost = (objectDataPosts) => {
         </div>
         <div class="post-content">
             <p class="content-paragraph"> ${element.contentPost} </p>
-            ${(element.image == true ) ? 
-                `<img src="../images/post/${element.nameImage}" class="content-image"> </img> ` : ``}
+            ${(element.image == true ) ? `<img src="${element.nameImage}" class="content-image"/>` : ``}
         </div>
         <div class="post-footer footer">
             <div class="footer-reactions reactions">

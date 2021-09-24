@@ -18,10 +18,19 @@ const addEventsTimeline = () => {
         const modal = document.querySelector('.modal');
         const btnCreatePost = document.querySelector('.btn-create-post');/* abrir */
         const btnCerrarModal = document.querySelector('.btn-cerrar-modal');/* cerrar */
-        btnCreatePost.addEventListener('click', () => { modal.classList.add('revelar') });
-        btnCerrarModal.addEventListener('click', () => { modal.classList.remove('revelar') });
-
-
+        btnCreatePost.addEventListener('click', () => { 
+            const btnModal = document.querySelector('#share-post');/* abrir */
+            const titleModal = document.querySelector('#title-modal');
+            btnModal.innerText = 'Publicar';
+            titleModal.innerText = 'Crear Publicación';
+            modal.classList.add('revelar');
+        });
+        
+        btnCerrarModal.addEventListener('click', () => {
+            modal.classList.remove('revelar') 
+            document.querySelector('#form-create-post').reset();
+        });
+        
         /***Renderizar TextArea***/
         const userPost = document.querySelector('.user-info-textarea');
         const placeholderTextarea = document.querySelector('.textarea-post');
