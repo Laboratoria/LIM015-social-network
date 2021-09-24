@@ -49,6 +49,7 @@ export const createPost =  () => {
         } else {
             newPost.nameImage = "";
             newPost.image = false;
+            newPost.urlImage  = "";
         }
         console.log(newPost)
         createNewPost(newPost, textSelect)
