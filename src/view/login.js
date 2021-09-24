@@ -50,7 +50,7 @@ const viewLogin = () => {
       </div>
     </form>
     <div class="login__registerLink">
-      <p>No tienes cuenta</br>Registrate<a class="link" href="#/register"> aquí</a></p>
+      <p>¿No tienes cuenta?</br>Registrate<a class="link" href="#/register"> aquí</a></p>
     </div>
   </div>
     `;

@@ -40,8 +40,8 @@ const modalRegisterVerification = (email) => {
      <div class="modalContent modalContent--verification">
         <span class="closeModal">&times;</span>
         <h1>¡Solo te falta un paso para terminar tu registro!</h1>
-        <p>Hemos enviado un correo a: ${email}</p>
-        <p>Por favor revise su correo y haga click en el link dentro del mensaje</p>     
+        <p>Hemos enviado un correo a:</br><span>${email}</span></p>
+        <p>Por favor revise su correo y haga click en el link dentro del mensaje.</p>  
      </div>
      `
     const modalContainer=document.createElement('section');

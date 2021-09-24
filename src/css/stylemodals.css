@@ -19,8 +19,52 @@
   .modalContent{
       background-color:white;
       margin:auto;
-      padding:1.5rem;
-      border: 1px solid #F90066;
-      border-radius: 10px;
-      width:40%;
+      border: 0.2em solid #F90066;
+      border-radius: 15px;
+      width:70%;
+      max-width: 400px;
+      padding: 0.6em 0.8em 1.2em 0.8em;
   }
+
+  .modalContent > h1 {
+      font-size: 1.2rem;
+      line-height: 1.7rem;
+      padding: 1.5em 0 1em 0;
+      text-align: center;
+      
+  }
+
+  .modalContent > p {
+    font-size: 0.9rem;
+    line-height: 1.4rem;
+    text-align: center;
+}
+
+.modalContent > p > span{
+    font-weight: bold;
+    color:#F90066;
+}
+
+
+  .closeModal {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .closeModal:hover,
+  .closeModal:focus {
+    color:#F90066;
+    cursor: pointer;
+  }
+
+
+@media screen and (min-width:  600px) {
+
+  .modalContent{
+    max-width: 400px;
+    padding: 0.6em 1.2em 1.2em 1.2em;
+}
+
+}
