@@ -5,6 +5,7 @@ import { viewHome } from './home.js'
 import { viewProfile } from './profile.js'
 import { view404 } from './Err404.js'
 import  {viewHeader} from '../view/header.js'
+import  {viewFooter} from '../view/footer.js'
 
 
 const components={
@@ -13,7 +14,8 @@ const components={
     home: viewHome,
     profile: viewProfile,
     Err404: view404,
-    header: viewHeader
+    header: viewHeader,
+    footer: viewFooter
 }
 
 

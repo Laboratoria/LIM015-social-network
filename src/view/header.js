@@ -1,10 +1,8 @@
 import {signOut} from '../firebase/fb-functions.js'
 
 const  viewHeader = () => {
-  const header =/*html*/ `
-
-  <header class="header">
-  
+  const navHeader =/*html*/ `
+   
     <nav class="nav">
         <div class="nav__logo">
           <img  class="header__logo" src=" ../img/logoHeader.png" >
@@ -28,12 +26,11 @@ const  viewHeader = () => {
   
     </nav>
   
-  </header>
   `
-  const sectionNav =document.createElement('section');
-  sectionNav.innerHTML=header;
+  const sectionHeader =document.createElement('header');
+  sectionHeader.innerHTML=navHeader;
   
-  const navClose = sectionNav.querySelector('#navClose');
+  const navClose = sectionHeader.querySelector('#navClose');
   navClose.addEventListener('click', (event) => {
     event.preventDefault();
     signOut().then(() => {
@@ -43,7 +40,7 @@ const  viewHeader = () => {
   
   });
 
-  return sectionNav
+  return sectionHeader
 }
  
 

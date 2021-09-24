@@ -20,7 +20,7 @@
 
 .home__postImput > textarea {
   width:100%;
-  resize:none;
+  resize:none;  
 }
 
 .home__profile> div {
@@ -82,6 +82,7 @@ color: #78752C;
   padding: 0.5em;
   height: 4.6em;
   resize:none;
+ 
 }
 
 
@@ -144,7 +145,8 @@ color: #78752C;
   height: 7.6em;
   border-style: none;
   resize:none;
-  padding: 0.5rem
+  padding: 0.5rem;
+  color:#616161;
   /* height: fit-content; */
 }
 .post__paragraph{
@@ -152,6 +154,8 @@ color: #78752C;
   background: rgb(255, 255, 255);
   height: fit-content;
   padding: 0.5rem;
+  font-size: 0.85rem;
+  color: #616161;
 }
 
 .home_likeButtonSection {

@@ -12,10 +12,10 @@ const changeView=(route) => {
       break;
       case '#/register':{container.appendChild(components.register())}
       break;
-      case '#/home':{ container.appendChild(components.header()); container.appendChild(components.home()) }
+      case '#/home':{ container.appendChild(components.header()); container.appendChild(components.home()); container.appendChild(components.footer())}
       break;
       case '#/profile':{ container.appendChild(components.header()); container.appendChild(components.profile()) }
-      break;
+      break; 
       default: 
        container.appendChild(components.Err404())
   }
