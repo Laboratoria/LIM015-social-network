@@ -16,9 +16,9 @@ const userStateCheck = () => {
 
 export const pageOnlyCats = () => {
   userStateCheck();
-  const googleUser = JSON.parse(localStorage.getItem('user'));
+  const localUser = JSON.parse(localStorage.getItem('user'));
   const imgDefault = 'https://pbs.twimg.com/profile_images/1101458340318568448/PpkA2kQh_400x400.jpg';
-  const photo = (googleUser.photoURL === null) ? imgDefault : googleUser.photoURL;
+  const photo = (localUser.photoURL === null) ? imgDefault : localUser.photoURL;
   const pageOcView = `
   <div class="page-container">
     <header class = "header-container">
@@ -60,7 +60,7 @@ export const pageOnlyCats = () => {
 
   const createPost = (e) => {
     e.preventDefault();
-    const displayName = googleUser.displayName;
+    const displayName = localUser.displayName;
     const post = textInput.value;
     postCollection(post, displayName, photo)
       .then(() => {
@@ -78,9 +78,9 @@ export const pageOnlyCats = () => {
       newPost.innerHTML = ' ';
       querySnapshot.forEach((doc) => {
         const dataContent = doc.data();
+        console.log(doc.id);
         newPost.innerHTML += `
         <section class="profile-post">
-
           <div class="container-photo">
             <img src="${dataContent.photo}" "alt='picture' class="profile-photo">
           </div>
@@ -89,7 +89,7 @@ export const pageOnlyCats = () => {
             <p readonly class="text-output">${dataContent.text}</p>
           </section>
           <div class="update-post">
-            <button id="btn-deletePost" class="btn-delete" data-id='${doc.id}'><i class="fas fa-trash"></i></button><br>
+            <button id="btn-deletePost" class="btn-delete" data-id='${doc.id}'><i class="fas fa-trash"></i></button>
             <button class="btn-edit"><i class="fas fa-edit"></i></button>
           </div>
         </section> `;
