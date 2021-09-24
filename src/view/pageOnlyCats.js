@@ -78,9 +78,9 @@ export const pageOnlyCats = () => {
       newPost.innerHTML = ' ';
       querySnapshot.forEach((doc) => {
         const dataContent = doc.data();
+        console.log(doc.id);
         newPost.innerHTML += `
         <section class="profile-post">
-
           <div class="container-photo">
             <img src="${dataContent.photo}" "alt='picture' class="profile-photo">
           </div>
@@ -89,7 +89,7 @@ export const pageOnlyCats = () => {
             <p readonly class="text-output">${dataContent.text}</p>
           </section>
           <div class="update-post">
-            <button id="btn-deletePost" class="btn-delete" data-id='${doc.id}'><i class="fas fa-trash"></i></button><br>
+            <button id="btn-deletePost" class="btn-delete" data-id='${doc.id}'><i class="fas fa-trash"></i></button>
             <button class="btn-edit"><i class="fas fa-edit"></i></button>
           </div>
         </section> `;
