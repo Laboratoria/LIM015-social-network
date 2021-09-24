@@ -43,7 +43,7 @@ export const signUp = () => {
         </div>
         <span class="error-password"></span>
         <div class='form-div'>
-        <input type="submit" id="create-account"" class="form-button" value="Crear cuenta">
+          <input type="submit" id="create-account"" class="form-button" value="Crear cuenta">
         </div>
       </form>
       <ul class="home-list">
