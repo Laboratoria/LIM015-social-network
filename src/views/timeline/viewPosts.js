@@ -68,17 +68,28 @@ const loadViewPost = (objectDataPosts) => {
         </div>
         <div class="post-footer footer">
             <div class="footer-reactions reactions">
-                <button type="button" class="btn-post btn-notlike"><i class="far fa-heart"></i> <span class="count-reaction"> ${element.totalLikes} </span></button>
-                <button type="button" class="btn-post btn-notcomment"><i class="far fa-comment-dots"></i> <span class="count-reaction"></span> ${element.totalComments} </span></button>
+                <button type="button" class="btn-post btn-notlike" data-link="${element.idPost}" > <img class="img-heart" src=""></button>
+                <button type="button" class="btn-post btn-notcomment"><i class="far fa-comment-dots"></i> <span class="count-reaction">${element.totalComments}</span></button>
                 <button type="button" class="btn-post btn-notsave"><i class="far fa-bookmark"></i> <span class="count-reaction"></span>  </span></button>
             </div>
             <div class="footer-comments comments"> </div>
         </div>
         `
+
         const theFirstChild = containerPost.firstChild;
         containerPost.insertBefore(post, theFirstChild) //renderiza en el hijo anterior del primero 
-        console.log(element.idPost)
+       /*  console.log(element.idPost);
+        console.log(element.totalLikes) */
 
+        /* const classLikes = document.querySelector('#btn-like');
+       
+        console.log(classLikes)
+        classLikes.addEventListener('click', () =>{
+           
+            const result = document.querySelector(`post-${element.idPost}`);
+            console.log(result);
+        })
+ */
     });
 }
 

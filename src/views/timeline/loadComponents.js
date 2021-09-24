@@ -6,6 +6,7 @@ import { addEventsTimeline } from './eventsTimeline.js';
 import { loadViewModal } from './viewModal.js';
 import { createPost, deletePost, editPost } from './eventsCrud.js';
 import { loadViewModalDelete } from './viewModalDelete.js';
+import {reactionLike} from './reactions.js'
 
 const loadComponents = async () => {
     await loadViewHeaderUser(); //agregamos la info del user en el header
@@ -17,7 +18,9 @@ const loadComponents = async () => {
     addEventsTimeline(); //agregamos los eventos basicos al timeline
     createPost();
     deletePost();
+    reactionLike();
     editPost();
+
 }
 
 export { loadComponents }
