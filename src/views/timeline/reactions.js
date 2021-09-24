@@ -1,4 +1,3 @@
-import {testLikeAuth} from '../../db/firebase-auth.js'
 export const reactionLike = () =>{
     const idLikes = document.querySelectorAll('#idLike');
    /*  const classLikes = document.querySelectorAll('.btn-notlike'); */
@@ -17,10 +16,17 @@ export const reactionLike = () =>{
             console.log(idPosts)
             const show = e.target.dataset.show;
             console.log(show)
-            const userFound = show.find(
-                (user) => user === testLikeAuth(user),
-            );
-            console.log(userFound, 'fb.auth')
+           /*  const userFound = show.find( */
+                /* eslint-disable no-undef */
+                /* (user) => user === firebase.auth().currentUser.uid,
+                console.log(userFound, 'fb.auth') */
+           /*  ); */
+            
+            
+
+            /* const userFound = postLikes.find(
+                (user) => user === firebase.auth().currentUser.uid,
+            ); */
         })
     });
    /*  showNumberLike.forEach((btn) => { */
