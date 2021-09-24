@@ -1,7 +1,7 @@
 
 const  viewFooter = () => {
     const divFooter =/*html*/ `    
-    <div>Realizado por Corporación Makipura Teams<br>©️ 2021 By Marlene &#38 Natalia &#38 Elizabeth</div>
+    <div>Realizado por Corporación Makipura Teams<br>©️ 2021 By <a  href="">Marlene</a> &#38 <a href="">Natalia</a> &#38 <a href="">Elizabeth</a></div>
     
     `
     const sectionFooter =document.createElement('footer');
