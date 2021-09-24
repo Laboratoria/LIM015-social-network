@@ -96,6 +96,7 @@ export const pageOnlyCats = () => {
           </div>
         </section> `;
       });
+      // -------- Eliminar Posts (D) --------
       const btnDelete = sectionElement.querySelectorAll('.btn-delete');
       btnDelete.forEach((btn) => {
         btn.addEventListener('click', (e) => {
