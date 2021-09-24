@@ -186,3 +186,36 @@ footer {
   background-color: #fab33f;
 } 
 
+
+@media (min-width: 1280px) and (max-width: 1599px) {
+
+  .contenedorLogin{
+    display:flex;
+    flex-direction:row;
+    min-height: 100vh;
+  }
+
+  .fondo-Login1{
+    display:block;
+    align-content: left;
+  }
+  .btn-texto, .btn-signin, .btn-register{
+    align-content: right;
+    margin:16px;
+    padding:16px;
+  }
+
+  .figure-title-login, .figure-google{
+    margin: 100px;
+}
+
+  .img-title {
+    width: 360px;
+    height:100px;
+    padding: 10px;
+  }
+  .fondoAnimalPet{
+    align-content: right;
+
+  }
+}
