@@ -4,7 +4,7 @@ import { loadViewPopularPost } from './viewCarrusel.js';
 import { getObjectAllPosts } from './viewPosts.js';
 import { addEventsTimeline } from './eventsTimeline.js';
 import { loadViewModal } from './viewModal.js';
-import { createPost, deletePost } from './eventsCrud.js';
+import { createPost, deletePost, editPost } from './eventsCrud.js';
 import { loadViewModalDelete } from './viewModalDelete.js';
 import {reactionLike} from './reactions.js'
 
@@ -19,6 +19,8 @@ const loadComponents = async () => {
     createPost();
     deletePost();
     reactionLike();
+    editPost();
+
 }
 
 export { loadComponents }

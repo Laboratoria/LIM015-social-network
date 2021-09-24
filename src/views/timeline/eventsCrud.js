@@ -1,4 +1,4 @@
-import { db, datePost, deletePostFs, storage } from "../../db/firestore.js";
+import { savePost, datePost, deletePostFs, storage } from "../../db/firestore.js";
 import { alerts } from "../../lib/alerts.js";
 import { loadViewPost } from "./viewPosts.js";
 
@@ -18,13 +18,10 @@ export const createPost =  () => {
         }
     })
 
-    formCreatePost.addEventListener('submit', (e) => {
+    formCreatePost.addEventListener('submit', async  (e) => {
         e.preventDefault();
         const textSelect = selectCategory.options[selectCategory.selectedIndex].text;
-        /* let time = new Date(datePost()).toDateString(); */
-       /*  let time = (new Date(datePost())).toDateString(); */
-       /* const time = datePost().toDate().toLocaleTimeString('en-US')
-        console.log(time) */
+
         const newPost = {
             contentPost: inputTextarea.value,
             datePost: datePost(),
@@ -34,51 +31,53 @@ export const createPost =  () => {
             totalComents: 0
         }
         if (imageUpload.files && imageUpload.files[0]) {
-            newPost.nameImage = imageUpload.files[0].name;
+            const nameImage = imageUpload.files[0].name;
             newPost.image = true;
-            // const storageRef = uploadImage(newPost.image);
-            // storageRef.put(imageUpload.files[0])
-            const uploadImage = storage().ref('img/'+ newPost.nameImage);
-            uploadImage.put(imageUpload.files[0]).then(snapshot => {
-                console.log(snapshot)
-                console.log('Uploaded an array!')
-            });
-            var gsReference = storage().refFromURL('img/'+ newPost.nameImage)
-            console.log(gsReference)
 
+            const uploadImage = storage().ref('img/'+ nameImage).put(imageUpload.files[0]);
+            /* Si vamos a hacer un modal o alert de progress */
+            await uploadImage.on('state_changed', (snapshot) => {
+                const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                console.log('Enviando post...' , progress);
+            })
+            const imagencargada = () =>  uploadImage.snapshot.ref.getDownloadURL().then((downloadURL) => {
+                return downloadURL;
+            })
+            await imagencargada().then(response => newPost.nameImage = response)
+            
         } else {
             newPost.nameImage = "";
             newPost.image = false;
         }
+
         createNewPost(newPost, textSelect)
         modal.classList.remove('revelar') //Cierra el modal?
         formCreatePost.reset();
     });
 
-    const createNewPost = (object, textSelect) => {
-        db.collection('posts')
-            .add(object)
-            .then((res) => {
-                const objectNewPost = [{
-                    idPost: res.id,
-                    idUser: infouser.idUser,
-                    nameUser: infouser.nameUser,
-                    photoUser: infouser.photoUser,
-                    contentPost: object.contentPost,
-                    datePost: object.datePost.toDate().toDateString(),
-                    nameImage: "",
-                    totalComments: 0,
-                    totalLikes: 0,
-                    image: false,
-                    idCategory: object.idCategory,
-                    nameCategory: textSelect,
-                }];
-                loadViewPost(objectNewPost)
-                deletePost();//vuelvo a llamar a la funcionn delete
-            })
-            .catch((error) => {
-                console.log(error)
-            });
+    const createNewPost = (object, textSelect) => { 
+        savePost(object)
+        .then((res) => { // Necesitamos el res para obtener el id generado en el firestore
+            const objectNewPost = [{
+                idPost: res.id,
+                idUser: infouser.idUser,
+                nameUser: infouser.nameUser,
+                photoUser: infouser.photoUser,
+                contentPost: object.contentPost,
+                datePost: object.datePost.toDate().toDateString(),
+                nameImage: object.nameImage,
+                totalComments: 0,
+                totalLikes: 0,
+                image: object.image,
+                idCategory: object.idCategory,
+                nameCategory: textSelect,
+            }];
+            loadViewPost(objectNewPost)
+            deletePost();//vuelvo a llamar a la funcionn delete
+        })
+        .catch((error) => {
+            console.log(error)
+        });
     }
 }
 
@@ -119,3 +118,35 @@ export const deletePost = () => {
         })
     }
 }
+
+export const editPost = () => {
+    const btnsEdit = document.querySelectorAll('.btn-edit');
+    btnsEdit.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+            const modal = document.querySelector('.modal');
+            const btnModal = document.querySelector('#share-post');/* abrir */
+            const titleModal = document.querySelector('#title-modal');
+            btnModal.innerText = 'Guardar Cambios';
+            titleModal.innerText = 'Editar Post';
+
+            modal.classList.add('revelar');
+            console.log('edit', e.target);
+            const idPost = e.target.dataset.id;
+            loadDataPosts(idPost);
+        });
+
+    });
+}
+
+function loadDataPosts (idPost) {
+    const objectAllPosts = JSON.parse(window.localStorage.getItem('allPosts'));
+    const dataPost = objectAllPosts.find(post => post.idPost === idPost )
+    const selectCategory = document.querySelector('#select-categories');
+    const inputTextarea = document.querySelector('#post-user');
+    // const imageUpload = document.querySelector('#file-input');
+
+    selectCategory.value = dataPost.idCategory;
+    inputTextarea.value = dataPost.contentPost;
+    // imageUpload.value = dataPost.nameImage;
+}
+
