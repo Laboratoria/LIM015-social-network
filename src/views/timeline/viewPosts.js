@@ -21,6 +21,7 @@ const allPosts = () => {
                         image: doc.data().image,
                         idCategory: doc.data().idCategory,
                         nameCategory: categoryprueba.nameCategory,
+                        urlImage: doc.data().urlImage
                     })
                 });
                 window.localStorage.setItem('allPosts', JSON.stringify(objectPosts));
@@ -64,7 +65,7 @@ const loadViewPost = (objectDataPosts) => {
         </div>
         <div class="post-content">
             <p class="content-paragraph"> ${element.contentPost} </p>
-            ${(element.image == true ) ? `<img src="${element.nameImage}" class="content-image"/>` : ``}
+            ${(element.image == true ) ? `<img src="${element.urlImage}" class="content-image"/>` : ``}
         </div>
         <div class="post-footer footer">
             <div class="footer-reactions reactions">
@@ -77,7 +78,6 @@ const loadViewPost = (objectDataPosts) => {
         `
         const theFirstChild = containerPost.firstChild;
         containerPost.insertBefore(post, theFirstChild) //renderiza en el hijo anterior del primero 
-        console.log(element.idPost)
 
     });
 }

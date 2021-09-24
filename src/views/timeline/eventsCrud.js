@@ -33,6 +33,7 @@ export const createPost =  () => {
         if (imageUpload.files && imageUpload.files[0]) {
             const nameImage = imageUpload.files[0].name;
             newPost.image = true;
+            newPost.nameImage = nameImage;
 
             const uploadImage = storage().ref('img/'+ nameImage).put(imageUpload.files[0]);
             /* Si vamos a hacer un modal o alert de progress */
@@ -43,13 +44,13 @@ export const createPost =  () => {
             const imagencargada = () =>  uploadImage.snapshot.ref.getDownloadURL().then((downloadURL) => {
                 return downloadURL;
             })
-            await imagencargada().then(response => newPost.nameImage = response)
+            await imagencargada().then(response => newPost.urlImage = response)
             
         } else {
             newPost.nameImage = "";
             newPost.image = false;
         }
-
+        console.log(newPost)
         createNewPost(newPost, textSelect)
         modal.classList.remove('revelar') //Cierra el modal?
         formCreatePost.reset();
@@ -71,8 +72,10 @@ export const createPost =  () => {
                 image: object.image,
                 idCategory: object.idCategory,
                 nameCategory: textSelect,
+                urlImage: object.urlImage
             }];
             loadViewPost(objectNewPost)
+            editPost();
             deletePost();//vuelvo a llamar a la funcionn delete
         })
         .catch((error) => {
