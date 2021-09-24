@@ -10,7 +10,7 @@ export default () => {
     </section>
     <div class="side-navigation">
         <section class="title-posts">
-            <a href="#/posts" id="logout" class="title-posts"> <i class="fas fa-house-user"></i> <span>Posts</span> </a>
+            <a href="#/timeline" id="logout" class="title-posts"> <i class="fas fa-house-user"></i> <span>Posts</span> </a>
         </section>
         <section class="title-turn-off">
             <a href="" id="logout" class="title-turn-off">  <i class="fas fa-sign-out-alt"></i> <span>Salir</span> </a>

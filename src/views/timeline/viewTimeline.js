@@ -33,6 +33,12 @@ export default () => {
            
         </section>
     </section>
+
+    <section class="modal-delete modal hide">
+        <section class="backdrop" id="modal-contenido-delete"> 
+           
+        </section>
+    </section>
     `;
     return viewTimeLine;
 }

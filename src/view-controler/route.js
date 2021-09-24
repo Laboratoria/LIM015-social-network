@@ -38,6 +38,15 @@ const changeView = (route) => {
                 loadComponents();
                 return viewTimeLine;
             }
+        case '#/profile':
+            {
+                const viewProfile = containerMain.appendChild(components.profile());
+                const firstChild = viewProfile.firstChild;
+                viewProfile.insertBefore(components.header(), firstChild);
+                // loadComponents();
+                return viewProfile;
+            }
+    
 
         default:
             { return containerMain.appendChild(components.error()); }

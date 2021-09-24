@@ -4,7 +4,7 @@ const loadViewModal = () => {
         <section class="content-modal">
             <section class="head-modal">
                 <span> </span>
-                <h3> Crear publicación </h3>
+                <h3 id="title-modal"> </h3>
                 <button class="btn btn-cerrar-modal"> X </button> 
             </section>
             
