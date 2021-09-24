@@ -116,6 +116,7 @@ footer {
 }
 
 .fondoAnimalPet{
+text-align:center;
 width:200px;
 height:200px;
 border-radius:50%;
@@ -172,6 +173,10 @@ body{
 /* .btn-register{
   border: none;
 } */
+
+.txt{
+  text-align: center;
+}
 
 footer {
   text-align: center;

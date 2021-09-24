@@ -98,14 +98,26 @@ body{
   width: 250px;
   height: 20px;
   text-align: center;
+  border:0;
+  outline: none;
 }
 
 .btn{
+  padding-bottom: 10px;
+  margin-bottom: 10px;
   border-radius: 15px;
   background-color: #fab33f;
   width: 250px;
   height: 30px;
+  border:0;
+  outline: none;
 }
+
+.figure-Register{
+  display: flex;
+  justify-content: center;
+}
+
 
 footer {
   text-align: center;

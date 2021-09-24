@@ -10,7 +10,9 @@ export function viewRegister() {
       <img src="./img/parque.png" id="fondoRegister1" class="fondoAnimal1"width="55%" height="55%">
     </figure>
     <section class="frmregister">
+    <figure class="figure-Register">
         <img src="img/pet.jpg" id="fondoPet" class="fondoAnimalPet">
+        </figure>
         <input  id="email1" placeholder="Email" class="btn-texto">
       <span id="errorEmail" class="errorMessage"></span>
         <input class="btn-texto" type="password" name="password1" id="password1" placeholder="Password">
