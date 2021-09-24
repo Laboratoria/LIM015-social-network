@@ -2,9 +2,7 @@
 /* eslint-disable no-restricted-globals */
 /* eslint-disable no-console */
 import { signOutUser, onAuthStateChanged } from '../firebase/firebase-auth.js';
-import {
-  postCollection, getCollection, deletePost, getUserCollection,
-} from '../firebase/firebase-firestore.js';
+import { postCollection, getCollection, deletePost } from '../firebase/firebase-firestore.js';
 
 const userStateCheck = () => {
   onAuthStateChanged((user) => {
@@ -18,9 +16,9 @@ const userStateCheck = () => {
 
 export const pageOnlyCats = () => {
   userStateCheck();
-  const user = JSON.parse(localStorage.getItem('user'));
+  const localUser = JSON.parse(localStorage.getItem('user'));
   const imgDefault = 'https://pbs.twimg.com/profile_images/1101458340318568448/PpkA2kQh_400x400.jpg';
-  const photo = (user.photoURL === null) ? imgDefault : user.photoURL;
+  const photo = (localUser.photoURL === null) ? imgDefault : localUser.photoURL;
   const pageOcView = `
   <div class="page-container">
     <header class = "header-container">
@@ -36,7 +34,7 @@ export const pageOnlyCats = () => {
       </div>
       <form id="post-form" class="profile-post publish">
           <div class="container-photo">
-              <img src=${photo} "alt='picture' class="profile-photo">
+              <img src="${photo}" "alt='picture' class="profile-photo">
           </div>
             <div class="section-profile" >
               <textarea class="text-input" id="text-input" placeholder="¿Miau esta pasando?" autofocus></textarea>
@@ -54,86 +52,62 @@ export const pageOnlyCats = () => {
   sectionElement.classList.add('container-box');
   sectionElement.innerHTML = pageOcView;
 
-  const postForm = sectionElement.querySelector('#post-form');
-  postForm.addEventListener('submit', (e) => {
-    const textInput = sectionElement.querySelector('#text-input');
+  const btnPublish = sectionElement.querySelector('#post-button');
+  const textInput = sectionElement.querySelector('#text-input');
+
+  // -------- Crear Posts (C) --------
+
+  const createPost = (e) => {
     e.preventDefault();
+    const displayName = localUser.displayName;
     const post = textInput.value;
-    postCollection(post)
+    postCollection(post, displayName, photo)
       .then(() => {
-        console.log('datos guardados');
-        postForm.reset();
+        textInput.value = ' ';
       })
       .catch((error) => {
         console.error('Error adding document: ', error);
       });
-  });
-  const showPosts = () => {
-    getCollection()
   };
-  // const btnPublish = sectionElement.querySelector('#post-button');
+  // -------- Leer Posts (R) --------
+  const readPosts = () => {
+    getCollection().onSnapshot((querySnapshot) => {
+      const newPost = sectionElement.querySelector('#other-post');
+      newPost.innerHTML = ' ';
+      querySnapshot.forEach((doc) => {
+        const dataContent = doc.data();
+        console.log(doc.id);
+        newPost.innerHTML += `
+        <section class="profile-post">
+          <div class="container-photo">
+            <img src="${dataContent.photo}" "alt='picture' class="profile-photo">
+          </div>
+          <section class="section-post">
+            <p class="name-input"> ${dataContent.user} </p>
+            <p readonly class="text-output">${dataContent.text}</p>
+          </section>
+          <div class="update-post">
+            <button id="btn-deletePost" class="btn-delete" data-id='${doc.id}'><i class="fas fa-trash"></i></button>
+            <button class="btn-edit"><i class="fas fa-edit"></i></button>
+          </div>
+        </section> `;
+      });
+      const btnDelete = sectionElement.querySelectorAll('.btn-delete');
+      btnDelete.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          deletePost(e.target.dataset.id)
+            .then(() => {
+              console.log('Document successfully deleted!');
+            }).catch((error) => {
+              console.error('Error removing document: ', error);
+            });
+        });
+      });
+    });
+  };
 
-  // // -------- Crear Posts (C) --------
-  // const createPost = (e) => {
-  //   e.preventDefault();
-  //   let userName;
-  //   if (user.displayName === null) {
-  //     getUserCollection().onSnapshot((querySnapshot) => {
-  //       querySnapshot.forEach(() => {
-  //       });
-  //     });
-  //     console.log(user.email);
-  //   } else {
-  //     userName = user.displayName;
-  //     const post = textInput.value;
-  //     postCollection(post, userName, photo)
-  //       .then(() => {
-  //         textInput.value = ' ';
-  //       })
-  //       .catch((error) => {
-  //         console.error('Error adding document: ', error);
-  //       });
-  //   }
-  // };
-
-  // // -------- Leer Posts (R) --------
-  // const readPosts = () => {
-  //   getCollection().onSnapshot((querySnapshot) => {
-  //     const newPost = sectionElement.querySelector('#other-post');
-  //     newPost.innerHTML = ' ';
-  //     querySnapshot.forEach((doc) => {
-  //       const dataContent = doc.data();
-  //       newPost.innerHTML += `
-  //       <section class="profile-post">
-  //         <div class="update-post">
-  //         <button id="btn-deletePost" class="btn-delete" data-id='${doc.id}'>Eliminar</button>
-  //         <button>Editar</button>
-  //         </div>
-  //         <div class="container-photo">
-  //           <img src="${dataContent.photo}" "alt='picture' class="profile-photo">
-  //         </div>
-  //         <section class="section-post">
-  //           <p class="name-input"> ${dataContent.user} </p>
-  //           <p readonly class="text-output">${dataContent.text}</p>
-  //         </section>
-  //       </section> `;
-  //     });
-  //     const btnDelete = sectionElement.querySelectorAll('.btn-delete');
-  //     btnDelete.forEach((btn) => {
-  //       btn.addEventListener('click', (e) => {
-  //         deletePost(e.target.dataset.id)
-  //           .then(() => {
-  //             console.log('Document successfully deleted!');
-  //           }).catch((error) => {
-  //             console.error('Error removing document: ', error);
-  //           });
-  //       });
-  //     });
-  //   });
-  // };
-
-  // btnPublish.addEventListener('click', createPost);
-  // readPosts();
+  btnPublish.addEventListener('click', createPost);
+  readPosts();
 
   // ------------------ Salir de la página --------------------
   const signOut = sectionElement.querySelector('#sign-out');
