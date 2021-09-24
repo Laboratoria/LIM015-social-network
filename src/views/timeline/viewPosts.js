@@ -21,6 +21,7 @@ const allPosts = () => {
                         image: doc.data().image,
                         idCategory: doc.data().idCategory,
                         nameCategory: categoryprueba.nameCategory,
+                        urlImage: doc.data().urlImage
                     })
                 });
                 window.localStorage.setItem('allPosts', JSON.stringify(objectPosts));
@@ -64,12 +65,17 @@ const loadViewPost = (objectDataPosts) => {
         </div>
         <div class="post-content">
             <p class="content-paragraph"> ${element.contentPost} </p>
-            ${(element.image == true ) ? `<img src="${element.nameImage}" class="content-image"/>` : ``}
+            ${(element.image == true ) ? `<img src="${element.urlImage}" class="content-image"/>` : ``}
         </div>
         <div class="post-footer footer">
             <div class="footer-reactions reactions">
-                <button type="button" class="btn-post btn-notlike" data-link="${element.idPost}" > <img class="img-heart" src=""></button>
+
+                <img id="idLike" class="btn-post btn-notlike" width="22px" height="22px" data-id="${element.idPost}"  src="../images/testImg/heart.png" data-show='${element.totalLikes}'>
+               <p class='show-like'>${element.totalLikes}</p> 
+                
+
                 <button type="button" class="btn-post btn-notcomment"><i class="far fa-comment-dots"></i> <span class="count-reaction">${element.totalComments}</span></button>
+
                 <button type="button" class="btn-post btn-notsave"><i class="far fa-bookmark"></i> <span class="count-reaction"></span>  </span></button>
             </div>
             <div class="footer-comments comments"> </div>

@@ -1218,6 +1218,7 @@ img {
     position: absolute;
     width: 50px;
     height: 40px;
+    display: flex;
 }
 
 .image-upload>input {
