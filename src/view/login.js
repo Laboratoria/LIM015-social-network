@@ -122,8 +122,18 @@ const viewLogin = () => {
         //clear form
         loginForm.reset();
         // changeLogin();
-        console.log("ya estas dentro");
-        window.open("#/home", "_self");
+        firebase.auth().onAuthStateChanged((user) => {
+          console.log(user)
+          console.log(user.emailVerified)
+          // changeLogin();
+          if(user.emailVerified){
+            console.log("ya estas dentro");
+            window.open("#/home", "_self");
+          }else {
+            console.log("no estas verificado");
+          }
+   
+        })  
       })
       .catch(() => {
         spanErrorLogin.classList.add("errorLogin");
@@ -136,6 +146,7 @@ const viewLogin = () => {
       spanErrorLogin.classList.remove("invalidEmail");
       spanErrorLogin.innerHTML = "";
     }, 2000);
+
   });
 
   const buttonGoogleLogin = sectionLogin.querySelector("#buttonGoogleLogin");
