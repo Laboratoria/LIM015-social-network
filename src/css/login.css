@@ -186,7 +186,6 @@ footer {
   background-color: #fab33f;
 } 
 
-
 @media (min-width: 1280px) and (max-width: 1599px) {
 
   .contenedorLogin{
@@ -198,21 +197,21 @@ footer {
   .fondo-Login1{
     display:block;
     align-content: left;
+    margin:50px;
   }
   .btn-texto, .btn-signin, .btn-register{
     align-content: right;
-    margin:16px;
-    padding:16px;
+    padding-bottom:5px;
   }
 
   .figure-title-login, .figure-google{
-    margin: 100px;
+    margin: 50px;
 }
 
   .img-title {
     width: 360px;
     height:100px;
-    padding: 10px;
+    
   }
   .fondoAnimalPet{
     align-content: right;
