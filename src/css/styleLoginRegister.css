@@ -32,6 +32,11 @@
   align-items: center;
 }
 
+.logo__img {
+  width: 80%;
+  padding-top: 10%;
+}
+
 .form--login__inputList,
 .form--register__inputList {
   width: 80%;
@@ -95,7 +100,7 @@
   background-color: #742284;
   color: white;
   box-shadow: 0px 6px 16px 0px rgba(104, 36, 127, 0.5);
-  padding: 0.5em 1.6em;
+  padding: 0.5em;
   font-weight: bold;
 }
 
@@ -146,6 +151,7 @@
 .login__registerLink {
   font-size: 0.8rem;
   margin: 0.5em;
+  text-align: center;
 }
 
 .backArrow {
@@ -206,6 +212,17 @@
 }
 
 
+.login__h1,
+.register__h1 {
+  color:#4C048A;
+  font-weight: bold;
+}
+.login__h2,
+.register__h2 {
+  color:#616161;
+}
+
+
 /* ocultar boton guardar cambios */
 /* .btn-cancelEdit{
   display: none;
@@ -226,15 +243,18 @@
     height: 100vh;
   }
 
+.register__Subtitle{
+   width:80%;
+}
+  .login__h1,
+  .register__h1 {
+    font-size: 1.1rem;
+  }
+  .login__h2,
   .register__h2 {
+    font-size: 1.1rem;
     padding: 0em 1em;
   }
-
-  .register__h1,
-  .register__h2 {
-    font-size: 1.5rem;
-  }
-
   .container__logoDesktop{
     width:50%;
 
