@@ -1,8 +1,9 @@
 // Creando la colección de posts
-export const postCollection = (post, userName, photo) => firebase.firestore().collection('posts').add({
+export const postCollection = (post, userName, photo, email) => firebase.firestore().collection('posts').add({
   user: userName,
   text: post,
   photo,
+  email,
   timePost: firebase.firestore.FieldValue.serverTimestamp(),
 });
 // Obteniendo la colección de posts

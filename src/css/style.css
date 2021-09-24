@@ -273,7 +273,9 @@ span{
 }
 
 
-
+.hide{
+    display: none;
+  }
 
 /* @media screen and (max-width:778px) {
     .container-box{
