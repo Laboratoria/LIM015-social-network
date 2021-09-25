@@ -28,5 +28,5 @@ const updateLikes = (id, totalLikes) => {
     return db.collection('posts').doc(id).update({ totalLikes });
 };
 
-export { saveUser, getAllUsers, getAllCategories, getAllPosts, db, deletePostFs, datePost , storage, updateLikes}
+export { savePost, saveUser, getAllUsers, getAllCategories, getAllPosts, db, deletePostFs, datePost , storage, updateLikes}
 
