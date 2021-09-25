@@ -1,3 +1,8 @@
+import {deletePosts} from "../firebase/fb-firestore.js";
+
+
+
+
 const modalProfile = () => {
     const ContentModalProfile = `
     <section class="containerModalProfile">
@@ -59,4 +64,45 @@ const modalRegisterVerification = (email) => {
 
 
 
-export {modalProfile, modalRegisterVerification};
+const modalDelete = (selection) => {
+    console.log("mostrando modal");
+    
+    const modalContentDelete  = /*html*/`
+    <div class="modalContent modalContent--verification">
+       <span class="closeModal">&times;</span>
+       <h1>¿Estás seguro de eliminar tu post?</h1>
+       <div class="btnOpcionDelete">
+       <button class="btn-post btnOpcionModal " id='btn-No'  >No</button>
+       <button class="btn-post  btnOpcionModal" id='btn-Yes'  >SI</button>
+       </div>
+        </div>
+    `
+   const modalContainerDelete=document.createElement('section');
+   modalContainerDelete.classList.add('modalContainer');
+   modalContainerDelete.classList.add('modalContainer--verification');
+   modalContainerDelete.innerHTML=modalContentDelete;
+
+   const closeModal=modalContainerDelete.querySelector('.closeModal');
+   const btnNo= modalContainerDelete.querySelector('#btn-No');
+
+   const btnYes= modalContainerDelete.querySelector('#btn-Yes');
+
+   closeModal.addEventListener('click', () => {
+    modalContainerDelete.style.display="none";
+   })
+
+   btnNo.addEventListener('click', () => { 
+    modalContainerDelete.style.display="none";
+   });
+
+   btnYes.addEventListener('click',async () => { 
+       console.log("eliminado comentario");
+    await deletePosts(selection)
+   });
+
+   return modalContainerDelete;
+}
+
+
+
+export {modalProfile, modalRegisterVerification,modalDelete};

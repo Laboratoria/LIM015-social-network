@@ -1,9 +1,13 @@
 const view404 =()=>{
 
     const html404=
-    ` <div> Pagina no encontrada</div>`;
+    ` <div class="contentError404"> 
+   
+    <img class="error404Img" src="../img/error404.png"></img>
+    <p>!Ups!</p>
+    <h1> Pagina no encontrada </h1>
+    </div>`;
     
-
     const div404=document.createElement('div');
     div404.innerHTML=html404;
 

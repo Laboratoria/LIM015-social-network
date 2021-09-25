@@ -1,10 +1,13 @@
 import {
   savePost,
   onGetPosts,
-  deletePosts,
+  /*deletePosts,*/
   updatePost,
   getPost,
 } from "../firebase/fb-firestore.js";
+
+
+import {modalDelete} from "../view/modals.js"
 
 const viewHome = () => {
   const htmlHome = /*html*/ `
@@ -120,29 +123,38 @@ const viewHome = () => {
               </div>`
               : ""}
         </div>
+        
+        <section id="modalDeletePost" class="modalVerification modalDeletePost "></section>
+
                    
     </section> `;
 
     });
+
+
+
     // Función que elimina el post
     const btnDelete = postListContainer.querySelectorAll(".btn-delete");
     const btnEdit = document.querySelectorAll(".btn-edit");
+    const modaldeletePost = document.querySelector("#modalDeletePost");
+    console.log(modaldeletePost);
 
     btnDelete.forEach((btn) =>{     
-      btn.addEventListener("click", async (e) => {
+      btn.addEventListener("click", /*async*/ (e) => {
         try {
-          await deletePosts(e.target.dataset.id);
+          console.log("modal dele");
+           modaldeletePost.appendChild(modalDelete(e.target.dataset.id))
+                     
         }catch (error){
           console.log(error)
         }
-        
-      })
+        })
     }
     
     );
     //funcion dar likes
     const iconLikes = postListContainer.querySelectorAll('.fa-heart');
-    console.log(iconLikes)
+    //console.log(iconLikes)
     iconLikes.forEach((icon)=>{
       icon.addEventListener('click' , async (e)=>{
         const idDocPost = e.target.dataset.id;

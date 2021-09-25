@@ -106,8 +106,10 @@
   display:block;
  }
 
+
  /* footer */
  footer{
+
   background: #1D0335;
   color: white;
   height: 50px;
@@ -117,6 +119,39 @@
   font-size: 0.9rem;
   text-align: center;
  }
+
+
+ /* pagina error*/
+
+ .contentError404{
+   margin:auto;
+   display: flex;
+   padding-top: 6em;
+   align-items: center;
+   justify-items: center;
+   flex-direction: column;
+   background-color: #f3d9fa;
+   width: 100vw;
+   height: 100vh;
+ }
+
+ .error404Img{
+   /*margin-top: 7em;*/
+   width: 70%;
+ }
+ .contentError404 h1{
+   font-size: 1.3rem;
+   margin-top: 1em;
+   text-align: center;
+   
+ }
+
+ .contentError404 p{
+  font-size: 1.5rem;
+
+}
+
+
 
  /* responsive for desktop */
 
@@ -149,7 +184,6 @@
     padding: 0 20px;
     transition: none;
     height: 100%;
-    /* width: 100%; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -166,6 +200,19 @@
 .nav__menu li a:hover,.nav__menu li:hover{
   color:#fff;
   background-color: #DE09A6;
+}
+
+.contentError404{
+  padding-top: 4em;
+  
+}
+.error404Img{
+  width: 60%;
+}
+
+.contentError404 h1 p{
+  margin-top: 0em;
+  padding: 1em;
 }
 
  }
