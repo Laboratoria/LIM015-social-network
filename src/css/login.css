@@ -2,102 +2,7 @@
   margin: 0;
   padding: 0;
 }
-/* p {
-  text-align: right;
-}
-body {
-  background-image: url(../img/diseño1.png);
-  min-height: 100%;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
-  -moz-background-size: cover;
-}
-#logoGmail {
-  height: 40px;
-  width: 40px;
-  cursor: pointer;
-}
-#container {
-  background-position: center;
-  background-color: #fafafa6e;
-  margin-right: 60px;
-}
-.fondoAnimal {
-  width: 600px;
-  height: 600px;
-  display: block;
-  margin: auto;
-  border: radius 15px;
-}
-#imgLogin {
-  display: flex;
-  align-items: right;
-  justify-content: right;
-  margin-right: 60px;
-}
-#imgLogin > img {
-  max-width: 30%;
-  border-radius: 50%;
-}
-#email {
-  text-align: center;
-}
-.container .text name {
-  border-radius: 5px;
-  padding: 15px 5px 5px 20px;
-}
-#fondoLogin1 {
-  width: 45px;
-  height: 45px;
-  display: flex;
-  background-size: 50% 50%;
-}
-#info,
-#information,
-#btnlogin,
-#btnGoogleLogin
-{
-  width: 100%;
-  height: 30%;
-  display: flex;
-  align-items: right;
-  justify-content: right;
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-bottom: 10px;
-}
-#btnsignin,
-#registro {
-  border-radius: 5px 5px 5px 5px;
-  background-color: #fab33f;
-  width: 8%;
-  height: 50%;
-}
-#regis {
-    display: flex;
-    align-items: right;
-    justify-content: right;
-}
-#email,
-#password {
-  border-radius: 15px 15px 15px 15px;
-  background-color: rgb(206, 191, 191);
-  width: 250px;
-  height: 30px;
-}
-a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-footer {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  font-family: Arial;
-  background-color: #fab33f;
-} */
+
 .contenedorLogin{
   display: flex;
   flex-direction: column;
@@ -199,11 +104,7 @@ footer {
   .fondo-Login1{
     display:block;
     align-content: left;
-<<<<<<< HEAD
-    margin:50px;
-=======
     margin:250px;
->>>>>>> main
   }
   .btn-texto, .btn-signin, .btn-register{
     align-content: right;
@@ -211,11 +112,7 @@ footer {
   }
 
   .figure-title-login, .figure-google{
-<<<<<<< HEAD
-    margin: 50px;
-=======
     margin: 10px;
->>>>>>> main
 }
 
   .img-title {
@@ -225,6 +122,46 @@ footer {
   }
   .fondoAnimalPet{
     align-content: right;
+
+  }
+}
+
+@media (min-width: 700px) and (max-width: 1200px) {
+
+  .contenedorLogin{
+    display:flex;
+    flex-direction:row;
+    min-height: 100vh;
+    width:100%;
+    margin-left: -30px;
+  }
+
+  .fondo-Login1{
+    display:none;
+  }
+  .btn-texto, .btn-signin, .btn-register{
+    align-content: center;
+    padding-bottom:5px;
+    width: 400px;
+    height:380;
+  }
+
+  .btn-texto{
+    width: 400px;
+    height:380;
+  }
+
+  .figure-title-login, .figure-google{
+    margin: 10px;
+}
+
+  .img-title {
+    width: 460px;
+    height:200px;
+    
+  }
+  .fondoAnimalPet{
+    align-content: center;
 
   }
 }

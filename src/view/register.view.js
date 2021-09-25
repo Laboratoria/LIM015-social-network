@@ -7,7 +7,7 @@ export function viewRegister() {
   const viewRegister = `
   <form class="container-Register">
     <figure>
-      <img src="./img/parque.png" id="fondoRegister1" class="fondoAnimal1"width="55%" height="55%">
+      <img src="./img/parque.png" id="fondoRegister1" class="fondoAnimal1">
     </figure>
     <section class="frmregister">
     <figure class="figure-Register">
