@@ -16,21 +16,25 @@ const addEventsTimeline = () => {
 
         /***Eventos para Abrir y Cerrar Modal***/
         const modal = document.querySelector('.modal');
-        const btnCreatePost = document.querySelector('.btn-create-post');/* abrir */
-        const btnCerrarModal = document.querySelector('.btn-cerrar-modal');/* cerrar */
-        btnCreatePost.addEventListener('click', () => { 
-            const btnModal = document.querySelector('#share-post');/* abrir */
+        const btnCreatePost = document.querySelector('.btn-create-post'); /* abrir */
+        const btnCerrarModal = document.querySelector('.btn-cerrar-modal'); /* cerrar */
+        const formCreatePost = document.querySelector('#form-create-post');
+        const sectionNameImgUpload = document.querySelector('.name-image-upload');
+        btnCreatePost.addEventListener('click', () => {
+            const btnModal = document.querySelector('#share-post'); /* abrir */
             const titleModal = document.querySelector('#title-modal');
             btnModal.innerText = 'Publicar';
             titleModal.innerText = 'Crear Publicación';
+            formCreatePost.reset();
+            sectionNameImgUpload.innerHTML = ``;
             modal.classList.add('revelar');
         });
-        
+
         btnCerrarModal.addEventListener('click', () => {
-            modal.classList.remove('revelar') 
+            modal.classList.remove('revelar')
             document.querySelector('#form-create-post').reset();
         });
-        
+
         /***Renderizar TextArea***/
         const userPost = document.querySelector('.user-info-textarea');
         const placeholderTextarea = document.querySelector('.textarea-post');
@@ -74,17 +78,6 @@ const addEventsTimeline = () => {
             textarea.value += emojiSelected.innerHTML;
         }
 
-        /** Leer el archivo subido en input file **/
-
-        // const inputFile = document.querySelector('#file-input');
-        // inputFile.addEventListener('change', () => {
-        //     let uploadImage;
-        //     if (inputFile.files && inputFile.files[0]) {
-        //         uploadImage = inputFile.files[0].name;
-        //         console.log(uploadImage)
-        //     }
-        // })
-    /***Evento para Mover Carousel***/
     sliderPopularPost();
 }
 

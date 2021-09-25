@@ -19,7 +19,6 @@ const getAllCategories = () => db.collection("categories").get();
 const getAllPosts = () => db.collection("posts").orderBy('datePost', 'asc').get();
 const deletePostFs = (id) => db.collection('posts').doc(id).delete();
 const datePost = () => firebase.firestore.Timestamp.now();
-const storage = () => firebase.storage();
 const savePost = (object) => db.collection('posts').add(object);
 
 
@@ -28,5 +27,5 @@ const updateLikes = (id, totalLikes) => {
     return db.collection('posts').doc(id).update({ totalLikes });
 };
 
-export { saveUser, getAllUsers, getAllCategories, getAllPosts, db, deletePostFs, datePost , storage, updateLikes, savePost}
+export { savePost, saveUser, getAllUsers, getAllCategories, getAllPosts, db, deletePostFs, datePost, updateLikes }
 
