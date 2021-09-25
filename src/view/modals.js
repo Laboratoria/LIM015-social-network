@@ -32,7 +32,31 @@ const modalProfile = () => {
     const divProfile=document.createElement('div');
     divProfile.innerHTML=ContentModalProfile;
     return divProfile;
+
+}
+
+const modalRegisterVerification = (email) => {
+     const modalContent  = /*html*/`
+     <div class="modalContent modalContent--verification">
+        <span class="closeModal">&times;</span>
+        <h1>¡Solo te falta un paso para terminar tu registro!</h1>
+        <p>Hemos enviado un correo a:</br><span>${email}</span></p>
+        <p>Por favor revise su correo y haga click en el link dentro del mensaje.</p>  
+     </div>
+     `
+    const modalContainer=document.createElement('section');
+    modalContainer.classList.add('modalContainer');
+    modalContainer.classList.add('modalContainer--verification');
+    modalContainer.innerHTML=modalContent;
+
+    const closeModal=modalContainer.querySelector('.closeModal');
+    closeModal.addEventListener('click', () => {
+        window.open("#", "_self");   
+    })
+
+    return modalContainer;
 }
 
 
-export {modalProfile};
+
+export {modalProfile, modalRegisterVerification};

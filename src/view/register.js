@@ -2,12 +2,20 @@ import {
   registerEmail,
   loginGoogle,
   updateProfile,
+  emailVerification,
 } from "../firebase/fb-functions.js";
+import {
+  modalRegisterVerification,
+} from "../view/modals.js";
 const viewRegister = () => {
   const htmlRegister = /*html*/ `
   <div class="viewDesktop">
-    <img class="viewDesktop__logo" src="./img/logoMobilPrueba.png" alt="Makipura">
-    <img class="viewDesktop__woman" src="./img/woman.png" alt="Makipura">
+    <div class="container__logoDesktop">
+       <img class="viewDesktop__logo" src="./img/logoMobilPrueba.png" alt="Makipura">
+    </div>
+    <div class="container__logoDesktopWoman">
+       <img class="viewDesktop__woman" src="./img/woman.png" alt="Makipura">
+    </div>
   </div>
   <div class="register">
     <div class="logo">
@@ -18,6 +26,7 @@ const viewRegister = () => {
     </div>
     <div class="register__title">
       <h1 class="register__h1">REGISTRATE</h1>
+
     </div>
     <form class="form form--register" id="loginForm-signup" action="">
       <div class="form--register__inputList">
@@ -52,14 +61,18 @@ const viewRegister = () => {
           <div class="buttton button--second__img"><img class="googleIcon" src="./img/iconoGoogle.png" alt="icono_Google"></div>
           <div class="buttton button--second__text">Ingresar con Google</div> 
         </button>
+        <div class="login__registerLink">
+        <p>¿Ya tienes cuenta?</br>Ingresa<a class="link" href="/#"> aquí</a></p>
+        </div>
       </div>
     </form>
-    <div class="backArrow" id="backArrowLogin">
-      <a href="/#"><i class="far fa-arrow-alt-circle-left"></i></a>
-    </div>
+
+    <section id="modalVerification" class="modalVerification"></section>
+
   </div>
     `;
 
+    
   const sectionRegister = document.createElement("section");
   sectionRegister.classList.add("registerSection");
 
@@ -125,6 +138,8 @@ const viewRegister = () => {
     }
   });
 
+ 
+
   signupForm.addEventListener("submit", (e) => {
     e.preventDefault();
     if (passwordRegister.value === passwordConfirmRegister.value) {
@@ -132,15 +147,19 @@ const viewRegister = () => {
       const email = document.querySelector("#emailRegister").value;
       const name = document.querySelector("#nameRegister").value;
       const password = document.querySelector("#passwordRegister").value;
+      const modalVerification = document.querySelector("#modalVerification");
+      modalVerification.appendChild(modalRegisterVerification(email));
+      console.log(modalVerification)
+      console.log(modalRegisterVerification(email))
       registerEmail(email, password)
         .then((cred) => {
           //base de datos de usuario
           if (email && name && password) {
             updateProfile(name);
+            emailVerification();
           }
           console.log(cred.user);
           signupForm.reset();
-          window.open("#", "_self"); // otros usan el hash
         })
         .catch(() => {
           spanErrorEmail.classList.add("invalidEmail");
