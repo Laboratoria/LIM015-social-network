@@ -28,3 +28,4 @@ const updateLikes = (id, totalLikes) => {
 };
 
 export { savePost, saveUser, getAllUsers, getAllCategories, getAllPosts, db, deletePostFs, datePost, updateLikes }
+
