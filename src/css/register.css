@@ -45,15 +45,13 @@
 
 .container-Register{
   display: flex;
+  width:700px;
+  max-width:100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   margin: 0;
-}
-
-#fondoRegister1{
-  display:none;
 }
 
 .fondoAnimalPet{
@@ -95,20 +93,20 @@ body{
   margin-bottom: 10px;
   border-radius: 15px;
   background-color: rgb(206, 191, 191);
-  width: 250px;
-  height: 20px;
+  width: 300px;
+  height: 40px; 
   text-align: center;
   border:0;
   outline: none;
 }
 
 .btn{
-  padding-bottom: 10px;
   margin-bottom: 10px;
+  margin-left: 80px;
   border-radius: 15px;
   background-color: #fab33f;
-  width: 250px;
-  height: 30px;
+  width:150px;
+  height:40px; 
   border:0;
   outline: none;
 }
@@ -125,5 +123,199 @@ footer {
   margin-right: auto;
   font-family: Arial;
   background-color: #fab33f;
+  height:30px;
 } 
+
+@media (min-width: 1600px) and (max-width: 2500px) {
+
+  .container-Register{
+    display:flex;
+    flex-direction:row;
+    min-height: 100vh;
+    justify-content: center;
+    width: 100%;
+    margin-left: -300px;
+  }
+
+  .fondoAnimal1{
+    display:block;
+    align-content: left;
+    margin:250px;
+  }
+  
+  .btn-texto, .btnRegister, .btn{
+    align-content: right;
+    padding-bottom:5px;
+    width:850;
+    height:650;
+    font-size: 20px;
+
+  }
+
+  .btn{
+    width:350px;
+    height:40px;
+  }
+
+  .btn-texto{
+    width:500px;
+    height:500;
+  }
+
+
+
+  .figure-Register{
+    margin: 10px;
+}
+
+  /* .img-title {
+    width: 360px;
+    height:100px;
+    
+  } */
+  .fondoAnimalPet{
+    align-content: right;
+    width: 400px;
+    height: 400px;
+
+  }
+}
+
+
+@media (min-width: 1280px) and (max-width: 1599px) {
+
+  .container-Register{
+    display:flex;
+    flex-direction:row;
+    min-height: 100vh;
+    width: 100%;
+    margin-left: -280px;
+  }
+
+  .fondoAnimal1{
+    display:block;
+    align-content: left;
+    margin:250px;
+  }
+  
+  .btn-texto, .btnRegister, .btn{
+    align-content: right;
+    padding-bottom:5px;
+    font-size:20px;
+
+  }
+  .btn{
+    width:150px;
+    height:40px;
+  }
+
+  .btn-texto{
+    width:400px;
+    height:50px;
+  }
+
+
+  .figure-Register{
+    margin: 10px;
+}
+
+  .img-title {
+    width: 360px;
+    height:100px;
+    
+  }
+  .fondoAnimalPet{
+    align-content: right;
+    width:250px;
+    height:250px;
+
+  }
+}
+
+@media (min-width: 700px) and (max-width: 1279px) {
+
+  .container-Register{
+    display:flex;
+    flex-direction:row;
+    min-height: 100vh;
+
+    width: 100%;
+    margin-right: -220px;
+  }
+
+  .fondoAnimal1{
+    display:none;
+  }
+  
+  .btn-texto, .btnRegister, .btn{
+    align-content: right;
+    padding-bottom:5px;
+
+  }
+  .btn{
+    width:200px;
+    height:50px;
+  }
+
+  .btn-texto{
+    width:250px;
+    height:50px;
+  }
+
+
+  .figure-Register{
+    margin: 10px;
+}
+
+  .img-title {
+    width: 360px;
+    height:100px;
+    
+  }
+  .fondoAnimalPet{
+    align-content: right;
+
+  }
+}
+@media (min-width: 359px) and (max-width: 699px) {
+
+  .container-Register{
+    display:flex;
+    flex-direction:row;
+    min-height: 100vh;
+
+    width: 100%;
+    margin-right: -220px;
+  }
+
+  .fondoAnimal1{
+    display:none;
+  }
+  
+  .btn-texto, .btnRegister, .btn{
+    align-content: right;
+    padding-bottom:5px;
+
+  }
+  .btn{
+    width:150px;
+    height:40px;
+  }
+
+
+  .figure-Register{
+    margin: 10px;
+}
+
+  .img-title {
+    width: 360px;
+    height:100px;
+    
+  }
+  .fondoAnimalPet{
+    align-content: right;
+
+  }
+}
+
 

@@ -2,104 +2,10 @@
   margin: 0;
   padding: 0;
 }
-/* p {
-  text-align: right;
-}
-body {
-  background-image: url(../img/diseño1.png);
-  min-height: 100%;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
-  -moz-background-size: cover;
-}
-#logoGmail {
-  height: 40px;
-  width: 40px;
-  cursor: pointer;
-}
-#container {
-  background-position: center;
-  background-color: #fafafa6e;
-  margin-right: 60px;
-}
-.fondoAnimal {
-  width: 600px;
-  height: 600px;
-  display: block;
-  margin: auto;
-  border: radius 15px;
-}
-#imgLogin {
-  display: flex;
-  align-items: right;
-  justify-content: right;
-  margin-right: 60px;
-}
-#imgLogin > img {
-  max-width: 30%;
-  border-radius: 50%;
-}
-#email {
-  text-align: center;
-}
-.container .text name {
-  border-radius: 5px;
-  padding: 15px 5px 5px 20px;
-}
-#fondoLogin1 {
-  width: 45px;
-  height: 45px;
-  display: flex;
-  background-size: 50% 50%;
-}
-#info,
-#information,
-#btnlogin,
-#btnGoogleLogin
-{
-  width: 100%;
-  height: 30%;
-  display: flex;
-  align-items: right;
-  justify-content: right;
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-bottom: 10px;
-}
-#btnsignin,
-#registro {
-  border-radius: 5px 5px 5px 5px;
-  background-color: #fab33f;
-  width: 8%;
-  height: 50%;
-}
-#regis {
-    display: flex;
-    align-items: right;
-    justify-content: right;
-}
-#email,
-#password {
-  border-radius: 15px 15px 15px 15px;
-  background-color: rgb(206, 191, 191);
-  width: 250px;
-  height: 30px;
-}
-a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-footer {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  font-family: Arial;
-  background-color: #fab33f;
-} */
+
 .contenedorLogin{
   display: flex;
+ 
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -158,7 +64,6 @@ body{
   border:0;
   outline: none;
   text-align: center;
-  font-size: 20px;
 }
 
 .btn-signin, .btn-register{
@@ -169,16 +74,21 @@ body{
   border:0;
   outline: none;
   margin-bottom: 15px;
-  font-size: 20px;
+  margin-left: 80px;
  
 }
 /* .btn-register{
   border: none;
 } */
 
-.txt{
+.txt {
   text-align: center;
   font-size: 20px;
+  /* font-size: 16px; */
+}
+
+.a-login-signup {
+  text-decoration: none;
 }
 
 footer {
@@ -187,8 +97,9 @@ footer {
   margin-right: auto;
   font-family: Arial;
   background-color: #fab33f;
+  font-size: 20px;
+  /* padding:10px; */
 } 
-
 /* Media query para laptop (2)*/
 @media (min-width: 1280px) and (max-width: 1599px) {
 
@@ -207,8 +118,7 @@ footer {
   }
   .btn-texto, .btn-signin, .btn-register{
     align-content: right;
-    margin:16px;
-    padding:16px;
+    padding-bottom:5px;
   }
 
   .figure-title-login, .figure-google{
@@ -218,64 +128,167 @@ footer {
   .img-title {
     width: 360px;
     height:100px;
-    padding: 10px;
+    
   }
   .fondoAnimalPet{
     align-content: right;
 
   }
-
 }
+/* Media query para tablet(3) */
+@media (min-width: 700px) and (max-width: 1200px) {
 
-/* Media query para tablet  (1)*/
-@media (min-width: 768px) and (max-width: 1279px) {
   .contenedorLogin{
-    min-height: 95vh;
-    width: 100%;
+    display:flex;
+    flex-direction:row;
+    min-height: 100vh;
+    width:100%;
+    margin-left: -30px;
   }
+
   .fondo-Login1{
-    display:block;
+    display:none;
   }
   .btn-texto, .btn-signin, .btn-register{
     align-content: center;
     padding-bottom:5px;
+    width: 400px;
+    height:380;
   }
+
+  .btn-texto{
+    width: 400px;
+    height:380;
+  }
+
   .figure-title-login, .figure-google{
     margin: 10px;
 }
+
   .img-title {
-    width: 480px;
-    height:300px;
+    width: 460px;
+    height:200px;
+    
   }
   .fondoAnimalPet{
     align-content: center;
+
   }
 }
-/* Media query para desktop (3)*/
-@media (min-width: 1600px) and (max-width: 2000px) {
+/* Media query para desktop (1)*/
+@media (min-width: 1600px) and (max-width: 2500px) {
+
   .contenedorLogin{
-    display: flex;
-    flex-direction: row;
+    display:flex;
+    flex-direction:row;
+    min-height: 100vh;
+    justify-content: center;
+    width: 100%;
+    margin-left: -300px;
+  }
+
+  .figure-login{
+    margin-left: 250px;
+  }
+  .fondo-Login1{
+    display:block;
+    align-content: left;
+    margin:250px;
+  }
+  
+  .btn-texto{
+    align-content: right;
+    padding-bottom:5px;
+    width:850;
+    height:650;
+    /* font-size: 100px; */
+    /* font-size: 30; */
+
+  }
+
+  .btn-register, .btn-signin{
+    width:350px;
+    height:40px;
+    font-size: 20px;
+  }
+
+  /* .btn-texto{
+    width:500px;
+    height:500px;
+  } */
+  .message {
+    text-align: center;
+    font-size: 20px;
+  }
+
+/* logo pet lovers */
+  .figure-title-login{
+    margin: 10px;
+}
+
+  /* .img-title {
+    width: 360px;
+    height:100px;
+    
+  } */
+  .fondoAnimalPet{
+    align-content: right;
+    width: 400px;
+    height: 400px;
+
+  }
+  /* footer{
+    padding:10px;
+ 
+  } */
+}
+/* Media query para moviles(4) */
+@media (min-width: 359px) and (max-width: 699px) {
+
+  .contenedorLogin{
+    display:flex;
+    flex-direction:row;
     min-height: 100vh;
     width: 100%;
-    margin-left: -120px;
-  }
-  .fondo-Login1{
-    display:block;
-  }
-  .btn-texto, .btn-signin, .btn-register{
-    align-content: center;
-    padding-bottom:5px;
-  }
-  .figure-title-login, .figure-google{
-    margin: 10px;
-}
-  .img-title {
-    width: 480px;
-    height:300px;
-  }
-  .fondoAnimalPet{
-    align-content: center;
+    margin-right: -220px;
+  
+    
   }
 
+  .fondoAnimal1{
+    display:none;
+  }
+  
+  .btn-texto{
+    align-content: right;
+    padding-bottom:5px;
+    font-size: 20px;
+
+  }
+
+
+  .btn-signin, .btn-register{
+    width:150px;
+    height:40px;
+    font-size: 20px;
+  }
+
+
+  .figure-Register{
+    margin: 10px;
 }
+
+  .img-title {
+    width: 360px;
+    height:100px;
+    
+  }
+  .fondoAnimalPet{
+    align-content: right;
+
+  }
+}
+
+
+
+
