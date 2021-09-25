@@ -6,12 +6,12 @@ import {
 const viewRegister = () => {
   const htmlRegister = /*html*/ `
   <div class="viewDesktop">
-    <img class="viewDesktop__logo" src="./img/logoMobilPrueba.jpg" alt="Makipura">
+    <img class="viewDesktop__logo" src="./img/logoMobilPrueba.png" alt="Makipura">
     <img class="viewDesktop__woman" src="./img/woman.png" alt="Makipura">
   </div>
   <div class="register">
     <div class="logo">
-      <img class="logo__img" src="./img/logoMobilPrueba.jpg" width="150" alt="Makipura">
+      <img class="logo__img" src="./img/logoMobilPrueba.png" alt="Makipura">
     </div>
     <div class="register__Subtitle">
       <h2 class="register__h2">¡Estas a un paso de unirte a la red de emprendedoras más grande del Perú! </h2>
