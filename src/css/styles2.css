@@ -495,37 +495,6 @@ img {
 }
 
 
-/**Alerts para notificaciones*/
-
-#container-alert {
-    position: fixed;
-    top: 0;
-    margin-top: 2%;
-    padding: 15px;
-    border-radius: 3px 3px 3px 3px;
-    box-shadow: 0px 3px 3px 0px rgb(202, 202, 202);
-    margin-left: 87%;
-    display: none;
-    color: #fff;
-}
-
-.error-msg {
-    background-color: #e74b3c;
-}
-
-.info-msg {
-    background-color: #3598dc;
-}
-
-.success-msg {
-    background-color: #01ba8e;
-}
-
-.process-msg {
-    background-color: #414141;
-}
-
-
 /* ------------Style of Forgot password -----DIANITA------- */
 
 .main-box {
@@ -599,7 +568,9 @@ img {
     margin-top: 7px;
 }
 
+
 /** Grid Timeline **/
+
 .container-home {
     display: grid;
     grid-template-columns: 3% 22% 3% 67% 5%;
@@ -1258,16 +1229,13 @@ img {
     padding: 0.5rem;
 }
 
+
 /** Grid Profile **/
 
 .container-profile {
     display: grid;
     grid-template-columns: 3% 22% 3% 67% 5%;
-    grid-template-areas:'header  header       header      header           header' 
-                        '.       .            .           .                .'
-                        '.       coverUser   coverUser  coverUser       .'
-                        '.       .            .           .      .'
-                        '.       cont-friends .           cont-user-posts  .';
+    grid-template-areas: 'header  header       header      header           header' '.       .            .           .                .' '.       coverUser   coverUser  coverUser       .' '.       .            .           .      .' '.       cont-friends .           cont-user-posts  .';
     grid-template-rows: 10vh 3vh 20vh 5vh 60vh;
     background-color: #f7f7f7;
     /* border: solid 1px red; */
@@ -1327,6 +1295,7 @@ img {
     align-items: center;
     justify-content: space-between;
 }
+
 .action-user-post {
     display: flex;
 }
@@ -1377,4 +1346,35 @@ img {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+}
+
+
+/**Alerts para notificaciones*/
+
+#container-alert {
+    position: fixed !important;
+    top: 0;
+    margin-top: 2%;
+    padding: 15px;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0px 3px 3px 0px rgb(202, 202, 202);
+    margin-left: 87%;
+    display: none;
+    color: #fff;
+}
+
+.error-msg {
+    background-color: #e74b3c;
+}
+
+.info-msg {
+    background-color: #3598dc;
+}
+
+.success-msg {
+    background-color: #01ba8e;
+}
+
+.process-msg {
+    background-color: #414141;
 }

@@ -35,8 +35,9 @@ const getObjectAllPosts = async() => {
 }
 
 const loadViewPost = (objectDataPosts) => {
+        console.log('esto recibo', objectDataPosts);
         const containerPost = document.querySelector('#container-posts');
-        const idUserAuth = localStorage.getItem('iduser');//Esto vien de la linea 58 del archivo eventLogin
+        const idUserAuth = localStorage.getItem('iduser'); //Esto vien de la linea 58 del archivo eventLogin
         objectDataPosts.forEach(element => {
                     const post = document.createElement('div');
                     post.classList.add('post');
@@ -65,12 +66,17 @@ const loadViewPost = (objectDataPosts) => {
         </div>
         <div class="post-content">
             <p class="content-paragraph"> ${element.contentPost} </p>
-            ${(element.image == true ) ? `<img src="${element.urlImage}" class="content-image"/>` : ``}
+            ${(element.image == true ) ? `<img src="${element.urlImage}" class="content-image" />` : ``}
         </div>
         <div class="post-footer footer">
             <div class="footer-reactions reactions">
-                <button type="button" class="btn-post btn-notlike" data-link="${element.idPost}" > <img class="img-heart" src=""></button>
+
+                <img id="idLike" class="btn-post btn-notlike" width="22px" height="22px" data-id="${element.idPost}"  src="../images/testImg/heart.png" data-show='${element.totalLikes}'>
+               <p class='show-like'>${element.totalLikes}</p> 
+                
+
                 <button type="button" class="btn-post btn-notcomment"><i class="far fa-comment-dots"></i> <span class="count-reaction">${element.totalComments}</span></button>
+
                 <button type="button" class="btn-post btn-notsave"><i class="far fa-bookmark"></i> <span class="count-reaction"></span>  </span></button>
             </div>
             <div class="footer-comments comments"> </div>
