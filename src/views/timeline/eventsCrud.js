@@ -1,19 +1,22 @@
-import { savePost, datePost, deletePostFs } from "../../db/firestore.js";
+import { savePost, datePost, deletePostFs, updatePost } from "../../db/firestore.js";
 import { saveImageFile, getPhotoURL } from "../../db/storage.js";
 import { alerts, btnProcess } from "../../lib/alerts.js";
 import { loadViewPost } from "./viewPosts.js";
 
-const selectCategory = document.querySelector('#select-categories');
-const inputTextarea = document.querySelector('#post-user');
-const inputIdPost = document.querySelector('#input-idpost');
-const inputUrl = document.querySelector('#input-urlpost');
-const formCreatePost = document.querySelector('#form-create-post');
+
+
 
 export const createPost = () => {
+    const selectCategory = document.querySelector('#select-categories');
+    const inputTextarea = document.querySelector('#post-user');
+    const inputIdPost = document.querySelector('#input-idpost');
+    const inputUrl = document.querySelector('#input-urlpost');
+    const formCreatePost = document.querySelector('#form-create-post');
     const infouser = JSON.parse(window.localStorage.getItem('infouser'));
-    const imageUpload = formCreatePost.querySelector('#file-input');
+    const imageUpload = document.querySelector('#file-input');
     const modal = document.querySelector('.modal');
     const sectionNameImgUpload = document.querySelector('.name-image-upload');
+    const inputNameImage = document.querySelector('#input-nameImage');
 
     imageUpload.addEventListener('change', () => {
         if (imageUpload.files && imageUpload.files[0]) {
@@ -43,7 +46,7 @@ export const createPost = () => {
                 .then(() => getPhotoURL(nameImage))
                 .then((imageURL) => {
                     objectPost.urlImage = imageURL;
-                    if (inputIdPost.value == "") { createobjectPost(objectPost, textSelect) } else { updatePost(objectPost, inputIdPost.value, textSelect) }
+                    if (inputIdPost.value == "") { createobjectPost(objectPost, textSelect) } else { updateObjectPost(objectPost, inputIdPost.value, textSelect) }
                 });
         } else {
             if (inputIdPost.value == "") { //es un post nuevo sin imagen
@@ -53,13 +56,14 @@ export const createPost = () => {
                 createobjectPost(objectPost, textSelect)
             } else { //editar el post pero no se edita la imagen
                 objectPost.urlImage = inputUrl.value;
-                updatePost(objectPost, inputIdPost.value, textSelect)
+                objectPost.nameImage = inputNameImage.value;
+                updateObjectPost(objectPost, inputIdPost.value, textSelect)
             }
         }
     });
 
     const createobjectPost = (object, textSelect) => {
-
+        const formCreatePost = document.querySelector('#form-create-post');
         savePost(object)
             .then((res) => { // Necesitamos el res para obtener el id generado en el firestore
                 const objectobjectPost = [{
@@ -81,6 +85,7 @@ export const createPost = () => {
                 loadViewPost(objectobjectPost);
                 editPost();
                 deletePost(); //vuelvo a llamar a la funcionn delete
+                formCreatePost.reset();
                 modal.classList.remove('revelar') //Cierra el modal?
                 btnProcess(false);
                 alerts('success', 'Post Publicado');
@@ -150,13 +155,29 @@ function loadDataPosts(idPost) {
     const objectAllPosts = JSON.parse(window.localStorage.getItem('allPosts'));
     const dataPost = objectAllPosts.find(post => post.idPost === idPost)
         // const imageUpload = document.querySelector('#file-input');
+        console.log(dataPost)
+    const selectCategory = document.querySelector('#select-categories');
+    const inputTextarea = document.querySelector('#post-user');
+    const inputIdPost = document.querySelector('#input-idpost');
+    const inputUrl = document.querySelector('#input-urlpost');
+    const sectionNameImgUpload = document.querySelector('.name-image-upload');
+    const inputNameImage = document.querySelector('#input-nameImage');
+
     inputIdPost.value = idPost;
     selectCategory.value = dataPost.idCategory;
     inputTextarea.value = dataPost.contentPost;
     inputUrl.value = dataPost.urlImage;
-    // imageUpload.value = dataPost.nameImage;
+    inputNameImage.value = dataPost.nameImage;
+    sectionNameImgUpload.innerHTML = `<span> ${ dataPost.nameImage } </span>`;
 }
 
-function updatePost(objectPost, idPost, textSelect) {
-
+function updateObjectPost(objectPost, idPost, textSelect) {
+    const objectUpdatePost = {
+        contentPost: objectPost.contentPost,
+        datePost: objectPost.datePost,
+        nameImage: objectPost.nameImage,
+        idCategory: objectPost.idCategory,
+        urlImage: objectPost.urlImage,
+    }
+    updatePost(idPost,objectUpdatePost).then(() => console.log('he editado con exito'))
 }

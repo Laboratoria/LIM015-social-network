@@ -18,14 +18,12 @@ const addEventsTimeline = () => {
         const modal = document.querySelector('.modal');
         const btnCreatePost = document.querySelector('.btn-create-post'); /* abrir */
         const btnCerrarModal = document.querySelector('.btn-cerrar-modal'); /* cerrar */
-        const formCreatePost = document.querySelector('#form-create-post');
         const sectionNameImgUpload = document.querySelector('.name-image-upload');
         btnCreatePost.addEventListener('click', () => {
             const btnModal = document.querySelector('#share-post'); /* abrir */
             const titleModal = document.querySelector('#title-modal');
             btnModal.innerText = 'Publicar';
             titleModal.innerText = 'Crear Publicación';
-            formCreatePost.reset();
             sectionNameImgUpload.innerHTML = ``;
             modal.classList.add('revelar');
         });

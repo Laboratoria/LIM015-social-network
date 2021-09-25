@@ -12,6 +12,7 @@ const loadViewModal = () => {
                 <form action="#" class="form" id="form-create-post">
                     <input type="hidden" id="input-idpost">
                     <input type="hidden" id="input-urlpost">
+                    <input type="hidden" id="input-nameImage">
                     <section class="select-group">
                         <section class="user-info-textarea"> </section>
                         

@@ -35,7 +35,6 @@ const getObjectAllPosts = async() => {
 }
 
 const loadViewPost = (objectDataPosts) => {
-        console.log('esto recibo', objectDataPosts);
         const containerPost = document.querySelector('#container-posts');
         const idUserAuth = localStorage.getItem('iduser'); //Esto vien de la linea 58 del archivo eventLogin
         objectDataPosts.forEach(element => {
