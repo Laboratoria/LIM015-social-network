@@ -86,11 +86,7 @@ color: #78752C;
 }
 
 
-#postHome-form textarea:focus , .post__input:focus{
-  outline: none ;
-  border:1px solid red;
-  box-shadow: 0 0 10px #719ECE;
-} 
+
 
 .home__buttonPost {
   display:flex;
@@ -107,7 +103,9 @@ color: #78752C;
   background-color: #F3EFF6;
   border-radius: 10px;
   margin: 1rem 0;
+  padding-bottom:0.5em;
 }
+
 
 .home__PostsContainer{
   /* background-color: darkgray; */
@@ -149,6 +147,13 @@ color: #78752C;
   color:#616161;
   /* height: fit-content; */
 }
+
+#postHome-form textarea:focus , .post__input:focus{
+  outline: none ;
+  border:1px solid red;
+  box-shadow: 0 0 10px #719ECE;
+} 
+
 .post__paragraph{
   width: 100%;
   background: rgb(255, 255, 255);
@@ -165,9 +170,7 @@ color: #78752C;
   padding:0 0.5em;
 }
 
-.postAreaUser{
-  padding-bottom:0.5em;
-}
+
 
 .btn-post{
   background-color:none;
