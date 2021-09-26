@@ -50,15 +50,15 @@ export const pageOnlyCats = () => {
         </section>
     </main>
   </div>`;
+
   const sectionElement = document.createElement('section');
   sectionElement.classList.add('container-box');
   sectionElement.innerHTML = pageOcView;
-
+  // -----Botones del Post
   const btnPublish = sectionElement.querySelector('#post-button');
   const textInput = sectionElement.querySelector('#text-input');
 
   // -------- Crear Posts (C) --------
-
   const createPost = (e) => {
     e.preventDefault();
     const displayName = localUser.displayName;
@@ -90,23 +90,23 @@ export const pageOnlyCats = () => {
             <p class="name-input"> ${dataContent.user} </p>
             <p readonly class="text-output">${dataContent.text}</p>
           </section>
-          <div class="update-post">
-            <button id="btn-deletePost" class="btn-delete" data-id='${doc.id}'><i class="fas fa-trash"></i></button>
+          <div class="update-post  ${(dataContent.email === localUser.email) ? 'show' : 'hide'}">
+            <button id="btn-deletePost" class="btn-delete"><i class="fas fa-trash"  id="${doc.id}"></i></button>
             <button class="btn-edit"><i class="fas fa-edit"></i></button>
           </div>
         </section> `;
+      });
 
-        const btnDelete = sectionElement.querySelectorAll('.btn-delete');
-        btnDelete.forEach((btn) => {
-          btn.addEventListener('click', (e) => {
-            deletePost(e.target.dataset.id)
-              .then(() => {
-                console.log(e.target.dataset.id);
-                console.log('Document successfully deleted!');
-              }).catch((error) => {
-                console.error('Error removing document: ', error);
-              });
-          });
+      // -------- Eliminar Posts (D) --------
+      const btnDelete = sectionElement.querySelectorAll('.btn-delete');
+      btnDelete.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          deletePost(e.target.id)
+            .then(() => {
+              console.log('Document successfully deleted!');
+            }).catch((error) => {
+              console.error('Error removing document: ', error);
+            });
         });
       });
     });
