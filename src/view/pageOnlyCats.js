@@ -45,6 +45,7 @@ export const pageOnlyCats = () => {
             </div>
           </section>
         </section>
+
         <section  id="other-post">
         </section>
     </main>
@@ -61,8 +62,9 @@ export const pageOnlyCats = () => {
   const createPost = (e) => {
     e.preventDefault();
     const displayName = localUser.displayName;
+    const email = localUser.email;
     const post = textInput.value;
-    postCollection(post, displayName, photo)
+    postCollection(post, displayName, photo, email)
       .then(() => {
         textInput.value = ' ';
       })
@@ -72,13 +74,13 @@ export const pageOnlyCats = () => {
   };
 
   // -------- Leer Posts (R) --------
+
   const readPosts = () => {
     getCollection().onSnapshot((querySnapshot) => {
       const newPost = sectionElement.querySelector('#other-post');
       newPost.innerHTML = ' ';
       querySnapshot.forEach((doc) => {
         const dataContent = doc.data();
-        console.log(doc.id);
         newPost.innerHTML += `
         <section class="profile-post">
           <div class="container-photo">
@@ -93,16 +95,18 @@ export const pageOnlyCats = () => {
             <button class="btn-edit"><i class="fas fa-edit"></i></button>
           </div>
         </section> `;
-      });
-      const btnDelete = sectionElement.querySelectorAll('.btn-delete');
-      btnDelete.forEach((btn) => {
-        btn.addEventListener('click', (e) => {
-          deletePost(e.target.dataset.id)
-            .then(() => {
-              console.log('Document successfully deleted!');
-            }).catch((error) => {
-              console.error('Error removing document: ', error);
-            });
+
+        const btnDelete = sectionElement.querySelectorAll('.btn-delete');
+        btnDelete.forEach((btn) => {
+          btn.addEventListener('click', (e) => {
+            deletePost(e.target.dataset.id)
+              .then(() => {
+                console.log(e.target.dataset.id);
+                console.log('Document successfully deleted!');
+              }).catch((error) => {
+                console.error('Error removing document: ', error);
+              });
+          });
         });
       });
     });
