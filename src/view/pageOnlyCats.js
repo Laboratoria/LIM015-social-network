@@ -90,7 +90,7 @@ export const pageOnlyCats = () => {
             <p class="name-input"> ${dataContent.user} </p>
             <p readonly class="text-output">${dataContent.text}</p>
           </section>
-          <div class="update-post  ${(dataContent.email === localUser.email) ? 'show' : 'hide'}">
+          <div class="update-post  ${(dataContent.email === localUser.email) ? ' ' : 'hide'}">
             <button id="btn-deletePost" class="btn-delete"><i class="fas fa-trash"  id="${doc.id}"></i></button>
             <button class="btn-edit"><i class="fas fa-edit"></i></button>
           </div>
