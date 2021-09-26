@@ -1,4 +1,6 @@
 export default () => {
+    const infouser = JSON.parse(window.localStorage.getItem('infouser'));
+    const isPhotoUrl = /^(http|https):\/\/[^ "]+$/.test(infouser.photoUser);
     const viewProfile = document.createElement('section');
     viewProfile.className = 'container-profile';
     viewProfile.innerHTML = `
@@ -7,12 +9,13 @@ export default () => {
         
         <section class="up-information-profile">
             <section class="user-information-profile">
-                <img src="../images/rota.jpg" alt="" class="avatar avatar-lg">
+                <img src="${ (isPhotoUrl)? infouser.photoUser : '../../images/profile/' + infouser.photoUser }" alt="" class="avatar avatar-profile">
                 <section class="user-name-profile">
-                    <p>Nombre</p>
+                    <p>${infouser.nameUser}</p>
                     <p>Ocupación</p>
                 </section>
             </section>
+            <section> </section>
             <button class="btn btn-primary"> Editar Perfil </button>  
         </section>        
     </section>

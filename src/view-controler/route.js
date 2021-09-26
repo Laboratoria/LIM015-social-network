@@ -4,7 +4,7 @@ import { addEventsLogin } from '../views/login/eventsLogin.js';
 import { addEventResetPassword } from '../views/password/eventsResetPassword.js';
 import { addEventsRegister } from '../views/register/eventsSignUp.js';
 import { loadComponents } from '../views/timeline/loadComponents.js'
-
+import { loadViewHeaderUser } from '../views/timeline/viewHeaderUser.js';
 
 const changeView = (route) => {
     const containerMain = document.querySelector('#container-main');
@@ -43,7 +43,7 @@ const changeView = (route) => {
                 const viewProfile = containerMain.appendChild(components.profile());
                 const firstChild = viewProfile.firstChild;
                 viewProfile.insertBefore(components.header(), firstChild);
-                // loadComponents();
+                loadViewHeaderUser();
                 return viewProfile;
             }
     
