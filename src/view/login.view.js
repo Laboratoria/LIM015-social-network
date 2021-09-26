@@ -7,8 +7,8 @@ import {
 export function viewLogin() {
   const viewLogin = 
   `<form class="contenedorLogin">
-  <figure>
-      <img src="./img/fondoLogin.png" id="fondoLogin1" class="fondo-Login1" width="55%" height="55%">
+  <figure class="figure-login">
+      <img src="./img/fondoLogin.png" id="fondoLogin1" class="fondo-Login1" >
     </figure>
   
   <section class="frmLogin">
@@ -25,7 +25,7 @@ export function viewLogin() {
     </figure>    
     
     <span class="txt">¿You do not have an account?</span>
-      <button id="registro" class="btn-register" ><a href="#/register">register</a></button>
+      <button id="registro" class="btn-register" ><a href="#/register"class="a-login-signup">register</a></button>
   </section>
 </form>`;
   const divElem = document.createElement("div");
