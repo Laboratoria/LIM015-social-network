@@ -1,4 +1,4 @@
-import { getAllPosts } from '../../db/firestore.js';
+gitimport { getAllPosts } from '../../db/firestore.js';
 const allPosts = () => {
         const objectPosts = [];
         const allUsers = JSON.parse(window.localStorage.getItem('allUsers')); //extraemos de local viewHeaderUser Linea 21
@@ -70,7 +70,7 @@ const loadViewPost = (objectDataPosts) => {
         <div class="post-footer footer">
             <div class="footer-reactions reactions">
 
-                <img id="idLike" class="btn-post btn-notlike" width="22px" height="22px" data-id="${element.idPost}"  src="../images/testImg/heart.png" data-show='${element.totalLikes}'>
+                <img id="idLike" class="btn-post btn-notlike btn-like" width="22px" height="22px" data-id="${element.idPost}" data-iduser="${element.idUser}"  src="../images/testImg/heart.png" data-show='${element.totalLikes}'>
                <p class='show-like'>${element.totalLikes}</p> 
                 
 
@@ -84,18 +84,33 @@ const loadViewPost = (objectDataPosts) => {
 
         const theFirstChild = containerPost.firstChild;
         containerPost.insertBefore(post, theFirstChild) //renderiza en el hijo anterior del primero 
-       /*  console.log(element.idPost);
-        console.log(element.totalLikes) */
+      /* ------------------------------------------------- */
 
-        /* const classLikes = document.querySelector('#btn-like');
-       
-        console.log(classLikes)
-        classLikes.addEventListener('click', () =>{
-           
-            const result = document.querySelector(`post-${element.idPost}`);
-            console.log(result);
-        })
- */
+        const likes = post.querySelector('#idLike');
+        const getIdUser = likes.dataset.iduser;
+       /*  console.log(getIdUser) */
+        likes.addEventListener('click', () => {
+            console.log('click')
+            const result = element.idPost.indexOf(getIdUser);
+            console.log(result)
+            if (result === -1) {
+                const testLike = element.idPost.push(element.idUser);
+
+                console.log(testLike)
+            } /* else {
+                objPost.likes.splice(result, 1);
+            } */
+            // validar que no se encuentre el user().uid
+            // caso cuando no exita:
+            // const testLike = objPost.likes.push(user().uid);
+            // existe: eliminar elemento
+            // console.log(testLike)
+    
+            /* updateLikes(objPost.id, objPost.likes); */
+            // comparar que el usuario no se repita(buscar que user(),id no este dentro del array)
+            // eliminar elemento
+            // splice para dislike
+        });
     });
 }
 
