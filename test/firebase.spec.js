@@ -1,5 +1,5 @@
 // eslint-disable-next-line object-curly-newline
-import { createUser, registerGoogle, emailVerification, signInUser, signOutUser } from '../src/firebase/firebase-functions.js';
+import { createUser, registerGoogle, emailVerification, signInUser, signOutUser, currentUser, onAuthStateChanged } from '../src/firebase/firebase-auth.js';
 
 const firebasemock = require('firebase-mock');
 
@@ -69,4 +69,16 @@ describe('signOutUser', () => {
     .then((user) => {
       expect(user).toBe(undefined);
     }));
+});
+
+describe('currentUser', () => {
+  it('debería ser una función', () => {
+    expect(typeof currentUser).toBe('function');
+  });
+});
+
+describe('onAuthStateChanged', () => {
+  it('debería ser una función', () => {
+    expect(typeof onAuthStateChanged).toBe('function');
+  });
 });
