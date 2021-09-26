@@ -1,18 +1,18 @@
 const topPopularPosts = () => {
     const objectAllPosts = JSON.parse(window.localStorage.getItem('allPosts'));
-    const orderedObject = objectAllPosts.sort((post1, post2) =>  post2.totalLikes - post1.totalLikes );
+    const orderedObject = objectAllPosts.sort((post1, post2) => post2.totalLikes - post1.totalLikes);
     const topSix = orderedObject.slice(0, 6) // Extraemos los seis post con más likes
     return topSix;
 }
 
 const loadViewPopularPost = () => {
-    const orderedObject = topPopularPosts()
-    const sliderPost = document.querySelector('.slider');
-    console.log(sliderPost)
-    orderedObject.forEach(element => {
-        const cardPost = document.createElement('figure');
-        cardPost.classList.add('card-post')
-        cardPost.innerHTML = `
+        const orderedObject = topPopularPosts()
+        const sliderPost = document.querySelector('.slider');
+
+        orderedObject.forEach(element => {
+                    const cardPost = document.createElement('figure');
+                    cardPost.classList.add('card-post')
+                    cardPost.innerHTML = `
             <div class="head-popularPosts">
                 <div class="imgUser">
                     <a href="#">
