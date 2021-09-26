@@ -50,4 +50,16 @@ const alertProcess = (show) => {
 
 }
 
-export { alerts, alertProcess }
+const btnProcess = (show) => {
+    const btnModal = document.querySelector('#share-post');
+    if (show) {
+        btnModal.innerHTML = `Procesando <img src="../images/svg/load.gif" alt="load" width="25" height="25" >`;
+    } else {
+        btnModal.innerHTML = ``;
+    }
+
+}
+
+
+
+export { alerts, alertProcess, btnProcess }

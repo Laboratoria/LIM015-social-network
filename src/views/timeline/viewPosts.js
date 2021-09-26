@@ -36,7 +36,7 @@ const getObjectAllPosts = async() => {
 
 const loadViewPost = (objectDataPosts) => {
         const containerPost = document.querySelector('#container-posts');
-        const idUserAuth = localStorage.getItem('iduser');//Esto vien de la linea 58 del archivo eventLogin
+        const idUserAuth = localStorage.getItem('iduser'); //Esto vien de la linea 58 del archivo eventLogin
         objectDataPosts.forEach(element => {
                     const post = document.createElement('div');
                     post.classList.add('post');
@@ -65,7 +65,7 @@ const loadViewPost = (objectDataPosts) => {
         </div>
         <div class="post-content">
             <p class="content-paragraph"> ${element.contentPost} </p>
-            ${(element.image == true ) ? `<img src="${element.urlImage}" class="content-image"/>` : ``}
+            ${(element.image == true ) ? `<img src="${element.urlImage}" class="content-image" />` : ``}
         </div>
         <div class="post-footer footer">
             <div class="footer-reactions reactions">

@@ -1,66 +1,147 @@
-import { savePost, datePost, deletePostFs, storage } from "../../db/firestore.js";
-import { alerts } from "../../lib/alerts.js";
+import { savePost, datePost, deletePostFs, updatePost } from "../../db/firestore.js";
+import { saveImageFile, getPhotoURL } from "../../db/storage.js";
+import { alerts, btnProcess } from "../../lib/alerts.js";
 import { loadViewPost } from "./viewPosts.js";
 
-export const createPost =  () => {
+//Agregamos evento para enviar Post
+const addEventFormPost = () => {
+
+    const formPost = document.querySelector('#form-create-post');
+    const inputIdPost = document.querySelector('#input-idpost');
     const infouser = JSON.parse(window.localStorage.getItem('infouser'));
-    const formCreatePost = document.querySelector('#form-create-post');
-    const selectCategory = formCreatePost.querySelector('#select-categories');
-    const inputTextarea = formCreatePost.querySelector('#post-user');
-    const imageUpload = formCreatePost.querySelector('#file-input');
-    const modal = document.querySelector('.modal');
+    const selectCategory = document.querySelector('#select-categories');
+    const inputTextarea = document.querySelector('#post-user');
+    const imageUpload = document.querySelector('#file-input');
     const sectionNameImgUpload = document.querySelector('.name-image-upload');
 
-
+    /** Evento en caso de Cambio de Imagen**/
     imageUpload.addEventListener('change', () => {
         if (imageUpload.files && imageUpload.files[0]) {
             sectionNameImgUpload.innerHTML = `<span> ${ imageUpload.files[0].name } </span>`;
         }
     })
 
-    formCreatePost.addEventListener('submit', async  (e) => {
+    /** Evento para enviar Formulario**/
+    formPost.addEventListener('submit', async(e) => {
         e.preventDefault();
-        const textSelect = selectCategory.options[selectCategory.selectedIndex].text;
-
-        const newPost = {
-            contentPost: inputTextarea.value,
-            datePost: datePost(),
-            idCategory: selectCategory.value,
-            idUser: infouser.idUser,
-            totalLikes: 0,
-            totalComents: 0
-        }
-        if (imageUpload.files && imageUpload.files[0]) {
-            const nameImage = imageUpload.files[0].name;
-            newPost.image = true;
-            newPost.nameImage = nameImage;
-
-            const uploadImage = storage().ref('img/'+ nameImage).put(imageUpload.files[0]);
-            /* Si vamos a hacer un modal o alert de progress */
-            await uploadImage.on('state_changed', (snapshot) => {
-                const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                console.log('Enviando post...' , progress);
-            })
-            const imagencargada = () =>  uploadImage.snapshot.ref.getDownloadURL().then((downloadURL) => {
-                return downloadURL;
-            })
-            await imagencargada().then(response => newPost.urlImage = response)
-            
+        btnProcess(true);
+        const objectPost = {
+                contentPost: inputTextarea.value,
+                datePost: datePost(),
+                idCategory: selectCategory.value,
+            }
+            //Lo siguiente es verificar si es guardar un nuevo post o editar, 
+            //si el Input del IdPost es Vacio, entonces es crear
+        if (inputIdPost.value == "") {
+            //retorna un array con la info para la imagen
+            const dataUploadImage = await uploadImage('create');
+            objectPost.idUser = infouser.idUser;
+            objectPost.totalLikes = 0;
+            objectPost.totalComents = 0;
+            objectPost.image = dataUploadImage[0];
+            objectPost.nameImage = dataUploadImage[1];
+            objectPost.urlImage = dataUploadImage[2];
+            createObjectPost(objectPost);
         } else {
-            newPost.nameImage = "";
-            newPost.image = false;
-            newPost.urlImage  = "";
+            const dataUploadImage = await uploadImage('edit');
+            objectPost.image = dataUploadImage[0];
+            objectPost.nameImage = dataUploadImage[1];
+            objectPost.urlImage = dataUploadImage[2];
+            updateObjectPost(objectPost, inputIdPost.value)
         }
-        console.log(newPost)
-        createNewPost(newPost, textSelect)
-        modal.classList.remove('revelar') //Cierra el modal?
-        formCreatePost.reset();
+
     });
 
-    const createNewPost = (object, textSelect) => { 
-        savePost(object)
+}
+
+//Evento Eliminar en cada Post 
+
+const addEventDeletePost = () => {
+    const btnsDelete = document.querySelectorAll('.btn-delete');
+    const modalDelete = document.querySelector('.modal-delete');
+    const btnCerrarModal = document.querySelector('.btn-cerrar-modal-delete'); /* cerrar */
+    btnCerrarModal.addEventListener('click', () => {
+        modalDelete.classList.remove('revelar')
+    });
+    btnsDelete.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+            modalDelete.classList.add('revelar')
+            const idPosts = e.target.dataset.id;
+            deletePosts(idPosts);
+        });
+
+    });
+
+    function deletePosts(idPosts) {
+        const confirmDelete = document.querySelector('#confirm-delete');
+        const nodoPadre = document.querySelector('#container-posts');
+        const nodoHijo = document.querySelector('#post-' + idPosts);
+
+        confirmDelete.addEventListener('click', () => {
+            deletePostFs(idPosts).then(() => {
+                nodoPadre.removeChild(nodoHijo);
+                modalDelete.classList.remove('revelar') //oculta el modal
+                alerts('success', 'Eliminado con exito')
+            }).catch((err) => {
+                modalDelete.classList.remove('revelar') //oculta el modal
+                alerts('error', 'Hubo un error ' + err)
+            })
+
+        })
+    }
+}
+
+
+//Evento Editar en cada Post 
+
+const addEventEditPost = () => {
+    const btnsEdit = document.querySelectorAll('.btn-edit');
+    const modal = document.querySelector('.modal');
+    const btnModal = document.querySelector('#share-post'); /* abrir */
+    const titleModal = document.querySelector('#title-modal');
+
+    btnsEdit.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+            btnModal.innerText = 'Guardar Cambios';
+            titleModal.innerText = 'Editar Post';
+            const idPost = e.target.dataset.id;
+            loadDataPosts(idPost);
+            modal.classList.add('revelar');
+        });
+    });
+
+
+    function loadDataPosts(idPost) {
+        const objectAllPosts = JSON.parse(window.localStorage.getItem('allPosts'));
+        const dataPost = objectAllPosts.find(post => post.idPost === idPost)
+        const selectCategory = document.querySelector('#select-categories');
+        const inputTextarea = document.querySelector('#post-user');
+        const inputIdPost = document.querySelector('#input-idpost');
+        const inputUrl = document.querySelector('#input-urlpost');
+        const sectionNameImgUpload = document.querySelector('.name-image-upload');
+        const inputNameImage = document.querySelector('#input-nameImage');
+
+        inputIdPost.value = idPost;
+        selectCategory.value = dataPost.idCategory;
+        inputTextarea.value = dataPost.contentPost;
+        inputUrl.value = dataPost.urlImage;
+        inputNameImage.value = dataPost.nameImage;
+        sectionNameImgUpload.innerHTML = `<span> ${ dataPost.nameImage } </span>`;
+    }
+
+}
+
+//Funcion Para Crear y Guardar Post en Firestore
+
+const createObjectPost = (object) => {
+    const modal = document.querySelector('.modal');
+    const formPost = document.querySelector('#form-create-post');
+    const infouser = JSON.parse(window.localStorage.getItem('infouser'));
+    const selectCategory = document.querySelector('#select-categories');
+    const textSelect = selectCategory.options[selectCategory.selectedIndex].text;
+    savePost(object)
         .then((res) => { // Necesitamos el res para obtener el id generado en el firestore
-            const objectNewPost = [{
+            const objectobjectPost = [{
                 idPost: res.id,
                 idUser: infouser.idUser,
                 nameUser: infouser.nameUser,
@@ -71,86 +152,72 @@ export const createPost =  () => {
                 totalComments: 0,
                 totalLikes: 0,
                 image: object.image,
+                urlImage: object.urlImage,
                 idCategory: object.idCategory,
                 nameCategory: textSelect,
-                urlImage: object.urlImage
             }];
-            loadViewPost(objectNewPost)
-            editPost();
-            deletePost();//vuelvo a llamar a la funcionn delete
+
+            loadViewPost(objectobjectPost); //Rendereizamos el Post en la DOM
+            addEventEditPost();
+            addEventDeletePost(); //agrego de nuevo los eventos
+            formPost.reset();
+            modal.classList.remove('revelar') //Cierra el modal?
+            btnProcess(false);
+            alerts('success', 'Post Publicado');
         })
         .catch((error) => {
-            console.log(error)
+            btnProcess(false);
+            alerts('error', error)
         });
-    }
 }
 
-
-export const deletePost = () => {
-    const btnsDelete = document.querySelectorAll('.btn-delete');
-    const modalDelete = document.querySelector('.modal-delete');
-    const btnCerrarModal = document.querySelector('.btn-cerrar-modal-delete'); /* cerrar */
-    btnCerrarModal.addEventListener('click', () => {
-        modalDelete.classList.remove('revelar')
-    });
-    btnsDelete.forEach((btn) => {
-        /* console.log(btn) */
-        btn.addEventListener('click', (e) => {
-            console.log('click');
-            modalDelete.classList.add('revelar')
-            const idPosts = e.target.dataset.id;
-            deletePosts(idPosts);
-        });
-
-    });
-
-    function deletePosts(idPosts) {
-        const confirmDelete = document.querySelector('#confirm-delete');
-        confirmDelete.addEventListener('click', () => {
-            const nodoPadre = document.querySelector('#container-posts');
-            const nodoHijo = document.querySelector('#post-' + idPosts);
-            deletePostFs(idPosts).then(() => {
-                nodoPadre.removeChild(nodoHijo);
-                modalDelete.classList.remove('revelar') //oculta el modal
-                alerts('success', 'Eliminado con exito')
-            }).catch((err) => {
-                modalDelete.classList.remove('revelar') //oculta el modal
-                alerts('error', 'Hubo un error ' + err)
-                console.log(err)
-            })
-
+//Funcion Para Editar y Guardar Post en Firestore
+const updateObjectPost = (objectPost, idPost) => {
+    const modal = document.querySelector('.modal');
+    const formPost = document.querySelector('#form-create-post');
+    updatePost(idPost, objectPost)
+        .then(() => {
+            formPost.reset();
+            modal.classList.remove('revelar') //Cierra el modal
+            btnProcess(false);
+            alerts('success', 'Post Editado'); //Falta renderizar en la DOM
         })
-    }
-}
-
-export const editPost = () => {
-    const btnsEdit = document.querySelectorAll('.btn-edit');
-    btnsEdit.forEach((btn) => {
-        btn.addEventListener('click', (e) => {
-            const modal = document.querySelector('.modal');
-            const btnModal = document.querySelector('#share-post');/* abrir */
-            const titleModal = document.querySelector('#title-modal');
-            btnModal.innerText = 'Guardar Cambios';
-            titleModal.innerText = 'Editar Post';
-
-            modal.classList.add('revelar');
-            console.log('edit', e.target);
-            const idPost = e.target.dataset.id;
-            loadDataPosts(idPost);
+        .catch((error) => {
+            btnProcess(false);
+            alerts('error', error);
         });
-
-    });
 }
 
-function loadDataPosts (idPost) {
-    const objectAllPosts = JSON.parse(window.localStorage.getItem('allPosts'));
-    const dataPost = objectAllPosts.find(post => post.idPost === idPost )
-    const selectCategory = document.querySelector('#select-categories');
-    const inputTextarea = document.querySelector('#post-user');
-    // const imageUpload = document.querySelector('#file-input');
-
-    selectCategory.value = dataPost.idCategory;
-    inputTextarea.value = dataPost.contentPost;
-    // imageUpload.value = dataPost.nameImage;
+//Función para cargar y almacenar imagen 
+//La cual se encarga de verificar si hay una imagen en el inputFile, 
+//de ser asi lo almacenamos en el storage
+const uploadImage = async(action) => {
+    const imageUpload = document.querySelector('#file-input');
+    const inputUrl = document.querySelector('#input-urlpost');
+    const inputNameImage = document.querySelector('#input-nameImage');
+    const arrayInfoImage = [];
+    let image, nameImage, urlImage;
+    if (imageUpload.files && imageUpload.files[0]) {
+        image = true;
+        nameImage = imageUpload.files[0].name;
+        urlImage = await saveImageFile(nameImage, imageUpload.files[0])
+            .then(() => getPhotoURL(nameImage))
+            .then((imageURL) => {
+                return imageURL;
+            });
+    } else if (action == 'create') { //entonces crea un post sin imagen
+        image = false;
+        nameImage = "";
+        urlImage = "";
+    } else { //entonces edita un post pero sin modificar imagen, o no tenia imagen
+        image = true;
+        urlImage = inputUrl.value;
+        nameImage = inputNameImage.value;
+    }
+    arrayInfoImage.push(image);
+    arrayInfoImage.push(nameImage);
+    arrayInfoImage.push(urlImage);
+    return arrayInfoImage;
 }
 
+export { addEventFormPost, addEventDeletePost, addEventEditPost }
