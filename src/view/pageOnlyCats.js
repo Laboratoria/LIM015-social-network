@@ -114,10 +114,15 @@ export const pageOnlyCats = () => {
 
       // -------- Editar Posts (U) --------
       const btnEdit = sectionElement.querySelectorAll('.btn-edit');
+      const postText = sectionElement.querySelector('.text-input');
       btnEdit.forEach((btn) => {
         btn.addEventListener('click', async (e) => {
-          const x = await getPost(e.target.id);
-          console.log(x.data());
+          const postSeleccionado = await getPost(e.target.id);
+          // Para saber lo que dice el post => console.log(postText.value);
+          postText.value = postSeleccionado.data().text;
+
+          // btnMeow.innerText = 'Editar';
+          // console.log(x);
         });
       });
     });
