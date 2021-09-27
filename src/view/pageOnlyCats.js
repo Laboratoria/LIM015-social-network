@@ -2,7 +2,9 @@
 /* eslint-disable no-restricted-globals */
 /* eslint-disable no-console */
 import { signOutUser, onAuthStateChanged } from '../firebase/firebase-auth.js';
-import { postCollection, getCollection, deletePost } from '../firebase/firebase-firestore.js';
+import {
+  postCollection, getCollection, deletePost, getPost,
+} from '../firebase/firebase-firestore.js';
 
 const userStateCheck = () => {
   onAuthStateChanged((user) => {
@@ -91,8 +93,8 @@ export const pageOnlyCats = () => {
             <p readonly class="text-output">${dataContent.text}</p>
           </section>
           <div class="update-post  ${(dataContent.email === localUser.email) ? ' ' : 'hide'}">
-            <button id="btn-deletePost" class="btn-delete"><i class="fas fa-trash"  id="${doc.id}"></i></button>
-            <button class="btn-edit"><i class="fas fa-edit"></i></button>
+            <button class="btn-delete"><i class="fas fa-trash" id="${doc.id}"></i></button>
+            <button class="btn-edit"><i class="fas fa-edit" id="${doc.id}"></i></button>
           </div>
         </section> `;
       });
@@ -100,13 +102,22 @@ export const pageOnlyCats = () => {
       // -------- Eliminar Posts (D) --------
       const btnDelete = sectionElement.querySelectorAll('.btn-delete');
       btnDelete.forEach((btn) => {
-        btn.addEventListener('click', (e) => {
-          deletePost(e.target.id)
-            .then(() => {
-              console.log('Document successfully deleted!');
-            }).catch((error) => {
-              console.error('Error removing document: ', error);
-            });
+        btn.addEventListener('click', async (e) => {
+          const result = confirm('¿En serio quieres borrar el post?');
+          if (result === true) {
+            await deletePost(e.target.id);
+            console.log('Document successfully deleted!');
+            window.alert('¡El post ha sido borrado con éxito!');
+          }
+        });
+      });
+
+      // -------- Editar Posts (U) --------
+      const btnEdit = sectionElement.querySelectorAll('.btn-edit');
+      btnEdit.forEach((btn) => {
+        btn.addEventListener('click', async (e) => {
+          const x = await getPost(e.target.id);
+          console.log(x.data());
         });
       });
     });

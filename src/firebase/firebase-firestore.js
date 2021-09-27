@@ -6,8 +6,11 @@ export const postCollection = (post, userName, photo, email) => firebase.firesto
   timePost: firebase.firestore.FieldValue.serverTimestamp(),
 });
 
-// Función para traer todos los posts de firestore
+// Función para traer la postCollection
 export const getCollection = () => firebase.firestore().collection('posts').orderBy('timePost', 'desc');
+
+// Función para traer todos los posts de firestore
+export const getPost = (id) => firebase.firestore().collection('posts').doc(id).get();
 
 // Función que crea la colección de usuarios
 export const postUserCollection = (usuario, email) => firebase.firestore().collection('user').add({

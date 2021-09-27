@@ -31,7 +31,7 @@ export const home = () => {
         </nav>
       </div>
       <div>
-        <img class="img-web" src="./img/imghome.png">
+        <img class="img-web" src="./img/gato-home.png">
       </div>
     </section>
     `;
