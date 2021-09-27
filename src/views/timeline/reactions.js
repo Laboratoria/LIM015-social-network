@@ -1,36 +1,38 @@
 import {updateLikes} from '../../db/firestore.js';
 
 export const reactionLike = () =>{
-    const idLikes = document.querySelectorAll('#idLike');         
-    idLikes.forEach((btn) => {
-        btn.classList.remove('btn-like');
+    const allLikes = document.querySelectorAll('.btn-like-main'); 
+
+    allLikes.forEach((btn) => {
         let flag = false;
         btn.addEventListener('click', (e) =>{
             const idPosts = e.target.dataset.id;
             console.log('id post:...', idPosts)
-            let arrLikes = e.target.dataset.arrlikes;
-            let converterArrLikes = arrLikes.split(',');
-            console.log(converterArrLikes)
-            let userId = e.target.dataset.iduser;
-            console.log('userId', userId);
-            let totalLike100 = converterArrLikes.length;
-            
+            const totalLikes = document.querySelector('#total-like-' + idPosts);
+            let intTotalLikes = parseInt(totalLikes.textContent);
 
+            let arrLikes = e.target.dataset.arrlikes;//firestore te devuelve un obj divido en comas
+            console.log(arrLikes,'arrlikes YOVANA')
+            let converterArrLikes = arrLikes.split(',');//Para trabajar mejor lo convertimos en un array 
+            let filteredArrLikes = converterArrLikes.filter(el => el !="");
+
+            console.log(converterArrLikes, 'CONVERT ')
+            let userId = e.target.dataset.iduser;//con esto obtengo el id user
+            console.log('userId', userId);
+            
+            
             if (flag == false) {
                flag = true;
                 btn.classList.add('btn-like');
-                const result = idPosts.indexOf(userId);
+                const result = idPosts.indexOf(userId);//Para verificar que un posts no tien mi like entonces da -1
                     if (result === -1) {
-                        converterArrLikes.push(userId);
-                        
-                        updateLikes(idPosts, converterArrLikes, totalLike100);
-                        
+                        intTotalLikes ++;
+                        filteredArrLikes.push(userId);
+                        console.log(filteredArrLikes,' enviando .. ')
+                        updateLikes(idPosts, filteredArrLikes, intTotalLikes);
                     } 
-               
-                //funcion de fb add +1 
             }else{
                 flag = false;
-                //console.log('remove style')
                 btn.classList.remove('btn-like');
                 //funcion de fb add -1 
                 /* if (result !== -1) {

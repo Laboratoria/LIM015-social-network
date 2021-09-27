@@ -8,6 +8,7 @@ const allPosts = () => {
                 response.forEach(doc => {
                     const userprueba = allUsers.find(element => element.idUser === doc.data().idUser);
                     const categoryprueba = allCategoriesCourses.find(element => element.idCategory == doc.data().idCategory);
+                    console.log(doc.data().arrLikes,'esto es lo que renderizo')
                     objectPosts.push({
                         idPost: doc.id,
                         idUser: doc.data().idUser,
@@ -71,8 +72,8 @@ const loadViewPost = (objectDataPosts) => {
         <div class="post-footer footer">
             <div class="footer-reactions reactions">
 
-                <img id="idLike" class="btn-post btn-notlike btn-like" width="22px" height="22px" data-id="${element.idPost}" data-iduser="${element.idUser}"  src="../images/testImg/heart.png" data-arrLikes='${element.arrLikes}'>
-               <p class='show-like'>${element.totalLikes}</p> 
+                <img class="btn-like-main" class="btn-post btn-notlike" width="22px" height="22px" data-id="${element.idPost}" data-iduser="${element.idUser}"  src="../images/testImg/heart.png" data-arrLikes='${element.arrLikes}'>
+               <p class='show-like' id="total-like-${element.idPost}">${element.totalLikes}</p> 
                 
 
                 <button type="button" class="btn-post btn-notcomment"><i class="far fa-comment-dots"></i> <span class="count-reaction">${element.totalComments}</span></button>

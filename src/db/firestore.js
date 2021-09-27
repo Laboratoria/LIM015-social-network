@@ -21,7 +21,7 @@ const deletePostFs = (id) => db.collection('posts').doc(id).delete();
 const datePost = () => firebase.firestore.Timestamp.now();
 const savePost = (object) => db.collection('posts').add(object);
 const updatePost = (id, object) => firebase.firestore().collection('posts').doc(id).update(object);
-
+//DIANA LIKES
 const updateLikes = (id, arrLikes, totalLikes) => {
     const db = firebase.firestore();
     return db.collection('posts').doc(id).update({arrLikes, totalLikes});
