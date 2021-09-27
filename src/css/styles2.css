@@ -590,6 +590,7 @@ img {
     align-items: center;
     background-color: #ffffff;
     border-bottom: 1px solid #e4e4e4;
+    position: relative;
 }
 
 .header>.logo {
@@ -1408,4 +1409,23 @@ img {
 
 .process-msg {
     background-color: #414141;
+}
+
+/* ul con resultados del Buscador */
+.result-search {
+    list-style-type: none;
+    position: absolute;
+    top: 3.5rem;
+    left: 10rem;
+    background-color: white;
+    z-index: 4;
+    padding: 1rem;
+    border-radius: 5px;
+}
+.result-search li {
+    color: black;
+}
+
+.result-search li .fa-search {
+    color: black
 }

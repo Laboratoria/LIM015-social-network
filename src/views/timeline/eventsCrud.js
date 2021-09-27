@@ -49,9 +49,7 @@ const addEventFormPost = () => {
             objectPost.urlImage = dataUploadImage[2];
             updateObjectPost(objectPost, inputIdPost.value)
         }
-
     });
-
 }
 
 //Evento Eliminar en cada Post 
@@ -175,8 +173,11 @@ const createObjectPost = (object) => {
 const updateObjectPost = (objectPost, idPost) => {
     const modal = document.querySelector('.modal');
     const formPost = document.querySelector('#form-create-post');
+    const spanDate = document.querySelector('#post-date');
+    const spanCategory = document.querySelector('#');
     updatePost(idPost, objectPost)
         .then(() => {
+
             formPost.reset();
             modal.classList.remove('revelar') //Cierra el modal
             btnProcess(false);
