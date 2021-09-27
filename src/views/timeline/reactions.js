@@ -22,7 +22,7 @@ export const reactionLike = () =>{
                 const result = idPosts.indexOf(userId);
                     if (result === -1) {
                         converterArrLikes.push(userId);
-                        //console.log(converterArrLikes);
+                        
                         updateLikes(idPosts, converterArrLikes, totalLike100);
                         
                     } 
