@@ -22,9 +22,9 @@ const datePost = () => firebase.firestore.Timestamp.now();
 const savePost = (object) => db.collection('posts').add(object);
 const updatePost = (id, object) => firebase.firestore().collection('posts').doc(id).update(object);
 
-const updateLikes = (id, totalLikes) => {
+const updateLikes = (id, arrLikes, totalLikes) => {
     const db = firebase.firestore();
-    return db.collection('posts').doc(id).update({ totalLikes });
+    return db.collection('posts').doc(id).update({arrLikes, totalLikes});
 };
 
 export { savePost, saveUser, getAllUsers, getAllCategories, getAllPosts, db, deletePostFs, datePost, updateLikes, updatePost}
