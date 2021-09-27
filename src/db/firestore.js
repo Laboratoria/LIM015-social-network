@@ -17,16 +17,11 @@ const saveUser = (infoUser) => {
 const getAllUsers = () => db.collection("users").get();
 const getAllCategories = () => db.collection("categories").get();
 const getAllPosts = () => db.collection("posts").orderBy('datePost', 'asc').get();
+const getPost = (id) => db.collection("posts").doc(id).get();
 const deletePostFs = (id) => db.collection('posts').doc(id).delete();
 const datePost = () => firebase.firestore.Timestamp.now();
 const savePost = (object) => db.collection('posts').add(object);
 const updatePost = (id, object) => firebase.firestore().collection('posts').doc(id).update(object);
 
-const updateLikes = (id, totalLikes) => {
-    const db = firebase.firestore();
-    return db.collection('posts').doc(id).update({ totalLikes });
-};
 
-export { savePost, saveUser, getAllUsers, getAllCategories, getAllPosts, db, deletePostFs, datePost, updateLikes, updatePost}
-
-
+export { savePost, saveUser, getAllUsers, getAllCategories, getAllPosts, db, deletePostFs, datePost, updatePost, getPost }

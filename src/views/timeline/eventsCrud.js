@@ -36,8 +36,8 @@ const addEventFormPost = () => {
             //retorna un array con la info para la imagen
             const dataUploadImage = await uploadImage('create');
             objectPost.idUser = infouser.idUser;
-            objectPost.totalLikes = 0;
             objectPost.totalComents = 0;
+            objectPost.arrLikes = [];
             objectPost.image = dataUploadImage[0];
             objectPost.nameImage = dataUploadImage[1];
             objectPost.urlImage = dataUploadImage[2];
