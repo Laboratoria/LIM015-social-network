@@ -36,7 +36,6 @@ const addEventFormPost = () => {
             //retorna un array con la info para la imagen
             const dataUploadImage = await uploadImage('create');
             objectPost.idUser = infouser.idUser;
-            objectPost.totalLikes = 0;
             objectPost.totalComents = 0;
             objectPost.arrLikes = [];
             objectPost.image = dataUploadImage[0];
@@ -140,9 +139,11 @@ const createObjectPost = (object) => {
     const infouser = JSON.parse(window.localStorage.getItem('infouser'));
     const selectCategory = document.querySelector('#select-categories');
     const textSelect = selectCategory.options[selectCategory.selectedIndex].text;
+    const objectAllPosts = JSON.parse(window.localStorage.getItem('allPosts'));
+
     savePost(object)
         .then((res) => { // Necesitamos el res para obtener el id generado en el firestore
-            const objectobjectPost = [{
+            const objectPost = {
                 idPost: res.id,
                 idUser: infouser.idUser,
                 nameUser: infouser.nameUser,
@@ -154,12 +155,14 @@ const createObjectPost = (object) => {
                 totalLikes: 0,
                 arrLikes: [],
                 image: object.image,
-                urlImage: object.urlImage,
                 idCategory: object.idCategory,
                 nameCategory: textSelect,
-            }];
-
-            loadViewPost(objectobjectPost); //Rendereizamos el Post en la DOM
+                urlImage: object.urlImage,
+            }
+            objectAllPosts.push(objectPost);
+            window.localStorage.setItem('allPosts', JSON.stringify(objectAllPosts)); //Agreamos al Local, con el nuevo Obj
+            const arrayObjectPost = [objectPost]; //agregamos el obj en un array para darselo a la funcion loadView, ya que este recibe un array
+            loadViewPost(arrayObjectPost); //Rendereizamos el Post en la DOM, funcion esta en viewPost linea 37
             addEventEditPost();
             addEventDeletePost(); //agrego de nuevo los eventos
             formPost.reset();
@@ -177,12 +180,29 @@ const createObjectPost = (object) => {
 const updateObjectPost = (objectPost, idPost) => {
     const modal = document.querySelector('.modal');
     const formPost = document.querySelector('#form-create-post');
+    const selectCategory = document.querySelector('#select-categories');
+    const textSelect = selectCategory.options[selectCategory.selectedIndex].text;
+    const spanDate = document.querySelector('#span-date-' + idPost);
+    const spanCategory = document.querySelector('#span-category-' + idPost);
+    const paragraphPost = document.querySelector('#paragraph-post-' + idPost);
+    const imagePost = document.querySelector('#image-post-' + idPost);
+    //const objectAllPosts = JSON.parse(window.localStorage.getItem('allPosts')); pensar en la noche
+
     updatePost(idPost, objectPost)
         .then(() => {
+            //Actualizamos la DOM con los datos que edito el usuario 
+            spanDate.innerText = objectPost.datePost.toDate().toDateString();
+            spanCategory.innerText = textSelect;
+            paragraphPost.innerText = objectPost.contentPost;
+            //Evaluamos si ha agregado una imagen o ha cambiado
+            if (objectPost.image) {
+                imagePost.src = objectPost.urlImage;
+                imagePost.classList.add('content-image');
+            }
             formPost.reset();
             modal.classList.remove('revelar') //Cierra el modal
             btnProcess(false);
-            alerts('success', 'Post Editado'); //Falta renderizar en la DOM
+            alerts('success', 'Post Editado');
         })
         .catch((error) => {
             btnProcess(false);
@@ -216,9 +236,7 @@ const uploadImage = async(action) => {
         urlImage = inputUrl.value;
         nameImage = inputNameImage.value;
     }
-    arrayInfoImage.push(image);
-    arrayInfoImage.push(nameImage);
-    arrayInfoImage.push(urlImage);
+    arrayInfoImage.push(image, nameImage, urlImage);
     return arrayInfoImage;
 }
 
