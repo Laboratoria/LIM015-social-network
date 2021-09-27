@@ -1,7 +1,9 @@
 /* eslint-disable no-undef */
 
-import {/*
-  savePost, */onGetPosts, deletePosts/*, updatePost, getPost,  getPost*/
+/*
+
+import {
+  savePost, onGetPosts, deletePosts, updatePost, getPost,  getPost
 } from "../src/firebase/fb-firestore.js";
 
 import MockFirebase from 'mock-cloud-firestore';
@@ -24,8 +26,9 @@ const fixtureData = {
 }
 
 
-
 global.firebase = new MockFirebase(fixtureData, { isNaiveSnapshotListenerEnabled: true });
+
+*/
 
 /*
 describe('savePost', () => {
@@ -43,7 +46,7 @@ describe('savePost', () => {
     })
   })}); */
 
-
+/*
   describe('deletePost', () => {
 
   it('Debería poder eliminar una nota con el id "abc121"', (done) => {
@@ -59,5 +62,12 @@ describe('savePost', () => {
       ))
   })
 })
+*/
+
+
+
+
+
+
 
 

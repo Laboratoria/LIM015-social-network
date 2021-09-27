@@ -1,7 +1,6 @@
 import {
   savePost,
   onGetPosts,
-  /*deletePosts,*/
   updatePost,
   getPost,
 } from "../firebase/fb-firestore.js";
@@ -49,48 +48,38 @@ const viewHome = () => {
   firebase.auth().onAuthStateChanged((user) => {
 
     if (user) {
-      savePostCurrentUser(user);
+      savePostCurrentUser(user,homePost ,postArea);
       postNameUser.innerHTML = user.displayName;
       postPhotoUser.src = user.photoURL;
 
       onGetPosts((data) => {
+
+        setTemplateListPosts(data, user,postListContainer);
         
-        setTemplateListPosts(data, user);
       });
     } else {
       // User is signed out
       // ...
     }
   });
+  
+      return divHome;
 
-  const savePostCurrentUser = (user) => {
-    homePost.addEventListener("submit", async (e) => {
-      try {
-        if(postArea.value) {
-          e.preventDefault();
-          const usernamePost = user.displayName; //verificar donde pasa el nombre del firebase al div
-          const userPost = postArea.value;
-          const date = new Date().toLocaleString("es-ES");
-          const userId = user.uid;
-          const userPhoto = user.photoURL;
-          const likes = [];
-          await savePost(usernamePost, userPost, date, userId, userPhoto, likes);
-          homePost.reset();
-          postArea.focus();
-        }else{
-          postArea.focus();
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    });
-  };
+};
 
-  const setTemplateListPosts = (data, user) => {
+
+
+/* FUNCION PARA PINTAR EL POST*/
+
+const setTemplateListPosts = (data, user,postListContainer) => {
+
     postListContainer.innerHTML = "";
+
     data.forEach((doc) => {
       const postText = doc.data();
       postText.id = doc.id;
+      console.log(postText);
+
       postListContainer.innerHTML += /*html*/ `
       <section class="postAreaUser">
         <div class="home_postHeader">
@@ -131,8 +120,6 @@ const viewHome = () => {
 
     });
 
-
-
     // Función que elimina el post
     const btnDelete = postListContainer.querySelectorAll(".btn-delete");
     const btnEdit = document.querySelectorAll(".btn-edit");
@@ -140,7 +127,7 @@ const viewHome = () => {
     console.log(modaldeletePost);
 
     btnDelete.forEach((btn) =>{     
-      btn.addEventListener("click", /*async*/ (e) => {
+      btn.addEventListener("click",  (e) => {
         try {
           console.log("modal dele");
            modaldeletePost.appendChild(modalDelete(e.target.dataset.id))
@@ -150,8 +137,9 @@ const viewHome = () => {
         }
         })
     }
-    
     );
+
+
     //funcion dar likes
     const iconLikes = postListContainer.querySelectorAll('.fa-heart');
     //console.log(iconLikes)
@@ -176,8 +164,8 @@ const viewHome = () => {
           }
                
       })
-    })
-     
+    }) 
+
 
     // Función que editar el post    
     const prueba = (btnEdit) =>{
@@ -241,9 +229,51 @@ const viewHome = () => {
       });
     }
     prueba(btnEdit)
-  };
 
-      return divHome;
+
+    return postListContainer;
+
 };
 
-export { viewHome };
+
+
+
+/*funcion de guardar data de post en el firestore */ 
+const savePostCurrentUser = (user,homePost ,postArea) => {
+   return  homePost.addEventListener("submit", async (e) => {
+      try {
+        if(postArea.value) {
+          e.preventDefault();
+          const usernamePost = user.displayName; //verificar donde pasa el nombre del firebase al div
+          const userPost = postArea.value;
+          const date = new Date().toLocaleString("es-ES");
+          const userId = user.uid;
+          const userPhoto = user.photoURL;
+          const likes = [];
+          await savePost(usernamePost, userPost, date, userId, userPhoto, likes);
+          homePost.reset();
+          postArea.focus();
+        }else{
+          postArea.focus();
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    });
+};
+
+
+
+
+export { viewHome,savePostCurrentUser,setTemplateListPosts};
+
+
+
+
+
+
+
+
+
+
+
