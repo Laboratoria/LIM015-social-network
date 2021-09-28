@@ -35,9 +35,9 @@ export const pageOnlyCats = () => {
     </header>
     <main class="scroll-container">
       <div class="label-container">
-        <button class="label-btn meme">Memes</button>
-        <button class="label-btn vet">Vet Cat</button>
-        <button class="label-btn foodie">Foodie Cat</button>
+          <button class="label-btn meme">Memes</button>
+          <button class="label-btn vet">Vet Cat</button>
+          <button class="label-btn foodie">Foodie Cat</button>
       </div>
       <div>
         <section class="profile-post publish" >
@@ -131,6 +131,17 @@ export const pageOnlyCats = () => {
         btn.addEventListener('click', async (e) => {
           const postSeleccionado = await getPost(e.target.id);
           console.log(postSeleccionado.data());
+
+          /* let postSeleccionado = await getPost(e.target.id).then((doc) => doc.data().likes);
+          if (!postSeleccionado.includes(localUser.uid)) {
+            postSeleccionado.push(localUser.uid);
+            editPost((e.target.id), { likes: postSeleccionado });
+            console.log('si le diste likee');
+          } else {
+            postSeleccionado = postSeleccionado.filter((lik) => lik !== localUser.uid);
+            editPost((e.target.id), { likes: postSeleccionado });
+            console.log('todavia no le has dado like');
+          } */
         });
       });
     });
