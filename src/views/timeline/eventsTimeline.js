@@ -1,5 +1,8 @@
 import { signOut } from '../../db/firebase-auth.js';
 import { sliderPopularPost } from '../../lib/animation.js';
+const infouser = JSON.parse(window.localStorage.getItem('infouser')); //extraemos lo que almacenamos en local archivo viewHeaderUser line 29
+const nameUserPath = infouser.nameUser.replace(/\s+/g, '');
+
 
 const addEventsTimeline = () => {
         document.querySelector('#div-body').className = "bodyBackground"; //cambiamos el background del body
@@ -16,27 +19,29 @@ const addEventsTimeline = () => {
 
         /***Eventos para Abrir y Cerrar Modal***/
         const modal = document.querySelector('.modal');
-        const btnCreatePost = document.querySelector('.btn-create-post');/* abrir */
-        const btnCerrarModal = document.querySelector('.btn-cerrar-modal');/* cerrar */
-        btnCreatePost.addEventListener('click', () => { 
-            const btnModal = document.querySelector('#share-post');/* abrir */
+        const btnCreatePost = document.querySelector('.btn-create-post'); /* abrir */
+        const btnCerrarModal = document.querySelector('.btn-cerrar-modal'); /* cerrar */
+        const sectionNameImgUpload = document.querySelector('.name-image-upload');
+        btnCreatePost.addEventListener('click', () => {
+            const btnModal = document.querySelector('#share-post'); /* abrir */
             const titleModal = document.querySelector('#title-modal');
             btnModal.innerText = 'Publicar';
             titleModal.innerText = 'Crear Publicación';
+            sectionNameImgUpload.innerHTML = ``;
             modal.classList.add('revelar');
         });
-        
+
         btnCerrarModal.addEventListener('click', () => {
-            modal.classList.remove('revelar') 
+            modal.classList.remove('revelar')
             document.querySelector('#form-create-post').reset();
         });
-        
+
         /***Renderizar TextArea***/
         const userPost = document.querySelector('.user-info-textarea');
         const placeholderTextarea = document.querySelector('.textarea-post');
         const infouser = JSON.parse(window.localStorage.getItem('infouser')); //extraemos lo que almacenamos en local archivo viewHeaderUser line 29
         userPost.innerHTML = `
-        <a href="#/profile" class="user-information">  
+        <a href="#/profile${nameUserPath}" class="user-information">  
             <img class="avatar avatar-sm" src="${/^(http|https):\/\/[^ "]+$/.test(infouser.photoUser)?infouser.photoUser:`../images/profile/`+infouser.photoUser}" alt="img-user"> 
             <span> ${infouser.nameUser} </span> 
         </a>`
@@ -74,17 +79,6 @@ const addEventsTimeline = () => {
             textarea.value += emojiSelected.innerHTML;
         }
 
-        /** Leer el archivo subido en input file **/
-
-        // const inputFile = document.querySelector('#file-input');
-        // inputFile.addEventListener('change', () => {
-        //     let uploadImage;
-        //     if (inputFile.files && inputFile.files[0]) {
-        //         uploadImage = inputFile.files[0].name;
-        //         console.log(uploadImage)
-        //     }
-        // })
-    /***Evento para Mover Carousel***/
     sliderPopularPost();
 }
 

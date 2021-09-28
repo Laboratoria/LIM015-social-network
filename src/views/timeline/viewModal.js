@@ -10,6 +10,9 @@ const loadViewModal = () => {
             
             <section class="body-modal">
                 <form action="#" class="form" id="form-create-post">
+                    <input type="hidden" id="input-idpost">
+                    <input type="hidden" id="input-urlpost">
+                    <input type="hidden" id="input-nameImage">
                     <section class="select-group">
                         <section class="user-info-textarea"> </section>
                         
@@ -41,7 +44,6 @@ const loadViewModal = () => {
                         </section>
                         <img src="../images/svg/carita.png" class="smile" alt="icon-face" width="20" height="20">
                     </section>
-                    
                     <button type="submit" class="btn btn-create-post" id="share-post"> Publicar </button>
                 </form>
             </section>

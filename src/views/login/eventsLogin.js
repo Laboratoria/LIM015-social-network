@@ -66,13 +66,17 @@ function responseOk(result, google) {
 function responseError(error) {
     alertProcess(false); //ocultamos alerta con gif
     const errorCode = error.code;
-    switch (errorCode) {
+    console.log(errorCode)
+    switch (errorCode) { //falta existente
         case 'auth/wrong-password':
         case 'auth/user-not-found':
             validInput('email', 'Usuario y/o contraseña incorrecta', 'error');
             break;
         case 'auth/invalid-email':
             validInput('email', 'La dirección de correo electrónico no es válida', 'error');
+            break;
+        case 'auth/email-already-in-use':
+            validInput('email', 'La dirección de correo electrónico ya esta en uso', 'error');
             break;
         case 'auth/too-many-requests':
             alerts('error', 'Muchos intentos,vuelva a intentarlo mas tarde');
