@@ -162,25 +162,43 @@
   }
 }
 
-@media ( min-width: 570px ) {
-    /** btn createpost en profile**/
-    .container-section-user-post .btn-create-post:last-child {
-      display: none;
-    }
-    .container-section-user-post .btn-create-post:first-child {
-      display: block;
-      /* width: 30%;
-      height: 10%;
-      padding: 1rem;
-      font-size: 0.75rem; */
-    }
+
+/** Mostrando y coulatndo boton de crear publicacion de acuerdo a las pantallas **/
+@media ( min-width: 690px ) {
+  .container-section-user-post .btn-create-post:first-of-type {
+    display: block;
+  }
 }
 
-@media ( max-width: 570px ){
-  /* .container-section-user-post .btn-create-post:first-child {
-    display: none;
- } */
-  /* .container-section-user-post .btn-create-post:last-child {
+@media ( max-width: 690px ){
+  .container-section-user-post .btn-create-post:last-child {
     display: block;
- } */
+  }
+  .container-profile {
+    grid-template-columns: 3% 94% 3%;
+    grid-template-areas: 
+    'header  header          header' 
+    '.       .               .' 
+    '.       coverUser       .' 
+    '.       .               .' 
+    '.       cont-friends    . '          
+    '.       cont-user-posts .';
+    grid-template-rows: 10vh 3vh 20vh 6vh 20vh 42vh;
+  }
+  .title-friends {
+    justify-content: left;
+  }
+  .container-friends {
+    display: flex;
+    /* flex-direction: column; */
+  }
+  .container-friends i {
+    display: none;
+  }
+  .info-friends {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+  }
+
 }

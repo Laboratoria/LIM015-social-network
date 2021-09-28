@@ -573,8 +573,10 @@ img {
 
 .container-home {
     display: grid;
-    grid-template-columns: 3% 22% 3% 67% 5%;
-    grid-template-areas: 'header header header header header' '.      .      .      .      .' '.      cont-categories .    cont-posts  .';
+    grid-template-columns: 6% 22% 6% 60% 6%;
+    grid-template-areas: 'header header header header header' 
+    '.      .      .      .      .' 
+    '.      cont-categories .    cont-posts  .';
     grid-template-rows: 10vh 5vh 85vh;
     background-color: #f7f7f7;
     /* border: solid 1px red; */
@@ -868,7 +870,7 @@ img {
 .card-post {
     width: 260px;
     /* flex-basis: auto; */
-    height: 160px;
+    height: 150px;
     /* height: 90%; */
     margin: auto 10px;
     background-color: #ffffff;
@@ -1113,9 +1115,10 @@ img {
 
 .textarea-post {
     margin-top: 1rem;
+    margin-bottom: .5rem;
     padding: .5rem;
     width: 96%;
-    height: 160px;
+    height: 140px;
     outline: none;
     resize: none;
     overflow: hidden;
@@ -1386,7 +1389,8 @@ img {
     color: #FC2C5E;
 }
 
-.container-section-user-post button {
+.container-section-user-post .btn-create-post {
+    display: none;
     width: 30%;
     padding: 1rem 0;
     font-family: 'Nunito', sans-serif;
@@ -1431,7 +1435,18 @@ img {
     height: 30px;
     padding: 0 5px;
     color: #9FA0A1;
+    font-family: 'FontAwesome', 'Second Font name'
+}
 
+.dropdownModal option {
+    font-family: 'FontAwesome', 'Second Font name'
+}
+
+.span-public {
+    margin-left: 8px;
+    font-size: 12px;
+    color: #878787;
+}
 
 /* <ul>  con resultados del Buscador */
 .result-search {
