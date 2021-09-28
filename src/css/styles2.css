@@ -757,7 +757,7 @@ img {
 /** Scroll Bar**/
 
 .categories::-webkit-scrollbar {
-    width: 5px;
+    width: 7px;
 }
 
 .categories::-webkit-scrollbar-thumb {
@@ -815,9 +815,10 @@ img {
 .popular-posts {
     background-image: url(../images/svg/back-popular-posts.svg);
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: 90%;
     padding: 1rem;
     display: flex;
+    flex-wrap: wrap;
     gap: 2rem;
     border-radius: 5px;
     overflow-x: auto;
@@ -829,10 +830,10 @@ img {
 .btn-carousel {
     position: absolute;
     top: calc(50% - 30px);
-    height: 30px;
-    width: 30px;
-    border-left: 8px solid pink;
-    border-top: 8px solid pink;
+    height: 25px;
+    width: 25px;
+    border-left: 8px solid #FA5672;
+    border-top: 8px solid #FA5672;
     cursor: pointer;
 }
 
@@ -842,9 +843,9 @@ img {
 }
 
 
-/* .btn-carousel:hover.inactive {
-    border-color: rgb(153, 121, 126)
-} */
+.btn-carousel:hover.inactive {
+    border-color: #ac142d
+}
 
 .btn-carousel:first-of-type {
     transform: rotate(-45deg);
@@ -866,12 +867,14 @@ img {
 
 .card-post {
     width: 260px;
-    height: 130px;
-    /*height: 90%;*/
+    /* flex-basis: auto; */
+    height: 160px;
+    /* height: 90%; */
     margin: auto 10px;
     background-color: #ffffff;
     padding: 10px;
     border-radius: 3%;
+    max-width: 55ch;
     /* display: grid;
     place-items: center; */
 }
@@ -1286,15 +1289,15 @@ img {
     background-color: #ffffff;
 }
 
+.up-information-profile button {
+    margin-bottom: 10px;
+} 
+
 .user-name-profile {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
 }
-
-.up-information-profile button {
-    margin-bottom: 10px;
-} 
 
 /** Seccion de amigos **/
 
@@ -1309,12 +1312,24 @@ img {
     align-items: center;
     justify-content: space-around;
     margin: 1rem 0;
+    font-size: 0.95rem;
+}
+
+.title-friends h4:hover {
+    color: #FC2C5E;
 }
 
 .btn-icon-friends {
-    background-color: #fd92b6;
+    background-color: #fcafc9;
     color: #FA5672;
     margin-right: 8px;
+}
+
+.info-friends {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 0.90rem;
 }
 
 .info-friends .avatar {
@@ -1322,14 +1337,8 @@ img {
     margin-bottom: 10px;
 }
 
-.info-friends {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-}
-
 .info-friends i {
-    color: #FE74A2;
+    color: #FC2C5E;
 }
 
 /** Seccion de post del user**/
@@ -1362,22 +1371,26 @@ img {
     align-items: center;
     gap: .3rem;
     margin-right: 1rem;
+    font-size: 0.85rem;
 }
 
 .title-user-post:hover,
 .title-user-savePost:hover {
-    color: #FE74A2;
+    color: #FC2C5E;
     padding: 1rem;
-    border-bottom: solid 1px #FE74A2;
+    border-bottom: solid 1px #FC2C5E;
 }
 
 .title-user-post h3:hover,
 .title-user-savePost h3:hover {
-    color: #FE74A2;
+    color: #FC2C5E;
 }
 
-.container-section-user-post .btn-create-post {
+.container-section-user-post button {
     width: 30%;
+    padding: 1rem 0;
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(90.22deg, #FA5672 23.46%, #FE8996 64.13%);
 }
 
 
@@ -1411,7 +1424,7 @@ img {
     background-color: #414141;
 }
 
-/* ul con resultados del Buscador */
+/* <ul>  con resultados del Buscador */
 .result-search {
     list-style-type: none;
     position: absolute;
@@ -1419,7 +1432,7 @@ img {
     left: 10rem;
     background-color: white;
     z-index: 4;
-    padding: 1rem;
+    /* padding: 1rem; */
     border-radius: 5px;
 }
 .result-search li {
