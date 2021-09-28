@@ -51,9 +51,7 @@ const addEventFormPost = () => {
             objectPost.urlImage = dataUploadImage[2];
             updateObjectPost(objectPost, inputIdPost.value)
         }
-
     });
-
 }
 
 //Evento Eliminar en cada Post 
@@ -203,6 +201,7 @@ const updateObjectPost = (objectPost, idPost) => {
                 imagePost.src = objectPost.urlImage;
                 imagePost.classList.add('content-image');
             }
+            
             formPost.reset();
             modal.classList.remove('revelar') //Cierra el modal
             btnProcess(false);

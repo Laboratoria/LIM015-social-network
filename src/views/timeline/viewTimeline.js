@@ -14,7 +14,7 @@ export default () => {
         <section class="container-popular-posts" id="popularPost">
             <h2> Popular <span>Posts</span> </h2>
             <section class="popular-posts">
-                <span class="btn-carousel">  </span>
+                <span class="btn-carousel">  </span> 
                 <section class="slider"> </section>
                 <span class="btn-carousel">  </span>
             </section>
