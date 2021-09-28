@@ -1,40 +1,18 @@
+/* eslint-disable no-console */
+import { auth } from '../security/firebase.js';
+/* funcion que solo sirve para pintar los valores de emai y pasword
+en la consola */
 
-import { auth } from "./firebase.js";
-
-//funcion que solo sirve para pintar los valores de emai y pasword
-//en la consola
-export function events() {
-  const signin = document.querySelector(".btn");
-  signin.addEventListener("click", (e) => {
-    e.preventDefault();
-    const signinEmail = document.querySelector(".email").value;
-    const singnPassword = document.querySelector(".password").value;
-    console.log(signinEmail, singnPassword);
-  });
+export function registerValidation(email, password) {
+  auth.createUserWithEmailAndPassword(email, password);
 }
 
-export function registerValidation (email, password) {
-
-  auth.createUserWithEmailAndPassword(email, password)
-  .then((userCredential) => {
-    console.log(userCredential);
-    const user = userCredential.user;
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log("error"+ errorCode );
-  });
-}
-registerValidation("juanapinto@gmail.com","123456");
-
-
+registerValidation('juanapinto@gmail.com', '123456');
 export function showLogin() {
-  const buttonLogin = document.querySelector("#btnGoogle");
-  buttonLogin.addEventListener("click", async (e) => {
+  const buttonLogin = document.querySelector('#btnGoogle');
+  buttonLogin.addEventListener('click', async (e) => {
     try {
-      await login();
+      await (e);
     } catch (error) {
       console.log(error);
     }
@@ -52,7 +30,6 @@ export async function login() {
     throw new Error(error);
   }
 }
-
 export function logout() {
   auth.signOut();
 }

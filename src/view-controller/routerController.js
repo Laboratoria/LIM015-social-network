@@ -1,23 +1,22 @@
-import { viewHome, initHome } from "../view/home.view.js";
-import { viewLogin, initLogin } from "../view/login.view.js";
-import { viewRegister, initRegister } from "../view/register.view.js";
+import { viewHome, initHome } from '../view/home.view.js';
+import { viewLogin, initLogin } from '../view/login.view.js';
+import { viewRegister, initRegister } from '../view/register.view.js';
 
 const changeView = (route) => {
-  const container = document.getElementById("container");
-  container.innerHTML = "";
+  const container = document.getElementById('container');
+  container.innerHTML = '';
   switch (route) {
-    case "#/login": {
+    case '#/login': {
       container.appendChild(viewLogin());
       initLogin();
       break;
     }
-    ///sectionView.innerHTML= components.login();
-    case "#/register": {
+    case '#/register': {
       container.appendChild(viewRegister());
       initRegister();
       break;
     }
-    case "#/home": {
+    case '#/home': {
       container.appendChild(viewHome());
       initHome();
       break;

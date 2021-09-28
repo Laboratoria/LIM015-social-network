@@ -1,25 +1,22 @@
-import { auth } from "./firebase.js";
+/* eslint-disable no-console */
+/* eslint-disable max-len */
+import { auth } from './firebase.js';
 
 const googleProvider = new firebase.auth.GoogleAuthProvider();
-
-//funcion que solo sirve para pintar los valores de emai y pasword
-//en la consola
+/* funcion que solo sirve para pintar los valores de emai y pasword
+en la consola */
 export function eventsRegister() {
-  const signin = document.querySelector(".btn");
-  signin.addEventListener("click", (e) => {
+  const signin = document.querySelector('.btn');
+  signin.addEventListener('click', (e) => {
     e.preventDefault();
-    const signinEmail = document.querySelector(".email").value;
-    const singnPassword = document.querySelector(".password").value;
-    //console.log(signinEmail, singnPassword);
+    const signinEmail = document.querySelector('.email').value;
+    const singnPassword = document.querySelector('.password').value;
+    console.log(signinEmail, singnPassword);
   });
 }
+export const emailVerication = () => firebase.auth().currentUser.sendEmailVerification();
 
-export const emailVerication = () =>
-  firebase.auth().currentUser.sendEmailVerification();
-
-export const registerWithEmail = (email, password) =>
-  firebase.auth().createUserWithEmailAndPassword(email, password);
-
+export const registerWithEmail = (email, password) => firebase.auth().createUserWithEmailAndPassword(email, password);
 export async function login() {
   try {
     const response = await auth.signInWithPopup(googleProvider);
@@ -29,25 +26,16 @@ export async function login() {
     throw new Error(error);
   }
 }
-
-
 export function logout() {
   auth.signOut();
 }
-
 export const logInWithEmail = (email, password) => {
-  const login = firebase.auth().signInWithEmailAndPassword(email, password);
-  return login;
+  const loginn = firebase.auth().signInWithEmailAndPassword(email, password);
+  return loginn;
 };
-
 export const logInWithGoogle = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
   return firebase.auth().signInWithPopup(provider);
 };
-
-// export const registerWithEmail = (email, password) => firebase.auth()
-//   .createUserWithEmailAndPassword(email, password);
-
-//-------
-
-
+/* export const registerWithEmail = (email, password) => firebase.auth()
+   .createUserWithEmailAndPassword(email, password); */
