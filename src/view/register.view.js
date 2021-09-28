@@ -61,9 +61,9 @@ function validate() {
   const message = document.querySelector(".message");
   message.innerHTML = "";
 
-  if (email == "" || password == "" || confirmPassword == "") {
+  if (email ==="" || password === "" || confirmPassword === "") {
     message.innerHTML = "Por favor llene todos los campos";
-  } else if (password != confirmPassword) {
+  } else if (password !== confirmPassword) {
     message.innerHTML = "Las contraseñas deben coincidir";
   } else {
     registerWithEmail(email, password)
