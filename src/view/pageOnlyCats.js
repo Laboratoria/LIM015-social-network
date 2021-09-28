@@ -1,5 +1,5 @@
-/* eslint-disable no-alert */
 /* eslint-disable no-restricted-globals */
+/* eslint-disable no-alert */
 /* eslint-disable no-console */
 import { signOutUser, onAuthStateChanged } from '../firebase/firebase-auth.js';
 import {
@@ -50,11 +50,9 @@ export const pageOnlyCats = () => {
               <i class="fas fa-image"></i>
               <button class="post-button hide" id="cancel-button" type="submit">Cancelar</button>
               <button class="post-button" id="post-button" type="submit">Meow</button>
-
             </div>
           </section>
         </section>
-
         <section  id="other-post">
         </section>
     </main>
@@ -91,6 +89,7 @@ export const pageOnlyCats = () => {
             <button class="btn-delete"><i class="fas fa-trash" id="${doc.id}"></i></button>
             <button class="btn-edit"><i class="fas fa-edit" id="${doc.id}"></i></button>
           </div>
+          
         </section> `;
       });
 
