@@ -4,7 +4,7 @@
     padding: 0;
     box-sizing: border-box;
   }
-
+  
 .home {
   /* background-color: rgb(228, 227, 227); */
   padding-top: 100px;
@@ -15,7 +15,7 @@
   display: grid;
   grid-template-columns: 2fr 3fr;
   padding: 1em;
-
+  align-self:flex-start;
 }
 
 .home__postImput > textarea {
@@ -41,6 +41,7 @@ color: #78752C;
 
 .imgUser {
     border-radius: 50%;
+    background-color: crimson;
 }
 
 .homeImgUser {
@@ -86,11 +87,7 @@ color: #78752C;
 }
 
 
-#postHome-form textarea:focus , .post__input:focus{
-  outline: none ;
-  border:1px solid red;
-  box-shadow: 0 0 10px #719ECE;
-} 
+
 
 .home__buttonPost {
   display:flex;
@@ -107,7 +104,9 @@ color: #78752C;
   background-color: #F3EFF6;
   border-radius: 10px;
   margin: 1rem 0;
+  padding-bottom:0.5em;
 }
+
 
 .home__PostsContainer{
   /* background-color: darkgray; */
@@ -149,6 +148,13 @@ color: #78752C;
   color:#616161;
   /* height: fit-content; */
 }
+
+#postHome-form textarea:focus , .post__input:focus{
+  outline: none ;
+  border:1px solid red;
+  box-shadow: 0 0 10px #719ECE;
+} 
+
 .post__paragraph{
   width: 100%;
   background: rgb(255, 255, 255);
@@ -165,9 +171,7 @@ color: #78752C;
   padding:0 0.5em;
 }
 
-.postAreaUser{
-  padding-bottom:0.5em;
-}
+
 
 .btn-post{
   background-color:none;
@@ -186,7 +190,12 @@ color: #78752C;
 
 .fa-heart {
 color: #F5000A;
+cursor: pointer;
 }
+
+.fa-heart:focus {
+  outline: none;
+  }
 
 .btn-delete, .btn-cancelEdit {
   margin-left:1em;
@@ -199,6 +208,7 @@ color: #F5000A;
   background: #D8D8D8;
   display: flex;
   justify-content: center;
+  min-width: calc(100vh - 50px);
 }
 .home{
   max-width: 900px;

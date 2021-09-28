@@ -14,12 +14,16 @@
       width: 100%;
       height: 100%;
       background-color:rgba(0,0,0,0.4);
-  } 
+   } 
 
-  .modalContent{
+
+
+
+
+   .modalContent{
       background-color:white;
       margin:auto;
-      border: 0.2em solid #F90066;
+      border: 0.02em solid #F90066;
       border-radius: 15px;
       width:70%;
       max-width: 400px;
@@ -60,7 +64,35 @@
   }
 
 
+  .btnOpcionDelete{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .btnOpcionModal{
+    /*padding: 1em;*/
+    margin: 1em;
+    padding: 0.5em;
+    background-color:#F3EFF6;
+    border-radius: 10%;
+    font-size: 1.2rem;
+    width: 3em;
+}
+  
+
+.btnOpcionModal:hover{
+  background-color:#2F0059; 
+  color:azure
+}
+
+
 @media screen and (min-width:  600px) {
+
+  .modalContainer{
+    padding-top: 5em;
+ } 
+
 
   .modalContent{
     max-width: 400px;

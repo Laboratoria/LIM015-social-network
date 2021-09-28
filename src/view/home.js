@@ -1,10 +1,12 @@
 import {
   savePost,
   onGetPosts,
-  deletePosts,
   updatePost,
   getPost,
 } from "../firebase/fb-firestore.js";
+
+
+import {modalDelete} from "../view/modals.js"
 
 const viewHome = () => {
   const htmlHome = /*html*/ `
@@ -46,48 +48,34 @@ const viewHome = () => {
   firebase.auth().onAuthStateChanged((user) => {
 
     if (user) {
-      savePostCurrentUser(user);
+      savePostCurrentUser(user,homePost ,postArea);
       postNameUser.innerHTML = user.displayName;
       postPhotoUser.src = user.photoURL;
-
       onGetPosts((data) => {
-        
-        setTemplateListPosts(data, user);
+        setTemplateListPosts(data, user,postListContainer);
       });
     } else {
       // User is signed out
       // ...
     }
   });
+  
+      return divHome;
 
-  const savePostCurrentUser = (user) => {
-    homePost.addEventListener("submit", async (e) => {
-      try {
-        if(postArea.value) {
-          e.preventDefault();
-          const usernamePost = user.displayName; //verificar donde pasa el nombre del firebase al div
-          const userPost = postArea.value;
-          const date = new Date().toLocaleString("es-ES");
-          const userId = user.uid;
-          const userPhoto = user.photoURL;
-          const likes = [];
-          await savePost(usernamePost, userPost, date, userId, userPhoto, likes);
-          homePost.reset();
-          postArea.focus();
-        }else{
-          postArea.focus();
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    });
-  };
+};
 
-  const setTemplateListPosts = (data, user) => {
+
+
+/* FUNCION PARA PINTAR EL POST*/
+
+const setTemplateListPosts = (data, user,postListContainer) => {
+
     postListContainer.innerHTML = "";
+
     data.forEach((doc) => {
       const postText = doc.data();
       postText.id = doc.id;
+
       postListContainer.innerHTML += /*html*/ `
       <section class="postAreaUser">
         <div class="home_postHeader">
@@ -120,29 +108,37 @@ const viewHome = () => {
               </div>`
               : ""}
         </div>
+        
+        <section id="modalDeletePost" class="modalVerification modalDeletePost "></section>
+
                    
     </section> `;
 
     });
+
     // Función que elimina el post
     const btnDelete = postListContainer.querySelectorAll(".btn-delete");
     const btnEdit = document.querySelectorAll(".btn-edit");
+    const modaldeletePost = document.querySelector("#modalDeletePost");
+    console.log(modaldeletePost);
 
     btnDelete.forEach((btn) =>{     
-      btn.addEventListener("click", async (e) => {
+      btn.addEventListener("click",  (e) => {
         try {
-          await deletePosts(e.target.dataset.id);
+          console.log("modal dele");
+           modaldeletePost.appendChild(modalDelete(e.target.dataset.id))
+                     
         }catch (error){
           console.log(error)
         }
-        
-      })
+        })
     }
-    
     );
+
+
     //funcion dar likes
     const iconLikes = postListContainer.querySelectorAll('.fa-heart');
-    console.log(iconLikes)
+    //console.log(iconLikes)
     iconLikes.forEach((icon)=>{
       icon.addEventListener('click' , async (e)=>{
         const idDocPost = e.target.dataset.id;
@@ -164,8 +160,8 @@ const viewHome = () => {
           }
                
       })
-    })
-     
+    }) 
+
 
     // Función que editar el post    
     const prueba = (btnEdit) =>{
@@ -229,9 +225,60 @@ const viewHome = () => {
       });
     }
     prueba(btnEdit)
-  };
 
-      return divHome;
+
+    return postListContainer;
+
 };
 
-export { viewHome };
+
+
+
+/*funcion de guardar data de post en el firestore */ 
+const savePostCurrentUser = (user,homePost ,postArea) => {
+   return  homePost.addEventListener("submit", async (e) => {
+      try {
+        if(postArea.value) {
+          e.preventDefault();
+          const usernamePost = user.displayName; //verificar donde pasa el nombre del firebase al div
+          const userPost = postArea.value;
+          const date = new Date().toLocaleString("es-ES");
+          const userId = user.uid;
+          const userPhoto = user.photoURL;
+          const likes = [];
+          await savePost(usernamePost, userPost, date, userId, userPhoto, likes);
+          homePost.reset();
+          postArea.focus();
+        }else{
+          postArea.focus();
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    });
+};
+
+
+/*const loadPage = () => {
+  window.addEventListener("popstate", e => {
+    console.log (e);
+    console.log ("estoy regresando a la pagina");
+    console.log(history.back())
+    history.pushState('null', 'null', './home');
+  })
+}
+
+loadPage();*/
+
+export { viewHome,savePostCurrentUser,setTemplateListPosts};
+
+
+
+
+
+
+
+
+
+
+
