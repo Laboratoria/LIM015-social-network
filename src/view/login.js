@@ -71,8 +71,6 @@ const viewLogin = () => {
   const passwordLogin = sectionLogin.querySelector("#passwordLogin");
 
   emailLogin.addEventListener("keyup", () => {
-    console.log("auchhh");
-
     const regEx = /^([\da-z_.-]+)@([\da-z]+)\.([a-z]{2,6})$/gim;
 
     if (regEx.test(emailLogin.value)) {
@@ -85,7 +83,7 @@ const viewLogin = () => {
     } else {
       spanEmail.classList.remove("validateEmail");
       spanEmail.classList.add("invalidEmail");
-      spanEmail.innerHTML = "Correo incorrecto";
+      spanEmail.innerHTML = "Ingrese un correo válido";
       divForm.style.borderColor = "red";
       iconCheck.classList.remove("fa-check");
       iconCheck.classList.add("fa-times");
@@ -123,16 +121,11 @@ const viewLogin = () => {
         loginForm.reset();
         // changeLogin();
         firebase.auth().onAuthStateChanged((user) => {
-          console.log(user)
-          console.log(user.emailVerified)
           // changeLogin();
           if(user.emailVerified){
-            console.log("ya estas dentro");
             window.open("#/home", "_self");
           }else {
-            console.log("no estas verificado");
           }
-   
         })  
       })
       .catch(() => {
@@ -153,13 +146,11 @@ const viewLogin = () => {
   buttonGoogleLogin.addEventListener("click", () => {
     loginGoogle()
       .then(() => {
-        console.log("signin with google");
         window.open("#/home", "_self");
       })
       .catch((error) => {
         console.log(error);
       });
-    console.log("click google");
   });
 
   return sectionLogin;

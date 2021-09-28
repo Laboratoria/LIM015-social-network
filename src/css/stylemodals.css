@@ -20,7 +20,7 @@
 
 
 
-  .modalContent{
+   .modalContent{
       background-color:white;
       margin:auto;
       border: 0.02em solid #F90066;
@@ -88,6 +88,11 @@
 
 
 @media screen and (min-width:  600px) {
+
+  .modalContainer{
+    padding-top: 5em;
+ } 
+
 
   .modalContent{
     max-width: 400px;
