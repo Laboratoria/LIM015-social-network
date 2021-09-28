@@ -120,6 +120,12 @@ const addEventEditPost = () => {
         const inputUrl = document.querySelector('#input-urlpost');
         const sectionNameImgUpload = document.querySelector('.name-image-upload');
         const inputNameImage = document.querySelector('#input-nameImage');
+        const selectPublic = document.querySelector('#select-public')
+        if (dataPost.publicPosts == 'true') {
+            selectPublic.value = 'true';
+        } else {
+            selectPublic.value = 'false';
+        }
 
         inputIdPost.value = idPost;
         selectCategory.value = dataPost.idCategory;
@@ -188,6 +194,7 @@ const updateObjectPost = (objectPost, idPost) => {
     const spanCategory = document.querySelector('#span-category-' + idPost);
     const paragraphPost = document.querySelector('#paragraph-post-' + idPost);
     const imagePost = document.querySelector('#image-post-' + idPost);
+    const spanPublic = document.querySelector('#publicPost-' + idPost)
     //const objectAllPosts = JSON.parse(window.localStorage.getItem('allPosts')); pensar en la noche
 
     updatePost(idPost, objectPost)
@@ -201,7 +208,12 @@ const updateObjectPost = (objectPost, idPost) => {
                 imagePost.src = objectPost.urlImage;
                 imagePost.classList.add('content-image');
             }
-            
+            if (objectPost.publicPosts == 'true') {
+                spanPublic.innerHTML = `<i class="fas fa-globe-americas"></i>`;
+            } else {
+                spanPublic.innerHTML = `<i class="fas fa-lock"></i>`;
+            }
+
             formPost.reset();
             modal.classList.remove('revelar') //Cierra el modal
             btnProcess(false);

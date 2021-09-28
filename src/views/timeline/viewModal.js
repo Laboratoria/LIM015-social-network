@@ -30,8 +30,8 @@ const loadViewModal = () => {
                         </select>
                     </section>
                     <select name="select" id="select-public" class="dropdownModal">
-                    <option value='true'>T &#xf0ac;</option>
-                    <option value='false'>F &#xf023;</option>
+                    <option value='true'> &#xf0ac; </option>
+                    <option value='false'> &#xf023; </option>
                     </select>
 
                     <section class="textarea-group">
