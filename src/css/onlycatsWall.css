@@ -235,3 +235,36 @@ background-color: transparent;
         margin: auto;
     }
 }
+
+/*---------------------------View Desktop--------------------------- */
+@media only screen and (min-width:1024px){
+    /* .container-box{
+        margin: 40px 60px;
+    }
+    .home-container{
+        height: calc(100vh - 80px);
+    } */
+    .scroll-container{
+        display: grid;
+        grid-template-columns: 30% 50% 20%;
+    }
+
+    .label-container{
+        width: 350px;
+        height: 500px;
+        flex-direction: column-reverse;
+        background-color: white;
+        border-radius:10px;
+        gap: 10px;
+    } 
+    .label-btn{
+        border-radius:10px;
+        padding: 60px;
+        width: 20vw;
+        border:none;
+        color: white;
+        text-shadow: rgb(140, 139, 138) 1px 0 10px;
+        font-size: 20px;
+        font-weight: 550;
+    } 
+}
