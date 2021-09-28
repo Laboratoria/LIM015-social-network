@@ -17,7 +17,7 @@ const addEventsRegister = () => {
     formRegister.addEventListener('submit', (e) => {
         e.preventDefault();
         alertProcess(true); //mostramos alerta con gif
-        limpiar(['nameUser', 'email', 'password', 'confirmPassword']); //limpiamos mensajes span 
+        limpiar(['nameUser', 'email-registro', 'password-registro', 'confirmPassword']); //limpiamos mensajes span 
         const email = inputEmail.value;
         const password = inputPassword.value;
         const nameuser = inputName.value;
@@ -72,17 +72,17 @@ const addEventsRegister = () => {
     inputEmail.addEventListener('change', () => {
         const regex = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
         if (regex.test(inputEmail.value)) {
-            validInput('email', 'Ok', 'success');
+            validInput('email-registro', 'Ok', 'success');
         } else {
-            validInput('email', 'El correo ingresado no es valido', 'error');
+            validInput('email-registro', 'El correo ingresado no es valido', 'error');
         }
     });
 
     inputPassword.addEventListener('change', () => {
         if (inputPassword.value.length < 6 || inputPassword.value == null) {
-            validInput('password', 'La contraseña es muy corta (Mínimo 6 caracteres)', 'error');
+            validInput('password-registro', 'La contraseña es muy corta (Mínimo 6 caracteres)', 'error');
         } else {
-            validInput('password', 'Ok', 'success');
+            validInput('password-registro', 'Ok', 'success');
         }
     });
 
@@ -110,9 +110,10 @@ function responseOk(result, nameuser, google) {
 }
 
 function responseError(error) {
+    alertProcess(false);
     const errorCode = error.code;
     if (errorCode == 'auth/email-already-in-use') {
-        validInput('email', 'El correo electrónico ya está registrado', 'error');
+        validInput('email-registro', 'El correo electrónico ya está registrado', 'error');
     } else {
         alerts('error', error.code) //mostramos alerta de error
     }

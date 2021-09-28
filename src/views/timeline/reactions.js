@@ -1,42 +1,30 @@
-export const reactionLike = () =>{
-    const idLikes = document.querySelectorAll('#idLike');
-   /*  const classLikes = document.querySelectorAll('.btn-notlike'); */
-  /*   console.log(idLikes)
-    const show = classLikes.dataset.show; */
-    /* console.log(show ,'showw') */
-    /* const showNumberLike = document.querySelector('div');
-    const show = showNumberLike.dataset.id; */
-            
-    idLikes.forEach((btn) => {
-       
-        
-        btn.addEventListener('click', (e) =>{
-           /*  const userFound =  */
-            const idPosts = e.target.dataset.id;
-            console.log(idPosts)
-            const show = e.target.dataset.show;
-            console.log(show)
-           /*  const userFound = show.find( */
-                /* eslint-disable no-undef */
-                /* (user) => user === firebase.auth().currentUser.uid,
-                console.log(userFound, 'fb.auth') */
-           /*  ); */
-            
-            
+import { updatePost, getPost } from "../../db/firestore.js";
+export const reactionLike = () => {
+    const allLikes = document.querySelectorAll('.likes');
 
-            /* const userFound = postLikes.find(
-                (user) => user === firebase.auth().currentUser.uid,
-            ); */
+    allLikes.forEach((btn) => {
+        btn.addEventListener('click', async(e) => {
+            const idPost = e.target.dataset.id;
+            const dataPost = await getPost(idPost).then(response => response.data());
+            const idUserAuth = localStorage.getItem('iduser');
+            const imgLike = document.querySelector("#like-" + idPost);
+            const countLike = document.querySelector("#count-like-" + idPost);
+            let newArrayLike;
+            if (dataPost.arrLikes.includes(idUserAuth)) {
+                //si ya esta el idUser, entonces ya no le gusta el post , if ==true
+                newArrayLike = dataPost.arrLikes.filter((item) => item !== idUserAuth);
+                updatePost(idPost, { arrLikes: newArrayLike });
+                imgLike.src = '../images/svg/notlike.png';
+            } else {
+                //no esta el idUser, entonces le gusta el post
+                newArrayLike = [...dataPost.arrLikes, idUserAuth];
+                updatePost(idPost, { arrLikes: newArrayLike });
+                imgLike.src = '../images/svg/like.png';
+            }
+            countLike.innerText = newArrayLike.length;
+
         })
     });
-   /*  showNumberLike.forEach((btn) => { */
-           /*  const userFound =  */
-            /* const idPosts = e.target.dataset.id;
-            console.log(idPosts) */
-           /*  const show = e.target.dataset.id;
-            console.log(show ,'showw') */
-            
-       
-    /* }); */
-    
+
+
 }
