@@ -13,6 +13,7 @@ const addEventFormPost = () => {
     const inputTextarea = document.querySelector('#post-user');
     const imageUpload = document.querySelector('#file-input');
     const sectionNameImgUpload = document.querySelector('.name-image-upload');
+    const selectPublic = document.querySelector('#select-public');
 
     /** Evento en caso de Cambio de Imagen**/
     imageUpload.addEventListener('change', () => {
@@ -29,6 +30,7 @@ const addEventFormPost = () => {
                 contentPost: inputTextarea.value,
                 datePost: datePost(),
                 idCategory: selectCategory.value,
+                publicPosts:selectPublic.value,
             }
             //Lo siguiente es verificar si es guardar un nuevo post o editar, 
             //si el Input del IdPost es Vacio, entonces es crear
@@ -151,12 +153,15 @@ const createObjectPost = (object) => {
                 nameImage: object.nameImage,
                 totalComments: 0,
                 totalLikes: 0,
+                arrLikes: [],
                 image: object.image,
+                publicPosts : object.publicPosts,
                 idCategory: object.idCategory,
                 nameCategory: textSelect,
                 urlImage: object.urlImage,
             }
             objectAllPosts.push(objectPost);
+            console.log(objectPost)
             window.localStorage.setItem('allPosts', JSON.stringify(objectAllPosts)); //Agreamos al Local, con el nuevo Obj
             const arrayObjectPost = [objectPost]; //agregamos el obj en un array para darselo a la funcion loadView, ya que este recibe un array
             loadViewPost(arrayObjectPost); //Rendereizamos el Post en la DOM, funcion esta en viewPost linea 37

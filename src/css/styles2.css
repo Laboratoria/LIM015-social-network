@@ -1115,7 +1115,7 @@ img {
     margin-top: 1rem;
     padding: .5rem;
     width: 96%;
-    height: 180px;
+    height: 160px;
     outline: none;
     resize: none;
     overflow: hidden;
@@ -1424,6 +1424,15 @@ img {
     background-color: #414141;
 }
 
+/* modified modal dropdown private and public */
+.dropdownModal{
+    background: transparent;
+    border: none;
+    height: 30px;
+    padding: 0 5px;
+    color: #9FA0A1;
+
+
 /* <ul>  con resultados del Buscador */
 .result-search {
     list-style-type: none;
@@ -1441,4 +1450,5 @@ img {
 
 .result-search li .fa-search {
     color: black
+
 }

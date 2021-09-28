@@ -44,7 +44,8 @@ const addEventsTimeline = () => {
         <a href="#/profile${nameUserPath}" class="user-information">  
             <img class="avatar avatar-sm" src="${/^(http|https):\/\/[^ "]+$/.test(infouser.photoUser)?infouser.photoUser:`../images/profile/`+infouser.photoUser}" alt="img-user"> 
             <span> ${infouser.nameUser} </span> 
-        </a>`
+        </a>
+        `
         placeholderTextarea.placeholder = `¿Qué quieres compartir hoy, ${infouser.nameUser}... ?`
 
     
