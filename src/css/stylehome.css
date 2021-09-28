@@ -4,7 +4,7 @@
     padding: 0;
     box-sizing: border-box;
   }
-
+  
 .home {
   /* background-color: rgb(228, 227, 227); */
   padding-top: 100px;
@@ -15,7 +15,7 @@
   display: grid;
   grid-template-columns: 2fr 3fr;
   padding: 1em;
-
+  align-self:flex-start;
 }
 
 .home__postImput > textarea {
@@ -41,6 +41,7 @@ color: #78752C;
 
 .imgUser {
     border-radius: 50%;
+    background-color: crimson;
 }
 
 .homeImgUser {
@@ -189,7 +190,12 @@ color: #78752C;
 
 .fa-heart {
 color: #F5000A;
+cursor: pointer;
 }
+
+.fa-heart:focus {
+  outline: none;
+  }
 
 .btn-delete, .btn-cancelEdit {
   margin-left:1em;
@@ -202,6 +208,7 @@ color: #F5000A;
   background: #D8D8D8;
   display: flex;
   justify-content: center;
+  min-width: calc(100vh - 50px);
 }
 .home{
   max-width: 900px;
