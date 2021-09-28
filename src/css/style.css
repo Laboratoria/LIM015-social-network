@@ -272,10 +272,19 @@ span{
     color: #433CA7;
 }
 
-
+.show {
+    display: block;
+}
+.mostrar {
+    display: block;
+}
+.ocultar {
+    display: none;
+}
 .hide{
     display: none;
   }
+
 
 /* @media screen and (max-width:778px) {
     .container-box{

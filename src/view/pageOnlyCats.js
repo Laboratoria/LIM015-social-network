@@ -3,7 +3,7 @@
 /* eslint-disable no-console */
 import { signOutUser, onAuthStateChanged } from '../firebase/firebase-auth.js';
 import {
-  postCollection, getCollection, deletePost, getPost,
+  postCollection, getCollection, deletePost, getPost, editPost,
 } from '../firebase/firebase-firestore.js';
 
 const userStateCheck = () => {
@@ -21,6 +21,10 @@ export const pageOnlyCats = () => {
   const localUser = JSON.parse(localStorage.getItem('user'));
   const imgDefault = 'https://pbs.twimg.com/profile_images/1101458340318568448/PpkA2kQh_400x400.jpg';
   const photo = (localUser.photoURL === null) ? imgDefault : localUser.photoURL;
+  const displayName = localUser.displayName;
+  const email = localUser.email;
+  let id = ' ';
+  let editStatus = false;
   const pageOcView = `
   <div class="page-container">
     <header class = "header-container">
@@ -43,7 +47,9 @@ export const pageOnlyCats = () => {
             <textarea class="text-input" id="text-input" placeholder="¿Miau esta pasando?"></textarea>
             <div class="post-icon">
               <i class="fas fa-image"></i>
+              <button class="post-button hide" id="cancel-button" type="submit">Cancelar</button>
               <button class="post-button" id="post-button" type="submit">Meow</button>
+
             </div>
           </section>
         </section>
@@ -59,21 +65,6 @@ export const pageOnlyCats = () => {
   // -----Botones del Post
   const btnPublish = sectionElement.querySelector('#post-button');
   const textInput = sectionElement.querySelector('#text-input');
-
-  // -------- Crear Posts (C) --------
-  const createPost = (e) => {
-    e.preventDefault();
-    const displayName = localUser.displayName;
-    const email = localUser.email;
-    const post = textInput.value;
-    postCollection(post, displayName, photo, email)
-      .then(() => {
-        textInput.value = ' ';
-      })
-      .catch((error) => {
-        console.error('Error adding document: ', error);
-      });
-  };
 
   // -------- Leer Posts (R) --------
 
@@ -114,21 +105,52 @@ export const pageOnlyCats = () => {
 
       // -------- Editar Posts (U) --------
       const btnEdit = sectionElement.querySelectorAll('.btn-edit');
-      const postText = sectionElement.querySelector('.text-input');
       btnEdit.forEach((btn) => {
         btn.addEventListener('click', async (e) => {
           const postSeleccionado = await getPost(e.target.id);
           // Para saber lo que dice el post => console.log(postText.value);
-          postText.value = postSeleccionado.data().text;
-
-          // btnMeow.innerText = 'Editar';
+          textInput.value = postSeleccionado.data().text;
+          editStatus = true;
+          // data del post => console.log(postSeleccionado);
+          // id del post => console.log(postSeleccionado.id);
+          id = postSeleccionado.id;
+          btnPublish.innerText = 'Editar';
+          sectionElement.querySelector('.hide').style.display = 'block';
           // console.log(x);
         });
       });
     });
   };
 
-  btnPublish.addEventListener('click', createPost);
+  btnPublish.addEventListener('click', () => {
+    // EditStatus sera falso cuando no exista un post, y recien se este creando
+    if (textInput.value.length !== 0) {
+      if (editStatus === false) {
+        // Crear un post (C)
+        postCollection(textInput.value, displayName, photo, email)
+          .then(() => {
+            textInput.value = ' ';
+            console.log('Posteado con exito');
+          })
+          .catch((error) => {
+            console.error('Error al añadir documento: ', error);
+          });
+      } else {
+        editPost(id, textInput.value)
+          .then(() => {
+            textInput.value = ' ';
+            console.log('editanding');
+            btnPublish.innerText = 'Meow';
+            sectionElement.querySelector('.hide').style.display = 'none';
+          })
+          .catch((error) => {
+            console.error('Error al editar documento: ', error);
+          });
+      }
+    } else {
+      alert('pon un texto oye');
+    }
+  });
   readPosts();
 
   // ------------------ Salir de la página --------------------
