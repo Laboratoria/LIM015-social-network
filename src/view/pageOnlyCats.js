@@ -3,7 +3,7 @@
 /* eslint-disable no-console */
 import { signOutUser, onAuthStateChanged } from '../firebase/firebase-auth.js';
 import {
-  postCollection, getCollection, deletePost, getPost, editPost,
+  postCollection, getCollection, deletePost, getPost, editPost, editHeart,
 } from '../firebase/firebase-firestore.js';
 
 const userStateCheck = () => {
@@ -18,11 +18,12 @@ const userStateCheck = () => {
 
 export const pageOnlyCats = () => {
   userStateCheck();
-  const localUser = JSON.parse(localStorage.getItem('user'));
   const imgDefault = 'https://pbs.twimg.com/profile_images/1101458340318568448/PpkA2kQh_400x400.jpg';
+  const localUser = JSON.parse(localStorage.getItem('user'));
   const photo = (localUser.photoURL === null) ? imgDefault : localUser.photoURL;
   const displayName = localUser.displayName;
   const email = localUser.email;
+  const uid = localUser.uid;
   let id = ' ';
   let editStatus = false;
   const pageOcView = `
@@ -82,11 +83,15 @@ export const pageOnlyCats = () => {
           <section class="section-post">
             <p class="name-input"> ${dataContent.user} </p>
             <p readonly class="text-output">${dataContent.text}</p>
+            <div class="paw-container">
+              <i class="${dataContent.likes.includes(localUser.uid) ? 'fas' : 'far'} fa-heart" id="${doc.id}"></i>
+              <span>${dataContent.likes.length ? dataContent.likes.length : ''} </span>
           </section>
           <div class="update-post  ${(dataContent.email === localUser.email) ? ' ' : 'hide'}">
             <button class="btn-delete"><i class="fas fa-trash" id="${doc.id}"></i></button>
             <button class="btn-edit"><i class="fas fa-edit" id="${doc.id}"></i></button>
           </div>
+          
         </section> `;
       });
 
@@ -119,33 +124,39 @@ export const pageOnlyCats = () => {
           // console.log(x);
         });
       });
+
+      // -------- like Posts  --------
+      const btnHeart = sectionElement.querySelectorAll('.fa-heart');
+      btnHeart.forEach((btn) => {
+        btn.addEventListener('click', async (e) => {
+          let postSeleccionado = await getPost(e.target.id).then((doc) => doc.data().likes);
+          if (!postSeleccionado.includes(localUser.uid)) {
+            postSeleccionado.push(localUser.uid);
+            await editHeart((e.target.id), { likes: postSeleccionado });
+            console.log('si le diste likee');
+          } else {
+            postSeleccionado = postSeleccionado.filter((lik) => lik !== localUser.uid);
+            await editHeart((e.target.id), { likes: postSeleccionado });
+            console.log('todavia no le has dado like');
+          }
+        });
+      });
     });
   };
 
-  btnPublish.addEventListener('click', () => {
+  btnPublish.addEventListener('click', async () => {
     // EditStatus sera falso cuando no exista un post, y recien se este creando
     if (textInput.value.length !== 0) {
       if (editStatus === false) {
-        // Crear un post (C)
-        postCollection(textInput.value, displayName, photo, email)
-          .then(() => {
-            textInput.value = ' ';
-            console.log('Posteado con exito');
-          })
-          .catch((error) => {
-            console.error('Error al añadir documento: ', error);
-          });
+        // -------- Crear Posts (C) --------
+        await postCollection(textInput.value, displayName, photo, email, uid);
+        textInput.value = ' ';
       } else {
-        editPost(id, textInput.value)
-          .then(() => {
-            textInput.value = ' ';
-            console.log('editanding');
-            btnPublish.innerText = 'Meow';
-            sectionElement.querySelector('.hide').style.display = 'none';
-          })
-          .catch((error) => {
-            console.error('Error al editar documento: ', error);
-          });
+        await editPost(id, textInput.value);
+        textInput.value = ' ';
+        console.log('editanding');
+        btnPublish.innerText = 'Meow';
+        sectionElement.querySelector('.hide').style.display = 'none';
       }
     } else {
       alert('pon un texto oye');

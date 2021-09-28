@@ -99,7 +99,8 @@ background-color: transparent;
     gap:20px;
     width: 40vw;
     min-width: 310px;
-    padding: 20px 0;
+    padding-top: 15px;
+    padding-bottom: 10px;
     background: linear-gradient( to right bottom,
      rgba(255,255,255,0.7), 
      rgba(255,255,255,0.2) 
@@ -133,7 +134,6 @@ background-color: transparent;
     margin: auto;
 }
 .name-input{
-    padding-bottom: 5px;
     color: #120B73;
     font-size: 15px;
     font-weight: 550;
@@ -152,6 +152,8 @@ background-color: transparent;
     width: 25vw;
     min-width: 170px;
     height: auto;
+    padding-top: 5px;
+    padding-bottom: 10px;
 }
 .post-icon{
     display:flex;
@@ -202,6 +204,17 @@ background-color: transparent;
 .btn-delete:hover{
     cursor: pointer;
     color: #4f46c8;
+}
+.paw-container{
+    display: flex;
+    align-items: center;
+}
+.btn-heart{
+    width: 22px;
+    margin-right: 5p;
+}
+.btn-heart:hover{
+    cursor: pointer;
 }
 /*---------------------------View Tablet--------------------------- */
 @media only screen and (min-width:768px){

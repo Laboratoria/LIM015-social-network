@@ -1,8 +1,10 @@
-export const postCollection = (post, userName, photo, email) => firebase.firestore().collection('posts').add({
+export const postCollection = (post, userName, photo, email, uid) => firebase.firestore().collection('posts').add({
   user: userName,
   text: post,
   photo,
   email,
+  uid,
+  likes: [],
   timePost: firebase.firestore.FieldValue.serverTimestamp(),
 });
 
@@ -25,4 +27,8 @@ export const getUserCollection = () => firebase.firestore().collection('user');
 export const deletePost = (id) => firebase.firestore().collection('posts').doc(id).delete();
 
 // Función para editar posts
-export const editPost = (id, updatePost) => firebase.firestore().collection('posts').doc(id).update({ text: updatePost });
+export const editPost = (id, updatePost) => firebase.firestore().collection('posts').doc(id).update({
+  text: updatePost,
+});
+
+export const editHeart = (id, likes) => firebase.firestore().collection('posts').doc(id).update({ likes });
