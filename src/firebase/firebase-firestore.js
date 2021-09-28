@@ -3,6 +3,7 @@ export const postCollection = (post, userName, photo, email) => firebase.firesto
   text: post,
   photo,
   email,
+  heart: [],
   timePost: firebase.firestore.FieldValue.serverTimestamp(),
 });
 
@@ -26,3 +27,6 @@ export const deletePost = (id) => firebase.firestore().collection('posts').doc(i
 
 // Función para editar posts
 export const editPost = (id, updatePost) => firebase.firestore().collection('posts').doc(id).update({ text: updatePost });
+
+// Funcion para dar like
+export const editHeart = (id, heart) => firebase.firestore().collection('posts').doc(id).update({ heart });

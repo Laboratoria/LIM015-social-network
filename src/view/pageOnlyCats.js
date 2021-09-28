@@ -3,7 +3,7 @@
 /* eslint-disable no-console */
 import { signOutUser, onAuthStateChanged } from '../firebase/firebase-auth.js';
 import {
-  postCollection, getCollection, deletePost, getPost, editPost,
+  postCollection, getCollection, deletePost, getPost, editPost, editHeart,
 } from '../firebase/firebase-firestore.js';
 
 const userStateCheck = () => {
@@ -82,6 +82,7 @@ export const pageOnlyCats = () => {
           <section class="section-post">
             <p class="name-input"> ${dataContent.user} </p>
             <p readonly class="text-output">${dataContent.text}</p>
+            <button class="btn-heart"><i class="fab fa-gratipay" id="${doc.id}"></i></button>
           </section>
           <div class="update-post  ${(dataContent.email === localUser.email) ? ' ' : 'hide'}">
             <button class="btn-delete"><i class="fas fa-trash" id="${doc.id}"></i></button>
@@ -119,6 +120,7 @@ export const pageOnlyCats = () => {
           // console.log(x);
         });
       });
+
     });
   };
 
