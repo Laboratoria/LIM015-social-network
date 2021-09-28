@@ -29,6 +29,11 @@ const loadViewModal = () => {
                             <option value="9" id="9"> Otros </option>
                         </select>
                     </section>
+                    <select name="select" id="select-public" class="dropdownModal">
+                    <option value='true'>T &#xf0ac;</option>
+                    <option value='false'>F &#xf023;</option>
+                    </select>
+
                     <section class="textarea-group">
                         <textarea class="textarea-post" id="post-user" row="4" required></textarea>
                     </section>

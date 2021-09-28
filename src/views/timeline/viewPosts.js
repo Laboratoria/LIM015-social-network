@@ -3,7 +3,7 @@ const allPosts = () => {
         const objectPosts = [];
         const allUsers = JSON.parse(window.localStorage.getItem('allUsers')); //extraemos de local viewHeaderUser Linea 21
         const allCategoriesCourses = JSON.parse(window.localStorage.getItem('allCategories'));
-        return getAllPosts()
+        return getAllPosts()//parametro el idUser
             .then(response => {
                 response.forEach(doc => {
                     //console.log(doc.data().arrLikes.length, 'q')
@@ -19,6 +19,7 @@ const allPosts = () => {
                         datePost: doc.data().datePost.toDate().toDateString(),
                         nameImage: doc.data().nameImage,
                         arrLikes: doc.data().arrLikes,
+                        publicPosts : doc.data().publicPosts,
                         totalComments: doc.data().totalComents,
                         image: doc.data().image,
                         idCategory: doc.data().idCategory,
@@ -37,8 +38,9 @@ const getObjectAllPosts = async() => {
 }
 
 const loadViewPost = (objectDataPosts) => {
+    console.log(objectDataPosts)
         const containerPost = document.querySelector('#container-posts');
-        const idUserAuth = localStorage.getItem('iduser'); //Esto vien de la linea 58 del archivo eventLogin
+        const idUserAuth = localStorage.getItem('iduser'); //Esto vien de la linea 58 del archivo eventLogin OBTENER EL ID USER
         objectDataPosts.forEach(element => {
                     const post = document.createElement('div');
                     post.classList.add('post');
@@ -60,6 +62,8 @@ const loadViewPost = (objectDataPosts) => {
                                 <div class="post-category">
                                     ${idUserAuth == element.idUser ? `<img class="btn btn-edit" width="22px" height="22px" data-id="${element.idPost}" src="../images/svg/edit.png">
                                     <img class="btn btn-delete" data-id="${element.idPost}" src="https://user-images.githubusercontent.com/77282012/120018025-389c9c80-bfac-11eb-9d7d-0a68441eca20.png">`:``}
+                                    <span>${(element.publicPosts == 'true') ? `T &#xf0ac;`: `F &#xf023;`} </span>
+
                                     <span class="badge badge-secondary" id="span-category-${element.idPost}">${element.nameCategory}</span>
                                 </div>
                                 
@@ -81,7 +85,6 @@ const loadViewPost = (objectDataPosts) => {
                             </div>
                             <div class="footer-comments comments"> </div>
                         </div>     `
-
         const theFirstChild = containerPost.firstChild;
         containerPost.insertBefore(post, theFirstChild) //renderiza en el hijo anterior del primero 
 

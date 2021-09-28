@@ -16,7 +16,7 @@ const saveUser = (infoUser) => {
 //extrae todos los usuarios, categorias y Post
 const getAllUsers = () => db.collection("users").get();
 const getAllCategories = () => db.collection("categories").get();
-const getAllPosts = () => db.collection("posts").orderBy('datePost', 'asc').get();
+const getAllPosts = () => db.collection("posts").orderBy('datePost', 'asc').get();//add if where public posts === true|| where idUser 
 const getPost = (id) => db.collection("posts").doc(id).get();
 const deletePostFs = (id) => db.collection('posts').doc(id).delete();
 const datePost = () => firebase.firestore.Timestamp.now();
