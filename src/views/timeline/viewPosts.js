@@ -1,4 +1,5 @@
 import { getAllPosts } from '../../db/firestore.js';
+import { loadUserPosts } from '../profile/eventsProfile.js';
 const allPosts = () => {
         const objectPosts = [];
         const allUsers = JSON.parse(window.localStorage.getItem('allUsers')); //extraemos de local viewHeaderUser Linea 21
@@ -30,8 +31,9 @@ const allPosts = () => {
     }
     //Función inicial conectada en loadComponents
 const getObjectAllPosts = async() => {
-    const objectDataPosts = await allPosts().then(response => response)
-    loadViewPost(objectDataPosts)
+    const objectDataPosts = await allPosts().then(response => response);
+    loadViewPost(objectDataPosts);
+    loadUserPosts(objectDataPosts);
 }
 
 const loadViewPost = (objectDataPosts) => {

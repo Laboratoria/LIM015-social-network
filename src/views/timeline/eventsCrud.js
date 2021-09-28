@@ -173,8 +173,8 @@ const createObjectPost = (object) => {
 const updateObjectPost = (objectPost, idPost) => {
     const modal = document.querySelector('.modal');
     const formPost = document.querySelector('#form-create-post');
-    const spanDate = document.querySelector('#post-date');
-    const spanCategory = document.querySelector('#');
+    // const spanDate = document.querySelector('#post-date');
+    // const spanCategory = document.querySelector('#');
     updatePost(idPost, objectPost)
         .then(() => {
 

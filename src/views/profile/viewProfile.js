@@ -1,3 +1,4 @@
+// import { loadUserPosts } from "./eventsProfile.js";
 export default () => {
     const infouser = JSON.parse(window.localStorage.getItem('infouser'));
     const isPhotoUrl = /^(http|https):\/\/[^ "]+$/.test(infouser.photoUser);
@@ -51,10 +52,12 @@ export default () => {
                     <h3> Guardados </h3>
                 </section>
             </section>
-            <button class="btn btn-create-post"> Crear Publicación <i class="fas fa-plus-circle"></i> </button>
+            <button class="btn"> Crear Publicación <i class="fas fa-plus-circle"></i> </button>
+            <button class="btn"> Crear <i class="fas fa-plus-circle"></i> </button>
         </section>
         <section class="container-post" id="container-posts-user"> </section>
     </section>   
     `;
+    // loadUserPosts();
     return viewProfile;
 }
