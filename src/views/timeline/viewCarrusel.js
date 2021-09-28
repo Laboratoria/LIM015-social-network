@@ -8,7 +8,6 @@ const topPopularPosts = () => {
 const loadViewPopularPost = () => {
     const orderedObject = topPopularPosts()
     const sliderPost = document.querySelector('.slider');
-    console.log(sliderPost)
     orderedObject.forEach(element => {
         const cardPost = document.createElement('figure');
         cardPost.classList.add('card-post')
