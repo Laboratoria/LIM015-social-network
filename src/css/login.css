@@ -277,12 +277,14 @@ footer {
   .article-login {
     display: flex;
     flex-direction: row;
-      min-height: 90vh;
+      min-height: 80vh;
   }
 
    .contenedorLogin{ 
-    width:25%; 
-    margin-left: 180px;
+    width:50%; 
+    /* ojo aqui correguir */
+    margin-left: -50px;
+    /* margin: 5px auto; */
       /* width: 100%;
       margin-left: -120px; */
   }
@@ -333,6 +335,8 @@ footer {
     width: 30px;
     height: 30px;
   }
+  
+
 }
 
 
