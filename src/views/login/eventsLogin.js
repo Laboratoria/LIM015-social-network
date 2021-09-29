@@ -19,7 +19,7 @@ const addEventsLogin = () => {
         limpiar(['email']); //limpiamos los input de borde rojo
         loginEmail(email, password) //loginEmail retorna el firebase.auth().with....
             .then((result) => {
-                responseOk(result, false);
+                responseOk(result, false); //es false porque no es google
             })
             .catch((error) => {
                 responseError(error);

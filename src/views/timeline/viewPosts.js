@@ -5,7 +5,7 @@ const allPosts = () => {
         const allUsers = JSON.parse(window.localStorage.getItem('allUsers')); //extraemos de local viewHeaderUser Linea 21
         const allCategoriesCourses = JSON.parse(window.localStorage.getItem('allCategories'));
         const idUserAuth = localStorage.getItem('iduser'); //Esto vien de la linea 58 del archivo eventLogin OBTENER EL ID USER
-        return getAllPosts()//parametro el idUser
+        return getAllPosts() //parametro el idUser
             .then(response => {
                 response.forEach(doc => {
                     //console.log(doc.data().arrLikes.length, 'q')
@@ -21,12 +21,14 @@ const allPosts = () => {
                         datePost: doc.data().datePost.toDate().toDateString(),
                         nameImage: doc.data().nameImage,
                         arrLikes: doc.data().arrLikes,
-                        publicPosts : doc.data().publicPosts,
+                        publicPosts: doc.data().publicPosts,
                         totalComments: doc.data().totalComents,
                         image: doc.data().image,
                         idCategory: doc.data().idCategory,
                         nameCategory: categoryprueba.nameCategory,
-                        urlImage: doc.data().urlImage
+                        urlImage: doc.data().urlImage,
+                        arrComments: doc.data().arrComments
+
                     })
                 });
                 const dataPublic = objectPosts.filter(element => element.publicPosts == 'true' || element.idUser == idUserAuth);
@@ -72,8 +74,7 @@ const loadViewPost = (objectDataPosts, parentElement) => {
                             <img class="btn btn-delete" data-id="${element.idPost}" src="https://user-images.githubusercontent.com/77282012/120018025-389c9c80-bfac-11eb-9d7d-0a68441eca20.png">`:``}
 
                             <span class="badge badge-secondary" id="span-category-${element.idPost}">${element.nameCategory}</span>
-                        </div>
-                        
+                        </div>          
                     </div>
                 </div>
                 <div class="post-content">
@@ -86,7 +87,6 @@ const loadViewPost = (objectDataPosts, parentElement) => {
                         <span class="count-reaction" id="count-like-${element.idPost}">${element.arrLikes.length}</span> 
                         
                         <button type="button" class="btn-post btn-notcomment"><i class="far fa-comment-dots"></i> <span class="count-reaction">${element.totalComments}</span></button>
-
 
                         <button type="button" class="btn-post btn-notsave"><i class="far fa-bookmark"></i> <span class="count-reaction"></span>  </span></button>
                     </div>
