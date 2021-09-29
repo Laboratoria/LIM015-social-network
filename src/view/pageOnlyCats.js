@@ -88,14 +88,8 @@ export const pageOnlyCats = () => {
             <p class="name-input"> ${dataContent.user} </p>
             <p readonly class="text-output">${dataContent.text}</p>
             <div class="paw-container">
-<<<<<<< HEAD
               <i class="${dataContent.likes.includes(localUser.uid) ? 'fas' : 'far'} fa-heart" id="${dataContent.id}"></i>
               <span>${dataContent.likes.length ? dataContent.likes.length : ''} </span>
-=======
-
-              <i class="far fa-heart" id="${doc.id}"></i>
-              <span> </span>
->>>>>>> 77ba9b939dbab969c66bbb6ab1554d3045462e42
           </section>
           <div class="update-post  ${(dataContent.email === localUser.email) ? ' ' : 'hide'}">
             <button class="btn-delete"><i class="fas fa-trash" id="${doc.id}"></i></button>
@@ -136,7 +130,6 @@ export const pageOnlyCats = () => {
       });
 
       // -------- like Posts  --------
-<<<<<<< HEAD
       // const btnHeart = sectionElement.querySelectorAll('.fa-heart');
       // btnHeart.forEach((btn) => {
       //   btn.addEventListener('click', async (e) => {
@@ -156,26 +149,6 @@ export const pageOnlyCats = () => {
       //     }
       //   });
       // });
-=======
-      const btnHeart = sectionElement.querySelectorAll('.fa-heart');
-      btnHeart.forEach((btn) => {
-        btn.addEventListener('click', async (e) => {
-          const postSeleccionado = await getPost(e.target.id);
-          console.log(postSeleccionado.data());
-
-          /* let postSeleccionado = await getPost(e.target.id).then((doc) => doc.data().likes);
-          if (!postSeleccionado.includes(localUser.uid)) {
-            postSeleccionado.push(localUser.uid);
-            editPost((e.target.id), { likes: postSeleccionado });
-            console.log('si le diste likee');
-          } else {
-            postSeleccionado = postSeleccionado.filter((lik) => lik !== localUser.uid);
-            editPost((e.target.id), { likes: postSeleccionado });
-            console.log('todavia no le has dado like');
-          } */
-        });
-      });
->>>>>>> 77ba9b939dbab969c66bbb6ab1554d3045462e42
     });
   };
 
