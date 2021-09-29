@@ -8,18 +8,23 @@ import {
 } from '../security/security.function.js';
 
 export function viewLogin() {
-  const viewLoginv = `
-  <form class='contenedorLogin'>
+  // viewLoginv.className = 'article-login';
+  //const divElem = document.createElement('div');
+  const divElem = document.createElement('article');
+  divElem.className = 'article-login';
+  divElem.innerHTML =  `
   <figure class='figure-login'>
-    <img src='./img/fondoLogin.png' id='fondoLogin1' class='fondo-Login1' >
-    </figure>
-  
-  <section class='frmLogin'>
+    <img class='fondo-Login1' src='./img/fondoLogin.png' id='fondoLogin1'  >
+  </figure>
+  <article class='contenedorLogin'>
       <figure class='figure-title-login'>
         <img src='img/pet.jpg' id='fondoPet' class='fondoAnimalPet'>
-      </figure>  
+      </figure> 
+   <form action="#" class='frmLogin'>
+   <div class="form-login-inputs">
       <input id='email' placeholder='Email' class='btn-texto'>
       <input class='btn-texto' type='password' name='password' id='password' placeholder='Password'>
+    </div>  
       <button id='btnsignin' class='btn-signin'>signin</button> 
       <span class='message'></span> 
     <span class='txt'>You can also enter with</span>
@@ -29,10 +34,11 @@ export function viewLogin() {
     
     <span class='txt'>¿You do not have an account?</span>
       <button id='registro' class='btn-register' ><a href='#/register'class='a-login-signup'>register</a></button>
-  </section>
-</form>`;
-  const divElem = document.createElement('div');
-  divElem.innerHTML = viewLoginv;
+    </form>
+</article>
+`;
+  /* const divElem = document.createElement('div');
+  divElem.innerHTML = viewLoginv; */
   return divElem;
 }
 /* inicio de sesion con email */

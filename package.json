@@ -25,6 +25,7 @@
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jest": "^24.1.0",
+    "firebase-mock": "^2.3.2",
     "htmlhint": "^0.14.0",
     "jest": "^27.0.1",
     "js-mock": "^2.0.0",
@@ -38,8 +39,5 @@
   },
   "engines": {
     "node": ">=10"
-  },
-  "dependencies": {
-    "firebase-mock": "^2.3.2"
   }
 }
