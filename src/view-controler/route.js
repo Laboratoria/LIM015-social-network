@@ -40,7 +40,7 @@ const changeView = (route) => {
                 addEventsProfileUser();
                 return viewTimeLine;
             }
-        // case `#/profile${viewProfileOtherUser()}`:
+            // case `#/profile${viewProfileOtherUser()}`:
         case '#/profile':
             {
                 const viewProfile = containerMain.appendChild(components.profile());
@@ -51,7 +51,7 @@ const changeView = (route) => {
                 addEventsProfileUser();
                 return viewProfile;
             }
-    
+
 
         default:
             { return containerMain.appendChild(components.error()); }

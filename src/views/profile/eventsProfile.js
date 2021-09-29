@@ -1,4 +1,4 @@
-import { getPostUser} from "../../db/firestore.js";
+import { getPostUser } from "../../db/firestore.js";
 import { loadViewPost } from "../timeline/viewPosts.js";
 const loadTimelineUser = () => {
     const idUserAuth = localStorage.getItem('iduser'); //Esto vien de la linea 58 del archivo eventLogin OBTENER EL ID USER
@@ -30,7 +30,7 @@ const loadTimelineUser = () => {
                 datePost: doc.data().datePost.toDate().toDateString(),
                 nameImage: doc.data().nameImage,
                 arrLikes: doc.data().arrLikes,
-                publicPosts : doc.data().publicPosts,
+                publicPosts: doc.data().publicPosts,
                 totalComments: doc.data().totalComents,
                 image: doc.data().image,
                 idCategory: doc.data().idCategory,
@@ -38,7 +38,7 @@ const loadTimelineUser = () => {
                 urlImage: doc.data().urlImage
             })
             dataPublic = objectPosts.filter(element => element.publicPosts == 'true' || element.idUser == idUserAuth);
-            
+
         })
         loadViewPost(dataPublic, containerPostsUser);
     });
@@ -49,26 +49,21 @@ const addEventsProfileUser = () => {
     const path = url.split('#')
 
     if (path[1] == '/profile') {
-        console.log('si es')
         const idUserAuth = localStorage.getItem('iduser'); //Esto vien de la linea 58 del archivo eventLogin OBTENER EL ID USER
         const idUserProfile = window.localStorage.getItem('idUserProfile');
         const btnSeguir = document.querySelector("#btn-seguir")
         const btnCrear = document.querySelector("#btn-crear")
         const btnEditarPerfil = document.querySelector("#btn-editarPerfil")
-        console.log(idUserAuth, idUserProfile, 'aqui 54')
-        if(idUserAuth === idUserProfile) {
+
+        if (idUserAuth === idUserProfile) {
             btnSeguir.style.display = "none";
             btnCrear.style.display = "block";
             btnEditarPerfil.style.display = "block";
-            console.log('btncrear')
         } else {
             btnCrear.style.display = "none";
             btnEditarPerfil.style.display = "none";
-            console.log('btnseguir')
         }
-        
-    } else {
-        console.log('no entre')
+
     }
 }
 
