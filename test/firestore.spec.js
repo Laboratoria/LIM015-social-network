@@ -23,7 +23,6 @@ describe('getPost', () => {
     it('Debería poder obtener el post con id=acba321', () => getAllPosts('cba321')
     .then((dataPost) => {
       const result = dataPost.data();
-      // console.log(result); // Obtenemos el post con id = 'cba321'
       expect(result.post).toBe('My second post');
     }));
 });

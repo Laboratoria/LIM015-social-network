@@ -1,5 +1,5 @@
 
-import { getCategory, savePost, datePost, deletePostFs, updatePost } from "../../db/firestore.js";
+import { getCategory, savePost, datePost, deletePostFs, updatePost, updateCategory, getPost} from "../../db/firestore.js";
 import { saveImageFile, getPhotoURL } from "../../db/storage.js";
 import { alerts, btnProcess } from "../../lib/alerts.js";
 import { loadViewPost } from "./viewPosts.js";
@@ -83,6 +83,8 @@ const addEventDeletePost = () => {
                 nodoPadre.removeChild(nodoHijo);
                 modalDelete.classList.remove('revelar') //oculta el modal
                 alerts('success', 'Eliminado con exito')
+                getPost(idPosts).then((res)=>{console.log(res.doc.data())})
+               /*  updateCategory() */
             }).catch((err) => {
                 modalDelete.classList.remove('revelar') //oculta el modal
                 alerts('error', 'Hubo un error ' + err)
@@ -176,6 +178,7 @@ const createObjectPost = (object) => {
             modal.classList.remove('revelar') //Cierra el modal?
             btnProcess(false);
             alerts('success', 'Post Publicado');
+            updateTotalCategory(selectCategory.value,'create');
         })
         .catch((error) => {
             btnProcess(false);
@@ -252,9 +255,23 @@ const uploadImage = async(action) => {
     return arrayInfoImage;
 }
 
-const updateCategory = async(idCategory) =>{
-    const category = await getCategory(idCategory).then((res)=>{
-        console.log(res)
+const updateTotalCategory = async(idCategory, action) =>{//action es el string donde indica que va eliminar y editar
+    const spanCategory = document.querySelector('#category-'+idCategory);
+    const category = await getCategory(idCategory).then((res)=> res.data());
+  
+    let totalCategory = category.totalPosts;
+    if (action == 'create') {
+        totalCategory = parseInt(totalCategory) + 1;
+    }if (action == 'delete') {
+        totalCategory = parseInt(totalCategory) - 1;
+    }else{
+        //implementar el update
+    }
+    
+  
+    updateCategory(idCategory, {totalPosts : totalCategory}).then(()=>{
+        spanCategory.textContent = totalCategory;
     })
+    
 }
-export { addEventFormPost, addEventDeletePost, addEventEditPost, updateCategory }
+export { addEventFormPost, addEventDeletePost, addEventEditPost, updateTotalCategory }
