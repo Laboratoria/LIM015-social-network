@@ -84,6 +84,7 @@ export const pageOnlyCats = () => {
             <p class="name-input"> ${dataContent.user} </p>
             <p readonly class="text-output">${dataContent.text}</p>
             <div class="paw-container">
+
               <i class="far fa-heart" id="${doc.id}"></i>
               <span> </span>
           </section>
