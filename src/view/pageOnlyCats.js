@@ -35,9 +35,10 @@ export const pageOnlyCats = () => {
     </header>
     <main class = "main-container" >
       <div class="label-container">
-          <button class="label-btn meme">Memes</button>
-          <button class="label-btn vet">Vet Cat</button>
-          <button class="label-btn foodie">Foodie Cat</button>
+      <p class="label-name"> ¿Qué ver? </p>
+          <button class="label-btn meme"><img src="./img/memecat.png" alt="memes" class="img-memes" />Memes</button>
+          <button class="label-btn vet"><img src="./img/vetcat.png" alt="memes" class="img-memes" />Vet Cat</button>
+          <button class="label-btn foodie"><img src="./img/foodiecat.png" alt="memes" class="img-memes" />Foodie Cat</button>
       </div>
 
       <div class="scroll-container">
@@ -59,7 +60,18 @@ export const pageOnlyCats = () => {
         </section>
 
       </div>
-      <div></div>
+      <div class="profile-container">
+      <div class="container-fondo">
+          <img src="./img/profile.png" "alt='fondo' class="profile-fondo">
+        </div>
+        <div class="container-photo">
+          <img src="${photo}" "alt='picture' class="profile-photo">
+        </div>
+       <p class="name-input"> ${localUser.displayName} </p>
+       <p class="name-input"> ${email} </p>
+        <p class="biography-name"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <button class="profile-btn" id="profile-btn">Editar Perfil</button>
+      </div>
     </main>
   </div>`;
 
@@ -166,7 +178,7 @@ export const pageOnlyCats = () => {
         btnPublish.innerText = 'Meow';
         sectionElement.querySelector('.hide').style.display = 'none';
       }
-    } else {
+    } else if (textInput.value.length === 0) {
       alert('pon un texto oye');
     }
   });
