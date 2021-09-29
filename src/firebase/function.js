@@ -1,10 +1,10 @@
 /* eslint-disable no-console */
-import { auth } from '../security/firebase.js';
+// import { auth } from '../security/firebase.js';
 /* funcion que solo sirve para pintar los valores de emai y pasword
 en la consola */
 
 export function registerValidation(email, password) {
-  auth.createUserWithEmailAndPassword(email, password);
+  firebase.auth().createUserWithEmailAndPassword(email, password);
 }
 
 registerValidation('juanapinto@gmail.com', '123456');
@@ -19,11 +19,12 @@ export function showLogin() {
   });
 }
 
-const provider = new firebase.auth.GoogleAuthProvider();
+// const provider = new firebase.auth.GoogleAuthProvider();
 
 export async function login() {
   try {
-    const response = await auth.signInWithPopup(provider);
+    const provider = new firebase.auth.GoogleAuthProvider();
+    const response = await firebase.auth().signInWithPopup(provider);
     console.log(response);
     return response.user;
   } catch (error) {
@@ -31,5 +32,5 @@ export async function login() {
   }
 }
 export function logout() {
-  auth.signOut();
+  firebase.auth().signOut();
 }
