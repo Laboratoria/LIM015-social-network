@@ -97,7 +97,7 @@ const loadViewPost = (objectDataPosts, parentElement) => {
         });
 
     } else {
-        parentElement.innerHTML = `<h2 class="text-muted"> No hay posts </h2>`
+        parentElement.innerHTML = `<p class="text-muted notResults"> No se encontraron posts para mostrar  <i class="fas fa-passport text-muted"></i> </p>`
     }
         
 }

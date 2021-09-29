@@ -1482,3 +1482,9 @@ img {
     color: black
 
 }
+
+/**Sin resultados en los posts */
+.notResults {
+    font-size: 17px;
+    margin: 12% 32%;
+}
