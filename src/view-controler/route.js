@@ -5,7 +5,7 @@ import { addEventResetPassword } from '../views/password/eventsResetPassword.js'
 import { addEventsRegister } from '../views/register/eventsSignUp.js';
 import { loadComponents } from '../views/timeline/loadComponents.js'
 import { loadViewHeaderUser } from '../views/timeline/viewHeaderUser.js';
-import { loadTimelineUser } from '../views/profile/eventsProfile.js'
+import { loadTimelineUser, addEventsProfileUser } from '../views/profile/eventsProfile.js';
 
 const changeView = (route) => {
     const containerMain = document.querySelector('#container-main');
@@ -37,6 +37,7 @@ const changeView = (route) => {
                 const firstChild = viewTimeLine.firstChild;
                 viewTimeLine.insertBefore(components.header(), firstChild);
                 loadComponents();
+                addEventsProfileUser();
                 return viewTimeLine;
             }
         // case `#/profile${viewProfileOtherUser()}`:
@@ -47,6 +48,7 @@ const changeView = (route) => {
                 viewProfile.insertBefore(components.header(), firstChild);
                 loadViewHeaderUser();
                 loadTimelineUser();
+                addEventsProfileUser();
                 return viewProfile;
             }
     

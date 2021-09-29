@@ -1,30 +1,27 @@
-
 export default () => {
-    const infouser = JSON.parse(window.localStorage.getItem('infouser'));
-    const isPhotoUrl = /^(http|https):\/\/[^ "]+$/.test(infouser.photoUser);
     const viewProfile = document.createElement('section');
     viewProfile.className = 'container-profile';
     viewProfile.innerHTML = `
     <section class="cover-user">
-        <img src="../../images/cover/default.png" alt="cover-user" class="img-cover-user">
+        <img src="" id="img-cover-user" alt="cover-user" class="img-cover-user">
         
         <section class="up-information-profile">
             <section class="user-information-profile">
-                <img src="${ (isPhotoUrl)? infouser.photoUser : '../../images/profile/' + infouser.photoUser }" alt="" class="avatar avatar-profile">
+                <img src="" alt="" class="avatar avatar-profile" id="avatar-user">
                 <section class="user-name-profile">
-                    <p>${infouser.nameUser}</p>
-                    <p>Ocupación</p>
+                    <p id="avatar-name"> </p>
+                    <p id="avatar-description"> </p>
                 </section>
             </section>
             <section> </section>
-            <button class="btn btn-primary"> Editar Perfil </button>  
+            <button class="btn btn-secondary" id="btn-editarPerfil"> Editar </button>  
         </section>        
     </section>
 
     <section class="container-section-friends" id="section-friends"> 
         <section class="title-friends" id="title-friends"> 
             <button class="btn btn-icon-friends"> <i class="fas fa-user-friends"></i></button>
-            <h4> Mis Amigos </h4> 
+            <h4> Amigos </h4> 
         </section> 
         <section class="container-friends" id="container-friends">
             <section class="info-friends" id="info-friends"> 
@@ -45,15 +42,15 @@ export default () => {
             <section class="action-user-post">
                 <section class="title-user-post">
                     <i class="far fa-comments"></i>
-                    <h3> Mis Posts </h3>
+                    <h3> Posts </h3>
                 </section>
                 <section class="title-user-savePost">
                     <i class="far fa-bookmark"></i>
                     <h3> Guardados </h3>
                 </section>
             </section>
-            <button class="btn btn-create-post"> Crear Publicación <i class="fas fa-plus-circle"></i> </button>
-            <button class="btn btn-create-post"> Crear <i class="fas fa-plus-circle"></i> </button>
+            <button class="btn btn-seguir" id="btn-seguir"> Seguir <i class="fas fa-plus-circle"></i> </button>
+            <button class="btn btn-create-post" id="btn-crear"> Crear Post <i class="fas fa-plus-circle"></i> </button>
         </section>
         <section class="container-post" id="container-posts-user"> </section>
     </section>   

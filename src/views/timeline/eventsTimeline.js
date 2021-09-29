@@ -79,14 +79,19 @@ const addEventsTimeline = () => {
             const emojiSelected = document.querySelector(`#${idEmoji}`);
             textarea.value += emojiSelected.innerHTML;
         }
-    if (window.location.pathname == '#/timeline') {
+
+        addEventLinkUser()
+}
+
+const addEventLinkUser = () => {
+    const url = window.location.href;
+    const path = url.split('#')
+    if (path[1] == '/timeline') {
         sliderPopularPost();
     }
     
-    
     //Evento para redireccionar al perfil de un user
     const allLinksUser= document.querySelectorAll('.link-user');
-    console.log(allLinksUser)
     allLinksUser.forEach(link => {
         link.addEventListener('click', (e) => {
             const idUser = e.target.dataset.id;
@@ -94,7 +99,6 @@ const addEventsTimeline = () => {
             window.location.href = '#/profile';
         })
     })
-    
 }
 
-export { addEventsTimeline }
+export { addEventsTimeline, addEventLinkUser }
