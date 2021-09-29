@@ -1467,11 +1467,13 @@ img {
 .result-search {
     list-style-type: none;
     position: absolute;
-    top: 3.5rem;
-    left: 10rem;
-    background-color: white;
+    top: 2.8rem;
+    left: 15.8rem;
+    background-color: rgb(255, 255, 255);
     z-index: 4;
     /* padding: 1rem; */
+    border-radius: 5px;
+    width: 31%;
     border-radius: 5px;
 }
 .result-search li {
