@@ -16,24 +16,26 @@ const saveUser = (infoUser) => {
 //extrae todos los usuarios, categorias y Post
 const getAllUsers = () => db.collection("users").get();
 const getAllCategories = () => db.collection("categories").get();
-const getAllPosts = () => db.collection("posts").orderBy('datePost', 'asc').get();//add if where public posts === true|| where idUser 
+const getAllPosts = () => db.collection("posts").orderBy('datePost', 'asc').get(); //add if where public posts === true|| where idUser 
 const getPost = (id) => db.collection("posts").doc(id).get();
 const getPostUser = (id) => db.collection("posts").where("idUser", "==", id).get();
 const deletePostFs = (id) => db.collection('posts').doc(id).delete();
 const datePost = () => firebase.firestore.Timestamp.now();
 const savePost = (object) => db.collection('posts').add(object);
-const updatePost = (id, object) => firebase.firestore().collection('posts').doc(id).update(object);
+const updatePost = (id, object) => db.collection('posts').doc(id).update(object);
+const getComments = (id) => db.collection("posts").where("idUser", "==", id).get();
 
-export { 
-    savePost, 
-    saveUser, 
-    getAllUsers, 
+export {
+    savePost,
+    saveUser,
+    getAllUsers,
     getAllCategories,
-    getAllPosts, 
-    db, 
-    deletePostFs, 
-    datePost, 
-    updatePost, 
-    getPost, 
-    getPostUser
+    getAllPosts,
+    db,
+    deletePostFs,
+    datePost,
+    updatePost,
+    getPost,
+    getPostUser,
+    getComments
 }

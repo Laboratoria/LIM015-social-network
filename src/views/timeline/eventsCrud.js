@@ -1,4 +1,4 @@
-import { savePost, datePost, deletePostFs, updatePost } from "../../db/firestore.js";
+import { savePost, datePost, deletePostFs, updatePost, getPost } from "../../db/firestore.js";
 import { saveImageFile, getPhotoURL } from "../../db/storage.js";
 import { alerts, btnProcess } from "../../lib/alerts.js";
 import { loadViewPost } from "./viewPosts.js";
@@ -30,7 +30,7 @@ const addEventFormPost = () => {
                 contentPost: inputTextarea.value,
                 datePost: datePost(),
                 idCategory: selectCategory.value,
-                publicPosts:selectPublic.value,
+                publicPosts: selectPublic.value,
             }
             //Lo siguiente es verificar si es guardar un nuevo post o editar, 
             //si el Input del IdPost es Vacio, entonces es crear
@@ -111,16 +111,16 @@ const addEventEditPost = () => {
     });
 
 
-    function loadDataPosts(idPost) {
-        const objectAllPosts = JSON.parse(window.localStorage.getItem('allPosts'));
-        const dataPost = objectAllPosts.find(post => post.idPost === idPost)
+    async function loadDataPosts(idPost) {
+        const dataPost = await getPost(idPost).then(response => response.data());
         const selectCategory = document.querySelector('#select-categories');
         const inputTextarea = document.querySelector('#post-user');
         const inputIdPost = document.querySelector('#input-idpost');
         const inputUrl = document.querySelector('#input-urlpost');
         const sectionNameImgUpload = document.querySelector('.name-image-upload');
         const inputNameImage = document.querySelector('#input-nameImage');
-        const selectPublic = document.querySelector('#select-public')
+        const selectPublic = document.querySelector('#select-public');
+
         if (dataPost.publicPosts == 'true') {
             selectPublic.value = 'true';
         } else {
@@ -141,12 +141,11 @@ const addEventEditPost = () => {
 
 const createObjectPost = (object) => {
     const modal = document.querySelector('.modal');
-    const formPost = document.querySelector('#form-create-post');
     const infouser = JSON.parse(window.localStorage.getItem('infouser'));
     const selectCategory = document.querySelector('#select-categories');
     const textSelect = selectCategory.options[selectCategory.selectedIndex].text;
     const objectAllPosts = JSON.parse(window.localStorage.getItem('allPosts'));
-
+    const containerPost = document.querySelector('#container-posts');
     savePost(object)
         .then((res) => { // Necesitamos el res para obtener el id generado en el firestore
             const objectPost = {
@@ -161,19 +160,18 @@ const createObjectPost = (object) => {
                 totalLikes: 0,
                 arrLikes: [],
                 image: object.image,
-                publicPosts : object.publicPosts,
+                publicPosts: object.publicPosts,
                 idCategory: object.idCategory,
                 nameCategory: textSelect,
                 urlImage: object.urlImage,
             }
             objectAllPosts.push(objectPost);
-            console.log(objectPost)
+
             window.localStorage.setItem('allPosts', JSON.stringify(objectAllPosts)); //Agreamos al Local, con el nuevo Obj
             const arrayObjectPost = [objectPost]; //agregamos el obj en un array para darselo a la funcion loadView, ya que este recibe un array
-            loadViewPost(arrayObjectPost); //Rendereizamos el Post en la DOM, funcion esta en viewPost linea 37
+            loadViewPost(arrayObjectPost, containerPost); //Rendereizamos el Post en la DOM, funcion esta en viewPost linea 37
             addEventEditPost();
             addEventDeletePost(); //agrego de nuevo los eventos
-            formPost.reset();
             modal.classList.remove('revelar') //Cierra el modal?
             btnProcess(false);
             alerts('success', 'Post Publicado');
@@ -186,8 +184,8 @@ const createObjectPost = (object) => {
 
 //Funcion Para Editar y Guardar Post en Firestore
 const updateObjectPost = (objectPost, idPost) => {
+
     const modal = document.querySelector('.modal');
-    const formPost = document.querySelector('#form-create-post');
     const selectCategory = document.querySelector('#select-categories');
     const textSelect = selectCategory.options[selectCategory.selectedIndex].text;
     const spanDate = document.querySelector('#span-date-' + idPost);
@@ -195,7 +193,6 @@ const updateObjectPost = (objectPost, idPost) => {
     const paragraphPost = document.querySelector('#paragraph-post-' + idPost);
     const imagePost = document.querySelector('#image-post-' + idPost);
     const spanPublic = document.querySelector('#publicPost-' + idPost)
-    //const objectAllPosts = JSON.parse(window.localStorage.getItem('allPosts')); pensar en la noche
 
     updatePost(idPost, objectPost)
         .then(() => {
@@ -214,7 +211,6 @@ const updateObjectPost = (objectPost, idPost) => {
                 spanPublic.innerHTML = `<i class="fas fa-lock"></i>`;
             }
 
-            formPost.reset();
             modal.classList.remove('revelar') //Cierra el modal
             btnProcess(false);
             alerts('success', 'Post Editado');
@@ -247,7 +243,7 @@ const uploadImage = async(action) => {
         nameImage = "";
         urlImage = "";
     } else { //entonces edita un post pero sin modificar imagen, o no tenia imagen
-        image = true;
+        if (inputUrl.value == '') { image = false; } else { image = true; }
         urlImage = inputUrl.value;
         nameImage = inputNameImage.value;
     }
