@@ -36,6 +36,9 @@ const viewHeader = () => {
     signOut().then(() => {
       console.log('sign Out');
       window.open('#', '_self')
+      // window.location.hash = "";
+      // window.location.hash = "Again-No-back-button"
+      // window.onhashchange = function(){window.location.hash="No-back-button";}
     })
 
   });

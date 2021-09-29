@@ -157,6 +157,7 @@ const viewRegister = () => {
           if (email && name && password) {
             updateProfile(name);
             emailVerification();
+            
           }
           console.log(cred.user);
           signupForm.reset();

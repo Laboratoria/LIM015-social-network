@@ -2,7 +2,8 @@ import { loginEmail, loginGoogle } from "../firebase/fb-functions.js";
 
 const viewLogin = () => {
   const htmlLogin = `
-  <div class="viewDesktop">
+  <div class="viewDesktop" >
+
      <div class="container__logoDesktop">
     <img class="viewDesktop__logo" src="./img/logoMobilPrueba.png" alt="Makipura">
     </div>
@@ -125,6 +126,7 @@ const viewLogin = () => {
           if(user.emailVerified){
             window.open("#/home", "_self");
           }else {
+            //
           }
         })  
       })
@@ -153,7 +155,14 @@ const viewLogin = () => {
       });
   });
 
+
+
+
+
   return sectionLogin;
 };
+// window.history.go(0)
+
+      
 
 export { viewLogin };

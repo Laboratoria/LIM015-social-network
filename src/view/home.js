@@ -55,8 +55,7 @@ const viewHome = () => {
         setTemplateListPosts(data, user,postListContainer);
       });
     } else {
-      // User is signed out
-      // ...
+      window.location.hash('#/')
     }
   });
   
@@ -120,7 +119,7 @@ const setTemplateListPosts = (data, user,postListContainer) => {
     const btnDelete = postListContainer.querySelectorAll(".btn-delete");
     const btnEdit = document.querySelectorAll(".btn-edit");
     const modaldeletePost = document.querySelector("#modalDeletePost");
-    console.log(modaldeletePost);
+    // console.log(modaldeletePost);
 
     btnDelete.forEach((btn) =>{     
       btn.addEventListener("click",  (e) => {

@@ -41,7 +41,7 @@
 .form--register__inputList {
   width: 80%;
 }
-
+ 
 .login__h2,
 .login__h1,
 .register__h1 {
@@ -152,6 +152,11 @@
   font-size: 0.8rem;
   margin: 0.5em;
   text-align: center;
+  font-weight: bold;
+}
+
+.login__registerLink  .link {
+ color: #F90066;
 }
 
 .backArrow {
