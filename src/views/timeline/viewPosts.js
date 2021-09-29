@@ -46,7 +46,7 @@ const getObjectAllPosts = async() => {
 
 const loadViewPost = (objectDataPosts, parentElement) => {
     const idUserAuth = localStorage.getItem('iduser'); //Esto vien de la linea 58 del archivo eventLogin OBTENER EL ID USER
-    console.log(objectDataPosts)
+    /* console.log(objectDataPosts) */
     if (objectDataPosts != undefined ) {
 
         objectDataPosts.forEach(element => {

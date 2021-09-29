@@ -1,4 +1,4 @@
-import { savePost, datePost, deletePostFs, updatePost } from "../../db/firestore.js";
+import { getCategory, savePost, datePost, deletePostFs, updatePost } from "../../db/firestore.js";
 import { saveImageFile, getPhotoURL } from "../../db/storage.js";
 import { alerts, btnProcess } from "../../lib/alerts.js";
 import { loadViewPost } from "./viewPosts.js";
@@ -162,12 +162,12 @@ const createObjectPost = (object) => {
                 arrLikes: [],
                 image: object.image,
                 publicPosts : object.publicPosts,
-                idCategory: object.idCategory,
+                idCatearrLikesgory: object.idCategory,
                 nameCategory: textSelect,
                 urlImage: object.urlImage,
             }
             objectAllPosts.push(objectPost);
-            console.log(objectPost)
+            /* console.log(objectPost) */
             window.localStorage.setItem('allPosts', JSON.stringify(objectAllPosts)); //Agreamos al Local, con el nuevo Obj
             const arrayObjectPost = [objectPost]; //agregamos el obj en un array para darselo a la funcion loadView, ya que este recibe un array
             loadViewPost(arrayObjectPost); //Rendereizamos el Post en la DOM, funcion esta en viewPost linea 37
@@ -255,4 +255,9 @@ const uploadImage = async(action) => {
     return arrayInfoImage;
 }
 
-export { addEventFormPost, addEventDeletePost, addEventEditPost }
+const updateCategory = async(idCategory) =>{
+    const category = await getCategory(idCategory).then((res)=>{
+        console.log(res)
+    })
+}
+export { addEventFormPost, addEventDeletePost, addEventEditPost, updateCategory }
