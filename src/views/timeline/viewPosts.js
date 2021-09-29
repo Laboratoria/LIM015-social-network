@@ -22,7 +22,9 @@ const allPosts = () => {
                         image: doc.data().image,
                         idCategory: doc.data().idCategory,
                         nameCategory: categoryprueba.nameCategory,
-                        urlImage: doc.data().urlImage
+                        urlImage: doc.data().urlImage,
+                        arrComments: doc.data().arrComments
+
                     })
                 });
                 window.localStorage.setItem('allPosts', JSON.stringify(objectPosts));
@@ -73,8 +75,9 @@ const loadViewPost = (objectDataPosts) => {
                                 <img class="img-like likes" id="like-${element.idPost}" width="22px" height="22px" data-id="${element.idPost}"  src=" ${element.arrLikes.includes(idUserAuth) ? '../images/svg/like.png' : '../images/svg/notlike.png'}"  data-id="${element.idPost}"/>
                                 <span class="count-reaction" id="count-like-${element.idPost}">${element.arrLikes.length}</span> 
                                 
-                                <button type="button" class="btn-post btn-notcomment"><i class="far fa-comment-dots"></i> <span class="count-reaction">${element.totalComments}</span></button>
-
+                                <img class="img-like user-comments btn-post" id="" width="22px" height="22px" data-id="${element.idPost}"  src="../images/svg/notchat.svg"  data-id="${element.idPost}"/>
+                                <span class="count-reaction" id="count-like-${element.idPost}">${element.arrLikes.length}</span> 
+                               
                                 <button type="button" class="btn-post btn-notsave"><i class="far fa-bookmark"></i> <span class="count-reaction"></span>  </span></button>
                             </div>
                             <div class="footer-comments comments"> </div>
