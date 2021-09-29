@@ -3,7 +3,7 @@
 /* eslint-disable no-console */
 import { signOutUser, onAuthStateChanged } from '../firebase/firebase-auth.js';
 import {
-  postCollection, getCollection, deletePost, getPost, editPost,
+  postCollection, getCollection, deletePost, getPost, editPost, editLike,
 } from '../firebase/firebase-firestore.js';
 
 const userStateCheck = () => {
@@ -146,10 +146,33 @@ export const pageOnlyCats = () => {
       const btnHeart = sectionElement.querySelectorAll('.fa-heart');
       btnHeart.forEach((btn) => {
         btn.addEventListener('click', async (e) => {
-          const postSeleccionado = await getPost(e.target.id);
-          const x = await postSeleccionado.data().likes;
-          x.push(localUser.uid);
-          console.log(x);
+          getPost(e.target.id)
+            .then((res) => {
+              const arrayLike = res.data().likes;
+              const statusLike = arrayLike.indexOf(res.data().uid);
+              if (statusLike === -1) {
+                arrayLike.push(res.data().uid);
+                editLike(res.id, arrayLike)
+                  .then(() => console.log('se logró')).catch((error) => console.log(error));
+              } else {
+                arrayLike.splice(res.data().likes, 1);
+                editLike(res.id, arrayLike)
+                  .then(() => console.log('se quitó')).catch((error) => console.log(error));
+              }
+            }).catch((error) => console.log(error));
+          /*           const selectedPost = await getPost(e.target.id);
+           const arrayLike = selectedPost.data().likes;
+          const x = selectedPost.data().uid;
+          const statusLike = arrayLike.indexOf(localUser.uid);
+           Si el indexOf es igual a -1 es que nadie le dió like
+          console.log(selectedPost.id);
+          console.log(selectedPost.data().uid); */
+          /* if (statusLike === -1) {
+            arrayLike.push(localUser.uid);
+            editLike(x, arrayLike);
+            console.log('like');
+          } */
+          /*  console.log(statusLike); */
         });
       });
     });
