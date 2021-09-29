@@ -3,7 +3,7 @@
 /* eslint-disable no-console */
 import { signOutUser, onAuthStateChanged } from '../firebase/firebase-auth.js';
 import {
-  postCollection, getCollection, deletePost, getPost, editPost,
+  postCollection, getCollection, deletePost, getPost, editPost, editLike,
 } from '../firebase/firebase-firestore.js';
 
 const userStateCheck = () => {
@@ -145,11 +145,21 @@ export const pageOnlyCats = () => {
       // -------- like Posts  --------
       const btnHeart = sectionElement.querySelectorAll('.fa-heart');
       btnHeart.forEach((btn) => {
-        btn.addEventListener('click', async (e) => {
-          const postSeleccionado = await getPost(e.target.id);
-          const x = await postSeleccionado.data().likes;
-          x.push(localUser.uid);
-          console.log(x);
+        btn.addEventListener('click', (e) => {
+          getPost(e.target.id)
+            .then((res) => {
+              const arrayLike = res.data().likes;
+              const statusLike = arrayLike.indexOf(localUser.uid);
+              if (statusLike === -1) {
+                arrayLike.push(localUser.uid);
+                editLike(res.id, arrayLike)
+                  .then(() => console.log('se logró')).catch((error) => console.log(error));
+              } else {
+                arrayLike.splice(res.data().likes, 1);
+                editLike(res.id, arrayLike)
+                  .then(() => console.log('se quitó')).catch((error) => console.log(error));
+              }
+            }).catch((error) => console.log(error));
         });
       });
     });
