@@ -33,13 +33,14 @@ export const pageOnlyCats = () => {
       <i class="fas fa-sign-out-alt" id="sign-out"></i>
       <i class="fas fa-cat" style="display:none"></i>
     </header>
-    <main class="scroll-container">
+    <main class = "main-container" >
       <div class="label-container">
         <button class="label-btn meme">Memes</button>
         <button class="label-btn vet">Vet Cat</button>
         <button class="label-btn foodie">Foodie Cat</button>
       </div>
-      <div>
+
+      <div class="scroll-container">
         <section class="profile-post publish" >
           <div class="container-photo">
               <img src="${photo}" "alt='picture' class="profile-photo">
@@ -53,8 +54,12 @@ export const pageOnlyCats = () => {
             </div>
           </section>
         </section>
+
         <section  id="other-post">
         </section>
+
+      </div>
+      <div></div>
     </main>
   </div>`;
 
