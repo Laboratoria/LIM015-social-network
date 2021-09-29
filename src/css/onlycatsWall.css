@@ -163,7 +163,9 @@ background-color: transparent;
     color: #F25A51;
     font-size: 23px;
 }
-
+.img-memes{
+    display:none;
+}
 .post-button{
     background: #ed6e67;
     border: none;
@@ -216,6 +218,12 @@ background-color: transparent;
 .btn-heart:hover{
     cursor: pointer;
 }
+.profile-container{
+    display: none;
+}
+.label-name{
+    display:none;
+}
 /*---------------------------View Tablet--------------------------- */
 @media only screen and (min-width:768px){
     .container-box{
@@ -238,12 +246,6 @@ background-color: transparent;
 
 /*---------------------------View Desktop--------------------------- */
 @media only screen and (min-width:1024px){
-    /* .container-box{
-        margin: 40px 60px;
-    }
-    .home-container{
-        height: calc(100vh - 80px);
-    } */
     .main-container{
         display: grid;
         grid-template-columns: 30% 50% 20%;
@@ -253,24 +255,91 @@ background-color: transparent;
     }
 
     .label-container{
-        /* width: 350px;
-        height: 500px; */
-        flex-direction: column-reverse;
+        height: calc(100vh - 150px);
+        display: flex;
+        flex-direction: column;
         background-color: white;
         border-radius:10px;
+        gap: 10px;
     } 
     .label-btn{
         border-radius:10px;
-        padding: 60px;
-        width: 20vw;
+        padding: 10px;
+        width: 17vw;
         border:none;
         color: white;
         text-shadow: rgb(140, 139, 138) 1px 0 10px;
         font-size: 20px;
         font-weight: 550;
+        cursor: pointer;
+        margin-left: 20px;
     } 
+    .img-memes{
+        display:block;
+        width: 8vw;
+    }
     .page-container{
         height:  calc(100vh - 60px);
+    }
+    .page-title {
+        padding-top: 5px;
+        padding-left: 10px;
+        width: 13vw;
+        min-width: 130px;
+    }
+    .label-name{
+        color: #120B73;
+        font-size: 25px;
+        font-weight: 550;
+    }
 
+    .profile-container{
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        border-radius:10px;
+        gap: 10px;
+        align-items: center;
+        height: calc(100vh - 150px);
+        width: calc(36vh);
+    } 
+    
+    .profile-btn{
+        width: 112px;
+        height: 30px;
+        left: 1017px;
+        top: 472px;
+        background: #746CEF;
+        border-radius: 10px;
+    }
+    
+    .profile-fondo{
+        width: 234px;
+        height: 108px;
+        left: 953px;
+        top: 112px;
+        border-radius: 10px 10px 0px 0px;
+    }
+    .container-photo{
+        align-items: center; 
+    }
+    .profile-photo {
+        width: 70px;
+        position:absolute;
+        left: -100%;
+        right: -100%;
+        top: -100%;
+        bottom: -100%;
+        margin: auto;
+    }
+    .name-input{
+        color: #120B73;
+        font-size: 20px;
+        font-weight: 550;
+    }
+    .biography-name{
+        color: #a82f2f;
+        font-size: 15px;
+        font-weight: 500;
     }
 }
