@@ -3,7 +3,7 @@
 /* eslint-disable no-console */
 import { signOutUser, onAuthStateChanged } from '../firebase/firebase-auth.js';
 import {
-  postCollection, getCollection, deletePost, getPost, editPost, editHeart,
+  postCollection, getCollection, deletePost, getPost, editPost,
 } from '../firebase/firebase-firestore.js';
 
 const userStateCheck = () => {
@@ -35,9 +35,9 @@ export const pageOnlyCats = () => {
     </header>
     <main class="scroll-container">
       <div class="label-container">
-        <button class="label-btn meme">Memes</button>
-        <button class="label-btn vet">Vet Cat</button>
-        <button class="label-btn foodie">Foodie Cat</button>
+          <button class="label-btn meme">Memes</button>
+          <button class="label-btn vet">Vet Cat</button>
+          <button class="label-btn foodie">Foodie Cat</button>
       </div>
       <div>
         <section class="profile-post publish" >
@@ -82,8 +82,9 @@ export const pageOnlyCats = () => {
             <p class="name-input"> ${dataContent.user} </p>
             <p readonly class="text-output">${dataContent.text}</p>
             <div class="paw-container">
-              <i class="${dataContent.likes.includes(localUser.uid) ? 'fas' : 'far'} fa-heart" id="${doc.id}"></i>
-              <span>${dataContent.likes.length ? dataContent.likes.length : ''} </span>
+
+              <i class="far fa-heart" id="${doc.id}"></i>
+              <span> </span>
           </section>
           <div class="update-post  ${(dataContent.email === localUser.email) ? ' ' : 'hide'}">
             <button class="btn-delete"><i class="fas fa-trash" id="${doc.id}"></i></button>
@@ -127,16 +128,19 @@ export const pageOnlyCats = () => {
       const btnHeart = sectionElement.querySelectorAll('.fa-heart');
       btnHeart.forEach((btn) => {
         btn.addEventListener('click', async (e) => {
-          let postSeleccionado = await getPost(e.target.id).then((doc) => doc.data().likes);
+          const postSeleccionado = await getPost(e.target.id);
+          console.log(postSeleccionado.data());
+
+          /* let postSeleccionado = await getPost(e.target.id).then((doc) => doc.data().likes);
           if (!postSeleccionado.includes(localUser.uid)) {
             postSeleccionado.push(localUser.uid);
-            await editHeart((e.target.id), { likes: postSeleccionado });
+            editPost((e.target.id), { likes: postSeleccionado });
             console.log('si le diste likee');
           } else {
             postSeleccionado = postSeleccionado.filter((lik) => lik !== localUser.uid);
-            await editHeart((e.target.id), { likes: postSeleccionado });
+            editPost((e.target.id), { likes: postSeleccionado });
             console.log('todavia no le has dado like');
-          }
+          } */
         });
       });
     });
