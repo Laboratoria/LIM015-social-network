@@ -1,5 +1,8 @@
 import { getAllUsers } from '../../db/firestore.js';
 import { alerts } from '../../lib/alerts.js';
+// import { loadUserPosts } from '../../views/profile/eventsProfile.js'
+const infouser = JSON.parse(window.localStorage.getItem('infouser')); //extraemos lo que almacenamos en local archivo viewHeaderUser line 29
+const nameUserPath = infouser.nameUser.replace(/\s+/g, '');
 
 //Extraemos todos los usuarios, para luego filtrar nuestro usuario autenticado
 
@@ -33,7 +36,7 @@ const loadViewHeaderUser = async() => {
     const valid = /^(http|https):\/\/[^ "]+$/.test(photo);
     const srcPhotouser = (valid) ? photo : '../../images/profile/' + photo; //si es true la foto es url 
     userInfoHtml.innerHTML = `<a href="#/profile" id="logout" class="user-information">  <span> ${infouser.nameUser} </span> <img class="avatar avatar-sm" src="${srcPhotouser}" alt="img-user"> </a>`
-
+    // loadUserPosts()
 }
 
-export { loadViewHeaderUser }
+export { loadViewHeaderUser, nameUserPath }

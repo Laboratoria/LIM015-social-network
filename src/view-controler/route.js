@@ -4,7 +4,8 @@ import { addEventsLogin } from '../views/login/eventsLogin.js';
 import { addEventResetPassword } from '../views/password/eventsResetPassword.js';
 import { addEventsRegister } from '../views/register/eventsSignUp.js';
 import { loadComponents } from '../views/timeline/loadComponents.js'
-
+import { loadViewHeaderUser } from '../views/timeline/viewHeaderUser.js';
+import { loadTimelineUser } from '../views/profile/eventsProfile.js'
 
 const changeView = (route) => {
     const containerMain = document.querySelector('#container-main');
@@ -38,12 +39,14 @@ const changeView = (route) => {
                 loadComponents();
                 return viewTimeLine;
             }
+        // case `#/profile${viewProfileOtherUser()}`:
         case '#/profile':
             {
                 const viewProfile = containerMain.appendChild(components.profile());
                 const firstChild = viewProfile.firstChild;
                 viewProfile.insertBefore(components.header(), firstChild);
-                // loadComponents();
+                loadViewHeaderUser();
+                loadTimelineUser();
                 return viewProfile;
             }
     

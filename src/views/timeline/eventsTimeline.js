@@ -1,5 +1,8 @@
 import { signOut } from '../../db/firebase-auth.js';
 import { sliderPopularPost } from '../../lib/animation.js';
+// const infouser = JSON.parse(window.localStorage.getItem('infouser')); //extraemos lo que almacenamos en local archivo viewHeaderUser line 29
+// const nameUserPath = infouser.nameUser.replace(/\s+/g, '');
+
 
 const addEventsTimeline = () => {
         document.querySelector('#div-body').className = "bodyBackground"; //cambiamos el background del body
@@ -41,7 +44,8 @@ const addEventsTimeline = () => {
         <a href="#/profile" class="user-information">  
             <img class="avatar avatar-sm" src="${/^(http|https):\/\/[^ "]+$/.test(infouser.photoUser)?infouser.photoUser:`../images/profile/`+infouser.photoUser}" alt="img-user"> 
             <span> ${infouser.nameUser} </span> 
-        </a>`
+        </a>
+        `
         placeholderTextarea.placeholder = `¿Qué quieres compartir hoy, ${infouser.nameUser}... ?`
 
     
@@ -75,8 +79,22 @@ const addEventsTimeline = () => {
             const emojiSelected = document.querySelector(`#${idEmoji}`);
             textarea.value += emojiSelected.innerHTML;
         }
-
-    sliderPopularPost();
+    if (window.location.pathname == '#/timeline') {
+        sliderPopularPost();
+    }
+    
+    
+    //Evento para redireccionar al perfil de un user
+    const allLinksUser= document.querySelectorAll('.link-user');
+    console.log(allLinksUser)
+    allLinksUser.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const idUser = e.target.dataset.id;
+            localStorage.setItem('idUserProfile', idUser); //almacenar el id del usuario 
+            window.location.href = '#/profile';
+        })
+    })
+    
 }
 
 export { addEventsTimeline }

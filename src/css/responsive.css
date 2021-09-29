@@ -17,7 +17,7 @@
   .side-navigation p,
   .side-navigation h2 {
     display: none;
-  }
+  } 
 }
   
 @media (max-width: 40rem) { /**640**/
@@ -160,4 +160,45 @@
   .categories {
     font-size: 12px;
   }
+}
+
+
+/** Mostrando y coulatndo boton de crear publicacion de acuerdo a las pantallas **/
+@media ( min-width: 690px ) {
+  .container-section-user-post .btn-create-post:first-of-type {
+    display: block;
+  }
+}
+
+@media ( max-width: 690px ){
+  .container-section-user-post .btn-create-post:last-child {
+    display: block;
+  }
+  .container-profile {
+    grid-template-columns: 3% 94% 3%;
+    grid-template-areas: 
+    'header  header          header' 
+    '.       .               .' 
+    '.       coverUser       .' 
+    '.       .               .' 
+    '.       cont-friends    . '          
+    '.       cont-user-posts .';
+    grid-template-rows: 10vh 3vh 20vh 6vh 20vh 42vh;
+  }
+  .title-friends {
+    justify-content: left;
+  }
+  .container-friends {
+    display: flex;
+    /* flex-direction: column; */
+  }
+  .container-friends i {
+    display: none;
+  }
+  .info-friends {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+  }
+
 }

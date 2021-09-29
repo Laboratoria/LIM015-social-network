@@ -13,6 +13,7 @@ const addEventFormPost = () => {
     const inputTextarea = document.querySelector('#post-user');
     const imageUpload = document.querySelector('#file-input');
     const sectionNameImgUpload = document.querySelector('.name-image-upload');
+    const selectPublic = document.querySelector('#select-public');
 
     /** Evento en caso de Cambio de Imagen**/
     imageUpload.addEventListener('change', () => {
@@ -29,6 +30,7 @@ const addEventFormPost = () => {
                 contentPost: inputTextarea.value,
                 datePost: datePost(),
                 idCategory: selectCategory.value,
+                publicPosts:selectPublic.value,
             }
             //Lo siguiente es verificar si es guardar un nuevo post o editar, 
             //si el Input del IdPost es Vacio, entonces es crear
@@ -49,9 +51,7 @@ const addEventFormPost = () => {
             objectPost.urlImage = dataUploadImage[2];
             updateObjectPost(objectPost, inputIdPost.value)
         }
-
     });
-
 }
 
 //Evento Eliminar en cada Post 
@@ -120,6 +120,12 @@ const addEventEditPost = () => {
         const inputUrl = document.querySelector('#input-urlpost');
         const sectionNameImgUpload = document.querySelector('.name-image-upload');
         const inputNameImage = document.querySelector('#input-nameImage');
+        const selectPublic = document.querySelector('#select-public')
+        if (dataPost.publicPosts == 'true') {
+            selectPublic.value = 'true';
+        } else {
+            selectPublic.value = 'false';
+        }
 
         inputIdPost.value = idPost;
         selectCategory.value = dataPost.idCategory;
@@ -153,12 +159,15 @@ const createObjectPost = (object) => {
                 nameImage: object.nameImage,
                 totalComments: 0,
                 totalLikes: 0,
+                arrLikes: [],
                 image: object.image,
+                publicPosts : object.publicPosts,
                 idCategory: object.idCategory,
                 nameCategory: textSelect,
                 urlImage: object.urlImage,
             }
             objectAllPosts.push(objectPost);
+            console.log(objectPost)
             window.localStorage.setItem('allPosts', JSON.stringify(objectAllPosts)); //Agreamos al Local, con el nuevo Obj
             const arrayObjectPost = [objectPost]; //agregamos el obj en un array para darselo a la funcion loadView, ya que este recibe un array
             loadViewPost(arrayObjectPost); //Rendereizamos el Post en la DOM, funcion esta en viewPost linea 37
@@ -185,6 +194,7 @@ const updateObjectPost = (objectPost, idPost) => {
     const spanCategory = document.querySelector('#span-category-' + idPost);
     const paragraphPost = document.querySelector('#paragraph-post-' + idPost);
     const imagePost = document.querySelector('#image-post-' + idPost);
+    const spanPublic = document.querySelector('#publicPost-' + idPost)
     //const objectAllPosts = JSON.parse(window.localStorage.getItem('allPosts')); pensar en la noche
 
     updatePost(idPost, objectPost)
@@ -198,6 +208,12 @@ const updateObjectPost = (objectPost, idPost) => {
                 imagePost.src = objectPost.urlImage;
                 imagePost.classList.add('content-image');
             }
+            if (objectPost.publicPosts == 'true') {
+                spanPublic.innerHTML = `<i class="fas fa-globe-americas"></i>`;
+            } else {
+                spanPublic.innerHTML = `<i class="fas fa-lock"></i>`;
+            }
+
             formPost.reset();
             modal.classList.remove('revelar') //Cierra el modal
             btnProcess(false);

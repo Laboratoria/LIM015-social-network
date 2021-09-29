@@ -20,7 +20,6 @@ const loadComponents = async() => {
     addEventDeletePost();
     addEventEditPost();
     reactionLike();
-
 }
 
 export { loadComponents }
