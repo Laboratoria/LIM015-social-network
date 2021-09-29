@@ -25,6 +25,9 @@ const addEventsTimeline = () => {
         btnCreatePost.addEventListener('click', () => {
             const btnModal = document.querySelector('#share-post'); /* abrir */
             const titleModal = document.querySelector('#title-modal');
+            const formPost = document.querySelector('#form-create-post');
+            formPost.reset();
+            document.querySelector('#input-idpost').value = "";
             btnModal.innerText = 'Publicar';
             titleModal.innerText = 'Crear Publicación';
             sectionNameImgUpload.innerHTML = ``;
@@ -80,15 +83,16 @@ const addEventsTimeline = () => {
             textarea.value += emojiSelected.innerHTML;
         }
 
+        const url = window.location.href;
+        const path = url.split('#')
+        if (path[1] == '/timeline') {
+            sliderPopularPost();
+        }
+
         addEventLinkUser()
 }
 
 const addEventLinkUser = () => {
-    const url = window.location.href;
-    const path = url.split('#')
-    if (path[1] == '/timeline') {
-        sliderPopularPost();
-    }
     
     //Evento para redireccionar al perfil de un user
     const allLinksUser= document.querySelectorAll('.link-user');

@@ -45,15 +45,16 @@ const getObjectAllPosts = async() => {
 }
 
 const loadViewPost = (objectDataPosts, parentElement) => {
-    const idUserAuth = localStorage.getItem('iduser'); //Esto vien de la linea 58 del archivo eventLogin OBTENER EL ID USER
-    /* console.log(objectDataPosts) */
-    if (objectDataPosts != undefined ) {
+        const idUserAuth = localStorage.getItem('iduser'); //Esto vien de la linea 58 del archivo eventLogin OBTENER EL ID USER
 
-        objectDataPosts.forEach(element => {
-            const post = document.createElement('div');
-            post.classList.add('post');
-            post.id = `post-${element.idPost}`;
-            post.innerHTML = ` 
+        if (objectDataPosts != undefined) {
+
+
+            objectDataPosts.forEach(element => {
+                        const post = document.createElement('div');
+                        post.classList.add('post');
+                        post.id = `post-${element.idPost}`;
+                        post.innerHTML = ` 
                 <div class="post-header header">
                     <div class="header-left">
                         <span class="link-user" data-id="${element.idUser}">
