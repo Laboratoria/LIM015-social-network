@@ -580,9 +580,7 @@ img {
 .container-home {
     display: grid;
     grid-template-columns: 6% 22% 6% 60% 6%;
-    grid-template-areas: 'header header header header header' 
-    '.      .      .      .      .' 
-    '.      cont-categories .    cont-posts  .';
+    grid-template-areas: 'header header header header header' '.      .      .      .      .' '.      cont-categories .    cont-posts  .';
     grid-template-rows: 10vh 5vh 85vh;
     background-color: #f7f7f7;
     /* border: solid 1px red; */
@@ -609,6 +607,7 @@ img {
 
 
 /** Input de búsqueda **/
+
 
 /* .wrapper {
     width: 100%;
@@ -858,7 +857,6 @@ img {
 .fa-chevron-circle-left {
     font-size: 40px;
 }
-
 
 .btn-carousel:hover.inactive {
     border-color: #ac142d
@@ -1256,18 +1254,15 @@ img {
 
 .container-profile {
     display: grid;
-    grid-template-columns: 3% 22% 3% 69% 3%;
-    grid-template-areas: 
-    'header  header       header      header           header' 
-    '.       .            .           .                .' 
-    '.       coverUser   coverUser  coverUser       .' 
-    '.       .            .           .      .' 
-    '.       cont-friends .           cont-user-posts  .';
+    grid-template-columns: 10% 25% 6% 50% 9%;
+    grid-template-areas: 'header  header       header      header           header' '.       .            .           .                .' '.       coverUser   coverUser  coverUser       .' '.       .            .           .      .' '.       cont-friends .           cont-user-posts  .';
     grid-template-rows: 10vh 3vh 35vh 10vh 42vh;
     background-color: #f7f7f7;
 }
 
+
 /** Background profile **/
+
 .cover-user {
     grid-area: coverUser;
     position: relative;
@@ -1279,6 +1274,9 @@ img {
     position: absolute;
     left: 0px;
     top: 0px;
+    max-height: auto;
+    -o-object-fit: cover;
+    object-fit: cover;
     z-index: 1;
     border-radius: 5px;
 }
@@ -1309,13 +1307,14 @@ img {
 
 .up-information-profile .btn-secondary {
     margin-bottom: 10px;
-} 
+}
 
 .user-name-profile {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
 }
+
 
 /** Seccion de amigos **/
 
@@ -1359,7 +1358,9 @@ img {
     color: #FC2C5E;
 }
 
+
 /** Seccion de post del user**/
+
 .container-post {
     background-color: white;
     height: 100%;
@@ -1416,9 +1417,10 @@ img {
 /**Alerts para notificaciones*/
 
 #container-alert {
-    position: fixed !important;
+    position: fixed;
+    z-index: 3;
     top: 0;
-    margin-top: 2%;
+    margin-top: 3%;
     padding: 15px;
     border-radius: 3px 3px 3px 3px;
     box-shadow: 0px 3px 3px 0px rgb(202, 202, 202);
@@ -1443,8 +1445,10 @@ img {
     background-color: #414141;
 }
 
+
 /* modified modal dropdown private and public */
-.dropdownModal{
+
+.dropdownModal {
     background: transparent;
     border: none;
     height: 30px;
@@ -1463,7 +1467,9 @@ img {
     color: #878787;
 }
 
+
 /* <ul>  con resultados del Buscador */
+
 .result-search {
     list-style-type: none;
     position: absolute;
@@ -1474,16 +1480,18 @@ img {
     /* padding: 1rem; */
     border-radius: 5px;
 }
+
 .result-search li {
     color: black;
 }
 
 .result-search li .fa-search {
     color: black
-
 }
 
+
 /**Sin resultados en los posts */
+
 .notResults {
     font-size: 17px;
     margin: 12% 32%;
