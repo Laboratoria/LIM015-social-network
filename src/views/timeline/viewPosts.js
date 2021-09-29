@@ -49,6 +49,7 @@ const loadViewPost = (objectDataPosts, parentElement) => {
 
         if (objectDataPosts != undefined) {
 
+
             objectDataPosts.forEach(element => {
                         const post = document.createElement('div');
                         post.classList.add('post');

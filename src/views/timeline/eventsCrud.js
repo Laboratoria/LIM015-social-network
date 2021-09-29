@@ -1,4 +1,5 @@
-import { savePost, datePost, deletePostFs, updatePost, getPost } from "../../db/firestore.js";
+
+import { getCategory, savePost, datePost, deletePostFs, updatePost } from "../../db/firestore.js";
 import { saveImageFile, getPhotoURL } from "../../db/storage.js";
 import { alerts, btnProcess } from "../../lib/alerts.js";
 import { loadViewPost } from "./viewPosts.js";
@@ -251,4 +252,9 @@ const uploadImage = async(action) => {
     return arrayInfoImage;
 }
 
-export { addEventFormPost, addEventDeletePost, addEventEditPost }
+const updateCategory = async(idCategory) =>{
+    const category = await getCategory(idCategory).then((res)=>{
+        console.log(res)
+    })
+}
+export { addEventFormPost, addEventDeletePost, addEventEditPost, updateCategory }
