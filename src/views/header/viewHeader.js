@@ -31,20 +31,16 @@ export const header = () => {
     const ulResulSearch = header.querySelector('#result-search');
     const allUsers = JSON.parse(window.localStorage.getItem('allUsers')); //extraemos de local viewHeaderUser Linea 21    
     inputSearch.addEventListener('keyup', () => {
-        // ulResulSearch.innerHTML = "";
         const search = inputSearch.value.toLowerCase();
         let resultSearch = searchResult(allUsers, search);
         const htmlResultSearch = resultSearch.map(user => `<li> <span class="link-user" data-id="${user.idUser}"> ${user.nameUser} </span> </li> `)
-        displayResults(htmlResultSearch);
-        // inputSearch.value = ""; <span class="link-user" data-id="${element.idUser}">
+        search != ''? displayResults(htmlResultSearch) : ulResulSearch.innerHTML = "";
     });
 
-    function searchResult(allUsers, search) {
-        return allUsers.filter(user => user.nameUser.toLowerCase().includes(search)) //user.nameUser.toLowerCase().indexOf(search.toLowerCase()) > -1
-    }
-
-    function displayResults(resultSearch) {
-        const html = resultSearch.length > 0 ? resultSearch.join('') : '';
+    const searchResult = (allUsers, search) => allUsers.filter(user => user.nameUser.toLowerCase().includes(search)) //user.nameUser.toLowerCase().indexOf(search.toLowerCase()) > -1
+    
+    const displayResults = (resultSearch) => {
+        const html = resultSearch.length > 0 ? resultSearch.join('') : "";
         ulResulSearch.innerHTML = html;
         addEventLinkUser();
     }
