@@ -121,6 +121,12 @@ h6 {
     color: #292929;
 }
 
+.btn-seguir {
+    background: linear-gradient(to right, #da8cff, #9a55ff);
+    padding: 16px 30px;
+    margin-bottom: 10px;
+}
+
 
 /**** butons outline ***/
 
@@ -604,6 +610,10 @@ img {
 
 /** Input de búsqueda **/
 
+/* .wrapper {
+    width: 100%;
+} */
+
 .input-search {
     display: table;
     border-collapse: collapse;
@@ -701,6 +711,11 @@ img {
 .avatar-lg {
     width: 70px;
     height: 70px;
+}
+
+#avatar-name {
+    font-weight: bold;
+    font-size: 1.3rem;
 }
 
 
@@ -1292,7 +1307,7 @@ img {
     background-color: #ffffff;
 }
 
-.up-information-profile button {
+.up-information-profile .btn-secondary {
     margin-bottom: 10px;
 } 
 

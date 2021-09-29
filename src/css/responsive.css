@@ -164,16 +164,8 @@
 
 
 /** Mostrando y coulatndo boton de crear publicacion de acuerdo a las pantallas **/
-@media ( min-width: 690px ) {
-  .container-section-user-post .btn-create-post:first-of-type {
-    display: block;
-  }
-}
 
 @media ( max-width: 690px ){
-  .container-section-user-post .btn-create-post:last-child {
-    display: block;
-  }
   .container-profile {
     grid-template-columns: 3% 94% 3%;
     grid-template-areas: 

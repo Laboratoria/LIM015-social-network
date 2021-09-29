@@ -8,8 +8,8 @@ const saveUser = (infoUser) => {
         "email": infoUser[1],
         "nameuser": infoUser[2],
         "photouser": infoUser[3],
-        "photocover": "default.png", //portada
-        "description": "Cuéntanos un poco sobre ti",
+        "photocover": "https://firebasestorage.googleapis.com/v0/b/prueba-marga.appspot.com/o/covers%2Fcoverspace.jpg?alt=media&token=75538f66-b3f3-4836-b4f2-96c41c3b1704", //portada
+        "description": "Pronto una genial descripción",
     })
 }
 
