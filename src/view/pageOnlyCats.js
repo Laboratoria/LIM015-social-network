@@ -148,14 +148,13 @@ export const pageOnlyCats = () => {
         btn.addEventListener('click', (e) => {
           getPost(e.target.id)
             .then((res) => {
-              const arrayLike = res.data().likes;
-              const statusLike = arrayLike.indexOf(localUser.uid);
-              if (statusLike === -1) {
+              let arrayLike = res.data().likes;
+              if (!arrayLike.includes(localUser.uid)) {
                 arrayLike.push(localUser.uid);
                 editLike(res.id, arrayLike)
                   .then(() => console.log('se logró')).catch((error) => console.log(error));
               } else {
-                arrayLike.splice(res.data().likes, 1);
+                arrayLike = arrayLike.filter((link) => link !== localUser.uid);
                 editLike(res.id, arrayLike)
                   .then(() => console.log('se quitó')).catch((error) => console.log(error));
               }
