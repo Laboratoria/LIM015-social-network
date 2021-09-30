@@ -46,22 +46,10 @@
 .fondoAnimalPet{
  /*  width: 150px;
   height: 40px; */
-  width:200px;
-  height:200px;
+  width: 150px;
+  height: 150px;
   border-radius:50%;
   }
-
-/* #fondo{
-  width:200px;
-height:200px;
-border-radius:50%;
-} */
-
-/* .register{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-} */
 
 .frmregister{
   display: flex;
