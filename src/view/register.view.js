@@ -7,7 +7,7 @@ import {
 
 export function viewRegister() {
   const divElem = document.createElement('article');
-  divElem.className= 'article-register';
+  divElem.className = 'article-register';
   divElem.innerHTML = `
     <figure class='figure-register'>
       <img class='fondoAnimal1' src='./img/parque.png' id='fondoRegister1'>
@@ -17,7 +17,7 @@ export function viewRegister() {
         <img src='img/pet.jpg' id='fondoPet' class='fondoAnimalPet'>
       </figure>
     <form action="#" class='frmregister'>
-    <div class="form-register-inputs">
+    <div class='form-register-inputs'>
         <input  id='email1' placeholder='Email' class='btn-texto'>
         <span id='errorEmail' class='errorMessage'></span>
         <input class='btn-texto' type='password' name='password1' id='password1' placeholder='Password'>
