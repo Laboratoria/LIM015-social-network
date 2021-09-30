@@ -29,6 +29,7 @@
     "htmlhint": "^0.14.0",
     "jest": "^27.0.1",
     "js-mock": "^2.0.0",
+    "mock-cloud-firestore": "^0.12.0",
     "regenerator-runtime": "^0.13.1",
     "serve": "^12.0.0",
     "stylelint": "^13.13.1",
@@ -39,5 +40,8 @@
   },
   "engines": {
     "node": ">=10"
+  },
+  "dependencies": {
+    "firebase": "^9.1.0"
   }
 }
