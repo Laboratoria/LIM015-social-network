@@ -27,6 +27,7 @@ const savePost = (object) => db.collection('posts').add(object);
 const updatePost = (id, object) => db.collection('posts').doc(id).update(object);
 const updateCategory = (id, object) => db.collection('categories').doc(id).update(object);
 const getComments = (id) => db.collection("posts").where("idUser", "==", id).get();
+const getPostByCategory = (id) => db.collection("posts").where("idCategory", "==" ,id).get();
 
 export {
     savePost,
@@ -42,6 +43,7 @@ export {
     getPostUser,
     getCategory,
     getComments,
-    updateCategory
+    updateCategory,
+    getPostByCategory
 
 }
