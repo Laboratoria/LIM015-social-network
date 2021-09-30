@@ -6,28 +6,32 @@ import {
 } from '../security/security.function.js';
 
 export function viewRegister() {
-  const viewRegisterv = `
-  <form class='container-Register'>
-    <figure>
-      <img src='./img/parque.png' id='fondoRegister1' class='fondoAnimal1'>
+  const divElem = document.createElement('article');
+  divElem.className= 'article-register';
+  divElem.innerHTML = `
+    <figure class='figure-register'>
+      <img class='fondoAnimal1' src='./img/parque.png' id='fondoRegister1'>
     </figure>
-    <section class='frmregister'>
-    <figure class='figure-Register'>
+  <article class='container-Register'>
+      <figure class='figure-title-register'>
         <img src='img/pet.jpg' id='fondoPet' class='fondoAnimalPet'>
-        </figure>
+      </figure>
+    <form action="#" class='frmregister'>
+    <div class="form-register-inputs">
         <input  id='email1' placeholder='Email' class='btn-texto'>
-      <span id='errorEmail' class='errorMessage'></span>
+        <span id='errorEmail' class='errorMessage'></span>
         <input class='btn-texto' type='password' name='password1' id='password1' placeholder='Password'>
         <input class='btn-texto' type='password' name='password2' id='password2' placeholder='Confir Password'>   
+    </div>
         <button id='btnRegister'type='button' class='btn'>Register</button>
-      <span class='message'></span>  
-        <button id='login'class='btn'> <a href='#/login'>Login</a></button>
-    </section>
-  </form>
+        <span class='message'></span>  
+        <button id='login'class='btn'> <a href='#/login'class='a-register-signup'>Login</a></button>
+    </form>
+  </article>
  `;
 
-  const divElem = document.createElement('div');
-  divElem.innerHTML = viewRegisterv;
+  /* const divElem = document.createElement('div');
+  divElem.innerHTML = viewRegisterv; */
   return divElem;
 }
 
