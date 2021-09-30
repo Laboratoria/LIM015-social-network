@@ -20,5 +20,6 @@ const changeView=(route) => {
        container.appendChild(components.Err404())
   }
 }
+console.log("hola");
 
 export  {changeView}
