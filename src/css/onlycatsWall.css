@@ -171,13 +171,13 @@ background-color: transparent;
     background: #ed6e67;
     border: none;
     color: white;
-    border-radius: 7px;
+    border-radius: 5px;
     font-size: 13px;
-    padding: 0 12px ;
+    padding: 5px 15px ;
 }
 .post-button:hover{
     cursor: pointer;
-    background: #f7463d;
+    background: #f15b54;
 }
 .fa-sign-out-alt{
     color: #4f46c8;

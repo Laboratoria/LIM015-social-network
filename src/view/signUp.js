@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-alert */
 /* eslint-disable no-console */
 import { createUser, emailVerification, currentUser } from '../firebase/firebase-auth.js';
@@ -82,7 +83,7 @@ export const signUp = () => {
       createUser(signupEmail, signupPassword)
         .then(() => {
           emailVerification().then(() => {
-            window.alert('Verification send');
+            swal('La verificación ha sido enviada.');
             window.location.hash = '#/signin';
             const user = currentUser();
             user.updateProfile({
