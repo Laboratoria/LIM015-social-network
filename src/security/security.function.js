@@ -1,25 +1,12 @@
 /* eslint-disable no-console */
 /* eslint-disable max-len */
-import { auth } from './firebase.js';
-
-const googleProvider = new firebase.auth.GoogleAuthProvider();
-/* funcion que solo sirve para pintar los valores de emai y pasword
-en la consola */
-export function eventsRegister() {
-  const signin = document.querySelector('.btn');
-  signin.addEventListener('click', (e) => {
-    e.preventDefault();
-    const signinEmail = document.querySelector('.email').value;
-    const singnPassword = document.querySelector('.password').value;
-    console.log(signinEmail, singnPassword);
-  });
-}
 export const emailVerication = () => firebase.auth().currentUser.sendEmailVerification();
 
 export const registerWithEmail = (email, password) => firebase.auth().createUserWithEmailAndPassword(email, password);
 export async function login() {
+  const googleProvider = new firebase.auth.GoogleAuthProvider();
   try {
-    const response = await auth.signInWithPopup(googleProvider);
+    const response = await firebase.auth().signInWithPopup(googleProvider);
     console.log(response);
     return response.user;
   } catch (error) {
@@ -27,7 +14,7 @@ export async function login() {
   }
 }
 export function logout() {
-  auth.signOut();
+  firebase.auth().signOut();
 }
 export const logInWithEmail = (email, password) => {
   const loginn = firebase.auth().signInWithEmailAndPassword(email, password);
