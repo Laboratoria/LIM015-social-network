@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-console */
 /* eslint-disable no-alert */
 import { onAuthStateChanged, registerGoogle, signInUser } from '../firebase/firebase-auth.js';
@@ -79,7 +80,7 @@ export const signIn = () => {
               window.location.hash = '#/onlycats';
               localStorage.setItem('user', JSON.stringify(user));
             } else {
-              alert('Email no verificado. Revisa tu correo :D');
+              swal('Email no verificado. Revisa tu correo :D');
             }
           }
         });
@@ -93,8 +94,6 @@ export const signIn = () => {
           } else if (errorCode === 'auth/wrong-password') {
             errorPassword.innerHTML = 'La contraseña es inválida o el usuario no tiene contraseña';
           }
-          const errorMessage = error.message;
-          console.log(errorCode, errorMessage);
         });
     }
   });

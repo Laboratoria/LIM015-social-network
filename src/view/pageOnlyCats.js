@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-restricted-globals */
 /* eslint-disable no-alert */
 /* eslint-disable no-console */
@@ -104,7 +105,7 @@ export const pageOnlyCats = () => {
               <span>${dataContent.likes.length} </span>
             </div>
           </section>
-          <div class="update-post  ${(dataContent.email === localUser.email) ? ' ' : 'hide'}">
+          <div class="update-post  ${(dataContent.email === localUser.email) ? '' : 'hide'}">
             <button class="btn-delete"><i class="fas fa-trash" id="${doc.id}"></i></button>
             <button class="btn-edit"><i class="fas fa-edit" id="${doc.id}"></i></button>
           </div>
@@ -116,12 +117,23 @@ export const pageOnlyCats = () => {
       const btnDelete = sectionElement.querySelectorAll('.btn-delete');
       btnDelete.forEach((btn) => {
         btn.addEventListener('click', async (e) => {
-          const result = confirm('¿En serio quieres borrar el post?');
-          if (result === true) {
-            await deletePost(e.target.id);
-            console.log('Document successfully deleted!');
-            window.alert('¡El post ha sido borrado con éxito!');
-          }
+          swal({
+            title: '¿Estás segurx?',
+            text: 'Una vez eliminado, no podrás recuperar el michi-post.',
+            icon: 'warning',
+            buttons: true,
+            dangerMode: true,
+          })
+            .then((willDelete) => {
+              if (willDelete) {
+                deletePost(e.target.id);
+                swal('Meow! Tu michi-post ha sido eliminado.', {
+                  icon: 'success',
+                });
+              } else {
+                swal('¡Tu michi-post está a salvo!');
+              }
+            });
         });
       });
 
@@ -170,16 +182,16 @@ export const pageOnlyCats = () => {
       if (editStatus === false) {
         // -------- Crear Posts (C) --------
         await postCollection(textInput.value, displayName, photo, email, uid);
-        textInput.value = ' ';
+        textInput.value = '';
       } else {
         await editPost(id, textInput.value);
-        textInput.value = ' ';
+        textInput.value = '';
         console.log('editanding');
         btnPublish.innerText = 'Meow';
         sectionElement.querySelector('.hide').style.display = 'none';
       }
     } else if (textInput.value.length === 0) {
-      alert('pon un texto oye');
+      swal('El post está vacío :c');
     }
   });
   readPosts();
@@ -188,14 +200,27 @@ export const pageOnlyCats = () => {
   const signOut = sectionElement.querySelector('#sign-out');
   signOut.addEventListener('click', (e) => {
     e.preventDefault();
-    const result = confirm('¿En serio quieres salir?');
-    if (result === true) {
-      signOutUser()
-        .then(() => {
-          window.location.hash = '';
-          window.localStorage.clear();
-        });
-    }
+    swal({
+      title: '¿Quieres cerrar sesión?',
+      /* text: 'Una vez eliminado, no podrás recuperar el michi-post.', */
+      icon: 'warning',
+      buttons: true,
+      dangerMode: true,
+    })
+      .then((willDelete) => {
+        if (willDelete) {
+          signOutUser()
+            .then(() => {
+              window.location.hash = '';
+              window.localStorage.clear();
+            });
+          swal('Adiós, espero vuelvas pronto c:', {
+            icon: 'success',
+          });
+        } else {
+          swal('Genial! Sigue divirtiéndote.');
+        }
+      });
   });
 
   return sectionElement;
