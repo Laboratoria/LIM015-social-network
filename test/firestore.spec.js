@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import MockFirebase from 'mock-cloud-firestore';
-import {getAllPosts, deletePostFs} from '../src/db/firestore.js'
+import {getAllPosts, deletePostFs, updatePost} from '../src/db/firestore.js'
 //simulacion de la base de datos
 const fixtureData = {
     __collection__: {
@@ -35,3 +35,31 @@ describe('deletePostFs', () =>{
        })
    })
 })
+/* -------------updatePost-------------- */
+/* describe('updatePost',() =>{
+  it('should update Post with id: abc123',(done)=>{
+    updatePost('abc123',{post: 'test update post'}).then(()=>{
+      const callback = (postDoc) =>{
+        const result = postDoc.find(element => element.id === 'abc123');
+        expect(result.post).toBe('test update post')
+        done();
+      };
+      getAllPosts(callback);
+    })
+  })
+})
+ */
+/* --------test------ */
+describe('updatePost', () => {
+  it('debería poder actualizar un post por su id', async () => {
+    const posts = await getAllPosts();
+    posts.forEach((doc) => {
+      if (doc.id === 'abc125') {
+        updatePost('abc125', { post: 'Post modificado' }).then(() => {
+          const result = doc.data();
+          expect(result.post).toBe('Post modificado');
+        });
+      }
+    });
+  });
+});
