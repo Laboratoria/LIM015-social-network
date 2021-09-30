@@ -51,15 +51,11 @@ const viewHome = () => {
       savePostCurrentUser(user,homePost ,postArea);
       postNameUser.innerHTML = user.displayName;
       postPhotoUser.src = user.photoURL;
-
       onGetPosts((data) => {
-
         setTemplateListPosts(data, user,postListContainer);
-        
       });
     } else {
-      // User is signed out
-      // ...
+      window.location.hash('#/')
     }
   });
   
@@ -78,7 +74,6 @@ const setTemplateListPosts = (data, user,postListContainer) => {
     data.forEach((doc) => {
       const postText = doc.data();
       postText.id = doc.id;
-      console.log(postText);
 
       postListContainer.innerHTML += /*html*/ `
       <section class="postAreaUser">
@@ -124,7 +119,7 @@ const setTemplateListPosts = (data, user,postListContainer) => {
     const btnDelete = postListContainer.querySelectorAll(".btn-delete");
     const btnEdit = document.querySelectorAll(".btn-edit");
     const modaldeletePost = document.querySelector("#modalDeletePost");
-    console.log(modaldeletePost);
+    // console.log(modaldeletePost);
 
     btnDelete.forEach((btn) =>{     
       btn.addEventListener("click",  (e) => {
@@ -263,7 +258,16 @@ const savePostCurrentUser = (user,homePost ,postArea) => {
 };
 
 
+/*const loadPage = () => {
+  window.addEventListener("popstate", e => {
+    console.log (e);
+    console.log ("estoy regresando a la pagina");
+    console.log(history.back())
+    history.pushState('null', 'null', './home');
+  })
+}
 
+loadPage();*/
 
 export { viewHome,savePostCurrentUser,setTemplateListPosts};
 

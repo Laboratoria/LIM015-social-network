@@ -157,8 +157,11 @@ const viewRegister = () => {
           if (email && name && password) {
             updateProfile(name);
             emailVerification();
+            firebase.auth().onAuthStateChanged((user) => {
+              if (user) {console.log(user)}
+              else{ console.log("no hay usuario activo")}
+             });
           }
-          console.log(cred.user);
           signupForm.reset();
         })
         .catch(() => {

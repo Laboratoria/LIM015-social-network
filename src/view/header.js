@@ -1,6 +1,6 @@
-import {signOut} from '../firebase/fb-functions.js'
+import { signOut } from '../firebase/fb-functions.js'
 
-const  viewHeader = () => {
+const viewHeader = () => {
   const navHeader =/*html*/ `
    
     <nav class="nav">
@@ -27,21 +27,24 @@ const  viewHeader = () => {
     </nav>
   
   `
-  const sectionHeader =document.createElement('header');
-  sectionHeader.innerHTML=navHeader;
-  
+  const sectionHeader = document.createElement('header');
+  sectionHeader.innerHTML = navHeader;
+
   const navClose = sectionHeader.querySelector('#navClose');
   navClose.addEventListener('click', (event) => {
     event.preventDefault();
     signOut().then(() => {
-        console.log('sign Out');
-        window.open('#','_self')
+      console.log('sign Out');
+      window.open('#', '_self')
+      // window.location.hash = "";
+      // window.location.hash = "Again-No-back-button"
+      // window.onhashchange = function(){window.location.hash="No-back-button";}
     })
-  
+
   });
 
   return sectionHeader
 }
- 
 
-export {viewHeader};
+
+export { viewHeader };
