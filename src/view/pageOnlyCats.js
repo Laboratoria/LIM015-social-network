@@ -142,20 +142,20 @@ export const pageOnlyCats = () => {
         });
       });
 
-      // -------- like Posts  --------
+      // -------- Like Posts  --------
       const btnHeart = sectionElement.querySelectorAll('.fa-heart');
       btnHeart.forEach((btn) => {
         btn.addEventListener('click', (e) => {
           getPost(e.target.id)
-            .then((res) => {
-              let arrayLike = res.data().likes;
-              if (!arrayLike.includes(localUser.uid)) {
+            .then((doc) => {
+              const arrayLike = doc.data().likes;
+              if (arrayLike.includes(localUser.uid) === false) {
                 arrayLike.push(localUser.uid);
-                editLike(res.id, arrayLike)
+                editLike(doc.id, arrayLike)
                   .then(() => console.log('se logró')).catch((error) => console.log(error));
               } else {
-                arrayLike = arrayLike.filter((link) => link !== localUser.uid);
-                editLike(res.id, arrayLike)
+                const arrayLikeFilter = arrayLike.filter((link) => link !== localUser.uid);
+                editLike(doc.id, arrayLikeFilter)
                   .then(() => console.log('se quitó')).catch((error) => console.log(error));
               }
             }).catch((error) => console.log(error));
