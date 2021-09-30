@@ -1,6 +1,4 @@
-/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
-/* eslint-disable no-console */
 import {
   login,
   logInWithEmail,
@@ -8,11 +6,9 @@ import {
 } from '../security/security.function.js';
 
 export function viewLogin() {
-  // viewLoginv.className = 'article-login';
-  //const divElem = document.createElement('div');
   const divElem = document.createElement('article');
   divElem.className = 'article-login';
-  divElem.innerHTML =  `
+  divElem.innerHTML = `
   <figure class='figure-login'>
     <img class='fondo-Login1' src='./img/fondoLogin.png' id='fondoLogin1'  >
   </figure>
@@ -50,7 +46,7 @@ document.addEventListener('click', (e) => {
     message.innerHTML = '';
     e.preventDefault();
     e.stopPropagation();
-    console.log(btnsignin);
+    // console.log(btnsignin);
     if (email === '' || password === '') {
       message.innerHTML = 'Por favor llene todos los campos';
     } else {
@@ -80,7 +76,7 @@ async function showLogin() {
   try {
     await login();
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 }
 export const logInWithGoogleClick = () => {
@@ -96,7 +92,7 @@ export const logInWithGoogleClick = () => {
     })
     .catch((error) => {
       /*     Manejar errores aquí. */
-      console.log('error');
-    /*    El correo electrónico de la cuenta del usuario utilizada. */
+      // console.log('error');
+      /*    El correo electrónico de la cuenta del usuario utilizada. */
     });
 };
