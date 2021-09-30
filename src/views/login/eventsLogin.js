@@ -66,7 +66,7 @@ function responseOk(result, google) {
 function responseError(error) {
     alertProcess(false); //ocultamos alerta con gif
     const errorCode = error.code;
-    console.log(errorCode)
+    /* console.log(errorCode) */
     switch (errorCode) { //falta existente
         case 'auth/wrong-password':
         case 'auth/user-not-found':

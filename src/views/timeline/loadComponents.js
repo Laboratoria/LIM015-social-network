@@ -1,10 +1,10 @@
 import { loadViewHeaderUser } from './viewHeaderUser.js';
-import { loadViewCategory } from './viewCategories.js';
+import { loadViewCategory,addEventShowCategories } from './viewCategories.js';
 import { loadViewPopularPost } from './viewCarrusel.js';
 import { getObjectAllPosts } from './viewPosts.js';
 import { addEventsTimeline } from './eventsTimeline.js';
 import { loadViewModal } from './viewModal.js';
-import { updateCategory, addEventFormPost, addEventDeletePost, addEventEditPost } from './eventsCrud.js';
+import { addEventFormPost, addEventDeletePost, addEventEditPost } from './eventsCrud.js';
 import { loadViewModalDelete } from './viewModalDelete.js';
 import { reactionLike } from './reactions.js'
 
@@ -20,7 +20,7 @@ const loadComponents = async() => {
     addEventDeletePost();
     addEventEditPost();
     reactionLike();
-    updateCategory()
+    addEventShowCategories();
 }
 
 export { loadComponents }
