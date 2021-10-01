@@ -135,15 +135,7 @@ export const pageOnlyCats = () => {
             });
         });
       });
-      // -------- Cancelar Editar Posts (U) --------
-      const btnCancel = sectionElement.querySelector('#cancel-button');
-      btnCancel.addEventListener('click', () => {
-        textInput.value = '';
-        btnPublish.innerText = 'Meow';
-        // editStatus = false;
-        sectionElement.querySelector('.hide').style.display = 'none';
-        console.log('cancelado');
-      });
+
       // -------- Editar Posts (U) --------
       const btnEdit = sectionElement.querySelectorAll('.btn-edit');
       btnEdit.forEach((btn) => {
@@ -159,6 +151,16 @@ export const pageOnlyCats = () => {
           sectionElement.querySelector('.hide').style.display = 'block';
           // console.log('editando');
         });
+      });
+
+      // -------- Cancelar Editar Posts (U) --------
+      const btnCancel = sectionElement.querySelector('#cancel-button');
+      btnCancel.addEventListener('click', () => {
+        textInput.value = '';
+        btnPublish.innerText = 'Meow';
+        // editStatus = false;
+        sectionElement.querySelector('.hide').style.display = 'none';
+        console.log('cancelado');
       });
 
       // -------- Like Posts  --------
