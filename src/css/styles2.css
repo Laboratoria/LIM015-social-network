@@ -1419,7 +1419,6 @@ img {
 #container-alert {
     position: fixed;
     z-index: 3;
-    top: 0;
     margin-top: 3%;
     padding: 15px;
     border-radius: 3px 3px 3px 3px;
