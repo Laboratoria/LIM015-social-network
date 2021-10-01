@@ -347,4 +347,7 @@ background-color: transparent;
         font-size: 15px;
         font-weight: 500;
     }
+    .post-photo{
+        width: 200px;
+    }
 }

@@ -1,9 +1,10 @@
-export const postCollection = (post, userName, photo, email, uid) => firebase.firestore().collection('posts').add({
+export const postCollection = (post, userName, photo, email, uid, photoURL) => firebase.firestore().collection('posts').add({
   user: userName,
   text: post,
   photo,
   email,
   uid,
+  postImage: photoURL,
   likes: [],
   timePost: firebase.firestore.FieldValue.serverTimestamp(),
 });

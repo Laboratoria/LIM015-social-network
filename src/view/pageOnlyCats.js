@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-undef */
 /* eslint-disable no-restricted-globals */
 /* eslint-disable no-alert */
@@ -6,6 +7,7 @@ import { signOutUser, onAuthStateChanged } from '../firebase/firebase-auth.js';
 import {
   postCollection, getCollection, deletePost, getPost, editPost, editLike,
 } from '../firebase/firebase-firestore.js';
+import { uploadPostImage, getPostImageURL } from '../firebase/firebase-storage.js';
 
 /* -------------------------------Verificar si el usuario está conectado---------------------- */
 const userStateCheck = () => {
@@ -52,7 +54,9 @@ export const pageOnlyCats = () => {
           <section class="section-profile" >
             <textarea class="text-input" id="text-input" placeholder="¿Miau esta pasando?"></textarea>
             <div class="post-icon">
-              <i class="fas fa-image"></i>
+              <label class="postImage"> 
+                <i class="fas fa-image"></i> <input type="file" id="postImage" accept="image/*"/> 
+              </label> 
               <button class="post-button hide" id="cancel-button" type="submit">Cancelar</button>
               <button class="post-button" id="post-button" type="submit">Meow</button>
             </div>
@@ -84,6 +88,7 @@ export const pageOnlyCats = () => {
   const textInput = sectionElement.querySelector('#text-input');
 
   // -------- Leer o mostrar Posts (R) --------
+
   const readPosts = () => {
     getCollection().onSnapshot((querySnapshot) => {
       const newPost = sectionElement.querySelector('#other-post');
@@ -99,6 +104,7 @@ export const pageOnlyCats = () => {
           <section class="section-post">
             <p class="name-input"> ${dataContent.user} </p>
             <p readonly class="text-output">${dataContent.text}</p>
+            <img src="${dataContent.postImage}" class="post-photo">
             <div class="likes-container">
               <i class="far fa-heart" id="${dataContent.id}"></i>
               <span>${dataContent.likes.length} </span>
@@ -189,8 +195,13 @@ export const pageOnlyCats = () => {
     // EditStatus sera falso cuando no exista un post, y recién se este creando
     if (textInput.value.length !== 0) {
       if (editStatus === false) {
-        await postCollection(textInput.value, displayName, photo, email, uid);
+        const postImage = container.querySelector('#postImage').files[0];
         textInput.value = '';
+        const dir = 'posts';
+        const name = postImage.name;
+        uploadPostImage(name, postImage)
+          .then(() => getPostImageURL(dir, name))
+          .then((photoURL) => postCollection(textInput.value, displayName, photo, email, uid, photoURL));
       } else {
         await editPost(id, textInput.value);
         textInput.value = '';
