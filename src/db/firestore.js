@@ -23,7 +23,9 @@ const deletePostFs = (id) => db.collection('posts').doc(id).delete();
 const datePost = () => firebase.firestore.Timestamp.now();
 const savePost = (object) => db.collection('posts').add(object);
 const updatePost = (id, object) => db.collection('posts').doc(id).update(object);
+const updateProfileUser = (id, object) => db.collection('users').doc(id).update(object);
 const getComments = (id) => db.collection("posts").where("idUser", "==", id).get();
+
 
 export {
     savePost,
@@ -37,5 +39,6 @@ export {
     updatePost,
     getPost,
     getPostUser,
-    getComments
+    getComments,
+    updateProfileUser
 }
