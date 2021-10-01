@@ -46,5 +46,6 @@ const changeView=(route) => {
       }
   
 }
+console.log("hola");
 
 export  {changeView}

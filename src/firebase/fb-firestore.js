@@ -10,9 +10,25 @@ const savePost = (username, userPost, date, userId, userPhoto, likes) =>
     likes,
     });
 
+  
 // Get Posts from Firestore to HTML on RealTime
-  const onGetPosts = (callback) =>
-  firebase.firestore().collection("newPosts").orderBy('date', 'desc').onSnapshot(callback);
+ /* const onGetPosts = (callback) =>
+  firebase.firestore().collection("newPosts").orderBy('date', 'desc').onSnapshot(callback);*/
+
+
+const onGetPosts = (callback) =>
+  firebase.firestore().collection("newPosts").orderBy('date', 'desc').onSnapshot((query) => {
+    const data=[];
+    query.forEach((doc) => {
+      data.push({
+        id:doc.id,
+        ...doc.data()
+      });
+      callback(data);
+    })
+  })
+  
+
 // Delete published posts
 const deletePosts = (id) =>
   firebase.firestore().collection("newPosts").doc(id).delete();

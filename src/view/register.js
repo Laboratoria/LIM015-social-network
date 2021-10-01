@@ -152,7 +152,7 @@ const viewRegister = () => {
       console.log(modalVerification)
       console.log(modalRegisterVerification(email))
       registerEmail(email, password)
-        .then((cred) => {
+        .then(() => {
           //base de datos de usuario
           if (email && name && password) {
             updateProfile(name);
