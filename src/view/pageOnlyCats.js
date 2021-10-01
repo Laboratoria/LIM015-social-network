@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-undef */
 /* eslint-disable no-restricted-globals */
 /* eslint-disable no-alert */
@@ -6,7 +7,9 @@ import { signOutUser, onAuthStateChanged } from '../firebase/firebase-auth.js';
 import {
   postCollection, getCollection, deletePost, getPost, editPost, editLike,
 } from '../firebase/firebase-firestore.js';
+import { uploadPostImage, getPostImageURL } from '../firebase/firebase-storage.js';
 
+/* -------------------------------Verificar si el usuario está conectado---------------------- */
 const userStateCheck = () => {
   onAuthStateChanged((user) => {
     if (user !== null && user.emailVerified) {
@@ -16,7 +19,7 @@ const userStateCheck = () => {
     }
   });
 };
-
+/* ---------------------------------Diseñar la página OnlyCats--------------------------------- */
 export const pageOnlyCats = () => {
   userStateCheck();
   const imgDefault = 'https://pbs.twimg.com/profile_images/1101458340318568448/PpkA2kQh_400x400.jpg';
@@ -51,7 +54,9 @@ export const pageOnlyCats = () => {
           <section class="section-profile" >
             <textarea class="text-input" id="text-input" placeholder="¿Miau esta pasando?"></textarea>
             <div class="post-icon">
-              <i class="fas fa-image"></i>
+              <label class="postImage"> 
+                <i class="fas fa-image"></i> <input type="file" id="postImage" accept="image/*"/> 
+              </label> 
               <button class="post-button hide" id="cancel-button" type="submit">Cancelar</button>
               <button class="post-button" id="post-button" type="submit">Meow</button>
             </div>
@@ -78,12 +83,12 @@ export const pageOnlyCats = () => {
   const sectionElement = document.createElement('section');
   sectionElement.classList.add('container-box');
   sectionElement.innerHTML = pageOcView;
-
   // -----Botones del Post
   const btnPublish = sectionElement.querySelector('#post-button');
   const textInput = sectionElement.querySelector('#text-input');
 
   // -------- Leer o mostrar Posts (R) --------
+
   const readPosts = () => {
     getCollection().onSnapshot((querySnapshot) => {
       const newPost = sectionElement.querySelector('#other-post');
@@ -99,6 +104,7 @@ export const pageOnlyCats = () => {
           <section class="section-post">
             <p class="name-input"> ${dataContent.user} </p>
             <p readonly class="text-output">${dataContent.text}</p>
+            <img src="${dataContent.postImage}" class="post-photo">
             <div class="likes-container">
               <i class="far fa-heart" id="${dataContent.id}"></i>
               <span>${dataContent.likes.length} </span>
@@ -112,7 +118,7 @@ export const pageOnlyCats = () => {
         </article> `;
       });
 
-      // -------- Eliminar Posts (D) --------
+      /* -------------------------Eliminar Post (R) ---------------------- */
       const btnDelete = sectionElement.querySelectorAll('.btn-delete');
       btnDelete.forEach((btn) => {
         btn.addEventListener('click', async (e) => {
@@ -149,7 +155,6 @@ export const pageOnlyCats = () => {
           id = postSeleccionado.id;
           btnPublish.innerText = 'Editar';
           sectionElement.querySelector('.hide').style.display = 'block';
-          // console.log('editando');
         });
       });
 
@@ -185,17 +190,21 @@ export const pageOnlyCats = () => {
     });
   };
 
+  /* -------------------------------Crear Post (C) ------------------------- */
   btnPublish.addEventListener('click', async () => {
-    // EditStatus sera falso cuando no exista un post, y recien se este creando
+    // EditStatus sera falso cuando no exista un post, y recién se este creando
     if (textInput.value.length !== 0) {
       if (editStatus === false) {
-        // -------- Crear Posts (C) --------
-        await postCollection(textInput.value, displayName, photo, email, uid);
+        const postImage = container.querySelector('#postImage').files[0];
         textInput.value = '';
+        const dir = 'posts';
+        const name = postImage.name;
+        uploadPostImage(name, postImage)
+          .then(() => getPostImageURL(dir, name))
+          .then((photoURL) => postCollection(textInput.value, displayName, photo, email, uid, photoURL));
       } else {
         await editPost(id, textInput.value);
         textInput.value = '';
-        // console.log('editanding');
         btnPublish.innerText = 'Meow';
         sectionElement.querySelector('.hide').style.display = 'none';
       }
@@ -205,13 +214,12 @@ export const pageOnlyCats = () => {
   });
   readPosts();
 
-  // ------------------ Salir de la página --------------------
+  /* -------------------------------Salir de la página ----------------------- */
   const signOut = sectionElement.querySelector('#sign-out');
   signOut.addEventListener('click', (e) => {
     e.preventDefault();
     swal({
       title: '¿Quieres cerrar sesión?',
-      /* text: 'Una vez eliminado, no podrás recuperar el michi-post.', */
       icon: 'warning',
       buttons: true,
       dangerMode: true,

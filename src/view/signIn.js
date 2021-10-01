@@ -73,6 +73,7 @@ export const signIn = () => {
     } else if (signInEmail === '') {
       errorEmail.innerHTML = 'Inserte email';
     } else {
+      /* ------------------------Confirmar la verificación del correo---------------------- */
       const checkEmailVerified = () => {
         onAuthStateChanged((user) => {
           if (user) {
@@ -85,6 +86,7 @@ export const signIn = () => {
           }
         });
       };
+      /* -----------------Ingresar con correo y contraseña---------------------- */
       signInUser(signInEmail, signInPassword)
         .then(() => checkEmailVerified())
         .catch((error) => {
@@ -97,7 +99,7 @@ export const signIn = () => {
         });
     }
   });
-
+  /* ----------------------------- Ingresar con Google--------------------- */
   const signInGoogle = sectionElement.querySelector('#signin-google');
   signInGoogle.addEventListener('click', (e) => {
     e.preventDefault();
