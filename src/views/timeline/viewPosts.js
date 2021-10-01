@@ -45,10 +45,9 @@ const getObjectAllPosts = async() => {
 }
 
 const loadViewPost = (objectDataPosts, parentElement) => {
-        const idUserAuth = localStorage.getItem('iduser'); //Esto vien de la linea 58 del archivo eventLogin OBTENER EL ID USER
-
+    console.log(objectDataPosts,' recibi ')
+    const idUserAuth = localStorage.getItem('iduser'); //Esto vien de la linea 58 del archivo eventLogin OBTENER EL ID USER
         if (objectDataPosts != undefined) {
-
             objectDataPosts.forEach(element => {
                         const post = document.createElement('div');
                         post.classList.add('post');
@@ -73,19 +72,21 @@ const loadViewPost = (objectDataPosts, parentElement) => {
                                         ${idUserAuth == element.idUser ? `<img class="btn btn-edit" width="22px" height="22px" data-id="${element.idPost}" src="../images/svg/edit.png">
                                         <img class="btn btn-delete" data-id="${element.idPost}" src="https://user-images.githubusercontent.com/77282012/120018025-389c9c80-bfac-11eb-9d7d-0a68441eca20.png">`:``}
 
-                                        <span class="badge badge-secondary" id="span-category-${element.idPost}">${element.nameCategory}</span>
-                                    </div>          
-                                </div>
-                            </div>
-                            <div class="post-content">
-                                <p class="content-paragraph" id="paragraph-post-${element.idPost}"> ${element.contentPost} </p>
-                                ${(element.image == true ) ? `<img id="image-post-${element.idPost}" src="${element.urlImage}" class="content-image" />` : `<img id="image-post-${element.idPost}"/>`}
-                            </div>
-                            <div class="post-footer footer">
-                                <div class="footer-reactions reactions">
-                                
-                                    <img class="img-like likes" id="like-${element.idPost}" width="22px" height="22px" src=" ${element.arrLikes.includes(idUserAuth) ? '../images/svg/like.png' : '../images/svg/notlike.png'}"  data-id="${element.idPost}"/>
-                                    <span class="count-reaction" id="count-like-${element.idPost}">${element.arrLikes.length}</span> 
+                            <span class="badge badge-secondary" id="span-category-${element.idPost}">${element.nameCategory}</span>
+                        </div>          
+                    </div>
+                </div>
+                <div class="post-content">
+                    <input type=hidden id="input-category-${element.idPost}" value="${element.idCategory}">
+                    <p class="content-paragraph" id="paragraph-post-${element.idPost}"> ${element.contentPost} </p>
+                    ${(element.image == true ) ? `<img id="image-post-${element.idPost}" src="${element.urlImage}" class="content-image" />` : `<img id="image-post-${element.idPost}"/>`}
+                </div>
+                <div class="post-footer footer">
+                    <div class="footer-reactions reactions">
+                        <img class="img-like likes" id="like-${element.idPost}" width="22px" height="22px" data-id="${element.idPost}"  src=" ${element.arrLikes.includes(idUserAuth) ? '../images/svg/like.png' : '../images/svg/notlike.png'}"  data-id="${element.idPost}"/>
+                        <span class="count-reaction" id="count-like-${element.idPost}">${element.arrLikes.length}</span> 
+                        
+                        <button type="button" class="btn-post btn-notcomment"><i class="far fa-comment-dots"></i> <span class="count-reaction">${element.arrComments.length}</span></button>
 
                                     <img class="img-comment comments" id="comment-${element.idPost}" width="22px" height="22px"   src="../images/svg/notchat.svg"  data-id="${element.idPost}"/>
                                     <span class="count-reaction" id="count-comment-${element.idPost}">${element.arrComments.length}</span> 

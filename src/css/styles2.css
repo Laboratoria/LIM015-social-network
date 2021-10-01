@@ -1453,11 +1453,11 @@ img {
     height: 30px;
     padding: 0 5px;
     color: #9FA0A1;
-    font-family: 'FontAwesome', 'Second Font name'
+   /*  font-family: 'FontAwesome', 'Second Font name' */ /* font-family-no-missing-generic-family-keyword */
 }
 
 .dropdownModal option {
-    font-family: 'FontAwesome', 'Second Font name'
+   /*  font-family: 'FontAwesome', 'Second Font name' */
 }
 
 .span-public {
@@ -1472,12 +1472,14 @@ img {
 .result-search {
     list-style-type: none;
     position: absolute;
-    top: 3.5rem;
-    left: 10rem;
-    background-color: white;
+    top: 2.8rem;
+    left: 15.8rem;
+    background-color: rgb(255, 255, 255);
     z-index: 4;
     /* padding: 1rem; */
     border-radius: 5px;
+    width: 31%;
+   /*  border-radius: 5px; */ /* declaration-block-no-duplicate-properties */
 }
 
 .result-search li {
