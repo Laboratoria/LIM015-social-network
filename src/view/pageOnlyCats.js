@@ -150,7 +150,7 @@ export const pageOnlyCats = () => {
           id = postSeleccionado.id;
           btnPublish.innerText = 'Editar';
           sectionElement.querySelector('.hide').style.display = 'block';
-          // console.log(x);
+          console.log('editando');
         });
       });
 
@@ -183,7 +183,7 @@ export const pageOnlyCats = () => {
         // -------- Crear Posts (C) --------
         await postCollection(textInput.value, displayName, photo, email, uid);
         textInput.value = '';
-      } else {
+      } else if (editStatus === true) {
         await editPost(id, textInput.value);
         textInput.value = '';
         console.log('editanding');
