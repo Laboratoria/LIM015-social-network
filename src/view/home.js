@@ -52,6 +52,8 @@ const viewHome = () => {
       postNameUser.innerHTML = user.displayName;
       postPhotoUser.src = user.photoURL;
       onGetPosts((data) => {
+        
+        console.log(data);
         setTemplateListPosts(data, user,postListContainer);
       });
     } else {
@@ -72,7 +74,7 @@ const setTemplateListPosts = (data, user,postListContainer) => {
     postListContainer.innerHTML = "";
 
     data.forEach((doc) => {
-      const postText = doc.data();
+      const postText = doc/*.data()*/;
       postText.id = doc.id;
 
       postListContainer.innerHTML += /*html*/ `
@@ -245,6 +247,10 @@ const savePostCurrentUser = (user,homePost ,postArea) => {
           const userId = user.uid;
           const userPhoto = user.photoURL;
           const likes = [];
+
+         // savePost("Natalia Espinoza Barrientos", "post para test 1", "30/9/2021 10:53:15", "ID1", "foto1", []).then(re => console.log(re));
+          console.log("natalia",usernamePost, userPost, date, userId, userPhoto, likes);
+
           await savePost(usernamePost, userPost, date, userId, userPhoto, likes);
           homePost.reset();
           postArea.focus();

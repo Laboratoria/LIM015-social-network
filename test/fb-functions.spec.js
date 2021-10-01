@@ -4,7 +4,7 @@ import {
   loginEmail,
   registerEmail,
   loginGoogle,
-  signOut,/*updateProfile*/
+  signOut/*,updateProfile*/
 } from "../src/firebase/fb-functions.js";
 
 // configurando firebase mock
