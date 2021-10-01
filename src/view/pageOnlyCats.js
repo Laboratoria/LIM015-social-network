@@ -28,22 +28,23 @@ export const pageOnlyCats = () => {
   let id = ' ';
   let editStatus = false;
   const pageOcView = `
-  <div class="page-container">
+  <section class="page-container">
     <header class = "header-container">
       <img src="./img/only-cats.png" "alt='only-cats' class="page-title">
       <i class="fas fa-sign-out-alt" id="sign-out"></i>
       <i class="fas fa-cat" style="display:none"></i>
     </header>
-    <main class = "main-container" >
-      <div class="label-container">
-      <p class="label-name"> ¿Qué ver? </p>
-          <button class="label-btn meme"><img src="./img/memecat.png" alt="memes" class="img-memes" />Memes</button>
-          <button class="label-btn vet"><img src="./img/vetcat.png" alt="memes" class="img-memes" />Vet Cat</button>
-          <button class="label-btn foodie"><img src="./img/foodiecat.png" alt="memes" class="img-memes" />Foodie Cat</button>
-      </div>
 
-      <div class="scroll-container">
-        <section class="profile-post publish" >
+    <main class = "main-container" >
+      <section class="label-container">
+        <p class="label-name"> ¿Qué ver? </p>
+        <button class="label-btn meme"><img src="./img/memecat.png" alt="memes" class="img-memes" />Memes</button>
+        <button class="label-btn vet"><img src="./img/vetcat.png" alt="memes" class="img-memes" />Vet Cat</button>
+        <button class="label-btn foodie"><img src="./img/foodiecat.png" alt="memes" class="img-memes" />Foodie Cat</button>
+      </section>
+
+      <section class="scroll-container">
+        <article class="profile-post publish" >
           <div class="container-photo">
               <img src="${photo}" "alt='picture' class="profile-photo">
           </div>
@@ -55,36 +56,34 @@ export const pageOnlyCats = () => {
               <button class="post-button" id="post-button" type="submit">Meow</button>
             </div>
           </section>
-        </section>
+        </article>
+        <section id="other-post"></section>
+      </section>
 
-        <section  id="other-post">
-        </section>
-
-      </div>
-      <div class="profile-container">
-      <div class="container-fondo">
+      <aside class="profile-container">
+        <div class="container-fondo">
           <img src="./img/profile.png" "alt='fondo' class="profile-fondo">
         </div>
         <div class="container-photo">
           <img src="${photo}" "alt='picture' class="profile-photo">
         </div>
-       <p class="name-input"> ${localUser.displayName} </p>
-       <p class="name-input"> ${email} </p>
+        <p class="name-input"> ${localUser.displayName} </p>
+        <p class="name-input"> ${email} </p>
         <p class="biography-name"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         <button class="profile-btn" id="profile-btn">Editar Perfil</button>
-      </div>
+      </aside>
     </main>
-  </div>`;
+  </section>`;
 
   const sectionElement = document.createElement('section');
   sectionElement.classList.add('container-box');
   sectionElement.innerHTML = pageOcView;
+
   // -----Botones del Post
   const btnPublish = sectionElement.querySelector('#post-button');
   const textInput = sectionElement.querySelector('#text-input');
 
-  // -------- Leer Posts (R) --------
-
+  // -------- Leer o mostrar Posts (R) --------
   const readPosts = () => {
     getCollection().onSnapshot((querySnapshot) => {
       const newPost = sectionElement.querySelector('#other-post');
@@ -93,7 +92,7 @@ export const pageOnlyCats = () => {
         const dataContent = doc.data();
         dataContent.id = doc.id;
         newPost.innerHTML += `
-        <section class="profile-post">
+        <article class="profile-post">
           <div class="container-photo">
             <img src="${dataContent.photo}" "alt='picture' class="profile-photo">
           </div>
@@ -105,12 +104,12 @@ export const pageOnlyCats = () => {
               <span>${dataContent.likes.length} </span>
             </div>
           </section>
-          <div class="update-post  ${(dataContent.email === localUser.email) ? '' : 'hide'}">
+          <section class="update-post  ${(dataContent.email === localUser.email) ? '' : 'hide'}">
             <button class="btn-delete"><i class="fas fa-trash" id="${doc.id}"></i></button>
             <button class="btn-edit"><i class="fas fa-edit" id="${doc.id}"></i></button>
-          </div>
+          </section>
           
-        </section> `;
+        </article> `;
       });
 
       // -------- Eliminar Posts (D) --------
