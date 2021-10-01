@@ -145,7 +145,6 @@ export const pageOnlyCats = () => {
         sectionElement.querySelector('.hide').style.display = 'none';
         console.log('cancelado');
       });
-
       // -------- Editar Posts (U) --------
       const btnEdit = sectionElement.querySelectorAll('.btn-edit');
       btnEdit.forEach((btn) => {
@@ -159,7 +158,7 @@ export const pageOnlyCats = () => {
           id = postSeleccionado.id;
           btnPublish.innerText = 'Editar';
           sectionElement.querySelector('.hide').style.display = 'block';
-          console.log('editando');
+          // console.log('editando');
         });
       });
 
@@ -195,7 +194,7 @@ export const pageOnlyCats = () => {
       } else if (editStatus === true) {
         await editPost(id, textInput.value);
         textInput.value = '';
-        console.log('editanding');
+        // console.log('editanding');
         btnPublish.innerText = 'Meow';
         sectionElement.querySelector('.hide').style.display = 'none';
       }
