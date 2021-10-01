@@ -191,7 +191,7 @@ export const pageOnlyCats = () => {
         // -------- Crear Posts (C) --------
         await postCollection(textInput.value, displayName, photo, email, uid);
         textInput.value = '';
-      } else if (editStatus === true) {
+      } else {
         await editPost(id, textInput.value);
         textInput.value = '';
         // console.log('editanding');
