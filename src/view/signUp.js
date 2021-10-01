@@ -60,7 +60,7 @@ export const signUp = () => {
 
   sectionElement.classList.add('container-box');
   sectionElement.innerHTML = viewSignUp;
-
+  /* ------------------------------Registrar con correo y contraseña ---------------------- */
   const signupForm = sectionElement.querySelector('#create-account');
   signupForm.addEventListener('click', (e) => {
     e.preventDefault();
