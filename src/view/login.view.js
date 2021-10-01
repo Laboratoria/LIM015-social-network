@@ -23,7 +23,7 @@ export function viewLogin() {
     </div>  
       <button id='btnsignin' class='btn-signin'>signin</button> 
       <span class='message'></span> 
-    <span class='txt'>You can also enter with</span>
+      <span class='txt'>You can also enter with</span>
     <figure class='figure-google'>
       <img src='img/gmail.png' alt='iGoogle' class='logoGmail' id='btnGoogle'>
     </figure>    
