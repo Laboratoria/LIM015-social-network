@@ -7,6 +7,7 @@ import {
   postCollection, getCollection, deletePost, getPost, editPost, editLike,
 } from '../firebase/firebase-firestore.js';
 
+/* -------------------------------Verificar si el usuario está conectado---------------------- */
 const userStateCheck = () => {
   onAuthStateChanged((user) => {
     if (user !== null && user.emailVerified) {
@@ -16,7 +17,7 @@ const userStateCheck = () => {
     }
   });
 };
-
+/* ---------------------------------Diseñar la página OnlyCats--------------------------------- */
 export const pageOnlyCats = () => {
   userStateCheck();
   const imgDefault = 'https://pbs.twimg.com/profile_images/1101458340318568448/PpkA2kQh_400x400.jpg';
@@ -79,11 +80,11 @@ export const pageOnlyCats = () => {
   const sectionElement = document.createElement('section');
   sectionElement.classList.add('container-box');
   sectionElement.innerHTML = pageOcView;
-  // -----Botones del Post
+  /* --------------Botones del Post---------- */
   const btnPublish = sectionElement.querySelector('#post-button');
   const textInput = sectionElement.querySelector('#text-input');
 
-  // -------- Leer Posts (R) --------
+  /* -------------------------------Leer Post (R)---------------------- */
 
   const readPosts = () => {
     getCollection().onSnapshot((querySnapshot) => {
@@ -109,11 +110,10 @@ export const pageOnlyCats = () => {
             <button class="btn-delete"><i class="fas fa-trash" id="${doc.id}"></i></button>
             <button class="btn-edit"><i class="fas fa-edit" id="${doc.id}"></i></button>
           </div>
-          
         </section> `;
       });
 
-      // -------- Eliminar Posts (D) --------
+      /* -------------------------Eliminar Post (R) ---------------------- */
       const btnDelete = sectionElement.querySelectorAll('.btn-delete');
       btnDelete.forEach((btn) => {
         btn.addEventListener('click', async (e) => {
@@ -136,16 +136,15 @@ export const pageOnlyCats = () => {
             });
         });
       });
-      // -------- Cancelar Editar Posts (U) --------
+      /* ------------------------------Cancelar Editar Post ---------------------- */
       const btnCancel = sectionElement.querySelector('#cancel-button');
       btnCancel.addEventListener('click', () => {
         textInput.value = '';
         btnPublish.innerText = 'Meow';
-        // editStatus = false;
         sectionElement.querySelector('.hide').style.display = 'none';
         console.log('cancelado');
       });
-      // -------- Editar Posts (U) --------
+      /* -------------------------------Editar Post (U) ------------------------ */
       const btnEdit = sectionElement.querySelectorAll('.btn-edit');
       btnEdit.forEach((btn) => {
         btn.addEventListener('click', async (e) => {
@@ -158,11 +157,10 @@ export const pageOnlyCats = () => {
           id = postSeleccionado.id;
           btnPublish.innerText = 'Editar';
           sectionElement.querySelector('.hide').style.display = 'block';
-          // console.log('editando');
         });
       });
 
-      // -------- Like Posts  --------
+      /* -------------------------------Like Post ---------------------- */
       const btnHeart = sectionElement.querySelectorAll('.fa-heart');
       btnHeart.forEach((btn) => {
         btn.addEventListener('click', (e) => {
@@ -184,17 +182,16 @@ export const pageOnlyCats = () => {
     });
   };
 
+  /* -------------------------------Crear Post (C) ------------------------- */
   btnPublish.addEventListener('click', async () => {
-    // EditStatus sera falso cuando no exista un post, y recien se este creando
+    // EditStatus sera falso cuando no exista un post, y recién se este creando
     if (textInput.value.length !== 0) {
       if (editStatus === false) {
-        // -------- Crear Posts (C) --------
         await postCollection(textInput.value, displayName, photo, email, uid);
         textInput.value = '';
       } else if (editStatus === true) {
         await editPost(id, textInput.value);
         textInput.value = '';
-        // console.log('editanding');
         btnPublish.innerText = 'Meow';
         sectionElement.querySelector('.hide').style.display = 'none';
       }
@@ -204,13 +201,12 @@ export const pageOnlyCats = () => {
   });
   readPosts();
 
-  // ------------------ Salir de la página --------------------
+  /* -------------------------------Salir de la página ----------------------- */
   const signOut = sectionElement.querySelector('#sign-out');
   signOut.addEventListener('click', (e) => {
     e.preventDefault();
     swal({
       title: '¿Quieres cerrar sesión?',
-      /* text: 'Una vez eliminado, no podrás recuperar el michi-post.', */
       icon: 'warning',
       buttons: true,
       dangerMode: true,
