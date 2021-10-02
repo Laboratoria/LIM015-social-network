@@ -4,10 +4,9 @@ import { saveImageFile } from "../../db/storage.js";
 import { getPhotoURL } from "../../db/storage.js";
 import { alertProcess, alerts } from "../../lib/alerts.js";
 import { loadViewHeaderUser } from "../timeline/viewHeaderUser.js";
-const infouser = JSON.parse(window.localStorage.getItem('infouser'));
-const idUserProfile = window.localStorage.getItem('idUserProfile');
 
 const loadTimelineUser = async () => {
+    const idUserProfile = window.localStorage.getItem('idUserProfile');
     const idUserAuth = localStorage.getItem('iduser'); //Esto vien de la linea 58 del archivo eventLogin OBTENER EL ID USER
     const objectPosts = [];
     const infoUserProfile = await getUser(idUserProfile).then(response => response.data());
@@ -36,7 +35,7 @@ const loadTimelineUser = async () => {
                 nameImage: doc.data().nameImage,
                 arrLikes: doc.data().arrLikes,
                 publicPosts: doc.data().publicPosts,
-                totalComments: doc.data().totalComents,
+                arrComments: doc.data().arrComments,
                 image: doc.data().image,
                 idCategory: doc.data().idCategory,
                 nameCategory: categoryprueba.nameCategory,
@@ -90,6 +89,7 @@ const openModal = () => {
 }
 
 const addEventsModalEdit = () => {
+    const infouser = JSON.parse(window.localStorage.getItem('infouser'));
     const previewImgUser = document.querySelector('#preview-edit-photoUser')
     const previewImgCover = document.querySelector('#preview-edit-photoCover')
     const titleModal = document.querySelector('#title-modal');
@@ -149,8 +149,8 @@ const addEventsModalEdit = () => {
             objectUpdatedUser.photocover = urlPhotoCover;
 
         }
-
-        updateProfileUser(idUserProfile, objectUpdatedUser).then( async () => {
+        const idUserAuth = localStorage.getItem('iduser'); //Esto viene de la linea 58 del archivo eventLogin OBTENER EL ID USER
+        updateProfileUser(idUserAuth, objectUpdatedUser).then( async () => {
             alertProcess(false)
             const avatarName = document.querySelector("#avatar-name");
             const avatarDescription = document.querySelector("#avatar-description");

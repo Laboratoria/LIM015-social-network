@@ -29,6 +29,7 @@ const addEventsTimeline = async () => {
             const formPost = document.querySelector('#form-create-post');
             formPost.reset();
             document.querySelector('#input-idpost').value = "";
+            document.querySelector('#input-urlpost').value = "";
             btnModal.innerText = 'Publicar';
             titleModal.innerText = 'Crear Publicación';
             sectionNameImgUpload.innerHTML = ``;

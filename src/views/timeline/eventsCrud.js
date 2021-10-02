@@ -82,10 +82,8 @@ const addEventDeletePost = () => {
                 const inputCategory = document.querySelector('#input-category-' + idPosts);
                 nodoPadre.removeChild(nodoHijo);
                 modalDelete.classList.remove('revelar') //oculta el modal
-                alerts('success', 'Eliminado con exito')
-                    /*   getPost(idPosts).then((res)=>{console.log(res.doc.data())}) */
-                console.log(inputCategory.value)
                 updateTotalCategory(inputCategory.value, 'delete');
+                alerts('success', 'Eliminado con exito')
             }).catch((err) => {
                 modalDelete.classList.remove('revelar') //oculta el modal
                 alerts('error', 'Hubo un error ' + err)
@@ -156,8 +154,8 @@ const createObjectPost = (object) => {
             const objectPost = {
                 idPost: res.id,
                 idUser: idUserAuth,
-                nameUser: infouser.nameUser,
-                photoUser: infouser.photoUser,
+                nameUser: infouser.nameuser,
+                photoUser: infouser.photouser,
                 contentPost: object.contentPost,
                 datePost: object.datePost.toDate().toDateString(),
                 nameImage: object.nameImage,
