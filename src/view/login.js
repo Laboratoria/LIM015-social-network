@@ -1,5 +1,5 @@
 import { loginEmail, loginGoogle } from "../firebase/fb-functions.js";
-
+import { saveUser } from "../firebase/fb-firestore.js";
 const viewLogin = () => {
   const htmlLogin = `
   <div class="viewDesktop" >
@@ -117,13 +117,16 @@ const viewLogin = () => {
     const passwordLogin = document.querySelector("#passwordLogin").value;
     //SignIn With Email and Password Function
     loginEmail(emailLogin, passwordLogin)
-      .then(() => {
+      .then((userCredential) => {
+        console.log("121",userCredential.additionalUserInfo.profile);
         //clear form
         loginForm.reset();
         // changeLogin();
         firebase.auth().onAuthStateChanged((user) => {
+          console.log("128",user.additionalUserInfo);
           // changeLogin();
           if(user.emailVerified){
+            
             window.open("#/home", "_self");
           }else {
             //
@@ -147,7 +150,22 @@ const viewLogin = () => {
   const buttonGoogleLogin = sectionLogin.querySelector("#buttonGoogleLogin");
   buttonGoogleLogin.addEventListener("click", () => {
     loginGoogle()
-      .then(() => {
+      .then((userCredential) => {
+        const newUser = userCredential.additionalUserInfo.isNewUser;
+        if (newUser){
+          const uId = userCredential.user.uid;
+          const uName = userCredential.additionalUserInfo.profile.given_name;
+          const uLastname = userCredential.additionalUserInfo.profile.family_name;
+          const uPhoto = userCredential.additionalUserInfo.profile.picture;
+          
+          const userProfile = {
+           userId : uId,
+           userName: uName,
+           userLastname: uLastname,
+           userPhoto: uPhoto,
+          };
+          saveUser(userProfile);
+        }
         window.open("#/home", "_self");
       })
       .catch((error) => {

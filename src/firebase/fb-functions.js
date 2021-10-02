@@ -14,11 +14,11 @@ const loginGoogle = () => {
 
 // Email verification 
 const emailVerification = () => {
-  firebase.auth().currentUser.sendEmailVerification()
-  .then(() => {
+  return firebase.auth().currentUser.sendEmailVerification()
+  /*.then(() => {
     // Email verification sent!
     // ...
-  });
+  });*/
 }
 
 //Actualizar profile 

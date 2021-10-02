@@ -31,9 +31,13 @@ const viewHome = () => {
             </div>
           </form>
         </section>
+        <section id="listUsers" class="home__PostsContainer">
+        </section>
         <section id="postsHomeContainer" class="home__PostsContainer">
         </section>
+
       </section>
+
       `;
   const divHome = document.createElement("div");
   divHome.innerHTML = htmlHome;
@@ -52,8 +56,6 @@ const viewHome = () => {
       postNameUser.innerHTML = user.displayName;
       postPhotoUser.src = user.photoURL;
       onGetPosts((data) => {
-        
-        console.log(data);
         setTemplateListPosts(data, user,postListContainer);
       });
     } else {

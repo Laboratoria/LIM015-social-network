@@ -1,4 +1,4 @@
-// Send post to firestore
+// Save post in firestore
 
 const savePost = (username, userPost, date, userId, userPhoto, likes) =>
   firebase.firestore().collection("newPosts").add({ 
@@ -9,6 +9,12 @@ const savePost = (username, userPost, date, userId, userPhoto, likes) =>
     userPhoto,
     likes,
     });
+
+ // Save user in firestore
+ 
+ const saveUser = (user) =>
+  firebase.firestore().collection("Users").add(user);
+ 
 
   
 // Get Posts from Firestore to HTML on RealTime
@@ -39,4 +45,4 @@ const getPost = (id) => firebase.firestore().collection("newPosts").doc(id).get(
 const updatePost = (id, updatedPost) =>
   firebase.firestore().collection("newPosts").doc(id).update(updatedPost);
 
-export { savePost, onGetPosts, deletePosts, updatePost, getPost };
+export { savePost, saveUser, onGetPosts, deletePosts, updatePost, getPost };

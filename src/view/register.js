@@ -7,6 +7,7 @@ import {
 import {
   modalRegisterVerification,
 } from "../view/modals.js";
+import { saveUser } from "../firebase/fb-firestore.js";
 const viewRegister = () => {
   const htmlRegister = /*html*/ `
   <div class="viewDesktop">
@@ -96,7 +97,7 @@ const viewRegister = () => {
   passwordRegister.addEventListener("keyup", () => {
     const requiredPassword =
       /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z\d]).{6,}$/gm;
-    console.log(passwordRegister.value);
+   
     if (requiredPassword.test(passwordRegister.value)) {
       spanPassword.classList.add("validateEmail");
       spanPassword.classList.remove("invalidEmail");
@@ -149,18 +150,28 @@ const viewRegister = () => {
       const password = document.querySelector("#passwordRegister").value;
       const modalVerification = document.querySelector("#modalVerification");
       modalVerification.appendChild(modalRegisterVerification(email));
-      console.log(modalVerification)
-      console.log(modalRegisterVerification(email))
       registerEmail(email, password)
-        .then(() => {
+        .then((credential) => {
+          console.log(credential);
+          const uId = credential.user.uid;
+          console.log(uId);
+            const uName = name;
+          console.log(name);
+            const uLastname = '';
+            const uPhoto = './img/usuario.png';
+          console.log(uPhoto)
+            const userProfile = {
+             userId : uId,
+             userName: uName,
+             userLastname: uLastname,
+             userPhoto: uPhoto,
+            };
+            saveUser(userProfile);
+
           //base de datos de usuario
           if (email && name && password) {
             updateProfile(name);
             emailVerification();
-            firebase.auth().onAuthStateChanged((user) => {
-              if (user) {console.log(user)}
-              else{ console.log("no hay usuario activo")}
-             });
           }
           signupForm.reset();
         })
@@ -186,10 +197,24 @@ const viewRegister = () => {
   );
   buttonGoogleSignup.addEventListener("click", () => {
     loginGoogle()
-      .then(() => {
-        console.log("signin with google");
-        window.open("#/home", "_self");
-      })
+    .then((userCredential) => {
+      const newUser = userCredential.additionalUserInfo.isNewUser;
+      if (newUser){
+        const uId = userCredential.user.uid;
+        const uName = userCredential.additionalUserInfo.profile.given_name;
+        const uLastname = userCredential.additionalUserInfo.profile.family_name;
+        const uPhoto = userCredential.additionalUserInfo.profile.picture;
+        
+        const userProfile = {
+         userId : uId,
+         userName: uName,
+         userLastname: uLastname,
+         userPhoto: uPhoto,
+        };
+        saveUser(userProfile);
+      }
+      window.open("#/home", "_self");
+    })
       .catch((error) => {
         console.log(error);
       });

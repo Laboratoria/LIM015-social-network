@@ -11,6 +11,15 @@ import {
 import firebasemock from "firebase-mock";
 //import MockFirebase from 'mock-cloud-firestore';
 
+/*var jest = require('jest');
+
+jest.mock('../path-to-firebase-init', () => {
+  return mocksdk;
+});
+
+mocksdk.database().flush();
+// data is logged*/
+
 const mockauth = new firebasemock.MockAuthentication();
 
 mockauth.autoFlush();
@@ -24,7 +33,17 @@ global.firebase = firebasemock.MockFirebaseSdk(
 
 const users = {isAnonymous: false, providerData: [{providerId: "google.com"}]}
   
+/*mocksdk.auth().autoFlush();
 
+// create user
+mocksdk.auth().createUser({
+  uid: '123',
+  email: 'test@test.com',
+  password: 'abc123'
+}).then(function(user) {
+  // set user as current user for client logic
+  mocksdk.auth().changeAuthState(user);
+});*/
 
 
 describe("registerEmail", () => {
@@ -63,8 +82,20 @@ describe("signOut", () => {
 });
 
 
-/*
-describe("updateProfile", () => {
+describe('emailVerification', () => {
+  it('Debería enviar un email de verificación', () => {
+    const mockSendEmail = jest.fn();
+    firebase.auth().currentUser.sendEmailVerification = mockSendEmail;
+    emailVerification();
+    expect(mockSendEmail).toHaveBeenCalled();
+    expect(mockSendEmail.mock.calls).toHaveLength(1);
+  });
+});
+
+
+
+
+/*describe("updateProfile", () => {
   it("Permite actualizar la data en el firebase recibiendo como parámetro  el nombre del usuario:Ninoska ", () => {
     return updateProfile("Ninoska").then((data) => {
       console.log(data);
