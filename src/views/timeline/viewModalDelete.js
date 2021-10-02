@@ -10,7 +10,7 @@ export const loadViewModalDelete = () =>{
             <section class="body-modal">
                     <section class="section-body-delete"> 
                         <div> 
-                        <p> ¿Estas seguro de eliminar este posts?, esta accion es irrevercible</p>
+                        <p> ¿Estas seguro de eliminar este posts?, esta accion es irreversible</p>
                         </div>
                     </section>
                    
