@@ -34,7 +34,6 @@ const viewHeader = () => {
   navClose.addEventListener('click', (event) => {
     event.preventDefault();
     signOut().then(() => {
-      console.log('sign Out');
       window.open('#', '_self')
       // window.location.hash = "";
       // window.location.hash = "Again-No-back-button"
