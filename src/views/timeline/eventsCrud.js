@@ -8,7 +8,7 @@ const addEventFormPost = () => {
 
     const formPost = document.querySelector('#form-create-post');
     const inputIdPost = document.querySelector('#input-idpost');
-    const infouser = JSON.parse(window.localStorage.getItem('infouser'));
+    const idUserAuth = localStorage.getItem('iduser'); //Esto vien de la linea 58 del archivo eventLogin OBTENER EL ID USER
     const selectCategory = document.querySelector('#select-categories');
     const inputTextarea = document.querySelector('#post-user');
     const imageUpload = document.querySelector('#file-input');
@@ -37,7 +37,7 @@ const addEventFormPost = () => {
         if (inputIdPost.value == "") {
             //retorna un array con la info para la imagen
             const dataUploadImage = await uploadImage('create');
-            objectPost.idUser = infouser.idUser;
+            objectPost.idUser = idUserAuth;
             objectPost.totalComents = 0;
             objectPost.arrLikes = [];
             objectPost.image = dataUploadImage[0];
@@ -141,6 +141,7 @@ const addEventEditPost = () => {
 
 const createObjectPost = (object) => {
     const modal = document.querySelector('.modal');
+    const idUserAuth = localStorage.getItem('iduser'); //Esto vien de la linea 58 del archivo eventLogin OBTENER EL ID USER
     const infouser = JSON.parse(window.localStorage.getItem('infouser'));
     const selectCategory = document.querySelector('#select-categories');
     const textSelect = selectCategory.options[selectCategory.selectedIndex].text;
@@ -150,7 +151,7 @@ const createObjectPost = (object) => {
         .then((res) => { // Necesitamos el res para obtener el id generado en el firestore
             const objectPost = {
                 idPost: res.id,
-                idUser: infouser.idUser,
+                idUser: idUserAuth,
                 nameUser: infouser.nameUser,
                 photoUser: infouser.photoUser,
                 contentPost: object.contentPost,
@@ -233,8 +234,8 @@ const uploadImage = async(action) => {
     if (imageUpload.files && imageUpload.files[0]) {
         image = true;
         nameImage = imageUpload.files[0].name;
-        urlImage = await saveImageFile(nameImage, imageUpload.files[0])
-            .then(() => getPhotoURL(nameImage))
+        urlImage = await saveImageFile(nameImage, imageUpload.files[0], 'images')
+            .then(() => getPhotoURL(nameImage, 'images'))
             .then((imageURL) => {
                 return imageURL;
             });

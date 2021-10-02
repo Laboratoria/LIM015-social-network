@@ -1,4 +1,4 @@
-import { getAllUsers } from '../../db/firestore.js';
+import { getAllUsers, getUser } from '../../db/firestore.js';
 import { alerts } from '../../lib/alerts.js';
 //Extraemos todos los usuarios, para luego filtrar nuestro usuario autenticado
 const getinfousers = () => {
@@ -21,20 +21,20 @@ const getinfousers = () => {
 }
 
 const loadViewHeaderUser = async() => {
-    const allUsers = await getinfousers().then(response => response);
+    getinfousers()
     const iduser = localStorage.getItem('iduser'); //extraemos el iduser auth almacenado en local login linea 60
-    const infouser = allUsers.find(element => element.idUser === iduser);
+    const infouser = await getUser(iduser).then(response => response.data());
     window.localStorage.setItem('infouser', JSON.stringify(infouser)); //guardamos toda la info del usuario Auth para modal-text area
     const userInfoHtml = document.querySelector('#user-info'); //id del sectiuon dentro del header
-
-    const photo = infouser.photoUser;
+    const photo = infouser.photouser;
+    console.log(photo)
     const valid = /^(http|https):\/\/[^ "]+$/.test(photo);
     const srcPhotouser = (valid) ? photo : '../../images/profile/' + photo; //si es true la foto es url 
     userInfoHtml.innerHTML = `<span class="user-information">  
-                                    <span class="link-user" data-id="${iduser}"> ${infouser.nameUser} </span> 
-                                    <img class="avatar avatar-sm" src="${srcPhotouser}" alt="img-user"> 
+                                    <span class="link-user" data-id="${iduser}" id="avatar-name-header"> ${infouser.nameuser} </span> 
+                                    <img class="avatar avatar-sm" src="${srcPhotouser}" id="avatar-photouser-header" alt="img-user"> 
                                 </span>`
     // loadUserPosts()<span class="link-user" data-id="${element.idUser}">
 }
 
-export { loadViewHeaderUser }
+export { loadViewHeaderUser, getinfousers }

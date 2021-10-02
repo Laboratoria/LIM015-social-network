@@ -15,6 +15,7 @@ const saveUser = (infoUser) => {
 
 //extrae todos los usuarios, categorias y Post
 const getAllUsers = () => db.collection("users").get();
+const getUser = (id) => db.collection("users").doc(id).get();
 const getAllCategories = () => db.collection("categories").get();
 const getAllPosts = () => db.collection("posts").orderBy('datePost', 'asc').get(); //add if where public posts === true|| where idUser 
 const getPost = (id) => db.collection("posts").doc(id).get();
@@ -40,5 +41,6 @@ export {
     getPost,
     getPostUser,
     getComments,
-    updateProfileUser
+    updateProfileUser,
+    getUser,
 }

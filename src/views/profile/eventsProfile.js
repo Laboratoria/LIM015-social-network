@@ -1,16 +1,16 @@
-import { getPostUser, updateProfileUser } from "../../db/firestore.js";
+import { getPostUser, updateProfileUser, getUser } from "../../db/firestore.js";
 import { loadViewPost } from "../timeline/viewPosts.js";
 import { saveImageFile } from "../../db/storage.js";
 import { getPhotoURL } from "../../db/storage.js";
+import { alertProcess, alerts } from "../../lib/alerts.js";
+import { loadViewHeaderUser } from "../timeline/viewHeaderUser.js";
 const infouser = JSON.parse(window.localStorage.getItem('infouser'));
-console.log(infouser)
+const idUserProfile = window.localStorage.getItem('idUserProfile');
 
-const loadTimelineUser = () => {
+const loadTimelineUser = async () => {
     const idUserAuth = localStorage.getItem('iduser'); //Esto vien de la linea 58 del archivo eventLogin OBTENER EL ID USER
     const objectPosts = [];
-    const idUserProfile = window.localStorage.getItem('idUserProfile');
-    const allUsers = JSON.parse(window.localStorage.getItem('allUsers')); //extraemos de local viewHeaderUser Linea 21
-    const infoUserProfile = allUsers.find(element => element.idUser === idUserProfile);
+    const infoUserProfile = await getUser(idUserProfile).then(response => response.data());
     const allCategoriesCourses = JSON.parse(window.localStorage.getItem('allCategories'));
     const containerPostsUser = document.querySelector('#container-posts-user');
     const avatarUser = document.querySelector("#avatar-user");
@@ -18,10 +18,10 @@ const loadTimelineUser = () => {
     const coverUser = document.querySelector("#img-cover-user")
     const avatarDescription = document.querySelector("#avatar-description");
     let dataPublic;
-    avatarUser.src = infoUserProfile.photoUser;
-    avatarName.textContent = infoUserProfile.nameUser;
+    avatarUser.src = infoUserProfile.photouser;
+    avatarName.textContent = infoUserProfile.nameuser;
     avatarDescription.textContent = infoUserProfile.description;
-    coverUser.src = infoUserProfile.photoCover;
+    coverUser.src = infoUserProfile.photocover;
 
     return getPostUser(idUserProfile).then(response => {
         response.forEach(doc => {
@@ -29,8 +29,8 @@ const loadTimelineUser = () => {
             objectPosts.push({
                 idPost: doc.id,
                 idUser: doc.data().idUser,
-                nameUser: infoUserProfile.nameUser,
-                photoUser: infoUserProfile.photoUser,
+                nameUser: infoUserProfile.nameuser,
+                photoUser: infoUserProfile.photouser,
                 contentPost: doc.data().contentPost,
                 datePost: doc.data().datePost.toDate().toDateString(),
                 nameImage: doc.data().nameImage,
@@ -68,8 +68,9 @@ const addEventsProfileUser = () => {
             btnCrear.style.display = "none";
             btnEditarPerfil.style.display = "none";
         }
+        openModal();
     }
-    openModal();
+    
 }
 
 const openModal = () => {
@@ -102,39 +103,70 @@ const addEventsModalEdit = () => {
     // const inputConfirmPasswordUser = document.querySelector('#change-password');
 
     //Llenar datos previos en el formulario
-    let urlPhotoUser = infouser.photoUser;
-    let urlPhotoCover = infouser.photoCover;
+    let changePhotoUser = false;
+    let changePhotoCover = false;
     titleModal.innerText = 'Editar Perfil';
-    previewImgUser.src = infouser.photoUser;
-    previewImgCover.src = infouser.photoCover;
-    inputNameUser.value = infouser.nameUser;
+    previewImgUser.src = infouser.photouser;
+    previewImgCover.src = infouser.photocover;
+    inputNameUser.value = infouser.nameuser;
     inputEmailUser.value = infouser.email;
     inputDescriptionUser.value = infouser.description;
-   
+    let filenameUser, filenameCover, filearrayUser, filearrayCover;
+
     inputImgUser.addEventListener('change', async (e) => {//Evento a los input file imagen de usuario
-        const filename = e.target.files[0].name;    
-        const filearray = e.target.files[0];
-        previewImageEdit(filearray, previewImgUser, infouser);
-        urlPhotoUser = valueImage(filearray, filename);
+        changePhotoUser = true;
+        filenameUser = e.target.files[0].name;    
+        filearrayUser = e.target.files[0];
+        previewImageEdit(filearrayUser, previewImgUser, infouser);
     })
 
     inputImgCover.addEventListener('change', (e) => {//Evento a los input file portada de usuario
-        const filename = e.target.files[0].name;    
-        const filearray = e.target.files[0];
-        previewImageEdit(filearray, previewImgCover, infouser);
-        urlPhotoCover = valueImage(filearray, filename);
+        changePhotoCover = true;
+        filenameCover = e.target.files[0].name;    
+        filearrayCover = e.target.files[0];
+        previewImageEdit(filearrayCover, previewImgCover, infouser);
     })
 
-    formEditProfile.addEventListener('submit', e => { //Evento para leer los nuevos datos del formulario
+    formEditProfile.addEventListener('submit', async e => { //Evento para leer los nuevos datos del formulario
         e.preventDefault();
+        alertProcess(true);
         const objectUpdatedUser = {
-            email: inputEmailUser.value,
-            nameUser: inputNameUser.value,
+            nameuser: inputNameUser.value,
             description: inputDescriptionUser.value,
-            photouser: urlPhotoUser,
-            photocover: urlPhotoCover,
+        };
+
+        if(changePhotoUser === true) {
+            const urlPhotoUser = await valueImage(filearrayUser, filenameUser, 'user')
+            const avatarUser = document.querySelector("#avatar-user");
+            avatarUser.src = urlPhotoUser;
+            objectUpdatedUser.photouser = urlPhotoUser;
         }
-        updateProfileUser(infouser.idUser, objectUpdatedUser);
+
+        if(changePhotoCover === true) {
+            const urlPhotoCover = await valueImage(filearrayCover, filenameCover, 'cover');
+            const coverUser = document.querySelector("#img-cover-user")
+            coverUser.src = urlPhotoCover;
+            objectUpdatedUser.photocover = urlPhotoCover;
+
+        }
+
+        updateProfileUser(idUserProfile, objectUpdatedUser).then( async () => {
+            alertProcess(false)
+            const avatarName = document.querySelector("#avatar-name");
+            const avatarDescription = document.querySelector("#avatar-description");
+            const modal = document.querySelector('.modal-edit-profile');
+            avatarName.textContent = objectUpdatedUser.nameuser;
+            avatarDescription.textContent = objectUpdatedUser.description;
+            changePhotoUser = false;
+            changePhotoCover = false;
+            await loadViewHeaderUser();
+            formEditProfile.reset();
+            modal.classList.remove('revelar');
+            alerts('success', 'Editado con éxito');
+        }).catch((error) => {
+            alertProcess(false);
+            alerts('error', error);
+        })
     })
 }
 
@@ -144,19 +176,15 @@ const previewImageEdit = (filearray, imgElement, infouser) => {
     (filearray) ? reader.readAsDataURL(filearray) : imgElement.src = infouser.photoUser;
 }
 
-const valueImage = async (filearray, filename) => {
-    let nameImage;
-    if(filearray) {
-        nameImage = await saveImageFile(filename, filearray)
-        .then(() => getPhotoURL(filename))
-        .then((imageURL) => {
-            return imageURL;
-        });
-    } else {
-        nameImage = infouser.photoUser;
-    }
-    console.log(nameImage)
-    return nameImage;
+const valueImage = async (filearray, filename, typeImage) => {
+    let urlImage, path;
+    (typeImage === 'user') ? path = 'users' : path = 'covers';
+    urlImage = await saveImageFile(filename, filearray, path)
+    .then(() => getPhotoURL(filename, path))
+    .then((imageURL) => {
+        return imageURL;
+    });
+    return urlImage;
 }
 
 
