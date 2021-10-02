@@ -8,7 +8,7 @@ const addEventFormPost = () => {
 
     const formPost = document.querySelector('#form-create-post');
     const inputIdPost = document.querySelector('#input-idpost');
-    const infouser = JSON.parse(window.localStorage.getItem('infouser'));
+    const idUserAuth = localStorage.getItem('iduser'); //Esto vien de la linea 58 del archivo eventLogin OBTENER EL ID USER
     const selectCategory = document.querySelector('#select-categories');
     const inputTextarea = document.querySelector('#post-user');
     const imageUpload = document.querySelector('#file-input');
@@ -37,7 +37,7 @@ const addEventFormPost = () => {
         if (inputIdPost.value == "") {
             //retorna un array con la info para la imagen
             const dataUploadImage = await uploadImage('create');
-            objectPost.idUser = infouser.idUser;
+            objectPost.idUser = idUserAuth;
             objectPost.image = dataUploadImage[0];
             objectPost.nameImage = dataUploadImage[1];
             objectPost.urlImage = dataUploadImage[2];
@@ -82,10 +82,8 @@ const addEventDeletePost = () => {
                 const inputCategory = document.querySelector('#input-category-' + idPosts);
                 nodoPadre.removeChild(nodoHijo);
                 modalDelete.classList.remove('revelar') //oculta el modal
-                alerts('success', 'Eliminado con exito')
-                    /*   getPost(idPosts).then((res)=>{console.log(res.doc.data())}) */
-                console.log(inputCategory.value)
                 updateTotalCategory(inputCategory.value, 'delete');
+                alerts('success', 'Eliminado con exito')
             }).catch((err) => {
                 modalDelete.classList.remove('revelar') //oculta el modal
                 alerts('error', 'Hubo un error ' + err)
@@ -145,6 +143,7 @@ const addEventEditPost = () => {
 
 const createObjectPost = (object) => {
     const modal = document.querySelector('.modal');
+    const idUserAuth = localStorage.getItem('iduser'); //Esto vien de la linea 58 del archivo eventLogin OBTENER EL ID USER
     const infouser = JSON.parse(window.localStorage.getItem('infouser'));
     const selectCategory = document.querySelector('#select-categories');
     const textSelect = selectCategory.options[selectCategory.selectedIndex].text;
@@ -154,9 +153,9 @@ const createObjectPost = (object) => {
         .then((res) => { // Necesitamos el res para obtener el id generado en el firestore
             const objectPost = {
                 idPost: res.id,
-                idUser: infouser.idUser,
-                nameUser: infouser.nameUser,
-                photoUser: infouser.photoUser,
+                idUser: idUserAuth,
+                nameUser: infouser.nameuser,
+                photoUser: infouser.photouser,
                 contentPost: object.contentPost,
                 datePost: object.datePost.toDate().toDateString(),
                 nameImage: object.nameImage,
@@ -239,8 +238,8 @@ const uploadImage = async(action) => {
     if (imageUpload.files && imageUpload.files[0]) {
         image = true;
         nameImage = imageUpload.files[0].name;
-        urlImage = await saveImageFile(nameImage, imageUpload.files[0])
-            .then(() => getPhotoURL(nameImage))
+        urlImage = await saveImageFile(nameImage, imageUpload.files[0], 'images')
+            .then(() => getPhotoURL(nameImage, 'images'))
             .then((imageURL) => {
                 return imageURL;
             });

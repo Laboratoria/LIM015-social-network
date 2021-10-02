@@ -1,3 +1,4 @@
+import { loadEditModal } from "./editProfile.js";
 export default () => {
     const viewProfile = document.createElement('section');
     viewProfile.className = 'container-profile';
@@ -53,8 +54,15 @@ export default () => {
             <button class="btn btn-create-post" id="btn-crear"> Crear Post <i class="fas fa-plus-circle"></i> </button>
         </section>
         <section class="container-post" id="container-posts-user"> </section>
-    </section>   
+    </section>
+    
+    <section class="modal hide modal-edit-profile">
+        <section class="backdrop" id="modal-editProfile"> 
+       
+        </section>
+    </section>
     `;
-
+    const viewEditModal = viewProfile.querySelector('#modal-editProfile');
+    viewEditModal.innerHTML = loadEditModal();
     return viewProfile;
 }

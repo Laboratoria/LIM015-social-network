@@ -1,10 +1,11 @@
 import { signOut } from '../../db/firebase-auth.js';
 import { sliderPopularPost } from '../../lib/animation.js';
+import { getUser } from '../../db/firestore.js';
 // const infouser = JSON.parse(window.localStorage.getItem('infouser')); //extraemos lo que almacenamos en local archivo viewHeaderUser line 29
 // const nameUserPath = infouser.nameUser.replace(/\s+/g, '');
 
 
-const addEventsTimeline = () => {
+const addEventsTimeline = async () => {
         document.querySelector('#div-body').className = "bodyBackground"; //cambiamos el background del body
 
         /***Evento para Salir***/
@@ -28,6 +29,7 @@ const addEventsTimeline = () => {
             const formPost = document.querySelector('#form-create-post');
             formPost.reset();
             document.querySelector('#input-idpost').value = "";
+            document.querySelector('#input-urlpost').value = "";
             btnModal.innerText = 'Publicar';
             titleModal.innerText = 'Crear Publicación';
             sectionNameImgUpload.innerHTML = ``;
@@ -42,14 +44,15 @@ const addEventsTimeline = () => {
         /***Renderizar TextArea***/
         const userPost = document.querySelector('.user-info-textarea');
         const placeholderTextarea = document.querySelector('.textarea-post');
-        const infouser = JSON.parse(window.localStorage.getItem('infouser')); //extraemos lo que almacenamos en local archivo viewHeaderUser line 29
+        const idUserAuth = localStorage.getItem('iduser'); //Esto vien de la linea 58 del archivo eventLogin OBTENER EL ID USER
+        const infouser = await getUser(idUserAuth).then(response => response.data());
         userPost.innerHTML = `
         <a href="#/profile" class="user-information">  
-            <img class="avatar avatar-sm" src="${/^(http|https):\/\/[^ "]+$/.test(infouser.photoUser)?infouser.photoUser:`../images/profile/`+infouser.photoUser}" alt="img-user"> 
-            <span> ${infouser.nameUser} </span> 
+            <img class="avatar avatar-sm" src="${/^(http|https):\/\/[^ "]+$/.test(infouser.photouser)?infouser.photouser:`../images/profile/`+infouser.photouser}" alt="img-user"> 
+            <span> ${infouser.nameuser} </span> 
         </a>
         `
-        placeholderTextarea.placeholder = `¿Qué quieres compartir hoy, ${infouser.nameUser}... ?`
+        placeholderTextarea.placeholder = `¿Qué quieres compartir hoy, ${infouser.nameuser}... ?`
 
     
         /***Renderizar y Eventos para Emojis***/

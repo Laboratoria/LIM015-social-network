@@ -1,7 +1,7 @@
 /* eslint no-undef: "off"*/
 
-const saveImageFile = (namePhoto, photoFile) => firebase.storage()
-    .ref().child(`images/${namePhoto}`).put(photoFile);
-const getPhotoURL = (namePhoto) => firebase.storage()
-    .ref(`images/${namePhoto}`).getDownloadURL();
+const saveImageFile = (namePhoto, photoFile, path) => firebase.storage()
+    .ref().child(`${path}/${namePhoto}`).put(photoFile);
+const getPhotoURL = (namePhoto, path) => firebase.storage()
+    .ref(`${path}/${namePhoto}`).getDownloadURL();
 export { saveImageFile, getPhotoURL }

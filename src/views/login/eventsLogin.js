@@ -1,7 +1,7 @@
 import { validInput, limpiar } from '../../lib/validInputs.js'
 import { alerts, alertProcess } from '../../lib/alerts.js';
 import { loginEmail, loginGoogle } from '../../db/firebase-auth.js';
-import { saveUser } from '../../db/firestore.js';
+import { saveUser, getUser } from '../../db/firestore.js';
 
 const addEventsLogin = () => {
     const formLogin = document.querySelector('#form-login');
@@ -53,11 +53,16 @@ const addEventsLogin = () => {
 }
 
 
-function responseOk(result, google) {
+async function responseOk(result, google) {
     alertProcess(false); //ocultamos alerta con gif
     localStorage.setItem('iduser', result.user.uid); //almacenar el id del usuario autenticado en local
     if (google) { //es decir que se esta autenticando con google y puede ser nuevo
-        saveUser([result.user.uid, result.user.email, result.user.displayName, result.user.photoURL]);
+        const infoUserProfile = await getUser(result.user.uid).then(response => response.data());
+        if(infoUserProfile == "" || infoUserProfile == null || infoUserProfile == undefined) {
+            console.log(infoUserProfile)
+            saveUser([result.user.uid, result.user.email, result.user.displayName, result.user.photoURL]);
+        }
+        
     }
     alerts('success', 'Bienvenido') //mostramos alerta de exito
     window.location.href = "#/timeline"; //redireciona al timeLine

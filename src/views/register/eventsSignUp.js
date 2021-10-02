@@ -1,7 +1,7 @@
 import { validInput, limpiar } from '../../lib/validInputs.js'
 import { alerts, alertProcess } from '../../lib/alerts.js';
 import { loginGoogle, registerEmail } from '../../db/firebase-auth.js';
-import { saveUser } from '../../db/firestore.js';
+import { saveUser, getUser } from '../../db/firestore.js';
 
 const addEventsRegister = () => {
     const formRegister = document.querySelector('#form-registro');
@@ -97,11 +97,15 @@ const addEventsRegister = () => {
 
 }
 
-function responseOk(result, nameuser, google) {
+async function responseOk(result, nameuser, google) {
     alertProcess(false); //ocultamos alerta con gif
     localStorage.setItem('iduser', result.user.uid); //almacenar el id en local
     if (google) { //es decir que se esta autenticando con google y puede ser nuevo, para asi almacenar sus datos
-        saveUser([result.user.uid, result.user.email, result.user.displayName, result.user.photoURL]);
+        const infoUserProfile = await getUser(result.user.uid).then(response => response.data());
+        if(infoUserProfile == "" || infoUserProfile == null || infoUserProfile == undefined) {
+            console.log(infoUserProfile)
+            saveUser([result.user.uid, result.user.email, result.user.displayName, result.user.photoURL]);
+        }
     } else {
         saveUser([result.user.uid, result.user.email, nameuser, 'user.jpg']);
     }

@@ -16,4 +16,8 @@ const resetPassword = (emailLogin) => firebase.auth().sendPasswordResetEmail(ema
 /**********SALIR***************/
 const signOut = () => firebase.auth().signOut();
 
-export { loginEmail, loginGoogle, resetPassword, registerEmail, signOut};
+/********** User ***************/
+const currentUser = firebase.auth().currentUser;
+
+export { loginEmail, loginGoogle, resetPassword, registerEmail, signOut, currentUser };
+
