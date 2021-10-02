@@ -1096,7 +1096,7 @@ img {
 
 .content-modal-edit-profile {
     position: absolute;
-    width: 400px;
+    width: 450px;
     height: 100%;
     z-index: 2;
     overflow-y: scroll !important;
@@ -1570,7 +1570,7 @@ textarea {
 }
 
 .img-cover-edit {
-    width: 390px;
+    width: 450px;
     height: 100px;
     border-radius: 5px;
 }
