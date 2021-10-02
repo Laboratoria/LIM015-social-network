@@ -1,5 +1,5 @@
 import { getAllPosts } from '../../db/firestore.js';
-// import { objectPosts } from '../profile/viewProfile.js';
+
 const allPosts = () => {
         const objectPosts = [];
         const allUsers = JSON.parse(window.localStorage.getItem('allUsers')); //extraemos de local viewHeaderUser Linea 21
