@@ -391,3 +391,19 @@ a:hover {
     color: #F93878;
     cursor: pointer;
 }
+
+
+/* categoryName */
+
+.categoryName {
+    /* ----- add design */
+}
+
+.categoryName:hover {
+    color: #F93878;
+    cursor: pointer;
+}
+
+.comments {
+    margin-left: 2%
+}

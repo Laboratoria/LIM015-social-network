@@ -1,6 +1,6 @@
 const validInput = (idInput, message, type) => {
     const inputValid = document.querySelector('#' + idInput);
-    console.log(inputValid)
+    /* console.log(inputValid) */
     const spanValid = document.querySelector('#msg-' + idInput);
     if (type == 'error') {
         inputValid.classList.remove('input-valid');

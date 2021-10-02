@@ -1,5 +1,5 @@
 import { loadViewHeaderUser } from './viewHeaderUser.js';
-import { loadViewCategory } from './viewCategories.js';
+import { loadViewCategory,addEventShowCategories } from './viewCategories.js';
 import { loadViewPopularPost } from './viewCarrusel.js';
 import { getObjectAllPosts } from './viewPosts.js';
 import { addEventsTimeline } from './eventsTimeline.js';
@@ -20,6 +20,7 @@ const loadComponents = async() => {
     addEventDeletePost();
     addEventEditPost();
     reactionLike();
+    addEventShowCategories();
 }
 
 export { loadComponents }

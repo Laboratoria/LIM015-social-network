@@ -1,4 +1,4 @@
-import { savePost, datePost, deletePostFs, updatePost, getPost } from "../../db/firestore.js";
+import { getCategory, savePost, datePost, deletePostFs, updatePost, updateCategory, getPost } from "../../db/firestore.js";
 import { saveImageFile, getPhotoURL } from "../../db/storage.js";
 import { alerts, btnProcess } from "../../lib/alerts.js";
 import { loadViewPost } from "./viewPosts.js";
@@ -38,11 +38,11 @@ const addEventFormPost = () => {
             //retorna un array con la info para la imagen
             const dataUploadImage = await uploadImage('create');
             objectPost.idUser = idUserAuth;
-            objectPost.totalComents = 0;
-            objectPost.arrLikes = [];
             objectPost.image = dataUploadImage[0];
             objectPost.nameImage = dataUploadImage[1];
             objectPost.urlImage = dataUploadImage[2];
+            objectPost.arrComments = [];
+            objectPost.arrLikes = [];
             createObjectPost(objectPost);
         } else {
             const dataUploadImage = await uploadImage('edit');
@@ -79,9 +79,13 @@ const addEventDeletePost = () => {
 
         confirmDelete.addEventListener('click', () => {
             deletePostFs(idPosts).then(() => {
+                const inputCategory = document.querySelector('#input-category-' + idPosts);
                 nodoPadre.removeChild(nodoHijo);
                 modalDelete.classList.remove('revelar') //oculta el modal
                 alerts('success', 'Eliminado con exito')
+                    /*   getPost(idPosts).then((res)=>{console.log(res.doc.data())}) */
+                console.log(inputCategory.value)
+                updateTotalCategory(inputCategory.value, 'delete');
             }).catch((err) => {
                 modalDelete.classList.remove('revelar') //oculta el modal
                 alerts('error', 'Hubo un error ' + err)
@@ -157,8 +161,7 @@ const createObjectPost = (object) => {
                 contentPost: object.contentPost,
                 datePost: object.datePost.toDate().toDateString(),
                 nameImage: object.nameImage,
-                totalComments: 0,
-                totalLikes: 0,
+                arrComments: [],
                 arrLikes: [],
                 image: object.image,
                 publicPosts: object.publicPosts,
@@ -176,6 +179,7 @@ const createObjectPost = (object) => {
             modal.classList.remove('revelar') //Cierra el modal?
             btnProcess(false);
             alerts('success', 'Post Publicado');
+            updateTotalCategory(selectCategory.value, 'create');
         })
         .catch((error) => {
             btnProcess(false);
@@ -194,6 +198,7 @@ const updateObjectPost = (objectPost, idPost) => {
     const paragraphPost = document.querySelector('#paragraph-post-' + idPost);
     const imagePost = document.querySelector('#image-post-' + idPost);
     const spanPublic = document.querySelector('#publicPost-' + idPost)
+    const inputCategory = document.querySelector('#input-category-' + idPost);
 
     updatePost(idPost, objectPost)
         .then(() => {
@@ -215,6 +220,7 @@ const updateObjectPost = (objectPost, idPost) => {
             modal.classList.remove('revelar') //Cierra el modal
             btnProcess(false);
             alerts('success', 'Post Editado');
+            updateTotalCategory([selectCategory.value, inputCategory.value], 'edit')
         })
         .catch((error) => {
             btnProcess(false);
@@ -252,4 +258,33 @@ const uploadImage = async(action) => {
     return arrayInfoImage;
 }
 
-export { addEventFormPost, addEventDeletePost, addEventEditPost }
+const updateTotalCategory = async(idCategory, action) => { //action es el string donde indica que va eliminar y editar
+    if (action == 'edit') {
+        if (idCategory[0] != idCategory[1]) { //posicion 0 = valor del select , posicion 1 = valor de la categoria antes de ser editado
+            for (let key in idCategory) {
+                const spanCategory = document.querySelector('#category-' + idCategory[key]);
+                const category = await getCategory(idCategory[key]).then((res) => res.data()); //get data para tener el total post
+                let totalCategory = category.totalPosts;
+                if (key == 0) { totalCategory = parseInt(totalCategory) + 1 } else { totalCategory = parseInt(totalCategory) - 1 }
+                updateCategory(idCategory[key], { totalPosts: totalCategory }).then(() => {
+                    spanCategory.textContent = totalCategory;
+                    spanCategory.value = idCategory[0];
+                })
+            }
+        }
+    } else {
+        const spanCategory = document.querySelector('#category-' + idCategory);
+        const category = await getCategory(idCategory).then((res) => res.data()); //get data para tener el total post
+        let totalCategory = category.totalPosts;
+        if (action == 'create') {
+            totalCategory = parseInt(totalCategory) + 1;
+        } else {
+            totalCategory = parseInt(totalCategory) - 1;
+        }
+        updateCategory(idCategory, { totalPosts: totalCategory }).then(() => {
+            spanCategory.textContent = totalCategory;
+        })
+    }
+
+}
+export { addEventFormPost, addEventDeletePost, addEventEditPost, updateTotalCategory }

@@ -1466,7 +1466,6 @@ textarea {
 #container-alert {
     position: fixed;
     z-index: 3;
-    top: 0;
     margin-top: 3%;
     padding: 15px;
     border-radius: 3px 3px 3px 3px;
@@ -1599,6 +1598,7 @@ input:disabled {
     color: #6e6b7b;
     background-color: transparent;
     font-size: 12px;
+    width: 31%;
 }
 
 .group-btn-edit-profile {
