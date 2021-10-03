@@ -29,7 +29,7 @@ const updateProfileUser = (id, object) => db.collection('users').doc(id).update(
 const updateCategory = (id, object) => db.collection('categories').doc(id).update(object);
 const getComments = (id) => db.collection("posts").where("idUser", "==", id).get();
 const getPostByCategory = (id) => db.collection("posts").where("idCategory", "==" ,id).get();
- 
+const getTopTenUsers = () => db.collection("users").limit(7).get()
 
 export {
     savePost,
@@ -48,5 +48,6 @@ export {
     getCategory,
     getComments,
     updateCategory,
-    getPostByCategory
+    getPostByCategory,
+    getTopTenUsers
 }

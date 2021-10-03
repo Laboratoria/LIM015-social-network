@@ -19,72 +19,10 @@ const addEventsTimeline = async () => {
         });
 
         /***Eventos para Abrir y Cerrar Modal***/
-        const modal = document.querySelector('.modal');
-        const btnCreatePost = document.querySelector('.btn-create-post'); /* abrir */
-        const btnCerrarModal = document.querySelector('.btn-cerrar-modal'); /* cerrar */
-        const sectionNameImgUpload = document.querySelector('.name-image-upload');
-        btnCreatePost.addEventListener('click', () => {
-            const btnModal = document.querySelector('#share-post'); /* abrir */
-            const titleModal = document.querySelector('#title-modal');
-            const formPost = document.querySelector('#form-create-post');
-            formPost.reset();
-            document.querySelector('#input-idpost').value = "";
-            document.querySelector('#input-urlpost').value = "";
-            btnModal.innerText = 'Publicar';
-            titleModal.innerText = 'Crear Publicación';
-            sectionNameImgUpload.innerHTML = ``;
-            modal.classList.add('revelar');
-        });
-
-        btnCerrarModal.addEventListener('click', () => {
-            modal.classList.remove('revelar')
-            document.querySelector('#form-create-post').reset();
-        });
+        addEventModalCreatePost()
 
         /***Renderizar TextArea***/
-        const userPost = document.querySelector('.user-info-textarea');
-        const placeholderTextarea = document.querySelector('.textarea-post');
-        const idUserAuth = localStorage.getItem('iduser'); //Esto vien de la linea 58 del archivo eventLogin OBTENER EL ID USER
-        const infouser = await getUser(idUserAuth).then(response => response.data());
-        userPost.innerHTML = `
-        <a href="#/profile" class="user-information">  
-            <img class="avatar avatar-sm" src="${/^(http|https):\/\/[^ "]+$/.test(infouser.photouser)?infouser.photouser:`../images/profile/`+infouser.photouser}" alt="img-user"> 
-            <span> ${infouser.nameuser} </span> 
-        </a>
-        `
-        placeholderTextarea.placeholder = `¿Qué quieres compartir hoy, ${infouser.nameuser}... ?`
-
-    
-        /***Renderizar y Eventos para Emojis***/
-        const emojiGroup = document.querySelector('#emoji-group');
-        const btnEmoji = document.querySelector('.smile');
-        const textarea = document.querySelector('#post-user')
-        btnEmoji.addEventListener('click',() => { emojiGroup.classList.add('show-emojis')});
-        textarea.addEventListener('click', () => {emojiGroup.classList.remove('show-emojis')});
-
-        let count = 128512;
-        for (let index = 1; index < 49; index++) {
-            const spanEmoji = document.createElement('span');
-            count = count + 1;
-            spanEmoji.id = `emoji${index}`;
-            spanEmoji.className = 'emoji';
-            spanEmoji.innerHTML = `&#${count};`;
-            emojiGroup.appendChild(spanEmoji);
-        }
-        const emojiList = document.getElementsByClassName('emoji');
-
-
-        for (let index = 0; index < emojiList.length; index++) {
-            const element = emojiList[index];
-            element.addEventListener('click', () => {
-                insertEmoji(element.id);
-            })
-        }
-
-        function insertEmoji(idEmoji) {
-            const emojiSelected = document.querySelector(`#${idEmoji}`);
-            textarea.value += emojiSelected.innerHTML;
-        }
+        renderTextareaPosts()
 
         const url = window.location.href;
         const path = url.split('#')
@@ -103,9 +41,48 @@ const addEventLinkUser = () => {
         link.addEventListener('click', (e) => {
             const idUser = e.target.dataset.id;
             localStorage.setItem('idUserProfile', idUser); //almacenar el id del usuario 
-            window.location.href = '#/profile';
+            window.location.href = `#/profile`;
+            window.location.reload();
         })
     })
 }
 
-export { addEventsTimeline, addEventLinkUser }
+const addEventModalCreatePost = () => {
+    const modal = document.querySelector('.modal');
+    const btnCreatePost = document.querySelector('.btn-create-post'); /* abrir */
+    const btnCerrarModal = document.querySelector('.btn-cerrar-modal'); /* cerrar */
+    const sectionNameImgUpload = document.querySelector('.name-image-upload');
+    btnCreatePost.addEventListener('click', () => {
+        const btnModal = document.querySelector('#share-post'); /* abrir */
+        const titleModal = document.querySelector('#title-modal');
+        const formPost = document.querySelector('#form-create-post');
+        formPost.reset();
+        document.querySelector('#input-idpost').value = "";
+        document.querySelector('#input-urlpost').value = "";
+        btnModal.innerText = 'Publicar';
+        titleModal.innerText = 'Crear Publicación';
+        sectionNameImgUpload.innerHTML = ``;
+        modal.classList.add('revelar');
+    });
+
+    btnCerrarModal.addEventListener('click', () => {
+        modal.classList.remove('revelar')
+        document.querySelector('#form-create-post').reset();
+    });
+}
+
+const renderTextareaPosts = async () => {
+    const userPost = document.querySelector('.user-info-textarea');
+    const placeholderTextarea = document.querySelector('.textarea-post');
+    const idUserAuth = localStorage.getItem('iduser'); //Esto vien de la linea 58 del archivo eventLogin OBTENER EL ID USER
+    const infouser = await getUser(idUserAuth).then(response => response.data());
+    userPost.innerHTML = `
+    <a href="#/profile" class="user-information">  
+        <img class="avatar avatar-sm" src="${/^(http|https):\/\/[^ "]+$/.test(infouser.photouser)?infouser.photouser:`../images/profile/`+infouser.photouser}" alt="img-user"> 
+        <span> ${infouser.nameuser} </span> 
+    </a>
+    `
+    placeholderTextarea.placeholder = `¿Qué quieres compartir hoy, ${infouser.nameuser}... ?`;
+}
+
+export { addEventsTimeline, addEventLinkUser, addEventModalCreatePost, renderTextareaPosts }

@@ -61,20 +61,20 @@ const addEventDeletePost = () => {
     const modalDelete = document.querySelector('.modal-delete');
     const btnCerrarModal = document.querySelector('.btn-cerrar-modal-delete'); /* cerrar */
     btnCerrarModal.addEventListener('click', () => {
-        modalDelete.classList.remove('revelar')
+         modalDelete.classList.remove('revelar')
     });
+
     btnsDelete.forEach((btn) => {
         btn.addEventListener('click', (e) => {
             modalDelete.classList.add('revelar')
             const idPosts = e.target.dataset.id;
-            deletePosts(idPosts);
+            deletePosts(idPosts, '#container-posts');
         });
-
     });
 
     function deletePosts(idPosts) {
         const confirmDelete = document.querySelector('#confirm-delete');
-        const nodoPadre = document.querySelector('#container-posts');
+        const nodoPadre = document.querySelector("#container-posts");
         const nodoHijo = document.querySelector('#post-' + idPosts);
 
         confirmDelete.addEventListener('click', () => {
@@ -148,7 +148,6 @@ const createObjectPost = (object) => {
     const selectCategory = document.querySelector('#select-categories');
     const textSelect = selectCategory.options[selectCategory.selectedIndex].text;
     const objectAllPosts = JSON.parse(window.localStorage.getItem('allPosts'));
-    const containerPost = document.querySelector('#container-posts');
     savePost(object)
         .then((res) => { // Necesitamos el res para obtener el id generado en el firestore
             const objectPost = {
@@ -171,7 +170,7 @@ const createObjectPost = (object) => {
 
             window.localStorage.setItem('allPosts', JSON.stringify(objectAllPosts)); //Agreamos al Local, con el nuevo Obj
             const arrayObjectPost = [objectPost]; //agregamos el obj en un array para darselo a la funcion loadView, ya que este recibe un array
-            loadViewPost(arrayObjectPost, containerPost); //Rendereizamos el Post en la DOM, funcion esta en viewPost linea 37
+            loadViewPost(arrayObjectPost); //Rendereizamos el Post en la DOM, funcion esta en viewPost linea 37    
             addEventEditPost();
             addEventDeletePost(); //agrego de nuevo los eventos
             modal.classList.remove('revelar') //Cierra el modal?
@@ -219,6 +218,7 @@ const updateObjectPost = (objectPost, idPost) => {
             btnProcess(false);
             alerts('success', 'Post Editado');
             updateTotalCategory([selectCategory.value, inputCategory.value], 'edit')
+            inputCategory.value = selectCategory.value; // Actualizamos el nuevo valor del inputCategory de viewpost linea 77
         })
         .catch((error) => {
             btnProcess(false);
@@ -257,21 +257,23 @@ const uploadImage = async(action) => {
 }
 
 const updateTotalCategory = async(idCategory, action) => { //action es el string donde indica que va eliminar y editar
+    const url = window.location.href;
+    const path = url.split('#');
     if (action == 'edit') {
         if (idCategory[0] != idCategory[1]) { //posicion 0 = valor del select , posicion 1 = valor de la categoria antes de ser editado
             for (let key in idCategory) {
-                const spanCategory = document.querySelector('#category-' + idCategory[key]);
                 const category = await getCategory(idCategory[key]).then((res) => res.data()); //get data para tener el total post
                 let totalCategory = category.totalPosts;
                 if (key == 0) { totalCategory = parseInt(totalCategory) + 1 } else { totalCategory = parseInt(totalCategory) - 1 }
                 updateCategory(idCategory[key], { totalPosts: totalCategory }).then(() => {
-                    spanCategory.textContent = totalCategory;
-                    spanCategory.value = idCategory[0];
+                    if(path[1] == '/timeline') {
+                        const spanCategory = document.querySelector('#category-' + idCategory[key]);
+                        spanCategory.textContent = totalCategory + ' Posts';
+                    }
                 })
             }
         }
     } else {
-        const spanCategory = document.querySelector('#category-' + idCategory);
         const category = await getCategory(idCategory).then((res) => res.data()); //get data para tener el total post
         let totalCategory = category.totalPosts;
         if (action == 'create') {
@@ -280,9 +282,12 @@ const updateTotalCategory = async(idCategory, action) => { //action es el string
             totalCategory = parseInt(totalCategory) - 1;
         }
         updateCategory(idCategory, { totalPosts: totalCategory }).then(() => {
-            spanCategory.textContent = totalCategory;
+            if(path[1] == '/timeline') {
+                const spanCategory = document.querySelector('#category-' + idCategory);
+                spanCategory.textContent = totalCategory + ' Posts';
+            }
         })
     }
 
 }
-export { addEventFormPost, addEventDeletePost, addEventEditPost, updateTotalCategory }
+export { addEventFormPost, addEventDeletePost, addEventEditPost, updateTotalCategory, createObjectPost }
