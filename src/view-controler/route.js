@@ -3,15 +3,10 @@ import { components } from '../views/components.js';
 import { addEventsLogin } from '../views/login/eventsLogin.js';
 import { addEventResetPassword } from '../views/password/eventsResetPassword.js';
 import { addEventsRegister } from '../views/register/eventsSignUp.js';
-import { loadComponents } from '../views/timeline/loadComponents.js'
-import { loadViewHeaderUser } from '../views/timeline/viewHeaderUser.js';
-import { viewProfileOtherUser } from '../views/header/viewHeader.js';
-console.log(viewProfileOtherUser())
+import { loadComponents, loadComponentsProfile  } from '../views/timeline/loadComponents.js';
 
 const changeView = (route) => {
     const containerMain = document.querySelector('#container-main');
-    const infouser = JSON.parse(window.localStorage.getItem('infouser')); //extraemos lo que almacenamos en local archivo viewHeaderUser line 29
-    // const allUsers = JSON.parse(window.localStorage.getItem('allUsers')); //extraemos de local viewHeaderUser Linea 21
     containerMain.innerHTML = '';
     switch (route) {
         case '/':
@@ -42,16 +37,15 @@ const changeView = (route) => {
                 loadComponents();
                 return viewTimeLine;
             }
-        // case `#/profile${viewProfileOtherUser()}`:
-        case `#/profile${infouser.nameUser.replace(/\s+/g, '')}`:
+        case '#/profile':
             {
                 const viewProfile = containerMain.appendChild(components.profile());
                 const firstChild = viewProfile.firstChild;
                 viewProfile.insertBefore(components.header(), firstChild);
-                loadViewHeaderUser();
+                loadComponentsProfile();
                 return viewProfile;
             }
-    
+
 
         default:
             { return containerMain.appendChild(components.error()); }

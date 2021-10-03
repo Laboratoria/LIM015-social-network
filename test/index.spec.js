@@ -1,5 +1,3 @@
-// importamos la funcion que vamos a testear
-/* eslint-disable no-undef */
 import { loginEmail, resetPassword, loginGoogle,registerEmail, signOut } from '../src/db/firebase-auth.js';
 /* eslint-disable no-undef */
 /* trae lo que necesita  */

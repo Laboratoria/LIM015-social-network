@@ -1,12 +1,15 @@
 import { loadViewHeaderUser } from './viewHeaderUser.js';
-import { loadViewCategory } from './viewCategories.js';
+import { loadViewCategory, addEventShowCategories } from './viewCategories.js';
 import { loadViewPopularPost } from './viewCarrusel.js';
 import { getObjectAllPosts } from './viewPosts.js';
-import { addEventsTimeline } from './eventsTimeline.js';
+import { addEventsTimeline, addEventModalCreatePost, renderTextareaPosts, addEventLinkUser } from './eventsTimeline.js';
 import { loadViewModal } from './viewModal.js';
 import { addEventFormPost, addEventDeletePost, addEventEditPost } from './eventsCrud.js';
 import { loadViewModalDelete } from './viewModalDelete.js';
-import { reactionLike } from './reactions.js'
+import { createEmoji } from '../../lib/emoji.js';
+import { loadTimelineUser, showButtonsProfile, showTopTenUsers} from '../profile/eventsProfile.js';
+import { reactionLike, addEventComments } from './reactions.js'
+
 
 const loadComponents = async() => {
     await loadViewHeaderUser(); //agregamos la info del user en el header
@@ -20,7 +23,27 @@ const loadComponents = async() => {
     addEventDeletePost();
     addEventEditPost();
     reactionLike();
-
+    addEventShowCategories();
+    createEmoji();
+    addEventComments();
 }
 
-export { loadComponents }
+const loadComponentsProfile = async () => {
+    await loadViewHeaderUser(); //agregamos la info del user en el header
+    await loadTimelineUser();
+    addEventLinkUser()
+    loadViewModal();
+    loadViewModalDelete();
+    showTopTenUsers();
+    addEventModalCreatePost();
+    renderTextareaPosts();
+    showButtonsProfile();
+    addEventFormPost();
+    createEmoji();
+    addEventDeletePost(); 
+    addEventEditPost();
+    reactionLike();
+}
+
+export { loadComponents, loadComponentsProfile }
+

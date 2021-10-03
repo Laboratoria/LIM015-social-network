@@ -1,19 +1,19 @@
-// const allUsers = JSON.parse(window.localStorage.getItem('allUsers')); //extraemos de local viewHeaderUser Linea 21
-// const nameUserPath = allUsers.map(user => {
-//     return user.nameUser.replace(/\s+/g, '')
-// })
-
-export default () => {
+import { addEventLinkUser } from "../timeline/eventsTimeline.js";
+export const header = () => {
     const header = document.createElement('header');
     header.className = 'header';
     header.innerHTML = `        
     <img class="logo" src="../../images/svg/logo.svg" alt="logo">
     <img class="icon-logo" src="../../images/svg/favicon.svg" alt="logo">
+    
     <section class="input-search">
         <input type="search" name="" id="search" autocomplete="off">
+        <div class="container-result-search"> 
+            <ul class="result-search" id="result-search"> </ul>
+        </div>
         <div class="container-icon-search"> <i class="fas fa-search"></i> </div>
     </section>
-    <ul class="result-search" id="result-search"> </ul>
+   
     <div class="side-navigation">
         <section class="title-posts">
             <a href="#/timeline" id="logout" class="title-posts"> <i class="fas fa-house-user"></i> <span>Posts</span> </a>
@@ -31,25 +31,18 @@ export default () => {
     const ulResulSearch = header.querySelector('#result-search');
     const allUsers = JSON.parse(window.localStorage.getItem('allUsers')); //extraemos de local viewHeaderUser Linea 21    
     inputSearch.addEventListener('keyup', () => {
-        // ulResulSearch.innerHTML = "";
         const search = inputSearch.value.toLowerCase();
         let resultSearch = searchResult(allUsers, search);
-        const pathUser = resultSearch.map(user => `#/profile${user.nameUser.replace(/\s+/g, '')}`);
-        const htmlResultSearch = resultSearch.map(user => ` <li> <a href="#/profile${user.nameUser.replace(/\s+/g, '')}"> <i class="fas fa-search"></i> ${user.nameUser} </a> </li> `)
-        viewProfileOtherUser(pathUser[0]);
-        displayResults(htmlResultSearch);
-        // inputSearch.value = "";
+        const htmlResultSearch = resultSearch.map(user => `<li> <span class="link-user" data-id="${user.idUser}"> ${user.nameUser} </span> </li> `)
+        search != ''? displayResults(htmlResultSearch) : ulResulSearch.innerHTML = "";
     });
 
-    function searchResult(allUsers, search) {
-        return allUsers.filter(user => user.nameUser.toLowerCase().includes(search)) //user.nameUser.toLowerCase().indexOf(search.toLowerCase()) > -1
-    }
-
-    function displayResults(resultSearch) {
-        const html = resultSearch.length > 0 ? resultSearch.join('') : '';
+    const searchResult = (allUsers, search) => allUsers.filter(user => user.nameUser.toLowerCase().includes(search)) //user.nameUser.toLowerCase().indexOf(search.toLowerCase()) > -1
+    
+    const displayResults = (resultSearch) => {
+        const html = resultSearch.length > 0 ? resultSearch.join('') : "";
         ulResulSearch.innerHTML = html;
+        addEventLinkUser();
     }
     return header;
 }
-
-export const viewProfileOtherUser = (pathUser) => pathUser;

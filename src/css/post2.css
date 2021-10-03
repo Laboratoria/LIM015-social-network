@@ -238,8 +238,8 @@ a:hover {
     padding: 0.8rem;
     font-size: 13px;
     color: rgba(5, 5, 5, 0.8);
-    border-top-left-radius: 14px;
-    border-bottom-left-radius: 14px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
     outline: none;
     flex: 1;
 }
@@ -261,11 +261,10 @@ a:hover {
     border-bottom-right-radius: 10px;
     padding-right: 10px;
     padding-left: 10px;
-}
-
-.public-comment a {
     color: #fff;
     font-size: 12px;
+    border: none;
+    cursor: pointer;
 }
 
 
@@ -296,7 +295,8 @@ a:hover {
     margin-right: 0.5rem;
     padding: 1rem 1.5rem;
     border-radius: 16px;
-    border: 1px solid #e7edf2
+    border: 1px solid #e7edf2;
+    margin-bottom: .8rem;
 }
 
 .comment-author {
@@ -385,4 +385,30 @@ a:hover {
 
 .img-like:hover {
     transform: scale(1.3, 1.3);
+}
+
+.link-user:hover {
+    color: #F93878;
+    cursor: pointer;
+}
+
+
+/* categoryName */
+
+.categoryName {
+    /* ----- add design */
+}
+
+.categoryName:hover {
+    color: #F93878;
+    cursor: pointer;
+}
+
+.btn-comments {
+    margin-left: 2%;
+    cursor: pointer;
+}
+
+.btn-comments:hover {
+    transform: scale(1.2, 1.2);
 }
