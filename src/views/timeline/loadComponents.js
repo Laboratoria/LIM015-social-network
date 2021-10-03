@@ -6,13 +6,10 @@ import { addEventsTimeline, addEventModalCreatePost, renderTextareaPosts, addEve
 import { loadViewModal } from './viewModal.js';
 import { addEventFormPost, addEventDeletePost, addEventEditPost } from './eventsCrud.js';
 import { loadViewModalDelete } from './viewModalDelete.js';
-<<<<<<< HEAD
-import { reactionLike } from './reactions.js';
 import { createEmoji } from '../../lib/emoji.js';
 import { loadTimelineUser, showButtonsProfile, showTopTenUsers} from '../profile/eventsProfile.js';
-=======
 import { reactionLike, addEventComments } from './reactions.js'
->>>>>>> cd9630a1f76286cba01483b0a176902cba67061f
+
 
 const loadComponents = async() => {
     await loadViewHeaderUser(); //agregamos la info del user en el header
