@@ -29,7 +29,7 @@
     padding-top:5px ;
     padding-left: 10px;
     width: 12vw;
-    min-width: 130px;   
+    min-width: 130px;
 }
 /*---------------------------Muro:Labels--------------------------- */
 .label-container{
@@ -85,6 +85,9 @@ background-color: transparent;
      background-color: transparent;
 }
 /*---------------------------Muro:Post----------------------------*/
+.post-label{
+    display:grid;
+}
 .background-posts{
     display: flex;
     flex-direction: column;
@@ -94,28 +97,26 @@ background-color: transparent;
 }
 .profile-post{
     position: relative;
-    display:flex;
-    flex-direction: row;
-    justify-content: center;
+    display:grid;
+    grid-template-columns: 1fr 7fr;
     gap:20px;
-    width: 40vw;
+    width: 91vw;
     min-width: 310px;
-    padding-top: 15px;
-    padding-bottom: 10px;
+    padding: 15px;
     background: linear-gradient( to right bottom,
      rgba(255,255,255,0.7), 
      rgba(255,255,255,0.2) 
     );
-    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     margin-bottom: 10px;
 }
 .publish{
     background: #FFFFFF;
-  /*   justify-content: space-evenly; */
-    
 }
-
+.post-file{
+    width: 120px;
+}
 .container-photo{
     position: relative;
     align-self: flex-start;
@@ -141,7 +142,7 @@ background-color: transparent;
 }
 .text-output,
 .text-input{
-    width: 25vw;
+    width: 45vw;
     min-width: 180px;
     height: 50px;
     border-radius: 10px;
@@ -150,7 +151,7 @@ background-color: transparent;
     outline: none;
 }
 .text-output{
-    width: 25vw;
+    width: 50vw;
     min-width: 170px;
     height: auto;
     padding-top: 5px;
@@ -181,9 +182,10 @@ background-color: transparent;
 }
 .fa-sign-out-alt{
     color: #4f46c8;
-    font-size: 18px;
+    font-size: 20px;
     position:absolute;
     right: 25px;
+    cursor: pointer;
 }
 .fa-cat{
     color: #4f46c8;
@@ -226,18 +228,59 @@ background-color: transparent;
     display:none;
 }
 .post-photo{
-    width: 200px;
+    width: 48vw;
+    min-width: 200px;
 }
 .pata{
     width: 25px;
 }
 /*---------------------------View Tablet--------------------------- */
 @media only screen and (min-width:768px){
-    .container-box{
-        margin: 30px 65px;
+    .page-container {
+        height: calc(100vh - 20px);
+    }
+    .label-container{
+        box-shadow: 20px 20px 25px rgba(0, 0, 0, 0.25);
+        height: calc(100vh - 80px);
+        display: flex;
+        flex-direction: column;
+        background:linear-gradient( to right bottom, rgba(255,255,255,0.7), rgba(255,255,255,0.2) );
+        border-radius: 10px;
+        width: 27vw;
+        justify-content: space-evenly;
+    }
+    .page-title{
+        width: 25vw;
+    }
+    .label-btn{
+        border-radius:10px;
+        padding: 10px;
+        width: 17vw;
+        border:none;
+        color: white;
+        text-shadow: rgb(140, 139, 138) 1px 0 10px;
+        font-size: 20px;
+        font-weight: 550;
+        cursor: pointer;
+        margin-left: 20px;
+    } 
+    .main-container{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    justify-items: center;
+    }
+    .profile-post{
+        width: 60vw;
     }
     .home-container{
         height:  calc(100vh - 60px);
+    }
+    .fa-sign-out-alt{
+        color: #4f46c8;
+        font-size: 25px;
+        position:absolute;
+        cursor: pointer;
+        right: 40px;
     }
     .img-web {
         display:block;
@@ -249,18 +292,57 @@ background-color: transparent;
         align-items: center;
         margin: auto;
     }
+    .img-memes{
+        display:block;
+        width: 8vw;
+    }
+    .page-title {
+        padding-top: 5px;
+        padding-left: 10px;
+        width: 13vw;
+        min-width: 130px;
+    }
+    .label-name{
+        color: #120B73;
+        font-size: 25px;
+        font-weight: 550;
+    }
+    .scroll-container {
+        height: calc(100vh - 80px);
+    }
+    .post-label{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border-radius: 10px;
+        justify-items: center;
+        align-items: center;
+        color: #FFF;
+        font-weight: 550;
+        font-size: 20px;
+        width: 18vw;
+        height: 13vw;
+        padding: 15px;
+        box-shadow: 20px 20px 25px rgb(0 0 0 / 12%)
+    }
 }
 
 /*---------------------------View Desktop--------------------------- */
 @media only screen and (min-width:1024px){
     .main-container{
         display: grid;
-        grid-template-columns: 30% 50% 20%;
+        grid-template-columns: 1fr 2fr 1fr;
     }
     .scroll-container{
         height: calc(100vh - 150px);
     }
 
+    .fa-sign-out-alt{
+        color: #4f46c8;
+        font-size: 30px;
+        position:absolute;
+        cursor: pointer;
+        right: 40px;
+    }
     .label-container{
         /* /* width: 350px;
         height: 500px; */
@@ -272,7 +354,8 @@ background-color: transparent;
         background-color: white;
         border-radius:10px;
         gap: 10px;
-    } 
+    }
+    
     .label-btn{
         border-radius:10px;
         padding: 10px;

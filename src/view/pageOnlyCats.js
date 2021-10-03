@@ -40,9 +40,18 @@ export const pageOnlyCats = () => {
     <main class = "main-container" >
       <section class="label-container">
         <p class="label-name"> ¿Qué ver? </p>
-        <button class="label-btn meme"><img src="./img/memecat.png" alt="memes" class="img-memes" />Memes</button>
-        <button class="label-btn vet"><img src="./img/vetcat.png" alt="memes" class="img-memes" />Vet Cat</button>
-        <button class="label-btn foodie"><img src="./img/foodiecat.png" alt="memes" class="img-memes" />Foodie Cat</button>
+        <div class="post-label meme">
+          <img src="./img/memecat.png" alt="memes" class="img-memes">
+          <p>Memes</p>
+        </div>
+        <div class="post-label vet">
+          <img src="./img/vetcat.png" alt="memes" class="img-memes">
+          <p>Vet Cat</p>
+        </div>
+        <div class="post-label foodie">
+          <img src="./img/foodiecat.png" alt="memes" class="img-memes">
+          <p>Foodie</p>
+        </div>
       </section>
       <section class="scroll-container">
         <article class="profile-post publish" >
@@ -52,9 +61,9 @@ export const pageOnlyCats = () => {
           <section class="section-profile" >
             <textarea class="text-input" id="text-input" placeholder="¿Miau esta pasando?"></textarea>
             <div class="post-icon">
-              <label class="postImage"> 
-                <i class="fas fa-image"></i> <input type="file" id="postImage" accept="image/*"/> 
-              </label> 
+              <label class="postImage">
+                <i class="fas fa-image"></i> <input class="post-file" type="file" id="postImage" accept="image/*"/> 
+              </label>
               <button class="post-button hide" id="cancel-button" type="submit">Cancelar</button>
               <button class="post-button" id="post-button" type="submit">Meow</button>
             </div>
@@ -101,7 +110,9 @@ export const pageOnlyCats = () => {
           <section class="section-post">
             <p class="name-input"> ${dataContent.user} </p>
             <p readonly class="text-output">${dataContent.text}</p>
+            <div class="post-divImg">
             <img src="${(dataContent.postImage.length === 1) ? '' : dataContent.postImage}" class="post-photo" >
+            </div>
             <div class="likes-container">
               <i class="far fa-heart" id="${dataContent.id}"></i>
               <img src="https://img.icons8.com/color/48/000000/dog-paw-print.png" class="pata" >
