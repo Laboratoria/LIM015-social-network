@@ -1,9 +1,12 @@
-import { getPostUser, updateProfileUser, getUser } from "../../db/firestore.js";
+import { getPostUser, updateProfileUser, getUser, getTopTenUsers} from "../../db/firestore.js";
 import { loadViewPost } from "../timeline/viewPosts.js";
 import { saveImageFile } from "../../db/storage.js";
 import { getPhotoURL } from "../../db/storage.js";
 import { alertProcess, alerts } from "../../lib/alerts.js";
 import { loadViewHeaderUser } from "../timeline/viewHeaderUser.js";
+import { addEventLinkUser } from "../timeline/eventsTimeline.js";
+// import { loadViewModal } from "../timeline/viewModal.js";
+// import { addEventFormPost } from "../timeline/eventsCrud.js";
 
 const loadTimelineUser = async () => {
     const idUserProfile = window.localStorage.getItem('idUserProfile');
@@ -11,7 +14,6 @@ const loadTimelineUser = async () => {
     const objectPosts = [];
     const infoUserProfile = await getUser(idUserProfile).then(response => response.data());
     const allCategoriesCourses = JSON.parse(window.localStorage.getItem('allCategories'));
-    const containerPostsUser = document.querySelector('#container-posts-user');
     const avatarUser = document.querySelector("#avatar-user");
     const avatarName = document.querySelector("#avatar-name");
     const coverUser = document.querySelector("#img-cover-user")
@@ -44,23 +46,21 @@ const loadTimelineUser = async () => {
             dataPublic = objectPosts.filter(element => element.publicPosts == 'true' || element.idUser == idUserAuth);
 
         })
-        loadViewPost(dataPublic, containerPostsUser);
+        loadViewPost(dataPublic);
     });
 };
 
-const addEventsProfileUser = () => {
+const showButtonsProfile = () => {
     const url = window.location.href;
     const path = url.split('#');
 
     if (path[1] == '/profile') {
         const idUserAuth = localStorage.getItem('iduser'); //Esto vien de la linea 58 del archivo eventLogin OBTENER EL ID USER
         const idUserProfile = window.localStorage.getItem('idUserProfile');
-        const btnSeguir = document.querySelector("#btn-seguir")
         const btnCrear = document.querySelector("#btn-crear")
         const btnEditarPerfil = document.querySelector("#btn-editarPerfil")
 
         if (idUserAuth === idUserProfile) {
-            btnSeguir.style.display = "none";
             btnCrear.style.display = "block";
             btnEditarPerfil.style.display = "block";
         } else {
@@ -69,13 +69,12 @@ const addEventsProfileUser = () => {
         }
         openModal();
     }
-    
 }
 
 const openModal = () => {
     const modal = document.querySelector('.modal-edit-profile');
     const btnEditProfile = document.querySelector('#btn-editarPerfil');
-    const btnCloseModal = document.querySelector('.btn-cerrar-modal');
+    const btnCloseModal = document.querySelector('.modal-edit-profile .btn-cerrar-modal');
     
     btnEditProfile.addEventListener('click', () => { //Evento que Abre modal
         modal.classList.add('revelar')
@@ -155,10 +154,18 @@ const addEventsModalEdit = () => {
             const avatarName = document.querySelector("#avatar-name");
             const avatarDescription = document.querySelector("#avatar-description");
             const modal = document.querySelector('.modal-edit-profile');
+            const allImgUserPost = document.querySelectorAll('#container-posts-user .link-user img');
+            const allNameUserPosts = document.querySelector('#container-posts-user .post-author .author-name');
             avatarName.textContent = objectUpdatedUser.nameuser;
             avatarDescription.textContent = objectUpdatedUser.description;
             changePhotoUser = false;
             changePhotoCover = false;
+            allImgUserPost.forEach(element => { //renderizamos todas las imagenes del usuario nuevas despues de actualizar
+                element.src = objectUpdatedUser.photouser;
+            })
+            allNameUserPosts.forEach(element => { //renderizamos el nuev nombre del usuario despues de actualizar
+                element.textContent = objectUpdatedUser.nameuser;
+            })
             await loadViewHeaderUser();
             formEditProfile.reset();
             modal.classList.remove('revelar');
@@ -187,6 +194,21 @@ const valueImage = async (filearray, filename, typeImage) => {
     return urlImage;
 }
 
+const showTopTenUsers = async () => {
+    const idUserAuth = localStorage.getItem('iduser'); //Esto vien de la linea 58 del archivo eventLogin OBTENER EL ID USER
+    const containerTopTenUsers = document.querySelector('#container-friends');
+    await getTopTenUsers().then(response => response.forEach(doc => {
+        if (doc.id != idUserAuth) {
+            const sectionUser = document.createElement('section');
+            sectionUser.className = 'info-friends';
+            sectionUser.innerHTML = `
+                <img src="${doc.data().photouser}" alt="" class="avatar avatar-sm">
+                <p class="link-user" data-id="${doc.id}"> ${doc.data().nameuser} </p>
+            `
+            containerTopTenUsers.appendChild(sectionUser);  
+        }
+    }))
+    addEventLinkUser();
+}
 
-
-export { loadTimelineUser, addEventsProfileUser }
+export { loadTimelineUser, showButtonsProfile, showTopTenUsers }

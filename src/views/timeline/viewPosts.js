@@ -38,12 +38,11 @@ const allPosts = () => {
     //Función inicial conectada en loadComponents
 const getObjectAllPosts = async() => {
     const objectDataPosts = await allPosts().then(response => response);
-    // objectPosts(objectDataPosts)
-    const containerPost = document.querySelector('#container-posts');
-    loadViewPost(objectDataPosts, containerPost);
+    loadViewPost(objectDataPosts);
 }
 
-const loadViewPost = (objectDataPosts, parentElement) => {
+const loadViewPost = (objectDataPosts) => {
+        const containerPost = document.querySelector("#container-posts");
         const idUserAuth = localStorage.getItem('iduser'); //Esto vien de la linea 58 del archivo eventLogin OBTENER EL ID USER
         if (objectDataPosts != undefined) {
             objectDataPosts.forEach(element => {
@@ -90,12 +89,12 @@ const loadViewPost = (objectDataPosts, parentElement) => {
 
                     </div>
                 </div>     `
-            const theFirstChild = parentElement.firstChild;
-            parentElement.insertBefore(post, theFirstChild) //renderiza en el hijo anterior del primero 
+            const theFirstChild = containerPost.firstChild;
+            containerPost.insertBefore(post, theFirstChild) //renderiza en el hijo anterior del primero 
         });
 
     } else {
-        parentElement.innerHTML = `<p class="text-muted notResults"> No se encontraron posts para mostrar  <i class="fas fa-passport text-muted"></i> </p>`
+        containerPost.innerHTML = `<p class="text-muted notResults"> No se encontraron posts para mostrar  <i class="fas fa-passport text-muted"></i> </p>`
     }
 
 }

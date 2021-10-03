@@ -1406,12 +1406,18 @@ textarea {
 }
 
 .info-friends .avatar {
-    background-color: #b92929;
     margin-bottom: 10px;
 }
 
-.info-friends i {
-    color: #FC2C5E;
+
+.info-friends p {
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+.info-friends p:hover {
+    cursor: pointer;
+    color: #FA5672;
 }
 
 
@@ -1618,7 +1624,6 @@ input:disabled {
     color: #6e6b7b;
     background-color: transparent;
     font-size: 12px;
-    width: 31%;
 }
 
 .group-btn-edit-profile {

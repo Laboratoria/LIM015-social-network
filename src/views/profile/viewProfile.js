@@ -20,21 +20,10 @@ export default () => {
     </section>
     <section class="container-section-friends" id="section-friends"> 
         <section class="title-friends" id="title-friends"> 
-            <button class="btn btn-icon-friends"> <i class="fas fa-user-friends"></i></button>
-            <h4> Amigos </h4> 
+            <button class="btn btn-icon-friends"> <i class="fas fa-user-friends"></i> </button>
+            <h4> Explorar otros usuarios </h4> 
         </section> 
-        <section class="container-friends" id="container-friends">
-            <section class="info-friends" id="info-friends"> 
-                <img src="../images/algo.jpg" alt="" class="avatar avatar-sm">
-                <p>Nombre amigo</p>
-                <i class="fas fa-trash-alt"></i>
-            </section> 
-            <section class="info-friends" id="info-friends"> 
-                <img src="" alt="" class="avatar avatar-sm">
-                <p>Nombre amigo</p>
-                <i class="fas fa-trash-alt"></i>
-            </section> 
-        </section> 
+        <section class="container-friends" id="container-friends"> </section> 
     </section>   
     <section class="container-section-user-post">
         <section class="header-section-user-post" id="header-section-user-post">
@@ -43,20 +32,27 @@ export default () => {
                     <i class="far fa-comments"></i>
                     <h3> Posts </h3>
                 </section>
-                <section class="title-user-savePost">
-                    <i class="far fa-bookmark"></i>
-                    <h3> Guardados </h3>
-                </section>
             </section>
-            <button class="btn btn-seguir" id="btn-seguir"> Seguir <i class="fas fa-plus-circle"></i> </button>
             <button class="btn btn-create-post" id="btn-crear"> Crear Post <i class="fas fa-plus-circle"></i> </button>
         </section>
-        <section class="container-post" id="container-posts-user"> </section>
+        <section class="container-post" id="container-posts"> </section>
+    </section>
+
+    <section class="modal hide">
+        <section class="backdrop" id="modal-contenido"> 
+           
+        </section>
     </section>
     
     <section class="modal hide modal-edit-profile">
         <section class="backdrop" id="modal-editProfile"> 
        
+        </section>
+    </section>
+
+    <section class="modal-delete modal hide">
+        <section class="backdrop" id="modal-contenido-delete"> 
+           
         </section>
     </section>
     `;
