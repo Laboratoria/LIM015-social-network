@@ -1,12 +1,12 @@
 import { loadViewHeaderUser } from './viewHeaderUser.js';
-import { loadViewCategory,addEventShowCategories } from './viewCategories.js';
+import { loadViewCategory, addEventShowCategories } from './viewCategories.js';
 import { loadViewPopularPost } from './viewCarrusel.js';
 import { getObjectAllPosts } from './viewPosts.js';
 import { addEventsTimeline } from './eventsTimeline.js';
 import { loadViewModal } from './viewModal.js';
 import { addEventFormPost, addEventDeletePost, addEventEditPost } from './eventsCrud.js';
 import { loadViewModalDelete } from './viewModalDelete.js';
-import { reactionLike } from './reactions.js'
+import { reactionLike, addEventComments } from './reactions.js'
 
 const loadComponents = async() => {
     await loadViewHeaderUser(); //agregamos la info del user en el header
@@ -21,6 +21,7 @@ const loadComponents = async() => {
     addEventEditPost();
     reactionLike();
     addEventShowCategories();
+    addEventComments();
 }
 
 export { loadComponents }

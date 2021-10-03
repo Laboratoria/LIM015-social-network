@@ -218,7 +218,7 @@ const updateObjectPost = (objectPost, idPost) => {
             modal.classList.remove('revelar') //Cierra el modal
             btnProcess(false);
             alerts('success', 'Post Editado');
-            updateTotalCategory([selectCategory.value, inputCategory.value], 'edit')
+            updateTotalCategory([selectCategory.value, inputCategory.value], 'edit');
         })
         .catch((error) => {
             btnProcess(false);
@@ -267,6 +267,7 @@ const updateTotalCategory = async(idCategory, action) => { //action es el string
                 updateCategory(idCategory[key], { totalPosts: totalCategory }).then(() => {
                     spanCategory.textContent = totalCategory;
                     spanCategory.value = idCategory[0];
+
                 })
             }
         }

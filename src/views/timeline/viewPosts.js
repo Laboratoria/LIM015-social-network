@@ -44,7 +44,6 @@ const getObjectAllPosts = async() => {
 }
 
 const loadViewPost = (objectDataPosts, parentElement) => {
-        console.log(objectDataPosts, ' recibi ')
         const idUserAuth = localStorage.getItem('iduser'); //Esto vien de la linea 58 del archivo eventLogin OBTENER EL ID USER
         if (objectDataPosts != undefined) {
             objectDataPosts.forEach(element => {
@@ -54,10 +53,8 @@ const loadViewPost = (objectDataPosts, parentElement) => {
                         post.innerHTML = ` 
                             <div class="post-header header">
                                 <div class="header-left">
-                                    <span class="link-user" data-id="${element.idUser}">
-                                        ${(/^(http|https):\/\/[^ "]+$/.test(element.photoUser)) ?
-                    `<img src="${element.photoUser}" alt="" class="post-author-pic">`
-                    : `<img src="../images/profile/${element.photoUser}" class="post-author-pic">`} 
+                                    <span class="link-user" data-id="${element.idUser}">   
+                                        <img src="${element.photoUser}" alt="" class="post-author-pic">
                                     </span>
                                     <div class="post-author author">
                                         <span class="author-name link-user" data-id="${element.idUser}"> ${element.nameUser} </span>
@@ -85,11 +82,13 @@ const loadViewPost = (objectDataPosts, parentElement) => {
                         <img class="img-like likes" id="like-${element.idPost}" width="22px" height="22px" data-id="${element.idPost}"  src=" ${element.arrLikes.includes(idUserAuth) ? '../images/svg/like.png' : '../images/svg/notlike.png'}"  data-id="${element.idPost}"/>
                         <span class="count-reaction" id="count-like-${element.idPost}">${element.arrLikes.length}</span> 
                         
-                        <img class="img-comment comments" id="comment-${element.idPost}" width="22px" height="22px"   src="../images/svg/notchat.svg"  data-id="${element.idPost}"/>
+                        <img class="img-comment btn-comments" id="comment-${element.idPost}" width="22px" height="22px"   src="../images/svg/notchat.svg"  data-id="${element.idPost}"/>
                         <span class="count-reaction" id="count-comment-${element.idPost}">${element.arrComments.length}</span> 
                                     
                     </div>
-                    <div class="footer-comments comments"> </div>
+                    <div class="footer-comments comments" id="footer-comments-${element.idPost}"> 
+
+                    </div>
                 </div>     `
             const theFirstChild = parentElement.firstChild;
             parentElement.insertBefore(post, theFirstChild) //renderiza en el hijo anterior del primero 

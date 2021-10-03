@@ -1,5 +1,5 @@
 import { getAllCategories, getPostByCategory } from '../../db/firestore.js';
-import { loadViewPost } from './viewPosts.js';
+import { loadViewPost, getObjectAllPosts } from './viewPosts.js';
 import { alerts } from '../../lib/alerts.js';
 const allCategories = () => {
     const objectCategories = [];
@@ -35,6 +35,11 @@ const loadViewCategory = async() => {
     });
 }
 const addEventShowCategories = () => {
+    const spanAllCategories = document.querySelector('#span-all-categories');
+    spanAllCategories.addEventListener('click', () => {
+        getObjectAllPosts(); //Entonces volvemos a Cargar Todos los Posts
+    });
+
     const allCategoriesName = document.querySelectorAll('.categoryName');
     allCategoriesName.forEach(span => {
         span.addEventListener('click', async(e) => {
@@ -47,7 +52,6 @@ const addEventShowCategories = () => {
             const allUsers = JSON.parse(window.localStorage.getItem('allUsers'));
             await getPostByCategory(idSpanCategory)
                 .then((querySnapshot) => {
-
                     querySnapshot.forEach((doc) => {
                         const userByPost = allUsers.find(element => element.idUser === doc.data().idUser);
                         objectPosts.push({
@@ -79,6 +83,7 @@ const addEventShowCategories = () => {
                             alerts('info', 'Los ' + objectPosts.length + ' posts son privados.')
                         } else {
                             const totalPrivate = parseInt(totalPosts) - dataPublic.length;
+                            console.log(totalPrivate);
                             if (totalPrivate > 0) { //esto quiere decir que total de posts puede que halla mas de privado.
                                 alerts('info', 'No se mostraran ' + totalPrivate + ' por que son privados');
                             }
