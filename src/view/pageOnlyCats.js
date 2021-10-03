@@ -24,7 +24,7 @@ export const pageOnlyCats = () => {
   userStateCheck();
   const imgDefault = 'https://pbs.twimg.com/profile_images/1101458340318568448/PpkA2kQh_400x400.jpg';
   const localUser = JSON.parse(localStorage.getItem('user'));
-  const photo = (localUser.photoURL === null) ? imgDefault : localUser.photoURL;
+  const photoUser = (localUser.photoURL === null) ? imgDefault : localUser.photoURL;
   const displayName = localUser.displayName;
   const email = localUser.email;
   const uid = localUser.uid;
@@ -37,7 +37,6 @@ export const pageOnlyCats = () => {
       <i class="fas fa-sign-out-alt" id="sign-out"></i>
       <i class="fas fa-cat" style="display:none"></i>
     </header>
-
     <main class = "main-container" >
       <section class="label-container">
         <p class="label-name"> ¿Qué ver? </p>
@@ -45,11 +44,10 @@ export const pageOnlyCats = () => {
         <button class="label-btn vet"><img src="./img/vetcat.png" alt="memes" class="img-memes" />Vet Cat</button>
         <button class="label-btn foodie"><img src="./img/foodiecat.png" alt="memes" class="img-memes" />Foodie Cat</button>
       </section>
-
       <section class="scroll-container">
         <article class="profile-post publish" >
           <div class="container-photo">
-              <img src="${photo}" "alt='picture' class="profile-photo">
+              <img src="${photoUser}" "alt='picture' class="profile-photo">
           </div>
           <section class="section-profile" >
             <textarea class="text-input" id="text-input" placeholder="¿Miau esta pasando?"></textarea>
@@ -64,13 +62,12 @@ export const pageOnlyCats = () => {
         </article>
         <section id="other-post"></section>
       </section>
-
       <aside class="profile-container">
         <div class="container-fondo">
           <img src="./img/profile.png" "alt='fondo' class="profile-fondo">
         </div>
         <div class="container-photo">
-          <img src="${photo}" "alt='picture' class="profile-photo">
+          <img src="${photoUser}" "alt='picture' class="profile-photo">
         </div>
         <p class="name-input"> ${localUser.displayName} </p>
         <p class="name-input"> ${email} </p>
@@ -99,14 +96,18 @@ export const pageOnlyCats = () => {
         newPost.innerHTML += `
         <article class="profile-post">
           <div class="container-photo">
-            <img src="${dataContent.photo}" "alt='picture' class="profile-photo">
+            <img src="${dataContent.photoUser}" "alt='picture' class="profile-photo">
           </div>
           <section class="section-post">
             <p class="name-input"> ${dataContent.user} </p>
             <p readonly class="text-output">${dataContent.text}</p>
-            <img src="${dataContent.postImage}" class="post-photo">
+            <img src="${(dataContent.postImage.length === 1) ? '' : dataContent.postImage}" class="post-photo" >
             <div class="likes-container">
               <i class="far fa-heart" id="${dataContent.id}"></i>
+              <img src="https://img.icons8.com/color/48/000000/dog-paw-print.png" class="pata" >
+              <img src="https://img.icons8.com/external-tulpahn-flat-tulpahn/64/000000/external-kissing-cat-emoji-tulpahn-flat-tulpahn.png" class="pata" >
+              <img src="https://img.icons8.com/cute-clipart/64/000000/cat.png" class="pata" >
+              <img src="https://cdn-icons-png.flaticon.com/512/2865/2865523.png" class="pata" >
               <span>${dataContent.likes.length} </span>
             </div>
           </section>
@@ -177,12 +178,12 @@ export const pageOnlyCats = () => {
               const arrayLike = doc.data().likes;
               if (arrayLike.includes(localUser.uid) === false) {
                 arrayLike.push(localUser.uid);
-                editLike(doc.id, arrayLike)
-                  .then(() => console.log('se logró')).catch((error) => console.log(error));
+                editLike(doc.id, arrayLike);
+                /*  .then(() => console.log('se logró')).catch((error) => console.log(error)); */
               } else {
                 const arrayLikeFilter = arrayLike.filter((link) => link !== localUser.uid);
-                editLike(doc.id, arrayLikeFilter)
-                  .then(() => console.log('se quitó')).catch((error) => console.log(error));
+                editLike(doc.id, arrayLikeFilter);
+                /*  .then(() => console.log('se quitó')).catch((error) => console.log(error)); */
               }
             }).catch((error) => console.log(error));
         });
@@ -195,18 +196,22 @@ export const pageOnlyCats = () => {
     // EditStatus sera falso cuando no exista un post, y recién se este creando
     if (textInput.value.length !== 0) {
       if (editStatus === false) {
-        const postImage = container.querySelector('#postImage').files[0];
+        const postImage = container.querySelector('#postImage');
+        const objFileImg = postImage.files[0];
         const dir = 'posts';
-        const name = postImage.name;
-        console.log(container.querySelector('#postImage').files.length);
-        uploadPostImage(name, postImage)
-          .then(() => getPostImageURL(dir, name))
-          .then((photoURL) => {
-            postCollection(textInput.value, displayName, photo, email, uid, photoURL);
-            textInput.value = '';
-            const postImageName = sectionElement.querySelector('#postImage');
-            postImageName.value = '';
-          });
+        if (postImage.files.length === 1) {
+          const name = objFileImg.name;
+          uploadPostImage(name, objFileImg)
+            .then(() => getPostImageURL(dir, name))
+            .then((photoURL) => {
+              postCollection(textInput.value, displayName, photoUser, email, uid, photoURL);
+              textInput.value = '';
+              postImage.value = '';
+            });
+        } else if (postImage.files.length === 0) {
+          postCollection(textInput.value, displayName, photoUser, email, uid, '');
+          textInput.value = '';
+        }
       } else {
         await editPost(id, textInput.value);
         textInput.value = '';
