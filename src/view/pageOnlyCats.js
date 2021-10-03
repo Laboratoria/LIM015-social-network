@@ -196,12 +196,17 @@ export const pageOnlyCats = () => {
     if (textInput.value.length !== 0) {
       if (editStatus === false) {
         const postImage = container.querySelector('#postImage').files[0];
-        textInput.value = '';
         const dir = 'posts';
         const name = postImage.name;
+        console.log(container.querySelector('#postImage').files.length);
         uploadPostImage(name, postImage)
           .then(() => getPostImageURL(dir, name))
-          .then((photoURL) => postCollection(textInput.value, displayName, photo, email, uid, photoURL));
+          .then((photoURL) => {
+            postCollection(textInput.value, displayName, photo, email, uid, photoURL);
+            textInput.value = '';
+            const postImageName = sectionElement.querySelector('#postImage');
+            postImageName.value = '';
+          });
       } else {
         await editPost(id, textInput.value);
         textInput.value = '';
