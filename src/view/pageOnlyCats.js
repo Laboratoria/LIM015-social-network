@@ -7,7 +7,7 @@ import { signOutUser, onAuthStateChanged } from '../firebase/firebase-auth.js';
 import {
   postCollection, getCollection, deletePost, getPost, editPost, editLike,
 } from '../firebase/firebase-firestore.js';
-/* import { uploadPostImage, getPostImageURL } from '../firebase/firebase-storage.js'; */
+import { uploadPostImage, getPostImageURL } from '../firebase/firebase-storage.js';
 
 /* -------------------------------Verificar si el usuario está conectado---------------------- */
 const userStateCheck = () => {
@@ -100,9 +100,8 @@ export const pageOnlyCats = () => {
           </div>
           <section class="section-post">
             <p class="name-input"> ${dataContent.user} </p>
-            <p class="text-output">${dataContent.text}</p>
-            <p>asdasd</p>
-            <img src="" class="post-photo">
+            <p readonly class="text-output">${dataContent.text}</p>
+            <img src="${dataContent.postImage}" class="post-photo">
             <div class="likes-container">
               <i class="far fa-heart" id="${dataContent.id}"></i>
               <span>${dataContent.likes.length} </span>
@@ -191,16 +190,20 @@ export const pageOnlyCats = () => {
   /* -------------------------------Crear Post (C) ------------------------- */
   btnPublish.addEventListener('click', async () => {
     // EditStatus sera falso cuando no exista un post, y recién se este creando
-    /*     const postImage = container.querySelector('#postImage').files[0]; */
     if (textInput.value.length !== 0) {
       if (editStatus === false) {
-        await postCollection(textInput.value, displayName, photo, email, uid);
-        textInput.value = '';
-        /*  const dir = 'posts';
+        const postImage = container.querySelector('#postImage').files[0];
+        const dir = 'posts';
         const name = postImage.name;
+        console.log(container.querySelector('#postImage').files.length);
         uploadPostImage(name, postImage)
           .then(() => getPostImageURL(dir, name))
-          .then((photoURL) => postCollection(textInput.value, displayName, photo, email, uid, photoURL)); */
+          .then((photoURL) => {
+            postCollection(textInput.value, displayName, photo, email, uid, photoURL);
+            textInput.value = '';
+            const postImageName = sectionElement.querySelector('#postImage');
+            postImageName.value = '';
+          });
       } else {
         await editPost(id, textInput.value);
         textInput.value = '';
