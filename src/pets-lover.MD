@@ -1,20 +1,35 @@
 # 💻🙋Red Social - Pets Lover 🐶🐱
 
 ## Índice
+* [1. Introduccion](#1-Introduccion)
+* [2. Resumen del proyecto](#2-resumen-del-proyecto)
+* [3. Historia de usuario](#3-Historia-de-usuario)
+* [4. Diseño de interfaz](#4-Diseño-de-interfaz)
+* [5. Testeo de usabilidad](#5-Testeo-de-usabilidad)
+* [6. Testing](#6-Testing)
+* [7. Objetivos de aprendizaje](#7-objetivos-de-aprendizaje)
+* [8. Tecnologias utilizadas](#8-Tecnologias-utilizadas)
+* [9. Autoras](#9-Autoras)
 
-* [1. Resumen del proyecto](#1-resumen-del-proyecto)
-* [2. Objetivos de aprendizaje](#2-objetivos-de-aprendizaje)
-* [3. Consideraciones generales](#3-consideraciones-generales)
-* [4. Criterios de aceptación mínimos del proyecto](#4-criterios-de-aceptación-mínimos-del-proyecto)
-* [5. Hacker edition](#5-hacker-edition)
-* [6. Tecnologias utilizadas](#6-Tecnologias-utilizadas)
-* [7. Autoras](#7-Autoras)
+## 1. Introduccion
+El objetivo de este proyecto era desarrollar un SPA que le permita ver, publicar datos e interactuar. A partir de las historias de usuario, la red social debe brindar funcionalidades acordes a las necesidades del usuario.
+## 2. Resumen del proyecto
+Pets-Lover es una red social dirigida a personas amantes de las mascotas. En él, el usuario puede publicar fotos de mascotas, tips y cualquier cosa relacionada con el mundo de las mascotas, además de poder editar, borrar su publicación y dar me gusta a las publicaciones de otros usuarios.
+## 3. Historia de usuario
 
-## 1. Resumen del proyecto
+## 4. Diseño de interfaz
 
 
+## 5. Testeo de usabilidad
 
-## 2. Objetivos de aprendizaje
+El proyecto se basó en un sistema de cuentas de usuario, siendo lo que las redes sociales actuales utilizan para garantizar la seguridad y la organización en un sistema con muchos usuarios. Ajustándonos a los requerimientos, contamos con las siguientes secciones:
+
+* **Sign In:** Para usuarios que ya tengan una cuenta creada.
+* **Sign Up:** Para usuarios nuevos.
+* **Home:** El ususario podrá crear, editar, eliminar y reaccionar a las publicaciones tanto suyas como de otros usuarios.
+* **Log out:** Para cuando el usuario desee cerrar sesión.
+## 6. Testing
+## 7. Objetivos de aprendizaje
 
 Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en tu proyecto. Piensa en eso al decidir tu estrategia de trabajo.
 
@@ -118,20 +133,8 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
 - [ ] **Firebase Auth**
 - [ ] **Firestore**
 
-## 3. Consideraciones generales
 
-
-## 4. Criterios de aceptación mínimos del proyecto
-
-## 5. Hacker edition
-
-
-
-* Permite crear posts con imágenes.
-
-
-## 6. Tecnologias utilizadas
-
+## 8. Tecnologias utilizadas
 Para este proyecto se utilizo lo siguiente:
 * JavaScript(ES6+)
 * HTML5
@@ -140,10 +143,11 @@ Para este proyecto se utilizo lo siguiente:
 * Firebase Firestore
 * Firebase Auth
 * EsLint
+* github
 
 ***
 
-## 7. Autoras
+## 9. Autoras
 ### Trabajo colaborativo:💪
 Este proyecto fue realizado por:
 * [Dora Elizabeth Callisaya Choquecota](https://github.com/Dora-tech)
