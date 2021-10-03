@@ -266,10 +266,12 @@ const updateTotalCategory = async(idCategory, action) => { //action es el string
                 let totalCategory = category.totalPosts;
                 if (key == 0) { totalCategory = parseInt(totalCategory) + 1 } else { totalCategory = parseInt(totalCategory) - 1 }
                 updateCategory(idCategory[key], { totalPosts: totalCategory }).then(() => {
+
                     if(path[1] == '/timeline') {
                         const spanCategory = document.querySelector('#category-' + idCategory[key]);
                         spanCategory.textContent = totalCategory + ' Posts';
                     }
+
                 })
             }
         }

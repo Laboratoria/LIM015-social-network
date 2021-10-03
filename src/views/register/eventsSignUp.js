@@ -102,12 +102,12 @@ async function responseOk(result, nameuser, google) {
     localStorage.setItem('iduser', result.user.uid); //almacenar el id en local
     if (google) { //es decir que se esta autenticando con google y puede ser nuevo, para asi almacenar sus datos
         const infoUserProfile = await getUser(result.user.uid).then(response => response.data());
-        if(infoUserProfile == "" || infoUserProfile == null || infoUserProfile == undefined) {
+        if (infoUserProfile == "" || infoUserProfile == null || infoUserProfile == undefined) {
             console.log(infoUserProfile)
             saveUser([result.user.uid, result.user.email, result.user.displayName, result.user.photoURL]);
         }
     } else {
-        saveUser([result.user.uid, result.user.email, nameuser, 'user.jpg']);
+        saveUser([result.user.uid, result.user.email, nameuser, 'https://firebasestorage.googleapis.com/v0/b/prueba-marga.appspot.com/o/users%2Fuser.jpg?alt=media&token=6ae7caf2-52f4-4779-bdd5-78d25bb5c52b']);
     }
     alerts('success', 'Bienvenido'); //mostramos alerta de exito
     window.location.href = "#/timeline";

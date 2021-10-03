@@ -5,7 +5,7 @@ export default () => {
     <section class="container-section-categories">
         <section class="titles-categories">
             <h3>Categorías</h3>
-            <h3>Ver Todos</h3>
+            <h3 id="span-all-categories">Ver Todos</h3>
         </section>
         <section class="categories" id="categories"> </section>             
     </section>

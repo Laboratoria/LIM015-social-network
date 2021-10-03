@@ -661,7 +661,7 @@ img {
     background-color: rgb(255, 255, 255);
     border-radius: 5px;
     width: 100%;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     overflow-y: auto;
     z-index: 2;
 }
@@ -670,7 +670,8 @@ img {
     color: black;
     padding: .2rem .8rem .6rem .8rem;
 }
-.result-search li:last-child  {
+
+.result-search li:last-child {
     padding-bottom: 1rem;
 }
 
@@ -792,6 +793,14 @@ img {
     padding-top: 1rem;
     overflow: auto;
     margin-right: -5px;
+}
+
+#span-all-categories {
+    cursor: pointer;
+}
+
+#span-all-categories:hover {
+    color: #d589ff
 }
 
 
@@ -1102,16 +1111,17 @@ img {
     overflow-y: scroll !important;
 }
 
+
 /** Scroll Bar **/
 
 .content-modal-edit-profile::-webkit-scrollbar {
     width: 0;
 }
 
+
 /* .categories::-webkit-scrollbar:horizontal {
     height: 0;
 } */
-
 
 .head-modal {
     display: flex;
@@ -1194,7 +1204,6 @@ textarea {
 }
 
 
-
 /**Emojis**/
 
 
@@ -1261,7 +1270,7 @@ textarea {
     display: flex;
 }
 
-.image-upload > input {
+.image-upload>input {
     vertical-align: middle;
     height: 40px;
     width: 100%;
@@ -1506,11 +1515,11 @@ textarea {
     height: 30px;
     padding: 0 5px;
     color: #9FA0A1;
-    font-family: 'FontAwesome', 'Second Font name'
+   /*  font-family: 'FontAwesome', 'Second Font name' */
 }
 
 .dropdownModal option {
-    font-family: 'FontAwesome', 'Second Font name'
+    /* font-family: 'FontAwesome', 'Second Font name' */
 }
 
 .span-public {
@@ -1521,17 +1530,22 @@ textarea {
 
 
 /**Sin resultados en los posts */
+
 .notResults {
     font-size: 17px;
     margin: 12% 32%;
 }
 
+
 /** Modal para editar Perfil **/
+
 .content-modal-edit-profile .body-modal form {
     padding-bottom: 1.5rem;
 }
 
+
 /* Estilos de la foto de perfil a editar */
+
 .container-image-user-profile {
     width: 100px;
     height: 100px;
@@ -1550,7 +1564,8 @@ textarea {
     height: 100%;
 }
 
-.container-image-user-profile .image-upload .fa-edit { /*Posicion del icono*/
+.container-image-user-profile .image-upload .fa-edit {
+    /*Posicion del icono*/
     left: 80%;
     top: 80%;
     position: absolute;
@@ -1562,13 +1577,17 @@ textarea {
     position: absolute;
 }
 
+
 /* Estilos de la foto de portada a editar */
+
 .container-image-cover-profile {
     width: 98%;
     height: 100px;
     margin-bottom: 1.5rem;
 }
-.container-image-upload-cover {/*ojo verificar el ancho */
+
+.container-image-upload-cover {
+    /*ojo verificar el ancho */
     width: 390px;
     height: 100px;
     position: relative;
@@ -1580,7 +1599,8 @@ textarea {
     border-radius: 5px;
 }
 
-.container-image-cover-profile .image-upload .fa-edit { /*Posicion del icono*/
+.container-image-cover-profile .image-upload .fa-edit {
+    /*Posicion del icono*/
     left: 95%;
     top: 80%;
     color: #fff;
@@ -1611,10 +1631,12 @@ input:disabled {
     justify-content: space-around;
 }
 
-.group-btn-edit-profile button {
+/* .group-btn-edit-profile button {
     display: block;
     width: 30%;
-}
+
+} */
+
 
 
 

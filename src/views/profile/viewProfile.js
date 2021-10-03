@@ -18,7 +18,6 @@ export default () => {
             <button class="btn btn-secondary" id="btn-editarPerfil"> Editar </button>  
         </section>        
     </section>
-
     <section class="container-section-friends" id="section-friends"> 
         <section class="title-friends" id="title-friends"> 
             <button class="btn btn-icon-friends"> <i class="fas fa-user-friends"></i> </button>
@@ -26,7 +25,6 @@ export default () => {
         </section> 
         <section class="container-friends" id="container-friends"> </section> 
     </section>   
-
     <section class="container-section-user-post">
         <section class="header-section-user-post" id="header-section-user-post">
             <section class="action-user-post">
