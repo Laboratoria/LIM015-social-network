@@ -1,6 +1,6 @@
 export const postCollection = (post, userName, photo, email, uid, photoURL) => firebase.firestore().collection('posts').add({
-  user: userName,
   text: post,
+  user: userName,
   photo,
   email,
   uid,

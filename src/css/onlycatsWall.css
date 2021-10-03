@@ -225,6 +225,10 @@ background-color: transparent;
 .label-name{
     display:none;
 }
+.post-photo{
+    width: 200px;
+}
+
 /*---------------------------View Tablet--------------------------- */
 @media only screen and (min-width:768px){
     .container-box{
@@ -347,7 +351,5 @@ background-color: transparent;
         font-size: 15px;
         font-weight: 500;
     }
-    .post-photo{
-        width: 200px;
-    }
+   
 }
