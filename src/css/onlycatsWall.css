@@ -227,6 +227,7 @@ background-color: transparent;
 }
 .post-photo{
     width: 200px;
+    min-width: 26vw;
 }
 .pata{
     width: 25px;
