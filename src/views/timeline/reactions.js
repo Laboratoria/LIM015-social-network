@@ -1,4 +1,5 @@
 import { updatePost, getPost, getUser } from "../../db/firestore.js";
+import { alerts } from "../../lib/alerts.js"
 const reactionLike = () => {
     const allLikes = document.querySelectorAll('.likes');
 
@@ -51,7 +52,29 @@ const addEventComments = () => {
 
                 //Cargando Comentarios,1ro verificar si hay, 2er paso dividir array-split, segundo paso cargar con un foreach e ir renderizando, por ultimo agregar eventp para publicar, donde se llamaraia a update firestore, y mandamos un objeto con el array
                 const dataPost = await getPost(idPost).then(response => response.data());
-                console.log(dataPost.arrComments, 'sus cometarios')
+                const arrayComments = dataPost.arrComments;
+            
+                if (arrayComments.length > 0) {
+                    const allUsers = JSON.parse(window.localStorage.getItem('allUsers')); //extraemos de local viewHeaderUser Linea 21    
+                    // let arrayCommentsUser;
+                    arrayComments.forEach(element => {
+                        let arrayCommentsUser = element.split('--');
+                        const userFriend = allUsers.find(element => element.idUser == arrayCommentsUser[0]);
+                        console.log(userFriend)
+                        const boxCommentFriends = document.createElement('div');
+                        boxCommentFriends.classList.add('comments-friend-comment', 'friend-comment');
+                        boxCommentFriends.innerHTML = `
+                        <img src="${userFriend.photoUser}" class="friend-comment-pic">
+                        <div class="friend-comment-comment comment">
+                            <p class="comment-author"> ${userFriend.nameUser} </p>
+                            <span class="comment-content"> ${arrayCommentsUser[1]} </span>
+                        </div>
+                        `
+                        footerComments.appendChild(boxCommentFriends);
+                    })
+                } else {
+                    alerts('info', 'Sé el primero en comentar...');
+                }
                 flag = true;
             } else {
                 flag = false;

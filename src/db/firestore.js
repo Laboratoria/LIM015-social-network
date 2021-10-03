@@ -23,7 +23,7 @@ const getPost = (id) => firebase.firestore().collection("posts").doc(id).get();
 const getPostUser = (id) => firebase.firestore().collection("posts").where("idUser", "==", id).get();
 const deletePostFs = (id) => firebase.firestore().collection('posts').doc(id).delete();
 const datePost = () => firebase.firestore.Timestamp.now();
-const getTopTenUsers = () => db.collection("users").limit(7).get()
+const getTopTenUsers = () => firebase.firestore().collection("users").limit(7).get()
 const savePost = (object) => firebase.firestore().collection('posts').add(object);
 const updatePost = (id, object) => firebase.firestore().collection('posts').doc(id).update(object);
 const updateProfileUser = (id, object) => firebase.firestore().collection('users').doc(id).update(object);
