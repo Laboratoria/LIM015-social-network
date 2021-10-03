@@ -1,6 +1,6 @@
 // Save post in firestore
 
-const savePost = (username, userPost, date, userId, userPhoto, likes) =>
+const savePost = (username, userPost, date, userId, userPhoto, likes,url) =>
   firebase.firestore().collection("newPosts").add({ 
     username,
     userPost,
@@ -8,6 +8,7 @@ const savePost = (username, userPost, date, userId, userPhoto, likes) =>
     userId,
     userPhoto,
     likes,
+    url,
     });
 
  // Save user in firestore
