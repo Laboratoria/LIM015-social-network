@@ -661,7 +661,7 @@ img {
     background-color: rgb(255, 255, 255);
     border-radius: 5px;
     width: 100%;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     overflow-y: auto;
     z-index: 2;
 }
@@ -1509,11 +1509,11 @@ textarea {
     height: 30px;
     padding: 0 5px;
     color: #9FA0A1;
-    font-family: 'FontAwesome', 'Second Font name'
+   /*  font-family: 'FontAwesome', 'Second Font name' */
 }
 
 .dropdownModal option {
-    font-family: 'FontAwesome', 'Second Font name'
+    /* font-family: 'FontAwesome', 'Second Font name' */
 }
 
 .span-public {
@@ -1626,7 +1626,12 @@ input:disabled {
     justify-content: space-around;
 }
 
-.group-btn-edit-profile button {
+/* .group-btn-edit-profile button {
     display: block;
     width: 30%;
-}
+
+} */
+
+
+
+
