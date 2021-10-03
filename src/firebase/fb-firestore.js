@@ -33,6 +33,20 @@ const onGetPosts = (callback) =>
       callback(data);
     })
   })
+
+// Get Users from firestore to HTML on Realtime
+
+const onGetUsers = (callback) =>
+  firebase.firestore().collection("Users").orderBy('userName', 'asc').onSnapshot((query) => {
+    const data=[];
+    query.forEach((doc) => {
+      data.push({
+        id:doc.id,
+        ...doc.data()
+      });
+      callback(data);
+    })
+  })
   
 
 // Delete published posts
@@ -45,4 +59,4 @@ const getPost = (id) => firebase.firestore().collection("newPosts").doc(id).get(
 const updatePost = (id, updatedPost) =>
   firebase.firestore().collection("newPosts").doc(id).update(updatedPost);
 
-export { savePost, saveUser, onGetPosts, deletePosts, updatePost, getPost };
+export { savePost, saveUser, onGetPosts, deletePosts, updatePost, getPost, onGetUsers };

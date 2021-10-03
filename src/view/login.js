@@ -160,8 +160,8 @@ const viewLogin = () => {
           
           const userProfile = {
            userId : uId,
-           userName: uName,
-           userLastname: uLastname,
+           userName: uName.toLowerCase(),
+           userLastname: uLastname.toLowerCase(),
            userPhoto: uPhoto,
           };
           saveUser(userProfile);

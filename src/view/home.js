@@ -3,6 +3,7 @@ import {
   onGetPosts,
   updatePost,
   getPost,
+  onGetUsers,
 } from "../firebase/fb-firestore.js";
 
 
@@ -31,26 +32,57 @@ const viewHome = () => {
             </div>
           </form>
         </section>
-        <section id="listUsers" class="home__PostsContainer">
-        </section>
         <section id="postsHomeContainer" class="home__PostsContainer">
         </section>
-
+        <section id="containerListUsers" class="home__PostsContainer containerUsers">
+          <div class='listUsers__tittle'> EMPRENDEDORAS</div>
+          <div id = 'listUsers'></div>
+        </section>
       </section>
 
       `;
   const divHome = document.createElement("div");
   divHome.innerHTML = htmlHome;
-
   divHome.classList.add('homeContainer')
+
+
   const homePost = divHome.querySelector("#postHome-form");
   const postArea = divHome.querySelector("#postArea");
   const postNameUser = divHome.querySelector("#home__userName");
   const postPhotoUser = divHome.querySelector(".imgUser");
   const postListContainer = divHome.querySelector("#postsHomeContainer");
-  
-  firebase.auth().onAuthStateChanged((user) => {
+  const listUsers =divHome.querySelector('#listUsers');
 
+
+ const showAllUser = ()=> {
+  onGetUsers((dataUsers)=>{
+    listUsers.innerHTML= '';
+    dataUsers.forEach((dataUser)=> {
+      console.log(dataUser.userName)
+      const divListUsers = `
+      
+    <div class='boxUser'>
+      <div class='divUserBox' >
+      <img class='imgUser imgUserList' src='${dataUser.userPhoto}'>
+      </div>
+      <div class='divUserBox'>
+      <p class = 'pUser'>${dataUser.userName} ${dataUser.userLastname}</p>
+      </div>      
+    </div>
+    `; 
+
+   listUsers.innerHTML += divListUsers;
+    })
+    
+  })
+
+  
+ 
+ }
+
+
+
+  firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       savePostCurrentUser(user,homePost ,postArea);
       postNameUser.innerHTML = user.displayName;
@@ -58,11 +90,11 @@ const viewHome = () => {
       onGetPosts((data) => {
         setTemplateListPosts(data, user,postListContainer);
       });
+      showAllUser()
     } else {
       window.location.hash('#/')
     }
-  });
-  
+  });  
       return divHome;
 
 };

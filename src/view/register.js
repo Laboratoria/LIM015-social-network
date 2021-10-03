@@ -162,8 +162,8 @@ const viewRegister = () => {
           console.log(uPhoto)
             const userProfile = {
              userId : uId,
-             userName: uName,
-             userLastname: uLastname,
+             userName: uName.toLowerCase(),
+             userLastname: uLastname.toLowerCase(),
              userPhoto: uPhoto,
             };
             saveUser(userProfile);
@@ -207,8 +207,8 @@ const viewRegister = () => {
         
         const userProfile = {
          userId : uId,
-         userName: uName,
-         userLastname: uLastname,
+         userName: uName.toLowerCase(),
+         userLastname: uLastname.toLowerCase(),
          userPhoto: uPhoto,
         };
         saveUser(userProfile);

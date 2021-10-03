@@ -8,6 +8,5 @@
     appId: "1:1028709876253:web:22fbbdcc4de54211e17cf4"
   };
 
-  console.log('estes es la configuración')
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
