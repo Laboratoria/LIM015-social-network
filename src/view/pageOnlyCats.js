@@ -75,13 +75,13 @@ export const pageOnlyCats = () => {
         <div class="container-fondo">
           <img src="./img/profile.png" "alt='fondo' class="profile-fondo">
         </div>
-        <div class="container-photo">
-          <img src="${photoUser}" "alt='picture' class="profile-photo">
+        <div class="container-phot">
+          <img src="${photoUser}" "alt='picture' class="profile-phot">
         </div>
-        <p class="name-input"> ${localUser.displayName} </p>
-        <p class="name-input"> ${email} </p>
+        <p class="profile-name"> ${localUser.displayName} </p>
+        <p class="profile-email"> ${email} </p>
         <p class="biography-name"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <button class="profile-btn" id="profile-btn">Editar Perfil</button>
+        <p class="profile-btn" id="profile-btn">Editar Perfil</p>
       </aside>
     </main>
   </section>`;
