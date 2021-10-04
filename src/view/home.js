@@ -59,8 +59,7 @@ const viewHome = () => {
   const postListContainer = divHome.querySelector("#postsHomeContainer");
   const listUsers =divHome.querySelector('#listUsers');
   const imgButton = divHome.querySelector('#imgButton');
-  console.log(imgButton)
-
+ 
 /* funcion para mostrar la lista de emprendedoras*/
  const showAllUser = ()=> {
   onGetUsers((dataUsers)=>{
@@ -156,10 +155,10 @@ const setTemplateListPosts = (data, user,postListContainer) => {
           </div>
         </div>
         <div class="post__inputtext">
-        ${
-          postText.userId === user.uid ?`
+        ${ postText.userPost? `
+        ${postText.userId === user.uid ?`
           <textarea class="post__input" id="text-${postText.id}" data-id="${postText.userId}"readonly>${postText.userPost}</textarea>`:
-          `<p class="post__paragraph" id="text-${postText.id}" data-id="${postText.userId}"readonly>${postText.userPost}</p>`} 
+          `<p class="post__paragraph" id="text-${postText.id}" data-id="${postText.userId}"readonly>${postText.userPost}</p>`} `:``}
           ${postText.url? `<img class="post__imgPost" src="${postText.url}"  alt="photoPost">`: ``}
              
         </div>
@@ -213,15 +212,11 @@ const setTemplateListPosts = (data, user,postListContainer) => {
       icon.addEventListener('click' , async (e)=>{
         const idDocPost = e.target.dataset.id;
         let likesArray = await getPost(idDocPost).then((doc)=>{
-          console.log(doc.data().likes)
           return  doc.data().likes
         })
            if(!likesArray.includes(user.uid)){
             likesArray.push(user.uid);
              await updatePost(idDocPost,{ likes: likesArray});    
-
-            console.log('si le diste likee')
-
           }else{
             
             likesArray=likesArray.filter(lik=>lik!==user.uid);
@@ -304,37 +299,52 @@ const setTemplateListPosts = (data, user,postListContainer) => {
 
 /*funcion de guardar data de post en el firestore */ 
 
+
 const savePostCurrentUser = (user,homePost ,postArea) => {
 
    return  homePost.addEventListener("submit",  (e) => {
       
         e.preventDefault();
+        const idDocPost = e.target.dataset.id;
+        const postTextPublic = document.getElementById(`text-${idDocPost}`);
         const usernamePost = user.displayName; //verificar donde pasa el nombre del firebase al div
-        const userPost = postArea.value;
+        const userPostText = postArea.value;
         const date = new Date().toLocaleString("es-ES");
         const userId = user.uid;
         const userPhoto = user.photoURL;
         const likes = [];
         const inputImg = homePost[1].files;
 
-        console.log(inputImg)
-      
-        if(postArea.value || inputImg.length >= 1) {
-        
-          if(inputImg.length >= 1){
+        console.log(typeof userPostText , 'texto ' , postTextPublic)
+          if(inputImg.length >= 1 &&  userPostText ){
             const file = inputImg[0];
-              console.log(file)
             uploadImages(`images/${file.name}`, file).then((snapshot) => {
                 snapshot.ref.getDownloadURL().then((url) => {
-                  savePost(usernamePost, userPost, date, userId, userPhoto, likes, url);
+                  savePost(usernamePost, userPostText, date, userId, userPhoto, likes, url);
                 });
               });
-            } else {
-              savePost(usernamePost, userPost, date, userId, userPhoto, likes, '');
-            }
-          }else{
-          postArea.focus();
-        }
+          }
+          else if(inputImg.length >= 1 && !userPostText ){
+          //  postTextPublic.style.display= 'none';
+          const file = inputImg[0];
+          uploadImages(`images/${file.name}`, file).then((snapshot) => {
+              snapshot.ref.getDownloadURL().then((url) => {
+                savePost(usernamePost,'', date, userId, userPhoto, likes, url);
+              });
+            });
+          }
+          else if(inputImg.length == 0 && userPostText ){
+            //  postTextPublic.style.display= 'none';
+           
+            savePost(usernamePost, userPostText, date, userId, userPhoto, likes, '');
+          }
+          else {
+            postArea.focus();        
+
+          }
+        
+          
+
         homePost.reset();
         homePost.querySelector('#postImgPreview').innerHTML = '';
         postArea.focus();
