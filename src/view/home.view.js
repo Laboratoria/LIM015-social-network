@@ -24,6 +24,8 @@ export function viewHome() {
       <textarea id="post" class='post'placeholder='
       Write your post here'rows='10'cols='30'></textarea>
       <button type='button'id='btnpost'>Post</button>
+
+      <section class='post-container'></section>
     
       </section>
       `;
