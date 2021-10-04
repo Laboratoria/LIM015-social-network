@@ -208,11 +208,11 @@ export const pageOnlyCats = () => {
     const postImage = container.querySelector('#postImage');
     const objFileImg = postImage.files[0];
     const dir = 'posts';
-    const name = objFileImg.name;
 
     if (textInput.value.length !== 0) {
       if (editStatus === false) {
         if (postImage.files.length === 1) {
+          const name = objFileImg.name;
           uploadPostImage(name, objFileImg)
             .then(() => getPostImageURL(dir, name))
             .then((photoURL) => {
@@ -232,6 +232,7 @@ export const pageOnlyCats = () => {
       }
     } else if (textInput.value.length === 0) {
       if (postImage.files.length === 1) {
+        const name = objFileImg.name;
         uploadPostImage(name, objFileImg)
           .then(() => getPostImageURL(dir, name))
           .then((photoURL) => {

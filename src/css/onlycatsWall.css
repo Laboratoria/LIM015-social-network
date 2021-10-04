@@ -207,7 +207,7 @@ background-color: transparent;
 }
 .btn-heart{
     width: 22px;
-    margin-right: 5p;
+    margin-right: 5px;
 }
 .fa-heart:hover{
     cursor: pointer;
@@ -388,7 +388,7 @@ background-color: transparent;
         /* font-weight: 550; */
         padding: 5px 15px;
         background: #746CEF;
-        cursor: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/9632/happy.png"), auto;
+        cursor:  pointer;
     }
     .profile-fondo{
         width:20vw;
