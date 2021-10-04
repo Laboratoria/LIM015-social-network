@@ -25,7 +25,9 @@ export function viewHome() {
       Write your post here'rows='10'cols='30'></textarea>
       <button type='button'id='btnpost'>Post</button>
 
-      <section  id='post-container' class='post-container'></section>
+      <section  id='post-container' class='post-container'>
+      <textarea id="showPost" class="show-post"> </textarea>
+      </section>
     
       </section>
       `;
@@ -80,3 +82,10 @@ document.addEventListener('click', (e) => {
     post.value = '';
   }
 });
+
+// pintar post
+
+function showPost() {
+  showPost.innerHTML = publishPost();
+}
+showPost();

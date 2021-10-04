@@ -25,14 +25,7 @@ export const logInWithEmail = (email, password) => {
   return loginn;
 };
 
-export const logInWithGoogle = () => {
-  const provider = new firebase.auth.GoogleAuthProvider();
-  return firebase.auth().signInWithPopup(provider);
-};
-
-/* export const registerWithEmail = (email, password) => firebase.auth()
-   .createUserWithEmailAndPassword(email, password); */
-
+// funcion para obtener los post
 export const publishPost = (objPublicacion) => firebase
   .firestore()
   .collection('post')

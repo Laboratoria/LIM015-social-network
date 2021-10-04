@@ -1,8 +1,8 @@
+/* eslint-disable no-use-before-define */
 /* eslint-disable no-unused-vars */
 import {
   login,
   logInWithEmail,
-  logInWithGoogle,
 } from '../security/security.function.js';
 import { getUserInfo } from '../security/current.js';
 
@@ -69,13 +69,12 @@ export function initLogin() {
     e.stopPropagation();
     // eslint-disable-next-line no-use-before-define
     login();
-    // eslint-disable-next-line no-use-before-define
     logInWithGoogleClick();
   });
 }
 
 const logInWithGoogleClick = () => {
-  logInWithGoogle()
+  login()
     .then(() => {
       getUserInfo();
       window.location.hash = '#/home';
