@@ -25,7 +25,7 @@ export function viewHome() {
       Write your post here'rows='10'cols='30'></textarea>
       <button type='button'id='btnpost'>Post</button>
 
-      <section class='post-container'></section>
+      <section  id='post-container' class='post-container'></section>
     
       </section>
       `;
