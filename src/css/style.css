@@ -14,6 +14,7 @@ body{
         #dc8eaa 74.89%, 
         #9885f7 97.92%
     );
+    /* cursor: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/9632/happy.png"), auto; */
 }
 .container-box{
     margin: 10px 10px;
@@ -176,7 +177,8 @@ form{
 }
 .form-button{
 	display: block;
-	width: 100%;
+	width: 20vw;
+    min-width: 220px;
 	height: 50px;
 	border-radius: 15px;
 	outline: none;
@@ -233,6 +235,8 @@ a{
     font-weight: 700;
 }
 .input-div {
+    width:20vw;
+    min-width:200px;
     position: relative;
     display: grid;
     grid-template-columns: 7% 93%;
@@ -240,6 +244,7 @@ a{
     padding: 5px 0;
     border-bottom: 2px solid #d9d9d9;
 }
+
 span{
     color: rgb(75, 73, 73);
 }
