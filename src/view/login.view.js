@@ -67,7 +67,7 @@ export function initLogin() {
     e.preventDefault();
     e.stopPropagation();
     // eslint-disable-next-line no-use-before-define
-    showLogin();
+    // /* showLogin(); */
     // eslint-disable-next-line no-use-before-define
     logInWithGoogleClick();
   });
