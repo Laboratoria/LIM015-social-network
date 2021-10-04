@@ -118,7 +118,7 @@ export const pageOnlyCats = () => {
               <img src="https://img.icons8.com/color/48/000000/dog-paw-print.png" class="pata" >
               <img src="https://img.icons8.com/external-tulpahn-flat-tulpahn/64/000000/external-kissing-cat-emoji-tulpahn-flat-tulpahn.png" class="pata" >
               <img src="https://img.icons8.com/cute-clipart/64/000000/cat.png" class="pata" >
-              <img src="https://cdn-icons-png.flaticon.com/512/2865/2865523.png" class="pata" >
+              <img src="img/recurso-1.png" class="pata" >
               <span>${dataContent.likes.length} </span>
             </div>
           </section>
@@ -205,13 +205,14 @@ export const pageOnlyCats = () => {
   /* -------------------------------Crear Post (C) ------------------------- */
   btnPublish.addEventListener('click', async () => {
     // EditStatus sera falso cuando no exista un post, y recién se este creando
+    const postImage = container.querySelector('#postImage');
+    const objFileImg = postImage.files[0];
+    const dir = 'posts';
+    const name = objFileImg.name;
+
     if (textInput.value.length !== 0) {
       if (editStatus === false) {
-        const postImage = container.querySelector('#postImage');
-        const objFileImg = postImage.files[0];
-        const dir = 'posts';
         if (postImage.files.length === 1) {
-          const name = objFileImg.name;
           uploadPostImage(name, objFileImg)
             .then(() => getPostImageURL(dir, name))
             .then((photoURL) => {
@@ -230,7 +231,17 @@ export const pageOnlyCats = () => {
         sectionElement.querySelector('.hide').style.display = 'none';
       }
     } else if (textInput.value.length === 0) {
-      swal('El post está vacío :c');
+      if (postImage.files.length === 1) {
+        uploadPostImage(name, objFileImg)
+          .then(() => getPostImageURL(dir, name))
+          .then((photoURL) => {
+            postCollection(textInput.value, displayName, photoUser, email, uid, photoURL);
+            textInput.value = '';
+            postImage.value = '';
+          });
+      } else {
+        swal('El post está vacío :c');
+      }
     }
   });
   readPosts();
