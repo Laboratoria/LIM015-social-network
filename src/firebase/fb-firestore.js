@@ -39,16 +39,30 @@ const onGetPosts = (callback) =>
 
 const onGetUsers = (callback) =>
   firebase.firestore().collection("Users").orderBy('userName', 'asc').onSnapshot((query) => {
+  
     const data=[];
     query.forEach((doc) => {
       data.push({
         id:doc.id,
         ...doc.data()
       });
+      //console.log(data);
       callback(data);
     })
   })
+
+ /* const onGetUsers = (callback,) =>
+  firebase.firestore().collection("Users").orderBy('userName', 'asc').onSnapshot((query) => {
+    //console.log(query.docs.data())
+    //console.log(query.docs);
+    //console.log(query.docs[0].data());
+    const data=query.docs;
+   
+     // console.log(data);
+      callback(data);
+    })*/
   
+
 
 // Delete published posts
 const deletePosts = (id) =>
