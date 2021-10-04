@@ -212,6 +212,8 @@ const viewRegister = () => {
          userPhoto: uPhoto,
         };
         saveUser(userProfile);
+        /*guardar data en local storage*/
+        //localStorage.setItem("User",userProfile)
       }
       window.open("#/home", "_self");
     })

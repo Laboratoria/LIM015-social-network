@@ -1,6 +1,9 @@
 const viewProfile =()=>{
   
 
+  
+
+
     const htmlProfile = `
     <section class='profile'>
         <section class="profile__cover">
@@ -30,6 +33,27 @@ const viewProfile =()=>{
     </section > 
     `;
        
+
+
+
+
+    /*firebase.firestore().collection('users').doc('6oyY6sr0RcNNeUvyd3N2').onSnapshot((doc =>
+        console.log(doc)));*/
+
+        firebase.firestore().collection('Users').where('userId', '==', 'WqSZ9Ub1jFVsBTWPY1Wbv4xHzOy1').get().then(posts => {
+
+            console.log(posts)
+             posts.docs.map(e => {
+                console.log(e.data());
+                console.log(e.data().userLastname);
+
+
+            })
+        })
+
+
+
+
     const divProfile=document.createElement('div');
     divProfile.classList.add('profileContainer')
     divProfile.innerHTML=htmlProfile;

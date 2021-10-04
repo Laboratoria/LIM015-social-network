@@ -1,8 +1,6 @@
 import {deletePosts} from "../firebase/fb-firestore.js";
 
 
-
-
 const modalProfile = () => {
     const ContentModalProfile = `
     <section class="containerModalProfile">
@@ -98,9 +96,15 @@ const modalDelete = (selection) => {
    btnYes.addEventListener('click',async () => { 
        console.log("eliminado comentario");
     await deletePosts(selection)
+    modalContainerDelete.style.display="none";
    });
 
    return modalContainerDelete;
+}
+
+
+const modalPerfil=() => {
+
 }
 
 

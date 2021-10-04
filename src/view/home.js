@@ -18,7 +18,7 @@ const viewHome = () => {
           </div>
          <div class="home__profileBox">
            <h3 id="home__userName" ></h3>
-           <p id="name" class="home__userProfile"> ver perfil </p>
+           <a id="viewPerfil" href="#/profile"class="home__userProfile"> ver perfil </a>
          </div>
         </section>
         <section id="postHomeContainer" class="home__postContainer">
@@ -155,10 +155,12 @@ const setTemplateListPosts = (data, user,postListContainer) => {
           </div>
         </div>
         <div class="post__inputtext">
-        ${ postText.userPost? `
-        ${postText.userId === user.uid ?`
-          <textarea class="post__input" id="text-${postText.id}" data-id="${postText.userId}"readonly>${postText.userPost}</textarea>`:
-          `<p class="post__paragraph" id="text-${postText.id}" data-id="${postText.userId}"readonly>${postText.userPost}</p>`} `:``}
+        ${ postText.userPost?
+
+          `<p class="post__input" id="text-${postText.id}" data-id="${postText.userId}">${postText.userPost}</p>
+          <textarea class="post__input" id="textearea-${postText.id}" data-id="${postText.userId}" hidden="true" readonly>${postText.userPost}</textarea>`
+           : ``}
+
           ${postText.url? `<img class="post__imgPost" src="${postText.url}"  alt="photoPost">`: ``}
              
         </div>
@@ -195,7 +197,8 @@ const setTemplateListPosts = (data, user,postListContainer) => {
       btn.addEventListener("click",  (e) => {
         try {
           console.log("modal dele");
-           modaldeletePost.appendChild(modalDelete(e.target.dataset.id))
+          modaldeletePost.appendChild(modalDelete(e.target.dataset.id))
+           
                      
         }catch (error){
           console.log(error)
@@ -233,26 +236,34 @@ const setTemplateListPosts = (data, user,postListContainer) => {
       btnEdit.forEach((btn) => {
         btn.addEventListener("click", async (e) => {
           try{
+
             e.preventDefault();
             const idDocPost = e.target.dataset.id;
             const contentTextPost = document.getElementById(`text-${idDocPost}`);
             const btnDeletePost = document.getElementById(`delete-${idDocPost}`);
             const btnCancelPost = document.getElementById(`cancel-${idDocPost}`);
+            const textarea= document.getElementById(`textearea-${idDocPost}`)
+
             btnDeletePost.setAttribute('hidden',true);
             btnCancelPost.removeAttribute('hidden');
-            // btnCancelPost.style.display='flex';
-            contentTextPost.removeAttribute("readonly");
+
+            textarea.removeAttribute('hidden');
+            contentTextPost.setAttribute('hidden',true);
+            textarea.removeAttribute("readonly");
+
             btn.innerText = 'guardar';
           
             if(e.target.innerText == 'GUARDAR'){
+
               btn.classList.remove('btn-edit');
               // btnDeletePost.removeAttribute('data-id')
               btn.addEventListener('click',async (e) => {
               try{
                 e.preventDefault()
-                contentTextPost.setAttribute("readonly", true);
+                textarea.setAttribute("readonly", true);
+                
                 btn.innerText = 'editar';
-                await updatePost(idDocPost, { userPost: contentTextPost.value});
+                await updatePost(idDocPost, { userPost: textarea.value});
                 if(e.target.innerText == 'EDITAR'){
                   contentTextPost.setAttribute("readonly", false);
                   btnDeletePost.setAttribute('hidden', false);
@@ -268,13 +279,17 @@ const setTemplateListPosts = (data, user,postListContainer) => {
             btnCancelPost.addEventListener('click', async () => {
               try{
                 const idDocPost = e.target.dataset.id;
+                contentTextPost.removeAttribute('hidden');
+                textarea.setAttribute('hidden',true);
+
                 await getPost(idDocPost).then((doc)=>{
-                contentTextPost.value = doc.data().userPost;
+                textarea.value = doc.data().userPost;
+
                 btnDeletePost.removeAttribute('hidden');
                 btnCancelPost.setAttribute('hidden', true);
                 btn.classList.add('btn-edit');
                 btn.innerText = 'editar';
-                contentTextPost.setAttribute("readonly" , true);
+                textarea.setAttribute("readonly" , true);
                 prueba(btnEdit)
               })
               }
@@ -282,7 +297,7 @@ const setTemplateListPosts = (data, user,postListContainer) => {
                 console.log(error)
               }
             })
-            contentTextPost.focus();
+            textarea.focus();
           }catch(error){
             console.log(error)
           }
