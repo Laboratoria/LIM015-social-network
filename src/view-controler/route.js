@@ -5,6 +5,7 @@ import { addEventResetPassword } from '../views/password/eventsResetPassword.js'
 import { addEventsRegister } from '../views/register/eventsSignUp.js';
 import { loadComponents, loadComponentsProfile  } from '../views/timeline/loadComponents.js';
 
+
 const changeView = (route) => {
     const containerMain = document.querySelector('#container-main');
     containerMain.innerHTML = '';
@@ -31,11 +32,11 @@ const changeView = (route) => {
             }
         case '#/timeline':
             {
-                const viewTimeLine = containerMain.appendChild(components.timeLine());
-                const firstChild = viewTimeLine.firstChild;
-                viewTimeLine.insertBefore(components.header(), firstChild);
-                loadComponents();
-                return viewTimeLine;
+                        const viewTimeLine = containerMain.appendChild(components.timeLine());
+                        const firstChild = viewTimeLine.firstChild;
+                        viewTimeLine.insertBefore(components.header(), firstChild);
+                        loadComponents();
+                        return viewTimeLine;
             }
         case '#/profile':
             {

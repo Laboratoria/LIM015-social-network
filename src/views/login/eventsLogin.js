@@ -64,7 +64,6 @@ async function responseOk(result, google) {
         }
         
     }
-    alerts('success', 'Bienvenido') //mostramos alerta de exito
     window.location.href = "#/timeline"; //redireciona al timeLine
 }
 
