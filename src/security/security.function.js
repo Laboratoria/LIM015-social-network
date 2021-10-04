@@ -3,6 +3,7 @@
 export const emailVerication = () => firebase.auth().currentUser.sendEmailVerification();
 
 export const registerWithEmail = (email, password) => firebase.auth().createUserWithEmailAndPassword(email, password);
+
 export async function login() {
   const googleProvider = new firebase.auth.GoogleAuthProvider();
   try {

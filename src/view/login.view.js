@@ -4,6 +4,7 @@ import {
   logInWithEmail,
   logInWithGoogle,
 } from '../security/security.function.js';
+import { getUserInfo } from '../security/current.js';
 
 export function viewLogin() {
   const divElem = document.createElement('article');
@@ -62,7 +63,6 @@ document.addEventListener('click', (e) => {
 /* inicio de sesion con google */
 export function initLogin() {
   const buttonLogin = document.querySelector('#btnGoogle');
-
   buttonLogin.addEventListener('click', (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -72,6 +72,20 @@ export function initLogin() {
     logInWithGoogleClick();
   });
 }
+
+const logInWithGoogleClick = () => {
+  logInWithGoogle()
+    .then(() => {
+      getUserInfo();
+      window.location.hash = '#/home';
+    })
+    .catch((error) => {
+      /*     Manejar errores aquí. */
+      console.log('error');
+      /*    El correo electrónico de la cuenta del usuario utilizada. */
+    });
+};
+
 async function showLogin() {
   try {
     await login();
@@ -79,20 +93,3 @@ async function showLogin() {
     // console.log(error);
   }
 }
-export const logInWithGoogleClick = () => {
-  const message = document.querySelector('.message');
-  message.innerHTML = '';
-  logInWithGoogle()
-    .then(() => {
-      const user = firebase.auth().currentUser;
-      if (user != null) {
-        window.location.hash = '#/home';
-        message.innerHTML = '';
-      }
-    })
-    .catch((error) => {
-      /*     Manejar errores aquí. */
-      // console.log('error');
-      /*    El correo electrónico de la cuenta del usuario utilizada. */
-    });
-};
