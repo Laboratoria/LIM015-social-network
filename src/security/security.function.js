@@ -26,3 +26,16 @@ export const logInWithGoogle = () => {
 };
 /* export const registerWithEmail = (email, password) => firebase.auth()
    .createUserWithEmailAndPassword(email, password); */
+
+export const publishPost = (objPublicacion) => firebase
+  .firestore()
+  .collection('post')
+  .add(objPublicacion)
+  .then((docRef) => {
+    console.log('Documento escrito con el ID: ', docRef.id);
+    // resolver('documeto registrado');
+  })
+  .catch((error) => {
+    console.log(error);
+    //  rechazar('documeto no registrado');
+  });
