@@ -50,4 +50,8 @@ p {
   margin-top: 20px;
 }
 
-
+#post{
+  border:0;
+  outline: none;
+  text-align: center;
+}

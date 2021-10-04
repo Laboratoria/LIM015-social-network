@@ -69,13 +69,13 @@ document.addEventListener('click', (e) => {
       };
       publishPost(objPublicacion)
         .then((resolve) => {
-          console.log(resolve);// eslint-disable-line
+          console.log(resolve); // eslint-disable-line
         })
         .catch((reject) => {
-          console.log(reject);// eslint-disable-line
+          console.log(reject); // eslint-disable-line
         });
     } else {
-      alert('Por favor, llena el campo'); // eslint-disable-line
+      alert("Por favor, llena el campo"); // eslint-disable-line
     }
     post.value = '';
   }

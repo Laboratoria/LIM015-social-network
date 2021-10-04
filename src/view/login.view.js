@@ -38,6 +38,7 @@ export function viewLogin() {
   divElem.innerHTML = viewLoginv; */
   return divElem;
 }
+
 /* inicio de sesion con email */
 document.addEventListener('click', (e) => {
   if (e.target.id === 'btnsignin') {
@@ -67,7 +68,7 @@ export function initLogin() {
     e.preventDefault();
     e.stopPropagation();
     // eslint-disable-next-line no-use-before-define
-    showLogin();
+    login();
     // eslint-disable-next-line no-use-before-define
     logInWithGoogleClick();
   });
@@ -85,11 +86,3 @@ const logInWithGoogleClick = () => {
       /*    El correo electrónico de la cuenta del usuario utilizada. */
     });
 };
-
-async function showLogin() {
-  try {
-    await login();
-  } catch (error) {
-    // console.log(error);
-  }
-}

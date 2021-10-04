@@ -14,17 +14,22 @@ export async function login() {
     throw new Error(error);
   }
 }
+
+// funcion para cerrar sesion
 export function logout() {
   firebase.auth().signOut();
 }
+
 export const logInWithEmail = (email, password) => {
   const loginn = firebase.auth().signInWithEmailAndPassword(email, password);
   return loginn;
 };
+
 export const logInWithGoogle = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
   return firebase.auth().signInWithPopup(provider);
 };
+
 /* export const registerWithEmail = (email, password) => firebase.auth()
    .createUserWithEmailAndPassword(email, password); */
 
