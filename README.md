@@ -1,4 +1,4 @@
-# Creando una Red Social
+# Course Share :star:
 
 ## Índice
 * [1. Preámbulo](#1-preámbulo)
