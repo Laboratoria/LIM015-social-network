@@ -5,38 +5,40 @@ import { getUser } from '../../db/firestore.js';
 // const nameUserPath = infouser.nameUser.replace(/\s+/g, '');
 
 
-const addEventsTimeline = async () => {
-        document.querySelector('#div-body').className = "bodyBackground"; //cambiamos el background del body
+const addEventsTimeline = async() => {
+    document.querySelector('#div-body').className = "bodyBackground"; //cambiamos el background del body
 
-        /***Evento para Salir***/
-        const btnSalir = document.querySelector('#logout');
-        btnSalir.addEventListener('click', () => {
-            signOut().then(() => {
-                document.querySelector('#div-body').classList.remove('bodyBackground');
-                localStorage.clear();
-                window.location.href = "";
-            })
+    /***Evento para Salir***/
+    const btnSalir = document.querySelector('#logout');
+    btnSalir.addEventListener('click', () => {
+        signOut().then(() => {
+            document.querySelector('#div-body').classList.remove('bodyBackground');
+            window.location.hash = '#/login';
+        }).catch((error) => {
+            alert(error)
         });
 
-        /***Eventos para Abrir y Cerrar Modal***/
-        addEventModalCreatePost()
+    });
 
-        /***Renderizar TextArea***/
-        renderTextareaPosts()
+    /***Eventos para Abrir y Cerrar Modal***/
+    addEventModalCreatePost()
 
-        const url = window.location.href;
-        const path = url.split('#')
-        if (path[1] == '/timeline') {
-            sliderPopularPost();
-        }
+    /***Renderizar TextArea***/
+    renderTextareaPosts()
 
-        addEventLinkUser()
+    const url = window.location.href;
+    const path = url.split('#')
+    if (path[1] == '/timeline') {
+        sliderPopularPost();
+    }
+
+    addEventLinkUser()
 }
 
 const addEventLinkUser = () => {
-    
+
     //Evento para redireccionar al perfil de un user
-    const allLinksUser= document.querySelectorAll('.link-user');
+    const allLinksUser = document.querySelectorAll('.link-user');
     allLinksUser.forEach(link => {
         link.addEventListener('click', (e) => {
             const idUser = e.target.dataset.id;
@@ -71,12 +73,12 @@ const addEventModalCreatePost = () => {
     });
 }
 
-const renderTextareaPosts = async () => {
-    const userPost = document.querySelector('.user-info-textarea');
-    const placeholderTextarea = document.querySelector('.textarea-post');
-    const idUserAuth = localStorage.getItem('iduser'); //Esto vien de la linea 58 del archivo eventLogin OBTENER EL ID USER
-    const infouser = await getUser(idUserAuth).then(response => response.data());
-    userPost.innerHTML = `
+const renderTextareaPosts = async() => {
+        const userPost = document.querySelector('.user-info-textarea');
+        const placeholderTextarea = document.querySelector('.textarea-post');
+        const idUserAuth = localStorage.getItem('iduser'); //Esto vien de la linea 58 del archivo eventLogin OBTENER EL ID USER
+        const infouser = await getUser(idUserAuth).then(response => response.data());
+        userPost.innerHTML = `
     <a href="#/profile" class="user-information">  
         <img class="avatar avatar-sm" src="${/^(http|https):\/\/[^ "]+$/.test(infouser.photouser)?infouser.photouser:`../images/profile/`+infouser.photouser}" alt="img-user"> 
         <span> ${infouser.nameuser} </span> 
