@@ -39,23 +39,39 @@ const onGetPosts = (callback) =>
 
 const onGetUsers = (callback) =>
   firebase.firestore().collection("Users").orderBy('userName', 'asc').onSnapshot((query) => {
-    const data=query.docs;
-    // console.log(data);
-     callback(data);
-    })
-
-
- /* const onGetUsers = (callback,) =>
-  firebase.firestore().collection("Users").orderBy('userName', 'asc').onSnapshot((query) => {
-    //console.log(query.docs.data())
-    //console.log(query.docs);
-    //console.log(query.docs[0].data());
-    const data=query.docs;
-   
-     // console.log(data);
+    const data=[];
+    query.forEach((doc) => {
+      data.push({
+        id:doc.id,
+        ...doc.data()
+      });
       callback(data);
-    })*/
+    })
+  })
   
+
+
+  const infoData = (id) => firebase.firestore().collection('Users').where('userId', '==', id).get().then(posts => {
+    console.log(posts)
+    return posts.docs.map(e => {
+        //console.log(e.data().userId);
+      const dataUser= {
+            userId : e.data().userId,
+            userName: e.data().userName,
+            userLastname: e.data().userLastname,
+            userPhoto: e.data().userPhoto,
+            userEmail:e.data().userEmail,
+            userPhone:e.data().userPhone,
+            userCompany:e.data().userCompany,
+            userLocation:e.data().userLocation,
+            userDescription:e.data().userDescription,
+      }
+       //console.log(dataUser);
+    return dataUser
+        })
+  })
+
+
 
 
 // Delete published posts
@@ -68,4 +84,4 @@ const getPost = (id) => firebase.firestore().collection("newPosts").doc(id).get(
 const updatePost = (id, updatedPost) =>
   firebase.firestore().collection("newPosts").doc(id).update(updatedPost);
 
-export { savePost, saveUser, onGetPosts, deletePosts, updatePost, getPost, onGetUsers };
+export { savePost, saveUser, onGetPosts, deletePosts, updatePost, getPost, onGetUsers, infoData };

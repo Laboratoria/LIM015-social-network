@@ -298,6 +298,7 @@ cursor: pointer;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  padding-top: 1.5em;
 }
 .editProfile{
   align-self: end;
@@ -317,6 +318,24 @@ cursor: pointer;
   display: flex;
   align-items: center;
 }
+
+
+/*datos de profile */
+
+.userNameProfile{
+  font-size:1.3rem;
+  color: #742284;
+}
+
+.CompanyDescription{
+  font-style: italic;
+  color:rgb(77, 75, 75);
+}
+
+.companyProfileName{
+  padding: 0.3em 0 0.6em 0;
+}
+
 
 /* responsive desktop */
 

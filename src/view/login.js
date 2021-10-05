@@ -152,17 +152,29 @@ const viewLogin = () => {
     loginGoogle()
       .then((userCredential) => {
         const newUser = userCredential.additionalUserInfo.isNewUser;
+        
         if (newUser){
           const uId = userCredential.user.uid;
           const uName = userCredential.additionalUserInfo.profile.given_name;
           const uLastname = userCredential.additionalUserInfo.profile.family_name;
           const uPhoto = userCredential.additionalUserInfo.profile.picture;
-          
+          const uEmail=userCredential.user.email
+          const uPhone="999 999 999 ";
+          const uCompany="Empresa S.A.C ";
+          const uLocation=" Lima_Perú";
+          const uDescription=" Mi emprendimiento se dedica a... ";
+  
           const userProfile = {
            userId : uId,
            userName: uName.toLowerCase(),
            userLastname: uLastname.toLowerCase(),
            userPhoto: uPhoto,
+           userEmail:uEmail,
+           userPhone:uPhone,
+           userCompany:uCompany,
+           userLocation:uLocation,
+           userDescription:uDescription
+  
           };
           saveUser(userProfile);
         }
@@ -172,9 +184,6 @@ const viewLogin = () => {
         console.log(error);
       });
   });
-
-
-
 
 
   return sectionLogin;
