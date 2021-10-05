@@ -1,4 +1,4 @@
-# Course Share :books: :art: :book:
+# :star2: Course Share :books: :art: 
 
 ## Índice
 * [1. Preámbulo](#1-preámbulo)
