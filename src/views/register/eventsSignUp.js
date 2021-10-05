@@ -1,6 +1,6 @@
 import { validInput, limpiar } from '../../lib/validInputs.js'
 import { alerts, alertProcess } from '../../lib/alerts.js';
-import { loginGoogle, registerEmail } from '../../db/firebase-auth.js';
+import { loginGoogle, registerEmail} from '../../db/firebase-auth.js';
 import { saveUser, getUser } from '../../db/firestore.js';
 import { changeView } from '../../router/router.js';
 const addEventsRegister = () => {
@@ -29,6 +29,7 @@ const addEventsRegister = () => {
                 }
                 changeView('');
                 responseOk(result, nameuser, false);
+                
             }).catch((error) => {
                 responseError(error);
             });
@@ -114,6 +115,7 @@ async function responseOk(result, nameuser, google) {
         alerts('success', 'Bienvenido'); //mostramos alerta de exito
         
     } else {
+        alerts('info', 'Por favor verifica tu correo electronico')
         saveUser([result.user.uid, result.user.email, nameuser, 'https://firebasestorage.googleapis.com/v0/b/prueba-marga.appspot.com/o/users%2Fuser.jpg?alt=media&token=6ae7caf2-52f4-4779-bdd5-78d25bb5c52b']);
         if( result.user.emailVerified === true ) {
             window.location.hash = '#/timeline';
@@ -122,8 +124,6 @@ async function responseOk(result, nameuser, google) {
             alerts('info', 'Por favor verifica tu email');
         }
     }
-
-    // window.location.href = "#/timeline";
 }
 
 function responseError(error) {
