@@ -1,6 +1,11 @@
 # :star2: CourseShare :books: 
 ![diseñofinal](https://github.com/DianaHuaripayta/LIM015-social-network/blob/dev-diana/src/images/imgReadme/CourseShare.png)
 
+Es una red social que conecta a personas interesadas en conpartir material de aprendizaje en cualquier area. 
+Lo cual permite conectarnos con personas con los mismos intereses.
+
+## Developers - Lima 015 :computer: :sparkling_heart:
+[link](Diana Huaripayta Gonzales)
 ## Índice 
 
 * [1. Definición del producto](#1-definición-del-producto)
