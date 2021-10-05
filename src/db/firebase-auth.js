@@ -10,17 +10,13 @@ const loginGoogle = () => {
 /**********REGISTER************/
 const registerEmail = (email, password) => firebase.auth().createUserWithEmailAndPassword(email, password);
 
-
 /**********RESET PASSWORD******/
 const resetPassword = (emailLogin) => firebase.auth().sendPasswordResetEmail(emailLogin);
 
 /**********SALIR***************/
-
 const signOut = () => firebase.auth().signOut();
 
+/********** User ***************/
+/* const currentUser = firebase.auth().currentUser; */
 
-
-/* ***********onAuthStateChanged************** */
-const onAuthStateChanged = (callback) => firebase.auth().onAuthStateChanged(callback);
-export { loginEmail, loginGoogle, resetPassword, registerEmail, signOut, onAuthStateChanged};
-
+export { loginEmail, loginGoogle, resetPassword, registerEmail, signOut/* , currentUser */ };
