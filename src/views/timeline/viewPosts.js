@@ -78,10 +78,10 @@ const loadViewPost = (objectDataPosts) => {
                 </div>
                 <div class="post-footer footer">
                     <div class="footer-reactions reactions">
-                        <img class="img-like likes" id="like-${element.idPost}" width="22px" height="22px" data-id="${element.idPost}"  src=" ${element.arrLikes.includes(idUserAuth) ? '../images/svg/like.png' : '../images/svg/notlike.png'}"  data-id="${element.idPost}"/>
+                        <img class="img-like likes" id="like-${element.idPost}" width="22px" height="22px" data-id="${element.idPost}"  src=" ${element.arrLikes.includes(idUserAuth) ? '../src/images/svg/like.png' : '../src/images/svg/notlike.png'}"  data-id="${element.idPost}"/>
                         <span class="count-reaction" id="count-like-${element.idPost}">${element.arrLikes.length}</span> 
                         
-                        <img class="img-comment btn-comments" id="comment-${element.idPost}" width="22px" height="22px"   src="../images/svg/notchat.svg"  data-id="${element.idPost}"/>
+                        <img class="img-comment btn-comments" id="comment-${element.idPost}" width="22px" height="22px"   src="../src/images/svg/notchat.svg"  data-id="${element.idPost}"/>
                         <span class="count-reaction" id="count-comment-${element.idPost}">${element.arrComments.length}</span> 
                                     
                     </div>
