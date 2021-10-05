@@ -22,7 +22,7 @@ const loadViewPopularPost = () => {
                     </a>
                 </div>
                 <div class="name-hours">
-                    <h5><span class="author-name"><a href="#"> ${element.nameUser} </a></span></h5>
+                    <h5><span class="author-name"><a href="#"> ${element.nameUser.substring(0, 10)}... </a></span></h5>
                     <p <span class="post-date">${element.datePost}</span> </p>
                 </div>
                 <div class="heart-number">

@@ -19,4 +19,17 @@ const signOut = () => firebase.auth().signOut();
 /********** User ***************/
 /* const currentUser = firebase.auth().currentUser; */
 
-export { loginEmail, loginGoogle, resetPassword, registerEmail, signOut/* , currentUser */ };
+/**********Verificacion de Email***************/
+const sendEmail = () => firebase.auth().currentUser.sendEmailVerification(); //Verificacion
+/**********Cambio de sesion***************/
+const onAuthStateChanged = (callback) => firebase.auth().onAuthStateChanged(callback);
+
+export {
+    loginEmail,
+    loginGoogle,
+    resetPassword,
+    registerEmail,
+    signOut,
+    sendEmail,
+    onAuthStateChanged
+};

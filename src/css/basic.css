@@ -1,0 +1,89 @@
+/*Formularios de login y signup */
+.container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 100vh;
+}
+
+.column1 {
+    grid-column: 1 / 7;
+}
+
+.column2 {
+    grid-column: 7 / 13;
+}
+
+/* Formulario de Reset Password */
+.main-box {
+    grid-column: 5 / 9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Header */
+.header {
+    grid-area: header;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--clr-white);
+    border-bottom: 1px solid var(--clr-border-input);
+    position: relative;
+}
+
+/** Grid Timeline **/
+.container-home {
+    display: grid;
+    grid-template-columns: 6% 22% 6% 60% 6%;
+    grid-template-areas: 'header header header header header' 
+    '.      .      .      .      .' 
+    '.      cont-categories .    cont-posts  .';
+    grid-template-rows: 10vh 5vh 85vh;
+    background-color: #f7f7f7;
+}
+
+.container-section-categories {
+    grid-area: cont-categories;
+    display: grid;
+    grid-template-columns: 98%;
+    grid-template-areas: 'titles-categories' 'categories';
+    grid-template-rows: 4% 95%;
+    padding: 1.5rem 0rem;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 1px 15px 1px rgba(69, 65, 78, .08);
+}
+
+.container-section-user-post {
+    grid-area: cont-user-posts;
+    display: flex;
+    flex-direction: column;
+}
+
+.header-section-user-post {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/** Posts **/
+.container-section-post {
+    grid-area: cont-posts;
+    display: flex;
+    flex-direction: column;
+    padding: .9rem 0 0 1rem;
+    height: 300px;
+    position: relative;
+}
+
+/** Grid Profile **/
+.container-profile {
+    display: grid;
+    grid-template-columns: 10% 25% 6% 50% 9%;
+    grid-template-areas: 'header  header       header      header           header' '.       .            .           .                .' '.       coverUser   coverUser  coverUser       .' '.       .            .           .      .' '.       cont-friends .           cont-user-posts  .';
+    grid-template-rows: 10vh 3vh 35vh 10vh 42vh;
+    background-color: #f7f7f7;
+}
+
