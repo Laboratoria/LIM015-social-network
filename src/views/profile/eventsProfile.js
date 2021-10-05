@@ -12,6 +12,8 @@ const loadTimelineUser = async () => {
     const idUserProfile = window.localStorage.getItem('idUserProfile');
     const idUserAuth = localStorage.getItem('iduser'); //Esto vien de la linea 58 del archivo eventLogin OBTENER EL ID USER
     const objectPosts = [];
+    console.log(idUserProfile)
+    // const infouser = await getUser(iduser).then(response => response.data());
     const infoUserProfile = await getUser(idUserProfile).then(response => response.data());
     const allCategoriesCourses = JSON.parse(window.localStorage.getItem('allCategories'));
     const avatarUser = document.querySelector("#avatar-user");
@@ -19,6 +21,7 @@ const loadTimelineUser = async () => {
     const coverUser = document.querySelector("#img-cover-user")
     const avatarDescription = document.querySelector("#avatar-description");
     let dataPublic;
+    console.log(infoUserProfile)
     avatarUser.src = infoUserProfile.photouser;
     avatarName.textContent = infoUserProfile.nameuser;
     avatarDescription.textContent = infoUserProfile.description;
@@ -59,6 +62,7 @@ const showButtonsProfile = () => {
         const idUserProfile = window.localStorage.getItem('idUserProfile');
         const btnCrear = document.querySelector("#btn-crear")
         const btnEditarPerfil = document.querySelector("#btn-editarPerfil")
+        document.querySelector('#div-body').className = "bodyBackground";
 
         if (idUserAuth === idUserProfile) {
             btnCrear.style.display = "block";
@@ -91,7 +95,7 @@ const addEventsModalEdit = () => {
     const infouser = JSON.parse(window.localStorage.getItem('infouser'));
     const previewImgUser = document.querySelector('#preview-edit-photoUser')
     const previewImgCover = document.querySelector('#preview-edit-photoCover')
-    const titleModal = document.querySelector('#title-modal');
+    const titleModal = document.querySelector('.modal-edit-profile #title-modal');
     const inputImgUser = document.querySelector('#input-file-photoUser');
     const inputImgCover = document.querySelector('#input-file-photoCover');
     const inputNameUser = document.querySelector('#name-edit');

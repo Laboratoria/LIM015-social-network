@@ -17,7 +17,88 @@
   .side-navigation p,
   .side-navigation h2 {
     display: none;
+  }
+  .btn-edit {
+    width: 12px;
+    height: 12px;
+    margin-right: -8%;
+  }
+  .btn-delete {
+    width: 15px;
+    margin-right: -7%;
+  }
+  .post-date {
+    font-size: 10px
+  }
+  .author-name {
+    font-size: 12px;
+  }
+  .badge-secondary {
+    font-size: 0.50rem;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .btn-create-post {
+    padding: .5rem 0;
+  }
+  .post-category {
+    padding: 0;
+  }
+  .content-image {
+    height: 210px;
+  }
+  .side-navigation .fas {
+    font-size: 1.1rem
+  }
+  .post-content .content-paragraph {
+    font-size: 0.85rem;;
+  }
+  .img-likes,   
+  .img-comment {
+    width: 17px;
   } 
+  .footer,
+  .footer-comments {
+    padding: 0;
+  }
+  .span-public {
+    margin-left: 5px;
+  }
+  .fa-globe-americas, 
+  .fa-lock {
+    font-size: 8px;
+  }
+  #avatar-name, 
+  .user-name-profile p {
+    font-size: 11px;
+  }
+  #btn-editarPerfil {
+    padding: 4px;
+    font-size: 11px;
+    margin-bottom: 14px;
+  }
+  .btn-icon-friends {
+    padding: 4px;
+  }
+  .container-section-user-post .btn-create-post {
+    padding: 6px 0;
+    font-size: 9px;
+  }
+  .container-section-user-post .btn-create-post i {
+    font-size: 9px;
+  }
+  .up-information-profile img {/*imagen de perfil */
+    width: 3.5rem !important;
+    height: 3.5rem !important;
+    border: 5px solid #ffffff;
+    margin-right: 5px;
+  }
+  #avatar-name-header {
+    width: 50px;
+    margin-right: 0;
+    padding-right: 0;
+    font-size: 13px;
+  }
 }
   
 @media (max-width: 40rem) { /**640**/
@@ -36,16 +117,15 @@
     margin: 0 .5rem;
   }
   .title-posts a span,
-  .title-turn-off a span,
-  .user-information a span {
+  .title-turn-off a span {
     display: none;
   }
   /** Input de búsqueda **/
   .input-search {
-    width:45%;
+    width:30%;
   }
   .input-search input {
-    padding: .17rem 0 .17rem .8rem;
+    padding: .25rem 0 .25rem .8rem;
   }
   .container-icon-search {
     padding: 0rem;
@@ -61,7 +141,11 @@
   /** Dejamos el mismo ancho que los demás iconos**/
   .user-information {
     width: auto;
-}
+  }
+  .container-section-friends {
+    border-radius: 10px;
+    overflow: hidden;
+  }
 }
   
   /*tablet 384px*/
@@ -122,33 +206,84 @@
   .icon-logo {
     display: none;
   }
+  .popular-posts {
+    overflow: hidden;
+   }
+   .user-information span {
+    width: 100px;
+  }
+  .container-icon-search {
+    width: 15%;
+  }
+  .container-icon-search .fa-search {
+    font-size: 13px;
+  }
 }
 
 @media (max-width: 800px ) {
   /** Cambia grid de Muro en movil**/
+  .titles-categories h3, 
+  .container-popular-posts h2, 
+  .p-posts {
+    font-size: 12px;
+  }
   .container-home {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
-    /** Seccion de categorías **/
-    .container-section-categories {
-      display: flex;
-      flex-direction: column;
+  .header {
+    width: 100%;
+  }
+  /** Seccion de categorías **/
+  .container-section-categories {
+    display: flex;
+    flex-direction: column;
+    background-color: #f7f7f7;
+    box-shadow: none;
+  }
+  .titles-categories {
+    justify-content: flex-start;
+    gap: 1.5rem;
+  }
+  .categories {
+    flex-direction: row;
+    padding: 1rem;
+    width: 85vw;
+    border-radius: 10px;
+  }
+  .content-category {
+    display: none;
+  }
+  .container-section-post {
+    padding: .5rem;
+    width: 87vw;
+  }
+  .popular-posts {
+    overflow-x: auto;
     }
-    .titles-categories {
-      justify-content: flex-start;
-      gap: 1.5rem;
-    }
-    .categories {
-      flex-direction: row;
-      padding: 1rem;
-    }
-    .content-category {
-      display: none;
-    }
-    .container-section-post {
-      padding: .5rem;
-    }
+  .popular-posts::-webkit-scrollbar {
+    height: 2px;
+  }
+
+  .popular-posts::-webkit-scrollbar-thumb {
+    background: #FA5672;
+    border-radius: 30px;
+  }
+  .btn-carousel {
+    display: none;
+  }
+  .category img {
+    width: 45px;
+    height: 45px;
+  }
+  .up-information-profile img {/*imagen de perfil */
+    width: 5rem;
+    height: 5rem;
+    border: 5px solid #ffffff;
+    margin-right: 5px;
+  }
 }
   
 @media (min-width: 80rem) { /** 1280px **/
@@ -160,12 +295,18 @@
   .categories {
     font-size: 12px;
   }
+  .post-header {
+    padding: 1.2rem 1.6rem 0 1.6rem;
+  }
+  .content-image {
+    height: 450px;
+  }
 }
 
 
 /** Mostrando y coulatndo boton de crear publicacion de acuerdo a las pantallas **/
 
-@media ( max-width: 690px ){
+@media ( max-width: 970px ){
   .container-profile {
     grid-template-columns: 3% 94% 3%;
     grid-template-areas: 
@@ -180,17 +321,23 @@
   .title-friends {
     justify-content: left;
   }
+  .btn-icon-friends {
+    margin-left: 10px;
+  }
   .container-friends {
     display: flex;
-    /* flex-direction: column; */
-  }
-  .container-friends i {
-    display: none;
   }
   .info-friends {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     margin-right: 20px;
+    padding: 0 1rem;
+  }
+  .info-friends p {
+    width: max-content;
   }
 
 }

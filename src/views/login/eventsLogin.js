@@ -58,14 +58,20 @@ async function responseOk(result, google) {
     localStorage.setItem('iduser', result.user.uid); //almacenar el id del usuario autenticado en local
     if (google) { //es decir que se esta autenticando con google y puede ser nuevo
         const infoUserProfile = await getUser(result.user.uid).then(response => response.data());
-        if(infoUserProfile == "" || infoUserProfile == null || infoUserProfile == undefined) {
-            console.log(infoUserProfile)
+        if (infoUserProfile == "" || infoUserProfile == null || infoUserProfile == undefined) {
             saveUser([result.user.uid, result.user.email, result.user.displayName, result.user.photoURL]);
         }
-        
-    }
-    alerts('success', 'Bienvenido') //mostramos alerta de exito
-    window.location.href = "#/timeline"; //redireciona al timeLine
+
+        alerts('success', 'Bienvenido') //mostramos alerta de exito
+        window.location.href = "#/timeline"; //redireciona al timeLine  
+    } else {
+        if( result.user.emailVerified === true ) {
+            window.location.hash = '#/timeline';
+            alerts('success', 'Bienvenido'); //mostramos alerta de exito
+        } else {
+            alerts('info', 'Te hemos enviado un email para verificar tu cuenta');
+        }
+    } 
 }
 
 function responseError(error) {
