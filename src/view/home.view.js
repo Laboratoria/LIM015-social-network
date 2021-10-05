@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { logout, publishPost, db } from '../security/security.function.js';
+import { logout } from '../security/security.function.js';
 
 export function viewHome() {
   const viewHomen = `
@@ -43,7 +43,7 @@ export function initHome() {
     window.location.hash = '#/login';
   });
 }
-
+/*
 const getCollection = () => db.collection('post').get();
 
 window.addEventListener('DomContentLoader', async (e) => {
@@ -52,10 +52,10 @@ window.addEventListener('DomContentLoader', async (e) => {
     console.log(doc.data());
   });
 });
-
+ */
 // pintar post
-const showPost = document.querySelector('#showPost');
-
+// const showPost = document.querySelector('#showPost');
+/*
 document.addEventListener('click', (e) => {
   if (e.target.id === 'btnpost') {
     const post = document.querySelector('#post');
@@ -82,3 +82,5 @@ document.addEventListener('click', (e) => {
     post.value = '';
   }
 });
+ */
+

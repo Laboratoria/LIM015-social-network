@@ -26,7 +26,7 @@ export const logInWithEmail = (email, password) => {
 };
 
 // eslint-disable-next-line no-unused-vars
-export const db = firebase.firestore();
+/* export const db = firebase.firestore();
 
 // funcion para obtener los post
 export const publishPost = (objPublicacion) => firebase
@@ -40,4 +40,4 @@ export const publishPost = (objPublicacion) => firebase
   .catch((error) => {
     console.log(error);
     //  rechazar('documeto no registrado');
-  });
+  }); */
