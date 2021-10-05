@@ -4,9 +4,9 @@
 Es una red social que conecta a personas interesadas en conpartir material de aprendizaje en cualquier area. 
 Lo cual permite conectarnos con personas con los mismos intereses.
 
-## Developers - Lima 015 :computer: :sparkling_heart:
-[Diana Huaripayta Gonzales](https://github.com/DianaHuaripayta)/
-[yovana velasquez cruz](https://github.com/yovana888)/
+## Developers - Lima 015 :computer:
+[Diana Huaripayta Gonzales](https://github.com/DianaHuaripayta)-
+[yovana velasquez cruz](https://github.com/yovana888)-
 [Margarita Zambrano](https://github.com/margaZM)
 ## Índice 
 
