@@ -3,42 +3,38 @@
 
 ## Índice 
 
-* [1. Definición del producto](#1-definición-del-producto)
-* [2. Definición de usuarios](#2-definición-de-usuarios)
+* [1. Definición del producto](#1-definicion-del-producto)
+* [2. Historias de usuarios](#2-historias-de-usuarios)
 * [3. Plan de acción](#3-plan-de-accion)
 * [4. Diseño](#4-diseño)
 * [5. Tecnologías empleadas](#5-tecnologias-empleadas)
 * [6. Checklist](#6-checklist)
 * [7. Recursos](#7-recursos)
 
-## 1. Preámbulo
+## 1. Definición del producto :pencil:
 
-Instagram, Snapchat, Twitter, Facebook, Twitch, Linkedin, etc. Las redes
-sociales han invadido nuestras vidas. Las amamos u odiamos, y muchos no podemos
-vivir sin ellas.
+Si eres autodidacta y estás en constante aprendizaje **CourseShare** ¡te va a encantar! Esta red social esta dirigida para personas que buscan y comparten los mejores recursos didácticos para su formación académica y profesional.
 
-Hay redes sociales de todo tipo y para todo tipo de intereses. Por ejemplo,
-en una ronda de financiamiento con inversionistas, se presentó una red social
-para químicos en la que los usuarios podían publicar artículos sobre sus
-investigaciones, comentar en los artículos de sus colegas, y filtrar artículos
-de acuerdo a determinadas etiquetas o su popularidad, lo más reciente, o lo
-más comentado. 'hola CourseShare desde mi rama :v'
-
-## 2. Resumen del proyecto
-
-En este proyecto construirás una Red Social sobre lo que decidan tú y tu equipo.
-Podría ser, por ejemplo, sobre alimentación saludable, feminismo, educación,
-salud, energías renovables, amantes de las [Empanadas](https://es.wikipedia.org/wiki/Empanada)
-o de los [Tacos de Canasta](https://es.wikipedia.org/wiki/Taco), de la
-[Feijoada](https://es.wikipedia.org/wiki/Feijoada), o de lo que sea.
+CourseShare es una SPA desarrollada bajo el método CRUD usando HTML, CSS, Javascript y Firebase, en donde los usuarios registrados pueden visualizar los posts de otros miembros, incluida una sección sobre post destacados, además pueden realizar publicaciones, editarlos y eliminarlos y buscar algún miembro en específico.
 
 Tu Red Social tendrá que permitir a cualquier usuario crear una cuenta de
 acceso y loguearse con ella; crear, editar, borrar y _"likear"_ publicacciones.
 
-El objetivo principal de aprendizaje de este proyecto es construir una
-[Single-page Application (SPA)](https://es.wikipedia.org/wiki/Single-page_application)
-[_responsive_](https://curriculum.laboratoria.la/es/topics/css/02-responsive) (con más de una vista / página)
-en la que podamos **leer y escribir datos**.
+## 2. Historias de usuarios :woman: :man:
+
+| Historias de usuario | Criterios minimos de aceptación | Definición de terminado |
+| -- | -- | -- |
+|**Historia 1:** *Yo como usuario nuevo quiero registrarme en la red social:* con mi correo electrónico o con Google para posteriormente iniciar sesión. | Notificar al usuario mediante alertas en caso de cometer un error al registrarse, fallas de internet, correo registrado y/o registro exitoso y almacenar los datos en firestore. | Cuando el usuario logre crear su cuenta con éxito la información queda almacenada en firebase y se le envia un alerta de información. |
+|**Historia 2:** *Yo como usuario registrado quiero ingresar a la red social:* mediante mi correo electrónico o google para loguearme de una manera fácil y/o recuperar contraseña en caso de olvido. |Validar las credenciales ingresadas por el usuario para el inico de sesión, en caso de olvido permitir recuperar la contraseña y redireccionar al usuario al timeline en caso de inicio de sesión exitoso. | El usuario logra cambiar la contraseña en caso de olvido y puede redireccionar correctamente a la vistas de timeline. |
+|**Historia 3:** *Yo como usuario  registrado quiero ver las publicaciones de todos los usarios de la red social:* para conocer e informarme sobre los nuevas recomendaciones, opiniones, etc de los demás.|Visualizar las publicaciones públicas desde las más recientes hasta las más antiguas, incluyendo una sección para post destacados. | El usuario logra visualizar las publicaciones en orden ascendente y los post mas populares y no puede visualizar las publicaciones marcadas como privadas. |
+|**Historia 4:** *Yo como usuario  registrado quiero editar mis publicaciones:* para guardar la nueva información y visualizar mis cambios.|Mostrar un boton para editar cada post elaborado por el usuario y enviar esa publicacion al timeline. | El usuario solo puede editar sus publicaciones, logra guardar los cambios realizados y visualizarlos en el timeline. |
+|**Historia 5:** *Yo como usuario registrado quiero eliminar mis publicaciones:* para quitarlas del muro previa notificación de eliminación.  | Mostrar un boton para eliminar cada post elaborado por el usuario y removerlo del firestore y del timelime. | El usuario solo puede eliminar sus publicaciones, con una confirmación previa y estas ya no se refejan en el timelime. |
+|**Historia 6:** *Yo como usuario registrado quiero cerrar sesión:* para asegurarme que nadie más pueda manipular mi cuenta sin autorización.|Mostrar un botón para cerrar sesión de la cuenta. |El usuario logra salir de su cuenta exitosamente y es redirigido a la págia de inicio. |
+|**Historia 7:** *Yo como usuario quiero visualizar el perfil de otros usuarios:* para conocer sobre sus intereses y datos personales.|Al pulsar en el nombre de otros usuarios se logra visualizar su información y sus publicaciones públicas realizadas. |El usuario puede visitar el perfil de otros usuarios sin editar ningun contenido de los mismos. |
+|**Historia 8:** *Yo como usuario registrado quiero darle me encanta a las publicaciones:* para indicar si me gusta el curso recomendado en dicha publicación.| Mostrar y restar un like de acuerdo a la interaccion de un usuario. | El usuario pulsa en el icono de like y aparece un corazon relleno en rojo y este se sigue sumando por cada reaccion de otros usuarios, al dar dislike se debe restar la cantidad y el corazon queda vacio.|
+|**Historia 9:** *Yo como usuario registrado quiero un buscador:* para ubicar de forma fácil nombre de usuarios.| Crear un input de búsqueda para buscar un usuario específico para visitar su perfil. | El usuario podrá realizar búsquedas de otros usuarios por su nombre y al encontrarlos visitar su perfil.|
+|**Historia 10:** *Yo como usuario registrado quiero agrupar mis publicaciones:* para visualizar diferentes categorías de cursos.| Crear etiquetas para que el usuario pueda seleccionar la categoría a la que pertenece el curso en donde se almacenanarán exclusivamente ese tipo de cursos. | El usuario realiza un post y escoge una categoría especifica a la que pertenece, cada post se agrupa por el usuario de de acuerdo a la categoría escogida.|
+|**Historia 11:** *Yo como usuario registrado quiero comentar publicaciones:* para poder compartir mi opinión a otros usuarios.| Mostrar un boton para comentar un post particular y visualizarlo en tiempo real. | El usuario puede comentarpor el usuario de  otras publicaciones y es visualizado satisfactoriamente en la publicación original.|
 
 ## 3. Objetivos de aprendizaje
 
