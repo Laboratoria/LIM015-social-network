@@ -1,5 +1,5 @@
 # CourseShare :books:
-![diseñofinal](https://raw.githubusercontent.com/margaZM/LIM015-social-network/18a62849fd7e47eddee762ff33dddfa9b5e825c6/src/images/imgReadme/courseShare.png)
+![diseñofinal](./src/images/imgReadme/courseShare.png)
 
 ## Índice 
 
