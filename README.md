@@ -1,6 +1,5 @@
 # CourseShare :books:
 ![diseñofinal](https://raw.githubusercontent.com/DianaHuaripayta/LIM015-social-network/dev-diana/src/images/imgReadme/CourseShare.png)
-
 ## Índice 
 
 * [1. Definición del producto](#1-definición-del-producto)
