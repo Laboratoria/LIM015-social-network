@@ -159,12 +159,22 @@ const viewRegister = () => {
           console.log(name);
             const uLastname = '';
             const uPhoto = './img/usuario.png';
-          console.log(uPhoto)
+            const uEmail=email;
+            const uPhone="999 999 999 ";
+            const uCompany="Empresa S.A.C ";
+            const uLocation=" Lima_Perú";
+            const uDescription=" Mi emprendimiento se dedica a... ";
+
             const userProfile = {
-             userId : uId,
-             userName: uName.toLowerCase(),
-             userLastname: uLastname.toLowerCase(),
-             userPhoto: uPhoto,
+            userId : uId,
+            userName: uName.toLowerCase(),
+            userLastname: uLastname.toLowerCase(),
+            userPhoto: uPhoto,
+            userEmail:uEmail,
+            userPhone:uPhone,
+            userCompany:uCompany,
+            userLocation:uLocation,
+            userDescription:uDescription
             };
             saveUser(userProfile);
 
@@ -204,12 +214,23 @@ const viewRegister = () => {
         const uName = userCredential.additionalUserInfo.profile.given_name;
         const uLastname = userCredential.additionalUserInfo.profile.family_name;
         const uPhoto = userCredential.additionalUserInfo.profile.picture;
-        
+        const uEmail=userCredential.user.email;
+        const uPhone="999 999 999 ";
+        const uCompany="Empresa S.A.C ";
+        const uLocation=" Lima_Perú";
+        const uDescription=" Mi emprendimiento se dedica a... ";
+
         const userProfile = {
          userId : uId,
          userName: uName.toLowerCase(),
          userLastname: uLastname.toLowerCase(),
          userPhoto: uPhoto,
+         userEmail:uEmail,
+         userPhone:uPhone,
+         userCompany:uCompany,
+         userLocation:uLocation,
+         userDescription:uDescription
+
         };
         saveUser(userProfile);
         /*guardar data en local storage*/
