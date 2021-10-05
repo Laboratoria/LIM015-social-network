@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import MockFirebase from 'mock-cloud-firestore';
-import {getAllCategories, getPost,deletePostFs, updatePost, getAllPosts} from '../src/db/firestore.js'//getAllPosts es importante porque es quien tienen todos los posts de firebase
+import {getUser,getAllUsers,getCategory, getAllCategories, getPost,deletePostFs, updatePost, getAllPosts} from '../src/db/firestore.js'//getAllPosts es importante porque es quien tienen todos los posts de firebase
 //simulacion de la base de datos
 const fixtureData = {
   __collection__: {
@@ -22,16 +22,31 @@ const fixtureData = {
     },
     categories: {
       __doc__: {
-        '1': {
-          totalPosts: 8
+        a1: {
+          category: 'programacion'
         },
-        '2': {
+        b2: {
          
-          totalPosts: 6
+          category: 'idiomas'
         },
-        '3': {
+        c3: {
         
-          totalPosts: 3
+          category: 'manualidades'
+        },
+      },
+    },
+    users: {
+      __doc__: {
+        user1: {
+          nameUser: 'Diana Huaripayta G'
+        },
+        user2: {
+         
+          nameUser: 'Aura Margarita Zambrano'
+        },
+        user3: {
+        
+          nameUser: 'Yovana Velasquez Cruz'
         },
       },
     },
@@ -45,18 +60,6 @@ describe('getPost', () => {
   it('darme todos los posts', () => getPost('abc125').then((dataPost) => {
     const result = dataPost.data();
     expect(result.post).toBe('My second post');
-  }));
-});
-/* ---------------getCategory----------------- */
-describe('getPost', () => {
-  it('deberia darme los posts', () => 
-  getAllCategories().then((response) => {
-    response.forEach(doc =>{
-      const result = doc.data();
-      console.log(result)
-    expect(result).toEqual( { totalPosts: '8' }, { totalPosts: '6' });
-    })
-    
   }));
 });
 
@@ -79,6 +82,35 @@ describe('updatePost', () => {
         updatePost('abc125', { post: 'Post modificado' }).then(() => {
           const result = doc.data();
           expect(result.post).toBe('Post modificado');
+        });
+      }
+    });
+  });
+});
+/* -------------getCategory------------- */
+
+describe('getCategory', () => {
+  it('deberia darme la categoria seleccionada usando la getAllCategories ', async () => {
+    const categories = await getAllCategories();
+    categories.forEach((doc) => {
+      if (doc.id === 'a1') {
+        getCategory('a1', { category: 'programacion' }).then(() => {
+          const result = doc.data();
+          expect(result.category).toBe('programacion');
+        });
+      }
+    });
+  });
+});
+/* --------------getUser-------------- */
+describe('getUser', () => {
+  it('deberia darme el id de cada usuario', async () => {
+    const users = await getAllUsers();
+    users.forEach((doc) => {
+      if (doc.id === 'user3') {
+        getUser('user3', { nameUser: 'Yovana Velasquez Cruz' }).then(() => {
+          const result = doc.data();
+          expect(result.nameUser).toBe('Yovana Velasquez Cruz');
         });
       }
     });

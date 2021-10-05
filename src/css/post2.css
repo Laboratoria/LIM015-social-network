@@ -391,9 +391,6 @@ a:hover {
     cursor: pointer;
 }
 
-
-/* categoryName */
-
 .categoryName {
     /* ----- add design */
 }
@@ -410,4 +407,7 @@ a:hover {
 
 .btn-comments:hover {
     transform: scale(1.2, 1.2);
+}
+.categoryIcon{
+    cursor: pointer;
 }

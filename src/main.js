@@ -1,5 +1,4 @@
 /* eslint-disable no-undef */
-
 import { changeView } from './router/router.js'
 
 // función que permite mostrar las vistas del usario
