@@ -3,8 +3,8 @@ export const header = () => {
     const header = document.createElement('header');
     header.className = 'header';
     header.innerHTML = `        
-    <img class="logo" src="../../images/svg/logo.svg" alt="logo">
-    <img class="icon-logo" src="../../images/svg/favicon.svg" alt="logo">
+    <a href="#/timeline"> <img class="logo" src="../../images/svg/logo.svg" alt="logo"/> </a>
+    <a href="#/timeline"> <img class="icon-logo" src="../../images/svg/favicon.svg" alt="logo"> </a>
     
     <section class="input-search">
         <input type="search" name="" id="search" autocomplete="off">
@@ -16,7 +16,7 @@ export const header = () => {
    
     <div class="side-navigation">
         <section class="title-posts">
-            <a href="#/timeline" id="logout" class="title-posts"> <i class="fas fa-house-user"></i> <span>Posts</span> </a>
+            <a href="#/timeline" class="title-posts"> <i class="fas fa-house-user"></i> <span>Posts</span> </a>
         </section>
         <section class="title-turn-off">
             <a href="" id="logout" class="title-turn-off">  <i class="fas fa-sign-out-alt"></i> <span>Salir</span> </a>
