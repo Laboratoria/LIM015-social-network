@@ -27,14 +27,13 @@ const loadViewHeaderUser = async() => {
     window.localStorage.setItem('infouser', JSON.stringify(infouser)); //guardamos toda la info del usuario Auth para modal-text area
     const userInfoHtml = document.querySelector('#user-info'); //id del sectiuon dentro del header
     const photo = infouser.photouser;
-    console.log(photo)
     const valid = /^(http|https):\/\/[^ "]+$/.test(photo);
     const srcPhotouser = (valid) ? photo : '../../images/profile/' + photo; //si es true la foto es url 
     userInfoHtml.innerHTML = `<span class="user-information">  
                                     <span class="link-user" data-id="${iduser}" id="avatar-name-header"> ${infouser.nameuser} </span> 
                                     <img class="avatar avatar-sm" src="${srcPhotouser}" id="avatar-photouser-header" alt="img-user"> 
                                 </span>`
-    // loadUserPosts()<span class="link-user" data-id="${element.idUser}">
+        // loadUserPosts()<span class="link-user" data-id="${element.idUser}">
 }
 
 export { loadViewHeaderUser, getinfousers }
