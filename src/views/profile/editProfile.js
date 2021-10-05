@@ -46,20 +46,6 @@ const loadEditModal = () => {
                     <textarea class="textarea-description" id="textarea-description" row="3" placeholder="¡Cuéntanos más sobre ti, queremos conocerte!" maxlength="70"></textarea>
                 </section>
 
-                <section class="form-group">
-                    <i class="fas fa-key"></i>
-                    <label class="form-label"> Nueva contraseña </label>
-                    <input id="new-password" type="password" class="form-input" autocomplete="off">
-                    <span id="msg-confirmPassword" class="msg"></span>
-                </section>
-
-                <section class="form-group">
-                    <i class="fas fa-key"></i>
-                    <label class="form-label"> Confirmar Contraseña </label>
-                    <input id="change-password" type="password" class="form-input" autocomplete="off">
-                    <span id="msg-confirmPassword" class="msg"></span>
-                </section>
-
                 <section class="group-btn-edit-profile">
                     <button type="reset" id="btn-cancel-edit-profile" class="form-submit btn btn-default"> Borrar todo </button>
                     <button type="submit" id="btn-edit-profile" class="form-submit btn btn-info"> Guardar Cambios</button>

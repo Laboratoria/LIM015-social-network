@@ -31,7 +31,7 @@ const loadViewHeaderUser = async() => {
     const valid = /^(http|https):\/\/[^ "]+$/.test(photo);
     const srcPhotouser = (valid) ? photo : '../../images/profile/' + photo; //si es true la foto es url 
     userInfoHtml.innerHTML = `<span class="user-information">  
-                                    <span class="link-user" data-id="${iduser}" id="avatar-name-header"> ${infouser.nameuser} </span> 
+                                    <span class="link-user" data-id="${iduser}" id="avatar-name-header"> Mi perfil </span> 
                                     <img class="avatar avatar-sm" src="${srcPhotouser}" id="avatar-photouser-header" alt="img-user"> 
                                 </span>`
     // loadUserPosts()<span class="link-user" data-id="${element.idUser}">
