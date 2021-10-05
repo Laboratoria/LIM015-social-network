@@ -48,14 +48,23 @@ const onGetUsers = (callback) =>
       callback(data);
     })
   })
-  
+
+ /* db.collection("cities").where("state", "==", "CA")
+  .onSnapshot((querySnapshot) => {
+      var cities = [];
+      querySnapshot.forEach((doc) => {
+          cities.push(doc.data().name);
+      });
+      console.log("Current cities in CA: ", cities.join(", "));
+  });*/
 
 
-  const infoData = (id) => firebase.firestore().collection('Users').where('userId', '==', id).get().then(posts => {
-    console.log(posts)
+   const infoData = (id, callback) => firebase.firestore().collection('Users').where('userId', '==', id).onSnapshot(posts => {
+    console.log("prueba",posts.docs[0].id)
     return posts.docs.map(e => {
         //console.log(e.data().userId);
       const dataUser= {
+            ProfileId: posts.docs[0].id,
             userId : e.data().userId,
             userName: e.data().userName,
             userLastname: e.data().userLastname,
@@ -66,8 +75,8 @@ const onGetUsers = (callback) =>
             userLocation:e.data().userLocation,
             userDescription:e.data().userDescription,
       }
-       //console.log(dataUser);
-    return dataUser
+       console.log(dataUser);
+       callback(dataUser)
         })
   })
 
@@ -84,4 +93,8 @@ const getPost = (id) => firebase.firestore().collection("newPosts").doc(id).get(
 const updatePost = (id, updatedPost) =>
   firebase.firestore().collection("newPosts").doc(id).update(updatedPost);
 
-export { savePost, saveUser, onGetPosts, deletePosts, updatePost, getPost, onGetUsers, infoData };
+// Update User Collection
+const updateUser = (id, updatedUser) =>
+  firebase.firestore().collection("Users").doc(id).update(updatedUser);
+
+export { savePost, saveUser, onGetPosts, deletePosts, updatePost, getPost, onGetUsers, infoData, updateUser };
