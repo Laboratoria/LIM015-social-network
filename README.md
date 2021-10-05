@@ -1,5 +1,5 @@
 # CourseShare :books:
-<img src="./src/images/imgReadme/courseShare.png" alt="brand"/>
+![diseñofinal](https://raw.githubusercontent.com/DianaHuaripayta/LIM015-social-network/dev-diana/src/images/imgReadme/CourseShare.png)
 
 ## Índice 
 
