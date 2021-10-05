@@ -4,7 +4,7 @@ import { addEventsLogin } from '../views/login/eventsLogin.js';
 import { addEventResetPassword } from '../views/password/eventsResetPassword.js';
 import { addEventsRegister } from '../views/register/eventsSignUp.js';
 import { loadComponents, loadComponentsProfile } from '../views/timeline/loadComponents.js';
-import { alerts } from '../../lib/alerts.js';
+import { alerts } from '../lib/alerts.js';
 
 const changeView = (route) => {
     const containerMain = document.querySelector('#container-main');
