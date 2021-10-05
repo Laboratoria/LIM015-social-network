@@ -1,9 +1,8 @@
-# CourseShare
-![diseñofinal](https://raw.githubusercontent.com/margaZM/LIM015-social-network/18a62849fd7e47eddee762ff33dddfa9b5e825c6/src/images/svg/logo.svg)
+# :star2: CourseShare :books: 
+![diseñofinal](https://github.com/DianaHuaripayta/LIM015-social-network/blob/dev-diana/src/images/imgReadme/CourseShare.png)
 
 ## Índice 
 
-* []
 * [1. Definición del producto :pencil:](#1.-Definición-del-producto-:pencil:)
 * [2. Historias de usuarios :woman: :man:](#2-Historias-de-usuarios-:woman:-:man:)
 * [3. 3. Plan de acción :writing_hand:](#3.-Plan-de-acción-:writing_hand:)
@@ -13,15 +12,12 @@
 * [7. Recursos](#7-recursos)
 
 
-
 ## 1. Definición del producto :pencil:
 
 Si eres autodidacta y estás en constante aprendizaje **CourseShare** ¡te va a encantar! Esta red social esta dirigida para personas que buscan y comparten los mejores recursos didácticos para su formación académica y profesional.
 
-CourseShare es una SPA desarrollada bajo el método CRUD usando HTML, CSS, Javascript y Firebase, en donde los usuarios registrados pueden visualizar los posts de otros miembros, incluida una sección sobre post destacados, además pueden realizar publicaciones, editarlos y eliminarlos y buscar algún miembro en específico.
+CourseShare está desarrollada con HTML, CSS, Javascript y Firebase, en donde los usuarios registrados pueden visualizar los posts de otros miembros, incluida una sección sobre post destacados, además pueden realizar publicaciones, editarlos y eliminarlos y buscar algún miembro en específico. El usuario puede asignar a sus publicaciones el modo público o privado y dar like a sus publicaciones favoritas.
 
-Tu Red Social tendrá que permitir a cualquier usuario crear una cuenta de
-acceso y loguearse con ella; crear, editar, borrar y _"likear"_ publicacciones.
 
 ## 2. Historias de usuarios :woman: :man:
 
@@ -38,6 +34,12 @@ acceso y loguearse con ella; crear, editar, borrar y _"likear"_ publicacciones.
 |**Historia 9:** *Yo como usuario registrado quiero un buscador:* para ubicar de forma fácil nombre de usuarios.| Crear un input de búsqueda para buscar un usuario específico para visitar su perfil. | El usuario podrá realizar búsquedas de otros usuarios por su nombre y al encontrarlos visitar su perfil.|
 |**Historia 10:** *Yo como usuario registrado quiero agrupar mis publicaciones:* para visualizar diferentes categorías de cursos.| Crear etiquetas para que el usuario pueda seleccionar la categoría a la que pertenece el curso en donde se almacenanarán exclusivamente ese tipo de cursos. | El usuario realiza un post y escoge una categoría especifica a la que pertenece, cada post se agrupa por el usuario de de acuerdo a la categoría escogida.|
 |**Historia 11:** *Yo como usuario registrado quiero comentar publicaciones:* para poder compartir mi opinión a otros usuarios.| Mostrar un boton para comentar un post particular y visualizarlo en tiempo real. | El usuario puede comentarpor el usuario de  otras publicaciones y es visualizado satisfactoriamente en la publicación original.|
+
+
+
+
+
+
 
 ## 3. Plan de acción :writing_hand:
 
@@ -195,4 +197,9 @@ profundizar y/o ejercitar más sobre los objetivos de aprendizaje del proyecto.
   posts _públicos_).
 * Permite comentar o responder una publicación.
 * Permite editar perfil.
+
+## Developers - Lima 015 :computer:
+[Diana Huaripayta Gonzales](https://github.com/DianaHuaripayta)-
+[yovana velasquez cruz](https://github.com/yovana888)-
+[Margarita Zambrano](https://github.com/margaZM)
 
