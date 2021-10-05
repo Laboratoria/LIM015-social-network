@@ -50,4 +50,21 @@ p {
   margin-top: 20px;
 }
 
+#post{
+  border:0;
+  outline: none;
+  text-align: center;
+}
 
+.show-post{
+  border:0;
+  outline: none;
+  text-align: center;
+  display: flex;
+  width: 690px;
+  height: 140px;
+  left: 669px;
+  top: 246px;
+  background: #d7d5f8;
+  border-radius: 30px;
+}

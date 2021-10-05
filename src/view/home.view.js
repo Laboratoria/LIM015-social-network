@@ -25,7 +25,9 @@ export function viewHome() {
       Write your post here'rows='10'cols='30'></textarea>
       <button type='button'id='btnpost'>Post</button>
 
-      <section  id='post-container' class='post-container'></section>
+      <section  id='post-container' class='post-container'>
+      <textarea id="showPost" class="show-post"> </textarea>
+      </section>
     
       </section>
       `;
@@ -41,19 +43,6 @@ export function initHome() {
     window.location.hash = '#/login';
   });
 }
-/*
-document.addEventListener('click', (e) => {
-  if (e.target.id === 'btnpost') {
-    const post = document.querySelector('#post');
-    if (post.value.trim().length > 0) {
-       console.log(post);
-    }
-  }else{
-    alert("por favor llenar los campos")
-  }
-  return post.value;
-}); */
-
 document.addEventListener('click', (e) => {
   if (e.target.id === 'btnpost') {
     const post = document.querySelector('#post');
@@ -69,14 +58,16 @@ document.addEventListener('click', (e) => {
       };
       publishPost(objPublicacion)
         .then((resolve) => {
-          console.log(resolve);// eslint-disable-line
+          console.log(resolve); // eslint-disable-line
         })
         .catch((reject) => {
-          console.log(reject);// eslint-disable-line
+          console.log(reject); // eslint-disable-line
         });
     } else {
-      alert('Por favor, llena el campo'); // eslint-disable-line
+      alert("Por favor, llena el campo"); // eslint-disable-line
     }
     post.value = '';
   }
 });
+
+// pintar post
