@@ -2,41 +2,78 @@ import {deletePosts} from "../firebase/fb-firestore.js";
 
 
 const modalProfile = () => {
-    const ContentModalProfile = `
-    <section class="containerModalProfile">
+    const ContentModalProfile = /*html*/`
+    <section class="modalContent modalContent--verification">
         <div class="headerModal">
-            <span><i class="fas fa-times-circle"></i></span>
+        <span class="closeModal">&times;</span>
         </div>
         <div class="bodyModal">
             <div class="logo">
-             <img src="" alt="makipuraLogo">
+             <img  alt="makipuraLogo" class="logoModalProfile"  src="./img/logoMobilPrueba.png" >
             </div>
-            <form action="">
+            <form action="" class="form_modalProfile form_modalProfile">
+            <div class=" profileInputs">
              <label for="userName"> Nombres y apellidos </label>
              <input type="text" class="inputs" name="userName" id="userName" placeholder="Ingrese sus nombres y apellidos" required>
+             </div>
+             <div class="profileInputs">
              <label for="starUpName">Nombre del emprendimiento</label>
              <input type="text=" class= "inputs" name="starUpName" id="starUpName" placeholder="Ingrese el nombre de su emprendimiento">
+             </div>
+
+             <label for="" class="informLabel"> Contacto</label>
              <div class="inputContacto">
-                <label for=""> Contacto</label>
+                <div class="inputContacto_inputsLabels">
                 <label for="phoneUser"> Celular:</label>
                 <input type="number" class="inputs" name="phoneOfUser" id="phoneOfUser" placeholder="123456789">
+                </div>
+
+                <div class=" inputContacto_inputsLabels">
                 <label for="emailUser">Correo:</label>
                 <input type="text" class="inputs" name="emailOfUser" id="emailOfUser" placeholder="ejemplo@gmail.com">
+                </div>
+                
+                <div class=" inputContacto_inputsLabels">
                 <label for="addressUser">Ubicación</label>
                 <input type="text" class="inputs" name="addressOfUser" id="addressOfUser" placeholder="Lince, Lima">
-                <label for="informationStarUp">Información</label>
-                <textarea name="informationStarUp" id="informationStarUp" cols="30" rows="5"></textarea>
+                </div>
+
              </div>
-             <button class="secondButton" id="closeModalProfile">Cancelar</button>
-             <button class="mainButton" id="saveModalProfile">Guardar</button>
+             <label for="informationStarUp" class="informLabel" >Información</label>
+             <textarea name="informationStarUp" id="informationStarUp"  class=" inputs textareaProfileModal" cols="30" rows="5"></textarea>
+             
+             <div class="btnModalProfile">
+             <button class="button button--second " id="closeModalProfile">Cancelar</button>
+             <button class="button button--main " id="saveModalProfile">Guardar</button>
+            </div>
+
             </form>
          </div>
     </section>`
-    const divProfile=document.createElement('div');
-    divProfile.innerHTML=ContentModalProfile;
-    return divProfile;
+    const sectionModalProfile=document.createElement('section');
+    sectionModalProfile.classList.add('modalContainer');
+    sectionModalProfile.classList.add('modalContainerProfile');
+
+    
+    sectionModalProfile.innerHTML=ContentModalProfile;
+
+    const closeModal=sectionModalProfile.querySelector('.closeModal');
+    console.log(closeModal);
+
+    closeModal.addEventListener('click', () => {
+        sectionModalProfile.style.display="none"; 
+        window.open("#/profile", "_self"); 
+        
+    })
+
+    return sectionModalProfile;
 
 }
+
+
+
+
+
 
 const modalRegisterVerification = (email) => {
      const modalContent  = /*html*/`
@@ -103,9 +140,6 @@ const modalDelete = (selection) => {
 }
 
 
-const modalPerfil=() => {
-
-}
 
 
 

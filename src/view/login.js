@@ -1,7 +1,7 @@
 import { loginEmail, loginGoogle } from "../firebase/fb-functions.js";
 import { saveUser } from "../firebase/fb-firestore.js";
 const viewLogin = () => {
-  const htmlLogin = `
+  const htmlLogin =/*html*/ `
   <div class="viewDesktop" >
 
      <div class="container__logoDesktop">
