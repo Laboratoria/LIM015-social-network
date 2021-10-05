@@ -1,6 +1,6 @@
 # :star2: Course Share :books: :art: 
 
-![CourseShare](./src/images/imgReadme/courseShare.png)
+![ CourseShare ](./src/images/imgReadme/courseShare.png)
 
 ## Índice
 * [1. Preámbulo](#1-preámbulo)
