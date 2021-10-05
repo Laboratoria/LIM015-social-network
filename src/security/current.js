@@ -12,5 +12,5 @@ export const getUserInfo = () => {
   localStorage.setItem('name', name);
   localStorage.setItem('email', email);
   localStorage.setItem('photo', photo);
-  console.log(name, email, photo);
+  /* console.log(name, email, photo); */
 };

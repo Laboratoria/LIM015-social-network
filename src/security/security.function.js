@@ -11,7 +11,8 @@ export async function login() {
     console.log(response);
     return response.user;
   } catch (error) {
-    throw new Error(error);
+    console.log(error);
+    return `error al iniciar sesión  ${error}`;
   }
 }
 

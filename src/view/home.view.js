@@ -43,19 +43,6 @@ export function initHome() {
     window.location.hash = '#/login';
   });
 }
-/*
-document.addEventListener('click', (e) => {
-  if (e.target.id === 'btnpost') {
-    const post = document.querySelector('#post');
-    if (post.value.trim().length > 0) {
-       console.log(post);
-    }
-  }else{
-    alert("por favor llenar los campos")
-  }
-  return post.value;
-}); */
-
 document.addEventListener('click', (e) => {
   if (e.target.id === 'btnpost') {
     const post = document.querySelector('#post');
@@ -84,8 +71,3 @@ document.addEventListener('click', (e) => {
 });
 
 // pintar post
-
-function showPost() {
-  showPost.innerHTML = publishPost();
-}
-showPost();

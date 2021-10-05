@@ -1,5 +1,6 @@
-/* eslint-disable no-use-before-define */
 /* eslint-disable no-unused-vars */
+/* eslint-disable no-console */
+/* eslint-disable no-use-before-define */
 import {
   login,
   logInWithEmail,
@@ -68,12 +69,11 @@ export function initLogin() {
     e.preventDefault();
     e.stopPropagation();
     // eslint-disable-next-line no-use-before-define
-    login();
     logInWithGoogleClick();
   });
 }
 
-const logInWithGoogleClick = () => {
+function logInWithGoogleClick() {
   login()
     .then(() => {
       getUserInfo();
@@ -84,4 +84,4 @@ const logInWithGoogleClick = () => {
       console.log('error');
       /*    El correo electrónico de la cuenta del usuario utilizada. */
     });
-};
+}
