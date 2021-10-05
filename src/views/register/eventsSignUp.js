@@ -2,7 +2,7 @@ import { validInput, limpiar } from '../../lib/validInputs.js'
 import { alerts, alertProcess } from '../../lib/alerts.js';
 import { loginGoogle, registerEmail } from '../../db/firebase-auth.js';
 import { saveUser, getUser } from '../../db/firestore.js';
-import { changeView } from '../../view-controler/route.js';
+import { changeView } from '../../router/router.js';
 const addEventsRegister = () => {
     const formRegister = document.querySelector('#form-registro');
     const inputName = document.querySelector('#nameUser');
