@@ -47,7 +47,7 @@ const loadViewModal = () => {
                             <section class="name-image-upload"> </section>
 
                         </section>
-                        <img src="../images/svg/carita.png" class="smile" alt="icon-face" width="20" height="20">
+                        <img src="../src/images/svg/carita.png" class="smile" alt="icon-face" width="20" height="20">
                     </section>
                     <button type="submit" class="btn btn-create-post" id="share-post"> Publicar </button>
                 </form>

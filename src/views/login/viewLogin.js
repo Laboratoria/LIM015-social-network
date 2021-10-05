@@ -10,7 +10,7 @@ export default () => {
 </div>
 <div class="column2 form-container">
     <div class="container-logo">
-        <img class="logo" src="../images/svg/logo.svg" alt="logo"><br>
+        <img class="logo" src="../src/images/svg/logo.svg" alt="logo"><br>
     </div>
     <br>
     <form action="#" class="form" id="form-login">

@@ -26,7 +26,7 @@ const loadViewCategory = async() => {
         figureCategory.classList.add('category');
         /*  <img class="categoryIcon" src="../../images/svg/categorias/${ element.imagen }" alt="logo-categories> */
         figureCategory.innerHTML = `
-        <img class="categoryIcon categoryName" src="../../images/svg/categorias/${ element.imagen }" alt="logo-categories" data-id=${element.idCategory} data-total=${element.totalPosts}>
+        <img class="categoryIcon categoryName" src="../src/images/svg/categorias/${ element.imagen }" alt="logo-categories" data-id=${element.idCategory} data-total=${element.totalPosts}>
         <div class="content-category">
             <span class="text-category categoryName" id="textCategory-${element.idCategory}" data-id=${element.idCategory} data-total=${element.totalPosts}> ${ element.nameCategory } </span>
             <p class="text-muted" id="category-${element.idCategory}">  ${ element.totalPosts } post</p>
