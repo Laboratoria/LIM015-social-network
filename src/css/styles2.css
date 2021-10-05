@@ -1442,6 +1442,28 @@ input:disabled {
     justify-content: space-around;
 }
 
+/*******************
+   *      404      * 
+   *****************/
+.page-404 {
+    grid-column: 5 / 9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    text-align: center;
+    line-height: 1.5;
+}
+
+.number-404 {
+    font-size: 100px;
+    color: var(--clr-primary);
+}
+
+.text-404 {
+    margin: 12px 0 20px 0;
+}
+
 
 
 
