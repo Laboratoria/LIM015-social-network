@@ -5,7 +5,6 @@ import {
   login,
   logInWithEmail,
 } from '../security/security.function.js';
-import { getUserInfo } from '../security/current.js';
 
 export function viewLogin() {
   const divElem = document.createElement('article');
@@ -76,7 +75,7 @@ export function initLogin() {
 function logInWithGoogleClick() {
   login()
     .then(() => {
-      getUserInfo();
+      // getUserInfo();
       window.location.hash = '#/home';
     })
     .catch((error) => {

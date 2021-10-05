@@ -8,7 +8,6 @@ export async function login() {
   const googleProvider = new firebase.auth.GoogleAuthProvider();
   try {
     const response = await firebase.auth().signInWithPopup(googleProvider);
-    console.log(response);
     return response.user;
   } catch (error) {
     console.log(error);
@@ -26,6 +25,9 @@ export const logInWithEmail = (email, password) => {
   return loginn;
 };
 
+// eslint-disable-next-line no-unused-vars
+/* export const db = firebase.firestore();
+
 // funcion para obtener los post
 export const publishPost = (objPublicacion) => firebase
   .firestore()
@@ -38,4 +40,4 @@ export const publishPost = (objPublicacion) => firebase
   .catch((error) => {
     console.log(error);
     //  rechazar('documeto no registrado');
-  });
+  }); */
