@@ -84,12 +84,17 @@
 
 
 /*modal Profile */
-
+.containerLogoModalProfile{
+  display: flex;
+  justify-content: center;
+}
 
 .logoModalProfile{
   width: 65%;
   padding-top:0;
 }
+
+
 
 .form_modalProfile{
   display: flex;
@@ -104,10 +109,24 @@
 
 }
 
+.profileNameAndLastName{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0.2em;
+}
+
+#userNameMP {
+ margin-right: 0.25em;
+}
+
+#userLastNameMP {
+ margin-left: 0.25em;
+}
+
 .profileInputs{
   display: flex;
   flex-direction:column;
-  padding: 0.5em 0.1em;
+  padding-top: 0.5em;
 }
 
 .profileInputs >label,.informLabel {
@@ -118,6 +137,8 @@
 
 .inputContacto_inputsLabels{
   padding: 0.5em 0.1em ;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .inputContacto_inputsLabels >label{
@@ -135,19 +156,19 @@
 
 .modalContainerProfile{
   padding-top: 1.5em;
+  overflow: scroll;
 
 }
 
 .inputs {
-  width: 100%;
+  flex-grow: 2;
   height: 6vh;
-  margin: 0.5em;
   padding: 0.5em;
   border-radius: 10px;
   color: #616161;
   background-color: #F3EFF6;
   border-style: none;
-  
+  min-width: 25px;
 }
 
 
@@ -158,10 +179,7 @@
 }
 
 .inputContacto_inputsLabels >input{
-  width: 70%;
   height: 5vh;
-  padding: 0em 1em;
-  margin: 0em 0.5em;
 }
 
 
@@ -171,22 +189,22 @@
   border-style: none;
   resize:none;
   padding: 0.5rem;
+  margin-top:0.5rem;
 
 }
 
+.inputsA {
+  margin: 0.5em 0;
+}
+
+.inputsB {
+  margin-left: 0.5em;
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
+.modalContent--profile{
+ width: 90%;
+}
 
 
 
@@ -197,9 +215,14 @@
  } 
 
 
+ .modalContainerProfile{
+  padding-top: 1em;
+ }
+
+
   .modalContent{
     max-width: 400px;
-    padding: 0.6em 1.2em 1.2em 1.2em;
+    padding: 0.6em 1.2em 0.6em 1.2em;
 }
 
 }

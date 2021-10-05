@@ -160,12 +160,12 @@ const viewRegister = () => {
             const uLastname = '';
             const uPhoto = './img/usuario.png';
             const uEmail=email;
-            const uPhone="999 999 999 ";
-            const uCompany="Empresa S.A.C ";
-            const uLocation=" Lima_Perú";
-            const uDescription=" Mi emprendimiento se dedica a... ";
+            const uPhone="999 999 999";
+            const uCompany="Mi Empresa SAC";
+            const uLocation="Distrito, Departamento, Perú";
+            const uDescription="Describe tu emprendimiento";
 
-            const userProfile = {
+            const userProfile = {  
             userId : uId,
             userName: uName.toLowerCase(),
             userLastname: uLastname.toLowerCase(),
@@ -215,10 +215,11 @@ const viewRegister = () => {
         const uLastname = userCredential.additionalUserInfo.profile.family_name;
         const uPhoto = userCredential.additionalUserInfo.profile.picture;
         const uEmail=userCredential.user.email;
-        const uPhone="999 999 999 ";
-        const uCompany="Empresa S.A.C ";
-        const uLocation=" Lima_Perú";
-        const uDescription=" Mi emprendimiento se dedica a... ";
+        const uPhone="999 999 999";
+        const uCompany="Mi Empresa SAC";
+        const uLocation="Distrito, Departamento, Perú";
+        const uDescription="Describe tu emprendimiento";
+
 
         const userProfile = {
          userId : uId,
