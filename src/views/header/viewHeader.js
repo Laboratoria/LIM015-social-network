@@ -3,8 +3,8 @@ export const header = () => {
     const header = document.createElement('header');
     header.className = 'header';
     header.innerHTML = `        
-    <a href="#/timeline"> <img class="logo" src="../../images/svg/logo.svg" alt="logo"/> </a>
-    <a href="#/timeline"> <img class="icon-logo" src="../../images/svg/favicon.svg" alt="logo"> </a>
+    <a href="#/timeline"> <img class="logo" src="../src/images/svg/logo.svg" alt="logo"/> </a>
+    <a href="#/timeline"> <img class="icon-logo" src="../src/images/svg/favicon.svg" alt="logo"> </a>
     
     <section class="input-search">
         <input type="search" name="" id="search" autocomplete="off">

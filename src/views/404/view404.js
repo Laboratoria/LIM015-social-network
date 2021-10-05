@@ -3,11 +3,15 @@ export default () =>{
     viewError.className = 'container';
     viewError.innerHTML = `
     <section class="page-404">
-        <img class="logo" src="../../images/svg/logo.svg" alt="logo"> 
-        <p class="number-404"> 404 </p>
+        <img class="logo" src="../src/images/svg/logo.svg" alt="logo"> 
+        <h1 class="number-404"> 404 </h1>
         <p> Página no encontrada </p>
-        <p> Lo sentimos no hemos podido encontrar la página que buscas </p>
-        <button type="button" class="btn btn-primary"> Inicio </button>
+        <section class="text-404"> 
+            <p> Lo sentimos no hemos podido encontrar la página que buscas </p> 
+        </section>
+        <form action="#/login">
+            <input type="submit" class="btn btn-primary" value="Inicio" />
+        </form>
     </section>`;
 return viewError;
 }
