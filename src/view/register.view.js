@@ -18,6 +18,7 @@ export function viewRegister() {
       </figure>
     <form action="#" class='frmregister'>
     <div class='form-register-inputs'>
+      
         <input  id='email1' placeholder='Email' class='btn-texto'>
         <span id='errorEmail' class='errorMessage'></span>
         <input class='btn-texto' type='password' name='password1' id='password1' placeholder='Password'>
