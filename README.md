@@ -1,5 +1,5 @@
 # CourseShare :books:
-![diseñofinal]<img src="./src/images/imgReadme/courseShare.png" alt="brand"/>
+<img src="./src/images/imgReadme/courseShare.png" alt="brand"/>
 
 ## Índice 
 
