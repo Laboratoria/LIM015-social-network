@@ -54,8 +54,16 @@ CourseShare está desarrollada con HTML, CSS, Javascript y Firebase, en donde lo
 
 
 ### Prototipo final en figma
+Login
+![login](https://raw.githubusercontent.com/margaZM/LIM015-social-network/dev-diana/src/images/imgReadme/login.png)
 
-![]()
+Timeline
+![Timeline](https://raw.githubusercontent.com/margaZM/LIM015-social-network/dev-diana/src/images/imgReadme/timeline.png)
+
+Profile
+![Profile](https://raw.githubusercontent.com/margaZM/LIM015-social-network/dev-diana/src/images/imgReadme/profil.png)
+
+![Profile](https://raw.githubusercontent.com/margaZM/LIM015-social-network/dev-diana/src/images/imgReadme/profile.png)
 
 ## 5. Tecnologías empleadas :hammer:
 
