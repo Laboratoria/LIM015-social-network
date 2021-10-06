@@ -2,8 +2,10 @@
 
 
 import {
-  savePost, onGetPosts, deletePosts , updatePost , getPost 
+  savePost,/* saveUser,*/ onGetPosts, deletePosts, updatePost, getPost , onGetUsers /*, infoData, updateUser, getListPostUser */
 } from "../src/firebase/fb-firestore.js";
+
+
 
 import MockFirebase from 'mock-cloud-firestore';
 
@@ -17,7 +19,8 @@ const fixtureData = {
           date:"30/9/2021 10:53:15",
           userId:"ID2",
           likes:[],
-          userPhoto:"https://lh3.googleusercontent.com/a-/AOh14Ghja4cIRhrdiKRVR1MCt8M5QDLRpByM8olNFqrV=s96-c",         
+          userPhoto:"https://lh3.googleusercontent.com/a-/AOh14Ghja4cIRhrdiKRVR1MCt8M5QDLRpByM8olNFqrV=s96-c", 
+          url:" "        
           },
           abc121: {
             username:"Elizabeth",
@@ -25,7 +28,8 @@ const fixtureData = {
             date:"31/10/2021 10:53:15",
             userId:"ID3",
             likes:[],
-            userPhoto:"https://lh3.googleusercontent.com/a-/AOh14Ghja4cIRhrdiKRVR1MCt8M5QDLRpByM8olNFqrV=s96-c",         
+            userPhoto:"https://lh3.googleusercontent.com/a-/AOh14Ghja4cIRhrdiKRVR1MCt8M5QDLRpByM8olNFqrV=s96-c",
+            url:" "                 
           },
           abc122: {
             username:"Eliza",
@@ -33,7 +37,8 @@ const fixtureData = {
             date:"31/10/2021 10:53:15",
             userId:"ID4",
             likes:[],
-            userPhoto:"https://lh3.googleusercontent.com/a-/AOh14Ghja4cIRhrdiKRVR1MCt8M5QDLRpByM8olNFqrV=s96-c",         
+            userPhoto:"https://lh3.googleusercontent.com/a-/AOh14Ghja4cIRhrdiKRVR1MCt8M5QDLRpByM8olNFqrV=s96-c",
+            url:" "              
           }
 
       }
@@ -45,9 +50,10 @@ const fixtureData = {
 
 global.firebase = new MockFirebase(fixtureData, { isNaiveSnapshotListenerEnabled: true });
 
+
 describe('savePost', () => {
   it('Debería poder agregar un post y guardar ', ( ) => { 
-    return savePost("Natalia Espinoza Barrientos", "post para test 1", "30/9/2021 10:53:15","ID1", "https://lh3.googleusercontent.com/a-/AOh14Ghja4cIRhrdiKRVR1MCt8M5QDLRpByM8olNFqrV=s96-c",[])
+    return savePost("Natalia Espinoza Barrientos", "post para test 1", "30/9/2021 10:53:15","ID1", "https://lh3.googleusercontent.com/a-/AOh14Ghja4cIRhrdiKRVR1MCt8M5QDLRpByM8olNFqrV=s96-c",[]," ")
     .then(( )=>{
        const callback =(notes) => {
        const result = notes.find((element) => element.userPost === "post para test 2");
@@ -100,7 +106,8 @@ describe('getPost', () => {
   )
 })
 
-/*
+
+
 describe('onGetPosts', () => {
   it('Debería poder traer un post determinado, como parametro se introduce un callback', ( ) => { 
 
@@ -115,7 +122,21 @@ describe('onGetPosts', () => {
 )}
 ); 
 
-*/
+describe('onGetUsers', () => {
+  it('Debería poder traer la data de todos los usuarios , como parámetro tiene un callaback', ( ) => { 
+
+    onGetUsers("abc120",{ username:"MiMoska",})
+    .then(( )=>{
+      return onGetPosts((notes) => {
+        const res= notes.find((element) => element.username === "MiMoska");
+        expect (res.username).toBe("MiMoska");         
+        })  
+     })  
+   }   
+)}
+); 
+
+
 
 
 

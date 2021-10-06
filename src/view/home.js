@@ -142,8 +142,8 @@ const savePostCurrentUser = (data,homePost ,postArea) => {
    return  homePost.addEventListener("submit",  (e) => {
       
         e.preventDefault();
-        const idDocPost = e.target.dataset.id;
-        const postTextPublic = document.getElementById(`text-${idDocPost}`);
+        //const idDocPost = e.target.dataset.id;
+        //const postTextPublic = document.getElementById(`text-${idDocPost}`);
         const usernamePost = `${data.userName} ${data.userLastname}`; //verificar donde pasa el nombre del firebase al div
         const userPostText = postArea.value;
         const date = new Date().toLocaleString("es-ES");

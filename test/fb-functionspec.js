@@ -1,49 +1,33 @@
 /* eslint-disable no-undef */
 
+
 import {
   loginEmail,
   registerEmail,
-  loginGoogle,
+  loginGoogle,emailVerification,
   signOut/*,updateProfile*/
 } from "../src/firebase/fb-functions.js";
 
 // configurando firebase mock
 import firebasemock from "firebase-mock";
-//import MockFirebase from 'mock-cloud-firestore';
 
-/*var jest = require('jest');
 
-jest.mock('../path-to-firebase-init', () => {
-  return mocksdk;
-});
-
-mocksdk.database().flush();
-// data is logged*/
 
 const mockauth = new firebasemock.MockAuthentication();
-
+const mockfirestore = new firebasemock.MockFirestore();
+mockfirestore.autoFlush();
 mockauth.autoFlush();
 
 global.firebase = firebasemock.MockFirebaseSdk(
   // use null if your code does not use RTDB
   () => null,
-  () => mockauth
-  //() => mockfirestore,
+  () => mockauth,
+  () => mockfirestore,
 );
 
 const users = {isAnonymous: false, providerData: [{providerId: "google.com"}]}
   
-/*mocksdk.auth().autoFlush();
 
-// create user
-mocksdk.auth().createUser({
-  uid: '123',
-  email: 'test@test.com',
-  password: 'abc123'
-}).then(function(user) {
-  // set user as current user for client logic
-  mocksdk.auth().changeAuthState(user);
-});*/
 
 
 describe("registerEmail", () => {
@@ -82,25 +66,22 @@ describe("signOut", () => {
 });
 
 
+
 describe('emailVerification', () => {
   it('Debería enviar un email de verificación', () => {
-    const mockSendEmail = jest.fn();
-    firebase.auth().currentUser.sendEmailVerification = mockSendEmail;
-    emailVerification();
-    expect(mockSendEmail).toHaveBeenCalled();
-    expect(mockSendEmail.mock.calls).toHaveLength(1);
+    const sendEmailVerificationMock = jest.fn();
+    //console.log(sendEmailVerificationMock);
+    firebase.auth().currentUser = {sendEmailVerification:sendEmailVerificationMock.mockResolvedValue()};
+    return emailVerification().then (() => {
+      
+      expect(sendEmailVerificationMock).toHaveBeenCalled();
+      expect(sendEmailVerificationMock.mock.calls).toHaveLength(1);
+    });
+   
   });
 });
 
 
 
 
-/*describe("updateProfile", () => {
-  it("Permite actualizar la data en el firebase recibiendo como parámetro  el nombre del usuario:Ninoska ", () => {
-    return updateProfile("Ninoska").then((data) => {
-      console.log(data);
-      expect(data.data().displayName).toEqual("Ninoska");
-    });
-  });
-}); */
 

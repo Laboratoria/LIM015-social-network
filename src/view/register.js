@@ -1,7 +1,6 @@
 import {
   registerEmail,
   loginGoogle,
-  updateProfile,
   emailVerification,
 } from "../firebase/fb-functions.js";
 import {
