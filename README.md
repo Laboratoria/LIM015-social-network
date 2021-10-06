@@ -7,7 +7,7 @@ Si eres autodidacta y estás en constante aprendizaje **CourseShare** ¡te va a 
 
 CourseShare está desarrollada con HTML, CSS, Javascript y Firebase, en donde los usuarios registrados pueden visualizar los posts de otros miembros, incluida una sección sobre post destacados, además pueden realizar publicaciones, editarlos y eliminarlos y buscar algún miembro en específico. El usuario puede asignar a sus publicaciones el modo público o privado y dar like a sus publicaciones favoritas.
 
-Te envitamos a registrarte y probar la funcionalidad de courseShare a traves este [link](https://margazm.github.io/LIM015-social-network/src/)
+Te envitamos a registrarte y probar la funcionalidad de courseShare a traves este [link](https://margazm.github.io/LIM015-social-network/src/).
 
 
 ## 2. Historias de usuarios :woman: :man:
@@ -53,8 +53,12 @@ Profile
 
 
 ## 5. Tecnologías empleadas :hammer:
-<img src="https://github.com/margaZM/LIM015-social-network/blob/dev/src/images/imgReadme/html.png?raw=true" width="40"  height="40"/>
-
+<img src="https://github.com/margaZM/LIM015-social-network/blob/dev/src/images/imgReadme/html.png?raw=true" width="40"  height="40" style="margin-right:20px"/>
+<img src="https://github.com/margaZM/LIM015-social-network/blob/dev/src/images/imgReadme/css.png?raw=true" width="40"  height="40" style="margin-right:20px"/>
+<img src="https://github.com/margaZM/LIM015-social-network/blob/dev/src/images/imgReadme/js.png?raw=true" width="40"  height="40" style="margin-right:20px"/>
+<img src="https://raw.githubusercontent.com/margaZM/LIM015-social-network/b6d6ba58f620aa283769447e05d51041477f9ced/src/images/imgReadme/firebase.svg" width="40"  height="40" style="margin-right:20px"/>
+<img src="https://github.com/margaZM/LIM015-social-network/blob/dev/src/images/imgReadme/eslint.png?raw=true" width="40"  height="40" style="margin-right:20px"/>
+<img src="https://github.com/margaZM/LIM015-social-network/blob/dev/src/images/imgReadme/jest.png?raw=true" width="40"  height="40" />
 
 
 ## 6. Checklist
