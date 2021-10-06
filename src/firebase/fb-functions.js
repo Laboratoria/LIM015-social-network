@@ -12,6 +12,7 @@ const loginGoogle = () => {
   return firebase.auth().signInWithPopup(provider);
 };
 
+
 // Email verification 
 const emailVerification = () => {
   return firebase.auth().currentUser.sendEmailVerification()
@@ -21,20 +22,9 @@ const emailVerification = () => {
   });*/
 }
 
-//Actualizar profile 
-const updateProfile = (nombre) => {
-  const user = firebase.auth().currentUser;
-  return user.updateProfile({
-    displayName: `${nombre}`,
-    photoURL: './img/usuario.png',
-  });
-};
 
-//Actualizar foto
-//const UserPhoto = (photoURL) => firebase.auth().currentUser
-//  .updateProfile({ photoURL });
 
 // SignOuts
 const signOut = () => firebase.auth().signOut();
 
-export { loginEmail, registerEmail, loginGoogle, signOut, emailVerification, updateProfile};
+export { loginEmail, registerEmail, loginGoogle, signOut, emailVerification};
