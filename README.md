@@ -53,7 +53,7 @@ Profile
 
 
 ## 5. Tecnologías empleadas :hammer:
-![html](https://github.com/margaZM/LIM015-social-network/blob/dev/src/images/imgReadme/html.png?raw=true =40x40)
+<img src="https://github.com/margaZM/LIM015-social-network/blob/dev/src/images/imgReadme/html.png?raw=true" width="40"  height="40"/>
 
 
 
