@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-vars */
+/* eslint-disable no-console */
+/* eslint-disable no-use-before-define */
 import {
   login,
   logInWithEmail,
-  logInWithGoogle,
 } from '../security/security.function.js';
-import { getUserInfo } from '../security/current.js';
 
 export function viewLogin() {
   const divElem = document.createElement('article');
@@ -38,6 +38,7 @@ export function viewLogin() {
   divElem.innerHTML = viewLoginv; */
   return divElem;
 }
+
 /* inicio de sesion con email */
 document.addEventListener('click', (e) => {
   if (e.target.id === 'btnsignin') {
@@ -67,16 +68,14 @@ export function initLogin() {
     e.preventDefault();
     e.stopPropagation();
     // eslint-disable-next-line no-use-before-define
-    // /* showLogin(); */
-    // eslint-disable-next-line no-use-before-define
     logInWithGoogleClick();
   });
 }
 
-const logInWithGoogleClick = () => {
-  logInWithGoogle()
+function logInWithGoogleClick() {
+  login()
     .then(() => {
-      getUserInfo();
+      // getUserInfo();
       window.location.hash = '#/home';
     })
     .catch((error) => {
@@ -84,12 +83,4 @@ const logInWithGoogleClick = () => {
       console.log('error');
       /*    El correo electrónico de la cuenta del usuario utilizada. */
     });
-};
-
-async function showLogin() {
-  try {
-    await login();
-  } catch (error) {
-    // console.log(error);
-  }
 }

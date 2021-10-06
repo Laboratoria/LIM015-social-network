@@ -1,4 +1,4 @@
-export const getUserInfo = () => {
+/* export const getUserInfo = () => {
   const currentUser = firebase.auth().currentUser;
 
   // Obtener la info del usuario
@@ -13,4 +13,4 @@ export const getUserInfo = () => {
   localStorage.setItem('email', email);
   localStorage.setItem('photo', photo);
   console.log(name, email, photo);
-};
+}; */

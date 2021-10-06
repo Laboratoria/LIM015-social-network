@@ -46,6 +46,7 @@ export function initRegister() {
   });
 }
 
+// funcion para limpiar los campos
 function clean() {
   const email = document.querySelector('.btn-texto');
   const password = document.querySelector('#password1');
@@ -56,10 +57,6 @@ function clean() {
   confirmPassword.innerHTML = '';
 }
 
-/* function registrar() {
-  if (!validate()) {
-  }
-} */
 /* validacion register */
 function validate() {
   const email = document.querySelector('.btn-texto').value;
