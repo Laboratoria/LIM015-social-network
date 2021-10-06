@@ -62,6 +62,7 @@ const viewHome = () => {
 /* funcion para mostrar la lista de emprendedoras*/
  const showAllUser = ()=> {
   onGetUsers((dataUsers)=>{
+    console.log(dataUsers);
     listUsers.innerHTML= '';
     dataUsers.forEach((dataUser)=> {
       
