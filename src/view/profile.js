@@ -1,6 +1,7 @@
 
-import {infoData} from "../firebase/fb-firestore.js";
+import {infoData, getListPostUser} from "../firebase/fb-firestore.js";
 import {modalProfile} from "../view/modals.js"
+import {setTemplateListPosts} from "../view/templatePost.js"
 
 const viewProfile =()=>{
     const divProfile=document.createElement('div');
@@ -12,7 +13,7 @@ const viewProfile =()=>{
         })
         const templateProfile = (userObject) => {
             const htmlProfile = `
-            <section class='profile'>
+            <section class='profile profileB'>
                 <section class="profile__cover">
                     <img class=" imgUser profileImgUser" src="${userObject.userPhoto}" alt="photoUser">
                 </section>
@@ -34,26 +35,31 @@ const viewProfile =()=>{
                     </div>
                     <div class="profile__infoUser">
                         <h3>Mi emprendimiento</h3>
-                        <span class= "CompanyDescription">${userObject.userDescription}</span>
+                        <div class= "CompanyDescription">${userObject.userDescription}</div>
                     </div>
                 </section>
                 
                 <section id="modalEditProfile" class="modalVerification modalDeletePost "></section>
+                <section id="containerProfileListPosts"> </section>
    
             </section > 
             `; 
         divProfile.innerHTML=htmlProfile;
-   
+        
         const btneditProfile = divProfile.querySelector("#btnEditProfile");
         const containerEditProfile = divProfile.querySelector("#modalEditProfile");
-        console.log(btneditProfile);
-        console.log(containerEditProfile);
+        const containerListPostsProfile = divProfile.querySelector("#containerProfileListPosts");
+    
    
+        getListPostUser(user.uid, (data) => {
+            setTemplateListPosts(data,user,containerListPostsProfile);
+         
+        })
+
+
         btneditProfile.addEventListener("click",(e) => {
            e.preventDefault();
            containerEditProfile.appendChild(modalProfile())
-   
-   
         })
    
        }  
