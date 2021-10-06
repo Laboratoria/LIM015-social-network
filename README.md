@@ -1,17 +1,6 @@
 # :star2: CourseShare :books: 
 ![diseñofinal](https://github.com/margaZM/LIM015-social-network/blob/main/src/images/imgReadme/CourseShare.png?raw=true)
 
-## Índice 
-
-* [1. Definición del producto](#1.-Definición-del-producto-:pencil:)
-* [2. Historias de usuarios](#2-Historias-de-usuarios-:woman:-:man:)
-* [3. 3. Plan de acción](#3.-Plan-de-acción-:writing_hand:)
-* [4. Diseño](#4-Diseño-:sparkles: )
-* [5. Tecnologías empleadas](#5.-Tecnologías-empleadas-:hammer:)
-* [6. Checklist](#6-checklist)
-* [7. Recursos](#7-recursos)
-
-
 ## 1. Definición del producto :pencil:
 
 Si eres autodidacta y estás en constante aprendizaje **CourseShare** ¡te va a encantar! Esta red social esta dirigida para personas que buscan y comparten los mejores recursos didácticos para su formación académica y profesional.
@@ -40,14 +29,14 @@ Te envitamos a registrarte y probar la funcionalidad de courseShare a traves est
 
 ## 3. Plan de acción :writing_hand:
 
+El plan de acción lo manejamos desde la plataforma Trello, en donde desarrollamos todas las historias de usuario y las actividades necesarias para definirla como terminado, en este [link](https://trello.com/b/OPVJITMA/red-social) se puede ver a detalle la ejecución del mismo.
 
+De igual forma manejamos la plataforma de Github projects para la asignación de milestones por cada sprint y la asignación de issues a cada miembro del equipo.
 
 ## 4. Diseño :sparkles: 
 
 ### Prototipo de baja fidelidad
 ![]()
-
-### Testeos de usabilidad
 
 
 ### Prototipo final en figma
@@ -64,9 +53,14 @@ Profile
 
 
 ## 5. Tecnologías empleadas :hammer:
+![](https://github.com/margaZM/LIM015-social-network/blob/dev/src/images/imgReadme/html.png?raw=true =40x40)
+![](https://github.com/margaZM/LIM015-social-network/blob/dev/src/images/imgReadme/css.png?raw=true =40x40)
+![](https://github.com/margaZM/LIM015-social-network/blob/dev/src/images/imgReadme/js.png?raw=true =40x40)
+![](https://raw.githubusercontent.com/margaZM/LIM015-social-network/a32bc05f4c461da1f03e93617d94b6767a3005d8/src/images/imgReadme/firebase.svg =40x40)
+![](https://github.com/margaZM/LIM015-social-network/blob/dev/src/images/imgReadme/jest.png?raw=true =40x40)
+![](https://github.com/margaZM/LIM015-social-network/blob/dev/src/images/imgReadme/jest.png?raw=true =40x40)
+![](https://github.com/margaZM/LIM015-social-network/blob/dev/src/images/imgReadme/eslint.png?raw=true =40x40)
 
-
-    
 
 ## 6. Checklist
 * [x] Usa VanillaJS.
@@ -96,9 +90,9 @@ Profile
 
 ## 7. Recursos
 
-* [_mobile first_](https://www.mediaclick.es/blog/diseno-web-responsive-design-y-la-importancia-del-mobile-first/)
+* [Mobile first](https://www.mediaclick.es/blog/diseno-web-responsive-design-y-la-importancia-del-mobile-first/)
 
-* [window.history](https://developer.mozilla.org/es/docs/Web/API/Window/history).
+* [Window.history](https://developer.mozilla.org/es/docs/Web/API/Window/history).
 
 * [Firebase](https://firebase.google.com/).
 
