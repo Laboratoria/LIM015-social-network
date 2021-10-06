@@ -53,13 +53,8 @@ Profile
 
 
 ## 5. Tecnologías empleadas :hammer:
-![](https://github.com/margaZM/LIM015-social-network/blob/dev/src/images/imgReadme/html.png?raw=true =40x40)
-![](https://github.com/margaZM/LIM015-social-network/blob/dev/src/images/imgReadme/css.png?raw=true =40x40)
-![](https://github.com/margaZM/LIM015-social-network/blob/dev/src/images/imgReadme/js.png?raw=true =40x40)
-![](https://raw.githubusercontent.com/margaZM/LIM015-social-network/a32bc05f4c461da1f03e93617d94b6767a3005d8/src/images/imgReadme/firebase.svg =40x40)
-![](https://github.com/margaZM/LIM015-social-network/blob/dev/src/images/imgReadme/jest.png?raw=true =40x40)
-![](https://github.com/margaZM/LIM015-social-network/blob/dev/src/images/imgReadme/jest.png?raw=true =40x40)
-![](https://github.com/margaZM/LIM015-social-network/blob/dev/src/images/imgReadme/eslint.png?raw=true =40x40)
+![html](https://github.com/margaZM/LIM015-social-network/blob/dev/src/images/imgReadme/html.png?raw=true =40x40)
+
 
 
 ## 6. Checklist
