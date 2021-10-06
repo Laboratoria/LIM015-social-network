@@ -35,11 +35,19 @@ De igual forma manejamos la plataforma de Github projects para la asignación de
 
 ## 4. Diseño :sparkles:
 
-En el primer sprint desarrolamos un prototipo de baja fidelidad en figma y realizamos una encuesta para obtener las sugerencias de los usuarios, en cuanto a estructura, paleta de colores y nombre de la red social. Obtuvimos que al 33.3% les gustó el nombre de courseShare seguido de courses Network con 27.8%. El logo finalizado que usamos en el diseño fue escogido por el 39% de los encuestados y la estructura fue aprobada por más del 50%. Dicha encuesta se puede visualizar en el siguiente [link](https://docs.google.com/forms/d/1Qs-LX0jMYQQH0qi4hPuqTBe0Gsx4ceJlo8rRuu0p6Hc/edit?userstoinvite=angelicadiana2002@gmail.com&ts=6128fbf2)
+En el primer sprint desarrolamos el prototipo de baja fidelidad que a continuación se puede visualizar y realizamos una encuesta para obtener las sugerencias de los usuarios, en cuanto a estructura, paleta de colores y nombre de la red social. Obtuvimos que al 33.3% les gustó el nombre de courseShare seguido de courses Network con 27.8%. El logo finalizado que usamos en el diseño fue escogido por el 39% de los encuestados y la estructura fue aprobada por más del 50%. Dicha encuesta se puede visualizar en el siguiente [link](https://docs.google.com/forms/d/1Qs-LX0jMYQQH0qi4hPuqTBe0Gsx4ceJlo8rRuu0p6Hc/edit?userstoinvite=angelicadiana2002@gmail.com&ts=6128fbf2)
 
 ### Prototipo de baja fidelidad
-![]()
+Login de baja fidelidad
+![login](https://github.com/margaZM/LIM015-social-network/blob/dev/src/images/imgReadme/Group%2038.png?raw=true)
 
+Timeline
+![Timeline](hhttps://github.com/margaZM/LIM015-social-network/blob/dev/src/images/imgReadme/Group%2040.png?raw=true)
+
+Profile
+![Profile](https://github.com/margaZM/LIM015-social-network/blob/dev/src/images/imgReadme/Group%2040.png?raw=true)
+
+En el siguiente sprint desarrolamos el prototipo de alta fidelidad en figma, el cual presentamos a continuación, en donde consideramos las sugerencias de los usuarios y realizamos algunos cambios en la estructura y diseño.
 
 ### Prototipo final en figma
 Login
@@ -53,6 +61,15 @@ Profile
 
 ![Profile](https://raw.githubusercontent.com/margaZM/LIM015-social-network/dev-diana/src/images/imgReadme/profile.png)
 
+CourseShare tiene un diseño responsive por lo tanto permite que pueda ser visualizado en diferentes dispositivos:
+Login
+![login](https://github.com/margaZM/LIM015-social-network/blob/dev/src/images/imgReadme/responsive3.png?raw=true)
+
+Timeline
+![Timeline](https://github.com/margaZM/LIM015-social-network/blob/dev/src/images/imgReadme/responsive.png?raw=true)
+
+Timeline
+![Timeline](https://github.com/margaZM/LIM015-social-network/blob/dev/src/images/imgReadme/responsive2.png?raw=true)
 
 ## 5. Tecnologías empleadas :hammer:
 <img src="https://github.com/margaZM/LIM015-social-network/blob/dev/src/images/imgReadme/html.png?raw=true" width="40"  height="40" style="margin-right:20px"/><img src="https://github.com/margaZM/LIM015-social-network/blob/dev/src/images/imgReadme/css.png?raw=true" width="40"  height="40" style="margin-right:20px"/><img src="https://github.com/margaZM/LIM015-social-network/blob/dev/src/images/imgReadme/js.png?raw=true" width="40"  height="40" style="margin-right:20px"/><img src="https://raw.githubusercontent.com/margaZM/LIM015-social-network/b6d6ba58f620aa283769447e05d51041477f9ced/src/images/imgReadme/firebase.svg" width="40"  height="40" style="margin-right:20px"/><img src="https://github.com/margaZM/LIM015-social-network/blob/dev/src/images/imgReadme/eslint.png?raw=true" width="40"  height="40" style="margin-right:20px"/><img src="https://github.com/margaZM/LIM015-social-network/blob/dev/src/images/imgReadme/jest.png?raw=true" width="40"  height="40" />
@@ -105,9 +122,6 @@ Profile
 * [Mobile First - ZURB](https://zurb.com/word/mobile-first)
 
 * [Mobile First Is NOT Mobile Only - Nielsen Norman Group](https://www.nngroup.com/articles/mobile-first-not-mobile-only/)
-
-
-
 
 
 ## Developers - Lima 015 :computer:
