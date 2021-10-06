@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 /* eslint-disable no-unused-vars */
 import { logout } from '../security/security.function.js';
 
@@ -19,17 +20,18 @@ export function viewHome() {
       </div>
       <section class="img-perfil">
        </section>
+       
       <section class= "container-post">
       <img class='profile-user-image' src=''>
       <textarea id="post" class='post'placeholder='
       Write your post here'rows='10'cols='30'></textarea>
       <button type='button'id='btnpost'>Post</button>
-
       <section  id='post-container' class='post-container'>
       <div id="showPost" class="show-post"> </div>
       </section>
-    
+
       </section>
+      
       `;
   const divElem = document.createElement('div');
   divElem.innerHTML = viewHomen;
@@ -83,4 +85,51 @@ document.addEventListener('click', (e) => {
   }
 });
  */
+const db = firebase.firestore();
+// const getPost = () => db.collection('post').get();
+/* const form= document.getElementById('') */
+const onGetPost = (callback) => db.collection('post').onSnapshot(callback);
 
+const deletePost = (id) => db.collection('post').doc(id).delete();
+
+window.addEventListener('DOMContentLoaded', async (e) => {
+  // const querySnapshop = await getPost();
+  onGetPost((querySnapshot) => {
+    document.querySelector('#showPost').innerHTML = '';
+    querySnapshot.forEach((doc) => {
+      console.log(doc.data());
+
+      const info = doc.data();
+      info.id = doc.id;
+      // console.log(info);
+      document.querySelector('#showPost').innerHTML += `
+    <h3>${info.descriptionPost}</h3>
+    <div id="bnts">
+    <button id= "btnDelete" class="btnDelite" data-id="${info.id}">Delete</button>
+    <button id="btnEdit" class="btn-edit" >Edit</button>
+    </div>
+    `;
+      const btnsDelite = document.querySelectorAll('.btnDelite');
+      btnsDelite.forEach((btn) => {
+        btn.addEventListener('click', async (e) => {
+          await deletePost(e.target.dataset.id);
+        });
+      });
+    });
+  });
+});
+
+// se crea la coleccion
+const saveCollection = (descriptionPost) => db.collection('post').doc().set({
+  descriptionPost,
+});
+
+// boton de post
+document.addEventListener('click', async (e) => {
+  if (e.target.id === 'btnpost') {
+    const descriptionPost = document.querySelector('#post');
+    console.log(descriptionPost);
+    await saveCollection(descriptionPost.value);
+    // descriptionPost.innerHTML = '';
+  }
+});
