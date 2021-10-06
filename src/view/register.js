@@ -180,7 +180,7 @@ const viewRegister = () => {
 
           //base de datos de usuario
           if (email && name && password) {
-            updateProfile(name);
+            //updateProfile(name);
             emailVerification();
           }
           signupForm.reset();

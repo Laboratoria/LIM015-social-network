@@ -31,6 +31,7 @@
 .home__profileBox > h3 {
 font-size:1.3rem;
 font-weight:400;
+text-transform: capitalize;
 }
 
 .home__profileBox > p {
@@ -124,6 +125,10 @@ color: #78752C;
   padding-left: 60px;
 }
 
+
+.home__nameDate b {
+  text-transform: capitalize;
+}
 .textSecundary {
   color: #616161;
 

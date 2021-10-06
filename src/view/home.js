@@ -4,6 +4,7 @@ import {
   updatePost,
   getPost,
   onGetUsers,
+  infoData
 } from "../firebase/fb-firestore.js";
 
 import {uploadImages} from '../firebase/fb-storage.js'
@@ -118,9 +119,12 @@ const preViewImg = (e) => {
 
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-      savePostCurrentUser(user,homePost ,postArea);
-      postNameUser.innerHTML = user.displayName;
-      postPhotoUser.src = user.photoURL;
+      infoData(user.uid, (data) =>{
+        postNameUser.innerHTML = `${data.userName} ${data.userLastname}`;
+        postPhotoUser.src = data.userPhoto; 
+        savePostCurrentUser(data,homePost ,postArea);
+
+      })
       onGetPosts((data) => {
         setTemplateListPosts(data, user,postListContainer);
       });
@@ -315,18 +319,18 @@ const setTemplateListPosts = (data, user,postListContainer) => {
 /*funcion de guardar data de post en el firestore */ 
 
 
-const savePostCurrentUser = (user,homePost ,postArea) => {
+const savePostCurrentUser = (data,homePost ,postArea) => {
 
    return  homePost.addEventListener("submit",  (e) => {
       
         e.preventDefault();
         const idDocPost = e.target.dataset.id;
         const postTextPublic = document.getElementById(`text-${idDocPost}`);
-        const usernamePost = user.displayName; //verificar donde pasa el nombre del firebase al div
+        const usernamePost = `${data.userName} ${data.userLastname}`; //verificar donde pasa el nombre del firebase al div
         const userPostText = postArea.value;
         const date = new Date().toLocaleString("es-ES");
-        const userId = user.uid;
-        const userPhoto = user.photoURL;
+        const userId = data.userId
+        const userPhoto = data.userPhoto;
         const likes = [];
         const inputImg = homePost[1].files;
 
