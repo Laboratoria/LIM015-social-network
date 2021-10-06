@@ -68,3 +68,20 @@ p {
   background: #d7d5f8;
   border-radius: 30px;
 }
+
+.show-post {
+  border: 0;
+  outline: none;
+  text-align: center;
+  display: flex;
+  width: 690px;
+  height: 140px;
+  left: 669px;
+  top: 246px;
+  background: #d7d5f8;
+  border-radius: 30px;
+  align-content: space-around;
+  justify-content: center;
+  flex-wrap: nowrap;
+  flex-direction: column;
+}
