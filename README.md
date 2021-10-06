@@ -33,7 +33,9 @@ El plan de acción lo manejamos desde la plataforma Trello, en donde desarrollam
 
 De igual forma manejamos la plataforma de Github projects para la asignación de milestones por cada sprint y la asignación de issues a cada miembro del equipo.
 
-## 4. Diseño :sparkles: 
+## 4. Diseño :sparkles:
+
+En el primer sprint desarrolamos un prototipo de baja fidelidad en figma y realizamos una encuesta para obtener las sugerencias de los usuarios, en cuanto a estructura, paleta de colores y nombre de la red social. Obtuvimos que al 33.3% les gustó el nombre de courseShare seguido de courses Network con 27.8%. El logo finalizado que usamos en el diseño fue escogido por el 39% de los encuestados y la estructura fue aprobada por más del 50%. Dicha encuesta se puede visualizar en el siguiente [link](https://docs.google.com/forms/d/1Qs-LX0jMYQQH0qi4hPuqTBe0Gsx4ceJlo8rRuu0p6Hc/edit?userstoinvite=angelicadiana2002@gmail.com&ts=6128fbf2)
 
 ### Prototipo de baja fidelidad
 ![]()
@@ -53,12 +55,7 @@ Profile
 
 
 ## 5. Tecnologías empleadas :hammer:
-<img src="https://github.com/margaZM/LIM015-social-network/blob/dev/src/images/imgReadme/html.png?raw=true" width="40"  height="40" style="margin-right:20px"/>
-<img src="https://github.com/margaZM/LIM015-social-network/blob/dev/src/images/imgReadme/css.png?raw=true" width="40"  height="40" style="margin-right:20px"/>
-<img src="https://github.com/margaZM/LIM015-social-network/blob/dev/src/images/imgReadme/js.png?raw=true" width="40"  height="40" style="margin-right:20px"/>
-<img src="https://raw.githubusercontent.com/margaZM/LIM015-social-network/b6d6ba58f620aa283769447e05d51041477f9ced/src/images/imgReadme/firebase.svg" width="40"  height="40" style="margin-right:20px"/>
-<img src="https://github.com/margaZM/LIM015-social-network/blob/dev/src/images/imgReadme/eslint.png?raw=true" width="40"  height="40" style="margin-right:20px"/>
-<img src="https://github.com/margaZM/LIM015-social-network/blob/dev/src/images/imgReadme/jest.png?raw=true" width="40"  height="40" />
+<img src="https://github.com/margaZM/LIM015-social-network/blob/dev/src/images/imgReadme/html.png?raw=true" width="40"  height="40" style="margin-right:20px"/><img src="https://github.com/margaZM/LIM015-social-network/blob/dev/src/images/imgReadme/css.png?raw=true" width="40"  height="40" style="margin-right:20px"/><img src="https://github.com/margaZM/LIM015-social-network/blob/dev/src/images/imgReadme/js.png?raw=true" width="40"  height="40" style="margin-right:20px"/><img src="https://raw.githubusercontent.com/margaZM/LIM015-social-network/b6d6ba58f620aa283769447e05d51041477f9ced/src/images/imgReadme/firebase.svg" width="40"  height="40" style="margin-right:20px"/><img src="https://github.com/margaZM/LIM015-social-network/blob/dev/src/images/imgReadme/eslint.png?raw=true" width="40"  height="40" style="margin-right:20px"/><img src="https://github.com/margaZM/LIM015-social-network/blob/dev/src/images/imgReadme/jest.png?raw=true" width="40"  height="40" />
 
 
 ## 6. Checklist
