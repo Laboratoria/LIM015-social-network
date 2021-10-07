@@ -4,6 +4,7 @@ import {
   loginEmail,
   registerEmail,
   loginGoogle,
+  emailVerification,
   signOut/*,updateProfile*/
 } from "../src/firebase/fb-functions.js";
 

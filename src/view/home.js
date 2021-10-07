@@ -44,7 +44,6 @@ const viewHome = () => {
           <div id = 'listUsers'></div>
         </section>
       </section>
-
       `;
   const divHome = document.createElement("div");
   divHome.innerHTML = htmlHome;
@@ -129,7 +128,8 @@ firebase.auth().onAuthStateChanged((user) => {
     } else {
       window.location.hash('#/')
     }
-  });  
+  }); 
+   
       return divHome;
 };
 
@@ -142,8 +142,8 @@ const savePostCurrentUser = (data,homePost ,postArea) => {
    return  homePost.addEventListener("submit",  (e) => {
       
         e.preventDefault();
-        const idDocPost = e.target.dataset.id;
-        const postTextPublic = document.getElementById(`text-${idDocPost}`);
+        // const idDocPost = e.target.dataset.id;
+        // const postTextPublic = document.getElementById(`text-${idDocPost}`);
         const usernamePost = `${data.userName} ${data.userLastname}`; //verificar donde pasa el nombre del firebase al div
         const userPostText = postArea.value;
         const date = new Date().toLocaleString("es-ES");
@@ -151,11 +151,12 @@ const savePostCurrentUser = (data,homePost ,postArea) => {
         const userPhoto = data.userPhoto;
         const likes = [];
         const inputImg = homePost[1].files;
-
+        console.log(usernamePost)
           if(inputImg.length >= 1 &&  userPostText ){
             const file = inputImg[0];
             uploadImages(`images/${file.name}`, file).then((snapshot) => {
                 snapshot.ref.getDownloadURL().then((url) => {
+                  
                   savePost(usernamePost, userPostText, date, userId, userPhoto, likes, url);
                 });
               });
@@ -171,7 +172,9 @@ const savePostCurrentUser = (data,homePost ,postArea) => {
           }
           else if(inputImg.length == 0 && userPostText ){
             //  postTextPublic.style.display= 'none';
-           
+            console.log(usernamePost)
+            console.log(userPostText)
+            console.log(date)
             savePost(usernamePost, userPostText, date, userId, userPhoto, likes, '');
           }
           else {
@@ -191,14 +194,3 @@ const savePostCurrentUser = (data,homePost ,postArea) => {
 
 
 export { viewHome,savePostCurrentUser,setTemplateListPosts};
-
-
-
-
-
-
-
-
-
-
-

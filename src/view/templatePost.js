@@ -1,7 +1,10 @@
 import {
     updatePost,
     getPost,
+    infoData,
   } from "../firebase/fb-firestore.js";
+  
+
   import {modalDelete} from "../view/modals.js"
 
 
@@ -12,7 +15,9 @@ const setTemplateListPosts = (data, user,postListContainer) => {
     data.forEach((doc) => {
       const postText = doc/*.data()*/;
       postText.id = doc.id;
-
+      infoData(postText.userId, (data) =>{
+        const userNamePost =  `${data.userName} ${data.userLastname}`;     
+       
       postListContainer.innerHTML += /*html*/ `
       <section class="postAreaUser">
         <div class="home_postHeader">
@@ -20,7 +25,7 @@ const setTemplateListPosts = (data, user,postListContainer) => {
             <img class="imgUser postImgUser" src="${postText.userPhoto}"> 
           </div>
           <div class="home__nameDate">
-            <div><b>${postText.username}</b><span class="textSecundary"> compartió</span></div>
+            <div><b>${userNamePost}</b><span class="textSecundary"> compartió</span></div>
             <div class="textSecundary">${postText.date}</div>
           </div>
         </div>
@@ -54,7 +59,7 @@ const setTemplateListPosts = (data, user,postListContainer) => {
 
                    
     </section> `;
-
+      })
     });
 
     // Función que elimina el post
