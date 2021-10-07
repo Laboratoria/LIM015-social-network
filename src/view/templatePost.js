@@ -59,8 +59,8 @@ const setTemplateListPosts = (data, user,postListContainer) => {
 
                    
     </section> `;
-      })
-    });
+     
+  
 
     // Función que elimina el post
     const btnDelete = postListContainer.querySelectorAll(".btn-delete");
@@ -175,10 +175,11 @@ const setTemplateListPosts = (data, user,postListContainer) => {
       });
     }
     prueba(btnEdit)
-
+  })
+})
 
     return postListContainer;
-
+  
 };
 
 

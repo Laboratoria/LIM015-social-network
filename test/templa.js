@@ -1,12 +1,9 @@
 
-
-
 /**
  * @jest-environment jsdom
  */
 
-/*
-import {setTemplateListPosts } from  "../src/view/home.js"
+import {setTemplateListPosts } from  "../src/view/templatePost.js"
 
 
 const post =[
@@ -59,5 +56,3 @@ describe('setTemplateListPosts',( )=>{
 
 })
 
-
-*/

@@ -61,6 +61,7 @@ const viewHome = () => {
 /* funcion para mostrar la lista de emprendedoras*/
  const showAllUser = ()=> {
   onGetUsers((dataUsers)=>{
+    console.log(dataUsers);
     listUsers.innerHTML= '';
     dataUsers.forEach((dataUser)=> {
       
@@ -152,7 +153,7 @@ const savePostCurrentUser = (data,homePost ,postArea) => {
         const likes = [];
         const inputImg = homePost[1].files;
         console.log(usernamePost)
-          if(inputImg.length >= 1 &&  userPostText ){
+          if(inputImg.length >= 1 &&  userPostText ){ 
             const file = inputImg[0];
             uploadImages(`images/${file.name}`, file).then((snapshot) => {
                 snapshot.ref.getDownloadURL().then((url) => {
@@ -172,9 +173,7 @@ const savePostCurrentUser = (data,homePost ,postArea) => {
           }
           else if(inputImg.length == 0 && userPostText ){
             //  postTextPublic.style.display= 'none';
-            console.log(usernamePost)
-            console.log(userPostText)
-            console.log(date)
+            
             savePost(usernamePost, userPostText, date, userId, userPhoto, likes, '');
           }
           else {

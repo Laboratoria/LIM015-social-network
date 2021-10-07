@@ -12,6 +12,7 @@ const loginGoogle = () => {
   return firebase.auth().signInWithPopup(provider);
 };
 
+
 // Email verification 
 const emailVerification = () => {
   return firebase.auth().currentUser.sendEmailVerification()
@@ -22,9 +23,6 @@ const emailVerification = () => {
 }
 
 
-//Actualizar foto
-//const UserPhoto = (photoURL) => firebase.auth().currentUser
-//  .updateProfile({ photoURL });
 
 // SignOuts
 const signOut = () => firebase.auth().signOut();
