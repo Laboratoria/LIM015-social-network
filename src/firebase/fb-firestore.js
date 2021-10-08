@@ -41,25 +41,35 @@ const onGetUsers = (callback) =>
     callback(data);
   })
 
+  const dataUser=(e,posts)=> {
+    return { 
+   ProfileId: posts.docs[0].id,
+   userId : e.data().userId,
+   userName: e.data().userName,
+   userLastname: e.data().userLastname,
+   userPhoto: e.data().userPhoto,
+   userEmail:e.data().userEmail,
+   userPhone:e.data().userPhone,
+   userCompany:e.data().userCompany,
+   userLocation:e.data().userLocation,
+   userDescription:e.data().userDescription,
+    }
+ }
+ 
+  const infoData = (id, callback) => firebase.firestore().collection('Users').where('userId', '==', id).onSnapshot(posts => {
+     return posts.docs.map(e => {callback(dataUser(e,posts))})})
+ 
+ 
 
-   const infoData = (id, callback) => firebase.firestore().collection('Users').where('userId', '==', id).onSnapshot(posts => {
-    return posts.docs.map(e => {
-      const dataUser= {
-            ProfileId: posts.docs[0].id,
-            userId : e.data().userId,
-            userName: e.data().userName,
-            userLastname: e.data().userLastname,
-            userPhoto: e.data().userPhoto,
-            userEmail:e.data().userEmail,
-            userPhone:e.data().userPhone,
-            userCompany:e.data().userCompany,
-            userLocation:e.data().userLocation,
-            userDescription:e.data().userDescription,
-      }
-       callback(dataUser)
-        })
-  })
-
+ const orderByDatePost = (data)=>{return data.sort((a, b)=>{
+  if (a.date < b.date) {
+    return 1;
+  }
+  if (a.date > b.date) {
+    return -1;
+  }
+  return 0;
+})}
   //  Get data from posts of active user
   const getListPostUser = (id, callback) => firebase.firestore().collection('newPosts').where('userId', '==', id).onSnapshot(posts => {
     const data=[];
@@ -69,15 +79,7 @@ const onGetUsers = (callback) =>
         ...doc.data()
       });
     })
-    callback(data.sort(function(a, b){
-      if (a.date < b.date) {
-        return 1;
-      }
-      if (a.date > b.date) {
-        return -1;
-      }
-      return 0;
-    }));
+    callback(orderByDatePost(data));
   })
 
 
@@ -95,4 +97,4 @@ const updatePost = (id, updatedPost) =>
 const updateUser = (id, updatedUser) =>
   firebase.firestore().collection("Users").doc(id).update(updatedUser);
 
-export { savePost, saveUser, onGetPosts, deletePosts, updatePost, getPost, onGetUsers, infoData, updateUser, getListPostUser };
+export { savePost, saveUser, onGetPosts, deletePosts, updatePost, getPost, onGetUsers, infoData, updateUser, getListPostUser,dataUser,orderByDatePost };
