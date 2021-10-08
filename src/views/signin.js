@@ -10,7 +10,7 @@ export default () => {
   const template = `
   <section id="contenedorSignIn" class="contenedorSignIn">
   <section class="side">
-    <p class="text-welcome">BIENVENIDOS</p>
+    <p class="text-welcome">Bienvenidos</p>
     <img class="ibook-img" src="img/ibook-img.png" width="300px" alt="imagen relacionado a ibook"/>
     <p class="text-text">"Si quieres aventura, lanzate a la lectura"</p>
   </section>
@@ -31,8 +31,8 @@ export default () => {
           <p class="text-login">Ingresar por</p>
           <!-- Seccion donde estan los botones -->
           <section class="btn-fb-google">
-            <button id="btn-fb" class="button"><i class="fab fa-facebook"></i></button>
-            <button id="btn-gg" class="button"><i class="fab fa-google"></i></button>
+            <button id="btn-fb" class="button"><img class="fb-logo" src="img/fb-logo.svg" width="55px"></button>
+            <button id="btn-gg" class="button"><img class="fb-gg" src="img/gg-logo.png" width="40px"></button>
           </section>
           <label class="registrate">¿No tienes una cuenta?&nbsp;<a class="btn-register" href="#/signup" id="registrate">Regístrate.</a></label>
     </form>

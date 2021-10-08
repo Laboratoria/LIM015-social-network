@@ -15,20 +15,24 @@ body {
 /* Pagina de Inicio */
 /* Parte izquierda de la pagina de inicio*/
 .text-welcome{
-  font-family: 'Marvel', cursive;
-  font-size: 25px;
-  font-weight: bolder;
+  font-family: 'Lobster Two', cursive;
+  font-size: 45px;
   text-align: center;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
+.ibook-img{
+  margin: 20px 20px 20px 20px;
+  filter: drop-shadow(2px 4px 8px #abb4b4);
+}
+
 p.text-text {
   height: 17px;
   text-align: center;
-  font-size: 18px;
-  font-family: 'Marvel', sans-serif;
-  padding: 10px;
+  font-size: 20px;
+  font-family: 'Lobster Two', cursive;
+  padding: 10px 10px 0px;
 }
 
 /* Parte derecha de la pagina de incio */
@@ -48,7 +52,7 @@ p.text-text {
 }
 
 img.logo-ibook {
-  margin: 20px 0px 20px;
+  margin: 20px 0px 10px;
 }
 
 .registro {
@@ -99,12 +103,13 @@ a.btn-register, a.btn-forget {
 }
 
 .btn-fb-google {
+  display: flex;
+  justify-content: space-evenly;
   margin: 5px;
   margin-bottom: 10px;
-  justify-content: space-evenly;
 }
 
-.fab {
+/* .fab {
   font-weight: 400;
   font-size: 35px;
   font-style: normal;
@@ -116,7 +121,7 @@ a.btn-register, a.btn-forget {
   content: "\f1a0";
   color: red;
   cursor: pointer;
-}
+} */
 
 /* HOME */
 
@@ -248,7 +253,7 @@ header {
   display: flex;
   flex-direction: column;
   width: 600px;
-  height: 220px;
+  height: 200px;
   border: none;
   background: lightgray;
   border-radius: 5px;
@@ -393,7 +398,7 @@ header {
   background-image: url('https://img.icons8.com/ios/50/000000/like.png');
     background-size: cover;
     cursor: pointer;
-    background-color: white;
+    background-color: lightgray;
     border-radius: 30%;
     border: none;
     width: 25px;
@@ -404,6 +409,7 @@ header {
   background-image: url('https://img.icons8.com/officel/16/000000/hearts.png');
   background-size: cover;
     cursor: pointer;
+    background-color: lightgray;
     border-radius: 30%;
     border: none;
     width: 25px;
@@ -452,7 +458,6 @@ header {
 .botones {
   border-radius: 40%;
   width: 40px;
-  height: 40px;
 }
 
 /* Pagina de error */
