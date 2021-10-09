@@ -1,10 +1,9 @@
 /* eslint-disable no-unused-vars */
-/* eslint-disable no-console */
-/* eslint-disable no-use-before-define */
 import {
   login,
   logInWithEmail,
 } from '../security/security.function.js';
+import { getUserInfo } from '../security/current.js';
 
 export function viewLogin() {
   const divElem = document.createElement('article');
@@ -56,6 +55,7 @@ document.addEventListener('click', (e) => {
         /* const hash = '#/home';
         si el correo esta verificado ingresa a la pagina home */
         window.location.hash = '#/home';
+        getUserInfo();
       });
     }
   }
@@ -77,6 +77,7 @@ function logInWithGoogleClick() {
     .then(() => {
       // getUserInfo();
       window.location.hash = '#/home';
+      getUserInfo();
     })
     .catch((error) => {
       /*     Manejar errores aquí. */
