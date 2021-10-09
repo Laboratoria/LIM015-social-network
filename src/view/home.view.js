@@ -4,17 +4,17 @@ import { logout } from '../security/security.function.js';
 
 export function viewHome() {
   const viewHomen = `
-      <div class ='home'>
-      <header>
-      <img src='img/pet.jpg' id='fondoPet' class='fondoAnimalPet'>
-      <p>Home</p>
-      <figure class='logo1'>
-        <img src='img/home3.png' class='logo_home'>
-      </figure>
-      <p>Profile</p>
-        <img src='img/perfil.png' class='logo_home'>
-        <p>Logout</p>
-        <img src='img/logout.png' id ='btnExit' class='logo_home'>
+        <header id="header-bar-nav">
+        <nav class="headerNav">
+            <img class="logo-nav" src="../img/pet.jpg"></img>
+            <ul class="ul-nav" id="navList">
+                <li class="li-nav">
+                <a href="#">
+                    <img src='../img/logout.png' id ='btnExit' class='logo_home'>Logout
+                  </a>
+                </li>
+            </ul>
+        </nav>
       </header>
       <!----------------perfil---------------->
       <div class = 'profile-container'> 
@@ -40,7 +40,7 @@ export function viewHome() {
   divElem.innerHTML = viewHomen;
   return divElem;
 }
-//cerrar sesion
+
 export function initHome() {
   const btnLogout = document.getElementById('btnExit');
   btnLogout.addEventListener('click', () => {
@@ -87,7 +87,6 @@ document.addEventListener('click', (e) => {
   }
 });
  */
-
 const db = firebase.firestore();
 // const getPost = () => db.collection('post').get();
 /* const form= document.getElementById('') */
