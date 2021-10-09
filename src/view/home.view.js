@@ -36,7 +36,7 @@ export function viewHome() {
   divElem.innerHTML = viewHomen;
   return divElem;
 }
-
+//cerrar sesion
 export function initHome() {
   const btnLogout = document.getElementById('btnExit');
   btnLogout.addEventListener('click', () => {
@@ -83,6 +83,7 @@ document.addEventListener('click', (e) => {
   }
 });
  */
+
 const db = firebase.firestore();
 // const getPost = () => db.collection('post').get();
 /* const form= document.getElementById('') */
