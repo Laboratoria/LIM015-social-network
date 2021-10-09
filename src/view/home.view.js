@@ -39,7 +39,7 @@ export function viewHome() {
 
 export function initHome() {
   const btnLogout = document.getElementById('btnExit');
-  btnLogout.addEventListener('click', (e) => {
+  btnLogout.addEventListener('click', () => {
     logout();
     window.location.hash = '#/login';
   });
@@ -89,7 +89,7 @@ const db = firebase.firestore();
 const onGetPost = (callback) => db.collection('post').onSnapshot(callback);
 
 const deletePost = (id) => db.collection('post').doc(id).delete();
-
+document.querySelector('#showPost');
 window.addEventListener('DOMContentLoaded', async (e) => {
   // const querySnapshop = await getPost();
   onGetPost((querySnapshot) => {
