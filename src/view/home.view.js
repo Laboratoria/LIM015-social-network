@@ -114,6 +114,7 @@ window.addEventListener('DOMContentLoaded', async (e) => {
     `;
       const btnsDelite = document.querySelectorAll('.btnDelite');
       btnsDelite.forEach((btn) => {
+        // eslint-disable-next-line no-shadow
         btn.addEventListener('click', async (e) => {
           await deletePost(e.target.dataset.id);
         });
