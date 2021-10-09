@@ -16,10 +16,14 @@ export function viewHome() {
         <p>Logout</p>
         <img src='img/logout.png' id ='btnExit' class='logo_home'>
       </header>
-       <div id ='exit'>
+      <!----------------perfil---------------->
+      <div class = 'profile-container'> 
+        <div class="profile">
+          <img class="profile-user-img" src=${localStorage.getItem('photo')}>
+          <p id='name-profile'>${localStorage.getItem('name')}</p>
+          <p id='email-profile'>${localStorage.getItem('email')}</p>
+        </div>
       </div>
-      <section class="img-perfil">
-       </section>
        
       <section class= "container-post">
       <img class='profile-user-image' src=''>
