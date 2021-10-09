@@ -16,24 +16,42 @@ export function viewHome() {
             </ul>
         </nav>
       </header>
-      <!----------------perfil---------------->
-      <div class = 'profile-container'> 
-        <div class="profile">
-          <img class="profile-user-img" src=${localStorage.getItem('photo')}>
-          <p id='name-profile'>${localStorage.getItem('name')}</p>
-          <p id='email-profile'>${localStorage.getItem('email')}</p>
+      <section id="main-page">
+        <div class="container">
+            <div class="popup-wrapper" style="display:none;">
+                <div class="popup">
+                    <div class="popup-close">X</div>
+                    <div id="div-contenido-likes" class="popup-content">
+                    </div>
+                </div>
+              </div>
+                <!----------------perfil---------------->
+                <div class = 'profile-container'> 
+                  <div class="profile">
+                    <img class="profile-user-img" src=${localStorage.getItem('photo')}>
+                    <p id='name-profile'>${localStorage.getItem('name')}</p>
+                    <p id='email-profile'>${localStorage.getItem('email')}</p>
+                  </div>
+                </div>
+                <!----------------muro---------------->
+                <div class = 'timeline-container'>
+                  <div class= 'timeline'>
+                    <input class='input-timeline' type='text' placeholder='Comparte algo'><br>
+                    <div class= 'container-btn'>
+                      <img class="imgpicture" src='img/picture.svg'>
+                      <input id="publish-btn" type=button value='Post'>
+                    </div>
+                  </div>
+                </div>
         </div>
-      </div>
-       
-      <section class= "container-post">
-      <img class='profile-user-image' src=''>
-      <textarea id="post" class='post'placeholder='
-      Write your post here'rows='10'cols='30'></textarea>
+      </section>  
+     
+   
+      <input id="post" class='post'placeholder='
+      Write your post here'rows='10'cols='30'/>
       <button type='button'id='btnpost'>Post</button>
-      <section  id='post-container' class='post-container'>
       <div id="showPost" class="show-post"> </div>
-      </section>
-      </section>
+     
       
       `;
   const divElem = document.createElement('div');
