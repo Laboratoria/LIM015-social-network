@@ -1,6 +1,6 @@
 /* eslint-disable no-shadow */
 /* eslint-disable no-unused-vars */
-import { logout } from '../security/security.function.js';
+import { logout,publishPost } from '../security/security.function.js';
 
 export function viewHome() {
   const viewHomen = `
@@ -36,7 +36,7 @@ export function viewHome() {
                 <!----------------muro---------------->
                 <div class = 'timeline-container'>
                   <div class= 'timeline'>
-                    <input class='input-timeline' type='text' placeholder='Comparte algo'><br>
+                    <input id = 'input-timeline' class='input-timeline' type='text' placeholder='Write your post here'><br>
                     <div class= 'container-btn'>
                       <img class="imgpicture" src='img/picture.svg'>
                       <input id="publish-btn" type=button value='Post'>
@@ -47,12 +47,8 @@ export function viewHome() {
       </section>  
      
    
-      <input id="post" class='post'placeholder='
-      Write your post here'rows='10'cols='30'/>
-      <button type='button'id='btnpost'>Post</button>
+    
       <div id="showPost" class="show-post"> </div>
-     
-      
       `;
   const divElem = document.createElement('div');
   divElem.innerHTML = viewHomen;
@@ -108,9 +104,9 @@ document.addEventListener('click', (e) => {
 const db = firebase.firestore();
 // const getPost = () => db.collection('post').get();
 /* const form= document.getElementById('') */
-const onGetPost = (callback) => db.collection('post').onSnapshot(callback);
+const onGetPost = (callback) => db.collection('input-timeline').onSnapshot(callback);
 
-const deletePost = (id) => db.collection('post').doc(id).delete();
+const deletePost = (id) => db.collection('input-timeline').doc(id).delete();
 document.querySelector('#showPost');
 window.addEventListener('DOMContentLoaded', async (e) => {
   // const querySnapshop = await getPost();
@@ -141,16 +137,44 @@ window.addEventListener('DOMContentLoaded', async (e) => {
 });
 
 // se crea la coleccion
-const saveCollection = (descriptionPost) => db.collection('post').doc().set({
+const saveCollection = (descriptionPost) => db.collection('input-timeline').doc().set({
   descriptionPost,
 });
 
 // boton de post
 document.addEventListener('click', async (e) => {
-  if (e.target.id === 'btnpost') {
-    const descriptionPost = document.querySelector('#post');
+  if (e.target.id === 'publish-btn') {
+    const descriptionPost = document.querySelector('#input-timeline');
     console.log(descriptionPost);
     await saveCollection(descriptionPost.value);
     // descriptionPost.innerHTML = '';
+  }
+});
+
+// --------- Evento del botón "Publicar"-----------//
+document.addEventListener('click', (e) => {
+  if (e.target.id === 'publish-btn') {
+    const inputPost = document.querySelector('.input-timeline');
+    if (inputPost.value.trim().length > 0) {
+      const date = new Date(Date.now());
+      const objPublicacion = {
+        photo: localStorage.getItem('photo'),
+        name: localStorage.getItem('name'),
+        description: inputPost.value,
+        day: date.toLocaleString(),
+        user: localStorage.getItem('uid'),
+        likesUser: [],
+      };
+      publishPost(objPublicacion)
+        .then((resolve) => {
+          console.log(resolve);// eslint-disable-line
+        })
+        .catch((reject) => {
+          console.log(reject);// eslint-disable-line
+        });
+    } else {
+      alert('Por favor, llena los campos'); // eslint-disable-line
+    }
+    inputPost.value = '';
   }
 });

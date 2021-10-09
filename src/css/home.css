@@ -230,7 +230,6 @@ header nav ul li a{
   display: flex;
   margin-right: 30px;
 }
-
 .logo_home {
   display: flex;
   width: 40px;
@@ -252,7 +251,6 @@ header nav ul li a{
   height: 44px;
   left: 1171px;
   top: 405px;
-
   background: #fab340;
   border-radius: 30px;
   border:0;
