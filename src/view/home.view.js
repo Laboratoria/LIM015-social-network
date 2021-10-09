@@ -29,7 +29,6 @@ export function viewHome() {
       <section  id='post-container' class='post-container'>
       <div id="showPost" class="show-post"> </div>
       </section>
-
       </section>
       
       `;
@@ -40,14 +39,13 @@ export function viewHome() {
 
 export function initHome() {
   const btnLogout = document.getElementById('btnExit');
-  btnLogout.addEventListener('click', (e) => {
+  btnLogout.addEventListener('click', () => {
     logout();
     window.location.hash = '#/login';
   });
 }
 /*
 const getCollection = () => db.collection('post').get();
-
 window.addEventListener('DomContentLoader', async (e) => {
   const posts = await getCollection();
   posts.forEach((doc) => {
@@ -91,7 +89,7 @@ const db = firebase.firestore();
 const onGetPost = (callback) => db.collection('post').onSnapshot(callback);
 
 const deletePost = (id) => db.collection('post').doc(id).delete();
-
+document.querySelector('#showPost');
 window.addEventListener('DOMContentLoaded', async (e) => {
   // const querySnapshop = await getPost();
   onGetPost((querySnapshot) => {
