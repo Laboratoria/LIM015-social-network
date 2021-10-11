@@ -46,8 +46,6 @@ export function viewHome() {
         </div>
       </section>  
      
-   
-    
       <div id="showPost" class="show-post"> </div>
       `;
   const divElem = document.createElement('div');
@@ -141,21 +139,22 @@ const saveCollection = (descriptionPost) => db.collection('input-timeline').doc(
   descriptionPost,
 });
 
-// boton de post
+/* // boton de post
 document.addEventListener('click', async (e) => {
   if (e.target.id === 'publish-btn') {
-    const descriptionPost = document.querySelector('#input-timeline');
-    console.log(descriptionPost);
-    await saveCollection(descriptionPost.value);
+
     // descriptionPost.innerHTML = '';
   }
-});
+}); */
 
 // --------- Evento del botón "Publicar"-----------//
-document.addEventListener('click', (e) => {
+document.addEventListener('click', async (e) => {
   if (e.target.id === 'publish-btn') {
     const inputPost = document.querySelector('.input-timeline');
     if (inputPost.value.trim().length > 0) {
+/*       const descriptionPost = document.querySelector('#input-timeline');
+      console.log(descriptionPost);*/
+      await saveCollection(inputPost.value); 
       const date = new Date(Date.now());
       const objPublicacion = {
         photo: localStorage.getItem('photo'),
