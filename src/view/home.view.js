@@ -117,7 +117,7 @@ window.addEventListener('DOMContentLoaded', async (e) => {
       info.id = doc.id;
       // console.log(info);
       document.querySelector('#showPost').innerHTML += `
-    <h3>${info.descriptionPost}</h3>
+    <h3 id="${info.id}">${info.descriptionPost}</h3>
     <div id="showbtnEdits" class="show-btnedits" data-test="${info.id}"> </div>
     <div id="bnts">
     <button id= "btnDelete" class="btnDelite" data-id="${info.id}">Delete</button>
@@ -139,6 +139,7 @@ window.addEventListener('DOMContentLoaded', async (e) => {
         console.log(e.target.dataset.myid);
         document.querySelector(`[data-test="${e.target.dataset.myid}"]`).innerHTML += `
         <div id="bntsmyedit">
+        
         <button id= "btnSave" class="btnSave" data-idsave="${e.target.dataset.myid}">Save</button>
         <button id="btnCancel" class="btnCancel" data-myidcancel="${e.target.dataset.myid}">Cancel</button>
         </div>
