@@ -153,6 +153,9 @@ window.addEventListener('DOMContentLoaded', async (e) => {
         `;
 
         const editInput = document.getElementById(e.target.dataset.myid);
+        const mih3=document.querySelector(`[data-h3id="${e.target.dataset.myid}"]`);
+        editInput.value=mih3.innerHTML;
+        editInput.focus();
         const btnsCancel = document.querySelectorAll('.btnCancel');
         btnsCancel.forEach((btncancel) => {
           // eslint-disable-next-line no-shadow
