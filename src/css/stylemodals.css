@@ -1,0 +1,228 @@
+* {
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .modalContainer{
+      position:fixed;
+      z-index:1;
+      padding-top: 8em;
+      left:0;
+      top:0;
+      width: 100%;
+      height: 100%;
+      background-color:rgba(0,0,0,0.4);
+   } 
+
+   .modalContent{
+      background-color:white;
+      margin:auto;
+      border: 0.02em solid #F90066;
+      border-radius: 15px;
+      width:70%;
+      max-width: 400px;
+      padding: 0.6em 0.8em 1.2em 0.8em;
+  }
+
+  .modalContent > h1 {
+      font-size: 1.2rem;
+      line-height: 1.7rem;
+      padding: 1.5em 0 1em 0;
+      text-align: center;
+      
+  }
+
+  .modalContent > p {
+    font-size: 0.9rem;
+    line-height: 1.4rem;
+    text-align: center;
+}
+
+.modalContent > p > span{
+    font-weight: bold;
+    color:#F90066;
+}
+
+
+  .closeModal {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .closeModal:hover,
+  .closeModal:focus {
+    color:#F90066;
+    cursor: pointer;
+  }
+
+
+  .btnOpcionDelete{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .btnOpcionModal{
+    /*padding: 1em;*/
+    margin: 1em;
+    padding: 0.5em;
+    background-color:#F3EFF6;
+    border-radius: 10%;
+    font-size: 1.2rem;
+    width: 3em;
+}
+  
+
+.btnOpcionModal:hover{
+  background-color:#2F0059; 
+  color:azure
+}
+
+
+/*modal Profile */
+.containerLogoModalProfile{
+  display: flex;
+  justify-content: center;
+}
+
+.logoModalProfile{
+  width: 65%;
+  padding-top:0;
+}
+
+
+
+.form_modalProfile{
+  display: flex;
+  flex-direction: column;
+
+}
+
+.inputContacto {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1em ;
+
+}
+
+.profileNameAndLastName{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0.2em;
+}
+
+#userNameMP {
+ margin-right: 0.25em;
+}
+
+#userLastNameMP {
+ margin-left: 0.25em;
+}
+
+.profileInputs{
+  display: flex;
+  flex-direction:column;
+  padding-top: 0.5em;
+}
+
+.profileInputs >label,.informLabel {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+
+.inputContacto_inputsLabels{
+  padding: 0.5em 0.1em ;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.inputContacto_inputsLabels >label{
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.btnModalProfile{
+  padding: 0.5em  0.5em ;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2em;
+  
+}
+
+.modalContainerProfile{
+  padding-top: 1.5em;
+  overflow: scroll;
+
+}
+
+.inputs {
+  flex-grow: 2;
+  height: 6vh;
+  padding: 0.5em;
+  border-radius: 10px;
+  color: #616161;
+  background-color: #F3EFF6;
+  border-style: none;
+  min-width: 25px;
+}
+
+
+.inputs:focus {
+  outline: none ;
+  border:1px solid rgb(143, 44, 113);
+  box-shadow: 0 0 10px #719ECE;
+}
+
+.inputContacto_inputsLabels >input{
+  height: 5vh;
+}
+
+
+.textareaProfileModal{
+  width: 100%;
+  height: 4em;
+  border-style: none;
+  resize:none;
+  padding: 0.5rem;
+  margin-top:0.5rem;
+
+}
+
+.inputsA {
+  margin: 0.5em 0;
+}
+
+.inputsB {
+  margin-left: 0.5em;
+}
+
+
+.modalContent--profile{
+ width: 90%;
+}
+
+
+
+@media screen and (min-width:  600px) {
+
+  .modalContainer{
+    padding-top: 5em;
+ } 
+
+
+ .modalContainerProfile{
+  padding-top: 1em;
+ }
+
+
+  .modalContent{
+    max-width: 400px;
+    padding: 0.6em 1.2em 0.6em 1.2em;
+}
+
+}
