@@ -117,7 +117,7 @@ window.addEventListener('DOMContentLoaded', async (e) => {
       info.id = doc.id;
       // console.log(info);
       document.querySelector('#showPost').innerHTML += `
-    <h3 id="${info.id}">${info.descriptionPost}</h3>
+    <h3 data-h3id="${info.id}">${info.descriptionPost}</h3>
     <div id="showbtnEdits" class="show-btnedits" data-test="${info.id}"> </div>
     <div id="bnts">
     <button id= "btnDelete" class="btnDelite" data-id="${info.id}">Delete</button>
@@ -137,10 +137,12 @@ window.addEventListener('DOMContentLoaded', async (e) => {
         btn.addEventListener('click', async (e) => {
         //  await deletePost(e.target.dataset.id);
         console.log(e.target.dataset.myid);
-        document.querySelector(`[data-test="${e.target.dataset.myid}"]`).innerHTML += `
+        document.querySelector(`[data-h3id="${e.target.dataset.myid}"]`).style.display = 'none'
+        document.querySelector(`[data-test="${e.target.dataset.myid}"]`).innerHTML = `
         <div id="bntsmyedit">
+        <input id = '${e.target.dataset.myid}' class='input-edit'  type='text' >
         
-        <button id= "btnSave" class="btnSave" data-idsave="${e.target.dataset.myid}">Save</button>
+        <button id="btnSave1" class="btnSave1" data-idsave="${e.target.dataset.myid}">Save</button>
         <button id="btnCancel" class="btnCancel" data-myidcancel="${e.target.dataset.myid}">Cancel</button>
         </div>
         `;
@@ -155,6 +157,8 @@ window.addEventListener('DOMContentLoaded', async (e) => {
             console.log(e.target.dataset);
             console.log("--------");
             console.log(e.target.dataset.myidcancel);
+            document.querySelector(`[data-h3id="${e.target.dataset.myidcancel}"]`).style.display = 'block'
+           // document.querySelector(`[data-idInput="${e.target.dataset.myidcancel}"]`).style.display = 'none'
             document.querySelector(`[data-test="${e.target.dataset.myidcancel}"]`).innerHTML = "";
           });
         });
