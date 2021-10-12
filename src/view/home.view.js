@@ -136,22 +136,28 @@ window.addEventListener('DOMContentLoaded', async (e) => {
         // eslint-disable-next-line no-shadow
         btn.addEventListener('click', async (e) => {
         //  await deletePost(e.target.dataset.id);
-        console.log(e);
-        console.log("--------");
-        console.log(e.target);
-        console.log("--------");
-        console.log(e.target.dataset);
-        console.log("--------");
         console.log(e.target.dataset.myid);
-        const midiv =  document.querySelector(`[data-test="${e.target.dataset.myid}"]`)
-        console.log(midiv)
-        console.log(typeof midiv)
-        midiv.innerHTML += `
+        document.querySelector(`[data-test="${e.target.dataset.myid}"]`).innerHTML += `
         <div id="bntsmyedit">
-        <button id= "btnSave" class="btnSave" data-idsave="${info.id}">Save</button>
-        <button id="btnCancel" class="btnCancel" data-myidcancel="${info.id}">Cancel</button>
+        <button id= "btnSave" class="btnSave" data-idsave="${e.target.dataset.myid}">Save</button>
+        <button id="btnCancel" class="btnCancel" data-myidcancel="${e.target.dataset.myid}">Cancel</button>
         </div>
         `;
+        const btnsCancel = document.querySelectorAll('.btnCancel');
+        btnsCancel.forEach((btncancel) => {
+          // eslint-disable-next-line no-shadow
+          btncancel.addEventListener('click', async (e) => {
+            console.log(e);
+            console.log("--------");
+            console.log(e.target);
+            console.log("--------");
+            console.log(e.target.dataset);
+            console.log("--------");
+            console.log(e.target.dataset.myidcancel);
+            document.querySelector(`[data-test="${e.target.dataset.myidcancel}"]`).innerHTML = "";
+          });
+        });
+        //-----
         });
       });
     });
