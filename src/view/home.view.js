@@ -105,6 +105,11 @@ const db = firebase.firestore();
 const onGetPost = (callback) => db.collection('input-timeline').onSnapshot(callback);
 
 const deletePost = (id) => db.collection('input-timeline').doc(id).delete();
+
+const UpdatePost = (descriptionPost,id) => db.collection('input-timeline').doc(id).set({
+  descriptionPost,
+});
+
 document.querySelector('#showPost');
 window.addEventListener('DOMContentLoaded', async (e) => {
   // const querySnapshop = await getPost();
@@ -142,24 +147,26 @@ window.addEventListener('DOMContentLoaded', async (e) => {
         <div id="bntsmyedit">
         <input id = '${e.target.dataset.myid}' class='input-edit'  type='text' >
         
-        <button id="btnSave1" class="btnSave1" data-idsave="${e.target.dataset.myid}">Save</button>
+        <button id="btnSave" class="btnSave" data-idsave="${e.target.dataset.myid}">Save</button>
         <button id="btnCancel" class="btnCancel" data-myidcancel="${e.target.dataset.myid}">Cancel</button>
         </div>
         `;
+
+        const editInput = document.getElementById(e.target.dataset.myid);
         const btnsCancel = document.querySelectorAll('.btnCancel');
         btnsCancel.forEach((btncancel) => {
           // eslint-disable-next-line no-shadow
           btncancel.addEventListener('click', async (e) => {
-            console.log(e);
-            console.log("--------");
-            console.log(e.target);
-            console.log("--------");
-            console.log(e.target.dataset);
-            console.log("--------");
-            console.log(e.target.dataset.myidcancel);
             document.querySelector(`[data-h3id="${e.target.dataset.myidcancel}"]`).style.display = 'block'
            // document.querySelector(`[data-idInput="${e.target.dataset.myidcancel}"]`).style.display = 'none'
             document.querySelector(`[data-test="${e.target.dataset.myidcancel}"]`).innerHTML = "";
+          });
+        });
+        const btnsSave = document.querySelectorAll('.btnSave');
+        btnsSave.forEach((btnsave) => {
+          // eslint-disable-next-line no-shadow
+          btnsave.addEventListener('click', async (e) => {
+            await UpdatePost(editInput.value,e.target.dataset.idsave);            
           });
         });
         //-----
