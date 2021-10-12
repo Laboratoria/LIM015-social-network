@@ -118,9 +118,10 @@ window.addEventListener('DOMContentLoaded', async (e) => {
       // console.log(info);
       document.querySelector('#showPost').innerHTML += `
     <h3>${info.descriptionPost}</h3>
+    <div id="showbtnEdits" class="show-btnedits" data-test="${info.id}"> </div>
     <div id="bnts">
     <button id= "btnDelete" class="btnDelite" data-id="${info.id}">Delete</button>
-    <button id="btnEdit" class="btn-edit" >Edit</button>
+    <button id="btnEdit" class="btn-edit" data-myid="${info.id}">Edit</button>
     </div>
     `;
       const btnsDelite = document.querySelectorAll('.btnDelite');
@@ -128,6 +129,29 @@ window.addEventListener('DOMContentLoaded', async (e) => {
         // eslint-disable-next-line no-shadow
         btn.addEventListener('click', async (e) => {
           await deletePost(e.target.dataset.id);
+        });
+      });
+      const btnsEdit = document.querySelectorAll('.btn-edit');
+      btnsEdit.forEach((btn) => {
+        // eslint-disable-next-line no-shadow
+        btn.addEventListener('click', async (e) => {
+        //  await deletePost(e.target.dataset.id);
+        console.log(e);
+        console.log("--------");
+        console.log(e.target);
+        console.log("--------");
+        console.log(e.target.dataset);
+        console.log("--------");
+        console.log(e.target.dataset.myid);
+        const midiv =  document.querySelector(`[data-test="${e.target.dataset.myid}"]`)
+        console.log(midiv)
+        console.log(typeof midiv)
+        midiv.innerHTML += `
+        <div id="bntsmyedit">
+        <button id= "btnSave" class="btnSave" data-idsave="${info.id}">Save</button>
+        <button id="btnCancel" class="btnCancel" data-myidcancel="${info.id}">Cancel</button>
+        </div>
+        `;
         });
       });
     });
